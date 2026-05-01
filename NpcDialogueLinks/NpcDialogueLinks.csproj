@@ -1,0 +1,30 @@
+<Project Sdk="Dalamud.NET.Sdk/14.0.2">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <AssemblyName>NpcDialogueLinks</AssemblyName>
+    <RootNamespace>NpcDialogueLinks</RootNamespace>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+
+    <Authors>OpenAI</Authors>
+    <Name>NPC Dialogue Links</Name>
+    <InternalName>NpcDialogueLinks</InternalName>
+    <Punchline>Turns live NPC dialogue into clickable proof-of-concept links.</Punchline>
+    <Description>Small Dalamud POC that reads dialogue from the Talk addon, extracts candidate phrases, and prints clickable chat links for iterative experimentation.</Description>
+    <ApplicableVersion>any</ApplicableVersion>
+    <Tags>npc,dialogue,poc,ui,chat</Tags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="terms.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

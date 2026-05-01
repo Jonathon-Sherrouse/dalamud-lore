@@ -1,0 +1,113 @@
+# Agent Workflow
+
+This document defines how to run `NpcDialogueLinks` as a lead-agent project with specialist side agents.
+
+## Goals
+
+- Keep architecture decisions centralized.
+- Reduce context crowding by splitting technical, UI, and content work.
+- Make parallel work safe by assigning clear file ownership.
+
+## Roles
+
+### Lead agent
+
+- Owns milestone planning
+- Decides architecture and tradeoffs
+- Integrates side-agent work
+- Reviews cross-cutting changes
+
+### Runtime agent
+
+- Owns Dalamud integration details
+- Investigates addon capture issues
+- Verifies reload and lifecycle safety
+- Documents in-game reproduction steps
+
+### Dictionary agent
+
+- Owns term matching behavior
+- Evolves dictionary schema when needed
+- Maintains lookup and normalization logic
+- Keeps matching predictable
+
+### UI agent
+
+- Owns clickable term presentation
+- Designs chat output and future overlay behavior
+- Keeps user feedback readable and minimal
+
+### Content agent
+
+- Seeds and maintains term definitions
+- Researches definitions on the web before adding or revising entries
+- Keeps content internally consistent
+- Proposes new entries grouped by category
+
+## Standard Workflow
+
+1. Lead agent defines the milestone and success criteria.
+2. Lead agent splits bounded tasks using the task brief template.
+3. Side agents work only within their assigned ownership unless escalation is required.
+4. Lead agent integrates changes and resolves cross-cutting conflicts.
+5. Lead agent runs final verification notes and records the outcome.
+
+## Content Research Policy
+
+- Content tasks should use web research by default when writing or revising definitions.
+- If a source policy is known for the task, the lead agent should include it in the task brief.
+- If research is not possible, the task handoff should say so explicitly instead of silently falling back to memory.
+
+## Spawn Patterns
+
+### Full-context helper
+
+Use this when the sub-agent should inherit the full conversation and current repo state.
+
+- Set `fork_context: true`
+- Do not explicitly set `agent_type`
+- Do not explicitly set `model`
+- Do not explicitly set `reasoning_effort`
+- Prefer this for short, bounded parallel tasks
+
+### Narrow specialist
+
+Use this when the sub-agent should receive only a limited task brief or intentionally constrained context.
+
+- Provide a focused task description and file ownership
+- Explicit specialization is acceptable only when not using the inherited full-context pattern
+- Prefer this for reusable specialist work where too much shared context would be noise
+
+## Current Milestone Tracks
+
+### Milestone 1: Stable dictionary-backed dialogue links
+
+- Runtime: verify `Talk` capture across several NPC dialogue scenarios
+- Dictionary: keep extraction exact and reliable
+- Content: seed core location definitions
+- Lead: integrate and confirm the end-to-end click flow
+
+### Milestone 2: Better authoring model
+
+- Dictionary: support aliases or richer term records if needed
+- Content: expand the term set for city-states, regions, and guilds
+- Lead: decide whether schema changes justify a migration step
+
+### Milestone 3: Better in-game presentation
+
+- UI: prototype a panel or window for definitions
+- Runtime: verify reload stability after UI additions
+- Lead: choose the long-term surface
+
+## Escalation Rules
+
+- Escalate to the lead agent when more than one owned file area must change together.
+- Escalate to the lead agent when the task affects user-facing behavior beyond the assigned scope.
+- Escalate to the runtime agent when there is uncertainty about addon structure or game-state timing.
+
+## Definition of Done
+
+- The assigned files are updated cleanly.
+- The expected player-visible behavior is stated.
+- Any required rebuild/reload steps are called out.
+- Follow-up risks or unknowns are written down briefly.
