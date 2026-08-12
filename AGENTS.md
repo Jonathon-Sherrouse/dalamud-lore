@@ -14,6 +14,7 @@ This repository uses a lead-agent workflow with specialist side agents.
 - `NpcDialogueLinks/` contains the Dalamud plugin source.
 - `README.md` at the repo root explains the current product state.
 - `docs/` contains workflow, task, and planning artifacts for agent collaboration.
+- `docs/enhancement-roadmap.md` contains the running feature and polish plan. Check it before proposing or implementing enhancement work.
 
 ## Agent Roles
 
@@ -44,3 +45,10 @@ This repository uses a lead-agent workflow with specialist side agents.
 - For runtime-sensitive changes, include explicit reload and in-game test notes in the handoff.
 - Do not silently change dictionary content format without updating workflow docs in `docs/`.
 - Content definitions should be researched on the web by default rather than drafted from memory alone.
+
+## Planning References
+
+- For feature polish, dictionary UX, Lore Explain improvements, dialogue matching ideas, and future schema work, start with `docs/enhancement-roadmap.md`.
+- For quest metadata work, read `docs/quest-metadata-investigation.md` before changing runtime capture or Lore Explain context.
+- When completing an enhancement from the roadmap, update its status or move it to the Completed section.
+- If the user asks "what next?" or asks for enhancement options, summarize from the roadmap before adding new ideas.

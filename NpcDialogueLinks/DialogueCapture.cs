@@ -85,9 +85,24 @@ internal sealed class DialogueCapture : IDisposable
             return string.Empty;
         }
 
-        return rawText
-            .ReplaceLineEndings(" ")
-            .Replace("  ", " ", StringComparison.Ordinal)
+        return SanitizeDialogueText(rawText);
+    }
+
+    private static string SanitizeDialogueText(string rawText)
+    {
+        var sanitized = rawText.ReplaceLineEndings(" ");
+        while (sanitized.Contains("===", StringComparison.Ordinal))
+        {
+            sanitized = sanitized.Replace("===", " ", StringComparison.Ordinal);
+        }
+
+        var characters = sanitized
+            .Where(character => !char.IsControl(character) || char.IsWhiteSpace(character))
+            .ToArray();
+
+        return string.Join(
+                " ",
+                new string(characters).Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
             .Trim();
     }
 }

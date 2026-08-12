@@ -21,6 +21,7 @@ This document defines how to run `NpcDialogueLinks` as a lead-agent project with
 
 - Owns Dalamud integration details
 - Investigates addon capture issues
+- Owns quest metadata probe work until a verified source is found
 - Verifies reload and lifecycle safety
 - Documents in-game reproduction steps
 
@@ -47,10 +48,11 @@ This document defines how to run `NpcDialogueLinks` as a lead-agent project with
 ## Standard Workflow
 
 1. Lead agent defines the milestone and success criteria.
-2. Lead agent splits bounded tasks using the task brief template.
-3. Side agents work only within their assigned ownership unless escalation is required.
-4. Lead agent integrates changes and resolves cross-cutting conflicts.
-5. Lead agent runs final verification notes and records the outcome.
+2. Lead agent checks [enhancement-roadmap.md](enhancement-roadmap.md) when the work involves feature polish, dictionary UX, Lore Explain, dialogue matching, or schema planning.
+3. Lead agent splits bounded tasks using the task brief template.
+4. Side agents work only within their assigned ownership unless escalation is required.
+5. Lead agent integrates changes and resolves cross-cutting conflicts.
+6. Lead agent runs final verification notes and records the outcome.
 
 ## Content Research Policy
 
@@ -89,15 +91,25 @@ Use this when the sub-agent should receive only a limited task brief or intentio
 
 ### Milestone 2: Better authoring model
 
-- Dictionary: support aliases or richer term records if needed
+- Dictionary: maintain bundled seed terms plus user dictionary overrides
+- Dictionary: refine alias support and consider richer term records if needed
 - Content: expand the term set for city-states, regions, and guilds
 - Lead: decide whether schema changes justify a migration step
 
 ### Milestone 3: Better in-game presentation
 
-- UI: prototype a panel or window for definitions
+- UI: iterate on the dictionary window layout, search, and browsing experience
 - Runtime: verify reload stability after UI additions
 - Lead: choose the long-term surface
+
+### Milestone 4: Lore Explain direct workflow
+
+- Lead: keep direct LLM behavior optional, user-configured, and bounded by clear scene-context rules
+- Runtime: validate Talk capture, recent dialogue history, zone metadata, and best-effort speaker metadata across dialogue scenarios
+- Runtime: investigate quest metadata only through verified active-dialogue sources; see [quest-metadata-investigation.md](quest-metadata-investigation.md)
+- Dictionary: review proposed dictionary entries before they are saved to the user dictionary
+- Content: prefer `ffxiv.consolegameswiki.com` for researched citations and flag uncertain or conflicting sources
+- UI: keep the Lore Explain window readable with hidden context/source sections, transcript turns, follow-up input, and clickable sources
 
 ## Escalation Rules
 

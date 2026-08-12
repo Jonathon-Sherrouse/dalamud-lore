@@ -1,5 +1,5 @@
 {
-  "Author": "OpenAI",
+  "Author": "Sister Oval",
   "Name": "NPC Dialogue Links",
   "Punchline": "Turns live NPC dialogue into clickable proof-of-concept links.",
   "Description": "Small Dalamud POC that reads dialogue from the Talk addon, extracts candidate phrases, and prints clickable chat links for iterative experimentation.",
