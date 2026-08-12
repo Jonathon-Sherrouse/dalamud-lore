@@ -9,6 +9,7 @@ These instructions apply to everything under `NpcDialogueLinks/`.
 - `LinkCandidateExtractor.cs`: dictionary-owned
 - `TermDictionary.cs`: dictionary-owned
 - `terms.json`: content-owned
+- runtime `user-terms.json` in the Dalamud config directory: user/content-owned
 - `NpcDialogueLinks.csproj`: lead-owned unless a task is purely packaging-related
 
 ## Editing Rules
@@ -16,8 +17,8 @@ These instructions apply to everything under `NpcDialogueLinks/`.
 - Keep changes small and local to the owned area when possible.
 - Do not widen the command surface in `Plugin.cs` unless the task specifically calls for it.
 - For dictionary behavior changes, prefer exact and predictable matching over clever heuristics.
-- For content changes in `terms.json`, keep definitions concise, neutral, and in-universe where practical.
-- For content changes in `terms.json`, research definitions on the web before writing or revising entries.
+- For content changes in `terms.json` or user dictionary entries, keep definitions concise, neutral, and in-universe where practical.
+- For content changes in `terms.json` or user dictionary entries, research definitions on the web before writing or revising entries.
 
 ## Handoff Expectations
 
