@@ -6,6 +6,10 @@ Use this template when assigning work to a specialist agent.
 
 Short task name
 
+## Story
+
+The owning `NDL-###` story ID
+
 ## Goal
 
 One or two sentences describing the user outcome.

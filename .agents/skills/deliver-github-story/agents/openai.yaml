@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deliver GitHub Story"
+  short_description: "Ship one story through review and acceptance"
+  default_prompt: "Use $deliver-github-story to deliver the approved story through its GitHub review and acceptance lifecycle."

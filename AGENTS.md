@@ -15,6 +15,16 @@ This repository uses a lead-agent workflow with specialist side agents.
 - `README.md` at the repo root explains the current product state.
 - `docs/` contains workflow, task, and planning artifacts for agent collaboration.
 - `docs/enhancement-roadmap.md` contains the running feature and polish plan. Check it before proposing or implementing enhancement work.
+- `docs/github-workflow.md` defines the acceptance-gated branch, pull-request, merge, and cleanup policy.
+- `.agents/skills/deliver-github-story/` contains the project-local skill for executing that policy.
+
+## GitHub Delivery
+
+- Use `$deliver-github-story` for approved implementation, resumed story work, review handoff, explicit acceptance, and closeout.
+- Start substantive work from the latest `origin/main` on `codex/<story-id>-<slug>` and use an isolated worktree when the active checkout is dirty.
+- Keep substantive pull requests draft and unmerged until explicit user acceptance. Agent validation publishes **In Review** through a metadata-only status pull request.
+- The user does not need to direct routine Git or GitHub mechanics after approving the story; follow [docs/github-workflow.md](docs/github-workflow.md).
+- Treat `docs/enhancement-roadmap.md`, legacy backlog candidates, screenshots, and design discussion as non-executable until the user approves a story or unmistakably requests immediate implementation.
 
 ## Agent Roles
 
@@ -45,6 +55,7 @@ This repository uses a lead-agent workflow with specialist side agents.
 - For runtime-sensitive changes, include explicit reload and in-game test notes in the handoff.
 - Do not silently change dictionary content format without updating workflow docs in `docs/`.
 - Content definitions should be researched on the web by default rather than drafted from memory alone.
+- Report automated checks, plugin build, in-game verification, and explicit user acceptance as separate evidence lanes.
 
 ## Planning References
 
