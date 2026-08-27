@@ -1,8 +1,27 @@
 # Backlog
 
-For the structured feature and polish planning list, see [enhancement-roadmap.md](enhancement-roadmap.md). This backlog tracks active work areas; the roadmap is the preferred source for enhancement candidates and sequencing.
+This is the executable acceptance queue used by the [GitHub workflow](github-workflow.md). For feature and polish candidates, see [enhancement-roadmap.md](enhancement-roadmap.md).
 
-## Active
+Only stable `NDL-###` story cards in the three workflow states below are executable. The legacy inventory is retained for grooming context and is not blanket implementation approval.
+
+## To Do
+
+No approved stories.
+
+## In Review
+
+No stories awaiting acceptance.
+
+## User Accepted
+
+- [x] `NDL-001` **Adopt acceptance-gated GitHub delivery**
+  - Owner: `lead`
+  - Outcome: Repository agents use an isolated story branch, draft substantive pull request, explicit acceptance gate, merge, synchronization, and cleanup lifecycle.
+  - Acceptance: The project-local delivery skill and canonical workflow are discoverable from `AGENTS.md`, preserve unrelated dirty work, and distinguish agent validation from user acceptance.
+  - Evidence: Skill structure validation and scoped Git diff checks pass; publication is recorded by the merged baseline pull request.
+  - Dependencies: `None`
+
+## Legacy Candidate Inventory
 
 ### Lore Explain
 
