@@ -75,6 +75,8 @@ Displayed citation metadata must be safe for its snapshot. If a URL itself revea
 
 All stories use isolated worktrees and [the delivery workflow](github-workflow.md); the lead owns integration and `Plugin.cs`. Record the actual SDK used rather than silently importing the primary checkout's untracked `global.json`. Preserve unrelated dirty work even when it prevents synchronizing primary `main`.
 
+**Local viewer parity** (user decision, 2026-11-14). A browser-based local viewer (`NpcDialogueLinks.AtlasViewer/`, never packaged) is maintained alongside the in-game window for the whole pilot, so the Atlas can be viewed without launching FFXIV. Both front ends render the shared pure `AtlasSession`, and all browsing rules and player-facing text stay in `NpcDialogueLinks/Atlas/`. Every Atlas UI change updates both in the same pull request, and handoffs report viewer parity as its own evidence lane. See [local-viewer.md](atlas/local-viewer.md).
+
 ### Part 1: Publish this plan
 
 Publish the reconciled Atlas brief, Atlas-specific roadmap entry, and three **To Do** cards. Record the priority exception at every former gate and distinguish the pilot from future candidates. No lore research or runtime code belongs in this planning bootstrap.

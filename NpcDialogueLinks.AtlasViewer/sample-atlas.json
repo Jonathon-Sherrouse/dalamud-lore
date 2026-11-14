@@ -1,0 +1,828 @@
+{
+  "schemaVersion": 1,
+  "checkpoints": [
+    {
+      "id": "cp-early",
+      "label": "Sample — Chapter 1 complete"
+    },
+    {
+      "id": "cp-later",
+      "label": "Sample — Chapter 2 complete"
+    }
+  ],
+  "relationshipTypes": [
+    {
+      "id": "leads",
+      "outgoingLabel": "leads",
+      "incomingLabel": "led by",
+      "symmetric": false
+    },
+    {
+      "id": "member-of",
+      "outgoingLabel": "member of",
+      "incomingLabel": "has member",
+      "symmetric": false
+    },
+    {
+      "id": "twin-of",
+      "outgoingLabel": "twin of",
+      "incomingLabel": "twin of",
+      "symmetric": true
+    },
+    {
+      "id": "grandchild-of",
+      "outgoingLabel": "grandchild of",
+      "incomingLabel": "grandparent of",
+      "symmetric": false
+    },
+    {
+      "id": "headquartered-at",
+      "outgoingLabel": "based at",
+      "incomingLabel": "base of",
+      "symmetric": false
+    },
+    {
+      "id": "controls",
+      "outgoingLabel": "controls",
+      "incomingLabel": "controlled by",
+      "symmetric": false
+    },
+    {
+      "id": "turned-against",
+      "outgoingLabel": "turned against",
+      "incomingLabel": "betrayed by",
+      "symmetric": false
+    },
+    {
+      "id": "conceals",
+      "outgoingLabel": "conceals",
+      "incomingLabel": "concealed by",
+      "symmetric": false
+    }
+  ],
+  "entities": [
+    {
+      "id": "char-maren",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Maren",
+          "aliases": [],
+          "summary": "Leader of the Lantern Guild, guiding it from the Old Hall.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Maren",
+          "aliases": [],
+          "summary": "Leader of the Lantern Guild, last seen staying behind during the guild's flight. Whereabouts unknown.",
+          "citations": [
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-tobin",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Tobin",
+          "aliases": [
+            "The Lamplighter"
+          ],
+          "summary": "A guild member who was secretly controlled by a rival, then freed.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Quest: Raid on the Old Hall",
+              "url": null,
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Tobin",
+          "aliases": [
+            "The Lamplighter"
+          ],
+          "summary": "A guild member last seen holding off pursuers so the others could escape.",
+          "citations": [
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-ilse",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Ilse",
+          "aliases": [],
+          "summary": "A guild scholar who first explains the guild's origins.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Ilse",
+          "aliases": [],
+          "summary": "A guild scholar last seen beside Tobin, holding off pursuers.",
+          "citations": [
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-quill",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Quill",
+          "aliases": [],
+          "summary": "A soft-spoken guild member who keeps the Old Hall.",
+          "citations": [
+            {
+              "title": "Sample Quest: Raid on the Old Hall",
+              "url": null,
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Quill",
+          "aliases": [],
+          "summary": "The guild member whose wards now hide the Old Hall from enemies.",
+          "citations": [
+            {
+              "title": "Sample Quest: Shelter in the Snow",
+              "url": "https://example.invalid/sample/shelter",
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-ada",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Ada",
+          "aliases": [],
+          "summary": "One of two traveling twins, walking her own path apart from her brother.",
+          "citations": [
+            {
+              "title": "Sample Quest: Two Travelers",
+              "url": null,
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Ada",
+          "aliases": [],
+          "summary": "One of the traveling twins; absent from the banquet, perhaps watching from afar.",
+          "citations": [
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-bren",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Bren",
+          "aliases": [],
+          "summary": "One of two traveling twins, newly joined to the guild.",
+          "citations": [
+            {
+              "title": "Sample Quest: Two Travelers",
+              "url": null,
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Bren",
+          "aliases": [],
+          "summary": "One of the traveling twins; founded the Wardens, who later turned on the guild.",
+          "citations": [
+            {
+              "title": "Sample Quest: A New Hall",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-corin",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Corin",
+          "aliases": [],
+          "summary": "The figure whose old spell is why no one remembers the newcomer.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "optional",
+          "name": "Corin",
+          "aliases": [],
+          "summary": "Ada's grandfather, whose old spell spared the newcomer; presumed lost.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Side Story: The Elder's Pledge",
+              "url": null,
+              "availableAt": "cp-early",
+              "scope": "optional"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "optional",
+          "name": "Corin",
+          "aliases": [],
+          "summary": "The twins' grandfather, whose old spell spared the newcomer and whose spirit the newcomer freed.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Side Story: The Elder Freed",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "optional"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-pell",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "Pell",
+          "aliases": [],
+          "summary": "The cheerful receptionist at the Old Hall.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Pell",
+          "aliases": [],
+          "summary": "The receptionist who escaped to the snowbound refuge and rallied the survivors.",
+          "citations": [
+            {
+              "title": "Sample Quest: Shelter in the Snow",
+              "url": "https://example.invalid/sample/shelter",
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "org-lantern-guild",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "The Lantern Guild",
+          "aliases": [],
+          "summary": "A secret society working out of the Old Hall.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Lantern Guild",
+          "aliases": [],
+          "summary": "The scattered remnants of a secret society, framed and in hiding.",
+          "citations": [
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Quest: Shelter in the Snow",
+              "url": "https://example.invalid/sample/shelter",
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "org-wardens",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Wardens",
+          "aliases": [],
+          "summary": "A company founded by Bren that turned on the guild and seized the New Hall.",
+          "citations": [
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Quest: A New Hall",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "loc-old-hall",
+      "category": "location",
+      "presentations": [
+        {
+          "validFrom": "cp-early",
+          "validUntil": "cp-later",
+          "scope": "main",
+          "name": "The Old Hall",
+          "aliases": [],
+          "summary": "The guild's base, raided once and then reclaimed.",
+          "citations": [
+            {
+              "title": "Sample Quest: The First Lantern",
+              "url": "https://example.invalid/sample/first-lantern",
+              "availableAt": "cp-early",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Quest: Raid on the Old Hall",
+              "url": null,
+              "availableAt": "cp-early",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Old Hall",
+          "aliases": [],
+          "summary": "The guild's former headquarters, now warded to look abandoned.",
+          "citations": [
+            {
+              "title": "Sample Quest: Shelter in the Snow",
+              "url": "https://example.invalid/sample/shelter",
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "loc-new-hall",
+      "category": "location",
+      "presentations": [
+        {
+          "validFrom": "cp-later",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The New Hall",
+          "aliases": [],
+          "summary": "The guild's later headquarters, now held by the Wardens.",
+          "citations": [
+            {
+              "title": "Sample Quest: A New Hall",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            },
+            {
+              "title": "Sample Quest: The Banquet",
+              "url": null,
+              "availableAt": "cp-later",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-maren-leads-guild",
+      "source": "char-maren",
+      "type": "leads",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The First Lantern",
+          "url": "https://example.invalid/sample/first-lantern",
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-tobin-member",
+      "source": "char-tobin",
+      "type": "member-of",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The First Lantern",
+          "url": "https://example.invalid/sample/first-lantern",
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-ilse-member",
+      "source": "char-ilse",
+      "type": "member-of",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The First Lantern",
+          "url": "https://example.invalid/sample/first-lantern",
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-quill-member",
+      "source": "char-quill",
+      "type": "member-of",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: Raid on the Old Hall",
+          "url": null,
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-bren-member",
+      "source": "char-bren",
+      "type": "member-of",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: Two Travelers",
+          "url": null,
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-pell-member",
+      "source": "char-pell",
+      "type": "member-of",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The First Lantern",
+          "url": "https://example.invalid/sample/first-lantern",
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-bren-twin-ada",
+      "source": "char-bren",
+      "type": "twin-of",
+      "target": "char-ada",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: Two Travelers",
+          "url": null,
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-guild-hq-old-hall",
+      "source": "org-lantern-guild",
+      "type": "headquartered-at",
+      "target": "loc-old-hall",
+      "validFrom": "cp-early",
+      "validUntil": "cp-later",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The First Lantern",
+          "url": "https://example.invalid/sample/first-lantern",
+          "availableAt": "cp-early",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-wardens-control-new-hall",
+      "source": "org-wardens",
+      "type": "controls",
+      "target": "loc-new-hall",
+      "validFrom": "cp-later",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The Banquet",
+          "url": null,
+          "availableAt": "cp-later",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-wardens-against-guild",
+      "source": "org-wardens",
+      "type": "turned-against",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-later",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: The Banquet",
+          "url": null,
+          "availableAt": "cp-later",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-quill-conceals-old-hall",
+      "source": "char-quill",
+      "type": "conceals",
+      "target": "loc-old-hall",
+      "validFrom": "cp-later",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Sample Quest: Shelter in the Snow",
+          "url": "https://example.invalid/sample/shelter",
+          "availableAt": "cp-later",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-ada-grandchild-corin",
+      "source": "char-ada",
+      "type": "grandchild-of",
+      "target": "char-corin",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "optional",
+      "citations": [
+        {
+          "title": "Sample Side Story: The Elder's Pledge",
+          "url": null,
+          "availableAt": "cp-early",
+          "scope": "optional"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-bren-grandchild-corin",
+      "source": "char-bren",
+      "type": "grandchild-of",
+      "target": "char-corin",
+      "validFrom": "cp-later",
+      "validUntil": null,
+      "scope": "optional",
+      "citations": [
+        {
+          "title": "Sample Side Story: The Elder Freed",
+          "url": null,
+          "availableAt": "cp-later",
+          "scope": "optional"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-ada-member",
+      "source": "char-ada",
+      "type": "member-of",
+      "target": "org-lantern-guild",
+      "validFrom": "cp-early",
+      "validUntil": null,
+      "scope": "optional",
+      "citations": [
+        {
+          "title": "Sample Side Story: The Elder's Pledge",
+          "url": null,
+          "availableAt": "cp-early",
+          "scope": "optional"
+        }
+      ],
+      "review": "reviewed"
+    }
+  ]
+}

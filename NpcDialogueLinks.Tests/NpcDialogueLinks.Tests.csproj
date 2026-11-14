@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Host-runnable tests for the pure Atlas core. Plain net10.0 (no Dalamud), compile-linking the actual
+    production files so tests exercise exactly what ships. Sits outside the plugin folder, so the plugin's
+    default compile glob never picks it up. Restore/test commands: docs/atlas/local-viewer.md#tests.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../NpcDialogueLinks/Atlas/**/*.cs" Link="Atlas/%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- The local viewer's sample must always pass Strict validation; tests load the same file. -->
+    <None Include="../NpcDialogueLinks.AtlasViewer/sample-atlas.json" Link="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+</Project>
