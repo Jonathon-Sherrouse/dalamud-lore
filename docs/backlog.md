@@ -8,13 +8,6 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
-- [ ] `NDL-003` **Research and curate the reviewed Scions Atlas dataset**
-  - Owner: `content`
-  - Outcome: The pilot's two historical snapshots contain researched, original, human-reviewed descriptions and relationships.
-  - Acceptance: 8–12 entities, exactly the two approved checkpoints, at least one description and one relationship change, safe names/aliases/citations, complete evidence matrix and readable review sheet, plus actual `NpcDialogueLinks/atlas.json` passing production validation/snapshot tests. Human acceptance precedes the mechanical reviewed-marker commit and strict shippable recheck. Omit/narrow unsupported claims; any necessary pilot-preserving contract correction is one bounded versioned model-plus-tests amendment, explicitly flagged in this PR. No packaging or runtime integration.
-  - Evidence: Web research with claim/source passage/player-knowledge boundary traceability; real-data structural and expected-snapshot tests, human content review, then strict shippable validation before merge. In-game: not applicable to unintegrated content. AI review is not human canon acceptance.
-  - Dependencies: Accepted `NDL-002`; branch `codex/ndl-003-atlas-scions-content`, PR base `main` after NDL-002 merge. Research may overlap after its contract freezes; finalization may not bypass foundation acceptance.
-
 - [ ] `NDL-005` **Design the Atlas user experience and prototype it in the local viewer**
   - Owner: `ui`
   - Outcome: The user accepts a concrete Atlas interaction and visual design, proven in the local viewer, before any ImGui window is built.
@@ -30,6 +23,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
   - Dependencies: Accepted `NDL-002`, `NDL-003`, and `NDL-005` (the window implements the accepted `NDL-005` design); branch `codex/ndl-004-atlas-window`, PR base `main` after all three merges. Lead coordinates integration; no overlapping Plugin.cs edits.
 
 ## In Review
+
+- [ ] `NDL-003` **Research and curate the reviewed Scions Atlas dataset**
+  - Owner: `content`
+  - Outcome: The pilot's two historical snapshots contain researched, original, human-reviewed descriptions and relationships.
+  - Acceptance: 8–12 entities, exactly the two approved checkpoints, at least one description and one relationship change, safe names/aliases/citations, complete evidence matrix and readable review sheet, plus actual `NpcDialogueLinks/atlas.json` passing production validation/snapshot tests. Human acceptance precedes the mechanical reviewed-marker commit and strict shippable recheck. Omit/narrow unsupported claims; any necessary pilot-preserving contract correction is one bounded versioned model-plus-tests amendment, explicitly flagged in this PR. No packaging or runtime integration.
+  - Evidence: Web research with claim/source passage/player-knowledge boundary traceability; real-data structural and expected-snapshot tests, human content review, then strict shippable validation before merge. In-game: not applicable to unintegrated content. AI review is not human canon acceptance.
+  - Dependencies: Accepted `NDL-002`; branch `codex/ndl-003-atlas-scions-content`, PR base `main` after NDL-002 merge. Research may overlap after its contract freezes; finalization may not bypass foundation acceptance.
+  - Substantive PR: [#8](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/8)
 
 ## User Accepted
 
