@@ -31,15 +31,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
-- [ ] `NDL-002` **Research Atlas requirements and build the tested foundation**
+## User Accepted
+
+- [x] `NDL-002` **Research Atlas requirements and build the tested foundation**
   - Owner: `lead`
   - Outcome: Source-backed discovery informs a minimal, independently testable Atlas model before real lore is encoded.
   - Acceptance: Provisional evidence matrix and worked examples under `docs/` establish an 8–12-entity Scions pilot at ARR 2.0/2.55 completion, anchored to terminal quests. Pure production loader/validator/projection and two-control state policy implement the Atlas contract, including draft/strict review modes and conservative recovery. A sibling host-runnable test project uses actual production files and its own lock file. A local browser viewer (user request, 2026-11-14) renders the same core over synthetic sample data, so the Atlas can be viewed without FFXIV. No runtime wiring, packaging, or shipped lore data.
   - Evidence: Discovery source/claim/checkpoint matrix and traceable synthetic examples; local host tests for spoiler fields/counts, temporal validity/direction, bounds/references, review modes, malformed/missing data, and saved-state recovery; locked restore and plugin build with actual SDK recorded. In-game: not applicable to disconnected pure code. User acceptance recorded separately.
   - Dependencies: Planning publication on `origin/main`; branch `codex/ndl-002-atlas-foundation`, PR base `main` from refreshed `origin/main`.
-  - Substantive PR: [#4](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/4)
-
-## User Accepted
 
 - [x] `NDL-001` **Adopt acceptance-gated GitHub delivery**
   - Owner: `lead`
