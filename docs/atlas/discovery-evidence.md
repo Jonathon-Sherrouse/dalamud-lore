@@ -108,13 +108,13 @@ Intervals are `[validFrom, validUntil)` over checkpoint IDs. `—` means ongoing
 
 | ID | Source → type → target | validFrom | validUntil | Claims | Notes |
 |---|---|---|---|---|---|
-| R01 | `char-minfilia` → leads → `org-scions` | `cp-arr-2-0` | — | C01 | Review decision: she is missing at 2.55, but no source revokes the role. |
+| R01 | `char-minfilia` → leads → `org-scions` | `cp-arr-2-0` | — | C01 | Ongoing (user decision, 2026-11-14). Her 2.55 description says her whereabouts are unknown. |
 | R02 | `char-thancred` → member-of → `org-scions` | `cp-arr-2-0` | — | C05, C08 | |
 | R03 | `char-yshtola` → member-of → `org-scions` | `cp-arr-2-0` | — | C05 | |
 | R04 | `char-urianger` → member-of → `org-scions` | `cp-arr-2-0` | — | C07 | NDL-003 needs an explicit membership passage. |
 | R05 | `char-alphinaud` → member-of → `org-scions` | `cp-arr-2-0` | — | C25 | Verify C25. |
 | R06 | `char-tataru` → member-of → `org-scions` | `cp-arr-2-0` | — | C04 | |
-| R07 | `char-alphinaud` → twin-of → `char-alisaie` | `cp-arr-2-0` | — | C10 | Symmetric type stored as one directed edge; see open question 4. |
+| R07 | `char-alphinaud` → twin-of → `char-alisaie` | `cp-arr-2-0` | — | C10 | Symmetric: stored once; a reversed duplicate is rejected (user decision, 2026-11-14). |
 | R08 | `org-scions` → headquartered-at → `loc-waking-sands` | `cp-arr-2-0` | `cp-arr-2-55` | C02, C15, C21 | Ends: the move happened at 2.1. |
 | R09 | `org-crystal-braves` → controls → `loc-rising-stones` | `cp-arr-2-55` | — | C19 | Begins. |
 | R10 | `org-crystal-braves` → turned-against → `org-scions` | `cp-arr-2-55` | — | C20 | Begins. |
@@ -156,14 +156,14 @@ These are not decisions; the freeze in NDL-002 step 2 decides them.
 - **Checkpoint-ID bounds.** An interval that falls entirely between checkpoints is invalid, not hidden (rule 3).
 - **Evidence eligibility belongs to the research process, not the runtime model.** The dataset carries only reviewed citation display metadata. The available-content rule is enforced in review, and the evidence matrix records each optional source's unlock chain.
 - **Relationship types are a closed vocabulary.** The pilot needs: `leads`, `member-of`, `twin-of`, `headquartered-at`, `controls`, `turned-against`, `conceals`. Each type needs labels for both directions so incoming edges render.
-- **Symmetric types** (`twin-of`) need a decision: store one directed edge with a symmetric flag, or two edges. Either way, a reverse duplicate must be rejected or normalized.
+- **Symmetric types** (`twin-of`) are declared symmetric in the type vocabulary and stored as one edge. A reversed duplicate is a validation error, not normalized (user decision, 2026-11-14).
+- **Content scope tags** (user request, 2026-11-14). The user wants a main-story view and a main-plus-optional view, because optional content can change what is known. Every edge and presentation carries `scope: main | optional`. A main-story view hides optional edges and uses the main presentation. The full view may use an optional presentation that replaces the main one at the same checkpoint. An entity whose only evidence is optional is hidden in the main view. In the pilot, the optional-scope records are R12–R14 and Louisoix's descriptions (C27, C28). When the toggle ships (NDL-004 or later) is a separate decision; the data carries the tags from the start so nothing has to be re-authored.
 - **Citation `url` is optional per presentation**, because some entities (Minfilia) have no safe URL at either checkpoint.
 
 ## Open questions
 
 1. **In-client confirmation** of both terminal quests and the C01–C30 passages. Everything is fan transcription, and no official Square Enix page was reachable from the shell.
-2. **Minfilia's `leads` edge at 2.55** (R01): keep it ongoing or end it? Recommend keeping it, with a "whereabouts unknown" description.
 3. **Selector wording (NDL-004).** Under rule 1 the snapshots include optional story content. The checkpoint help text should say so, for example "includes optional story content available by this patch". The labels themselves stay unchanged.
-4. **Symmetric relationship representation** (see the schema inputs above).
+4. **When the main-story / optional view toggle ships:** NDL-004 or a later story. The data supports it either way.
 5. **Surname policy beyond the pilot:** whether to show "Leveilleur" from 2.4 onward. Out of scope for the pilot.
 6. **Unverified R rows** (C09, C25) need a lead or content check before NDL-003 accepts them.

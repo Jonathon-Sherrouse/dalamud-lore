@@ -89,7 +89,8 @@ Requirements exercised:
 | `Projection_EdgeVisibleFromFirstCheckpoint` | R07 appears at both 2.0 and 2.55, in both directions (incoming and outgoing labels). |
 | `Projection_EdgeBeginsLaterWithVisibleEndpoints` | R13 is absent at 2.0 although Alphinaud and Louisoix are visible (shared with WE-1). |
 | `Projection_NoDerivedEdges` | At 2.0, Alphinaud's neighbors include Alisaie but not Louisoix, despite R07 + R12. |
-| `Validation_RejectsReverseDuplicateOfSymmetricEdge` | Adding Alisaie → twin-of → Alphinaud alongside R07 is rejected or normalized. |
+| `Validation_RejectsReverseDuplicateOfSymmetricEdge` | Adding Alisaie → twin-of → Alphinaud alongside R07 is rejected. |
+| `Projection_MainScopeHidesOptionalRecords` | In the main-story view at 2.0, R12 is absent and Louisoix shows his main presentation; the full view shows both. |
 | `State_RaisingCeilingDoesNotAdvanceView` | Raising the ceiling from 2.0 to 2.55 leaves the view at 2.0. |
 | `State_LoweringCeilingClampsView` | Ceiling 2.0 forces view 2.0. |
 | `State_UnknownSavedCheckpointResetsToEarliest` | A saved ID such as `cp-hw-3-0` resets both controls to `cp-arr-2-0`. |
