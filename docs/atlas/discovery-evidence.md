@@ -154,11 +154,11 @@ Banned display terms for the pilot: Lyse, Exarch, Crystal Exarch, Emet-Selch, Hy
 These are not decisions; the freeze in NDL-002 step 2 decides them.
 
 - **Checkpoint-ID bounds.** An interval that falls entirely between checkpoints is invalid, not hidden (rule 3).
-- **Evidence eligibility belongs to the research process, not the runtime model.** The dataset carries only reviewed citation display metadata. The available-content rule is enforced in review, and the evidence matrix records each optional source's unlock chain.
+- **Evidence eligibility belongs to the research process, not the runtime model.** *(Superseded by [schema v1](schema.md): citations also carry `availableAt` and `scope`.)* The available-content rule is enforced in review, and the evidence matrix records each optional source's unlock chain.
 - **Relationship types are a closed vocabulary.** The pilot needs: `leads`, `member-of`, `twin-of` (symmetric), `grandchild-of`, `headquartered-at`, `controls`, `turned-against`, `conceals`. Each type needs labels for both directions so incoming edges render.
 - **Symmetric types** (`twin-of`) are declared symmetric in the type vocabulary and stored as one edge. A reversed duplicate is a validation error, not normalized (user decision, 2026-11-14).
 - **Content scope tags** (user request, 2026-11-14). The user wants a main-story view and a main-plus-optional view, because optional content can change what is known. Every edge and presentation carries `scope: main | optional`. A main-story view hides optional edges and uses the main presentation. The full view may use an optional presentation that replaces the main one at the same checkpoint. An entity whose only evidence is optional is hidden in the main view. In the pilot, the optional-scope records are R12–R14 and Louisoix's descriptions (C27, C28). When the toggle ships (NDL-004 or later) is a separate decision; the data carries the tags from the start so nothing has to be re-authored.
-- **Citation `url` is optional per presentation**, because some entities (Minfilia) have no safe URL at either checkpoint.
+- **Citation `url` is optional per citation**, because some entities (Minfilia) have no safe URL at either checkpoint.
 - **Frozen outcome:** see [schema.md](schema.md). The council review on 2026-11-14 added citation `availableAt` and `scope`, plus the optional-presentation boundary and persistence rules.
 
 ## Open questions
@@ -168,3 +168,4 @@ These are not decisions; the freeze in NDL-002 step 2 decides them.
 4. **When the main-story / optional view toggle ships:** NDL-004 or a later story. The data supports it either way.
 5. **Surname policy beyond the pilot:** whether to show "Leveilleur" from 2.4 onward. Out of scope for the pilot.
 6. **Unverified R rows** (C09, C25) need a lead or content check before NDL-003 accepts them.
+7. **Alisaie's wording (NDL-003).** Her main 2.0 description draws on C11 ("walk her own path"). Check that it does not read as contradicting the optional R14 `member-of` edge shown in the full view.

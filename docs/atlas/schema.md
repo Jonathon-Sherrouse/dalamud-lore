@@ -18,7 +18,7 @@ This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces
     {
       "id": "char-example",
       "category": "character",           // character | organization | location
-      "presentations": [                 // 1–16
+      "presentations": [                 // 1–32
         {
           "validFrom": "cp-arr-2-0",     // checkpoint id, inclusive
           "validUntil": null,            // checkpoint id, exclusive; null or absent = ongoing
@@ -76,10 +76,12 @@ Unknown properties, comments, trailing commas and duplicate keys are rejected. T
 
 **Views**
 - There are two content views. **MainStory** uses only `main` records. **MainAndOptional** uses both. This follows the [available-content rule](../lore-relationship-atlas.md#research-and-content-rules).
+- **Visibility.** An entity is visible in a view at checkpoint *c* exactly when a presentation whose scope that view includes covers *c*. A relationship is visible under the same test on its own interval and scope.
 - A main record is visible in both views. Because of this, visibility is monotonic: anything visible in MainStory is visible in MainAndOptional.
 
 **What `optional` means**
-- `scope: optional` means no main-story source supports the record at its `validFrom`; the support comes from eligible optional content only.
+- **Relationships:** `scope: optional` means only eligible optional content supports the relationship at its `validFrom`.
+- **Presentations:** `scope: optional` marks the MainAndOptional text for an entity. It includes, or continues from, optional-only knowledge. It may also cite main sources, because it restates main-story context.
 
 **Presentations**
 - **Optional replaces, never merges.** In MainAndOptional, an `optional` presentation that covers a checkpoint replaces the `main` one there. It replaces every field: name, aliases, summary and citations. Nothing is inherited from the main presentation, so it must describe the entity completely, restating any main-story context it still needs.
@@ -104,7 +106,7 @@ Unknown properties, comments, trailing commas and duplicate keys are rejected. T
 - **Basic references.** Both endpoints must exist and differ, and the type must exist.
 - **Endpoint visibility.** For every checkpoint in the interval, both endpoints must be visible in every view that shows the relationship. That means both views for `main` relationships and MainAndOptional for `optional` ones.
 - **No duplicates.** The same `(source, type, target)` must not appear with overlapping intervals, whatever the scopes.
-- **Symmetric types.** A symmetric type is stored once. The reversed pair is rejected.
+- **Symmetric types.** A symmetric type is stored once, in one direction. The reversed pair is rejected regardless of interval, so a citation split keeps the stored direction.
 
 ### Citation validation
 
@@ -112,6 +114,7 @@ Each citation must be safe to show everywhere its record is shown.
 
 - **Timing.** `availableAt` names the earliest checkpoint at which the cited source is player knowledge, and it must be at or before the record's `validFrom`. Evidence for why an interval *ends* is therefore never a citation on that record; cite it on the later records instead.
 - **Scope.** A `main` record may cite only `main` citations. An `optional` record may cite either scope.
+- **Consistency.** Citations with the same title must agree on `availableAt` and `scope` across the whole file. One mis-declared copy of a source is then a validation error.
 - **Splitting.** To change a record's citations partway through, split it into adjacent records for the same triple or entity. They do not overlap, so this passes the duplicate rule.
 
 ### Review modes
@@ -181,3 +184,19 @@ Adopted:
   - the leak-surface invariants;
   - URL fragments and user info rejected;
   - absent fields equal `null`.
+
+Round 2 (2026-11-14): **all four agreed.**
+
+| Delegate | Round 1 | Round 2 |
+|---|---|---|
+| Claude Opus 5.5 | changes requested | agree |
+| Claude Fable 5.2 | changes requested | agree |
+| GPT Sol | agree | agree |
+| GPT Astra | agree | agree |
+
+The round-2 non-blocking notes were applied without a further round:
+- **Opus:** per-view wording in WE-2, a single visibility definition, and a citation-URL typo.
+- **Fable:** split `optional` definitions, citation title consistency, the presentation cap raised to 32 (two per checkpoint at the 16-checkpoint bound), stale evidence lines, and four extra planned tests.
+- **Symmetric rule:** Opus proposed comparing endpoints unordered; Fable proposed rejecting the reversed pair regardless of interval. The lead took Fable's version, which is simpler, keeps the stored direction fixed, and matches the user's original decision.
+
+**v2 candidate (Opus), not needed for the pilot:** the persistence rule means an optional presentation can never stop, even after the main story catches up, and splitting a main presentation forces its optional twin to split. The cost is mechanical duplication, not spoiler risk.

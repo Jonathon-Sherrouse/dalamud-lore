@@ -48,8 +48,8 @@ Requirements exercised:
 | Waking Sands | The Scions' base in Vesper Bay. Raided by imperial forces, then reclaimed. | The Scions' former headquarters, now glamoured by Urianger to look abandoned, sheltering survivors. |
 
 Requirements exercised:
-- **One presentation per checkpoint:** exactly one reviewed presentation per visible entity at each checkpoint.
-- **Clean interval tiling:** presentations must not overlap or leave gaps.
+- **One presentation per checkpoint per view:** exactly one reviewed presentation per visible entity at each checkpoint, in each content view.
+- **Clean interval tiling:** presentations must not overlap within a scope or leave gaps.
 - **No backfill:** viewing as of 2.0 with the ceiling at 2.55 shows only 2.0 text.
 - **Citations per snapshot:** each presentation carries its own citations, and a later citation never appears in an earlier view. Minfilia has no safe URL at either checkpoint, so the citation title is shown with no link.
 
@@ -57,7 +57,7 @@ Requirements exercised:
 |---|---|
 | `Projection_SelectsPresentationForViewCheckpoint` | Each checkpoint yields its own summary. |
 | `Projection_ReverseViewingDoesNotBackfill` | Ceiling 2.55 with view 2.0 returns exactly the 2.0 summary and citations. |
-| `Validation_RejectsOverlappingPresentations` | Two presentations covering 2.55 fail validation. |
+| `Validation_RejectsOverlappingPresentations` | Two `main` presentations covering 2.55 fail validation. A main and an optional presentation at the same checkpoint are allowed. |
 | `Validation_RejectsGapInVisibility` | With a three-checkpoint synthetic fixture, an entity visible at the first and third checkpoints but not the second fails validation. Ending coverage early is allowed. |
 | `Projection_ExpectedEntitySets` | Each checkpoint × view yields exactly the expected entity IDs. |
 | `Projection_CitationWithoutUrlIsAllowed` | A citation with no URL validates and projects as text-only. |
@@ -99,6 +99,11 @@ Requirements exercised:
 | `Validation_RejectsOptionalSpanningMainBoundary` | An optional presentation covering two different main presentations is rejected. |
 | `Validation_RejectsOptionalEndingEarly` | An optional presentation that stops while the entity stays visible is rejected. |
 | `Validation_RejectsMainRecordCitingOptional` | A main record with an `optional` citation is rejected. |
+| `Validation_RejectsCrossScopeDuplicateTriple` | A main and an optional R12 over overlapping intervals are rejected. |
+| `Validation_RejectsMainEdgeToOptionalOnlyEntity` | A main edge whose endpoint is visible only in MainAndOptional is rejected. |
+| `Validation_RejectsUnknownCitationCheckpoint` | `availableAt` naming an unknown checkpoint is rejected. |
+| `Validation_RejectsOptionalStraddlingMainCoverage` | An optional presentation covering both a main-covered and a main-uncovered checkpoint is rejected. |
+| `Validation_RejectsInconsistentCitationTitles` | Two citations with the same title but different `availableAt` are rejected. |
 | `Validation_RejectsReverseDuplicateOfSymmetricEdge` | Adding Alisaie → twin-of → Alphinaud alongside R07 is rejected. |
 | `Projection_MainScopeHidesOptionalRecords` | In the main-story view at 2.0, R12 is absent and Louisoix shows his main presentation; the full view shows both. |
 | `State_RaisingCeilingDoesNotAdvanceView` | Raising the ceiling from 2.0 to 2.55 leaves the view at 2.0. |
