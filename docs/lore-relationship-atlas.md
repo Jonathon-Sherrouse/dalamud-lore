@@ -4,7 +4,7 @@
 
 The user authorized Part 1 (planning publication) on 2026-11-14 after council agreement on the pilot and research-to-implementation order. This planning bootstrap publishes the pilot contract and the three approved **To Do** cards in [backlog.md](backlog.md). No research, plugin implementation, content acceptance, or in-game validation has been completed by this change.
 
-The bounded pilot `NDL-002` → `NDL-003` → `NDL-004` is explicitly allowed ahead of the existing `Pre-Ship` and `Next Polish Pass` work in [enhancement-roadmap.md](enhancement-roadmap.md). Those earlier items remain open. This exception does not approve the broader Atlas roadmap, remove any story acceptance gate, or make future candidates executable. Part 1 ends at planning publication; beginning discovery/foundation work is the next execution step.
+The bounded pilot `NDL-002` → `NDL-003` and `NDL-005` → `NDL-004` is explicitly allowed ahead of the existing `Pre-Ship` and `Next Polish Pass` work in [enhancement-roadmap.md](enhancement-roadmap.md). Those earlier items remain open. This exception does not approve the broader Atlas roadmap, remove any story acceptance gate, or make future candidates executable. Part 1 ends at planning publication; beginning discovery/foundation work is the next execution step. The user added the UX design story `NDL-005` to the pilot on 2026-11-14, so the window is designed and accepted before it is built.
 
 The original deferred brief is superseded by this contract for the pilot. Its broader ideas are retained below as non-executable future candidates. Existing unrelated changes to `README.md` and `global.json` are outside this publication.
 
@@ -96,13 +96,21 @@ Complete the evidence matrix for every entity, name, alias, description, relatio
 
 Present the concrete content for human review; correct it and rerun structural validation/snapshot tests. After acceptance, mechanically update review markers and pass strict shippable validation before merge. This story adds no packaging or runtime integration, except the explicitly reviewed bounded contract-amendment escape hatch above.
 
-Full research may overlap foundation implementation after the contract is frozen, but final content acceptance depends on the production validator and accepted foundation. There is no separate pre-research approval request or fourth implementation story.
+Full research may overlap foundation implementation after the contract is frozen, but final content acceptance depends on the production validator and accepted foundation. There is no separate pre-research approval request or extra content story.
+
+### NDL-005: UX design and local-viewer prototype
+
+Owner: `ui`; depends on accepted `NDL-002`. Added by the user on 2026-11-14, because the window story only fixed what the Atlas must do, not how it should look or feel.
+
+Write `docs/atlas/ux-design.md`: layout and minimum window size, the primary flows, visual language (category glyph plus color, direction, edge labels, symmetric edges, interaction states), empty/no-result/failure states, and accessibility at 100%/150% font scale. Every element gets an ImGui feasibility note, so the design is buildable in Dalamud rather than browser-only.
+
+Prototype the design in the local viewer over synthetic data and iterate with the user there. Shared behavior and text belong in the core with tests; the viewer stays a thin renderer. The design may not weaken any spoiler-safety invariant or change the frozen schema; flag such a need instead. It can run alongside `NDL-003` because it needs no real lore. User acceptance of the design is required before `NDL-004` starts.
 
 ### NDL-004: Window, integration, and in-game acceptance
 
-Owner: `ui`; lead retains `Plugin.cs`, configuration, and project packaging ownership. Depends on accepted `NDL-002` and `NDL-003`.
+Owner: `ui`; lead retains `Plugin.cs`, configuration, and project packaging ownership. Depends on accepted `NDL-002`, `NDL-003`, and `NDL-005`.
 
-Implement `/npclinks atlas` and help strings, register the window with the existing `WindowSystem`, clean it up on disposal, persist both controls, and contain load errors. Build search/focus/refocus, the directed neighborhood, complete visible-neighbor list, detail panel, and safe source actions. Declare minimum size and verify readable labels at small/large sizes and 100%/150% font scales.
+Build the window to the accepted `NDL-005` design. Implement `/npclinks atlas` and help strings, register the window with the existing `WindowSystem`, clean it up on disposal, persist both controls, and contain load errors. Build search/focus/refocus, the directed neighborhood, complete visible-neighbor list, detail panel, and safe source actions. Declare minimum size and verify readable labels at small/large sizes and 100%/150% font scales.
 
 Add the `atlas.json` content-copy entry in the project file in this story only. Inspect the Debug output and the actual Release `latest.zip`. Verify offline operation, plugin load/unload/reload, open/close, search/refocus, arrow meaning, checkpoint changes including reverse viewing, conservative recovery, persistence, source handling, and malformed/missing-data isolation. Smoke dictionary/chat links and Explain for regressions. Existing README edits stay out of scope; document the command in the Atlas guide/handoff instead.
 
@@ -114,7 +122,7 @@ Present the real usable pilot for final acceptance, then refresh/revalidate/merg
 
 All four delegates ran at high reasoning effort. The implementation-plan review took two full rounds: all requested changes in round 1, then all agreed in round 2. The subsequent sequencing review took one full round plus a targeted Fable wording recheck. Opus, Sol, and Astra agreed with the order; Fable agreed after the three adopted amendments (reconcile the entire brief, bounded contract corrections, draft versus shippable validation). No numerical scores were requested or supplied.
 
-The agreed sequence is: **planning authorization/publication → discovery research → minimal contract and tested foundation → complete researched and reviewed data → UI → integration and in-game validation → explicit acceptance and closeout**.
+Amended by the user on 2026-11-14: a UX design step (`NDL-005`) now precedes the UI step and may run alongside the data step. The original agreed sequence is: **planning authorization/publication → discovery research → minimal contract and tested foundation → complete researched and reviewed data → UI → integration and in-game validation → explicit acceptance and closeout**.
 
 ## Future candidates — not approved
 
