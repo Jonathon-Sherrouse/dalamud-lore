@@ -132,6 +132,13 @@ Amended by the user on 2026-11-14: a UX design step (`NDL-005`) now precedes the
 
 After the pilot, separately groom any dictionary/Lore Explain eligibility bridge, reviewed dictionary-text reuse, additional checkpoints/groups/locales, curated story-event entities, portraits, situation/map views, or import/editing workflows. Ordinary concepts, mechanics, duties, items, currencies, and servers remain dictionary-only. Automatic progression filtering requires verified runtime evidence; AI output never silently creates canon.
 
+Guardrails carried over from the original deferred brief, which this contract supersedes. They apply to every future Atlas story:
+
+- Never infer relationships from conversational proximity, nearby NPCs, the active quest list, or unverified event identifiers.
+- Represent motives or feelings only when reviewed sources support them; no AI-interpreted "inner voice" layer.
+- Any import, export, sharing, or editing workflow preserves source and review metadata and distinguishes bundled, user-authored, and reviewed AI-assisted provenance.
+- Prefer a readable local neighborhood over a whole-world graph; a situation or map view, if ever approved, reuses the same entities, relationships, and checkpoints instead of a parallel lore database.
+
 The original FFXVI design references remain background reading, not evidence for FFXIV story claims:
 
 - [PlayStation Blog: FFXVI lore systems](https://blog.playstation.com/2023/04/13/state-of-play-debuts-25-minutes-of-all-new-final-fantasy-xvi-gameplay/)
