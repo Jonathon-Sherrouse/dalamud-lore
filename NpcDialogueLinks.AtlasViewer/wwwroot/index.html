@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lore Atlas Viewer</title>
+<style>
+  :root {
+    --bg: #15171c; --panel: #1d2027; --panel-2: #252932; --border: #343a46;
+    --text: #e6e8ee; --muted: #9aa3b2; --accent: #d9b45a; --accent-2: #7fb2e5;
+    --danger: #e07a6f; --char: #7fb2e5; --org: #d9b45a; --loc: #8fcf9a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .app { display: grid; grid-template-columns: 280px 1fr 340px; grid-template-rows: auto 1fr; height: 100vh; }
+  header { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 10px 16px;
+    border-bottom: 1px solid var(--border); background: var(--panel); }
+  header h1 { font-size: 16px; margin: 0; letter-spacing: .02em; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+  .badge.draft { color: #1b1b1b; background: var(--accent); border-color: var(--accent); }
+  header .spacer { flex: 1; }
+  button { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); border-radius: 6px;
+    padding: 5px 10px; font: inherit; cursor: pointer; }
+  button:hover { border-color: var(--accent-2); }
+  button.primary { background: var(--accent); color: #1b1b1b; border-color: var(--accent); }
+  aside, main, section { overflow: auto; }
+  aside { border-right: 1px solid var(--border); padding: 14px; background: var(--panel); }
+  section.details { border-left: 1px solid var(--border); padding: 14px; background: var(--panel); }
+  label.field { display: block; font-size: 12px; color: var(--muted); margin: 0 0 4px; }
+  select, input[type=search] { width: 100%; background: var(--panel-2); color: var(--text); border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 8px; font: inherit; margin-bottom: 12px; }
+  .help { font-size: 12px; color: var(--muted); margin: -6px 0 14px; }
+  .results { list-style: none; margin: 0; padding: 0; }
+  .results li { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; cursor: pointer; }
+  .results li:hover, .results li.active { background: var(--panel-2); }
+  .results .cat { margin-left: auto; font-size: 11px; color: var(--muted); }
+  main { position: relative; }
+  main svg { width: 100%; height: 100%; display: block; }
+  .empty { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); padding: 24px; text-align: center; }
+  h2 { font-size: 18px; margin: 0 0 2px; }
+  h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 18px 0 6px; }
+  .aliases { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+  .sources { margin: 0; padding-left: 18px; }
+  .sources li { margin: 2px 0; }
+  .warn { font-size: 12px; color: var(--muted); border-left: 2px solid var(--accent); padding-left: 8px; margin-top: 8px; }
+  a { color: var(--accent-2); }
+  .neighbors { list-style: none; margin: 0; padding: 0; }
+  .neighbors li { padding: 5px 6px; border-radius: 6px; display: flex; gap: 6px; align-items: baseline; }
+  .neighbors li:hover { background: var(--panel-2); }
+  .neighbors .rel { color: var(--muted); cursor: pointer; }
+  .neighbors .rel:hover { color: var(--text); text-decoration: underline; }
+  .neighbors .who { cursor: pointer; font-weight: 600; }
+  .neighbors .off { font-size: 11px; color: var(--muted); }
+  .glyph { flex: none; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: grid; place-items: center; }
+  .modal .box { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px; max-width: 420px; }
+  .modal .row { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+  .error { padding: 40px; max-width: 560px; margin: 0 auto; }
+  svg text { fill: var(--text); font-size: 0.075px; }
+  svg .edge { stroke: #6b7486; stroke-width: 0.012; fill: none; }
+  svg .edge-hit { stroke: transparent; stroke-width: 0.06; fill: none; cursor: pointer; }
+  svg .edge.selected { stroke: var(--accent); stroke-width: 0.018; }
+  svg .edge-label { fill: var(--muted); font-size: 0.055px; cursor: pointer; }
+  svg .edge-label.selected { fill: var(--accent); }
+  svg .node { cursor: pointer; }
+  svg .node .shape { stroke: #0e0f12; stroke-width: 0.012; }
+  svg .node.focus .shape { stroke: var(--accent); stroke-width: 0.02; }
+  svg .node:hover .shape { stroke: var(--accent-2); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+// Thin renderer over the shared AtlasSession (served by Program.cs). All browsing rules live in C#;
+// this page only draws state and posts actions, exactly as the in-game window will.
+const $ = (sel, el = document) => el.querySelector(sel);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const color = g => g === "square" ? "var(--org)" : g === "diamond" ? "var(--loc)" : "var(--char)";
+let state = null, searchTimer = null;
+
+async function load() { state = await (await fetch("/api/state")).json(); render(); }
+async function act(type, value) {
+  state = await (await fetch("/api/action", { method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ type, value: value ?? null }) })).json();
+  render();
+}
+async function reload() { state = await (await fetch("/api/reload", { method: "POST" })).json(); render(); }
+
+function glyphSvg(glyph, size = 14) {
+  const c = color(glyph), h = size / 2;
+  const shape = glyph === "square" ? `<rect x="2" y="2" width="${size - 4}" height="${size - 4}" rx="2" fill="${c}"/>`
+    : glyph === "diamond" ? `<polygon points="${h},1 ${size - 1},${h} ${h},${size - 1} 1,${h}" fill="${c}"/>`
+    : `<circle cx="${h}" cy="${h}" r="${h - 2}" fill="${c}"/>`;
+  return `<svg class="glyph" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${shape}</svg>`;
+}
+
+function nodeShape(glyph, r) {
+  const c = color(glyph);
+  if (glyph === "square") return `<rect class="shape" x="${-r}" y="${-r}" width="${2 * r}" height="${2 * r}" rx="${r * .2}" fill="${c}"/>`;
+  if (glyph === "diamond") return `<polygon class="shape" points="0,${-r * 1.25} ${r * 1.25},0 0,${r * 1.25} ${-r * 1.25},0" fill="${c}"/>`;
+  return `<circle class="shape" r="${r}" fill="${c}"/>`;
+}
+
+function graph() {
+  const L = state.layout;
+  if (!L) return `<div class="empty">${esc(state.text.emptyFocus)}</div>`;
+  const R = 1.0, pos = {};
+  L.nodes.forEach(n => pos[n.id] = { x: n.x * R, y: n.y * R, n });
+  const sel = state.selectedRelationship?.id;
+  let edges = "", labels = "";
+  for (const e of L.edges) {
+    const a = pos[e.fromId], b = pos[e.toId];
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+    const nx = -dy / len, ny = dx / len;
+    const off = (e.laneIndex - (e.laneCount - 1) / 2) * 0.12;
+    const pad = 0.16;
+    const x1 = a.x + dx / len * pad + nx * off, y1 = a.y + dy / len * pad + ny * off;
+    const x2 = b.x - dx / len * pad + nx * off, y2 = b.y - dy / len * pad + ny * off;
+    const isSel = e.relationshipId === sel ? " selected" : "";
+    const marker = e.symmetric ? "" : ` marker-end="url(#arrow${isSel ? "-sel" : ""})"`;
+    edges += `<line class="edge${isSel}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"${marker}/>`
+      + `<line class="edge-hit" data-rel="${esc(e.relationshipId)}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+    const mx = (x1 + x2) / 2 + nx * 0.05, my = (y1 + y2) / 2 + ny * 0.05;
+    labels += `<text class="edge-label${isSel}" data-rel="${esc(e.relationshipId)}" x="${mx}" y="${my}" text-anchor="middle">${esc(e.label)}</text>`;
+  }
+  let nodes = "";
+  for (const n of L.nodes) {
+    const p = pos[n.id], r = n.isFocus ? 0.11 : 0.085;
+    nodes += `<g class="node${n.isFocus ? " focus" : ""}" data-focus="${esc(n.id)}" transform="translate(${p.x},${p.y})">`
+      + nodeShape(n.glyph, r)
+      + `<text y="${r + 0.1}" text-anchor="middle">${esc(n.name)}</text></g>`;
+  }
+  return `<svg viewBox="-1.6 -1.45 3.2 2.9" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7486"/></marker>
+      <marker id="arrow-sel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9b45a"/></marker>
+    </defs>${edges}${labels}${nodes}</svg>`;
+}
+
+function sources(list) {
+  if (!list?.length) return "";
+  const items = list.map(c => c.url
+    ? `<li><a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a></li>`
+    : `<li>${esc(c.title)}</li>`).join("");
+  const warn = list.some(c => c.url) ? `<div class="warn">${esc(state.text.externalLinkWarning)}</div>` : "";
+  return `<h3>Sources</h3><ol class="sources">${items}</ol>${warn}`;
+}
+
+function details() {
+  const f = state.focus;
+  if (!f) return `<p class="help">${esc(state.text.emptyFocus)}</p>`;
+  const neighbors = (state.neighbors ?? []).map(n => {
+    const arrow = n.symmetric ? "↔" : n.direction === "outgoing" ? "→" : "←";
+    return `<li><span class="rel" data-rel="${esc(n.relationshipId)}">${arrow} ${esc(n.label)}</span>
+      <span class="who" data-focus="${esc(n.entityId)}">${esc(n.entityName)}</span>${n.onCanvas ? "" : `<span class="off">(list only)</span>`}</li>`;
+  }).join("");
+  const r = state.selectedRelationship;
+  const rel = r ? `<h3>Selected connection</h3><div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong></div>${sources(r.citations)}
+      <p><button data-clear>Close connection</button></p>` : "";
+  return `<h2>${esc(f.name)}</h2><div class="aliases">${esc(f.category)}${f.aliases.length ? " · also " + f.aliases.map(esc).join(", ") : ""}</div>
+    <div>${esc(f.summary)}</div>${sources(f.citations)}
+    <h3>Connections (${(state.neighbors ?? []).length})</h3><ul class="neighbors">${neighbors || "<li class='off'>None at this point.</li>"}</ul>${rel}`;
+}
+
+function render() {
+  const root = $("#root");
+  if (!state.ok) {
+    root.innerHTML = `<div class="error"><h2>Lore Atlas</h2><p>${esc(state.error)}</p>
+      <p class="help">Details are printed in the viewer's terminal.</p><button id="reload">Reload data</button></div>`;
+    $("#reload").onclick = reload;
+    return;
+  }
+  const t = state.text;
+  const ceilingOpts = state.checkpoints.map(c => `<option value="${esc(c.id)}"${c.isCeiling ? " selected" : ""}>${esc(c.label)}</option>`).join("");
+  const viewOpts = state.checkpoints.map(c => `<option value="${esc(c.id)}"${c.isView ? " selected" : ""}${c.viewSelectable ? "" : " disabled"}>${esc(c.label)}</option>`).join("");
+  const cvOpts = state.contentViews.map(v => `<option value="${esc(v.id)}"${v.id === state.contentView ? " selected" : ""}>${esc(v.label)}</option>`).join("");
+  const results = state.results.length
+    ? state.results.map(e => `<li data-focus="${esc(e.id)}" class="${state.focus?.id === e.id ? "active" : ""}">${glyphSvg(e.glyph)}${esc(e.name)}<span class="cat">${esc(e.category)}</span></li>`).join("")
+    : `<li class="help">${esc(t.noResults)}</li>`;
+  const hadFocus = document.activeElement?.id === "search";
+  root.innerHTML = `<div class="app">
+    <header><h1>${esc(t.title)}</h1><span class="badge">local viewer</span>
+      ${state.mode === "draft" ? `<span class="badge draft">Draft data — not shippable</span>` : `<span class="badge">strict</span>`}
+      <span class="spacer"></span><button id="reload" title="Re-read the data file from disk">Reload data</button></header>
+    <aside>
+      <label class="field" for="ceiling">${esc(t.ceilingLabel)}</label><select id="ceiling">${ceilingOpts}</select>
+      <label class="field" for="view">${esc(t.viewLabel)}</label><select id="view">${viewOpts}</select>
+      <label class="field" for="cv">Content</label><select id="cv">${cvOpts}</select>
+      <p class="help">${esc(t.contentViewHelp)}</p>
+      <label class="field" for="search">Search</label><input id="search" type="search" placeholder="Name or alias" value="${esc(state.search)}">
+      <ul class="results">${results}</ul>
+    </aside>
+    <main>${graph()}</main>
+    <section class="details">${details()}</section>
+  </div>
+  ${state.pendingCeiling ? `<div class="modal"><div class="box"><div>${esc(state.pendingCeiling.prompt)}</div>
+    <div class="row"><button id="cancel">${esc(t.cancelButton)}</button><button class="primary" id="confirm">${esc(t.confirmButton)}</button></div></div></div>` : ""}`;
+
+  $("#reload").onclick = reload;
+  $("#ceiling").onchange = e => act("requestCeiling", e.target.value);
+  $("#view").onchange = e => act("setView", e.target.value);
+  $("#cv").onchange = e => act("setContentView", e.target.value);
+  const search = $("#search");
+  search.oninput = e => { clearTimeout(searchTimer); const v = e.target.value; searchTimer = setTimeout(() => act("search", v), 120); };
+  if (hadFocus) { search.focus(); search.setSelectionRange(search.value.length, search.value.length); }
+  if (state.pendingCeiling) { $("#confirm").onclick = () => act("confirmCeiling"); $("#cancel").onclick = () => act("cancelCeiling"); }
+  root.querySelectorAll("[data-focus]").forEach(el => el.onclick = () => act("focus", el.dataset.focus));
+  root.querySelectorAll("[data-rel]").forEach(el => el.onclick = () => act("selectRelationship", el.dataset.rel));
+  root.querySelectorAll("[data-clear]").forEach(el => el.onclick = () => act("clearSelection"));
+}
+
+load();
+</script>
+</body>
+</html>

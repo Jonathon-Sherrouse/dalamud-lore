@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!--
+    Local Atlas viewer: browse the Atlas without launching FFXIV.
+    It compile-links the exact production files in ../NpcDialogueLinks/Atlas/ and renders the shared AtlasSession,
+    so browsing logic cannot drift from the in-game window. Never packaged with the plugin.
+    See docs/atlas/local-viewer.md.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>NpcDialogueLinks.AtlasViewer</RootNamespace>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../NpcDialogueLinks/Atlas/**/*.cs" Link="Atlas/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="wwwroot/**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

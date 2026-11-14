@@ -25,21 +25,20 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 - [ ] `NDL-004` **Deliver the standalone Atlas window and validate it in game**
   - Owner: `ui`
   - Outcome: `/npclinks atlas` opens a readable offline relationship browser over the accepted pilot data.
-  - Acceptance: Visible-only search, focus/refocus, directed incoming/outgoing one-hop graph with at most eight canvas neighbors and a complete neighbor list, original details/safe sources, two persisted manual controls, declared minimum window size, and Atlas-only failure recovery. Lead owns Plugin.cs command/help/window lifecycle, configuration, and project packaging. No new Talk hooks, quest/progression inference, bridge, or API dependency. README changes deliberately deferred while unrelated local edits remain; document the command in the Atlas guide/handoff. Update roadmap status on accepted closeout.
+  - Acceptance: Visible-only search, focus/refocus, directed incoming/outgoing one-hop graph with at most eight canvas neighbors and a complete neighbor list, original details/safe sources, two persisted manual controls, declared minimum window size, and Atlas-only failure recovery. The local viewer stays at parity with the window, both rendering the shared `AtlasSession` (see the Atlas local-viewer guide). Lead owns Plugin.cs command/help/window lifecycle, configuration, and project packaging. No new Talk hooks, quest/progression inference, bridge, or API dependency. README changes deliberately deferred while unrelated local edits remain; document the command in the Atlas guide/handoff. Update roadmap status on accepted closeout.
   - Evidence: Host tests on production and real data; locked restore/build; atlas.json in Debug output and Release latest.zip; in-game load/unload/reload, open/close/search/refocus, direction, forward/backward boundaries, state recovery/persistence, sources, minimum/large windows at 100%/150% scale, offline/no-key operation, and malformed/missing-data isolation with dictionary/chat links/Explain intact. Report all lanes and explicit acceptance separately; missing in-game evidence remains pending. Content fixes repeat affected-record validation/review.
   - Dependencies: Accepted `NDL-002`, `NDL-003`, and `NDL-005` (the window implements the accepted `NDL-005` design); branch `codex/ndl-004-atlas-window`, PR base `main` after all three merges. Lead coordinates integration; no overlapping Plugin.cs edits.
 
 ## In Review
 
-- [ ] `NDL-002` **Research Atlas requirements and build the tested foundation**
+## User Accepted
+
+- [x] `NDL-002` **Research Atlas requirements and build the tested foundation**
   - Owner: `lead`
   - Outcome: Source-backed discovery informs a minimal, independently testable Atlas model before real lore is encoded.
-  - Acceptance: Provisional evidence matrix and worked examples under `docs/` establish an 8–12-entity Scions pilot at ARR 2.0/2.55 completion, anchored to terminal quests. Pure production loader/validator/projection and two-control state policy implement the Atlas contract, including draft/strict review modes and conservative recovery. A sibling host-runnable test project uses actual production files and its own lock file. No runtime wiring, packaging, or shipped lore data.
+  - Acceptance: Provisional evidence matrix and worked examples under `docs/` establish an 8–12-entity Scions pilot at ARR 2.0/2.55 completion, anchored to terminal quests. Pure production loader/validator/projection and two-control state policy implement the Atlas contract, including draft/strict review modes and conservative recovery. A sibling host-runnable test project uses actual production files and its own lock file. A local browser viewer (user request, 2026-11-14) renders the same core over synthetic sample data, so the Atlas can be viewed without FFXIV. No runtime wiring, packaging, or shipped lore data.
   - Evidence: Discovery source/claim/checkpoint matrix and traceable synthetic examples; local host tests for spoiler fields/counts, temporal validity/direction, bounds/references, review modes, malformed/missing data, and saved-state recovery; locked restore and plugin build with actual SDK recorded. In-game: not applicable to disconnected pure code. User acceptance recorded separately.
   - Dependencies: Planning publication on `origin/main`; branch `codex/ndl-002-atlas-foundation`, PR base `main` from refreshed `origin/main`.
-  - Substantive PR: [#4](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/4)
-
-## User Accepted
 
 - [x] `NDL-001` **Adopt acceptance-gated GitHub delivery**
   - Owner: `lead`
