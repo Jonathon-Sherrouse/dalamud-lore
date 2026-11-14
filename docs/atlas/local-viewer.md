@@ -4,6 +4,8 @@ The local viewer lets you browse the Atlas in a browser without launching FFXIV.
 
 **Parity rule** (user decision, 2026-11-14): the local viewer and the in-game Atlas window are maintained together for the whole pilot.
 
+The page's current look and layout are a functional placeholder. `NDL-005` owns the real UX design, and both front ends will follow it.
+
 ## Run it
 
 ```sh
