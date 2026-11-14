@@ -35,7 +35,8 @@ Requirements exercised:
 | `Projection_EdgeBeginsLaterWithVisibleEndpoints` | R11 is absent at 2.0 although Urianger and the Waking Sands are visible. |
 | `Projection_HiddenCountsNotDisclosed` | Waking Sands' 2.0 neighbor count includes only edges visible at 2.0, with no "+N hidden". |
 | `Validation_RejectsEdgeWhoseEndpointIsHidden` | An edge from Rising Stones starting at 2.0 fails validation. |
-| `Validation_RejectsIntervalBetweenCheckpoints` | A from/until pair with no checkpoint inside the interval is rejected. |
+| `Validation_RejectsEmptyOrInvertedInterval` | `validUntil` equal to or earlier than `validFrom` is rejected. |
+| `Validation_RejectsCitationNewerThanRecord` | R08 citing a 2.55-available quest (`availableAt` later than `validFrom`) is rejected. |
 
 ## WE-2 — The same entity, described differently per snapshot
 
@@ -57,9 +58,11 @@ Requirements exercised:
 | `Projection_SelectsPresentationForViewCheckpoint` | Each checkpoint yields its own summary. |
 | `Projection_ReverseViewingDoesNotBackfill` | Ceiling 2.55 with view 2.0 returns exactly the 2.0 summary and citations. |
 | `Validation_RejectsOverlappingPresentations` | Two presentations covering 2.55 fail validation. |
-| `Validation_RejectsGapInVisibility` | An entity visible at 2.0 and 2.55 with no 2.55 presentation fails validation. |
+| `Validation_RejectsGapInVisibility` | With a three-checkpoint synthetic fixture, an entity visible at the first and third checkpoints but not the second fails validation. Ending coverage early is allowed. |
+| `Projection_ExpectedEntitySets` | Each checkpoint × view yields exactly the expected entity IDs. |
 | `Projection_CitationWithoutUrlIsAllowed` | A citation with no URL validates and projects as text-only. |
-| `Search_MatchesOnlyVisiblePresentationText` | Searching "glamour" at 2.0 returns nothing. |
+| `Search_MatchesOnlyVisibleNamesAndAliases` | Searching "Rising" at 2.0 returns nothing; at 2.55 it returns the Rising Stones. |
+| `Validation_RejectsUrlFragmentOrUserInfo` | A citation URL with `#section` or `user@` is rejected. |
 
 ## WE-3 — True in-universe, but not yet player knowledge
 
@@ -75,8 +78,11 @@ Four cases look alike and resolve differently:
 Alphinaud commanding the Crystal Braves (C16) stays description-only, under evidence rule 3. It begins and ends between the checkpoints.
 
 Draft summaries for Louisoix:
-- **2.0:** *"The twins' grandfather, whose power spared the Warrior of Light at the Calamity; believed lost after sealing Bahamut."*
-- **2.55:** *"... whose soul the Warrior of Light freed from Bahamut."*
+- **Main view, 2.0 and 2.55:** *"The figure whose invoked power is why no one remembers the Warrior of Light."* (C29 only)
+- **Full view, 2.0 (optional):** *"Alisaie's grandfather, whose invoked power spared the Warrior of Light; presumed dead after sealing Bahamut."* It deliberately does not say "the twins'" grandfather, which would be the derived fact this example forbids.
+- **Full view, 2.55 (optional):** *"The twins' grandfather, … whose soul the Warrior of Light freed from Bahamut."* (C26, C28)
+
+Both optional presentations sit inside the single ongoing main presentation (boundary rule) and run to the end (persistence rule). Each restates the main-story context, because replacement inherits nothing.
 
 Requirements exercised:
 - Separating when something occurred from when the player learns it.
@@ -89,6 +95,10 @@ Requirements exercised:
 | `Projection_EdgeVisibleFromFirstCheckpoint` | R07 appears at both 2.0 and 2.55, in both directions (incoming and outgoing labels). |
 | `Projection_EdgeBeginsLaterWithVisibleEndpoints` | R13 is absent at 2.0 although Alphinaud and Louisoix are visible (shared with WE-1). |
 | `Projection_NoDerivedEdges` | At 2.0, Alphinaud's neighbors include Alisaie but not Louisoix, despite R07 + R12. |
+| `Projection_OptionalPresentationReplacesWholeRecord` | Full-view 2.0 Louisoix has only the optional presentation's aliases and citations. |
+| `Validation_RejectsOptionalSpanningMainBoundary` | An optional presentation covering two different main presentations is rejected. |
+| `Validation_RejectsOptionalEndingEarly` | An optional presentation that stops while the entity stays visible is rejected. |
+| `Validation_RejectsMainRecordCitingOptional` | A main record with an `optional` citation is rejected. |
 | `Validation_RejectsReverseDuplicateOfSymmetricEdge` | Adding Alisaie → twin-of → Alphinaud alongside R07 is rejected. |
 | `Projection_MainScopeHidesOptionalRecords` | In the main-story view at 2.0, R12 is absent and Louisoix shows his main presentation; the full view shows both. |
 | `State_RaisingCeilingDoesNotAdvanceView` | Raising the ceiling from 2.0 to 2.55 leaves the view at 2.0. |
@@ -102,4 +112,4 @@ All three examples use only the two pilot checkpoints and the 12-entity provisio
 - **Description change:** WE-2.
 - **Relationship change:** WE-1.
 
-The remaining contract tests (bounds, malformed or missing data, unsupported schema version, draft vs. strict review modes) do not depend on lore and use generic synthetic fixtures.
+The remaining contract tests (bounds, malformed or missing data, unsupported schema version, draft vs. strict review modes, and `Snapshot_ExposesOnlyTypesOfVisibleEdges`) do not depend on lore and use generic synthetic fixtures.

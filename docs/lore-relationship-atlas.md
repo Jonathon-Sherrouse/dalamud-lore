@@ -47,7 +47,7 @@ If a claim is unsupported or does not fit, omit or narrow it by default. If that
 
 Use stable IDs, typed directed relationships, and checkpoint-specific entity presentations including names, aliases, descriptions, and displayed citation metadata. Use inclusive-start/exclusive-end intervals `[validFrom, validUntil)`; an absent end means ongoing.
 
-Require exactly one reviewed presentation for each visible entity at each selected checkpoint. Reject overlapping presentations, gaps inside declared visibility, duplicate IDs, unknown references, invalid intervals, unsupported schema versions, and edges whose endpoints are not visible throughout their interval. Enforce bounds of 64 entities, 256 edges, 16 checkpoints, and 1 MiB of JSON; these are loader limits, not permission to enlarge the pilot.
+Require exactly one reviewed presentation for each visible entity at each selected checkpoint **in each content view** (main-story only, or main plus optional; see [schema v1](atlas/schema.md)). Reject same-scope overlapping presentations, gaps inside each view's visibility, duplicate IDs, unknown references, invalid intervals, unsupported schema versions, and edges whose endpoints are not visible throughout their interval. Enforce bounds of 64 entities, 256 edges, 16 checkpoints, and 1 MiB of JSON; these are loader limits, not permission to enlarge the pilot.
 
 Validation has two explicit modes:
 
@@ -67,7 +67,7 @@ Keep two persisted checkpoint IDs with conservative defaults:
 
 Both default to `cp-arr-2-0`. Lowering the ceiling clamps the view. Changing either control clears transient search, focus, selection, and details before rebuilding; no navigation back-stack is in scope. Unknown, missing, or invalid saved checkpoint IDs reset both controls to the earliest checkpoint. Revalidate persisted state after content/schema updates.
 
-Keep the projection pure: `Project(dataset, viewCheckpoint)`. Ceiling rules are separate state logic, not a second axis of lore data. Apply filtering before search, sorting, counts, graph layout, neighbor lists, details, and citation titles/URLs/tooltips. Never disclose hidden-entity counts or future names as hints. Checkpoint labels themselves must be spoiler-neutral.
+Keep the projection pure: `Project(dataset, viewCheckpoint, contentView)`. The content view (user request, 2026-11-14) selects main-story-only or main-plus-optional records; it is a data axis, not a spoiler control. Ceiling rules are separate state logic, not a second axis of lore data. Apply filtering before search, sorting, counts, graph layout, neighbor lists, details, and citation titles/URLs/tooltips. Never disclose hidden-entity counts or future names as hints. Checkpoint labels themselves must be spoiler-neutral.
 
 Displayed citation metadata must be safe for its snapshot. If a URL itself reveals later facts, omit that outbound link and retain safe reviewed citation text. Open only explicit `http`/`https` clicks; do not fetch automatically or reuse the current Lore Explain source renderer unchanged. Explain briefly that external pages may contain later spoilers: the Atlas UI's filtering guarantee does not extend to destination pages.
 

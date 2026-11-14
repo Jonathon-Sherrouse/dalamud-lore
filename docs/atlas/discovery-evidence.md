@@ -115,7 +115,7 @@ Intervals are `[validFrom, validUntil)` over checkpoint IDs. `—` means ongoing
 | R05 | `char-alphinaud` → member-of → `org-scions` | `cp-arr-2-0` | — | C25 | Verify C25. |
 | R06 | `char-tataru` → member-of → `org-scions` | `cp-arr-2-0` | — | C04 | |
 | R07 | `char-alphinaud` → twin-of → `char-alisaie` | `cp-arr-2-0` | — | C10 | Symmetric: stored once; a reversed duplicate is rejected (user decision, 2026-11-14). |
-| R08 | `org-scions` → headquartered-at → `loc-waking-sands` | `cp-arr-2-0` | `cp-arr-2-55` | C02, C15, C21 | Ends: the move happened at 2.1. |
+| R08 | `org-scions` → headquartered-at → `loc-waking-sands` | `cp-arr-2-0` | `cp-arr-2-55` | C02 | Ends; the move happened at 2.1. Cite only C02: the end evidence (C15, C21) is from later quests and belongs on the 2.55 Rising Stones and Waking Sands presentations (schema citation timing rule). |
 | R09 | `org-crystal-braves` → controls → `loc-rising-stones` | `cp-arr-2-55` | — | C19 | Begins. |
 | R10 | `org-crystal-braves` → turned-against → `org-scions` | `cp-arr-2-55` | — | C20 | Begins. |
 | R11 | `char-urianger` → conceals → `loc-waking-sands` | `cp-arr-2-55` | — | C21 | Begins. |
@@ -155,10 +155,11 @@ These are not decisions; the freeze in NDL-002 step 2 decides them.
 
 - **Checkpoint-ID bounds.** An interval that falls entirely between checkpoints is invalid, not hidden (rule 3).
 - **Evidence eligibility belongs to the research process, not the runtime model.** The dataset carries only reviewed citation display metadata. The available-content rule is enforced in review, and the evidence matrix records each optional source's unlock chain.
-- **Relationship types are a closed vocabulary.** The pilot needs: `leads`, `member-of`, `twin-of`, `headquartered-at`, `controls`, `turned-against`, `conceals`. Each type needs labels for both directions so incoming edges render.
+- **Relationship types are a closed vocabulary.** The pilot needs: `leads`, `member-of`, `twin-of` (symmetric), `grandchild-of`, `headquartered-at`, `controls`, `turned-against`, `conceals`. Each type needs labels for both directions so incoming edges render.
 - **Symmetric types** (`twin-of`) are declared symmetric in the type vocabulary and stored as one edge. A reversed duplicate is a validation error, not normalized (user decision, 2026-11-14).
 - **Content scope tags** (user request, 2026-11-14). The user wants a main-story view and a main-plus-optional view, because optional content can change what is known. Every edge and presentation carries `scope: main | optional`. A main-story view hides optional edges and uses the main presentation. The full view may use an optional presentation that replaces the main one at the same checkpoint. An entity whose only evidence is optional is hidden in the main view. In the pilot, the optional-scope records are R12–R14 and Louisoix's descriptions (C27, C28). When the toggle ships (NDL-004 or later) is a separate decision; the data carries the tags from the start so nothing has to be re-authored.
 - **Citation `url` is optional per presentation**, because some entities (Minfilia) have no safe URL at either checkpoint.
+- **Frozen outcome:** see [schema.md](schema.md). The council review on 2026-11-14 added citation `availableAt` and `scope`, plus the optional-presentation boundary and persistence rules.
 
 ## Open questions
 
