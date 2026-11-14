@@ -63,22 +63,32 @@ Requirements exercised:
 
 ## WE-3 — True in-universe, but not yet player knowledge
 
-**Claims:** C10, C12, C13, C16 · **Edge:** R07
+**Claims:** C10, C12, C13, C16, C26, C27, C28 · **Edges:** R07, R12, R13 · **Rule:** available-content rule (evidence rule 1)
 
-Three cases look alike and resolve differently:
+Four cases look alike and resolve differently:
 
-- **Twins (R07), shown from 2.0.** Lane C first dated the sibling tie to 2.2 from an optional quest. The lead then found it stated outright in a required 2.0 main-scenario quest, *A Hero in the Making* ("the traveling twins, Alphinaud and Alisaie"). The edge starts at `cp-arr-2-0`.
-- **Louisoix as grandfather, omitted.** The required main scenario only has Alphinaud addressing an unnamed "Grandfather" (C12). The explicit statements are in optional Binding Coil quests (C13). The fact is true in-universe at 2.0 but is not guaranteed player knowledge at either checkpoint, so the pilot omits it. That is the narrowing default.
-- **Alphinaud commanding the Crystal Braves (C16), description only.** This starts at 2.4 and effectively ends at the 2.55 betrayal, so no checkpoint falls inside it. It goes in Alphinaud's 2.55 description: *"Founded and led the Crystal Braves, who later turned on the Scions."* It is not an edge.
+- **Twins (R07), shown from 2.0.** Lane C first dated the sibling tie to 2.2 from a Coil quest. The lead found it stated outright in a required 2.0 main-scenario quest, *A Hero in the Making* ("the traveling twins, Alphinaud and Alisaie"). The edge starts at `cp-arr-2-0`.
+- **Alisaie's grandfather (R12), shown from 2.0.** Only optional content says it: *Alisaie's Pledge*. That quest is 2.0 content, and its whole unlock chain (U1) needs nothing beyond *The Ultimate Weapon*, so it counts at `cp-arr-2-0`.
+- **Alphinaud's grandfather (R13), shown from 2.55.** The explicit line is in *Another Turn in the Coil*. Today's game lets a player reach it right after 2.0, but it was released in 2.2, so the release-patch condition puts it at `cp-arr-2-55`. At 2.0 the fact is inferable from R07 + R12, but the Atlas shows only stated facts and never derives edges. Alphinaud's unnamed "Grandfather" address (C12) is not enough either.
+- **Louisoix's fate (C27 → C28), a description change.** At 2.0 he is presumed dead after sealing Bahamut. At 2.55 the player has freed his soul (*Alisaie's Path*, released 2.4).
+
+Alphinaud commanding the Crystal Braves (C16) stays description-only, under evidence rule 3. It begins and ends between the checkpoints.
+
+Draft summaries for Louisoix:
+- **2.0:** *"The twins' grandfather, whose power spared the Warrior of Light at the Calamity; believed lost after sealing Bahamut."*
+- **2.55:** *"... whose soul the Warrior of Light freed from Bahamut."*
 
 Requirements exercised:
 - Separating when something occurred from when the player learns it.
-- Main-scenario-only evidence, which is enforced in review rather than at runtime.
+- The available-content rule, including the release-patch condition, which is enforced in review rather than at runtime.
+- No derived edges: the projection shows only authored edges.
 - The ceiling and view rule: raising the ceiling never changes what an earlier view shows.
 
 | Planned test | Asserts |
 |---|---|
 | `Projection_EdgeVisibleFromFirstCheckpoint` | R07 appears at both 2.0 and 2.55, in both directions (incoming and outgoing labels). |
+| `Projection_EdgeBeginsLaterWithVisibleEndpoints` | R13 is absent at 2.0 although Alphinaud and Louisoix are visible (shared with WE-1). |
+| `Projection_NoDerivedEdges` | At 2.0, Alphinaud's neighbors include Alisaie but not Louisoix, despite R07 + R12. |
 | `Validation_RejectsReverseDuplicateOfSymmetricEdge` | Adding Alisaie → twin-of → Alphinaud alongside R07 is rejected or normalized. |
 | `State_RaisingCeilingDoesNotAdvanceView` | Raising the ceiling from 2.0 to 2.55 leaves the view at 2.0. |
 | `State_LoweringCeilingClampsView` | Ceiling 2.0 forces view 2.0. |
@@ -86,7 +96,7 @@ Requirements exercised:
 
 ## Coverage
 
-All three examples use only the two pilot checkpoints and the 11-entity provisional roster. Together they cover both required changes:
+All three examples use only the two pilot checkpoints and the 12-entity provisional roster. Together they cover both required changes:
 
 - **Description change:** WE-2.
 - **Relationship change:** WE-1.
