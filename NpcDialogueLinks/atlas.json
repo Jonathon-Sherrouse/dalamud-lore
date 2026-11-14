@@ -1,0 +1,1239 @@
+{
+  "schemaVersion": 1,
+  "checkpoints": [
+    {
+      "id": "cp-arr-2-0",
+      "label": "A Realm Reborn — Patch 2.0 complete"
+    },
+    {
+      "id": "cp-arr-2-55",
+      "label": "A Realm Reborn — Patch 2.55 complete"
+    }
+  ],
+  "relationshipTypes": [
+    {
+      "id": "leads",
+      "outgoingLabel": "leads",
+      "incomingLabel": "led by",
+      "symmetric": false
+    },
+    {
+      "id": "member-of",
+      "outgoingLabel": "member of",
+      "incomingLabel": "has member",
+      "symmetric": false
+    },
+    {
+      "id": "twin-of",
+      "outgoingLabel": "twin of",
+      "incomingLabel": "twin of",
+      "symmetric": true
+    },
+    {
+      "id": "grandchild-of",
+      "outgoingLabel": "grandchild of",
+      "incomingLabel": "grandparent of",
+      "symmetric": false
+    },
+    {
+      "id": "headquartered-at",
+      "outgoingLabel": "headquartered at",
+      "incomingLabel": "headquarters of",
+      "symmetric": false
+    },
+    {
+      "id": "controls",
+      "outgoingLabel": "controls",
+      "incomingLabel": "controlled by",
+      "symmetric": false
+    },
+    {
+      "id": "turned-against",
+      "outgoingLabel": "turned against",
+      "incomingLabel": "betrayed by",
+      "symmetric": false
+    },
+    {
+      "id": "conceals",
+      "outgoingLabel": "conceals",
+      "incomingLabel": "concealed by",
+      "symmetric": false
+    }
+  ],
+  "entities": [
+    {
+      "id": "char-minfilia",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Minfilia",
+          "aliases": [
+            "the Antecedent"
+          ],
+          "summary": "Leader of the Scions of the Seventh Dawn, who welcomes you at the Waking Sands. Like you, she has the Echo. She was taken prisoner when imperial forces raided the Waking Sands, and after her rescue from Castrum Centri she leads the Scions again.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Casing the Castrum — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Minfilia",
+          "aliases": [
+            "the Antecedent"
+          ],
+          "summary": "Leader of the Scions of the Seventh Dawn, who has the Echo. She led the Scions' move from the Waking Sands to the Rising Stones in Mor Dhona. When the Scions were accused of plotting the sultana's death at a royal banquet in Ul'dah, she stayed behind during the escape, saying that Hydaelyn was speaking to her. No one has heard from her since.",
+          "citations": [
+            {
+              "title": "The Gifted — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Laying the Foundation — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-thancred",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Thancred",
+          "aliases": [],
+          "summary": "A Scion and bard who serves as the order's man in Ul'dah and briefed your first investigation. During the rescue at Castrum Centri, the Scions learned that the Ascian Lahabrea had possessed him. You freed him from that enthrallment, and he came home with you.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Thancred",
+          "aliases": [],
+          "summary": "A Scion and bard. At the royal banquet in Ul'dah he was arrested and accused of spying for the Garlean Empire. He led the escape through a hidden passage in the palace, then stayed behind with Y'shtola to stop the pursuit so the others could get away. He is unaccounted for.",
+          "citations": [
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-yshtola",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Y'shtola",
+          "aliases": [],
+          "summary": "A Sharlayan Scion who looks after the order's affairs in Limsa Lominsa. She explains how the Scions came to be: after their leader was lost at Carteneau, they sought out Minfilia and others with the Echo. She helped plan the rescue of the Scions captured in the imperial raid.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Casing the Castrum — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Y'shtola",
+          "aliases": [],
+          "summary": "A Sharlayan Scion. When the Scions fled the royal banquet in Ul'dah through a hidden tunnel, she and Thancred stayed behind, and she brought the tunnel down to stop their pursuers. She is unaccounted for.",
+          "citations": [
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-urianger",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Urianger",
+          "aliases": [],
+          "summary": "A learned Sharlayan Scion who presides over the affairs of the Waking Sands. He was among the Scions taken prisoner in the imperial raid, and was freed in the rescue at Castrum Centri.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Casing the Castrum — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Urianger",
+          "aliases": [],
+          "summary": "A learned Sharlayan Scion who once studied under Louisoix. When the Scions moved to the Rising Stones, the Waking Sands was left in his care. After the royal banquet he hid it behind a glamour, so that it now looks like an abandoned storehouse and shelters those fleeing the Crystal Braves.",
+          "citations": [
+            {
+              "title": "An Uninvited Ascian — main scenario quest (2.5)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Gifted — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-alphinaud",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Alphinaud",
+          "aliases": [],
+          "summary": "A young Scion and Alisaie's twin brother. The twins first appear as self-described students of history, touring the city-states' remembrance services. After the raid on the Waking Sands he worked to rebuild the Scions, and he sees their cause as the dream of his grandfather, who gave his life for the realm.",
+          "citations": [
+            {
+              "title": "A Hero in the Making — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Reclamation — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Alphinaud",
+          "aliases": [],
+          "summary": "A young Scion and Alisaie's twin brother. He founded the Crystal Braves to serve all of Eorzea rather than any one nation, and commanded them. At the royal banquet in Ul'dah the Braves turned on him. He escaped, and now blames himself for treating the Braves and even the Scions as pawns in his plans.",
+          "citations": [
+            {
+              "title": "A Hero in the Making — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Brave New Companions — main scenario quest (2.3)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Traitor in the Midst — main scenario quest (2.4)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-alisaie",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Alisaie",
+          "aliases": [],
+          "summary": "Alphinaud's twin sister. She doubts her brother's approach and has set out to find her own way to heal the realm's troubles. Alphinaud says that although she walks her own path, the twins share the same goal.",
+          "citations": [
+            {
+              "title": "A Hero in the Making — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Back from the Wood — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "optional",
+          "name": "Alisaie",
+          "aliases": [],
+          "summary": "Alphinaud's twin sister, a young Scion who walks her own path apart from her brother. She is investigating the Binding Coil of Bahamut, where she believes she saw her grandfather, Louisoix, who is presumed to have died sealing the primal away.",
+          "citations": [
+            {
+              "title": "A Hero in the Making — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Back from the Wood — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "optional"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Alisaie",
+          "aliases": [],
+          "summary": "Alphinaud's twin sister, who walks her own path. She stayed on at the Waking Sands to work with Urianger when the Scions moved to Mor Dhona, and she was not among them at the royal banquet in Ul'dah. Alphinaud believes she was watching over him during his escape.",
+          "citations": [
+            {
+              "title": "A Hero in the Making — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Back from the Wood — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "The Gifted — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "optional",
+          "name": "Alisaie",
+          "aliases": [],
+          "summary": "Alphinaud's twin sister, a young Scion who walks her own path. She learned that the figure she saw in the Binding Coil was only an aetherial shadow of her grandfather, Louisoix, bound to Bahamut. With your help his soul was freed, and she now means to find her own reason to fight for Eorzea. She was not among the Scions at the royal banquet in Ul'dah, and Alphinaud believes she was watching over him during his escape.",
+          "citations": [
+            {
+              "title": "A Hero in the Making — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "optional"
+            },
+            {
+              "title": "Alisaie's Resolve — optional Binding Coil quest (2.2)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "optional"
+            },
+            {
+              "title": "Alisaie's Path — optional Binding Coil quest (2.4)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "optional"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-louisoix",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Louisoix",
+          "aliases": [
+            "Archon Louisoix",
+            "Master Louisoix"
+          ],
+          "summary": "A revered Archon and man of learning. He never returned from the Battle of Carteneau, and the realm's leaders lament the loss of his wisdom. The Scions still speak of his guidance.",
+          "citations": [
+            {
+              "title": "The Lominsan Envoy — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "The Gridanian Envoy — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Reclamation — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "optional",
+          "name": "Louisoix",
+          "aliases": [
+            "Archon Louisoix",
+            "Master Louisoix"
+          ],
+          "summary": "A revered Archon and man of learning, and Alisaie's grandfather. He never returned from the Battle of Carteneau and is presumed dead, having apparently sealed the primal Bahamut away there. Alisaie believes she has seen him alive within the Binding Coil.",
+          "citations": [
+            {
+              "title": "The Lominsan Envoy — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "optional"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Louisoix",
+          "aliases": [
+            "Archon Louisoix",
+            "Master Louisoix"
+          ],
+          "summary": "A Sharlayan sage who founded the Circle of Knowing in the face of fierce opposition and came to Eorzea. Urianger studied under him. His sacrifice during the Calamity spared the realm, and the Scions still hold to his teachings.",
+          "citations": [
+            {
+              "title": "An Uninvited Ascian — main scenario quest (2.5)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Steps of Faith — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "optional",
+          "name": "Louisoix",
+          "aliases": [
+            "Archon Louisoix",
+            "Master Louisoix"
+          ],
+          "summary": "A Sharlayan sage, the twins' grandfather, who founded the Circle of Knowing and came to Eorzea. His sacrifice during the Calamity spared the realm, apparently sealing Bahamut away. The figure Alisaie saw in the Binding Coil was an aetherial shadow of him bound to the primal, and you freed his soul.",
+          "citations": [
+            {
+              "title": "An Uninvited Ascian — main scenario quest (2.5)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Another Turn in the Coil — optional Binding Coil quest (2.2)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "optional"
+            },
+            {
+              "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "optional"
+            },
+            {
+              "title": "Alisaie's Resolve — optional Binding Coil quest (2.2)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "optional"
+            },
+            {
+              "title": "Alisaie's Path — optional Binding Coil quest (2.4)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "optional"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "char-tataru",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "Tataru",
+          "aliases": [],
+          "summary": "The Scions' clerk, who greets visitors at the Waking Sands and keeps the order running smoothly. She was among those taken prisoner in the imperial raid, and was freed in the rescue at Castrum Centri.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Casing the Castrum — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Tataru",
+          "aliases": [],
+          "summary": "The Scions' receptionist, who followed them to their new headquarters at the Rising Stones. She briefly left to train as an arcanist so that she could protect others, but gave it up. After the royal banquet in Ul'dah, Crystal Braves turned on her; Yugiri rescued her, and she sheltered at the glamoured Waking Sands before rejoining you.",
+          "citations": [
+            {
+              "title": "Build on the Stone — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Administrative Decision — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "An Unexpected Ambition — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "org-scions",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "The Scions of the Seventh Dawn",
+          "aliases": [],
+          "summary": "An order that stands apart from the city-states' politics, devoted to preserving Eorzea's future. Minfilia leads it from the Waking Sands in Vesper Bay, and its members include Sharlayans who stayed in Eorzea when their countrymen fled. An imperial raid devastated the order and took several members prisoner, but the Scions rescued them and rebuilt.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Casing the Castrum — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Reclamation — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Scions of the Seventh Dawn",
+          "aliases": [],
+          "summary": "An order devoted to preserving Eorzea's future, led by Minfilia. It moved its headquarters to the Rising Stones in Mor Dhona. At a royal banquet in Ul'dah, its members were accused of plotting to poison the sultana and branded fugitives, and its own Crystal Braves turned on it. Most of those who attended are unaccounted for, and the few who escaped regroup in Coerthas.",
+          "citations": [
+            {
+              "title": "Laying the Foundation — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Build on the Stone — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "org-crystal-braves",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Crystal Braves",
+          "aliases": [],
+          "summary": "A company Alphinaud founded under the Scions, recruiting fighters who serve no single nation, for the sake of a united Eorzea. Alphinaud commanded it, with Captain Ilberd as his second-in-command. At the royal banquet in Ul'dah the Braves turned on the Scions: they detained the Scions' allies, seized the Rising Stones and hunted the fugitives.",
+          "citations": [
+            {
+              "title": "Brave New Companions — main scenario quest (2.3)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Traitor in the Midst — main scenario quest (2.4)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "loc-waking-sands",
+      "category": "location",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": "cp-arr-2-55",
+          "scope": "main",
+          "name": "The Waking Sands",
+          "aliases": [],
+          "summary": "The Scions' headquarters in Vesper Bay, in western Thanalan, where Minfilia receives visitors. Imperial forces raided it and took prisoners, and the Scions later restored it.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            },
+            {
+              "title": "Reclamation — main scenario quest (2.0)",
+              "url": null,
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        },
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Waking Sands",
+          "aliases": [],
+          "summary": "The Scions' former headquarters in Vesper Bay. When they moved to the Rising Stones it passed into Urianger's care. After the royal banquet in Ul'dah, Urianger hid it behind a glamour that makes it look like an abandoned storehouse, and it now shelters those fleeing the Crystal Braves.",
+          "citations": [
+            {
+              "title": "The Gifted — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    },
+    {
+      "id": "loc-rising-stones",
+      "category": "location",
+      "presentations": [
+        {
+          "validFrom": "cp-arr-2-55",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Rising Stones",
+          "aliases": [],
+          "summary": "The Scions' headquarters in Revenant's Toll, Mor Dhona, entered through the Seventh Heaven. They moved there from the Waking Sands. After the royal banquet in Ul'dah, the Crystal Braves took control of it, and now only Braves remain there.",
+          "citations": [
+            {
+              "title": "Laying the Foundation — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Build on the Stone — main scenario quest (2.1)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "The Parting Glass — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            },
+            {
+              "title": "Before the Dawn — main scenario quest (2.55)",
+              "url": null,
+              "availableAt": "cp-arr-2-55",
+              "scope": "main"
+            }
+          ],
+          "review": "pending"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-minfilia-leads-scions",
+      "source": "char-minfilia",
+      "type": "leads",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-thancred-member-scions",
+      "source": "char-thancred",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-yshtola-member-scions",
+      "source": "char-yshtola",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-urianger-member-scions",
+      "source": "char-urianger",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        },
+        {
+          "title": "Casing the Castrum — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-alphinaud-member-scions",
+      "source": "char-alphinaud",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Eyes on Me — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-tataru-member-scions",
+      "source": "char-tataru",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        },
+        {
+          "title": "Casing the Castrum — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-alphinaud-twin-alisaie",
+      "source": "char-alphinaud",
+      "type": "twin-of",
+      "target": "char-alisaie",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "A Hero in the Making — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-scions-hq-waking-sands",
+      "source": "org-scions",
+      "type": "headquartered-at",
+      "target": "loc-waking-sands",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": "cp-arr-2-55",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-braves-control-rising-stones",
+      "source": "org-crystal-braves",
+      "type": "controls",
+      "target": "loc-rising-stones",
+      "validFrom": "cp-arr-2-55",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "The Parting Glass — main scenario quest (2.55)",
+          "url": null,
+          "availableAt": "cp-arr-2-55",
+          "scope": "main"
+        },
+        {
+          "title": "Before the Dawn — main scenario quest (2.55)",
+          "url": null,
+          "availableAt": "cp-arr-2-55",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-braves-turned-against-scions",
+      "source": "org-crystal-braves",
+      "type": "turned-against",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-55",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "The Parting Glass — main scenario quest (2.55)",
+          "url": null,
+          "availableAt": "cp-arr-2-55",
+          "scope": "main"
+        },
+        {
+          "title": "Before the Dawn — main scenario quest (2.55)",
+          "url": null,
+          "availableAt": "cp-arr-2-55",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-urianger-conceals-waking-sands",
+      "source": "char-urianger",
+      "type": "conceals",
+      "target": "loc-waking-sands",
+      "validFrom": "cp-arr-2-55",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Before the Dawn — main scenario quest (2.55)",
+          "url": null,
+          "availableAt": "cp-arr-2-55",
+          "scope": "main"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-alisaie-grandchild-louisoix",
+      "source": "char-alisaie",
+      "type": "grandchild-of",
+      "target": "char-louisoix",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "optional",
+      "citations": [
+        {
+          "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "optional"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-alphinaud-grandchild-louisoix",
+      "source": "char-alphinaud",
+      "type": "grandchild-of",
+      "target": "char-louisoix",
+      "validFrom": "cp-arr-2-55",
+      "validUntil": null,
+      "scope": "optional",
+      "citations": [
+        {
+          "title": "Another Turn in the Coil — optional Binding Coil quest (2.2)",
+          "url": null,
+          "availableAt": "cp-arr-2-55",
+          "scope": "optional"
+        },
+        {
+          "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "optional"
+        }
+      ],
+      "review": "pending"
+    },
+    {
+      "id": "rel-alisaie-member-scions",
+      "source": "char-alisaie",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-arr-2-0",
+      "validUntil": null,
+      "scope": "optional",
+      "citations": [
+        {
+          "title": "Alisaie's Pledge — optional Binding Coil quest (2.0)",
+          "url": null,
+          "availableAt": "cp-arr-2-0",
+          "scope": "optional"
+        }
+      ],
+      "review": "pending"
+    }
+  ]
+}

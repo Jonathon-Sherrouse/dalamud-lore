@@ -1,5 +1,7 @@
 # Atlas discovery evidence matrix (NDL-002)
 
+> **Superseded for NDL-003 by [content-evidence.md](content-evidence.md).** This file is kept as the discovery record.
+>
 > **Status: PROVISIONAL / UNREVIEWED.** Discovery research input for the [Lore Relationship Atlas](../lore-relationship-atlas.md) pilot. This is not accepted canon, it is never packaged, and nothing here is human-reviewed. `NDL-003` completes and reviews the dataset; this file only shows that the fixed pilot can be sourced and gives the schema freeze something to work from.
 
 Researched 2026-11-14. Four parallel research lanes covered the checkpoint anchors, the roster, relationships, and citation safety. The lead reconciled their reports and checked every claim marked **V** against wikitext fetched from the Console Games Wiki MediaWiki API. Rows marked **R** are lane-reported and not yet lead-verified. All passages are fan transcriptions of in-game text. No official Square Enix source could be verified (see [Open questions](#open-questions)).
