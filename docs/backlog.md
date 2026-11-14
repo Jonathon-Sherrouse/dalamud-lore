@@ -6,7 +6,28 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
-No approved stories.
+The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. Execute in the order below; the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
+
+- [ ] `NDL-002` **Research Atlas requirements and build the tested foundation**
+  - Owner: `lead`
+  - Outcome: Source-backed discovery informs a minimal, independently testable Atlas model before real lore is encoded.
+  - Acceptance: Provisional evidence matrix and worked examples under `docs/` establish an 8–12-entity Scions pilot at ARR 2.0/2.55 completion, anchored to terminal quests. Pure production loader/validator/projection and two-control state policy implement the Atlas contract, including draft/strict review modes and conservative recovery. A sibling host-runnable test project uses actual production files and its own lock file. No runtime wiring, packaging, or shipped lore data.
+  - Evidence: Discovery source/claim/checkpoint matrix and traceable synthetic examples; local host tests for spoiler fields/counts, temporal validity/direction, bounds/references, review modes, malformed/missing data, and saved-state recovery; locked restore and plugin build with actual SDK recorded. In-game: not applicable to disconnected pure code. User acceptance recorded separately.
+  - Dependencies: Planning publication on `origin/main`; branch `codex/ndl-002-atlas-foundation`, PR base `main` from refreshed `origin/main`.
+
+- [ ] `NDL-003` **Research and curate the reviewed Scions Atlas dataset**
+  - Owner: `content`
+  - Outcome: The pilot's two historical snapshots contain researched, original, human-reviewed descriptions and relationships.
+  - Acceptance: 8–12 entities, exactly the two approved checkpoints, at least one description and one relationship change, safe names/aliases/citations, complete evidence matrix and readable review sheet, plus actual `NpcDialogueLinks/atlas.json` passing production validation/snapshot tests. Human acceptance precedes the mechanical reviewed-marker commit and strict shippable recheck. Omit/narrow unsupported claims; any necessary pilot-preserving contract correction is one bounded versioned model-plus-tests amendment, explicitly flagged in this PR. No packaging or runtime integration.
+  - Evidence: Web research with claim/source passage/player-knowledge boundary traceability; real-data structural and expected-snapshot tests, human content review, then strict shippable validation before merge. In-game: not applicable to unintegrated content. AI review is not human canon acceptance.
+  - Dependencies: Accepted `NDL-002`; branch `codex/ndl-003-atlas-scions-content`, PR base `main` after NDL-002 merge. Research may overlap after its contract freezes; finalization may not bypass foundation acceptance.
+
+- [ ] `NDL-004` **Deliver the standalone Atlas window and validate it in game**
+  - Owner: `ui`
+  - Outcome: `/npclinks atlas` opens a readable offline relationship browser over the accepted pilot data.
+  - Acceptance: Visible-only search, focus/refocus, directed incoming/outgoing one-hop graph with at most eight canvas neighbors and a complete neighbor list, original details/safe sources, two persisted manual controls, declared minimum window size, and Atlas-only failure recovery. Lead owns Plugin.cs command/help/window lifecycle, configuration, and project packaging. No new Talk hooks, quest/progression inference, bridge, or API dependency. README changes deliberately deferred while unrelated local edits remain; document the command in the Atlas guide/handoff. Update roadmap status on accepted closeout.
+  - Evidence: Host tests on production and real data; locked restore/build; atlas.json in Debug output and Release latest.zip; in-game load/unload/reload, open/close/search/refocus, direction, forward/backward boundaries, state recovery/persistence, sources, minimum/large windows at 100%/150% scale, offline/no-key operation, and malformed/missing-data isolation with dictionary/chat links/Explain intact. Report all lanes and explicit acceptance separately; missing in-game evidence remains pending. Content fixes repeat affected-record validation/review.
+  - Dependencies: Accepted `NDL-002` and `NDL-003`; branch `codex/ndl-004-atlas-window`, PR base `main` after both merges. Lead coordinates integration; no overlapping Plugin.cs edits.
 
 ## In Review
 

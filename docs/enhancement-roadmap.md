@@ -71,6 +71,20 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Add a setting to suppress repeated detections within the same conversation.
 - Add a user ignore list for noisy terms.
 
+## Approved Atlas Pilot
+
+### Lore Relationship Atlas
+
+- The user authorized Part 1 planning publication on 2026-11-14. Exception: the bounded `NDL-002` → `NDL-003` → `NDL-004` pilot may proceed ahead of `Pre-Ship` and `Next Polish Pass`; those items remain open. This is not blanket approval for broader Atlas features.
+- Start with story/source discovery before freezing the contract; build and test the pure foundation, then complete research and human-reviewed data, then implement the window and validate in game. See [backlog.md](backlog.md) for the three approved **To Do** cards and their acceptance dependencies.
+- Pilot: 8–12 English Core Scions entities (characters, organization, supporting locations), two snapshots labeled **ARR 2.0 complete** and **ARR 2.55 complete**, and original sourced checkpoint-specific summaries. Do not reuse live dictionary definitions. Story-event entities are outside this pilot.
+- Open independently with `/npclinks atlas`, focused on one selected entity. Use deterministic labeled, directed connections, at most eight neighbors on the canvas, and a complete visible-neighbor list.
+- Keep detected dictionary clicks and Lore Explain separate. Dictionary membership does not grant Atlas eligibility; ordinary concepts, mechanics, items, duties, currencies, and servers stay dictionary-only.
+- Use **Knowledge approved through** as the confirmed spoiler ceiling and **Viewing as of** as the selected historical snapshot. Checkpoints and filtering belong in the pilot foundation; automatic progression/quest inference remains deferred.
+- Sources, names, aliases, descriptions, and relationships require player-knowledge boundaries and human review. No AI-inferred canon or private feelings. Default category glyphs avoid portrait dependencies.
+- Future **View in Atlas** bridges, dictionary-text reuse, story-event entities, maps, additional groups/checkpoints, and portraits require separately approved stories. They are not pilot slices or current acceptance prerequisites.
+- See [lore-relationship-atlas.md](lore-relationship-atlas.md) for the complete reconciled pilot contract, research order, safety rules, and evidence lanes. This planning publication alone does not start research or implementation or complete the product; update this status only as the actual stories progress.
+
 ## Later Enhancements
 
 ### Dictionary Schema
