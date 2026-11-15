@@ -36,11 +36,12 @@
   svg [role=button]:focus-visible { outline: none; }
   .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; }
   .seg button { border: 0; border-radius: 0; background: transparent; color: var(--muted); padding: 4px 10px; }
-  .seg button.on { background: var(--sel); color: var(--text); }
+  .seg button.on { background: var(--sel); color: var(--text); box-shadow: inset 0 -2px 0 var(--accent); }
   .seg button:focus-visible { outline-offset: -2px; }
-  .body { display: grid; grid-template-columns: 200px 1fr 280px; min-height: 0; }
+  /* Side panes shrink with the window (AtlasChartStyle.Browse and Details limits; render() sets the two widths). */
+  .body { display: grid; grid-template-columns: var(--browse-w, 200px) 1fr var(--details-w, 280px); min-height: 0; }
   /* Changes lens: the change list takes the browse pane and the canvas (docs/atlas/ux-design.md, "v2 lenses"). */
-  .body.changes { grid-template-columns: 1fr 280px; }
+  .body.changes { grid-template-columns: 1fr var(--details-w, 280px); }
   .lensbar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 6px 12px; border-bottom: 1px solid var(--border); background: var(--panel); }
   .lensbar .pos { color: var(--text); font-size: 12px; }
   .lensbar .cov { color: var(--muted); font-size: 12px; font-style: italic; }
@@ -58,9 +59,9 @@
   .changes-list .crow:hover { background: var(--panel-2); }
   .changes-list .crow.selected { background: var(--sel); }
   .mark { width: 14px; flex: none; color: var(--muted); text-align: center; }
-  .status { display: flex; gap: 6px; align-items: baseline; font-size: 12px; color: var(--muted); margin: 0 0 8px;
+  .status { display: flex; gap: 6px; align-items: baseline; font-size: 12px; color: var(--accent); margin: 0 0 8px;
     padding-bottom: 4px; border-bottom: 1px solid var(--border); }
-  .status .mark { color: var(--text); font-weight: 600; width: auto; }
+  .status .mark { color: inherit; font-weight: 600; width: auto; }
   .browse, .details { background: var(--panel); overflow: auto; padding: 10px; min-height: 0; }
   .browse { border-right: 1px solid var(--border); }
   .details { border-left: 1px solid var(--border); }
@@ -115,6 +116,10 @@
   svg .edge.selected { stroke: var(--accent); stroke-width: 2.2px; }
   svg .head { fill: var(--edge); }
   svg .head.selected { fill: var(--accent); }
+  /* The edge of a hovered or keyboard-focused label. */
+  svg .edge.hot { stroke: var(--hover); }
+  svg .head.hot { fill: var(--hover); }
+  svg .leader { stroke: var(--muted); stroke-opacity: .6; stroke-width: 1px; }
   svg .edge-hit { stroke: transparent; stroke-width: 10px; fill: none; cursor: pointer; }
   /* Arc lens: a cast member's participation spoke to the arc entry: faint, unlabelled, not clickable. */
   svg .edge.spoke { stroke: var(--evt); stroke-opacity: .28; stroke-width: 1px; }
@@ -249,69 +254,103 @@ const hitsRect = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a
 const hitsDisc = (b, c) => { const x = Math.max(b.x0, Math.min(c.x, b.x1)), y = Math.max(b.y0, Math.min(c.y, b.y1)); return (x - c.x) ** 2 + (y - c.y) ** 2 < c.r * c.r; };
 const plate = b => `<rect class="plate" x="${b.x0}" y="${b.y0}" width="${b.x1 - b.x0}" height="${b.y1 - b.y0}" rx="2"/>`;
 
+// Area of overlap between two boxes (0 when apart), for scoring a label candidate that is never fully clear.
+const overlap = (a, b) => Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) * Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+
 function chartSvg(L, W, H) {
   const C = state.chartStyle, S = state.portraitStyle, wholeCast = !!state.arc?.wholeCast;
   const cx = W / 2, cy = H / 2, ring = Math.min(W, H) * C.ringFraction;
   const ringCount = L.nodes.filter(n => !n.isFocus).length;
-  const chord = ringCount >= 3 ? 2 * ring * Math.sin(Math.PI / ringCount) : Infinity;
-  const ringNameMax = Math.min(C.nameMaxWidth, chord - 8);
+  // A ring name fits the gap between ring neighbours; with fewer than 3 there is no such gap to respect.
+  const ringNameMax = ringCount >= 3 ? Math.min(C.nameMaxWidth, 2 * ring * Math.sin(Math.PI / ringCount) - 8) : C.fewNodesNameMaxWidth;
 
-  // Nodes: position, radius and name plate.
+  // Nodes: position, radius, edge extent (the shape's outline: a diamond or hexagon reaches past its radius) and the
+  // obstacle disc labels and the centre name keep clear of (a portrait's covers its badge).
   const geo = {};
   for (const n of L.nodes) {
     const x = cx + n.x * ring, y = cy + n.y * ring;
     const r = n.hasPortrait
       ? Math.max(ring * (n.isFocus ? S.focusRadius : S.nodeRadius), n.isFocus ? S.minFocusPixels : S.minNodePixels)
       : (n.isFocus ? 16 : 11);
-    const bold = n.isFocus;
-    const name = truncate(n.name, n.isFocus ? Math.min(C.centreNameMaxWidth, C.centreNameRingWidth * ring) : ringNameMax, NAME_PX, bold);
-    const w = textWidth(name, NAME_PX, bold) + 2 * NAME_PAD;
-    // Names sit outside the ring: above a node in the upper half, below it otherwise; the centre's below.
-    const above = !n.isFocus && n.y < -0.01;
-    const y0 = above ? y - r - C.clearance - PLATE_H : y + r + C.clearance;
-    geo[n.id] = { n, x, y, r, name, bold, plate: { x0: x - w / 2, y0, x1: x + w / 2, y1: y0 + PLATE_H } };
+    const ext = n.hasPortrait ? r : r * (n.glyph === "diamond" ? C.diamondExtent : n.glyph === "hexagon" ? C.hexagonExtent : 1);
+    const disc = { x, y, r: (n.hasPortrait && n.portrait ? r * C.portraitObstacleScale : ext) + C.clearance };
+    geo[n.id] = { n, x, y, r, ext, disc, bold: n.isFocus };
+  }
+  // Names sit outside the ring: above a node in the upper half, below it otherwise; the centre's below.
+  const setName = (g, max) => {
+    g.name = truncate(g.n.name, max, NAME_PX, g.bold);
+    const w = textWidth(g.name, NAME_PX, g.bold) + 2 * NAME_PAD;
+    const y0 = !g.n.isFocus && g.n.y < -0.01 ? g.y - g.r - C.clearance - PLATE_H : g.y + g.r + C.clearance;
+    g.plate = { x0: g.x - w / 2, y0, x1: g.x + w / 2, y1: y0 + PLATE_H };
+    g.namebox = inflate(g.plate, C.clearance); // the name as an obstacle
+  };
+  const all = Object.values(geo), ringGeo = all.filter(g => !g.n.isFocus);
+  for (const g of ringGeo) setName(g, ringNameMax);
+  // The centre name, after the ring's: narrowed 10 px at a time while it runs into a ring node or name.
+  for (const g of all.filter(g => g.n.isFocus)) {
+    let cap = Math.min(C.centreNameMaxWidth, C.centreNameRingWidth * ring);
+    setName(g, cap);
+    while (ringGeo.some(o => hitsDisc(g.namebox, o.disc) || hitsRect(g.namebox, o.namebox)) && cap > C.centreNameMinWidth) {
+      cap -= 10;
+      setName(g, cap);
+    }
   }
 
-  // Edges: endpoints clear of each node, parallel edges in lanes, arrowheads as filled triangles.
+  // Edges: endpoints clear of each node's outline, parallel edges in lanes, arrowheads as filled triangles.
   let edges = "", labels = "";
   const sel = state.selectedRelationship?.id;
   const placed = [];
-  const obstacles = Object.values(geo);
-  const blocked = box => obstacles.some(g => hitsDisc(box, { x: g.x, y: g.y, r: g.r + C.clearance }) || hitsRect(box, inflate(g.plate, C.clearance)))
-    || placed.some(p => hitsRect(box, p));
+  const k = PLATE_H + C.clearance;
+  const clear = box => { const b = inflate(box, C.clearance);
+    return !all.some(g => hitsDisc(b, g.disc) || hitsRect(b, g.namebox)) && !placed.some(p => hitsRect(b, p)); };
+  const score = box => all.reduce((s, g) => s + overlap(box, g.namebox) * C.nameOverlapWeight
+      + overlap(box, { x0: g.disc.x - g.disc.r, y0: g.disc.y - g.disc.r, x1: g.disc.x + g.disc.r, y1: g.disc.y + g.disc.r }) * C.nodeOverlapWeight, 0)
+    + placed.reduce((s, p) => s + overlap(box, p) * C.labelOverlapWeight, 0);
   for (const e of L.edges) {
     const a = geo[e.fromId], b = geo[e.toId];
     const dx = b.x - a.x, dy = b.y - a.y, len = Math.max(Math.hypot(dx, dy), 1);
     const ux = dx / len, uy = dy / len, nx = -uy, ny = ux;
     const lane = (e.laneIndex - (e.laneCount - 1) / 2) * 0.12 * ring;
-    const x1 = a.x + ux * (a.r + EDGE_GAP) + nx * lane, y1 = a.y + uy * (a.r + EDGE_GAP) + ny * lane;
-    const x2 = b.x - ux * (b.r + EDGE_GAP) + nx * lane, y2 = b.y - uy * (b.r + EDGE_GAP) + ny * lane;
+    const x1 = a.x + ux * (a.ext + EDGE_GAP) + nx * lane, y1 = a.y + uy * (a.ext + EDGE_GAP) + ny * lane;
+    const x2 = b.x - ux * (b.ext + EDGE_GAP) + nx * lane, y2 = b.y - uy * (b.ext + EDGE_GAP) + ny * lane;
     const line = `x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"`;
     // Faint, unlabelled spokes on the whole-cast chart only (D8); a refocused one-hop graph draws them as normal edges.
     if (e.participation && wholeCast) { edges += `<line class="edge spoke" ${line}/>`; continue; }
-    const isSel = e.relationshipId === sel ? " selected" : "";
-    edges += `<line class="edge${isSel}${e.optional ? " optional" : ""}" ${line}/>`;
+    const isSel = e.relationshipId === sel ? " selected" : "", rel = esc(e.relationshipId);
+    edges += `<line class="edge${isSel}${e.optional ? " optional" : ""}" data-edge="${rel}" ${line}/>`;
     if (!e.symmetric) {
       const bx = x2 - ux * 8, by = y2 - uy * 8;
-      edges += `<polygon class="head${isSel}" points="${x2},${y2} ${bx + nx * 4},${by + ny * 4} ${bx - nx * 4},${by - ny * 4}"/>`;
+      edges += `<polygon class="head${isSel}" data-edge="${rel}" points="${x2},${y2} ${bx + nx * 4},${by + ny * 4} ${bx - nx * 4},${by - ny * 4}"/>`;
     }
-    edges += `<line class="edge-hit" data-rel="${esc(e.relationshipId)}" ${line}/>`;
+    edges += `<line class="edge-hit" data-rel="${rel}" ${line}/>`;
 
-    // Label: the first fraction along the edge whose box clears every node, name and earlier label; else the middle.
+    // Label: the first clear candidate (each fraction along the edge, on it then to either side); else the least
+    // weighted overlap, earliest on a tie. An off-edge label gets a leader line back to its edge, under the plate.
     const w = textWidth(e.label, LABEL_PX) + 2 * LABEL_PAD;
-    const boxAt = t => { const px = x1 + (x2 - x1) * t, py = y1 + (y2 - y1) * t; return { x0: px - w / 2, y0: py - PLATE_H / 2, x1: px + w / 2, y1: py + PLATE_H / 2 }; };
-    let box = null;
-    for (const t of C.labelPositions) { const b2 = boxAt(t); if (!blocked(inflate(b2, C.clearance))) { box = b2; break; } }
-    box ??= boxAt(0.5);
+    let best = null;
+    search: for (const t of C.labelPositions) for (const o of C.labelOffsets) {
+      const px = x1 + (x2 - x1) * t + nx * o * k, py = y1 + (y2 - y1) * t + ny * o * k;
+      const box = { x0: px - w / 2, y0: py - PLATE_H / 2, x1: px + w / 2, y1: py + PLATE_H / 2 };
+      if (clear(box)) { best = { box, t, o }; break search; }
+      const sc = score(box);
+      if (!best || sc < best.sc) best = { box, t, o, sc };
+    }
+    const box = best.box;
     placed.push(box);
-    const tip = e.optional ? `<title>${esc(state.text.optionalTooltip)}</title>` : "";
-    labels += `<g class="elabel${isSel}" data-rel="${esc(e.relationshipId)}" ${BTN}>${tip}${plate(box)}`
+    let leader = "";
+    if (best.o !== 0) {
+      const qx = x1 + (x2 - x1) * best.t, qy = y1 + (y2 - y1) * best.t;
+      leader = `<line class="leader" x1="${qx}" y1="${qy}" x2="${Math.max(box.x0, Math.min(qx, box.x1))}" y2="${Math.max(box.y0, Math.min(qy, box.y1))}"/>`;
+    }
+    const sentence = `${a.n.name} ${e.label} ${b.n.name}`;
+    const tip = `<title>${esc(sentence)}${e.optional ? "\n" + esc(state.text.optionalTooltip) : ""}</title>`;
+    labels += `<g class="elabel${isSel}" data-rel="${rel}" aria-label="${esc(sentence)}" ${BTN}>${tip}${leader}${plate(box)}`
       + `<text x="${(box.x0 + box.x1) / 2}" y="${(box.y0 + box.y1) / 2}" text-anchor="middle" dominant-baseline="central">${esc(e.label)}</text></g>`;
   }
 
   // Nodes on top. A focused node only refocuses on the whole-cast chart (L4), as in the in-game window.
   let nodes = "";
-  for (const g of Object.values(geo)) {
+  for (const g of all) {
     const n = g.n, r = g.r, round = !!n.portrait || !["square", "diamond", "hexagon"].includes(n.glyph);
     const body = n.portrait ? portraitParts(n.portrait, n.glyph, r, true) : nodeShape(n.glyph, n.hasPortrait ? r * 0.8 : r);
     const ring = (rr, cls) => round ? `<circle class="${cls}" r="${rr}"/>` : nodeShape(n.glyph, rr, cls, "none");
@@ -319,13 +358,26 @@ function chartSvg(L, W, H) {
     const outline = (n.isFocus ? ring(r + 3, "fo") : "") + (clickable ? ring(r + (n.isFocus ? 6 : 2), "ho") : "");
     const p = g.plate, lx = (p.x0 + p.x1) / 2 - g.x, ly = (p.y0 + p.y1) / 2 - g.y;
     nodes += `<g class="node${n.isFocus ? " focus" : ""}"${clickable ? ` data-focus="${esc(n.id)}" ${BTN}` : ""} aria-label="${esc(n.name)}" transform="translate(${g.x},${g.y})">`
-      + `<title>${esc(n.name)}</title>${body}${outline}`
+      // A portrait's focus and hover rings go under it, so they never cross its badge.
+      + `<title>${esc(n.name)}</title>${n.portrait ? outline + body : body + outline}`
       + plate({ x0: p.x0 - g.x, y0: p.y0 - g.y, x1: p.x1 - g.x, y1: p.y1 - g.y })
       + `<text class="name" x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="central"${g.bold ? ' font-weight="bold"' : ""}>${esc(g.name)}</text></g>`;
   }
   const label = state.focus?.name ?? state.arc?.view?.entry.name ?? "";
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} connections">${edges}${labels}${nodes}</svg>`;
 }
+
+// Hovering or keyboard-focusing a label lights its edge and arrowhead. Delegated: the chart redraws on resize.
+// Re-checked after the event settles, so leaving by mouse keeps it lit while the label still has keyboard focus.
+function lightEdge(e) {
+  const g = e.target.closest?.("svg .elabel[data-rel]");
+  if (!g) return;
+  setTimeout(() => {
+    const on = document.contains(g) && (g.matches(":hover") || g.contains(document.activeElement));
+    g.ownerSVGElement?.querySelectorAll(`[data-edge="${CSS.escape(g.dataset.rel)}"]`).forEach(el => el.classList.toggle("hot", on));
+  });
+}
+for (const type of ["mouseover", "mouseout", "focusin", "focusout"]) document.addEventListener(type, lightEdge);
 
 // Draws the chart into <main> at its current pixel size. Called after each render and when <main> resizes.
 function drawChart(force = true) {
@@ -365,13 +417,14 @@ function details() {
       <span class="rel" data-rel="${esc(n.relationshipId)}" ${BTN}>${esc(n.label)}</span>
       <span>${who(n.entityId, n.entityName)}${optTag(n.optional)}${n.onCanvas ? "" : ` <span class="help">${esc(t.listOnly)}</span>`}</span></div>`;
   }).join("");
-  const card = selectedCard();
   const aliases = f.aliases.length ? " · " + f.aliases.map(esc).join(", ") : "";
   const back = state.arc?.view ? `<button data-wholecast>← ${esc(t.wholeCast)}</button><div style="height:8px"></div>` : "";
-  return `${back}${header(f, aliases)}
+  // The selected connection's card leads the pane, as in the Arc panel, so picking an edge never needs a scroll.
+  const card = state.selectedRelationship ? `${selectedCard()}<div style="height:10px"></div>` : "";
+  return `${back}${card}${header(f, aliases)}
     <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>
     ${sources(f.citations, f.sourcesLabel)}
-    <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}${card}`;
+    <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}`;
 }
 
 // An entity's heading: a large portrait beside the name and category when it has one (NDL-011), else the shape.
@@ -434,9 +487,18 @@ function changeDetails() {
   return `${status}<div class="card"><div>${relRow(r, false)}</div>${sources(r.citations, r.sourcesLabel)}${ending}</div>`;
 }
 
+// Pane scroll positions survive ordinary actions (picking a row, opening Sources), as ImGui child windows do. They
+// reset only when the lens, view or content view changes, which rebuilds what the panes show.
+let renderedContext = null;
+const SCROLL_REGIONS = ["browse", "details", "changes"];
+
 function render() {
   const root = $("#root");
   const key = focusKey();
+  const scrolls = Object.fromEntries(SCROLL_REGIONS.map(r => [r, $(`[data-region="${r}"]`)?.scrollTop ?? 0]));
+  const context = state.ok ? `${state.lens}|${state.checkpoints.find(c => c.isView)?.id}|${state.contentView}` : null;
+  const keepScroll = context !== null && context === renderedContext;
+  renderedContext = context;
   if (!state.ok) {
     root.innerHTML = `<div class="error"><h2>Lore Atlas</h2><p>${esc(state.error)}</p>
       <p class="help">Details are printed in the viewer's terminal.</p><button id="reload">Reload data</button></div>`;
@@ -450,18 +512,19 @@ function render() {
   const menu = limitMenuOpen ? `<div class="menu">${state.checkpoints.map(c => c.isCeiling
       ? `<button class="current" disabled>✓ ${esc(c.label)}</button>`
       : `<button data-ceiling="${esc(c.id)}">${esc(c.label)}</button>`).join("")}</div>` : "";
-  const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}">${esc(v.label)}</button>`).join("");
+  const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}" aria-pressed="${v.id === state.contentView}">${esc(v.label)}</button>`).join("");
   const groups = noArc ? "" : state.groups.length
     ? state.groups.map(g => `<div class="grp">${esc(g.label.toUpperCase())}</div>` + g.entries.map(e =>
         `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" ${BTN} title="${esc(e.name)}">${e.portrait ? mark(e.glyph, e.portrait, 18) : glyphSvg(e.glyph)}<span class="name">${esc(e.name)}</span></div>`).join("")).join("")
     : `<p class="help">${esc(t.noResults)}</p>`;
-  const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}">${esc(l.label)}</button>`).join("");
+  const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}" aria-pressed="${l.isCurrent}">${esc(l.label)}</button>`).join("");
   const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${state.arc.picker.map(o =>
       `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}</option>`).join("")}</select>` : "";
   // The arc lens with no arc: the browse pane is empty apart from the picker (v2 States).
   const searchBox = noArc ? "" : `<input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">`;
   const resetNotice = state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : "";
-  root.innerHTML = `<div class="win">
+  const C = state.chartStyle, pane = (f, lo, hi) => `clamp(${lo}px, ${f * 100}vw, ${hi}px)`;
+  root.innerHTML = `<div class="win" style="--browse-w: ${pane(C.browseFraction, C.browseMin, C.browseMax)}; --details-w: ${pane(C.detailsFraction, C.detailsMin, C.detailsMax)}">
     <div class="bar" data-region="bar">
       <span class="title">${esc(t.title)}</span>
       <span><label class="lbl" for="view">${esc(t.viewLabel)}</label><select id="view">${viewOpts}</select></span>
@@ -520,7 +583,13 @@ function render() {
   const main = $("main[data-region=chart]");
   drawChart(true);
   if (main) chartObserver.observe(main);
+  if (keepScroll) {
+    for (const r of SCROLL_REGIONS) { const el = $(`[data-region="${r}"]`); if (el) el.scrollTop = scrolls[r]; }
+  }
   restoreFocus(key);
+  // Keep a keyboard-focused row visible without jumping the pane.
+  const focused = document.activeElement;
+  if (focused && focused.closest(SCROLL_REGIONS.map(r => `[data-region="${r}"]`).join(","))) focused.scrollIntoView({ block: "nearest" });
   // The raise confirmation takes focus when it opens.
   if (state.pendingCeiling && !document.activeElement?.closest(".modal")) $("#cancel").focus();
 }

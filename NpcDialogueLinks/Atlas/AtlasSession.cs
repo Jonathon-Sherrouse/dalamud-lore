@@ -10,7 +10,10 @@ public static class AtlasText
     public const string WindowTitle = "Lore Atlas";
     public const string CeilingLabel = "Spoiler limit";
     public const string ViewLabel = "Viewing as of";
-    public const string ContentViewHelp = "Includes optional story content available by the selected story point.";
+    /// <summary>The footer under the panes, which describes the content view in use (council round 2).</summary>
+    public static string ContentViewHelp(AtlasContentView view) => view == AtlasContentView.MainStory
+        ? "Shows main story content only."
+        : "Includes optional story content available by the selected story point.";
     public const string ExternalLinkWarning = "External pages may contain later spoilers. The Atlas only filters what it shows itself.";
     public const string EmptyFocus = "Search or pick an entry to see its connections.";
     public const string NoResults = "No matching entries at this point in the story.";

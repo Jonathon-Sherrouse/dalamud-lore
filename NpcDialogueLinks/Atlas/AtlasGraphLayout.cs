@@ -72,8 +72,55 @@ public static class AtlasChartStyle
     /// <summary>The centre name is also capped to this many ring radii, so in a small window it stays clear of the ring.</summary>
     public const double CentreNameRingWidth = 1.6;
 
+    /// <summary>A ring name's width cap when there are too few ring members (under 3) for a neighbour gap to apply.</summary>
+    public const int FewNodesNameMaxWidth = 200;
+
     /// <summary>Clearance kept around nodes, names and labels when placing a label, in unscaled pixels.</summary>
     public const int Clearance = 3;
+
+    /// <summary>
+    /// Where a label may sit across its edge, in steps of one plate height plus <see cref="Clearance"/> along the edge's
+    /// normal: on the edge first, then to either side. An off-edge label gets a short leader line back to its edge.
+    /// Candidates are tried for each fraction in <see cref="LabelPositions"/>, all offsets of one fraction before the next.
+    /// </summary>
+    public static readonly int[] LabelOffsets = [0, 1, -1];
+
+    /// <summary>
+    /// When no candidate is clear, the label takes the one with the least weighted overlap. A name plate weighs most, so
+    /// a label never covers a name while any other choice exists; then nodes and other labels.
+    /// </summary>
+    public const double NameOverlapWeight = 4;
+
+    public const double NodeOverlapWeight = 3;
+
+    public const double LabelOverlapWeight = 3;
+
+    /// <summary>A portrait node's obstacle radius, relative to its radius, so its category badge is covered too.</summary>
+    public const double PortraitObstacleScale = 1.1;
+
+    /// <summary>How far a shape reaches from its centre, relative to its radius, so edges and arrowheads stop at its outline.</summary>
+    public const double DiamondExtent = 1.25;
+
+    public const double HexagonExtent = 1.15;
+
+    /// <summary>The centre name is shortened until its plate clears every ring node and name, but never below this width.</summary>
+    public const int CentreNameMinWidth = 40;
+
+    /// <summary>
+    /// Side-pane widths (unscaled pixels) as a fraction of the window's content width, clamped, so a small window
+    /// gives its width to the chart (council round 2): browse 20% within 150–200, details 28% within 220–280.
+    /// </summary>
+    public const double BrowseFraction = 0.2;
+
+    public const int BrowseMin = 150;
+
+    public const int BrowseMax = 200;
+
+    public const double DetailsFraction = 0.28;
+
+    public const int DetailsMin = 220;
+
+    public const int DetailsMax = 280;
 }
 
 /// <summary>

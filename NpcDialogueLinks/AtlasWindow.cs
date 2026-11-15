@@ -159,8 +159,10 @@ internal sealed class AtlasWindow : Window
 
         var footerHeight = ImGui.GetTextLineHeightWithSpacing() + (ImGui.GetStyle().ItemSpacing.Y * 2);
         var bodyHeight = Math.Max(ImGui.GetContentRegionAvail().Y - footerHeight, 100 * scale);
-        var browseWidth = 200 * scale;
-        var detailsWidth = 280 * scale;
+        // Side panes give width to the chart in a small window (AtlasChartStyle), as the viewer's clamp() columns do.
+        var contentWidth = ImGui.GetContentRegionAvail().X;
+        var browseWidth = Math.Clamp(contentWidth * (float)AtlasChartStyle.BrowseFraction, AtlasChartStyle.BrowseMin * scale, AtlasChartStyle.BrowseMax * scale);
+        var detailsWidth = Math.Clamp(contentWidth * (float)AtlasChartStyle.DetailsFraction, AtlasChartStyle.DetailsMin * scale, AtlasChartStyle.DetailsMax * scale);
         var spacing = ImGui.GetStyle().ItemSpacing.X;
         var graphWidth = Math.Max(ImGui.GetContentRegionAvail().X - browseWidth - detailsWidth - (spacing * 2), 120 * scale);
 
@@ -220,7 +222,7 @@ internal sealed class AtlasWindow : Window
             }
         }
 
-        ImGui.TextColored(MutedColor, AtlasText.ContentViewHelp);
+        ImGui.TextColored(MutedColor, AtlasText.ContentViewHelp(s.ContentView));
 
         this.DrawConfirmModal(s);
     }
@@ -249,6 +251,7 @@ internal sealed class AtlasWindow : Window
         ImGui.TextUnformatted(s.PositionLabel);
         if (s.CoverageNote is { } coverage)
         {
+            SameLineIfFits(ImGui.CalcTextSize(coverage).X, 16 * ImGuiHelpers.GlobalScale);
             ImGui.PushTextWrapPos();
             ImGui.TextColored(MutedColor, coverage);
             ImGui.PopTextWrapPos();
@@ -328,6 +331,10 @@ internal sealed class AtlasWindow : Window
             }
         }
 
+        // The Content group shares the row when it fits, as in the viewer.
+        var contentGroup = ImGui.CalcTextSize(AtlasText.ContentLabel).X + new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory }
+            .Sum(v => ImGui.CalcTextSize(AtlasText.ContentViewLabel(v)).X + (ImGui.GetStyle().FramePadding.X * 2) + spacing);
+        SameLineIfFits(contentGroup, 20 * scale);
         ImGui.AlignTextToFramePadding();
         ImGui.TextColored(MutedColor, AtlasText.ContentLabel);
         foreach (var contentView in new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory })
@@ -455,6 +462,7 @@ internal sealed class AtlasWindow : Window
         var focusRadius = 16 * scale;
         var nodeRadius = 11 * scale;
         var gap = AtlasChartStyle.Clearance * scale;
+        var inflate = new Vector2(gap, gap);
         Vector2 Pos(AtlasGraphNode n) => center + (new Vector2((float)n.X, (float)n.Y) * ring);
         var positions = layout.Nodes.ToDictionary(n => n.Entity.Id, Pos, StringComparer.Ordinal);
 
@@ -465,34 +473,75 @@ internal sealed class AtlasWindow : Window
                 (float)((n.IsFocus ? AtlasPortraitStyle.FocusRadius : AtlasPortraitStyle.NodeRadius) * ring),
                 (n.IsFocus ? AtlasPortraitStyle.MinFocusPixels : AtlasPortraitStyle.MinNodePixels) * scale);
         var radii = layout.Nodes.ToDictionary(n => n.Entity.Id, Radius, StringComparer.Ordinal);
+
+        // How far a node reaches: a shape's outline (diamonds and hexagons reach past the radius), or the portrait's circle.
+        float Extent(AtlasGraphNode n) => radii[n.Entity.Id] * (n.Entity.Portrait is not null ? 1f : AtlasText.CategoryGlyph(n.Entity.Category) switch
+        {
+            AtlasGlyph.Diamond => (float)AtlasChartStyle.DiamondExtent,
+            AtlasGlyph.Hexagon => (float)AtlasChartStyle.HexagonExtent,
+            _ => 1f,
+        });
+        var extents = layout.Nodes.ToDictionary(n => n.Entity.Id, Extent, StringComparer.Ordinal);
         var selectedId = s.SelectedRelationshipId;
         var edgeColor = ImGui.GetColorU32(EdgeColor);
         var accent = ImGui.GetColorU32(AccentColor);
         var spokeColor = ImGui.GetColorU32(EventColor with { W = 0.28f });
         var wholeCast = s.ShowsWholeCast;
 
+        // Obstacles for label placement: each node (a portrait's covers its badge) and, below, each name plate.
+        var discs = layout.Nodes.Select(n => (
+            Center: positions[n.Entity.Id],
+            Radius: (n.Entity.Portrait is not null ? radii[n.Entity.Id] * (float)AtlasChartStyle.PortraitObstacleScale : extents[n.Entity.Id]) + gap,
+            IsFocus: n.IsFocus)).ToList();
+
         // Names sit outside the ring (above a node in the upper half, below it otherwise), so chords never cross them,
-        // truncated to the gap between ring neighbours (AtlasChartStyle).
+        // truncated to the gap between ring neighbours (AtlasChartStyle). The centre name is placed last and shortened
+        // until it clears every ring node and ring name.
         var ringCount = layout.Nodes.Count(n => !n.IsFocus);
-        var chord = ringCount >= 3 ? (float)(2 * ring * Math.Sin(Math.PI / ringCount)) - (8 * scale) : float.MaxValue;
+        var ringNameMax = ringCount >= 3
+            ? Math.Min(AtlasChartStyle.NameMaxWidth * scale, (float)(2 * ring * Math.Sin(Math.PI / ringCount)) - (8 * scale))
+            : AtlasChartStyle.FewNodesNameMaxWidth * scale;
         var names = new Dictionary<string, (string Text, bool Truncated, Vector2 Min, Vector2 Max)>(StringComparer.Ordinal);
-        foreach (var node in layout.Nodes)
+        (string Text, bool Truncated, Vector2 Min, Vector2 Max) NamePlate(AtlasGraphNode node, float maxWidth)
         {
             var p = positions[node.Entity.Id];
             var r = radii[node.Entity.Id];
-            var maxWidth = node.IsFocus
-                ? Math.Min(AtlasChartStyle.CentreNameMaxWidth * scale, (float)(AtlasChartStyle.CentreNameRingWidth * ring))
-                : Math.Min(AtlasChartStyle.NameMaxWidth * scale, chord);
             var text = Truncate(node.Entity.Name, maxWidth, out var truncated);
             var textSize = ImGui.CalcTextSize(text);
             var above = !node.IsFocus && node.Y < -0.01;
             var top = above ? p.Y - r - (3 * scale) - textSize.Y : p.Y + r + (3 * scale);
             var min = new Vector2(p.X - (textSize.X / 2) - (2 * scale), top);
-            names[node.Entity.Id] = (text, truncated, min, min + textSize + new Vector2(4 * scale, 0));
+            return (text, truncated, min, min + textSize + new Vector2(4 * scale, 0));
+        }
+
+        foreach (var node in layout.Nodes.Where(n => !n.IsFocus))
+        {
+            names[node.Entity.Id] = NamePlate(node, ringNameMax);
+        }
+
+        foreach (var node in layout.Nodes.Where(n => n.IsFocus))
+        {
+            var cap = Math.Min(AtlasChartStyle.CentreNameMaxWidth * scale, (float)(AtlasChartStyle.CentreNameRingWidth * ring));
+            var plate = NamePlate(node, cap);
+            bool Collides((string Text, bool Truncated, Vector2 Min, Vector2 Max) candidate)
+            {
+                var box = (candidate.Min - inflate, candidate.Max + inflate);
+                return discs.Any(d => !d.IsFocus && RectHitsCircle(box, d.Center, d.Radius))
+                    || names.Values.Any(n => RectsOverlap(box, (n.Min, n.Max)));
+            }
+
+            while (Collides(plate) && cap > AtlasChartStyle.CentreNameMinWidth * scale)
+            {
+                cap -= 10 * scale;
+                plate = NamePlate(node, cap);
+            }
+
+            names[node.Entity.Id] = plate;
         }
 
         // Edges first, then labels and nodes on top.
-        var labels = new List<(Vector2 P1, Vector2 P2, string Text, string RelationshipId, bool Selected, bool Optional)>();
+        var labels = new List<(Vector2 P1, Vector2 P2, Vector2 Normal, bool Arrow, string Text, string Sentence, string RelationshipId, bool Selected, bool Optional)>();
+        var nodesById = layout.Nodes.ToDictionary(n => n.Entity.Id, StringComparer.Ordinal);
         foreach (var edge in layout.Edges)
         {
             var a = positions[edge.FromId];
@@ -502,8 +551,8 @@ internal sealed class AtlasWindow : Window
             var dir = delta / length;
             var normal = new Vector2(-dir.Y, dir.X);
             var lane = (float)((edge.LaneIndex - ((edge.LaneCount - 1) / 2.0)) * 0.12 * ring);
-            var p1 = a + (dir * (radii[edge.FromId] + (4 * scale))) + (normal * lane);
-            var p2 = b - (dir * (radii[edge.ToId] + (4 * scale))) + (normal * lane);
+            var p1 = a + (dir * (extents[edge.FromId] + (4 * scale))) + (normal * lane);
+            var p2 = b - (dir * (extents[edge.ToId] + (4 * scale))) + (normal * lane);
 
             // D8: on the whole-cast chart a participation spoke is a faint line with no label, arrow or click target.
             if (edge.IsParticipation && wholeCast)
@@ -513,54 +562,64 @@ internal sealed class AtlasWindow : Window
             }
 
             var selected = edge.Relationship.Id == selectedId;
-            var color = selected ? accent : edgeColor;
-            var thickness = (selected ? 2.2f : 1.4f) * scale;
-
-            if (edge.Relationship.IsOptional)
-            {
-                DrawDashedLine(drawList, p1, p2, color, thickness, 6 * scale, 4 * scale);
-            }
-            else
-            {
-                drawList.AddLine(p1, p2, color, thickness);
-            }
-
-            if (!edge.Symmetric)
-            {
-                var tip = p2;
-                var back = tip - (dir * 8 * scale);
-                drawList.AddTriangleFilled(tip, back + (normal * 4 * scale), back - (normal * 4 * scale), color);
-            }
-
-            labels.Add((p1, p2, edge.Label, edge.Relationship.Id, selected, edge.Relationship.IsOptional));
+            DrawEdge(drawList, p1, p2, normal, !edge.Symmetric, edge.Relationship.IsOptional, selected ? accent : edgeColor, (selected ? 2.2f : 1.4f) * scale);
+            var sentence = $"{nodesById[edge.FromId].Entity.Name} {edge.Label} {nodesById[edge.ToId].Entity.Name}";
+            labels.Add((p1, p2, normal, !edge.Symmetric, edge.Label, sentence, edge.Relationship.Id, selected, edge.Relationship.IsOptional));
         }
 
-        // Each label sits on its edge at the first position that clears every node, name and placed label.
-        var nodeDiscs = layout.Nodes.Select(n => (Center: positions[n.Entity.Id], Radius: radii[n.Entity.Id] + gap)).ToList();
-        var blocked = names.Values.Select(n => (n.Min - new Vector2(gap, gap), n.Max + new Vector2(gap, gap))).ToList();
+        // Each label sits at the first candidate (along its edge, then to either side) clear of every node, name and
+        // placed label; otherwise at the least-overlapping one, which avoids names above all (AtlasChartStyle).
+        var plates = names.Values.Select(n => (n.Min - inflate, n.Max + inflate)).ToList();
+        var placed = new List<(Vector2 Min, Vector2 Max)>();
         foreach (var label in labels)
         {
             var textSize = ImGui.CalcTextSize(label.Text);
             var half = (textSize / 2) + new Vector2(3 * scale, 1 * scale);
-            (Vector2 Min, Vector2 Max) Box(double t)
-            {
-                var at = label.P1 + ((label.P2 - label.P1) * (float)t);
-                return (at - half, at + half);
-            }
-
-            var chosen = Box(0.5);
+            var step = (half.Y * 2) + gap;
+            (Vector2 Min, Vector2 Max, Vector2 Anchor, int Offset)? best = null;
+            var bestScore = double.MaxValue;
             foreach (var t in AtlasChartStyle.LabelPositions)
             {
-                var box = Box(t);
-                var padded = (box.Min - new Vector2(gap, gap), box.Max + new Vector2(gap, gap));
-                if (!nodeDiscs.Any(d => RectHitsCircle(padded, d.Center, d.Radius)) && !blocked.Any(b => RectsOverlap(padded, b)))
+                var anchor = label.P1 + ((label.P2 - label.P1) * (float)t);
+                foreach (var offset in AtlasChartStyle.LabelOffsets)
                 {
-                    chosen = box;
+                    var at = anchor + (label.Normal * (offset * step));
+                    var box = (Min: at - half, Max: at + half);
+                    var padded = (box.Min - inflate, box.Max + inflate);
+                    var clear = !discs.Any(d => RectHitsCircle(padded, d.Center, d.Radius))
+                        && !plates.Any(p => RectsOverlap(padded, p))
+                        && !placed.Any(p => RectsOverlap(padded, p));
+                    if (clear)
+                    {
+                        best = (box.Min, box.Max, anchor, offset);
+                        bestScore = -1;
+                        break;
+                    }
+
+                    var score = (plates.Sum(p => OverlapArea(box, p)) * AtlasChartStyle.NameOverlapWeight)
+                        + (discs.Sum(d => OverlapArea(box, (d.Center - new Vector2(d.Radius, d.Radius), d.Center + new Vector2(d.Radius, d.Radius)))) * AtlasChartStyle.NodeOverlapWeight)
+                        + (placed.Sum(p => OverlapArea(box, p)) * AtlasChartStyle.LabelOverlapWeight);
+                    if (score < bestScore)
+                    {
+                        best = (box.Min, box.Max, anchor, offset);
+                        bestScore = score;
+                    }
+                }
+
+                if (bestScore < 0)
+                {
                     break;
                 }
             }
 
-            blocked.Add(chosen);
+            var chosen = best!.Value;
+            placed.Add((chosen.Min, chosen.Max));
+            if (chosen.Offset != 0)
+            {
+                // A short leader line ties an off-edge label back to its edge.
+                drawList.AddLine(chosen.Anchor, Vector2.Clamp(chosen.Anchor, chosen.Min, chosen.Max), ImGui.GetColorU32(MutedColor with { W = 0.6f }), 1f * scale);
+            }
+
             drawList.AddRectFilled(chosen.Min, chosen.Max, ImGui.GetColorU32(LabelBackColor), 3 * scale);
             ImGui.SetCursorScreenPos(chosen.Min);
             var clicked = ImGui.InvisibleButton($"##edge-{label.RelationshipId}", chosen.Max - chosen.Min);
@@ -569,11 +628,10 @@ internal sealed class AtlasWindow : Window
             drawList.AddText(((chosen.Min + chosen.Max) / 2) - (textSize / 2), ImGui.GetColorU32(textColor), label.Text);
             if (hovered)
             {
+                // The edge lights up and the full sentence names both ends, so a label is never ambiguous.
+                DrawEdge(drawList, label.P1, label.P2, label.Normal, label.Arrow, label.Optional, ImGui.GetColorU32(HoverColor), 2.2f * scale);
                 ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
-                if (label.Optional)
-                {
-                    ImGui.SetTooltip(AtlasText.OptionalTooltip);
-                }
+                ImGui.SetTooltip(label.Optional ? $"{label.Sentence}\n{AtlasText.OptionalTooltip}" : label.Sentence);
             }
 
             if (clicked)
@@ -587,10 +645,13 @@ internal sealed class AtlasWindow : Window
         {
             var p = positions[node.Entity.Id];
             var r = radii[node.Entity.Id];
+            var canClick = !node.IsFocus || wholeCast;
             ImGui.SetCursorScreenPos(p - new Vector2(r, r));
             var clicked = ImGui.InvisibleButton($"##node-{node.Entity.Id}", new Vector2(r * 2, r * 2));
             var hovered = ImGui.IsItemHovered();
-            var round = this.DrawMark(drawList, node.Entity.Category, node.Entity.Portrait, p, r, true, badge: true);
+
+            // The outline goes under the mark, so it never crosses the category badge.
+            var round = node.Entity.Portrait is not null && this.TryPortraitTexture(node.Entity.Portrait, out _);
             if (node.IsFocus)
             {
                 DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
@@ -600,29 +661,38 @@ internal sealed class AtlasWindow : Window
                 DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (2 * scale), ImGui.GetColorU32(HoverColor), 2 * scale);
             }
 
+            this.DrawMark(drawList, node.Entity.Category, node.Entity.Portrait, p, r, true, badge: true);
+
             var name = names[node.Entity.Id];
             drawList.AddRectFilled(name.Min, name.Max, ImGui.GetColorU32(LabelBackColor), 2 * scale);
             drawList.AddText(name.Min + new Vector2(2 * scale, 0), ImGui.GetColorU32(TextColor), name.Text);
 
             if (hovered)
             {
-                ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                if (canClick)
+                {
+                    ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                }
+
                 ImGui.SetTooltip(node.Entity.Name);
             }
-            else if (ImGui.IsMouseHoveringRect(name.Min, name.Max) && ImGui.IsWindowHovered())
+            else if (ImGui.IsMouseHoveringRect(name.Min, name.Max) && ImGui.IsWindowHovered() && !ImGui.IsAnyItemHovered())
             {
-                // A node's name is part of its click target, as in the viewer.
-                ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                // A node's name is part of its click target, as in the viewer, unless a label sits on top of it.
+                if (canClick)
+                {
+                    ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                    clicked |= ImGui.IsMouseClicked(ImGuiMouseButton.Left);
+                }
+
                 if (name.Truncated)
                 {
                     ImGui.SetTooltip(node.Entity.Name);
                 }
-
-                clicked |= ImGui.IsMouseClicked(ImGuiMouseButton.Left);
             }
 
             // The arc entry at the centre of the whole-cast chart can always be clicked (L4); a focused node cannot.
-            if (clicked && (!node.IsFocus || wholeCast))
+            if (clicked && canClick)
             {
                 refocus = node.Entity.Id;
             }
@@ -654,6 +724,14 @@ internal sealed class AtlasWindow : Window
                 return;
             }
 
+            ImGui.Spacing();
+        }
+
+        // The selected connection's card comes first, as in the arc panel, so picking an edge never pushes it below the fold.
+        if (s.SelectedRelationship is not null)
+        {
+            DrawSelectedCard(s);
+            ImGui.Spacing();
             ImGui.Spacing();
         }
 
@@ -708,7 +786,6 @@ internal sealed class AtlasWindow : Window
             }
         }
 
-        DrawSelectedCard(s);
 
         if (select is not null)
         {
@@ -1396,6 +1473,34 @@ internal sealed class AtlasWindow : Window
         }
 
         return clicked;
+    }
+
+    /// <summary>An edge line, dashed when optional, with an arrowhead at <paramref name="p2"/> when directed.</summary>
+    private static void DrawEdge(ImDrawListPtr drawList, Vector2 p1, Vector2 p2, Vector2 normal, bool arrow, bool optional, uint color, float thickness)
+    {
+        var scale = ImGuiHelpers.GlobalScale;
+        if (optional)
+        {
+            DrawDashedLine(drawList, p1, p2, color, thickness, 6 * scale, 4 * scale);
+        }
+        else
+        {
+            drawList.AddLine(p1, p2, color, thickness);
+        }
+
+        if (arrow)
+        {
+            var dir = Vector2.Normalize(p2 - p1);
+            var back = p2 - (dir * 8 * scale);
+            drawList.AddTriangleFilled(p2, back + (normal * 4 * scale), back - (normal * 4 * scale), color);
+        }
+    }
+
+    private static double OverlapArea((Vector2 Min, Vector2 Max) a, (Vector2 Min, Vector2 Max) b)
+    {
+        var w = Math.Min(a.Max.X, b.Max.X) - Math.Max(a.Min.X, b.Min.X);
+        var h = Math.Min(a.Max.Y, b.Max.Y) - Math.Max(a.Min.Y, b.Min.Y);
+        return w > 0 && h > 0 ? w * h : 0;
     }
 
     private static bool RectsOverlap((Vector2 Min, Vector2 Max) a, (Vector2 Min, Vector2 Max) b) =>

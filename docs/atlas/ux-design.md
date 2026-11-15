@@ -284,11 +284,14 @@ The council's round-1 review found chart text unreadable at small sizes in the v
 
 - **Screen pixels.** The chart is drawn in pixels: the ring's radius is 0.36 of the canvas's shorter side, and text stays at the UI font size at every window size. Portrait nodes never shrink below 14 px radius (20 px at the centre).
 - **Names outside the ring.** A ring member's name sits above it in the upper half of the ring and below it otherwise, so a chord between two members never crosses a name. Names are truncated with "…" to the gap between ring neighbours (at most 150 px; 200 px for the centre) and sit on a dark plate. The full name is in the tooltip.
-- **Edge labels on their edge.** Each label sits on its own edge, on a dark plate, at the first of 0.5, 0.38, 0.62, 0.28, 0.72, 0.2, 0.8 along it whose box clears every node, name and label already placed. If none is clear it stays at the middle. This replaces the old centre-node nudge.
+- **Edge labels near their own edge.** Each label sits on a dark plate. The candidates are 0.5, 0.38, 0.62, 0.28, 0.72, 0.2 and 0.8 along the edge, each on the edge first and then one plate height to either side. The label takes the first candidate that clears every node (a portrait's badge included), name and label already placed. An off-edge label gets a short leader line back to its edge. If nothing is clear, the label takes the least-overlapping candidate, weighting names highest, so it covers a name only as a last resort. Hovering a label lights up its edge, and the tooltip gives the full sentence ("Thancred member of The Scions of the Seventh Dawn"). This replaces the old centre-node nudge.
+- **The centre name** is shortened until its plate clears every ring node and ring name.
+- **Small windows.** The side panes shrink to fit: browse is 20% of the width (150–200 px) and details 28% (220–280 px). At the 760 px minimum the chart gets about 390 px instead of 280. Edges and arrowheads stop at a diamond's or hexagon's outline.
 
 Other round-1 polish:
 - **Wrapping.** The in-game top bar and lens bar wrap at the minimum width, with Raise… kept on screen. Connection rows, Changes rows and source titles wrap.
 - **Active state.** The active lens and content buttons are underlined in the accent colour as well as filled.
+- **Details.** The selected connection's card sits at the top of the details pane, as in the arc panel. The footer describes the content view in use.
 - **Changes details.** A picked change starts with what it did ("− Ended in ‹quest›", "+ Added by ‹milestone›").
 - **Milestone wording.** Milestones read as points: "Viewing: ‹milestone›", "Story so far, as of ‹milestone›", "ended by ‹milestone›".
 - **Viewer.**
