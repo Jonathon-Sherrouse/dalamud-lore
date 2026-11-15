@@ -22,6 +22,30 @@ public sealed record AtlasGraphEdge(AtlasRelationshipView Relationship, string F
 }
 
 /// <summary>
+/// Portrait sizes shared by the in-game window and the local viewer (NDL-011), so both draw the same picture. Node
+/// radii are in the layout's unit space, where the ring of neighbors has radius 1. Category shapes keep their own sizes.
+/// </summary>
+public static class AtlasPortraitStyle
+{
+    /// <summary>A portrait node's radius on a chart, relative to the ring radius.</summary>
+    public const double NodeRadius = 0.11;
+
+    /// <summary>The focused (centre) node's radius when it has a portrait.</summary>
+    public const double FocusRadius = 0.15;
+
+    /// <summary>The category-coloured ring's width, relative to the portrait's radius.</summary>
+    public const double RingWidth = 0.12;
+
+    /// <summary>The category badge's radius and its centre's offset along each axis, relative to the portrait's radius.</summary>
+    public const double BadgeRadius = 0.34;
+
+    public const double BadgeOffset = 0.72;
+
+    /// <summary>The portrait's diameter in the details and arc-panel headers, in unscaled pixels.</summary>
+    public const int HeaderSize = 48;
+}
+
+/// <summary>
 /// Deterministic one-hop layout in a unit coordinate space: focus at (0, 0), up to eight canvas neighbors on a unit
 /// circle, clockwise from the top, in neighborhood order (category, then id). No physics; renderers only scale.
 /// </summary>

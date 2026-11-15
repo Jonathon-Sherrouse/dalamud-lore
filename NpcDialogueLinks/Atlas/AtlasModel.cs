@@ -104,8 +104,37 @@ public sealed record AtlasPresentation(
     IReadOnlyList<AtlasCitation> Citations,
     AtlasReviewStatus Review);
 
+/// <summary>
+/// A reviewed portrait (NDL-011): an icon from the player's own game install, never an image file, cropped to a square.
+/// The crop is the square's centre (<see cref="CropX"/>, <see cref="CropY"/>, fractions of the image's width and height)
+/// and its side (<see cref="CropSize"/>, a fraction of the image's shorter side). Reviewed as safe from the entity's
+/// first appearance, so it is shown wherever the entity is.
+/// </summary>
+public sealed record AtlasPortrait(uint GameIcon, double CropX, double CropY, double CropSize, AtlasReviewStatus Review)
+{
+    /// <summary>
+    /// The crop as texture coordinates (u0, v0, u1, v1) for an image of the given size. The square is moved, never
+    /// shrunk, to stay inside the image, so every front end draws exactly the same pixels.
+    /// </summary>
+    public (double U0, double V0, double U1, double V1) Uv(int width, int height)
+    {
+        if (width <= 0 || height <= 0)
+        {
+            return (0, 0, 1, 1);
+        }
+
+        var side = Math.Min(CropSize, 1.0) * Math.Min(width, height);
+        var left = Math.Clamp((CropX * width) - (side / 2), 0, width - side);
+        var top = Math.Clamp((CropY * height) - (side / 2), 0, height - side);
+        return (left / width, top / height, (left + side) / width, (top + side) / height);
+    }
+}
+
 public sealed record AtlasEntity(string Id, AtlasCategory Category, IReadOnlyList<AtlasPresentation> Presentations)
 {
+    /// <summary>The entity's reviewed portrait, or null to draw its category shape (NDL-011).</summary>
+    public AtlasPortrait? Portrait { get; init; }
+
     /// <summary>The presentation shown at a checkpoint in a view, or null when hidden there.</summary>
     public AtlasPresentation? PresentationAt(int order, AtlasContentView view)
     {

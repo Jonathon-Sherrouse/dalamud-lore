@@ -18,7 +18,11 @@ public sealed record AtlasEntityView(
     IReadOnlyList<string> Aliases,
     string Summary,
     IReadOnlyList<AtlasCitationView> Citations,
-    bool IncludesOptional = false);
+    bool IncludesOptional = false)
+{
+    /// <summary>The entity's reviewed portrait, or null to draw its category shape (NDL-011).</summary>
+    public AtlasPortrait? Portrait { get; init; }
+}
 
 public sealed record AtlasRelationshipView(
     string Id,
@@ -185,7 +189,10 @@ public static class AtlasProjector
                 presentation.Aliases.ToArray(),
                 presentation.Summary,
                 ToViews(presentation.Citations),
-                presentation.Scope == AtlasScope.Optional));
+                presentation.Scope == AtlasScope.Optional)
+            {
+                Portrait = entity.Portrait,
+            });
         }
 
         entities.Sort(CompareEntities);

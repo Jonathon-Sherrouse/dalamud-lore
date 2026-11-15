@@ -2,7 +2,10 @@ using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
+using Dalamud.Interface.Textures;
+using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Interface.Windowing;
+using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using NpcDialogueLinks.Atlas;
 
@@ -33,6 +36,7 @@ internal sealed class AtlasWindow : Window
 
     private readonly string dataPath;
     private readonly PluginConfiguration configuration;
+    private readonly ITextureProvider textures;
 
     private AtlasSession? session;
     private bool loadFailed;
@@ -43,11 +47,12 @@ internal sealed class AtlasWindow : Window
     private string syncedQuery = string.Empty;
     private bool openConfirmNextFrame;
 
-    public AtlasWindow(string dataPath, PluginConfiguration configuration)
+    public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures)
         : base($"{AtlasText.WindowTitle}###NpcDialogueLinksAtlas")
     {
         this.dataPath = dataPath;
         this.configuration = configuration;
+        this.textures = textures;
         this.Size = new Vector2(960, 600);
         this.SizeCondition = ImGuiCond.FirstUseEver;
         this.SizeConstraints = new()
@@ -398,9 +403,10 @@ internal sealed class AtlasWindow : Window
             ImGui.Separator();
             foreach (var entry in group.Entries)
             {
-                var glyphSize = ImGui.GetTextLineHeight() * 0.55f;
+                var line = ImGui.GetTextLineHeight();
+                var glyphSize = entry.Portrait is null ? line * 0.55f : line * 0.95f;
                 var start = ImGui.GetCursorScreenPos();
-                ImGui.Dummy(new Vector2(glyphSize + 4, 0));
+                ImGui.Dummy(new Vector2(line + 4, 0));
                 ImGui.SameLine(0, 0);
                 if (ImGui.Selectable($"{entry.Name}##browse-{entry.Id}", s.FocusId == entry.Id))
                 {
@@ -412,13 +418,13 @@ internal sealed class AtlasWindow : Window
                     ImGui.SetTooltip(entry.Name);
                 }
 
-                var center = new Vector2(start.X + (glyphSize / 2), start.Y + (ImGui.GetTextLineHeight() / 2));
-                DrawGlyph(ImGui.GetWindowDrawList(), entry.Category, center, glyphSize / 2, ColorFor(entry.Category), false);
+                var center = new Vector2(start.X + (line / 2), start.Y + (line / 2));
+                this.DrawMark(ImGui.GetWindowDrawList(), entry.Category, entry.Portrait, center, glyphSize / 2, false, badge: false);
             }
         }
     }
 
-    private static void DrawGraph(AtlasSession s)
+    private void DrawGraph(AtlasSession s)
     {
         var drawList = ImGui.GetWindowDrawList();
         var origin = ImGui.GetCursorScreenPos();
@@ -440,7 +446,10 @@ internal sealed class AtlasWindow : Window
         var nodeRadius = 11 * scale;
         Vector2 Pos(AtlasGraphNode n) => center + (new Vector2((float)n.X, (float)n.Y) * ring);
         var positions = layout.Nodes.ToDictionary(n => n.Entity.Id, Pos, StringComparer.Ordinal);
-        var radii = layout.Nodes.ToDictionary(n => n.Entity.Id, n => n.IsFocus ? focusRadius : nodeRadius, StringComparer.Ordinal);
+        float Radius(AtlasGraphNode n) => n.Entity.Portrait is null
+            ? (n.IsFocus ? focusRadius : nodeRadius)
+            : Math.Max((float)((n.IsFocus ? AtlasPortraitStyle.FocusRadius : AtlasPortraitStyle.NodeRadius) * ring), n.IsFocus ? focusRadius : nodeRadius);
+        var radii = layout.Nodes.ToDictionary(n => n.Entity.Id, Radius, StringComparer.Ordinal);
         var selectedId = s.SelectedRelationshipId;
         var edgeColor = ImGui.GetColorU32(EdgeColor);
         var accent = ImGui.GetColorU32(AccentColor);
@@ -534,14 +543,14 @@ internal sealed class AtlasWindow : Window
             ImGui.SetCursorScreenPos(p - new Vector2(r, r));
             var clicked = ImGui.InvisibleButton($"##node-{node.Entity.Id}", new Vector2(r * 2, r * 2));
             var hovered = ImGui.IsItemHovered();
-            DrawGlyph(drawList, node.Entity.Category, p, r, ColorFor(node.Entity.Category), true);
+            var round = this.DrawMark(drawList, node.Entity.Category, node.Entity.Portrait, p, r, true, badge: true);
             if (node.IsFocus)
             {
-                DrawGlyphOutline(drawList, node.Entity.Category, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
+                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
             }
             else if (hovered)
             {
-                DrawGlyphOutline(drawList, node.Entity.Category, p, r + (2 * scale), ImGui.GetColorU32(HoverColor), 2 * scale);
+                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (2 * scale), ImGui.GetColorU32(HoverColor), 2 * scale);
             }
 
             // Name below the node, truncated to a fixed width, on a dark backing for legibility.
@@ -575,7 +584,7 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    private static void DrawDetails(AtlasSession s)
+    private void DrawDetails(AtlasSession s)
     {
         var focus = s.Focus;
         if (focus is null)
@@ -765,7 +774,7 @@ internal sealed class AtlasWindow : Window
     }
 
     /// <summary>The Arc lens at rest (L3): the arc's name, its reviewed recap, and what is new and what has ended so far.</summary>
-    private static void DrawArcPanel(AtlasSession s)
+    private void DrawArcPanel(AtlasSession s)
     {
         var arc = s.Arc!;
         if (s.SelectedRelationship is not null)
@@ -881,7 +890,7 @@ internal sealed class AtlasWindow : Window
     }
 
     /// <summary>The selected change. End evidence appears here, on an "ended" row, and nowhere else (v2 spoiler rule 2).</summary>
-    private static void DrawChangeDetails(AtlasSession s)
+    private void DrawChangeDetails(AtlasSession s)
     {
         if (s.SelectionWasReset)
         {
@@ -928,8 +937,29 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    private static void DrawEntityHeader(AtlasEntityView entity, bool withAliases)
+    private void DrawEntityHeader(AtlasEntityView entity, bool withAliases)
     {
+        var meta = AtlasText.CategoryLabel(entity.Category) + (withAliases && entity.Aliases.Count > 0 ? " · " + string.Join(", ", entity.Aliases) : string.Empty);
+        if (entity.Portrait is not null)
+        {
+            // A large portrait beside the name and category, as in the viewer's header.
+            var size = AtlasPortraitStyle.HeaderSize * ImGuiHelpers.GlobalScale;
+            var origin = ImGui.GetCursorScreenPos();
+            ImGui.Dummy(new Vector2(size, size));
+            this.DrawMark(ImGui.GetWindowDrawList(), entity.Category, entity.Portrait, origin + new Vector2(size / 2, size / 2), size / 2, false, badge: true);
+            ImGui.SameLine();
+            using (ImRaii.Group())
+            {
+                ImGui.SetCursorPosY(ImGui.GetCursorPosY() + Math.Max((size - (ImGui.GetTextLineHeightWithSpacing() * 2)) / 2, 0));
+                ImGui.PushTextWrapPos();
+                ImGui.TextUnformatted(entity.Name);
+                ImGui.TextColored(MutedColor, meta);
+                ImGui.PopTextWrapPos();
+            }
+
+            return;
+        }
+
         var glyphSize = ImGui.GetTextLineHeight() * 0.6f;
         var start = ImGui.GetCursorScreenPos();
         ImGui.Dummy(new Vector2(glyphSize + 6, 0));
@@ -937,7 +967,6 @@ internal sealed class AtlasWindow : Window
         ImGui.PushTextWrapPos();
         ImGui.TextUnformatted(entity.Name);
         DrawGlyph(ImGui.GetWindowDrawList(), entity.Category, start + new Vector2(glyphSize / 2, ImGui.GetTextLineHeight() / 2), glyphSize / 2, ColorFor(entity.Category), false);
-        var meta = AtlasText.CategoryLabel(entity.Category) + (withAliases && entity.Aliases.Count > 0 ? " · " + string.Join(", ", entity.Aliases) : string.Empty);
         ImGui.TextColored(MutedColor, meta);
         ImGui.PopTextWrapPos();
     }
@@ -1062,6 +1091,64 @@ internal sealed class AtlasWindow : Window
         AtlasGlyph.Hexagon => EventColor,
         _ => CharacterColor,
     };
+
+    /// <summary>
+    /// An entity's mark: its reviewed portrait from the game's own icons, clipped round inside a ring in the category
+    /// colour with the category shape as a badge, or the category shape alone when there is no portrait or its texture
+    /// is not loaded yet (NDL-011). Returns true when it drew a round portrait.
+    /// </summary>
+    private bool DrawMark(ImDrawListPtr drawList, AtlasCategory category, AtlasPortrait? portrait, Vector2 center, float radius, bool border, bool badge)
+    {
+        if (portrait is null || !this.TryPortraitTexture(portrait, out var wrap))
+        {
+            DrawGlyph(drawList, category, center, portrait is null ? radius : radius * 0.8f, ColorFor(category), border);
+            return false;
+        }
+
+        var (u0, v0, u1, v1) = portrait.Uv(wrap.Width, wrap.Height);
+        var half = new Vector2(radius, radius);
+        drawList.AddImageRounded(wrap.Handle, center - half, center + half, new Vector2((float)u0, (float)v0), new Vector2((float)u1, (float)v1), 0xFFFFFFFF, radius);
+        drawList.AddCircle(center, radius, ImGui.GetColorU32(ColorFor(category)), 0, Math.Max((float)(radius * AtlasPortraitStyle.RingWidth), 1.5f));
+        if (badge)
+        {
+            var offset = (float)(radius * AtlasPortraitStyle.BadgeOffset);
+            DrawGlyph(drawList, category, center + new Vector2(offset, offset), (float)(radius * AtlasPortraitStyle.BadgeRadius), ColorFor(category), true);
+        }
+
+        return true;
+    }
+
+    /// <summary>The game icon's texture, once Dalamud has loaded it from the game data. Never throws.</summary>
+    private bool TryPortraitTexture(AtlasPortrait portrait, out IDalamudTextureWrap wrap)
+    {
+        wrap = null!;
+        try
+        {
+            if (this.textures.GetFromGameIcon(new GameIconLookup(portrait.GameIcon, false, true)).TryGetWrap(out var loaded, out _) && loaded is not null)
+            {
+                wrap = loaded;
+                return true;
+            }
+        }
+        catch (Exception exception)
+        {
+            Plugin.Log.Verbose(exception, $"Lore Atlas portrait icon {portrait.GameIcon} is unavailable; drawing the category shape.");
+        }
+
+        return false;
+    }
+
+    private static void DrawMarkOutline(ImDrawListPtr drawList, AtlasCategory category, bool round, Vector2 center, float radius, uint color, float thickness)
+    {
+        if (round)
+        {
+            drawList.AddCircle(center, radius, color, 0, thickness);
+        }
+        else
+        {
+            DrawGlyphOutline(drawList, category, center, radius, color, thickness);
+        }
+    }
 
     private static void DrawGlyph(ImDrawListPtr drawList, AtlasCategory category, Vector2 center, float radius, Vector4 color, bool border)
     {

@@ -77,6 +77,7 @@ This is the working planning list for feature polish and future enhancements. Ag
 - **Plan:** [docs/atlas/v2-plan.md](atlas/v2-plan.md). A confused player opens the Atlas mid-story and sees the researched arc they're in: a reviewed "story so far" recap plus the whole cast's relationships, built quest by quest. It also adds the Story point and Changes lenses and Follow (completed progress). It is proven on one 2.0 arc.
 - **Cards:** `NDL-006` to `NDL-010` in [backlog.md](backlog.md).
 - **Status (2026-11-14):** `NDL-006` (arc discovery, schema v2 and the pure core) is **User Accepted**; the user chose arc A4, *The Black Wolf's challenge*. Follow (`NDL-007`) is deferred by the user, so v2 ships without it. `NDL-008` (the lens design, prototyped in the viewer), `NDL-009` (arc A4, *The Black Wolf's Challenge*) and `NDL-010` (ship v2 in game, 2026-11-15) are **User Accepted**. Atlas v2 is complete without Follow; see Completed.
+- **Approved (2026-11-15): `NDL-011` Atlas portraits.** The polish piece for a strong Atlas vertical slice: portraits from the player's own game data, in the window and identically in the local viewer. Card in [backlog.md](backlog.md).
 - **Future candidates (not approved):**
   - **Breadth coverage across the main story.** The route is decided after the slice proves it helps; it must not use patch-sized outer arcs, and milestone-only recaps give endpoint coverage only.
   - **Lore Explain grounded in the reviewed recaps,** and a deep link into the Atlas.

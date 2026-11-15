@@ -159,6 +159,15 @@
     {
       "id": "char-minfilia",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87056,
+        "crop": {
+          "x": 0.52,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -314,6 +323,15 @@
     {
       "id": "char-thancred",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87046,
+        "crop": {
+          "x": 0.52,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -441,6 +459,15 @@
     {
       "id": "char-yshtola",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87049,
+        "crop": {
+          "x": 0.5,
+          "y": 0.45,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-0",
@@ -493,6 +520,15 @@
     {
       "id": "char-urianger",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87050,
+        "crop": {
+          "x": 0.5,
+          "y": 0.42,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-0",
@@ -557,6 +593,15 @@
     {
       "id": "char-alphinaud",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87059,
+        "crop": {
+          "x": 0.3,
+          "y": 0.36,
+          "size": 0.55
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -685,6 +730,15 @@
     {
       "id": "char-alisaie",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87059,
+        "crop": {
+          "x": 0.66,
+          "y": 0.4,
+          "size": 0.55
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-0",
@@ -819,6 +873,15 @@
     {
       "id": "char-louisoix",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87060,
+        "crop": {
+          "x": 0.52,
+          "y": 0.38,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-0",
@@ -953,6 +1016,15 @@
     {
       "id": "char-tataru",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87019,
+        "crop": {
+          "x": 0.42,
+          "y": 0.36,
+          "size": 0.72
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-0",
@@ -1023,6 +1095,15 @@
     {
       "id": "org-scions",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100073,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -1186,6 +1267,15 @@
     {
       "id": "org-crystal-braves",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100316,
+        "crop": {
+          "x": 0.68,
+          "y": 0.55,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-55",
@@ -1285,6 +1375,15 @@
     {
       "id": "loc-rising-stones",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100177,
+        "crop": {
+          "x": 0.62,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-arr-2-55",
@@ -1326,6 +1425,15 @@
     {
       "id": "evt-black-wolfs-challenge",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100163,
+        "crop": {
+          "x": 0.17,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-155",
@@ -1493,6 +1601,15 @@
     {
       "id": "evt-operation-archon",
       "category": "event",
+      "portrait": {
+        "gameIcon": 112016,
+        "crop": {
+          "x": 0.37,
+          "y": 0.45,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-157",
@@ -1562,6 +1679,15 @@
     {
       "id": "char-cid",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87058,
+        "crop": {
+          "x": 0.48,
+          "y": 0.38,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -1760,6 +1886,15 @@
     {
       "id": "char-gaius",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87064,
+        "crop": {
+          "x": 0.5,
+          "y": 0.38,
+          "size": 0.8
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -1878,6 +2013,15 @@
     {
       "id": "char-livia",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87031,
+        "crop": {
+          "x": 0.45,
+          "y": 0.42,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -1982,6 +2126,15 @@
     {
       "id": "char-lahabrea",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87057,
+        "crop": {
+          "x": 0.5,
+          "y": 0.42,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-154",
@@ -2080,6 +2233,15 @@
     {
       "id": "org-eorzean-alliance",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100164,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-155",

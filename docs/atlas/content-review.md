@@ -61,6 +61,32 @@ From #155 *After Escape from Castrum Centri* to 2.0 *A Realm Reborn — Patch 2.
 | #160 | The Black Wolf's Challenge | You broke into Castrum Meridianum and, with Cid guiding you, brought down the magitek field around the Praetorium. Livia, the tribunus who captured the Scions, fought you and fell. The Praetorium can now be reached only aboard Cid's airship, the Enterprise, and what remains is to find and destroy the Ultima Weapon. Thancred is still possessed. | new recap | Minfilia, Thancred, Alphinaud, The Scions of the Seventh Dawn, Cid, Gaius, Livia, Lahabrea, The Eorzean Alliance, Operation Archon (10) |
 | 2.0 | The Black Wolf's Challenge | Aboard the Enterprise you stormed the Praetorium. Gaius urged Cid to take up his father's mantle in the Empire, and Cid refused. The Black Wolf turned the Ultima Weapon on you and you laid it low; then the Ascian Lahabrea, who had quickened the weapon with the primals' life force, came for you himself, and you freed Thancred from his enthrallment. Gaius is slain and the Ultima Weapon destroyed. | new recap | Minfilia, Thancred, Alphinaud, The Scions of the Seventh Dawn, Cid, Gaius, Livia, Lahabrea, The Eorzean Alliance, Operation Archon (10) |
 
+## Portraits
+
+Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. The user approved every pick on 2026-11-15 from a page showing each crop beside its source image. Crop: centre x, y and size, as fractions of the image (size of its shorter side).
+
+| Entity | Source in the game | Icon | Crop (x, y, size) |
+|---|---|---|---|
+| Minfilia | Triple Triad card #56 | 87056 | 0.52, 0.4, 0.75 |
+| Thancred | Triple Triad card #46 | 87046 | 0.52, 0.4, 0.75 |
+| Y'shtola | Triple Triad card #49 | 87049 | 0.5, 0.45, 0.75 |
+| Urianger | Triple Triad card #50 | 87050 | 0.5, 0.42, 0.75 |
+| Alphinaud | Triple Triad card #59 (shared with Alisaie), left half | 87059 | 0.3, 0.36, 0.55 |
+| Alisaie | Triple Triad card #59 (shared with Alphinaud), right half | 87059 | 0.66, 0.4, 0.55 |
+| Louisoix | Triple Triad card #60 | 87060 | 0.52, 0.38, 0.75 |
+| Tataru | Triple Triad card #19 | 87019 | 0.42, 0.36, 0.72 |
+| The Scions of the Seventh Dawn | Quest illustration, The Scions of the Seventh Dawn (2.0) | 100073 | 0.5, 0.5, 1.0 |
+| The Crystal Braves | Quest illustration, Traitor in the Midst (2.4) | 100316 | 0.68, 0.55, 1.0 |
+| The Waking Sands | none: keeps its category shape | – | – |
+| The Rising Stones | Quest illustration, Build on the Stone (2.1) | 100177 | 0.62, 0.5, 1.0 |
+| The Black Wolf's Challenge | Quest illustration, Escape from Castrum Centri (MSQ #155) | 100163 | 0.17, 0.5, 1.0 |
+| Operation Archon | Duty art, Castrum Meridianum | 112016 | 0.37, 0.45, 1.0 |
+| Cid | Triple Triad card #58 | 87058 | 0.48, 0.38, 0.75 |
+| Gaius | Triple Triad card #64 | 87064 | 0.5, 0.38, 0.8 |
+| Livia | Triple Triad card #31 | 87031 | 0.45, 0.42, 0.75 |
+| Lahabrea | Triple Triad card #57 (the masked Ascian, as first seen) | 87057 | 0.5, 0.42, 0.75 |
+| The Eorzean Alliance | Quest illustration, The Black Wolf's Ultimatum (MSQ #156) | 100164 | 0.5, 0.5, 1.0 |
+
 ## Entities
 
 ### Minfilia (`char-minfilia`, character)

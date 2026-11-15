@@ -263,3 +263,18 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 6. **D11. The default lens rule re-applies on every view change** until the player picks a lens or an arc. The plan names only "on open" and "when Follow moves the view". With Follow deferred, this is how a player moving through the story lands in the Arc lens on their own.
 7. **D12. Picking an arc counts as picking the Arc lens,** so a picked arc stays on screen when the view moves past its end. The cost: the Arc lens then stays chosen for the session, even after the pick ends or is cleared with "The arc at this point". Moving before every arc shows "No story arc covers this point." rather than returning to Story point.
 
+## Portraits (NDL-011)
+
+Entities with a reviewed portrait show a picture from the game's own data instead of their bare category shape. The user approved every pick on 2026-11-15; see the [review sheet](content-review.md#portraits) and the [schema](schema.md#portraits-ndl-011).
+
+| Where | How it looks |
+|---|---|
+| Chart nodes | Round, radius 0.11 of the ring (0.15 for the centre), inside a ring in the category colour, with the category shape as a small badge at the lower right. Category-shape nodes keep their v1 sizes. |
+| Details and arc-panel headers | 48 px, with the badge, beside the name and category. |
+| Browse list | One text line tall, with no badge: the list is already grouped under category headings. |
+
+- **Meaning never rests on the picture or the colour alone.** The ring carries the category colour, and the badge and the list headings carry the shape.
+- **Fallback.** Without a portrait, or until its texture loads, the category shape is drawn (at 80% of a portrait node's size, so the chart doesn't jump).
+- **ImGui.** `AddImageRounded` with the radius as the rounding clips the texture round, `AddCircle` draws the ring, and the badge reuses the existing shape renderer. Textures come from `ITextureProvider.GetFromGameIcon` (high resolution) and are never stored by the plugin.
+- **Shared values.** `AtlasPortraitStyle` holds the sizes and `AtlasPortrait.Uv` the crop, so the viewer matches the window.
+

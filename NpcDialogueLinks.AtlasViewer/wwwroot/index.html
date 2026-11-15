@@ -111,6 +111,13 @@
   svg .node .shape { stroke: #0e0f12; stroke-width: 0.012; }
   svg .node.focus .shape { stroke: #fff9; stroke-width: 0.02; }
   svg .node:hover .shape { stroke: var(--hover); }
+  /* Portraits (NDL-011): the same crop, ring and badge as the in-game window (AtlasPortraitStyle). */
+  svg .node .pout { fill: none; stroke: transparent; stroke-width: 0.02; }
+  svg .node.focus .pout { stroke: #fff9; }
+  svg .node:hover .pout { stroke: var(--hover); }
+  .hdr { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+  .hdr h2 { margin: 0; }
+  .hdr .meta { margin: 0; }
 </style>
 </head>
 <body>
@@ -123,6 +130,7 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 const color = g => g === "square" ? "var(--org)" : g === "diamond" ? "var(--loc)" : g === "hexagon" ? "var(--evt)" : "var(--char)";
 // Regular hexagon points around (cx, cy), flat sides top and bottom (events and arc entries, schema v2).
 const hexPoints = (cx, cy, r) => [0, 1, 2, 3, 4, 5].map(i => { const a = Math.PI / 3 * i; return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`; }).join(" ");
+let clipSeq = 0;
 let state = null, searchTimer = null, limitMenuOpen = false; // the menu's open flag is pure widget state, like an ImGui popup
 
 async function load() { state = await (await fetch("/api/state")).json(); render(); }
@@ -141,6 +149,26 @@ function glyphSvg(glyph, size = 12) {
     : glyph === "hexagon" ? `<polygon points="${hexPoints(h, h, h - 0.5)}" fill="${c}"/>`
     : `<circle cx="${h}" cy="${h}" r="${h - 1.5}" fill="${c}"/>`;
   return `<svg class="glyph" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">${shape}</svg>`;
+}
+
+// A portrait clipped round inside a category-coloured ring, with the category shape as a badge (NDL-011). Sizes come
+// from AtlasPortraitStyle and the crop from AtlasPortrait.Uv, the same values the in-game window draws with.
+function portraitParts(p, glyph, r, badge, unit) {
+  const S = state.portraitStyle, id = "pc" + (++clipSeq);
+  const w = 2 * r / (p.u1 - p.u0), h = 2 * r / (p.v1 - p.v0);
+  const ring = Math.max(r * S.ringWidth, unit * 1.5);
+  const o = r * S.badgeOffset, br = r * S.badgeRadius;
+  const b = badge ? `<g transform="translate(${o},${o})">${nodeShape(glyph, br).replace('class="shape"', `class="shape" stroke="#0e0f12" stroke-width="${br * 0.15}"`)}</g>` : "";
+  return `<clipPath id="${id}"><circle r="${r}"/></clipPath>`
+    + `<image href="${esc(p.url)}" x="${-r - p.u0 * w}" y="${-r - p.v0 * h}" width="${w}" height="${h}" preserveAspectRatio="none" clip-path="url(#${id})"/>`
+    + `<circle r="${r}" fill="none" stroke="${color(glyph)}" stroke-width="${ring}"/>${b}`;
+}
+
+// An entity's mark in HTML (lists, headers): its portrait when the local cache has one, else the category shape.
+function mark(glyph, portrait, size, badge = false) {
+  if (!portrait) return glyphSvg(glyph, Math.round(size * 0.6));
+  const r = size / 2;
+  return `<svg class="glyph" width="${size}" height="${size}" viewBox="${-r} ${-r} ${size} ${size}" overflow="visible" aria-hidden="true">${portraitParts(portrait, glyph, r, badge, 1)}</svg>`;
 }
 
 function nodeShape(glyph, r) {
@@ -180,10 +208,14 @@ function graph(emptyText) {
     labels += `<text class="edge-label${isSel}" data-rel="${esc(e.relationshipId)}" x="${mx}" y="${my}" text-anchor="middle">${tip}${esc(e.label)}</text>`;
   }
   let nodes = "";
+  const S = state.portraitStyle;
   for (const n of L.nodes) {
-    const p = pos[n.id], r = n.isFocus ? 0.11 : 0.075;
+    // A portrait node is larger (AtlasPortraitStyle); until its image is cached it draws the shape at that size.
+    const p = pos[n.id], r = n.hasPortrait ? (n.isFocus ? S.focusRadius : S.nodeRadius) : (n.isFocus ? 0.11 : 0.075);
+    const body = n.portrait ? portraitParts(n.portrait, n.glyph, r, true, 0.005) + `<circle class="pout" r="${r + 0.02}"/>`
+      : nodeShape(n.glyph, n.hasPortrait ? r * 0.8 : r);
     nodes += `<g class="node${n.isFocus ? " focus" : ""}" data-focus="${esc(n.id)}" transform="translate(${p.x},${p.y})">`
-      + `<title>${esc(n.name)}</title>` + nodeShape(n.glyph, r)
+      + `<title>${esc(n.name)}</title>` + body
       + `<text y="${r + 0.095}" text-anchor="middle"${n.isFocus ? ' font-weight="600"' : ""}>${esc(n.name)}</text></g>`;
   }
   return `<svg viewBox="-1.6 -1.42 3.2 2.92" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(state.focus?.name ?? state.arc?.view?.entry.name ?? "")} connections">
@@ -217,10 +249,16 @@ function details() {
   const card = selectedCard();
   const aliases = f.aliases.length ? " · " + f.aliases.map(esc).join(", ") : "";
   const back = state.arc?.view ? `<button data-wholecast>← ${esc(t.wholeCast)}</button><div style="height:8px"></div>` : "";
-  return `${back}<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>
+  return `${back}${header(f, aliases)}
     <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>
     ${sources(f.citations, f.sourcesLabel)}
     <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}${card}`;
+}
+
+// An entity's heading: a large portrait beside the name and category when it has one (NDL-011), else the shape.
+function header(f, aliases = "") {
+  if (f.portrait) return `<div class="hdr">${mark(f.glyph, f.portrait, state.portraitStyle.headerSize, true)}<div><h2>${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div></div></div>`;
+  return `<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>`;
 }
 
 // The selected connection's card, shared by the details pane and the Arc panel (L3): its sources and Close.
@@ -243,7 +281,7 @@ function arcPanel() {
   const rows = (list, none) => list.length
     ? list.map(r => `<div class="crow">${relRow(r, true)}${r.endedIn ? ` <span class="ended-in">(${esc(r.endedIn)})</span>` : ""}</div>`).join("")
     : `<div class="help">${esc(none)}</div>`;
-  return `${selectedCard()}${state.selectedRelationship ? `<div style="height:10px"></div>` : ""}<h2>${glyphSvg(e.glyph, 14)}${esc(e.name)}</h2><div class="meta">${esc(e.category)}</div>
+  return `${selectedCard()}${state.selectedRelationship ? `<div style="height:10px"></div>` : ""}${header(e)}
     <div class="recap-label">${esc(v.recapLabel)}</div>${v.asOf ? `<div class="meta">${esc(v.asOf)}</div>` : ""}
     <p class="recap">${esc(e.summary)}</p>
     ${sources(e.citations, e.sourcesLabel)}
@@ -268,7 +306,7 @@ function changeDetails() {
   if (!r) return `<p class="help">${esc(t.changesPickHint)}</p>`;
   if (r.entity) {
     const f = r.entity;
-    return `<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}</div>
+    return `${header(f)}
       <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>${sources(f.citations, f.sourcesLabel)}`;
   }
   const ending = r.kind === "ended" ? sources(r.endCitations, r.endSourcesLabel) : "";
@@ -292,7 +330,7 @@ function render() {
   const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}">${esc(v.label)}</button>`).join("");
   const groups = state.lens === "arc" && !state.arc?.view ? "" : state.groups.length
     ? state.groups.map(g => `<div class="grp">${esc(g.label.toUpperCase())}</div>` + g.entries.map(e =>
-        `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" title="${esc(e.name)}">${glyphSvg(e.glyph)}${esc(e.name)}</div>`).join("")).join("")
+        `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" title="${esc(e.name)}">${e.portrait ? mark(e.glyph, e.portrait, 18) : glyphSvg(e.glyph)}${esc(e.name)}</div>`).join("")).join("")
     : `<p class="help">${esc(t.noResults)}</p>`;
   const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}">${esc(l.label)}</button>`).join("");
   const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${state.arc.picker.map(o =>

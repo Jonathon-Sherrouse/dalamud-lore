@@ -20,7 +20,20 @@ Run this from the repository root, then open <http://127.0.0.1:5219/>.
 | `--arc-sample` | off | Load the synthetic arc sample, `sample-arc-atlas.json`, to walk through the v2 lenses ([ux-design.md](ux-design.md#v2-lenses-ndl-008)). |
 | `--draft` | off (Strict, same as the runtime) | Allow `pending` records. A banner marks the data as not shippable. Needed for content still under review. |
 | `--port <n>` | `5219` | Listen on another port. The viewer only ever binds to `127.0.0.1`. |
+| `--portraits <dir>` | `NpcDialogueLinks.AtlasViewer/portraits` in the same local app-data folder; printed at startup | The portrait cache (below). |
 | `--state <path>` | `NpcDialogueLinks.AtlasViewer/viewer-state.json` in the OS local app-data folder; the exact path is printed at startup | Where the two spoiler controls persist. It mirrors the plugin's configuration and is kept outside the repository. |
+
+### Portraits (NDL-011)
+
+The window loads portraits from the game. The viewer can't, so it reads the same images from a local cache that you fill once from your own game install:
+
+```sh
+dotnet run --project tools/atlas/PortraitCache
+```
+
+Run it from the repository root. It finds the game's `sqpack` folder in the XIV on Mac or standard Windows install, or you pass `--game <path>` (or set `FFXIV_SQPACK`). It extracts exactly the icons named in `atlas.json`, as PNGs, into the cache folder, which is outside the repository and never committed or packaged. Run it again after the portraits change.
+
+The viewer draws each portrait with the same crop (`AtlasPortrait.Uv`), the same sizes and ring (`AtlasPortraitStyle`) and the same category badge as the window. It serves only icons named by the loaded data. Without the cache it draws the category shapes, as the window does before an icon loads.
 
 - **Reload data** re-reads the file from disk. Edit `atlas.json`, click it, and the saved controls are revalidated, just as after a plugin content update.
 - **On load failure** the page shows the same generic message the plugin will. The structured errors are printed in the terminal.
@@ -60,6 +73,7 @@ Maintenance rules for every change (the in-game window shipped in `NDL-004`):
 | `--data` and `--draft` flags, a draft banner, and a Reload button. | Loads only the bundled `atlas.json`, Strict, once per open. |
 | Errors go to the terminal. | Errors go to the Dalamud log. |
 | Browser rendering (HTML and SVG). Direction arrows are text glyphs (← → ↔), and optional edges use an SVG dash. | ImGui rendering (`NpcDialogueLinks/AtlasWindow.cs`), with the same layout coordinates, glyphs, colors and text. Arrows are drawn, so they never depend on font coverage, and dashes are short line segments. |
+| Portraits from the local cache (`tools/atlas/PortraitCache`); shapes without it. | Portraits from the game's own icons through Dalamud's texture provider; shapes until they load. |
 | v2 lenses (`NDL-008`): "← Whole cast" and the change marks `+ − ~`. On the whole-cast chart, an edge label that lands on the centre node stays there. | The same lenses (`NDL-010`): "< Whole cast" and `+ - ~` in plain ASCII, so they never depend on font coverage. A whole-cast edge label that would land on the centre node is moved clear of it. |
 
 ## Tests
