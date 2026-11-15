@@ -6,33 +6,19 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
-The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. `NDL-006` and `NDL-007` start in parallel.
-
-- [ ] `NDL-007` **Investigate completed-progress detection for Follow**
-  - Owner: `runtime`
-  - Outcome: Runtime evidence settles whether client completed-quest flags can drive Follow safely.
-  - Acceptance: Every exit criterion in the plan is met or documented as failing:
-    1. the flag flips before/after for known pairs on at least two characters;
-    2. Lumina → client ID conversion is verified, with a title cross-check;
-    3. reads are framework-thread and logged-in only, with unknown never treated as incomplete;
-    4. a character switch triggers a re-read;
-    5. story-skip behavior is documented.
-
-    A minimal adapter sits outside the pure core and never touches `QuestMetadataProbe`. If it fails, the result is reported and Follow's reduced scope goes to the user.
-  - Evidence: An in-game probe run by the user through a short do/expect table, with logs; the adapter's host tests where possible; locked build. Missing in-game evidence stays pending.
-  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-007-follow-progress`. Must conclude before `NDL-008` is accepted.
+The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
 
 - [ ] `NDL-008` **Design the v2 lenses in the local viewer**
   - Owner: `ui`
-  - Outcome: The user accepts the v2 interaction design, prototyped in the viewer: Arc, Story point, Changes and Follow.
+  - Outcome: The user accepts the v2 interaction design, prototyped in the viewer: the Arc, Story point and Changes lenses.
   - Acceptance:
     - The Arc lens's default view shows the arc name and the "Story so far, through ‹quest›" recap alongside a whole-cast chart, without refocusing.
     - Default and switch-to-Arc lens rules; arc picker and selection lifetime; Changes rows; honest positioning labels; no-title raise options; the event glyph; the coverage note.
-    - A Follow toggle and status lines, if `NDL-007` passed.
+    - No Follow toggle or status lines: Follow is deferred.
     - Updated `ux-design.md` with ImGui feasibility notes.
     - A viewer-only prototype is allowed; production parity comes in `NDL-010`.
   - Evidence: Design doc, viewer walkthrough on synthetic or real data, host tests for any core text or state, locked builds. In-game: not applicable. User design acceptance.
-  - Dependencies: Accepted `NDL-006`; `NDL-007` concluded; branch `codex/ndl-008-atlas-v2-ux`.
+  - Dependencies: Accepted `NDL-006`; `NDL-007` concluded by the user's deferral (2026-11-14); branch `codex/ndl-008-atlas-v2-ux`.
 
 - [ ] `NDL-009` **Research and review the first arc's content**
   - Owner: `content`
@@ -55,7 +41,7 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
   - Outcome: The in-game Atlas window and the viewer render the accepted v2 design over the accepted arc content.
   - Acceptance:
     - The ImGui window has the Arc, Story point and Changes lenses at parity with the viewer.
-    - Follow is included only if `NDL-007` passed; otherwise the user formally accepts its deferral.
+    - No Follow: the user deferred it on 2026-11-14, which is the formally accepted reduced scope.
     - One "Open Atlas" button in the Lore Explain window, with no data flow.
     - Spoiler and positioning rules hold.
     - The scope statement is in the guide and handoff.
@@ -165,6 +151,30 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 - Explore direct dialogue-box presentation instead of chat links.
 - Consider `/ndl` as a shorter alias once command naming settles.
 
+### Deferred: Follow (`NDL-007`)
+
+The user deferred Follow on 2026-11-14, before the in-game probe run, so Atlas v2 ships without it (the plan's [failure path](atlas/v2-plan.md#follow-completed-story-progress)). The investigation is kept for a later pickup:
+
+- **Kept:** draft PR [#16](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/16) on branch `codex/ndl-007-follow-progress`, with the read-only progress adapter, its host tests, the Debug-only `/npclinks followprobe` command, and the write-up `docs/atlas/follow-progress-investigation.md`.
+- **Kept in the core:** `AtlasFollow` and `AtlasSpoilerPolicy.SetCeilingToFollowed` from `NDL-006` stay, unused by any front end.
+- **To resume:** merge `main` into the branch (`SetCeilingToFollowed` now takes the progress function), then run the probe's do/expect table on at least two characters. Open question: did any test character finish A Realm Reborn before Aug 2020 or Apr 2022, when old quest rows were replaced?
+
+The card, unchanged apart from moving here:
+
+- [ ] `NDL-007` **Investigate completed-progress detection for Follow**
+  - Owner: `runtime`
+  - Outcome: Runtime evidence settles whether client completed-quest flags can drive Follow safely.
+  - Acceptance: Every exit criterion in the plan is met or documented as failing:
+    1. the flag flips before/after for known pairs on at least two characters;
+    2. Lumina → client ID conversion is verified, with a title cross-check;
+    3. reads are framework-thread and logged-in only, with unknown never treated as incomplete;
+    4. a character switch triggers a re-read;
+    5. story-skip behavior is documented.
+
+    A minimal adapter sits outside the pure core and never touches `QuestMetadataProbe`. If it fails, the result is reported and Follow's reduced scope goes to the user.
+  - Evidence: An in-game probe run by the user through a short do/expect table, with logs; the adapter's host tests where possible; locked build. Missing in-game evidence stays pending.
+  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-007-follow-progress`. Must conclude before `NDL-008` is accepted.
+
 ### Deferred during the Atlas work (collected by the user's request, 2026-11-14)
 
 Everything consciously put off during the Atlas pilot and the v2 planning, in one place. None of it is approved; each item needs its own groomed story. `Pre-Ship` and `Next Polish Pass` stay tracked in [enhancement-roadmap.md](enhancement-roadmap.md), so they aren't repeated here.
@@ -179,7 +189,7 @@ Everything consciously put off during the Atlas pilot and the v2 planning, in on
 **Atlas views and behaviour**
 - **"During a quest" positions,** so facts that start and end inside one quest can be relationships. That needs a flagged amendment, because v2 keeps them as summary text.
 - **Richer Changes lens:** pairing a type change into one "~ changed" row, and distinguishing "revealed" from "began".
-- **Continuous Follow** (live updates, instead of on open or Refresh), and Follow for optional-quest progress.
+- **Follow itself** is parked above, as `NDL-007`. Beyond it: **continuous Follow** (live updates, instead of on open or Refresh), and Follow for optional-quest progress.
 - **Optional quests on the timeline,** in some order. v2's timeline is main scenario only.
 - **Scene- or objective-level positions** inside a quest.
 - **Navigation history:** a back button. It was excluded from the pilot.

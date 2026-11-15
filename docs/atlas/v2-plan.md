@@ -185,6 +185,8 @@ Arc boundaries are **editorial decisions backed by evidence**, and the user revi
 
 ## Follow: completed story progress
 
+> **Deferred (user decision, 2026-11-14).** The user deferred Follow before the `NDL-007` in-game run, so v2 ships without it. That is the explicitly accepted reduced scope under the failure path below. The investigation is parked in the [backlog](../backlog.md#deferred-follow-ndl-007).
+
 **The source.**
 - Client completed-quest flags for authored `gameQuestIds`, for example FFXIVClientStructs `QuestManager` / `UIState` quest completion.
 - A small adapter outside the pure core returns **complete**, **incomplete** or **unknown**.
