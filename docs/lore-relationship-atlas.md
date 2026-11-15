@@ -2,6 +2,8 @@
 
 ## Status and priority exception
 
+**Pilot complete (2026-11-14).** `NDL-002`, `NDL-003`, `NDL-005` and `NDL-004` are all User Accepted, and `/npclinks atlas` ships the pilot. See the [Atlas guide](atlas/README.md). The text below records how the pilot was authorized.
+
 The user authorized Part 1 (planning publication) on 2026-11-14 after council agreement on the pilot and research-to-implementation order. This planning bootstrap publishes the pilot contract and the three approved **To Do** cards in [backlog.md](backlog.md). No research, plugin implementation, content acceptance, or in-game validation has been completed by this change.
 
 The bounded pilot `NDL-002` → `NDL-003` and `NDL-005` → `NDL-004` is explicitly allowed ahead of the existing `Pre-Ship` and `Next Polish Pass` work in [enhancement-roadmap.md](enhancement-roadmap.md). Those earlier items remain open. This exception does not approve the broader Atlas roadmap, remove any story acceptance gate, or make future candidates executable. Part 1 ends at planning publication; beginning discovery/foundation work is the next execution step. The user added the UX design story `NDL-005` to the pilot on 2026-11-14, so the window is designed and accepted before it is built.

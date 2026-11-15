@@ -80,11 +80,11 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Pilot: 8–12 English Core Scions entities (characters, organization, supporting locations), two snapshots labeled **ARR 2.0 complete** and **ARR 2.55 complete**, and original sourced checkpoint-specific summaries. Do not reuse live dictionary definitions. Story-event entities are outside this pilot.
 - Open independently with `/npclinks atlas`, focused on one selected entity. Use deterministic labeled, directed connections, at most eight neighbors on the canvas, and a complete visible-neighbor list.
 - Keep detected dictionary clicks and Lore Explain separate. Dictionary membership does not grant Atlas eligibility; ordinary concepts, mechanics, items, duties, currencies, and servers stay dictionary-only.
-- Use **Knowledge approved through** as the confirmed spoiler ceiling and **Viewing as of** as the selected historical snapshot. Checkpoints and filtering belong in the pilot foundation; automatic progression/quest inference remains deferred.
+- Use **Spoiler limit** (originally "Knowledge approved through", renamed in `NDL-005`) as the confirmed spoiler ceiling and **Viewing as of** as the selected historical snapshot. Checkpoints and filtering belong in the pilot foundation; automatic progression/quest inference remains deferred.
 - Sources, names, aliases, descriptions, and relationships require player-knowledge boundaries and human review. No AI-inferred canon or private feelings. Default category glyphs avoid portrait dependencies.
 - Future **View in Atlas** bridges, dictionary-text reuse, story-event entities, maps, additional groups/checkpoints, and portraits require separately approved stories. They are not pilot slices or current acceptance prerequisites.
 - See [lore-relationship-atlas.md](lore-relationship-atlas.md) for the complete reconciled pilot contract, research order, safety rules, and evidence lanes. This planning publication alone does not start research or implementation or complete the product; update this status only as the actual stories progress.
-- Status (2026-11-14): `NDL-002` (research and tested foundation, with the local browser viewer) is **User Accepted**. The user added `NDL-005` (UX design, prototyped in the local viewer) ahead of the window story. `NDL-003`, `NDL-005`, and `NDL-004` remain **To Do**.
+- **Status (2026-11-14): pilot complete.** `NDL-002` (foundation and local viewer), `NDL-003` (reviewed Scions content), `NDL-005` (UX design) and `NDL-004` (in-game window) are all **User Accepted**. The priority exception has served its purpose: `Pre-Ship` and `Next Polish Pass` are the default priority again. Broader Atlas ideas, including the quest-scoped views parked in the backlog, still need their own approved stories. User guide: [docs/atlas/README.md](atlas/README.md).
 
 ## Later Enhancements
 
@@ -110,6 +110,7 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ## Completed
 
+- Shipped the Lore Relationship Atlas pilot (`NDL-002`–`NDL-005`, 2026-11-14). `/npclinks atlas` opens a spoiler-safe, offline relationship browser over 12 human-reviewed Scions entities at ARR 2.0 and 2.55, with main-story and optional-content views. A local browser viewer renders the same core without FFXIV. Guide: [docs/atlas/README.md](atlas/README.md).
 - Added a merged dictionary model with bundled seed terms plus user `user-terms.json`.
 - Added in-game create, update, delete/hide, reload, and editor UI support.
 - Added command-line dictionary set/delete/reload/path commands.
