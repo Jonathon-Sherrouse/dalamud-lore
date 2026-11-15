@@ -61,6 +61,16 @@ public static class AtlasChartStyle
 {
     public const double RingFraction = 0.36;
 
+    /// <summary>
+    /// Chart text sizes in unscaled pixels, the same in both front ends: names, edge labels, and the height of the plate
+    /// behind each. The game draws chart text at these sizes rather than its larger UI font, so placement matches the viewer.
+    /// </summary>
+    public const int NamePixels = 12;
+
+    public const int LabelPixels = 11;
+
+    public const int PlatePixels = 15;
+
     /// <summary>Fractions along an edge to try for its label, in order.</summary>
     public static readonly double[] LabelPositions = [0.5, 0.38, 0.62, 0.28, 0.72, 0.2, 0.8];
 

@@ -51,6 +51,7 @@ internal sealed class AtlasWindow : Window
     // details pane shows a new selection's card or subject from the top.
     private string? scrollContext;
     private (string? Relationship, string? Change, string? Focus) shownSelection;
+    private bool forceRevealDetails;
 
     public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures)
         : base($"{AtlasText.WindowTitle}###NpcDialogueLinksAtlas")
@@ -175,11 +176,12 @@ internal sealed class AtlasWindow : Window
         var resetPanes = context != this.scrollContext;
         this.scrollContext = context;
         var selection = (s.SelectedRelationshipId, s.SelectedChangeKey, s.FocusId);
-        var revealDetails = resetPanes
+        var revealDetails = resetPanes || this.forceRevealDetails
             || (selection.SelectedRelationshipId is not null && selection.SelectedRelationshipId != this.shownSelection.Relationship)
             || (selection.SelectedChangeKey is not null && selection.SelectedChangeKey != this.shownSelection.Change)
             || (selection.FocusId is not null && selection.FocusId != this.shownSelection.Focus);
         this.shownSelection = selection;
+        this.forceRevealDetails = false;
 
         // ImRaii scopes end every child and popup even if drawing throws, so a failure stays inside the Atlas.
         if (s.Lens == AtlasLens.Changes)
@@ -531,17 +533,20 @@ internal sealed class AtlasWindow : Window
         var ringNameMax = ringCount >= AtlasChartStyle.FewNodesThreshold
             ? Math.Min(AtlasChartStyle.NameMaxWidth * scale, (float)(2 * ring * Math.Sin(Math.PI / ringCount)) - (8 * scale))
             : AtlasChartStyle.FewNodesNameMaxWidth * scale;
+        var namePx = AtlasChartStyle.NamePixels * scale;
+        var labelPx = AtlasChartStyle.LabelPixels * scale;
+        var platePx = AtlasChartStyle.PlatePixels * scale;
         var names = new Dictionary<string, (string Text, bool Truncated, Vector2 Min, Vector2 Max)>(StringComparer.Ordinal);
         (string Text, bool Truncated, Vector2 Min, Vector2 Max) NamePlate(AtlasGraphNode node, float maxWidth)
         {
             var p = positions[node.Entity.Id];
             var r = radii[node.Entity.Id];
-            var text = Truncate(node.Entity.Name, maxWidth, out var truncated);
-            var textSize = ImGui.CalcTextSize(text);
+            var text = Truncate(node.Entity.Name, maxWidth, out var truncated, namePx);
+            var plate = new Vector2(ChartText(text, namePx).X + (4 * scale), platePx);
             var above = !node.IsFocus && node.Y < -0.01;
-            var top = above ? p.Y - r - (3 * scale) - textSize.Y : p.Y + r + (3 * scale);
-            var min = new Vector2(p.X - (textSize.X / 2) - (2 * scale), top);
-            return (text, truncated, min, min + textSize + new Vector2(4 * scale, 0));
+            var top = above ? p.Y - r - (3 * scale) - plate.Y : p.Y + r + (3 * scale);
+            var min = new Vector2(p.X - (plate.X / 2), top);
+            return (text, truncated, min, min + plate);
         }
 
         foreach (var node in layout.Nodes.Where(n => !n.IsFocus))
@@ -601,11 +606,12 @@ internal sealed class AtlasWindow : Window
         // placed label; otherwise at the least-overlapping one, which avoids names above all (AtlasChartStyle).
         var plates = names.Values.Select(n => (n.Min - inflate, n.Max + inflate)).ToList();
         var placed = new List<(Vector2 Min, Vector2 Max)>();
+        var spots = new List<(Vector2 Min, Vector2 Max, Vector2 Anchor, int Offset, Vector2 TextSize)>();
         foreach (var label in labels)
         {
-            var textSize = ImGui.CalcTextSize(label.Text);
-            var half = (textSize / 2) + new Vector2(3 * scale, 1 * scale);
-            var step = (half.Y * 2) + gap;
+            var textSize = ChartText(label.Text, labelPx);
+            var half = new Vector2((textSize.X / 2) + (3 * scale), platePx / 2);
+            var step = platePx + gap;
             (Vector2 Min, Vector2 Max, Vector2 Anchor, int Offset)? best = null;
             var bestScore = double.MaxValue;
             foreach (var t in AtlasChartStyle.LabelPositions)
@@ -644,24 +650,45 @@ internal sealed class AtlasWindow : Window
 
             var chosen = best!.Value;
             placed.Add((chosen.Min, chosen.Max));
-            if (chosen.Offset != 0)
+            spots.Add((chosen.Min, chosen.Max, chosen.Anchor, chosen.Offset, textSize));
+        }
+
+        // The hovered label (the last one under the mouse, as it is drawn on top) lights its edge before any label is
+        // drawn, so the lit line never crosses a label's text.
+        var hoveredLabel = -1;
+        if (ImGui.IsWindowHovered(ImGuiHoveredFlags.AllowWhenBlockedByActiveItem))
+        {
+            for (var i = 0; i < spots.Count; i++)
+            {
+                if (ImGui.IsMouseHoveringRect(spots[i].Min, spots[i].Max))
+                {
+                    hoveredLabel = i;
+                }
+            }
+        }
+
+        if (hoveredLabel >= 0)
+        {
+            var lit = labels[hoveredLabel];
+            DrawEdge(drawList, lit.P1, lit.P2, lit.Normal, lit.Arrow, lit.Optional, ImGui.GetColorU32(HoverColor), 2.2f * scale);
+        }
+
+        for (var i = 0; i < labels.Count; i++)
+        {
+            var label = labels[i];
+            var spot = spots[i];
+            if (spot.Offset != 0)
             {
                 // A short leader line ties an off-edge label back to its edge.
-                drawList.AddLine(chosen.Anchor, Vector2.Clamp(chosen.Anchor, chosen.Min, chosen.Max), ImGui.GetColorU32(MutedColor with { W = 0.6f }), 1f * scale);
+                drawList.AddLine(spot.Anchor, Vector2.Clamp(spot.Anchor, spot.Min, spot.Max), ImGui.GetColorU32(MutedColor with { W = 0.6f }), 1f * scale);
             }
 
-            // A hovered label lights its edge first, so the label is drawn over the lit line, never struck through.
-            if (ImGui.IsWindowHovered() && ImGui.IsMouseHoveringRect(chosen.Min, chosen.Max))
-            {
-                DrawEdge(drawList, label.P1, label.P2, label.Normal, label.Arrow, label.Optional, ImGui.GetColorU32(HoverColor), 2.2f * scale);
-            }
-
-            drawList.AddRectFilled(chosen.Min, chosen.Max, ImGui.GetColorU32(LabelBackColor), 3 * scale);
-            ImGui.SetCursorScreenPos(chosen.Min);
-            var clicked = ImGui.InvisibleButton($"##edge-{label.RelationshipId}", chosen.Max - chosen.Min);
-            var hovered = ImGui.IsItemHovered();
+            drawList.AddRectFilled(spot.Min, spot.Max, ImGui.GetColorU32(LabelBackColor), 3 * scale);
+            ImGui.SetCursorScreenPos(spot.Min);
+            var clicked = ImGui.InvisibleButton($"##edge-{label.RelationshipId}", spot.Max - spot.Min);
+            var hovered = i == hoveredLabel;
             var textColor = label.Selected ? AccentColor : hovered ? HoverColor : MutedColor;
-            drawList.AddText(((chosen.Min + chosen.Max) / 2) - (textSize / 2), ImGui.GetColorU32(textColor), label.Text);
+            drawList.AddText(ImGui.GetFont(), labelPx, ((spot.Min + spot.Max) / 2) - (spot.TextSize / 2), ImGui.GetColorU32(textColor), label.Text);
             if (hovered)
             {
                 // The full sentence names both ends, so a label is never ambiguous.
@@ -671,7 +698,9 @@ internal sealed class AtlasWindow : Window
 
             if (clicked)
             {
+                // Picking a connection always shows its card, even if it was already selected.
                 s.SelectRelationship(label.RelationshipId);
+                this.forceRevealDetails = true;
             }
         }
 
@@ -692,17 +721,17 @@ internal sealed class AtlasWindow : Window
                 DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
             }
 
-            // The clickable centre of the whole-cast chart gets the hover ring too, as in the viewer.
+            // A clickable node, the whole-cast centre included, gets a hover ring (as in the viewer).
             if (hovered && canClick)
             {
-                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (node.IsFocus ? 5 : 2) * scale, ImGui.GetColorU32(HoverColor), 2 * scale);
+                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (node.IsFocus ? 6 : 2) * scale, ImGui.GetColorU32(HoverColor), 2 * scale);
             }
 
             this.DrawMark(drawList, node.Entity.Category, node.Entity.Portrait, p, r, true, badge: true);
 
             var name = names[node.Entity.Id];
             drawList.AddRectFilled(name.Min, name.Max, ImGui.GetColorU32(LabelBackColor), 2 * scale);
-            drawList.AddText(name.Min + new Vector2(2 * scale, 0), ImGui.GetColorU32(TextColor), name.Text);
+            drawList.AddText(ImGui.GetFont(), namePx, name.Min + new Vector2(2 * scale, ((name.Max.Y - name.Min.Y) - namePx) / 2), ImGui.GetColorU32(TextColor), name.Text);
 
             if (hovered)
             {
@@ -1549,10 +1578,17 @@ internal sealed class AtlasWindow : Window
         return Vector2.DistanceSquared(nearest, center) < radius * radius;
     }
 
-    private static string Truncate(string text, float maxWidth, out bool truncated)
+    /// <summary>
+    /// Text size at a given pixel size, for chart text drawn smaller than the UI font (AtlasChartStyle). ImGui scales
+    /// glyph advances linearly with the font size, so measuring at the UI size and scaling is exact.
+    /// </summary>
+    private static Vector2 ChartText(string text, float pixels) => ImGui.CalcTextSize(text) * (pixels / ImGui.GetFontSize());
+
+    private static string Truncate(string text, float maxWidth, out bool truncated, float? pixels = null)
     {
+        Vector2 Measure(string t) => pixels is { } px ? ChartText(t, px) : ImGui.CalcTextSize(t);
         truncated = false;
-        if (ImGui.CalcTextSize(text).X <= maxWidth)
+        if (Measure(text).X <= maxWidth)
         {
             return text;
         }
@@ -1560,7 +1596,7 @@ internal sealed class AtlasWindow : Window
         truncated = true;
         const string ellipsis = "…";
         var end = text.Length;
-        while (end > 1 && ImGui.CalcTextSize(text[..end] + ellipsis).X > maxWidth)
+        while (end > 1 && Measure(text[..end] + ellipsis).X > maxWidth)
         {
             end--;
         }

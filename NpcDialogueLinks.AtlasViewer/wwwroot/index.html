@@ -117,8 +117,8 @@
   svg .head { fill: var(--edge); }
   svg .head.selected { fill: var(--accent); }
   /* The edge of a hovered or keyboard-focused label. */
-  svg .edge.hot { stroke: var(--hover); }
-  svg .head.hot { fill: var(--hover); }
+  svg .edge.hot:not(.selected) { stroke: var(--hover); }
+  svg .head.hot:not(.selected) { fill: var(--hover); }
   svg .leader { stroke: var(--muted); stroke-opacity: .6; stroke-width: 1px; }
   svg .edge-hit { stroke: transparent; stroke-width: 10px; fill: none; cursor: pointer; }
   /* Arc lens: a cast member's participation spoke to the arc entry: faint, unlabelled, not clickable. */
@@ -134,7 +134,7 @@
   svg .badge-shape { stroke: #0e0f12; stroke-width: 1.2px; }
   svg .node .fo { fill: none; stroke: rgba(255,255,255,.6); stroke-width: 2px; }
   svg .node .ho { fill: none; stroke: transparent; stroke-width: 2px; }
-  svg .node:not(.focus):hover .ho, svg .node:focus-visible .ho { stroke: var(--hover); }
+  svg .node:hover .ho, svg .node:focus-visible .ho { stroke: var(--hover); }
   .hdr { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
   .hdr h2 { margin: 0; }
   .hdr .meta { margin: 0; }
@@ -261,7 +261,7 @@ function chartSvg(L, W, H) {
   const C = state.chartStyle, S = state.portraitStyle, wholeCast = !!state.arc?.wholeCast;
   const cx = W / 2, cy = H / 2, ring = Math.min(W, H) * C.ringFraction;
   const ringCount = L.nodes.filter(n => !n.isFocus).length;
-  // A ring name fits the gap between ring neighbours; with fewer than 3 there is no such gap to respect.
+  // A ring name fits the gap between ring neighbours; a small ring (under chartStyle.fewNodesThreshold) gets the wider cap.
   const ringNameMax = ringCount >= C.fewNodesThreshold ? Math.min(C.nameMaxWidth, 2 * ring * Math.sin(Math.PI / ringCount) - 8) : C.fewNodesNameMaxWidth;
 
   // Nodes: position, radius, edge extent (the shape's outline: a diamond or hexagon reaches past its radius) and the
@@ -491,6 +491,7 @@ function changeDetails() {
 // reset only when the lens, view or content view changes, which rebuilds what the panes show.
 let renderedContext = null;
 let renderedSelection = ["", "", ""];
+let forceReveal = false;
 const SCROLL_REGIONS = ["browse", "details", "changes"];
 
 function render() {
@@ -503,7 +504,8 @@ function render() {
   // A new selection (connection, change or focus) shows its card or subject at the top of the details pane.
   // Closing a card or clearing a selection keeps the pane where it was.
   const selection = state.ok ? [state.selectedRelationship?.id ?? "", state.changes?.selected?.key ?? "", state.focus?.id ?? ""] : ["", "", ""];
-  const revealDetails = selection.some((part, i) => part !== "" && part !== renderedSelection[i]);
+  const revealDetails = forceReveal || selection.some((part, i) => part !== "" && part !== renderedSelection[i]);
+  forceReveal = false;
   renderedSelection = selection;
   if (!state.ok) {
     root.innerHTML = `<div class="error"><h2>Lore Atlas</h2><p>${esc(state.error)}</p>
@@ -611,7 +613,7 @@ document.addEventListener("click", e => {
   if (!el || !document.contains(el)) return;
   const d = el.dataset;
   if (d.focus !== undefined) act("focus", d.focus);
-  else if (d.rel !== undefined) act("selectRelationship", d.rel);
+  else if (d.rel !== undefined) { forceReveal = true; act("selectRelationship", d.rel); } // a re-click shows the card again
   else if (d.change !== undefined) act("selectChange", d.change);
   else if (d.ceiling !== undefined) act("requestCeiling", d.ceiling);
   else if (d.cv !== undefined) { if (d.cv !== state.contentView) act("setContentView", d.cv); }
