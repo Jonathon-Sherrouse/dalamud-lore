@@ -191,7 +191,6 @@ internal sealed class ViewerHost(ViewerOptions options)
                 arcPickerLabel = AtlasText.ArcPickerLabel,
                 wholeCast = AtlasText.WholeCastButton,
                 noArc = AtlasText.NoArcHere,
-                arcNew = AtlasText.ArcNewHeading,
                 arcEnded = AtlasText.ArcEndedHeading,
                 arcNothingNew = AtlasText.ArcNothingNew,
                 arcNothingEnded = AtlasText.ArcNothingEnded,
@@ -209,7 +208,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                 {
                     picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent }),
                     wholeCast = s.ShowsWholeCast,
-                    castHeading = AtlasText.CastHeading(Math.Max(0, s.Snapshot.Entities.Count - 1)),
+                    castHeading = s.CastHeading,
                     view = s.Arc is { } a
                         ? new
                         {
@@ -217,6 +216,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                             entry = EntityDetails(a.Entry),
                             recapLabel = a.RecapLabel,
                             asOf = a.AsOfLabel,
+                            newHeading = s.ArcNewHeading,
                             newRows = s.ArcNewRows.Select(Row),
                             endedRows = s.ArcEndedRows.Select(Row),
                         }

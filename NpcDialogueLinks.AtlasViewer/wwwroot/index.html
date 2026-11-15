@@ -15,7 +15,7 @@
   html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
     font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
   /* The window: 760 x 480 minimum, as in the design. */
-  .win { display: grid; grid-template-rows: auto 1fr auto; height: 100vh; min-width: 760px; min-height: 480px; background: var(--win); }
+  .win { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; height: 100vh; min-width: 760px; min-height: 480px; background: var(--win); }
   .bar { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding: 9px 12px; border-bottom: 1px solid var(--border); }
   .bar .lbl { color: var(--muted); font-size: 12px; margin-right: 6px; }
   .bar .title { font-weight: 600; margin-right: 6px; }
@@ -168,7 +168,8 @@ function graph(emptyText) {
     const pad = 0.16;
     const x1 = a.x + dx / len * pad + nx * off, y1 = a.y + dy / len * pad + ny * off;
     const x2 = b.x - dx / len * pad + nx * off, y2 = b.y - dy / len * pad + ny * off;
-    if (e.participation) { edges += `<line class="edge spoke" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; continue; }
+    // Faint, unlabelled spokes on the whole-cast chart only (D8); a refocused one-hop graph draws them as normal edges.
+    if (e.participation && state.arc?.wholeCast) { edges += `<line class="edge spoke" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; continue; }
     const isSel = e.relationshipId === sel ? " selected" : "";
     const opt = e.optional ? " optional" : "";
     const marker = e.symmetric ? "" : ` marker-end="url(#arrow${isSel ? "-sel" : ""})"`;
@@ -213,16 +214,21 @@ function details() {
       <span class="rel" data-rel="${esc(n.relationshipId)}">${esc(n.label)}</span>
       <span><span class="who" data-focus="${esc(n.entityId)}">${esc(n.entityName)}</span>${optTag(n.optional)}${n.onCanvas ? "" : ` <span class="help">${esc(t.listOnly)}</span>`}</span></div>`;
   }).join("");
-  const r = state.selectedRelationship;
-  const card = r ? `<div class="h3">${esc(t.selectedConnectionHeading)}</div><div class="card">
-      <div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong>${optTag(r.optional)}</div>
-      ${sources(r.citations, r.sourcesLabel)}<button data-clear>${esc(t.closeConnection)}</button></div>` : "";
+  const card = selectedCard();
   const aliases = f.aliases.length ? " · " + f.aliases.map(esc).join(", ") : "";
   const back = state.arc?.view ? `<button data-wholecast>← ${esc(t.wholeCast)}</button><div style="height:8px"></div>` : "";
   return `${back}<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>
     <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>
     ${sources(f.citations, f.sourcesLabel)}
     <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}${card}`;
+}
+
+// The selected connection's card, shared by the details pane and the Arc panel (L3): its sources and Close.
+function selectedCard() {
+  const t = state.text, r = state.selectedRelationship;
+  return r ? `<div class="h3">${esc(t.selectedConnectionHeading)}</div><div class="card">
+      <div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong>${optTag(r.optional)}</div>
+      ${sources(r.citations, r.sourcesLabel)}<button data-clear>${esc(t.closeConnection)}</button></div>` : "";
 }
 
 // A relationship row ("Tobin prisoner of The Drowned Court"); endpoint names refocus when the row is in the Arc panel.
@@ -237,11 +243,11 @@ function arcPanel() {
   const rows = (list, none) => list.length
     ? list.map(r => `<div class="crow">${relRow(r, true)}${r.endedIn ? ` <span class="ended-in">(${esc(r.endedIn)})</span>` : ""}</div>`).join("")
     : `<div class="help">${esc(none)}</div>`;
-  return `<h2>${glyphSvg(e.glyph, 14)}${esc(e.name)}</h2><div class="meta">${esc(e.category)}</div>
+  return `${selectedCard()}${state.selectedRelationship ? `<div style="height:10px"></div>` : ""}<h2>${glyphSvg(e.glyph, 14)}${esc(e.name)}</h2><div class="meta">${esc(e.category)}</div>
     <div class="recap-label">${esc(v.recapLabel)}</div>${v.asOf ? `<div class="meta">${esc(v.asOf)}</div>` : ""}
     <p class="recap">${esc(e.summary)}</p>
     ${sources(e.citations, e.sourcesLabel)}
-    <div class="h3">${esc(t.arcNew)}</div>${rows(v.newRows, t.arcNothingNew)}
+    <div class="h3">${esc(v.newHeading)}</div>${rows(v.newRows, t.arcNothingNew)}
     <div class="h3">${esc(t.arcEnded)}</div>${rows(v.endedRows, t.arcNothingEnded)}`;
 }
 

@@ -183,15 +183,15 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 │ CHARACTERS     │              ■ The Drowned Court        │ Tobin is still a prisoner…  │
 │ ● Captain Mira │                                         │ ▸ Sources (1)               │
 │ …              │  (faint spokes to the centre, labelled  │ NEW AT THIS POINT           │
-│ EVENTS         │   edges between cast members)           │ Mira allied with Vessa      │
-│ ⬡ The Siege…   │                                         │ ENDED SO FAR IN THIS ARC    │
+│ LOCATIONS      │   edges between cast members)           │ Mira allied with Vessa      │
+│ ◆ Saltmere …   │                                         │ ENDED SO FAR IN THIS ARC    │
 │                │                                         │ Mira member of … (ended in …)│
 └────────────────┴─────────────────────────────────────────┴────────────────────────────┘
 ```
 
 | Lens | Browse pane | Centre | Details pane |
 |---|---|---|---|
-| **Arc** | The **Story arc** picker, then search, then the cast under "Cast (n)", grouped by category | The **whole-cast chart**: the arc entry in the centre, every cast member on a ring, every cast-to-cast relationship drawn | The **arc panel**: name, "Story so far, through ‹quest›", the recap, Sources (n), **New at this point**, **Ended so far in this arc** |
+| **Arc** | The **Story arc** picker, then search, then the cast members under "Cast (n)", grouped by category. The arc entry is the panel's subject, so it is not listed; its centre node can still be clicked. | The **whole-cast chart**: the arc entry in the centre, every cast member on a ring, every cast-to-cast relationship drawn | The **arc panel**: name, "Story so far, through ‹quest›", the recap, Sources (n), **New at this point**, **Ended so far in this arc** |
 | **Story point** | Unchanged (v1) | Unchanged one-hop graph | Unchanged |
 | **Changes** | Replaced by the change list | Replaced by the change list | The selected change |
 
@@ -199,12 +199,12 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 
 | # | Flow | Behavior |
 |---|---|---|
-| L1 | **Open** | The default lens rule: **Arc** when an arc contains the view, **Story point** otherwise. Until the player picks a lens, the rule is re-applied whenever the view changes. An explicit pick lasts for the session and is never saved. Saved state still opens at the earliest checkpoint when absent or invalid, which is the pre-arc baseline, so a first open is always Story point. |
+| L1 | **Open** | The default lens rule: **Arc** when an arc contains the view, **Story point** otherwise. Until the player picks a lens or an arc, the rule is re-applied whenever the view changes ([D11](#decisions-for-the-user-to-accept)). An explicit pick lasts for the session and is never saved. Saved state still opens at the earliest checkpoint when absent or invalid, which is the pre-arc baseline, so a first open is always Story point. |
 | L2 | **Switch lens** | The lens switch changes what is shown. Like a checkpoint change it clears search, focus and selection, but it never shows the "Selection reset" hint, because the player did it on purpose. |
-| L3 | **Arc lens at rest** | Nothing is focused: the whole-cast chart and the arc panel show. The recap is the arc entry's reviewed summary at the effective step. |
+| L3 | **Arc lens at rest** | Nothing is focused: the whole-cast chart and the arc panel show. The recap is the arc entry's reviewed summary at the effective step. Clicking a labelled edge on the chart opens its **Selected connection** card, with its sources and Close, at the top of the arc panel; the recap stays below it. |
 | L4 | **Refocus in the arc** | Clicking a cast member (canvas, cast list, or a name in the panel's rows) shows the v1 one-hop graph and details, **inside the cast**. Search, counts and connections never leave the cast. A **← Whole cast** button returns to rest. |
 | L5 | **Pick an arc** | The **Story arc** picker lists "The arc at this point" (the automatic choice), then every arc already started by the view, by start and then authored order, each named as of its effective step. No spans, step counts or end markers. |
-| L6 | **Pick lifetime** | A pick holds while the view moves, and ends when the view drops below the arc's first step; it does not come back when the view rises again. A picked arc that has already ended shows "As of ‹last quest›" beside the recap. |
+| L6 | **Pick lifetime** | Picking an arc also chooses the Arc lens ([D12](#decisions-for-the-user-to-accept)). A pick holds while the view moves, and ends when the view drops below the arc's first step (also when lowering the limit clamps the view there); it does not come back when the view rises again. "The arc at this point" clears it. A picked arc that has already ended shows "As of ‹last quest›" beside the recap, and its "New" heading becomes "New in ‹last quest›". |
 | L7 | **No arc here** | In the Arc lens with no arc covering the view: "No story arc covers this point." The picker still lists started arcs, so an ended one can be reopened. |
 | L8 | **Changes lens** | A heading, "What this quest changed" or "Changes since ‹previous point›", then rows under **Added** (+), **Ended** (−) and **Description updated** (~). Picking a row shows it on the right: the relationship and its sources, plus **Sources for the ending (n)** on an ended row, the only place end evidence ever appears. |
 | L9 | **Changes not offered** | At the first step or across a slice ↔ milestone boundary: "Changes compare one quest step with the one before it, or one milestone with the previous milestone. There is no comparison for this point." |
@@ -213,7 +213,7 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 ### Visual language additions
 
 - **Events and arc entries:** a flat-topped **hexagon** in violet (`#c39bd3`), the fourth category glyph, ordered last in lists ("Events").
-- **Participation spokes:** in the whole-cast chart, each member's `participant-in` edge to the entry is a faint violet line with no label, arrow or click target (`AtlasGraphEdge.IsParticipation`). Membership is already shown by the member being on the chart, and ten labelled spokes would bury the real relationships.
+- **Participation spokes:** in the whole-cast chart, each member's `participant-in` edge to the entry is a faint violet line with no label, arrow or click target (`AtlasGraphEdge.IsParticipation`; the session refuses to select one there). Membership is already shown by the member being on the chart, and ten labelled spokes would bury the real relationships. For the same reason, **New at this point** leaves out participation edges. In a refocused one-hop graph the same edge is drawn and selectable like any other.
 - **Recap label:** small caps in the accent colour, above the recap text, which is slightly larger than a summary.
 - **Change marks:** `+`, `−` and `~` repeat the group heading, so meaning never rests on colour.
 - **Ended rows in the Arc lens** carry "(ended in ‹quest›)" and **no sources** of any kind.
@@ -229,7 +229,15 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 
 ### Shared core
 
-Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`, `SetLens`, `LensOptions`, `PositionLabel`, `CoverageNote`; `Arc`, `ArcPickerOptions`, `PickArc`, `ShowsWholeCast`, `ShowWholeCast`, `ArcNewRows`, `ArcEndedRows`; `ChangesOffered`, `ChangesLabel`, `ChangeGroups`, `SelectChange`, `SelectedChange`) and `AtlasText`. In the Arc lens the session's `Snapshot` is the arc's cast-filtered snapshot at its effective step, so every v1 browsing method is cast-filtered for free. The per-step leak sweep (`V2LeakSweepTests`) checks every surface at every limit, view, content view, lens and arc pick.
+Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`, `SetLens`, `LensOptions`, `PositionLabel`, `CoverageNote`; `Arc`, `ArcPickerOptions`, `PickArc`, `CastHeading`, `ArcNewHeading`, `ShowsWholeCast`, `ShowWholeCast`, `ArcNewRows`, `ArcEndedRows`; `ChangesOffered`, `ChangesLabel`, `ChangeGroups`, `SelectChange`, `SelectedChange`) and `AtlasText`. In the Arc lens the session's `Snapshot` is the arc's cast-filtered snapshot at its effective step, so every v1 browsing method is cast-filtered for free.
+
+**Per-frame cost.** The derived lens state (change groups, picker options, arc rows, the whole-cast layout) is built once and cached until the next change of limit, view, content view, lens or pick, so an ImGui window can read it every frame.
+
+**Leak sweep.** `V2LeakSweepTests` covers every limit, view, content view, lens and arc pick, in fresh sessions and along a walk down and back up the timeline with a pick held. At each stop it selects every chart edge and every change, and refocuses every entry. It checks four things:
+- Every entity, relationship and source shown exists, exactly as shown, at or before the view.
+- No text names a later quest, entity or source.
+- Pickers and prompts name nothing past the limit.
+- End evidence appears only on Changes "ended" rows, proved by a source cited nowhere else.
 
 ### ImGui feasibility (for `NDL-010`)
 
@@ -239,10 +247,11 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 | Position and coverage | `TextUnformatted` and `TextDisabled` on the lens bar line; the coverage note wraps with `TextWrapped` on narrow windows |
 | Story arc picker | `BeginCombo` over `ArcPickerOptions`; the automatic option first |
 | Whole-cast chart | The existing `ImDrawList` renderer over `AtlasGraphLayout.ComputeWholeCast`: up to 11 nodes on one ring, so no new layout code. Spokes are a single `AddLine` with a low-alpha `EventColor` and no `InvisibleButton`. The hexagon is `AddNgonFilled` / `AddNgon` with 6 sides, already drawn by the window. |
-| Arc panel | `BeginChild` details pane: a `PushStyleColor` accent `TextUnformatted` for the recap label, `TextWrapped` for the recap, the existing Sources `CollapsingHeader`, then `SeparatorText` headings and `Selectable` name spans for the rows |
+| Arc panel | `BeginChild` details pane: a `PushStyleColor` accent `TextUnformatted` for the recap label, `TextWrapped` for the recap, the existing Sources `CollapsingHeader`, then the window's existing heading pattern (`TextColored(MutedColor, LABEL)` + `Separator`) and its `ClickableText` helper for inline names in rows. The selected-connection card is the window's existing card, drawn above the recap. |
 | ← Whole cast | `SmallButton` at the top of the details pane |
-| Changes list | One `BeginChild` spanning the browse and canvas width (the window already sizes panes from a table), `SeparatorText` group headings, `Selectable` rows with `SpanAllColumns`; the mark glyph as a fixed-width `TextDisabled` |
+| Changes list | One `BeginChild` spanning the browse and canvas width (the window already sizes panes from a table), group headings in the same heading pattern, full-width `Selectable` rows; the mark glyph as a fixed-width `TextDisabled` |
 | End evidence | A second `CollapsingHeader` labelled `EndSourcesToggle(n)`, driven by the same `SourcesExpanded` setting |
+| Known layout limit | With an even ring (for example ten members), an edge between two opposite members runs through the centre hexagon and its label. The viewer accepts it; `NDL-010` may bend such an edge or offset its label. |
 
 ### Decisions for the user to accept
 
@@ -251,4 +260,6 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 3. **D8. Participation spokes are faint and unlabelled.**
 4. **D9. The automatic arc option reads "The arc at this point".** It avoids "current" and "you are here", which would imply progress.
 5. **D10. Switching lens clears focus and search silently**, without the reset hint.
+6. **D11. The default lens rule re-applies on every view change** until the player picks a lens or an arc. The plan names only "on open" and "when Follow moves the view". With Follow deferred, this is how a player moving through the story lands in the Arc lens on their own.
+7. **D12. Picking an arc counts as picking the Arc lens,** so a picked arc stays on screen when the view moves past its end.
 

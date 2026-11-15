@@ -129,6 +129,9 @@ public static class AtlasText
     public static string CastHeading(int count) => $"Cast ({count})";
 
     public const string ArcNewHeading = "New at this point";
+
+    /// <summary>The "new" heading for a picked arc viewed after it ended: the rows are new at its last quest.</summary>
+    public static string ArcNewIn(string lastQuest) => $"New in {lastQuest}";
     public const string ArcEndedHeading = "Ended so far in this arc";
     public const string ArcNothingNew = "Nothing new at this point.";
     public const string ArcNothingEnded = "Nothing has ended yet.";
@@ -228,6 +231,14 @@ public sealed class AtlasSession
     private AtlasSnapshot snapshot;
     private string? explicitArcId;
 
+    // Derived lens state, built lazily and cleared by Reproject, which every input (limit, view, content view, lens,
+    // arc pick) passes through. Front ends may read these every frame without re-projecting.
+    private IReadOnlyList<AtlasChangeGroup>? changeGroups;
+    private IReadOnlyList<AtlasArcPickerOption>? arcPickerOptions;
+    private IReadOnlyList<AtlasChangeRow>? arcNewRows;
+    private IReadOnlyList<AtlasChangeRow>? arcEndedRows;
+    private AtlasGraphLayout? wholeCastLayout;
+
     public AtlasSession(
         AtlasDataset dataset,
         AtlasSpoilerState initialState,
@@ -283,33 +294,36 @@ public sealed class AtlasSession
     public AtlasArcView? Arc { get; private set; }
 
     /// <summary>The arc picker: the automatic choice, then every arc started by the view, named as of its effective step.</summary>
-    public IReadOnlyList<AtlasArcPickerOption> ArcPickerOptions
-    {
-        get
-        {
-            var options = new List<AtlasArcPickerOption> { new(null, AtlasText.ArcAutomatic, explicitArcId is null) };
-            options.AddRange(AtlasArcs.Eligible(Dataset, SpoilerState.ViewId, ContentView)
-                .Select(a => new AtlasArcPickerOption(a.ArcId, a.Name, a.ArcId == explicitArcId)));
-            return options;
-        }
-    }
+    public IReadOnlyList<AtlasArcPickerOption> ArcPickerOptions => arcPickerOptions ??= BuildArcPickerOptions();
+
+    /// <summary>"Cast (n)" above the cast list: the arc's members, not counting the arc entry. Null outside an arc view.</summary>
+    public string? CastHeading => Lens == AtlasLens.Arc && Arc is { } arc ? AtlasText.CastHeading(arc.Cast.Entities.Count - 1) : null;
+
+    /// <summary>"New at this point", or "New in ‹last quest›" for a picked arc viewed after it ended.</summary>
+    public string? ArcNewHeading => Arc is { } arc ? (arc.PastEnd ? AtlasText.ArcNewIn(arc.Effective.DisplayTitle) : AtlasText.ArcNewHeading) : null;
 
     /// <summary>True in the Arc lens while no entity is focused: the whole-cast chart and the arc panel show.</summary>
     public bool ShowsWholeCast => Lens == AtlasLens.Arc && Arc is not null && FocusId is null;
 
-    /// <summary>Relationships new at the arc's effective step, as rows (no end evidence).</summary>
-    public IReadOnlyList<AtlasChangeRow> ArcNewRows =>
-        Arc is { } arc ? arc.New.Select(r => RelationshipRow(AtlasChangeKind.Added, r, arc.Cast)).ToList() : Array.Empty<AtlasChangeRow>();
+    /// <summary>
+    /// Relationships new at the arc's effective step, as rows (no end evidence). Participation edges are left out: a new
+    /// member already shows by appearing on the chart, and listing every spoke would bury the real changes (D8).
+    /// </summary>
+    public IReadOnlyList<AtlasChangeRow> ArcNewRows => arcNewRows ??= Arc is { } arc
+        ? arc.New.Where(r => r.TypeId != AtlasDataset.ParticipantTypeId).Select(r => RelationshipRow(AtlasChangeKind.Added, r, arc.Cast)).ToList()
+        : Array.Empty<AtlasChangeRow>();
 
     /// <summary>"Ended so far in this arc", as rows. Never carries sources of any kind (v2 plan, "Arc lens").</summary>
-    public IReadOnlyList<AtlasChangeRow> ArcEndedRows =>
-        Arc is { } arc
-            ? arc.EndedSoFar.Select(e => new AtlasChangeRow(
-                $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null,
-                Array.Empty<AtlasCitationView>(), EndedInFor(e.EndedAtCheckpointId))).ToList()
-            : Array.Empty<AtlasChangeRow>();
+    public IReadOnlyList<AtlasChangeRow> ArcEndedRows => arcEndedRows ??= Arc is { } arc
+        ? arc.EndedSoFar.Select(e => new AtlasChangeRow(
+            $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null,
+            Array.Empty<AtlasCitationView>(), EndedInFor(e.EndedAtCheckpointId))).ToList()
+        : Array.Empty<AtlasChangeRow>();
 
-    /// <summary>Pick an arc, or null for the automatic choice. Only arcs started by the view can be picked.</summary>
+    /// <summary>
+    /// Pick an arc, or null for the automatic choice. Only arcs started by the view can be picked. Picking an arc is
+    /// choosing the Arc lens, so the default lens rule can no longer hide the pick when the view moves past its end.
+    /// </summary>
     public bool PickArc(string? arcId)
     {
         if (arcId is not null && AtlasArcs.Eligible(Dataset, SpoilerState.ViewId, ContentView).All(a => a.ArcId != arcId))
@@ -318,6 +332,12 @@ public sealed class AtlasSession
         }
 
         explicitArcId = arcId;
+        if (arcId is not null)
+        {
+            LensIsExplicit = true;
+            Lens = AtlasLens.Arc;
+        }
+
         Reproject(storySettingChanged: false);
         return true;
     }
@@ -344,26 +364,25 @@ public sealed class AtlasSession
     public string? ChangesLabel => AtlasChanges.Label(Dataset, SpoilerState.ViewId);
 
     /// <summary>The Changes lens rows, grouped Added / Ended / Description updated, omitting empty groups.</summary>
-    public IReadOnlyList<AtlasChangeGroup> ChangeGroups
-    {
-        get
-        {
-            if (AtlasChanges.At(Dataset, SpoilerState.ViewId, ContentView) is not { } diff)
-            {
-                return Array.Empty<AtlasChangeGroup>();
-            }
+    public IReadOnlyList<AtlasChangeGroup> ChangeGroups => changeGroups ??= BuildChangeGroups();
 
-            var after = Project();
-            var groups = new List<AtlasChangeGroup>
-            {
-                new(AtlasChangeKind.Added, AtlasText.ChangesAdded, diff.Added.Select(r => RelationshipRow(AtlasChangeKind.Added, r, after)).ToList()),
-                new(AtlasChangeKind.Ended, AtlasText.ChangesEnded, diff.Ended.Select(e => new AtlasChangeRow(
-                    $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null, e.EndCitations)).ToList()),
-                new(AtlasChangeKind.Updated, AtlasText.ChangesUpdated, diff.DescriptionUpdated.Select(e => new AtlasChangeRow(
-                    $"updated:{e.Id}", AtlasChangeKind.Updated, null, null, null, e, Array.Empty<AtlasCitationView>())).ToList()),
-            };
-            return groups.Where(g => g.Rows.Count > 0).ToList();
+    private IReadOnlyList<AtlasChangeGroup> BuildChangeGroups()
+    {
+        if (AtlasChanges.At(Dataset, SpoilerState.ViewId, ContentView) is not { } diff)
+        {
+            return Array.Empty<AtlasChangeGroup>();
         }
+
+        var after = Lens == AtlasLens.Arc ? Project() : snapshot;
+        var groups = new List<AtlasChangeGroup>
+        {
+            new(AtlasChangeKind.Added, AtlasText.ChangesAdded, diff.Added.Select(r => RelationshipRow(AtlasChangeKind.Added, r, after)).ToList()),
+            new(AtlasChangeKind.Ended, AtlasText.ChangesEnded, diff.Ended.Select(e => new AtlasChangeRow(
+                $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null, e.EndCitations)).ToList()),
+            new(AtlasChangeKind.Updated, AtlasText.ChangesUpdated, diff.DescriptionUpdated.Select(e => new AtlasChangeRow(
+                $"updated:{e.Id}", AtlasChangeKind.Updated, null, null, null, e, Array.Empty<AtlasCitationView>())).ToList()),
+        };
+        return groups.Where(g => g.Rows.Count > 0).ToList();
     }
 
     public string? SelectedChangeKey { get; private set; }
@@ -381,6 +400,14 @@ public sealed class AtlasSession
         SelectedChangeKey = key;
         SelectionWasReset = false;
         return true;
+    }
+
+    private IReadOnlyList<AtlasArcPickerOption> BuildArcPickerOptions()
+    {
+        var options = new List<AtlasArcPickerOption> { new(null, AtlasText.ArcAutomatic, explicitArcId is null) };
+        options.AddRange(AtlasArcs.Eligible(Dataset, SpoilerState.ViewId, ContentView)
+            .Select(a => new AtlasArcPickerOption(a.ArcId, a.Name, a.ArcId == explicitArcId)));
+        return options;
     }
 
     private AtlasCheckpoint ViewCheckpoint
@@ -467,7 +494,11 @@ public sealed class AtlasSession
         }
     }
 
-    public IReadOnlyList<AtlasEntityView> SearchResults => snapshot.Search(SearchQuery);
+    /// <summary>Visible entries matching the search. In the Arc lens: the cast members, without the arc entry, which is the panel's subject.</summary>
+    public IReadOnlyList<AtlasEntityView> SearchResults =>
+        Lens == AtlasLens.Arc && Arc is { } arc
+            ? snapshot.Search(SearchQuery).Where(e => e.Id != arc.Entry.Id).ToList()
+            : snapshot.Search(SearchQuery);
 
     /// <summary>Search results grouped by category, omitting empty groups (user decision, 2026-11-14).</summary>
     public IReadOnlyList<AtlasResultGroup> SearchResultGroups =>
@@ -482,7 +513,7 @@ public sealed class AtlasSession
 
     /// <summary>The whole-cast chart in the Arc lens with nothing focused; otherwise the focus's one-hop graph.</summary>
     public AtlasGraphLayout? Layout =>
-        ShowsWholeCast ? AtlasGraphLayout.ComputeWholeCast(snapshot, Arc!.Entry.Id)
+        ShowsWholeCast ? wholeCastLayout ??= AtlasGraphLayout.ComputeWholeCast(snapshot, Arc!.Entry.Id)
         : Neighborhood is { } neighborhood ? AtlasGraphLayout.Compute(neighborhood)
         : null;
 
@@ -518,8 +549,9 @@ public sealed class AtlasSession
     /// <summary>Select a relationship on the current chart (the neighborhood, or the whole cast) to show its details and sources.</summary>
     public bool SelectRelationship(string? relationshipId)
     {
+        // Participation spokes are not click targets on the whole-cast chart (D8).
         var onChart = ShowsWholeCast
-            ? snapshot.Relationships.Any(r => r.Id == relationshipId)
+            ? snapshot.Relationships.Any(r => r.Id == relationshipId && r.TypeId != AtlasDataset.ParticipantTypeId)
             : Neighborhood?.Neighbors.Any(n => n.Relationship.Id == relationshipId) == true;
         if (!onChart)
         {
@@ -615,6 +647,11 @@ public sealed class AtlasSession
         SelectedRelationshipId = null;
         SelectedChangeKey = null;
         PendingCeiling = null;
+        changeGroups = null;
+        arcPickerOptions = null;
+        arcNewRows = null;
+        arcEndedRows = null;
+        wholeCastLayout = null;
 
         if (!LensIsExplicit)
         {
