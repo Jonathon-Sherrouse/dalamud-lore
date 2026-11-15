@@ -10,32 +10,6 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
-The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas vertical slice, with the condition that the local viewer looks like the in-game window.
-
-- [ ] `NDL-011` **Atlas portraits, in game and in the local viewer**
-  - Owner: `ui` (rendering) and `content` (picking and review)
-  - Outcome: Every Atlas entry with a suitable, spoiler-safe image in the game's own data shows it as a portrait, in the in-game window and identically in the local viewer. The rest keep their category shape.
-  - Acceptance:
-    - **Art comes only from the player's own game install, at runtime.** `atlas.json` stores game icon numbers, never image files. Nothing comes from the wiki or other sites, and no game image is committed or packaged.
-    - **Every entry gets a candidate search.** All 19 current entries (12 characters, 3 organizations, 2 locations, 2 events) are searched in the game data. The candidates go on one review page for the user, who approves, swaps or vetoes each one.
-    - **Spoiler-safe from first appearance.** A portrait must not show a later look, outfit, name or identity than the entry's earliest story point. An entry without an approved portrait keeps its shape.
-    - **Schema.** An optional, reviewed `portrait` on an entity, holding the game icon number. It is covered by the generator's per-record fingerprint review and by validator rules. Strict passes.
-    - **Rendering.** Portraits appear:
-      - on chart nodes, round, inside a ring in the category colour;
-      - large in the details and arc-panel headers;
-      - small in the browse list.
-      
-      The category shape and colour stay visible, so meaning never rests on the picture. A missing or failed texture falls back to the shape and never raises an error.
-    - **The local viewer looks like the in-game window.** A repository tool extracts the approved images from the user's install into a git-ignored cache outside the repository. The viewer serves them and draws them with the same crop, ring and sizes. Without the cache, the viewer falls back to shapes, as the game would.
-    - No network calls and no new hooks.
-  - Evidence (report each lane separately):
-    - the candidate review page and the user's picks;
-    - host tests for the schema, validator, fallback and fingerprints;
-    - locked builds and packaging, with no images in the zip;
-    - a side-by-side of the viewer and the window;
-    - one in-game look by the user.
-  - Dependencies: Atlas v2 (`NDL-006`, `NDL-008`–`NDL-010`) accepted; branch `codex/ndl-011-atlas-portraits`.
-
 ## In Review
 
 The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas vertical slice, with the condition that the local viewer looks like the in-game window.
