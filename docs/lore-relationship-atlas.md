@@ -132,6 +132,8 @@ Amended by the user on 2026-11-14: a UX design step (`NDL-005`) now precedes the
 
 After the pilot, separately groom any dictionary/Lore Explain eligibility bridge, reviewed dictionary-text reuse, additional checkpoints/groups/locales, curated story-event entities, portraits, situation/map views, or import/editing workflows. Ordinary concepts, mechanics, duties, items, currencies, and servers remain dictionary-only. Automatic progression filtering requires verified runtime evidence; AI output never silently creates canon.
 
+Quest-scoped views (quest-level story points, per-quest change views, quest and event entries, in-quest relationships, and following the player's current quest) are parked in the [backlog's Parking Lot](backlog.md#quest-scoped-atlas-views-parked-by-the-user-2026-11-14) (user, 2026-11-14).
+
 Guardrails carried over from the original deferred brief, which this contract supersedes. They apply to every future Atlas story:
 
 - Never infer relationships from conversational proximity, nearby NPCs, the active quest list, or unverified event identifiers.

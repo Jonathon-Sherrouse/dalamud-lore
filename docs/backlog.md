@@ -96,3 +96,15 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 - Add dictionary review tooling to flag stale entries after new FFXIV patches or expansions.
 - Explore direct dialogue-box presentation instead of chat links.
 - Consider `/ndl` as a shorter alias once command naming settles.
+
+### Quest-scoped Atlas views (parked by the user, 2026-11-14)
+
+These are not approved and are not part of the Atlas pilot. Each needs its own groomed story after the pilot. Today, every story point is a cumulative snapshot of what the player knows as of that point; these ideas would add quest-level views. See the [Atlas contract](lore-relationship-atlas.md#future-candidates--not-approved).
+
+- **A. Quest-level story points.** Allow any quest as a story point, not only patch endings. Same cumulative model at finer steps. Needs a higher checkpoint limit (the schema caps it at 16) and exact per-quest timing research for every claim, so cost grows with the size of the MSQ.
+- **B. "What this quest changed."** Pick a quest and see only the relationships and descriptions it introduced or ended. Records already cite their quest as display text; this needs a structured quest reference on each record (a schema change) and a "changes" mode. Cheapest of the five.
+- **C. Quest and story-event entries.** Quests or events, such as *The Parting Glass*, as their own nodes, linked to who was involved and what changed. Already a deferred contract candidate ("curated story-event entities"). Needs a new category and new relationship types.
+- **D. Short-lived, in-quest relationships.** Facts true only during a quest, such as a temporary alliance. The current rules forbid a relationship that starts and ends between two story points (it becomes description text instead); quest-scoped intervals would lift that rule. Pairs naturally with C.
+- **E. Follow the player's current quest.** Open the Atlas at the quest the player is on in game. Deferred: automatic progression or quest inference needs verified runtime evidence first. Start from [quest-metadata-investigation.md](quest-metadata-investigation.md).
+
+Initial take when grooming: B is the cheapest; C with D is the full quest-scoped Atlas; A gets expensive across the whole MSQ.
