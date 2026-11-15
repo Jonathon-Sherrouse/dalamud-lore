@@ -81,12 +81,12 @@ public class StateAndSessionTests
     {
         var session = new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample));
         Assert.Equal(AtlasStateChange.NeedsConfirmation, session.RequestCeiling(Fx.Later));
-        Assert.Equal(Fx.Later, session.PendingCeiling!.Id);
+        Assert.Equal(Fx.Later, session.PendingCeilingId);
         Assert.Equal(Fx.Early, session.SpoilerState.CeilingId);
-        Assert.DoesNotContain("Wardens", AtlasText.ConfirmRaise(session.PendingCeiling.Label));
+        Assert.DoesNotContain("Wardens", session.PendingCeilingPrompt);
 
         session.CancelPendingCeiling();
-        Assert.Null(session.PendingCeiling);
+        Assert.Null(session.PendingCeilingId);
         Assert.Equal(Fx.Early, session.SpoilerState.CeilingId);
 
         session.RequestCeiling(Fx.Later);

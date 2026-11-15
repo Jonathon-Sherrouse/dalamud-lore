@@ -27,6 +27,12 @@ public sealed record AtlasArcView(
 /// <summary>One arc in the picker: its id and its name as of its effective step. Never its span (rule 7).</summary>
 public sealed record AtlasArcOption(string ArcId, string Name);
 
+/// <summary>
+/// The arc to show, and whether an explicit pick just ended because the view dropped below its first step. When
+/// <see cref="PickDropped"/> is true the session must clear the pick, so it does not return when the view rises again.
+/// </summary>
+public sealed record AtlasArcResolution(string? ArcId, bool PickDropped);
+
 /// <summary>Pure arc selection and projection. Session composition (lens state, lifetime) lives in the front-end session.</summary>
 public static class AtlasArcs
 {
@@ -71,20 +77,24 @@ public static class AtlasArcs
 
     /// <summary>
     /// The arc to show: an explicit pick while its first step is at or before the view, otherwise the default selection.
-    /// Clearing the pick when the user picks again or Follow moves the view is the session's job.
+    /// A pick ends when the view drops below its first step (<see cref="AtlasArcResolution.PickDropped"/>); clearing it
+    /// then, and when the user picks again or Follow moves the view, is the session's job.
     /// </summary>
-    public static string? Resolve(AtlasDataset dataset, string viewCheckpointId, string? explicitArcId)
+    public static AtlasArcResolution Resolve(AtlasDataset dataset, string viewCheckpointId, string? explicitArcId)
     {
         ArgumentNullException.ThrowIfNull(dataset);
-        if (explicitArcId is not null
-            && dataset.TryGetCheckpoint(viewCheckpointId, out var view)
-            && dataset.Arcs.FirstOrDefault(a => a.Id == explicitArcId) is { } picked
-            && picked.FirstOrder <= view.Order)
+        if (explicitArcId is not null && dataset.TryGetCheckpoint(viewCheckpointId, out var view))
         {
-            return picked.Id;
+            var picked = dataset.Arcs.FirstOrDefault(a => a.Id == explicitArcId);
+            if (picked is not null && picked.FirstOrder <= view.Order)
+            {
+                return new AtlasArcResolution(picked.Id, false);
+            }
+
+            return new AtlasArcResolution(Default(dataset, viewCheckpointId), true);
         }
 
-        return Default(dataset, viewCheckpointId);
+        return new AtlasArcResolution(Default(dataset, viewCheckpointId), false);
     }
 
     /// <summary>
@@ -132,9 +142,17 @@ public static class AtlasArcs
             before = current;
         }
 
+        // "Rows show no sources": strip every citation collection from the Arc-lens ended rows.
         var activeAtEffective = castSnapshot.Relationships.Select(AtlasTriple.Of).ToHashSet();
         var endedSoFar = endings.Values
             .Where(e => !activeAtEffective.Contains(AtlasTriple.Of(e.Relationship)))
+            .Select(e => e with
+            {
+                Relationship = e.Relationship with { Citations = Array.Empty<AtlasCitationView>() },
+                Source = e.Source with { Citations = Array.Empty<AtlasCitationView>() },
+                Target = e.Target with { Citations = Array.Empty<AtlasCitationView>() },
+                EndCitations = Array.Empty<AtlasCitationView>(),
+            })
             .OrderBy(e => dataset.Checkpoints.First(c => c.Id == e.EndedAtCheckpointId).Order)
             .ThenBy(e => e.Relationship.Id, StringComparer.Ordinal)
             .ToList();

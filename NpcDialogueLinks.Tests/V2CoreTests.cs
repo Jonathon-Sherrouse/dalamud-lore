@@ -10,7 +10,7 @@ public class V2ValidationTests
     public void V2_FixtureLoadsStrict()
     {
         var dataset = V2Fx.Load();
-        Assert.Equal(7, dataset.Checkpoints.Count);
+        Assert.Equal(8, dataset.Checkpoints.Count);
         Assert.Equal(3, dataset.Arcs.Count);
         Assert.True(dataset.Checkpoints[4].Milestone);
         Assert.Equal("Quest One", dataset.Checkpoints[1].QuestTitle);
@@ -173,6 +173,80 @@ public class V2ValidationTests
 }
 
 /// <summary>The Changes lens: semantic diff, offering rule and labels.</summary>
+/// <summary>Round-1 council fixes to validation.</summary>
+public class V2ValidationFixTests
+{
+    [Fact]
+    public void V2_GameQuestIdsAreAllOrNone()
+    {
+        var doc = V2Fx.Doc();
+        V2Fx.Checkpoint(doc, "s3").Remove("gameQuestIds");
+        var result = Fx.Try(doc);
+        Fx.AssertFails(result, AtlasErrorCode.InvalidField);
+        Assert.Contains(result.Errors, e => e.Path == "$.checkpoints[3].gameQuestIds");
+    }
+
+    [Fact]
+    public void V2_GameQuestIdNeverMarksTwoSteps()
+    {
+        var doc = V2Fx.Doc();
+        V2Fx.Checkpoint(doc, "s2")["gameQuestIds"] = new JsonArray(101);
+        var result = Fx.Try(doc);
+        Fx.AssertFails(result, AtlasErrorCode.InvalidField);
+        Assert.Contains(result.Errors, e => e.Path == "$.checkpoints[2].gameQuestIds" && e.Message.Contains("101"));
+    }
+
+    [Fact]
+    public void V2_NoQuestIdsAnywhereIsFine()
+    {
+        var doc = V2Fx.Doc();
+        foreach (var checkpoint in doc["checkpoints"]!.AsArray())
+        {
+            checkpoint!.AsObject().Remove("gameQuestIds");
+        }
+
+        Assert.True(Fx.Try(doc).Success);
+    }
+
+    [Fact]
+    public void V2_EndCitationsCannotEndAcrossASliceMilestoneBoundary()
+    {
+        // r-dee-bo-2 ends at m1 (slice s3 → milestone m1), where Changes is never offered, so the evidence could never show.
+        var doc = V2Fx.Doc();
+        V2Fx.Rel(doc, "r-dee-bo-2")["endCitations"] = new JsonArray(V2Fx.Cite("Src m1", "m1"));
+        var result = Fx.Try(doc);
+        Fx.AssertFails(result, AtlasErrorCode.EndCitationOutOfRange);
+        Assert.All(result.Errors, e => Assert.Equal(AtlasErrorCode.EndCitationOutOfRange, e.Code));
+    }
+
+    [Fact]
+    public void V2_ParticipantTypeCannotBeSymmetric()
+    {
+        var doc = V2Fx.Doc();
+        var type = doc["relationshipTypes"]!.AsArray().Select(t => t!.AsObject()).First(t => (string?)t["id"] == "participant-in");
+        type["symmetric"] = true;
+        type["incomingLabel"] = "part of";
+        var result = Fx.Try(doc);
+        Fx.AssertFails(result, AtlasErrorCode.InvalidArc);
+        Assert.Contains(result.Errors, e => e.Path == "$.relationshipTypes");
+    }
+
+    [Fact]
+    public void V2_ArcEntryPresentationsAreAllMainScope()
+    {
+        var doc = V2Fx.Doc();
+        var entry = Fx.Entities(doc).Select(e => e!.AsObject()).First(e => (string?)e["id"] == "evt-shadow");
+        entry["presentations"]!.AsArray().Add(new JsonObject
+        {
+            ["validFrom"] = "s2", ["scope"] = "optional", ["name"] = "The Shadow", ["summary"] = "Side detail.",
+            ["citations"] = new JsonArray(V2Fx.Cite("Opt s2", "s2", "optional")), ["review"] = "reviewed",
+        });
+        var result = Fx.Try(doc);
+        Fx.AssertFails(result, AtlasErrorCode.InvalidArc);
+        Assert.All(result.Errors, e => Assert.Equal(AtlasErrorCode.InvalidArc, e.Code));
+    }
+}
+
 public class V2ChangesTests
 {
     private static readonly AtlasDataset D = V2Fx.Load();
@@ -183,6 +257,7 @@ public class V2ChangesTests
     [InlineData("s2", true)]
     [InlineData("m1", false)] // slice → milestone boundary
     [InlineData("s5", false)] // milestone → slice
+    [InlineData("s6", true)]  // slice → slice across a gap
     [InlineData("m2", false)] // slice → milestone
     public void Changes_OfferedOnlyBetweenStepsOfTheSameKind(string checkpoint, bool offered)
     {
@@ -195,6 +270,12 @@ public class V2ChangesTests
     {
         Assert.Equal(AtlasText.ChangesThisQuest, AtlasChanges.Label(D, "s2"));
         Assert.Null(AtlasChanges.Label(D, "m1"));
+    }
+
+    [Fact]
+    public void Changes_SlicesAcrossAGapSayChangesSince()
+    {
+        Assert.Equal(AtlasText.ChangesSince("Quest Nine"), AtlasChanges.Label(D, "s6"));
     }
 
     [Fact]
@@ -274,7 +355,15 @@ public class V2ArcTests
         Assert.Equal(new[] { "r-ana-prisoner", "r-bo-possessed" }, V2Fx.Ids(ended));
         Assert.Equal("s2", ended[0].EndedAtCheckpointId);
         Assert.Equal("s3", ended[1].EndedAtCheckpointId);
-        Assert.All(ended, e => Assert.Empty(e.EndCitations)); // Arc-lens ended rows show no sources
+        Assert.NotEmpty(AtlasChanges.At(D, "s2", AtlasContentView.MainAndOptional)!.Ended.Single(e => e.Relationship.Id == "r-ana-prisoner").EndCitations);
+        Assert.All(ended, e =>
+        {
+            // Arc-lens ended rows show no sources: no end evidence, and no citations on the row or its endpoints.
+            Assert.Empty(e.EndCitations);
+            Assert.Empty(e.Relationship.Citations);
+            Assert.Empty(e.Source.Citations);
+            Assert.Empty(e.Target.Citations);
+        });
     }
 
     [Fact]
@@ -362,10 +451,32 @@ public class V2ArcTests
     [Fact]
     public void Arc_ExplicitPickHoldsUntilViewDropsBelowItsStart()
     {
-        Assert.Equal("arc-shadow", AtlasArcs.Resolve(D, "s3", "arc-shadow")); // default would be arc-hold
-        Assert.Equal("arc-hold", AtlasArcs.Resolve(D, "s5", "arc-hold"));     // ended arc stays viewable
-        Assert.Equal("arc-hold", AtlasArcs.Resolve(D, "s1", "arc-shadow"));   // view below its start: back to default
-        Assert.Null(AtlasArcs.Resolve(D, "s0", "arc-hold"));
+        Assert.Equal(new AtlasArcResolution("arc-shadow", false), AtlasArcs.Resolve(D, "s3", "arc-shadow")); // default would be arc-hold
+        Assert.Equal(new AtlasArcResolution("arc-hold", false), AtlasArcs.Resolve(D, "s5", "arc-hold"));     // ended arc stays viewable
+        Assert.Equal(new AtlasArcResolution("arc-hold", true), AtlasArcs.Resolve(D, "s1", "arc-shadow"));    // view below its start: back to default
+        Assert.Equal(new AtlasArcResolution(null, true), AtlasArcs.Resolve(D, "s0", "arc-hold"));
+        Assert.Equal(new AtlasArcResolution("arc-hold", false), AtlasArcs.Resolve(D, "s2", null));
+    }
+
+    [Fact]
+    public void Arc_DroppedPickDoesNotReturnWhenTheViewRisesAgain()
+    {
+        // s3 with an explicit pick, drop to s1 (the pick ends), then rise to s3: the session cleared the pick, so the default shows.
+        var pick = (string?)"arc-shadow";
+        var atS1 = AtlasArcs.Resolve(D, "s1", pick);
+        Assert.True(atS1.PickDropped);
+        if (atS1.PickDropped)
+        {
+            pick = null;
+        }
+
+        Assert.Equal("arc-hold", AtlasArcs.Resolve(D, "s3", pick).ArcId);
+    }
+
+    [Fact]
+    public void Arc_UnknownPickFallsBackAndIsDropped()
+    {
+        Assert.Equal(new AtlasArcResolution("arc-hold", true), AtlasArcs.Resolve(D, "s2", "arc-nope"));
     }
 
     [Fact]
@@ -390,14 +501,58 @@ public class V2FollowTests
     [Fact]
     public void Follow_LandsOnTheLastStepOfTheCompletedPrefix()
     {
-        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s2", false), AtlasFollow.Position(D, Progress(102), "m2"));
+        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s2", false, "s2"), AtlasFollow.Position(D, Progress(102), "m2"));
         Assert.Equal("m2", AtlasFollow.Position(D, Progress(999), "m2").CheckpointId);
     }
 
     [Fact]
     public void Follow_ClampsToTheLimitAndSaysSo()
     {
-        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s1", true), AtlasFollow.Position(D, Progress(102), "s1"));
+        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s1", true, "s2"), AtlasFollow.Position(D, Progress(102), "s1"));
+    }
+
+    [Fact]
+    public void Follow_PrefixStopsAtTheFirstIncompleteStep()
+    {
+        // 100 and 101 done, 102 not, 103 done (out-of-order completion): the prefix ends at s1, never jumps to s3.
+        AtlasQuestProgress Gap(int id) => id is 100 or 101 or 103 ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
+        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s1", false, "s1"), AtlasFollow.Position(D, Gap, "m2"));
+    }
+
+    [Fact]
+    public void Follow_AStepNeedsAllItsQuests()
+    {
+        var doc = V2Fx.Doc();
+        V2Fx.Checkpoint(doc, "s2")["gameQuestIds"] = new JsonArray(102, 150);
+        var dataset = Fx.Load(doc);
+        AtlasQuestProgress Partial(int id) => id is 150 || id > 103 ? AtlasQuestProgress.Incomplete : AtlasQuestProgress.Complete;
+        Assert.Equal("s1", AtlasFollow.Position(dataset, Partial, "m2").CheckpointId);
+    }
+
+    [Fact]
+    public void Follow_RaiseGoesExactlyToTheReachedStepAndNeedsConfirmation()
+    {
+        var state = AtlasSpoilerPolicy.Restore(D, "s1", "s0");
+        var follow = AtlasFollow.Position(D, Progress(103), state.CeilingId); // reached s3, limit s1
+        Assert.Equal(("s1", "s3"), (follow.CheckpointId, follow.ReachedCheckpointId));
+
+        var ask = AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, follow, confirmed: false);
+        Assert.Equal(AtlasStateChange.NeedsConfirmation, ask.Change);
+        Assert.Equal(state, ask.State);
+
+        var done = AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, follow, confirmed: true);
+        Assert.Equal(AtlasStateChange.Changed, done.Change);
+        Assert.Equal(new AtlasSpoilerState("s3", "s0"), done.State); // the view is left alone
+    }
+
+    [Fact]
+    public void Follow_RaiseIsRejectedUnlessProgressIsBeyondTheLimit()
+    {
+        var state = AtlasSpoilerPolicy.Restore(D, "m1", "s0");
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, AtlasFollow.Position(D, Progress(102), "m1"), confirmed: true).Change);
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, AtlasFollowResult.Unknown, confirmed: true).Change);
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, AtlasFollowResult.BeforeCoverage, confirmed: true).Change);
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, new AtlasFollowResult(AtlasFollowKind.Position, "m1", true, "nope"), confirmed: true).Change);
     }
 
     [Fact]

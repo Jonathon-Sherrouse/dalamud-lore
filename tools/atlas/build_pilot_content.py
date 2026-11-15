@@ -9,14 +9,18 @@ Edit this file, never the generated outputs, then run from the repository root:
     python3 tools/atlas/build_pilot_content.py
 and rerun `dotnet test NpcDialogueLinks.Tests`. See docs/atlas/content-evidence.md.
 
-Review status is per record (schema v2, NDL-006): a record is "reviewed" only if it is listed in ACCEPTED below, and
-every other record is emitted "pending". Add records to ACCEPTED only after the user explicitly accepts them.
+Review status is per record and bound to content (schema v2, NDL-006). ACCEPTED maps each accepted record's key to a
+fingerprint of its emitted content; a record is "reviewed" only when its current fingerprint matches. A new record, or
+any change to an accepted one (text, interval, endpoints, scope, citations), is emitted "pending" until the user
+accepts it and its fingerprint is recorded. The only exempt field is a citation's availableAt, which the v2 plan
+allows to move earlier mechanically. `--self-test` checks these rules without writing anything.
 """
-import json, sys, pathlib, urllib.parse
+import copy, hashlib, json, sys, pathlib, urllib.parse
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
-if len(sys.argv) > 1:
-    sys.exit("No arguments: review status is per record now (see ACCEPTED).")
+SELF_TEST = sys.argv[1:] == ["--self-test"]
+if sys.argv[1:] and not SELF_TEST:
+    sys.exit("Usage: build_pilot_content.py [--self-test]. Review status is per record (see ACCEPTED).")
 A, B = "cp-arr-2-0", "cp-arr-2-55"
 CP_LABEL = {A: "A Realm Reborn — Patch 2.0 complete", B: "A Realm Reborn — Patch 2.55 complete"}
 CP_SHORT = {A: "2.0", B: "2.55"}
@@ -280,52 +284,65 @@ RELS = [
  ("rel-alisaie-member-scions", "char-alisaie", "member-of", "org-scions", A, None, "optional", ["C30"], "R14"),
 ]
 
-# Records the user explicitly accepted (NDL-003, 2026-11-14). Only listed records are emitted "reviewed".
+# Records the user explicitly accepted (NDL-003, 2026-11-14), each bound to a fingerprint of its accepted content.
+# Only an exact content match is emitted "reviewed"; see fingerprint() and the module docstring.
 ACCEPTED = {
-    ('presentation', 'char-minfilia', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-minfilia', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-thancred', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-thancred', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-yshtola', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-yshtola', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-urianger', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-urianger', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-alphinaud', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-alphinaud', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'optional'),
-    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'optional'),
-    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'optional'),
-    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'main'),
-    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'optional'),
-    ('presentation', 'char-tataru', 'cp-arr-2-0', 'main'),
-    ('presentation', 'char-tataru', 'cp-arr-2-55', 'main'),
-    ('presentation', 'org-scions', 'cp-arr-2-0', 'main'),
-    ('presentation', 'org-scions', 'cp-arr-2-55', 'main'),
-    ('presentation', 'org-crystal-braves', 'cp-arr-2-55', 'main'),
-    ('presentation', 'loc-waking-sands', 'cp-arr-2-0', 'main'),
-    ('presentation', 'loc-waking-sands', 'cp-arr-2-55', 'main'),
-    ('presentation', 'loc-rising-stones', 'cp-arr-2-55', 'main'),
-    ('relationship', 'rel-minfilia-leads-scions'),
-    ('relationship', 'rel-thancred-member-scions'),
-    ('relationship', 'rel-yshtola-member-scions'),
-    ('relationship', 'rel-urianger-member-scions'),
-    ('relationship', 'rel-alphinaud-member-scions'),
-    ('relationship', 'rel-tataru-member-scions'),
-    ('relationship', 'rel-alphinaud-twin-alisaie'),
-    ('relationship', 'rel-scions-hq-waking-sands'),
-    ('relationship', 'rel-braves-control-rising-stones'),
-    ('relationship', 'rel-braves-turned-against-scions'),
-    ('relationship', 'rel-urianger-conceals-waking-sands'),
-    ('relationship', 'rel-alisaie-grandchild-louisoix'),
-    ('relationship', 'rel-alphinaud-grandchild-louisoix'),
-    ('relationship', 'rel-alisaie-member-scions'),
+    ('presentation', 'char-minfilia', 'cp-arr-2-0', 'main'): 'ace92abf092288483cab8af0',
+    ('presentation', 'char-minfilia', 'cp-arr-2-55', 'main'): '65e3bed3ff563e4a0ade2256',
+    ('presentation', 'char-thancred', 'cp-arr-2-0', 'main'): '3378f942c07d4cf51a126e58',
+    ('presentation', 'char-thancred', 'cp-arr-2-55', 'main'): '03768f804ab367fa1e60acdf',
+    ('presentation', 'char-yshtola', 'cp-arr-2-0', 'main'): '41ca553afcf947b902bb2fa9',
+    ('presentation', 'char-yshtola', 'cp-arr-2-55', 'main'): '52badb10ee359fe9389b0022',
+    ('presentation', 'char-urianger', 'cp-arr-2-0', 'main'): '4e5ed041bcf7283c302a14cf',
+    ('presentation', 'char-urianger', 'cp-arr-2-55', 'main'): 'da123564b32f8354bd7c9e26',
+    ('presentation', 'char-alphinaud', 'cp-arr-2-0', 'main'): '3c60cd2cd6a19135ce9a14ef',
+    ('presentation', 'char-alphinaud', 'cp-arr-2-55', 'main'): '1cc7f310ece7396c27525701',
+    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'main'): '674781adf041c8dca0815a79',
+    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'optional'): '6c199a8a129a43ebda24ade2',
+    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'main'): '563556501053891be33424f0',
+    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'optional'): '3f0828f8a5d820f55d9800c0',
+    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'main'): 'c8cdabe755ba2cc0072c2e09',
+    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'optional'): '365d1fec645aa1fc503b0471',
+    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'main'): 'a3925ab9bf6925f2deb5f976',
+    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'optional'): '245b4de7852c91ae9cc10c36',
+    ('presentation', 'char-tataru', 'cp-arr-2-0', 'main'): '1591cf4b177af266db802b8d',
+    ('presentation', 'char-tataru', 'cp-arr-2-55', 'main'): 'e1b49a3345e5cbeb244fa465',
+    ('presentation', 'org-scions', 'cp-arr-2-0', 'main'): '67fe74e7f19fc43c34e4650c',
+    ('presentation', 'org-scions', 'cp-arr-2-55', 'main'): 'a29ec6e4259d2723bff8f5b1',
+    ('presentation', 'org-crystal-braves', 'cp-arr-2-55', 'main'): '4c14df7b1a94ebb3d111f6ab',
+    ('presentation', 'loc-waking-sands', 'cp-arr-2-0', 'main'): '0a86ee4e40186a66f696f8a7',
+    ('presentation', 'loc-waking-sands', 'cp-arr-2-55', 'main'): 'fbe9ca962b32453d1d3aa3c5',
+    ('presentation', 'loc-rising-stones', 'cp-arr-2-55', 'main'): 'da15640a1703ec9d9e9d28a4',
+    ('relationship', 'rel-minfilia-leads-scions'): '42a60464ba401a7e7124454f',
+    ('relationship', 'rel-thancred-member-scions'): 'efc00697d06cbd1e266e4956',
+    ('relationship', 'rel-yshtola-member-scions'): 'f43dcf82236d80fdc64347a5',
+    ('relationship', 'rel-urianger-member-scions'): '3e189c48e6234eca56c5e0bc',
+    ('relationship', 'rel-alphinaud-member-scions'): '454eabe136848825670cd1e3',
+    ('relationship', 'rel-tataru-member-scions'): '4334275cd8c832d682ad9202',
+    ('relationship', 'rel-alphinaud-twin-alisaie'): '8ec58c05398f439f43c330c0',
+    ('relationship', 'rel-scions-hq-waking-sands'): 'acb153babd90f31c7d4daf70',
+    ('relationship', 'rel-braves-control-rising-stones'): 'd0c39b097375df3f38d484da',
+    ('relationship', 'rel-braves-turned-against-scions'): '1efc63ac8aec933c239bbb05',
+    ('relationship', 'rel-urianger-conceals-waking-sands'): '21c2e310aaa481a32053a75c',
+    ('relationship', 'rel-alisaie-grandchild-louisoix'): '3749466c23349d36dac7bb35',
+    ('relationship', 'rel-alphinaud-grandchild-louisoix'): '6a305b79ed69a4f9c19ad72d',
+    ('relationship', 'rel-alisaie-member-scions'): '906f59906e7a25af808d0a44',
 }
 
-def review_of(key):
-    return "reviewed" if key in ACCEPTED else "pending"
+def fingerprint(record):
+    """Content fingerprint of an emitted record, ignoring `review` and each citation's mechanical `availableAt`."""
+    body = copy.deepcopy(record)
+    body.pop("review", None)
+    for field in ("citations", "endCitations"):
+        for cite in body.get(field, []):
+            cite.pop("availableAt", None)
+    return hashlib.sha256(json.dumps(body, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:24]
+
+def with_review(key, record, accepted=None):
+    """Attach `review`: "reviewed" only if the key was accepted with exactly this content."""
+    accepted = ACCEPTED if accepted is None else accepted
+    record["review"] = "reviewed" if accepted.get(key) == fingerprint(record) else "pending"
+    return record
 
 def citation(k):
     s = SRC[k]
@@ -342,16 +359,48 @@ doc = {
   "relationshipTypes": [{"id": i, "outgoingLabel": o, "incomingLabel": n, "symmetric": s} for i, o, n, s in TYPES],
   "entities": [
     {"id": eid, "category": cat, "presentations": [
-      {"validFrom": p["frm"], "validUntil": p["until"], "scope": p["scope"], "name": p["name"], "aliases": p["aliases"],
-       "summary": p["summary"], "citations": [citation(k) for k in cites(p["claims"])],
-       "review": review_of(("presentation", eid, p["frm"], p["scope"]))}
+      with_review(("presentation", eid, p["frm"], p["scope"]),
+        {"validFrom": p["frm"], "validUntil": p["until"], "scope": p["scope"], "name": p["name"], "aliases": p["aliases"],
+         "summary": p["summary"], "citations": [citation(k) for k in cites(p["claims"])]})
       for p in pres]}
     for eid, cat, pres in ENT],
   "relationships": [
-    {"id": rid, "source": s, "type": t, "target": g, "validFrom": f, "validUntil": u, "scope": sc,
-     "citations": [citation(k) for k in cites(cl)], "review": review_of(("relationship", rid))}
+    with_review(("relationship", rid),
+      {"id": rid, "source": s, "type": t, "target": g, "validFrom": f, "validUntil": u, "scope": sc,
+       "citations": [citation(k) for k in cites(cl)]})
     for rid, s, t, g, f, u, sc, cl, _ in RELS],
 }
+
+# An accepted key that no longer exists means a record was renamed or deleted: fail loudly instead of drifting.
+EMITTED_KEYS = {("presentation", e["id"], pr["validFrom"], pr["scope"]) for e in doc["entities"] for pr in e["presentations"]} | {("relationship", r["id"]) for r in doc["relationships"]}
+MISSING = sorted(set(ACCEPTED) - EMITTED_KEYS)
+if MISSING:
+    sys.exit(f"ACCEPTED lists records that no longer exist: {MISSING}")
+
+if SELF_TEST:
+    def check(label, cond):
+        print(("ok   " if cond else "FAIL ") + label)
+        if not cond:
+            sys.exit(1)
+    sample = copy.deepcopy(doc["relationships"][0]); sample.pop("review")
+    key = ("relationship", sample["id"])
+    accepted = {key: fingerprint(sample)}
+    check("unchanged accepted record stays reviewed", with_review(key, copy.deepcopy(sample), accepted)["review"] == "reviewed")
+    check("new record is pending", with_review(("relationship", "rel-new"), copy.deepcopy(sample), accepted)["review"] == "pending")
+    moved = copy.deepcopy(sample); moved["validFrom"] = "cp-earlier"
+    check("an earlier validFrom under the same id is pending", with_review(key, moved, accepted)["review"] == "pending")
+    retargeted = copy.deepcopy(sample); retargeted["target"] = "org-elsewhere"
+    check("a changed endpoint is pending", with_review(key, retargeted, accepted)["review"] == "pending")
+    cited = copy.deepcopy(sample); cited["citations"] = cited["citations"] + [{"title": "Extra", "url": None, "availableAt": "cp-arr-2-0", "scope": "main"}]
+    check("an added citation is pending", with_review(key, cited, accepted)["review"] == "pending")
+    shifted = copy.deepcopy(sample); shifted["citations"][0]["availableAt"] = "cp-earlier"
+    check("only a citation's availableAt moved: still reviewed", with_review(key, shifted, accepted)["review"] == "reviewed")
+    pres = copy.deepcopy(doc["entities"][0]["presentations"][0]); pres.pop("review")
+    pkey = ("presentation", doc["entities"][0]["id"], pres["validFrom"], pres["scope"])
+    reworded = copy.deepcopy(pres); reworded["summary"] = pres["summary"] + " Changed."
+    check("changed presentation text is pending", with_review(pkey, reworded, {pkey: fingerprint(pres)})["review"] == "pending")
+    check("every bundled record is currently reviewed", all(pr["review"] == "reviewed" for e in doc["entities"] for pr in e["presentations"]) and all(r["review"] == "reviewed" for r in doc["relationships"]))
+    sys.exit(0)
 for c in C.values():
     assert c[1] in SRC, c
 (REPO / "NpcDialogueLinks/atlas.json").write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n")

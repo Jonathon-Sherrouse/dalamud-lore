@@ -173,14 +173,14 @@ Every accepted change tells the UI to clear search, focus, selection and details
 | `milestone` | `false` | A patch milestone. Its label is neutral, so it may be listed above the spoiler limit. |
 | `questTitle` | absent | A reviewed display title for a quest step; non-empty trimmed text of at most 80 characters. Shown only at or below the limit. |
 | `contiguousWithPrevious` | `false` | The previous step is the quest immediately before this one. It must be false on the first checkpoint. |
-| `gameQuestIds` | `[]` | 0–8 distinct positive game quest ids whose completion marks the step complete. Used only by Follow. |
+| `gameQuestIds` | `[]` | 0–8 distinct positive game quest ids whose completion marks the step complete. Used only by Follow. Coverage is all-or-none: once any checkpoint has ids, every checkpoint must, and no id may mark two checkpoints. |
 
 **Category `event`.** A story event or an arc entry. It is ordered last and drawn as a hexagon.
 
-**`endCitations`** (relationships, optional, at most 8) hold reviewed evidence for why a relationship ended. The relationship must have a `validUntil`. Each citation must become available after `validFrom` and no later than `validUntil`. The scope rule (a main record cites only main sources) and the same-title consistency rule apply. They are shown only in the Changes row for that ending, never on the record elsewhere, and never in the Arc lens.
+**`endCitations`** (relationships, optional, at most 8) hold reviewed evidence for why a relationship ended. The relationship must have a `validUntil`. Each citation must become available after `validFrom` and no later than `validUntil`. The scope rule (a main record cites only main sources) and the same-title consistency rule apply. They are shown only in the Changes row for that ending, never on the record elsewhere, and never in the Arc lens. So the ending step must be one where Changes is offered: `validUntil` and the step before it must be the same kind (both slices or both milestones).
 
 **`arcs`** (top level, optional, at most 16). Each arc is `{ "id", "entityId", "firstStep", "lastStep" }`, in authored order. Arcs may overlap or nest. Validation:
-- The relationship type `participant-in` must exist. A `participant-in` edge that targets an arc entry makes its source part of that arc's cast.
+- The relationship type `participant-in` must exist and must not be symmetric. A `participant-in` edge that targets an arc entry makes its source part of that arc's cast.
 - The entry is an `event` entity used by only one arc, and all its presentations are main scope.
 - `firstStep` is at or before `lastStep`, and `firstStep` is never the first timeline step, so there is always a baseline before it.
 - The entry's first presentation starts exactly at `firstStep`, and the entry stays visible in the main-story view through `lastStep`.
@@ -192,13 +192,13 @@ Every accepted change tells the UI to clear search, focus, selection and details
 **Spoiler state in v2.**
 - The limit rises only to a milestone or to the single next step.
 - Pickers above the limit list only milestones and that next step, which is labelled "the next story step".
-- `AtlasSession.PendingCeilingPrompt` never names a later quest.
+- `AtlasSession.PendingCeilingPrompt` never names a later quest. Front ends read the pending raise only through `PendingCeilingId` and that prompt.
 - Absent or invalid saved state resets both controls to the earliest checkpoint.
 
 **Pure v2 core:**
 - `AtlasChanges`: the triple-based snapshot diff, the offering rule and labels.
-- `AtlasArcs`: selection, the picker, and the Arc-lens projection with its cumulative cast, "New" and "Ended so far".
-- `AtlasFollow`: completed-progress positioning.
+- `AtlasArcs`: selection, the picker, and the Arc-lens projection with its cumulative cast, "New" and "Ended so far" (rows carry no citations of any kind). `Resolve` reports `PickDropped` when an explicit pick ends because the view fell below its first step; the session must then clear the pick.
+- `AtlasFollow`: completed-progress positioning. `CheckpointId` is the clamped view and `ReachedCheckpointId` the real progress step; `AtlasSpoilerPolicy.SetCeilingToFollowed` raises the limit to exactly that step, with confirmation, and leaves the view where it is.
 - `AtlasGraphLayout.ComputeWholeCast`.
 
 Arc spans stay internal: the public arc API exposes only ids and names (rule 7).

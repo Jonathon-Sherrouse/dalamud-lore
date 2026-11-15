@@ -90,6 +90,9 @@ public static class AtlasText
     public const string FollowBeforeCoverage = "Your completed story is before the points covered here.";
     public const string FollowUnknown = "Progress unavailable.";
 
+    /// <summary>Follow's neutral raise prompt: names no quest, and the view does not move.</summary>
+    public const string ConfirmRaiseToProgress = "Allow story knowledge through your completed quests? The current view will not change.";
+
     /// <summary>Only a Follow result is presented as the player's progress.</summary>
     public static string FollowProgress(string questOrPoint) => $"Your progress: through {questOrPoint}";
 
@@ -191,8 +194,14 @@ public sealed class AtlasSession
         return checkpoint.Order <= ceiling.Order || checkpoint.Milestone ? checkpoint.Label : AtlasText.NextStoryStep;
     }
 
-    /// <summary>A requested ceiling awaiting confirmation, or null.</summary>
-    public AtlasCheckpoint? PendingCeiling { get; private set; }
+    /// <summary>
+    /// A requested ceiling awaiting confirmation, or null. Internal: the checkpoint carries its label and quest title,
+    /// which may lie above the limit; front ends use <see cref="PendingCeilingId"/> and <see cref="PendingCeilingPrompt"/>.
+    /// </summary>
+    internal AtlasCheckpoint? PendingCeiling { get; private set; }
+
+    /// <summary>The id of the ceiling awaiting confirmation, or null.</summary>
+    public string? PendingCeilingId => PendingCeiling?.Id;
 
     /// <summary>Raised when persisted spoiler state changes, so the host can save it.</summary>
     public event Action<AtlasSpoilerState>? SpoilerStateChanged;

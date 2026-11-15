@@ -40,6 +40,7 @@ internal static class AtlasValidator
         }
 
         var checkpoints = BuildCheckpoints(errors, file.Checkpoints!);
+        CheckGameQuestCoverage(errors, checkpoints);
         var types = BuildTypes(errors, file.RelationshipTypes!);
         if (errors.HasStructuralErrors)
         {
@@ -48,7 +49,7 @@ internal static class AtlasValidator
 
         var orderById = checkpoints.ToDictionary(c => c.Id, c => c.Order, StringComparer.Ordinal);
         var citationRegistry = new Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)>(StringComparer.Ordinal);
-        var context = new Context(errors, orderById, checkpoints.Count, mode, citationRegistry);
+        var context = new Context(errors, orderById, checkpoints.Count, mode, citationRegistry, checkpoints);
 
         var entities = BuildEntities(context, file.Entities!);
         if (errors.HasStructuralErrors)
@@ -74,7 +75,8 @@ internal static class AtlasValidator
         IReadOnlyDictionary<string, int> OrderById,
         int CheckpointCount,
         AtlasValidationMode Mode,
-        Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)> CitationRegistry);
+        Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)> CitationRegistry,
+        IReadOnlyList<AtlasCheckpoint> Checkpoints);
 
     private static List<AtlasCheckpoint> BuildCheckpoints(ErrorSink errors, List<AtlasCheckpointDto?> dtos)
     {
@@ -561,6 +563,15 @@ internal static class AtlasValidator
             return null;
         }
 
+        // End evidence is shown only in the Changes row at the ending step, so it must end where Changes is offered:
+        // never across a slice/milestone boundary, where no surface could ever display it.
+        var until = recordInterval.UntilOrder.Value;
+        if (context.Checkpoints[until - 1].Milestone != context.Checkpoints[until].Milestone)
+        {
+            context.Errors.Add(AtlasErrorCode.EndCitationOutOfRange, path, "End citations need an ending step where the Changes lens is offered (not across a slice/milestone boundary).");
+            return null;
+        }
+
         return ParseCitationList(context, path, dtos, recordInterval, recordScope, isEnding: true);
     }
 
@@ -706,6 +717,37 @@ internal static class AtlasValidator
         }
     }
 
+    /// <summary>
+    /// Follow treats a step as covered when it has game quest ids, so coverage is all-or-none: if any checkpoint has
+    /// ids, every checkpoint must, and no id may mark two different steps.
+    /// </summary>
+    private static void CheckGameQuestCoverage(ErrorSink errors, List<AtlasCheckpoint> checkpoints)
+    {
+        if (checkpoints.All(c => c.GameQuestIds.Count == 0))
+        {
+            return;
+        }
+
+        var owner = new Dictionary<int, string>();
+        for (var i = 0; i < checkpoints.Count; i++)
+        {
+            var checkpoint = checkpoints[i];
+            if (checkpoint.GameQuestIds.Count == 0)
+            {
+                errors.Add(AtlasErrorCode.InvalidField, $"$.checkpoints[{i}].gameQuestIds", "Once any checkpoint has game quest ids, every checkpoint must.");
+                continue;
+            }
+
+            foreach (var id in checkpoint.GameQuestIds)
+            {
+                if (!owner.TryAdd(id, checkpoint.Id))
+                {
+                    errors.Add(AtlasErrorCode.InvalidField, $"$.checkpoints[{i}].gameQuestIds", $"Game quest id {id} already marks checkpoint '{owner[id]}'.");
+                }
+            }
+        }
+    }
+
     private static List<int> ParseGameQuestIds(ErrorSink errors, string path, List<int?>? dtos)
     {
         var ids = new List<int>();
@@ -758,9 +800,16 @@ internal static class AtlasValidator
             return result;
         }
 
-        if (!types.ContainsKey(AtlasDataset.ParticipantTypeId))
+        if (!types.TryGetValue(AtlasDataset.ParticipantTypeId, out var participantType))
         {
             errors.Add(AtlasErrorCode.InvalidArc, "$.relationshipTypes", $"Arcs need the '{AtlasDataset.ParticipantTypeId}' relationship type.");
+            return result;
+        }
+
+        if (participantType.Symmetric)
+        {
+            // A symmetric membership edge could point from the entry to a member and silently drop them from the cast.
+            errors.Add(AtlasErrorCode.InvalidArc, "$.relationshipTypes", $"'{AtlasDataset.ParticipantTypeId}' must not be symmetric.");
             return result;
         }
 

@@ -52,17 +52,30 @@ public class RealDataTests
 
     /// <summary>
     /// NDL-006: the accepted pilot content must come through the v1 → v2 upgrade unchanged. These fingerprints were
-    /// captured from the v1 data and code before the upgrade (SnapshotDigest covers every displayable field).
+    /// captured by running this digest on the v1 data and code (origin/main at 23cd3fa). They cover every displayable
+    /// field, optional flags included, of the accepted legacy records only, so later content (arc entries, NDL-009)
+    /// never moves the pin.
     /// </summary>
     [Theory]
-    [InlineData(Cp20, AtlasContentView.MainStory, "FAEC97F569394F8C2A447C4876118154715E3AF0B992EFB5BCBBF25F81F42C4A")]
-    [InlineData(Cp20, AtlasContentView.MainAndOptional, "7BF6B1A3A75E44709DD0C26186D84C8138BE8D98AF4ADC0B203937C3CE6AC4E9")]
-    [InlineData(Cp255, AtlasContentView.MainStory, "209CD97A67F5734F028388F5D592A9B56525BC315E21203478E3AAE16370B4BA")]
-    [InlineData(Cp255, AtlasContentView.MainAndOptional, "73B45A9AC8CAFFBF2BCD867D67FBC6775B7B62CEED7AC0B31242C6ADB2F25604")]
+    [InlineData(Cp20, AtlasContentView.MainStory, "FD571B50BDDB29076893F4DDAF61E56161D8A3CE73C764681A335DE4B73B4AFE")]
+    [InlineData(Cp20, AtlasContentView.MainAndOptional, "382A24F8D5F7E3A3F39CF6E3F73CA41FA98A5B2586DAE8D64A1BAD497552EE91")]
+    [InlineData(Cp255, AtlasContentView.MainStory, "22E72329BEC68619C422404DB74676F9B41C2DD2E3BCB568F7E57F3BD4F45220")]
+    [InlineData(Cp255, AtlasContentView.MainAndOptional, "08698C44E3E98A2BD5844D4BA544C40986DB247E9D8667A9CD5D16C147F9584B")]
     public void Real_AcceptedSnapshotsArePinnedAcrossTheV2Upgrade(string checkpoint, AtlasContentView view, string digest)
     {
-        Assert.Equal(digest, SnapshotDigest.Of(AtlasProjector.Project(LoadDraft(), checkpoint, view)));
+        var dataset = LoadDraft();
+        Assert.All(LegacyRelationships, id => Assert.Contains(dataset.Relationships, r => r.Id == id));
+        Assert.Equal(digest, SnapshotDigest.Of(AtlasProjector.Project(dataset, checkpoint, view), AllEntities.ToHashSet(), LegacyRelationships.ToHashSet()));
     }
+
+    /// <summary>The fourteen relationships accepted before schema v2.</summary>
+    private static readonly string[] LegacyRelationships =
+    [
+        "rel-alisaie-grandchild-louisoix", "rel-alisaie-member-scions", "rel-alphinaud-grandchild-louisoix", "rel-alphinaud-member-scions",
+        "rel-alphinaud-twin-alisaie", "rel-braves-control-rising-stones", "rel-braves-turned-against-scions", "rel-minfilia-leads-scions",
+        "rel-scions-hq-waking-sands", "rel-tataru-member-scions", "rel-thancred-member-scions", "rel-urianger-conceals-waking-sands",
+        "rel-urianger-member-scions", "rel-yshtola-member-scions",
+    ];
 
     public static TheoryData<string, AtlasContentView, string[], string[]> ExpectedSnapshots() => new()
     {

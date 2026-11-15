@@ -17,6 +17,8 @@
 
 The `id-gt` value is the game's quest ID as the wiki records it. It is a candidate source for the Follow step's `gameQuestIds`, which `NDL-007` verifies against the client.
 
+The second bundled milestone, `cp-arr-2-55`, uses *Before the Dawn* (MSQ index 241, level 50, patch 2.55, `id-gt` **65964**), the last 2.x main-scenario quest; its `next-quest` field lists only the 3.0 openers and side unlocks. Source: the same wiki's *Before the Dawn* page, fetched for `NDL-006`.
+
 | # | Quest | MSQ index | Level | Game quest ID (wiki `id-gt`) | Thread notes |
 |---|---|---|---|---|---|
 | 1 | In the Company of Heroes | 103 | 33 | 66391 | pre-raid baseline (Titan) |

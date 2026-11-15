@@ -637,7 +637,7 @@ internal sealed class AtlasWindow : Window
             this.openConfirmNextFrame = false;
         }
 
-        var pending = s.PendingCeiling;
+        var pending = s.PendingCeilingId;
         ImGui.SetNextWindowSize(new Vector2(420 * ImGuiHelpers.GlobalScale, 0), ImGuiCond.Appearing);
         using var modal = ImRaii.PopupModal(ConfirmModalId, ImGuiWindowFlags.AlwaysAutoResize);
         if (!modal)

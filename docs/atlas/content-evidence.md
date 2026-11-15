@@ -18,7 +18,7 @@ python3 tools/atlas/build_pilot_content.py
 dotnet test NpcDialogueLinks.Tests
 ```
 
-Review status is **per record** (since `NDL-006`). The generator emits a record as `reviewed` only if it is listed in its `ACCEPTED` set; every other record is emitted `pending`. After explicit human acceptance, the mechanical commit adds the accepted records to `ACCEPTED` and regenerates. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
+Review status is **per record and bound to content** (since `NDL-006`). The generator's `ACCEPTED` maps each accepted record to a fingerprint of its accepted content, and a record is emitted `reviewed` only when its current content matches. A new record, or any change to an accepted one (text, interval, endpoints, scope or citations), is emitted `pending`; the only exception is a citation's `availableAt`, which the v2 plan allows to move earlier mechanically. After explicit human acceptance, the mechanical commit records the accepted records' fingerprints and regenerates. `python3 tools/atlas/build_pilot_content.py --self-test` checks these rules. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
 
 New or changed records default to `pending`. Strict validation, and therefore the plugin, refuses the data until those records are reviewed and accepted. Accepted records are never flipped back by editing others.
 

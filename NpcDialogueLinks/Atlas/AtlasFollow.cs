@@ -25,10 +25,11 @@ public enum AtlasFollowKind
 }
 
 /// <summary>
-/// The result of <see cref="AtlasFollow.Position"/>. <see cref="CheckpointId"/> is set only for
-/// <see cref="AtlasFollowKind.Position"/>; <see cref="BeyondLimit"/> means real progress is past the spoiler limit.
+/// The result of <see cref="AtlasFollow.Position"/>. For <see cref="AtlasFollowKind.Position"/>, <see cref="CheckpointId"/>
+/// is where the view goes (clamped to the limit) and <see cref="ReachedCheckpointId"/> is the real progress step;
+/// <see cref="BeyondLimit"/> means they differ, so a front end may offer the neutral "your completed quests" raise.
 /// </summary>
-public sealed record AtlasFollowResult(AtlasFollowKind Kind, string? CheckpointId, bool BeyondLimit)
+public sealed record AtlasFollowResult(AtlasFollowKind Kind, string? CheckpointId, bool BeyondLimit, string? ReachedCheckpointId = null)
 {
     public static readonly AtlasFollowResult Unknown = new(AtlasFollowKind.Unknown, null, false);
     public static readonly AtlasFollowResult BeforeCoverage = new(AtlasFollowKind.BeforeCoverage, null, false);
@@ -78,7 +79,7 @@ public static class AtlasFollow
 
         var reached = covered[prefix];
         return reached.Order > ceiling.Order
-            ? new AtlasFollowResult(AtlasFollowKind.Position, ceiling.Id, true)
-            : new AtlasFollowResult(AtlasFollowKind.Position, reached.Id, false);
+            ? new AtlasFollowResult(AtlasFollowKind.Position, ceiling.Id, true, reached.Id)
+            : new AtlasFollowResult(AtlasFollowKind.Position, reached.Id, false, reached.Id);
     }
 }

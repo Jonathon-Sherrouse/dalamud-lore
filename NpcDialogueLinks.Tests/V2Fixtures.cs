@@ -6,7 +6,7 @@ namespace NpcDialogueLinks.Tests;
 /// <summary>
 /// Synthetic schema-v2 timeline for NDL-006. Every v2 rule in docs/atlas/v2-plan.md has a case here:
 /// <code>
-/// order: 0 s0 (baseline) · 1 s1 · 2 s2 · 3 s3 · 4 m1 (milestone) · 5 s5 (gap step) · 6 m2 (milestone)
+/// order: 0 s0 (baseline) · 1 s1 · 2 s2 · 3 s3 · 4 m1 (milestone) · 5 s5 (gap step) · 6 s6 (gap step after a slice) · 7 m2 (milestone)
 /// arc-hold   = evt-hold,   s1..s3  (cast: ana, bo, cy, foe from s1; dee joins at s2)
 /// arc-shadow = evt-shadow, s2..m1  (overlaps arc-hold; ends at a milestone; cast: bo, cy, dee, foe)
 /// arc-tie    = evt-tie,    s2..s2  (nested; same start as arc-shadow, authored after it; cast: ana)
@@ -28,6 +28,7 @@ internal static class V2Fx
         { "id": "s3", "label": "After Quest Three", "questTitle": "Quest Three", "contiguousWithPrevious": true, "gameQuestIds": [103] },
         { "id": "m1", "label": "Patch One complete", "milestone": true, "contiguousWithPrevious": true, "gameQuestIds": [104] },
         { "id": "s5", "label": "After Quest Nine", "questTitle": "Quest Nine", "gameQuestIds": [109] },
+        { "id": "s6", "label": "After Quest Twelve", "questTitle": "Quest Twelve", "gameQuestIds": [112] },
         { "id": "m2", "label": "Patch Two complete", "milestone": true, "gameQuestIds": [200] }
       ],
       "relationshipTypes": [

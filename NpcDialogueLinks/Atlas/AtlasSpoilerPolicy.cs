@@ -90,6 +90,29 @@ public static class AtlasSpoilerPolicy
         return new AtlasStateResult(new AtlasSpoilerState(requested.Id, clampedView), AtlasStateChange.Changed);
     }
 
+    /// <summary>
+    /// Follow's neutral "your completed quests" raise: the limit rises to exactly the verified progress step in
+    /// <paramref name="follow"/>, only with <paramref name="confirmed"/>, and the view never moves. Anything else is rejected.
+    /// </summary>
+    public static AtlasStateResult SetCeilingToFollowed(AtlasDataset dataset, AtlasSpoilerState state, AtlasFollowResult follow, bool confirmed)
+    {
+        ArgumentNullException.ThrowIfNull(dataset);
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(follow);
+        if (follow.Kind != AtlasFollowKind.Position
+            || !follow.BeyondLimit
+            || !dataset.TryGetCheckpoint(follow.ReachedCheckpointId, out var reached)
+            || !dataset.TryGetCheckpoint(state.CeilingId, out var current)
+            || reached.Order <= current.Order)
+        {
+            return new AtlasStateResult(state, AtlasStateChange.Rejected);
+        }
+
+        return confirmed
+            ? new AtlasStateResult(state with { CeilingId = reached.Id }, AtlasStateChange.Changed)
+            : new AtlasStateResult(state, AtlasStateChange.NeedsConfirmation);
+    }
+
     /// <summary>The view may move anywhere at or below the ceiling; it can never raise the ceiling.</summary>
     public static AtlasStateResult SetView(AtlasDataset dataset, AtlasSpoilerState state, string? viewId)
     {
