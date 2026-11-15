@@ -799,6 +799,25 @@ public class V2SessionEdgeTests
     }
 
     [Fact]
+    public void WholeCast_OnlySpokesToTheArcEntryAreFaint()
+    {
+        // A nested arc's event joins arc-hold's cast, so ana's participant-in edge to it runs between two ring members.
+        var doc = V2Fx.Doc();
+        Fx.Relationships(doc).Add(new System.Text.Json.Nodes.JsonObject
+        {
+            ["id"] = "p-tie-hold", ["source"] = "evt-tie", ["type"] = "participant-in", ["target"] = "evt-hold", ["validFrom"] = "s2", ["scope"] = "main",
+            ["citations"] = new System.Text.Json.Nodes.JsonArray(V2Fx.Cite("Src s2", "s2")), ["review"] = "reviewed",
+        });
+        var s = new AtlasSession(Fx.Load(doc), new AtlasSpoilerState("m2", "s2"));
+        Assert.Equal("arc-hold", s.Arc!.ArcId);
+        var ringEdge = s.Layout!.Edges.Single(e => e.Relationship.Id == "p-ana-tie");
+        Assert.False(ringEdge.IsParticipation);
+        Assert.True(s.Layout.Edges.Single(e => e.Relationship.Id == "p-tie-hold").IsParticipation);
+        Assert.Contains(s.ArcNewRows, r => r.Relationship!.Id == "p-ana-tie");
+        Assert.True(s.SelectRelationship("p-ana-tie"));
+    }
+
+    [Fact]
     public void WholeCast_ParticipationSpokesAreNotSelectable()
     {
         var s = At("m2", "s3");
