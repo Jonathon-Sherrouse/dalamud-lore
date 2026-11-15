@@ -36,6 +36,10 @@ public sealed record AtlasArcResolution(string? ArcId, bool PickDropped);
 /// <summary>Pure arc selection and projection. Session composition (lens state, lifetime) lives in the front-end session.</summary>
 public static class AtlasArcs
 {
+    /// <summary>A cast member's <c>participant-in</c> edge to the arc entry <paramref name="entryId"/>: the arc's own membership spoke.</summary>
+    public static bool IsSpoke(AtlasRelationshipView relationship, string entryId) =>
+        relationship.TypeId == AtlasDataset.ParticipantTypeId && relationship.TargetId == entryId;
+
     /// <summary>
     /// Arcs whose first step is at or before the view, sorted by first step then authored order (the picker), each named
     /// as of min(view, its last step).

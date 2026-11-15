@@ -191,7 +191,7 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 
 | Lens | Browse pane | Centre | Details pane |
 |---|---|---|---|
-| **Arc** | The **Story arc** picker, then search, then the cast members under "Cast (n)", grouped by category. The arc entry is the panel's subject, so it is not listed; its centre node can still be clicked. | The **whole-cast chart**: the arc entry in the centre, every cast member on a ring, every cast-to-cast relationship drawn | The **arc panel**: name, "Story so far, through ‹quest›", the recap, Sources (n), **New at this point**, **Ended so far in this arc** |
+| **Arc** | The **Story arc** picker, then search, then the cast members under "Cast (n)", grouped by category. The arc entry is the panel's subject, so it is not listed while the search is empty; searching finds it, and its centre node can always be clicked. | The **whole-cast chart**: the arc entry in the centre, every cast member on a ring, every cast-to-cast relationship drawn | The **arc panel**: name, "Story so far, through ‹quest›", the recap, Sources (n), **New at this point**, **Ended so far in this arc** |
 | **Story point** | Unchanged (v1) | Unchanged one-hop graph | Unchanged |
 | **Changes** | Replaced by the change list | Replaced by the change list | The selected change |
 
@@ -204,7 +204,7 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 | L3 | **Arc lens at rest** | Nothing is focused: the whole-cast chart and the arc panel show. The recap is the arc entry's reviewed summary at the effective step. Clicking a labelled edge on the chart opens its **Selected connection** card, with its sources and Close, at the top of the arc panel; the recap stays below it. |
 | L4 | **Refocus in the arc** | Clicking a cast member (canvas, cast list, or a name in the panel's rows) shows the v1 one-hop graph and details, **inside the cast**. Search, counts and connections never leave the cast. A **← Whole cast** button returns to rest. |
 | L5 | **Pick an arc** | The **Story arc** picker lists "The arc at this point" (the automatic choice), then every arc already started by the view, by start and then authored order, each named as of its effective step. No spans, step counts or end markers. |
-| L6 | **Pick lifetime** | Picking an arc also chooses the Arc lens ([D12](#decisions-for-the-user-to-accept)). A pick holds while the view moves, and ends when the view drops below the arc's first step (also when lowering the limit clamps the view there); it does not come back when the view rises again. "The arc at this point" clears it. A picked arc that has already ended shows "As of ‹last quest›" beside the recap, and its "New" heading becomes "New in ‹last quest›". |
+| L6 | **Pick lifetime** | Picking an arc also chooses the Arc lens ([D12](#decisions-for-the-user-to-accept)). A pick holds while the view moves, and ends when the view drops below the arc's first step (also when lowering the limit clamps the view there); it does not come back when the view rises again. "The arc at this point" clears it; the Arc lens stays chosen either way. A picked arc that has already ended shows "As of ‹last quest›" beside the recap, and its "New" heading becomes "New in ‹last quest›". |
 | L7 | **No arc here** | In the Arc lens with no arc covering the view: "No story arc covers this point." The picker still lists started arcs, so an ended one can be reopened. |
 | L8 | **Changes lens** | A heading, "What this quest changed" or "Changes since ‹previous point›", then rows under **Added** (+), **Ended** (−) and **Description updated** (~). Picking a row shows it on the right: the relationship and its sources, plus **Sources for the ending (n)** on an ended row, the only place end evidence ever appears. |
 | L9 | **Changes not offered** | At the first step or across a slice ↔ milestone boundary: "Changes compare one quest step with the one before it, or one milestone with the previous milestone. There is no comparison for this point." |
@@ -223,7 +223,7 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 | State | What shows |
 |---|---|
 | Arc lens, no arc | Centre and details: "No story arc covers this point." The browse list is empty apart from the picker. |
-| Arc lens, nothing new or ended | "Nothing new at this point." / "Nothing has ended yet." |
+| Arc lens, nothing new or ended | "Nothing new." / "Nothing has ended yet." |
 | Changes, nothing changed | "Nothing changed at this point." |
 | Changes, no row picked | "Pick a change to see its details." |
 
@@ -233,8 +233,8 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 
 **Per-frame cost.** The derived lens state (change groups, picker options, arc rows, the whole-cast layout) is built once and cached until the next change of limit, view, content view, lens or pick, so an ImGui window can read it every frame.
 
-**Leak sweep.** `V2LeakSweepTests` covers every limit, view, content view, lens and arc pick, in fresh sessions and along a walk down and back up the timeline with a pick held. At each stop it selects every chart edge and every change, and refocuses every entry. It checks four things:
-- Every entity, relationship and source shown exists, exactly as shown, at or before the view.
+**Leak sweep.** `V2LeakSweepTests` covers every limit, view, content view, lens and arc pick. It runs in three ways: in fresh sessions, along a walk down and back up the timeline, and along a walk that turns at the picked arc's first step, so the pick is held both ways. At each stop it selects every chart edge and every change, and refocuses every entry. It checks four things:
+- Every entity, relationship and source shown exists, exactly as shown, at some step at or before the view. Each end citation on a Changes row must be that relationship's own end evidence.
 - No text names a later quest, entity or source.
 - Pickers and prompts name nothing past the limit.
 - End evidence appears only on Changes "ended" rows, proved by a source cited nowhere else.
@@ -257,9 +257,9 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 
 1. **D6. The lens bar** is a second row under the top bar, not a tab strip above the panes.
 2. **D7. The Changes lens takes the browse pane and the canvas** for its list, with no chart. A diff is a list; a chart of a diff would need its own layout rules.
-3. **D8. Participation spokes are faint and unlabelled.**
+3. **D8. Participation spokes are faint and unlabelled** on the whole-cast chart, and can't be clicked there. "New at this point" leaves out participation too, so a member joining shows by appearing on the chart, not as a row. After refocusing, the same edge is an ordinary labelled connection.
 4. **D9. The automatic arc option reads "The arc at this point".** It avoids "current" and "you are here", which would imply progress.
 5. **D10. Switching lens clears focus and search silently**, without the reset hint.
 6. **D11. The default lens rule re-applies on every view change** until the player picks a lens or an arc. The plan names only "on open" and "when Follow moves the view". With Follow deferred, this is how a player moving through the story lands in the Arc lens on their own.
-7. **D12. Picking an arc counts as picking the Arc lens,** so a picked arc stays on screen when the view moves past its end.
+7. **D12. Picking an arc counts as picking the Arc lens,** so a picked arc stays on screen when the view moves past its end. The cost: the Arc lens then stays chosen for the session, even after the pick ends or is cleared with "The arc at this point". Moving before every arc shows "No story arc covers this point." rather than returning to Story point.
 

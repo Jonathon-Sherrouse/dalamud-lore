@@ -254,15 +254,18 @@ public class V2ChangesSessionTests
 }
 
 /// <summary>
-/// v2 spoiler rule 5, the per-step leak sweep, over every limit × view × content view × lens × arc pick, both in fresh
-/// sessions and along a walk that moves the view down to the first step and back up with the pick held. At each stop it
-/// gathers every surface the session exposes (including what selecting each chart edge and each change shows) and checks:
+/// v2 spoiler rule 5, the per-step leak sweep, over every limit × view × content view × lens × arc pick. It runs in fresh
+/// sessions, along a walk down to the first step and back up (the pick drops at the bottom), and along a walk that turns
+/// at the picked arc's first step so the pick is held both ways. At each stop it gathers every surface the session
+/// exposes (including what selecting each chart edge and each change shows, and every refocus) and checks:
 /// <list type="bullet">
-/// <item>every entity, relationship and source shown exists, exactly as shown, in a projection at or before the view;</item>
+/// <item>every entity, relationship and source shown exists, exactly as shown, in some projection at or before the view
+/// (so nothing from a later step; an out-of-date earlier text would not be a leak);</item>
+/// <item>every end citation on a Changes "ended" row is that relationship's own end evidence (title and URL), available by the view;</item>
 /// <item>no text names a quest past the view, an entity not yet introduced, or a source not yet available;</item>
 /// <item>pickers and prompts never name a quest past the limit, milestones included;</item>
 /// <item>end evidence appears only on a Changes "ended" row (an end-only source sentinel proves it);</item>
-/// <item>"As of" appears only after the arc's last step (rule 7).</item>
+/// <item>"As of" and "New in ‹last quest›" appear only after the arc's last step (rule 7).</item>
 /// </list>
 /// </summary>
 public class V2LeakSweepTests
@@ -315,6 +318,19 @@ public class V2LeakSweepTests
                                 {
                                     s.SetView(step.Id);
                                     Check(d, s, ceiling, contentView, $"{name} walk limit={ceiling.Id} at={step.Id} {contentView} {lens} pick={pick}");
+                                    stops++;
+                                }
+
+                                // Turn at the arc's first step, so the pick is held all the way down and back up.
+                                var first = d.Arcs.First(a => a.Id == pick).FirstOrder;
+                                var held = Open(d, ceiling, view, contentView, lens, pick);
+                                var turn = d.Checkpoints.Where(c => c.Order >= first && c.Order < view.Order).Reverse()
+                                    .Concat(d.Checkpoints.Where(c => c.Order > first && c.Order <= view.Order));
+                                foreach (var step in turn)
+                                {
+                                    held.SetView(step.Id);
+                                    Assert.True(held.ArcPickerOptions.Single(o => o.ArcId == pick).IsCurrent, $"pick {pick} lost at {step.Id}");
+                                    Check(d, held, ceiling, contentView, $"{name} held walk limit={ceiling.Id} at={step.Id} {contentView} {lens} pick={pick}");
                                     stops++;
                                 }
                             }
@@ -370,6 +386,13 @@ public class V2LeakSweepTests
 
         AssertNoText(surface.Texts, EndOnlySource, where);
 
+        foreach (var (row, inChangesEnded) in surface.Rows.Where(r => r.InChangesEnded))
+        {
+            var raw = d.Relationships.Single(r => r.Id == row.Relationship!.Id);
+            var allowed = raw.EndCitations.Where(c => c.AvailableAtOrder <= view.Order).Select(c => (c.Title, c.Url?.ToString())).ToHashSet();
+            Assert.All(row.EndCitations, c => Assert.True(allowed.Contains((c.Title, c.Url?.ToString())), $"end citation '{c.Title}' ({c.Url}) is not {row.Key}'s own available end evidence at {where}"));
+        }
+
         var later = d.Checkpoints.Where(c => c.Order > view.Order).ToList();
         var knownNames = known.SelectMany(p => p.Entities).SelectMany(e => e.Aliases.Append(e.Name)).ToHashSet();
         var laterNames = later.SelectMany(c => AtlasProjector.Project(d, c.Id, AtlasContentView.MainAndOptional).Entities)
@@ -395,6 +418,7 @@ public class V2LeakSweepTests
         if (s.Arc is { PastEnd: false })
         {
             Assert.DoesNotContain(surface.Texts, t => t.StartsWith("As of", StringComparison.Ordinal)); // rule 7
+            Assert.DoesNotContain(surface.Texts, t => t.StartsWith("New in", StringComparison.Ordinal));
         }
     }
 
@@ -456,7 +480,8 @@ public class V2LeakSweepTests
             Add(row.Entity);
             if (inChangesEnded)
             {
-                Texts.AddRange(row.EndCitations.Where(c => c.Title != EndOnlySource).Select(c => c.Title)); // the one allowed place
+                // The one allowed place: checked against the relationship's own end evidence, not the ordinary sources.
+                Texts.AddRange(row.EndCitations.Where(c => c.Title != EndOnlySource).SelectMany(c => new[] { c.Title, c.Url?.ToString() }).OfType<string>());
             }
             else
             {
@@ -538,9 +563,9 @@ public class V2LeakSweepTests
             }
         }
 
-        // Refocusing every reachable entry shows its one-hop surface.
+        // Refocusing every entry on the snapshot (the arc entry included) shows its one-hop surface.
         var focusBefore = s.FocusId;
-        foreach (var entity in s.SearchResults.ToList())
+        foreach (var entity in s.Snapshot.Entities.ToList())
         {
             if (s.FocusOn(entity.Id) && s.Neighborhood is { } neighborhood)
             {
@@ -604,6 +629,24 @@ public class V2SessionEdgeTests
         Assert.Equal(AtlasLens.Arc, s.Lens);
         Assert.Equal(AtlasText.ArcAsOf("Quest Three"), s.Arc!.AsOfLabel);
         Assert.Equal(AtlasText.ArcNewIn("Quest Three"), s.ArcNewHeading);
+    }
+
+    [Fact]
+    public void Pick_TheArcLensStaysChosenAfterThePickEnds()
+    {
+        // D12: picking an arc chose the Arc lens; that choice outlives the pick (dropped, or cleared by the automatic option).
+        var dropped = At("m2", "s3");
+        dropped.PickArc("arc-shadow");
+        dropped.SetView("s0");
+        Assert.Equal(AtlasLens.Arc, dropped.Lens);
+        Assert.Null(dropped.Arc);
+
+        var cleared = At("m2", "s2");
+        cleared.PickArc("arc-hold");
+        cleared.PickArc(null);
+        cleared.SetView("s5");
+        Assert.Equal(AtlasLens.Arc, cleared.Lens);
+        Assert.Null(cleared.Arc);
     }
 
     [Fact]
@@ -704,8 +747,35 @@ public class V2SessionEdgeTests
         Assert.NotSame(groups, s.ChangeGroups);
 
         var arc = At("m2", "s3");
-        Assert.Same(arc.ArcPickerOptions, arc.ArcPickerOptions);
-        Assert.Same(arc.Layout, arc.Layout);
+        var (picker, rows, ended, layout) = (arc.ArcPickerOptions, arc.ArcNewRows, arc.ArcEndedRows, arc.Layout);
+        Assert.Same(picker, arc.ArcPickerOptions);
+        Assert.Same(rows, arc.ArcNewRows);
+        Assert.Same(ended, arc.ArcEndedRows);
+        Assert.Same(layout, arc.Layout);
+        arc.SetView("s2");
+        Assert.NotSame(picker, arc.ArcPickerOptions);
+        Assert.NotSame(rows, arc.ArcNewRows);
+        Assert.NotSame(ended, arc.ArcEndedRows);
+        Assert.NotSame(layout, arc.Layout);
+    }
+
+    [Fact]
+    public void Search_StillFindsTheArcEntryByName()
+    {
+        var s = At("m2", "s2");
+        s.SetSearch("The Hold");
+        Assert.Contains(s.SearchResults, e => e.Id == "evt-hold");
+    }
+
+    [Fact]
+    public void ArcSurfaces_AreEmptyOutsideTheArcLens()
+    {
+        var s = At("m2", "s3");
+        s.SetLens(AtlasLens.StoryPoint);
+        Assert.Empty(s.ArcNewRows);
+        Assert.Empty(s.ArcEndedRows);
+        Assert.Null(s.ArcNewHeading);
+        Assert.Null(s.CastHeading);
     }
 
     [Fact]

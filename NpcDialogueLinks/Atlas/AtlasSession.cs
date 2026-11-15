@@ -133,7 +133,7 @@ public static class AtlasText
     /// <summary>The "new" heading for a picked arc viewed after it ended: the rows are new at its last quest.</summary>
     public static string ArcNewIn(string lastQuest) => $"New in {lastQuest}";
     public const string ArcEndedHeading = "Ended so far in this arc";
-    public const string ArcNothingNew = "Nothing new at this point.";
+    public const string ArcNothingNew = "Nothing new.";
     public const string ArcNothingEnded = "Nothing has ended yet.";
 
     /// <summary>When an ended row's relationship ended (a step at or below the view).</summary>
@@ -297,10 +297,13 @@ public sealed class AtlasSession
     public IReadOnlyList<AtlasArcPickerOption> ArcPickerOptions => arcPickerOptions ??= BuildArcPickerOptions();
 
     /// <summary>"Cast (n)" above the cast list: the arc's members, not counting the arc entry. Null outside an arc view.</summary>
-    public string? CastHeading => Lens == AtlasLens.Arc && Arc is { } arc ? AtlasText.CastHeading(arc.Cast.Entities.Count - 1) : null;
+    public string? CastHeading => ArcView is { } arc ? AtlasText.CastHeading(arc.Cast.Entities.Count - 1) : null;
 
-    /// <summary>"New at this point", or "New in ‹last quest›" for a picked arc viewed after it ended.</summary>
-    public string? ArcNewHeading => Arc is { } arc ? (arc.PastEnd ? AtlasText.ArcNewIn(arc.Effective.DisplayTitle) : AtlasText.ArcNewHeading) : null;
+    /// <summary>"New at this point", or "New in ‹last quest›" for a picked arc viewed after it ended. Null outside an arc view.</summary>
+    public string? ArcNewHeading => ArcView is { } arc ? (arc.PastEnd ? AtlasText.ArcNewIn(arc.Effective.DisplayTitle) : AtlasText.ArcNewHeading) : null;
+
+    /// <summary><see cref="Arc"/> while the Arc lens shows it; null in the other lenses, so Arc-only surfaces stay empty there.</summary>
+    private AtlasArcView? ArcView => Lens == AtlasLens.Arc ? Arc : null;
 
     /// <summary>True in the Arc lens while no entity is focused: the whole-cast chart and the arc panel show.</summary>
     public bool ShowsWholeCast => Lens == AtlasLens.Arc && Arc is not null && FocusId is null;
@@ -309,12 +312,12 @@ public sealed class AtlasSession
     /// Relationships new at the arc's effective step, as rows (no end evidence). Participation edges are left out: a new
     /// member already shows by appearing on the chart, and listing every spoke would bury the real changes (D8).
     /// </summary>
-    public IReadOnlyList<AtlasChangeRow> ArcNewRows => arcNewRows ??= Arc is { } arc
-        ? arc.New.Where(r => r.TypeId != AtlasDataset.ParticipantTypeId).Select(r => RelationshipRow(AtlasChangeKind.Added, r, arc.Cast)).ToList()
+    public IReadOnlyList<AtlasChangeRow> ArcNewRows => arcNewRows ??= ArcView is { } arc
+        ? arc.New.Where(r => !AtlasArcs.IsSpoke(r, arc.Entry.Id)).Select(r => RelationshipRow(AtlasChangeKind.Added, r, arc.Cast)).ToList()
         : Array.Empty<AtlasChangeRow>();
 
     /// <summary>"Ended so far in this arc", as rows. Never carries sources of any kind (v2 plan, "Arc lens").</summary>
-    public IReadOnlyList<AtlasChangeRow> ArcEndedRows => arcEndedRows ??= Arc is { } arc
+    public IReadOnlyList<AtlasChangeRow> ArcEndedRows => arcEndedRows ??= ArcView is { } arc
         ? arc.EndedSoFar.Select(e => new AtlasChangeRow(
             $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null,
             Array.Empty<AtlasCitationView>(), EndedInFor(e.EndedAtCheckpointId))).ToList()
@@ -494,10 +497,13 @@ public sealed class AtlasSession
         }
     }
 
-    /// <summary>Visible entries matching the search. In the Arc lens: the cast members, without the arc entry, which is the panel's subject.</summary>
+    /// <summary>
+    /// Visible entries matching the search. In the Arc lens with an empty search, the cast members without the arc entry,
+    /// which is the panel's subject and the chart's centre; a search can still find the entry by name.
+    /// </summary>
     public IReadOnlyList<AtlasEntityView> SearchResults =>
-        Lens == AtlasLens.Arc && Arc is { } arc
-            ? snapshot.Search(SearchQuery).Where(e => e.Id != arc.Entry.Id).ToList()
+        ArcView is { } arc && SearchQuery.Trim().Length == 0
+            ? snapshot.Entities.Where(e => e.Id != arc.Entry.Id).ToList()
             : snapshot.Search(SearchQuery);
 
     /// <summary>Search results grouped by category, omitting empty groups (user decision, 2026-11-14).</summary>
@@ -551,7 +557,7 @@ public sealed class AtlasSession
     {
         // Participation spokes are not click targets on the whole-cast chart (D8).
         var onChart = ShowsWholeCast
-            ? snapshot.Relationships.Any(r => r.Id == relationshipId && r.TypeId != AtlasDataset.ParticipantTypeId)
+            ? snapshot.Relationships.Any(r => r.Id == relationshipId && !AtlasArcs.IsSpoke(r, Arc!.Entry.Id))
             : Neighborhood?.Neighbors.Any(n => n.Relationship.Id == relationshipId) == true;
         if (!onChart)
         {
