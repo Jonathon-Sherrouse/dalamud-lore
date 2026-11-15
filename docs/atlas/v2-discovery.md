@@ -1,6 +1,8 @@
 # Atlas v2 discovery: quest inventory, threads and proposed arc map (NDL-006)
 
-> **Status: PROVISIONAL, awaiting the user's arc-map decision.** This is `NDL-006`'s discovery step: the [v2 plan](v2-plan.md) requires it before the schema freezes. It is research input, not reviewed canon. The content story (`NDL-009`) researches and reviews the chosen arc in full.
+> **Arc-map decision (user, 2026-11-14): option 1, build A4 (*The Black Wolf's challenge*, #155–161) only, with an editorial cast of 10.** The cast cap counts participants, not the arc entry. A3 and the longer threads are deferred to the backlog.
+>
+> **Status: PROVISIONAL research, with the arc map decided.** This is `NDL-006`'s discovery step: the [v2 plan](v2-plan.md) requires it before the schema freezes. It is research input, not reviewed canon. The content story (`NDL-009`) researches and reviews the chosen arc in full.
 
 ## Method
 
@@ -173,8 +175,8 @@ Passages are short locators from the wiki's transcription of the journal or main
   - **Not to use in recaps:** the post-battle cutscene at #161 names further Ascians and says "Bahamut stirs". Those set up later content.
 - **Game quest IDs** are available for every step from the wiki (`id-gt`), for `NDL-007` to verify.
 
-## Decisions for the user
+## Decisions (user, 2026-11-14)
 
-1. **The arc option:** 1 (recommended), 2 or 3.
-2. **The cast:** an editorial cast of 10 (organizations grouping minor figures), or a justified raise.
-3. Optionally: "Garlond Ironworks" shown or not. This can wait for `NDL-009`.
+1. **The arc:** option 1, A4 only (#155–161). Overlap is proven with synthetic fixtures.
+2. **The cast:** editorial, at most 10 participants, with organizations grouping minor figures. The arc entry doesn't count toward the cap. The exact 10 are an `NDL-009` content decision; the example above is the starting point.
+3. **"Garlond Ironworks":** left to `NDL-009`.
