@@ -17,6 +17,7 @@ Run this from the repository root, then open <http://127.0.0.1:5219/>.
 | Flag | Default | Purpose |
 |---|---|---|
 | `--data <path>` | the synthetic `sample-atlas.json` | Load another Atlas file, such as the real pilot data: `--data "$PWD/NpcDialogueLinks/atlas.json"`. Its records are reviewed, so it loads in Strict mode like the plugin. Use an absolute path, because `dotnet run` starts the viewer in its project folder. |
+| `--arc-sample` | off | Load the synthetic arc sample, `sample-arc-atlas.json`, to walk through the v2 lenses ([ux-design.md](ux-design.md#v2-lenses-ndl-008)). |
 | `--draft` | off (Strict, same as the runtime) | Allow `pending` records. A banner marks the data as not shippable. Needed for content still under review. |
 | `--port <n>` | `5219` | Listen on another port. The viewer only ever binds to `127.0.0.1`. |
 | `--state <path>` | `NpcDialogueLinks.AtlasViewer/viewer-state.json` in the OS local app-data folder; the exact path is printed at startup | Where the two spoiler controls persist. It mirrors the plugin's configuration and is kept outside the repository. |
@@ -27,6 +28,8 @@ Run this from the repository root, then open <http://127.0.0.1:5219/>.
 Avoid `--no-build` while the code is changing: it reuses an old binary.
 
 The sample is invented data with the pilot's shape: 12 entities, 14 relationships, two checkpoints, and the same changes and optional records as the [worked examples](worked-examples.md). Its records are marked `reviewed` only so that Strict validation can exercise it. They are structural test data, not lore.
+
+The **arc sample** (`--arc-sample`) is an invented harbor-siege story built to exercise the v2 lenses: five quest steps and two milestones, two arcs (one nested inside the other), relationships that start, end and restart, end evidence, a character who is in the story but not in the cast (Warden Orrin), and one optional record. It too is structural data, not lore, and `V2LeakSweepTests` sweeps it.
 
 ## How parity is kept
 

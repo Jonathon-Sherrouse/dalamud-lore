@@ -10,7 +10,14 @@ public sealed record AtlasGraphNode(AtlasEntityView Entity, double X, double Y, 
 /// One drawn edge between the focus and a canvas neighbor. <see cref="FromId"/> → <see cref="ToId"/> is the stored direction;
 /// symmetric edges are drawn without an arrowhead. <see cref="LaneIndex"/>/<see cref="LaneCount"/> separate parallel edges.
 /// </summary>
-public sealed record AtlasGraphEdge(AtlasRelationshipView Relationship, string FromId, string ToId, string Label, bool Symmetric, int LaneIndex, int LaneCount);
+public sealed record AtlasGraphEdge(AtlasRelationshipView Relationship, string FromId, string ToId, string Label, bool Symmetric, int LaneIndex, int LaneCount)
+{
+    /// <summary>
+    /// A cast member's <c>participant-in</c> spoke to the arc entry. Front ends draw it as a faint, unlabelled,
+    /// non-interactive line: membership is already shown by the member being on the chart (NDL-008).
+    /// </summary>
+    public bool IsParticipation => Relationship.TypeId == AtlasDataset.ParticipantTypeId;
+}
 
 /// <summary>
 /// Deterministic one-hop layout in a unit coordinate space: focus at (0, 0), up to eight canvas neighbors on a unit

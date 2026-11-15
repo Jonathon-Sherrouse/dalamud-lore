@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Content Update="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Update="sample-arc-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Update="wwwroot/**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

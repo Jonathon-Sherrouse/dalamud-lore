@@ -79,6 +79,10 @@ internal sealed class AtlasWindow : Window
         {
             var saved = new AtlasSpoilerState(this.configuration.AtlasCeilingId ?? string.Empty, this.configuration.AtlasViewId ?? string.Empty);
             var newSession = new AtlasSession(result.Dataset!, saved);
+
+            // The window renders the Story point lens only until NDL-010 brings it to parity with the viewer's lenses,
+            // so arc content shipping first can never switch it into a lens it cannot draw.
+            newSession.SetLens(AtlasLens.StoryPoint);
             newSession.SpoilerStateChanged += this.SaveSpoilerState;
             this.session = newSession;
 

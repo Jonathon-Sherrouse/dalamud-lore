@@ -1,0 +1,831 @@
+{
+  "schemaVersion": 2,
+  "checkpoints": [
+    {
+      "id": "q0",
+      "label": "After The Lighthouse Letter",
+      "questTitle": "The Lighthouse Letter"
+    },
+    {
+      "id": "q1",
+      "label": "After Smoke over the Harbor",
+      "questTitle": "Smoke over the Harbor",
+      "contiguousWithPrevious": true
+    },
+    {
+      "id": "q2",
+      "label": "After The Captain's Bargain",
+      "questTitle": "The Captain's Bargain",
+      "contiguousWithPrevious": true
+    },
+    {
+      "id": "q3",
+      "label": "After Into the Undercity",
+      "questTitle": "Into the Undercity",
+      "contiguousWithPrevious": true
+    },
+    {
+      "id": "q4",
+      "label": "After The Tide Turns",
+      "questTitle": "The Tide Turns",
+      "contiguousWithPrevious": true
+    },
+    {
+      "id": "v1",
+      "label": "Volume One complete",
+      "milestone": true,
+      "contiguousWithPrevious": true
+    },
+    {
+      "id": "v2",
+      "label": "Volume Two complete",
+      "milestone": true
+    }
+  ],
+  "relationshipTypes": [
+    {
+      "id": "participant-in",
+      "outgoingLabel": "part of",
+      "incomingLabel": "involves",
+      "symmetric": false
+    },
+    {
+      "id": "leads",
+      "outgoingLabel": "leads",
+      "incomingLabel": "led by",
+      "symmetric": false
+    },
+    {
+      "id": "member-of",
+      "outgoingLabel": "member of",
+      "incomingLabel": "has member",
+      "symmetric": false
+    },
+    {
+      "id": "apprentice-of",
+      "outgoingLabel": "apprentice of",
+      "incomingLabel": "mentor of",
+      "symmetric": false
+    },
+    {
+      "id": "guards",
+      "outgoingLabel": "guards",
+      "incomingLabel": "guarded by",
+      "symmetric": false
+    },
+    {
+      "id": "besieges",
+      "outgoingLabel": "besieges",
+      "incomingLabel": "besieged by",
+      "symmetric": false
+    },
+    {
+      "id": "prisoner-of",
+      "outgoingLabel": "prisoner of",
+      "incomingLabel": "holds prisoner",
+      "symmetric": false
+    },
+    {
+      "id": "allied-with",
+      "outgoingLabel": "allied with",
+      "incomingLabel": "allied with",
+      "symmetric": true
+    },
+    {
+      "id": "based-in",
+      "outgoingLabel": "based in",
+      "incomingLabel": "base of",
+      "symmetric": false
+    }
+  ],
+  "entities": [
+    {
+      "id": "char-mira",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "q0",
+          "scope": "main",
+          "name": "Captain Mira",
+          "summary": "Captain of the harbor watch's patrol boat. She sends you the letter that starts the story.",
+          "citations": [
+            {
+              "title": "Journal: The Lighthouse Letter",
+              "availableAt": "q0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "validUntil": "q2",
+          "aliases": [
+            "Mira"
+          ]
+        },
+        {
+          "validFrom": "q2",
+          "scope": "main",
+          "name": "Captain Mira",
+          "summary": "A watch captain who has left her post to bargain with the enemy for the city's sake.",
+          "citations": [
+            {
+              "title": "Journal: The Captain's Bargain",
+              "availableAt": "q2",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "validUntil": "v2",
+          "aliases": [
+            "Mira"
+          ]
+        },
+        {
+          "validFrom": "v2",
+          "scope": "main",
+          "name": "Captain Mira",
+          "summary": "The harbor's new warden, after the siege.",
+          "citations": [
+            {
+              "title": "Journal: Volume Two complete",
+              "availableAt": "v2",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "aliases": [
+            "Mira"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "char-tobin",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "q0",
+          "scope": "main",
+          "name": "Tobin",
+          "summary": "Mira's apprentice, eager and a little reckless.",
+          "citations": [
+            {
+              "title": "Journal: The Lighthouse Letter",
+              "availableAt": "q0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "v1",
+          "scope": "optional",
+          "name": "Tobin",
+          "summary": "Mira's apprentice. A side story shows him training with the watch after the siege.",
+          "citations": [
+            {
+              "title": "Side story: Volume One complete",
+              "availableAt": "v1",
+              "scope": "optional"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-orrin",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "q0",
+          "scope": "main",
+          "name": "Warden Orrin",
+          "summary": "The aging warden who commands the harbor watch.",
+          "citations": [
+            {
+              "title": "Journal: The Lighthouse Letter",
+              "availableAt": "q0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "aliases": [
+            "Orrin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "char-vessa",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "q2",
+          "scope": "main",
+          "name": "Vessa",
+          "summary": "An envoy of the Drowned Court who offers Mira a bargain.",
+          "citations": [
+            {
+              "title": "Journal: The Captain's Bargain",
+              "availableAt": "q2",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "org-watch",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "q0",
+          "scope": "main",
+          "name": "The Harbor Watch",
+          "summary": "The city's guard on the docks and the sea walls.",
+          "citations": [
+            {
+              "title": "Journal: The Lighthouse Letter",
+              "availableAt": "q0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "org-court",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "q1",
+          "scope": "main",
+          "name": "The Drowned Court",
+          "summary": "A sunken order that rises from the sea to besiege the harbor.",
+          "citations": [
+            {
+              "title": "Journal: Smoke over the Harbor",
+              "availableAt": "q1",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "loc-harbor",
+      "category": "location",
+      "presentations": [
+        {
+          "validFrom": "q0",
+          "scope": "main",
+          "name": "Saltmere Harbor",
+          "summary": "The port city where the story takes place.",
+          "citations": [
+            {
+              "title": "Journal: The Lighthouse Letter",
+              "availableAt": "q0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "aliases": [
+            "Saltmere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loc-undercity",
+      "category": "location",
+      "presentations": [
+        {
+          "validFrom": "q3",
+          "scope": "main",
+          "name": "The Undercity",
+          "summary": "Flooded tunnels beneath Saltmere, where the Court keeps its prisoners.",
+          "citations": [
+            {
+              "title": "Journal: Into the Undercity",
+              "availableAt": "q3",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "evt-siege",
+      "category": "event",
+      "presentations": [
+        {
+          "validFrom": "q1",
+          "scope": "main",
+          "name": "The Siege of Saltmere",
+          "summary": "The Drowned Court has surrounded the harbor and taken Tobin. Mira must find a way to free him while the watch holds the sea walls.",
+          "citations": [
+            {
+              "title": "Journal: Smoke over the Harbor",
+              "availableAt": "q1",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "validUntil": "q2"
+        },
+        {
+          "validFrom": "q2",
+          "scope": "main",
+          "name": "The Siege of Saltmere",
+          "summary": "Tobin is still a prisoner. Mira has struck a bargain with the Court's envoy, Vessa, and left the watch to keep it.",
+          "citations": [
+            {
+              "title": "Journal: The Captain's Bargain",
+              "availableAt": "q2",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "validUntil": "q3"
+        },
+        {
+          "validFrom": "q3",
+          "scope": "main",
+          "name": "The Siege of Saltmere",
+          "summary": "You and Mira slipped into the Undercity and freed Tobin. The Court still blockades the harbor, and Vessa's help comes at a price.",
+          "citations": [
+            {
+              "title": "Journal: Into the Undercity",
+              "availableAt": "q3",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed",
+          "validUntil": "q4"
+        },
+        {
+          "validFrom": "q4",
+          "scope": "main",
+          "name": "The Siege of Saltmere",
+          "summary": "With Tobin free and Vessa's help, the watch broke the blockade. The Court has pulled back beneath the waves.",
+          "citations": [
+            {
+              "title": "Journal: The Tide Turns",
+              "availableAt": "q4",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "evt-rescue",
+      "category": "event",
+      "presentations": [
+        {
+          "validFrom": "q3",
+          "scope": "main",
+          "name": "The Undercity Rescue",
+          "summary": "Guided by Vessa, you and Mira went beneath the city and brought Tobin out of the Court's cells.",
+          "citations": [
+            {
+              "title": "Journal: Into the Undercity",
+              "availableAt": "q3",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-orrin-leads-watch",
+      "source": "char-orrin",
+      "type": "leads",
+      "target": "org-watch",
+      "validFrom": "q0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Lighthouse Letter",
+          "availableAt": "q0",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-mira-member-watch",
+      "source": "char-mira",
+      "type": "member-of",
+      "target": "org-watch",
+      "validFrom": "q0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Lighthouse Letter",
+          "availableAt": "q0",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed",
+      "validUntil": "q2",
+      "endCitations": [
+        {
+          "title": "Journal: The Captain's Bargain",
+          "availableAt": "q2",
+          "scope": "main"
+        }
+      ]
+    },
+    {
+      "id": "rel-tobin-apprentice-mira",
+      "source": "char-tobin",
+      "type": "apprentice-of",
+      "target": "char-mira",
+      "validFrom": "q0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Lighthouse Letter",
+          "availableAt": "q0",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-watch-guards-harbor",
+      "source": "org-watch",
+      "type": "guards",
+      "target": "loc-harbor",
+      "validFrom": "q0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Lighthouse Letter",
+          "availableAt": "q0",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-court-besieges-harbor",
+      "source": "org-court",
+      "type": "besieges",
+      "target": "loc-harbor",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed",
+      "validUntil": "q4",
+      "endCitations": [
+        {
+          "title": "Journal: The Tide Turns",
+          "availableAt": "q4",
+          "scope": "main"
+        }
+      ]
+    },
+    {
+      "id": "rel-tobin-prisoner-court",
+      "source": "char-tobin",
+      "type": "prisoner-of",
+      "target": "org-court",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed",
+      "validUntil": "q3",
+      "endCitations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ]
+    },
+    {
+      "id": "rel-vessa-member-court",
+      "source": "char-vessa",
+      "type": "member-of",
+      "target": "org-court",
+      "validFrom": "q2",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Captain's Bargain",
+          "availableAt": "q2",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-mira-allied-vessa",
+      "source": "char-mira",
+      "type": "allied-with",
+      "target": "char-vessa",
+      "validFrom": "q2",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Captain's Bargain",
+          "availableAt": "q2",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-court-based-undercity",
+      "source": "org-court",
+      "type": "based-in",
+      "target": "loc-undercity",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-mira-member-watch-again",
+      "source": "char-mira",
+      "type": "member-of",
+      "target": "org-watch",
+      "validFrom": "q4",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Tide Turns",
+          "availableAt": "q4",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-mira-leads-watch",
+      "source": "char-mira",
+      "type": "leads",
+      "target": "org-watch",
+      "validFrom": "v2",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Volume Two complete",
+          "availableAt": "v2",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-orrin-allied-mira",
+      "source": "char-orrin",
+      "type": "allied-with",
+      "target": "char-mira",
+      "validFrom": "v2",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Volume Two complete",
+          "availableAt": "v2",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-char-mira-siege",
+      "source": "char-mira",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-char-tobin-siege",
+      "source": "char-tobin",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-org-watch-siege",
+      "source": "org-watch",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-org-court-siege",
+      "source": "org-court",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-loc-harbor-siege",
+      "source": "loc-harbor",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q1",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Smoke over the Harbor",
+          "availableAt": "q1",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-char-vessa-siege",
+      "source": "char-vessa",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q2",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: The Captain's Bargain",
+          "availableAt": "q2",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-loc-undercity-siege",
+      "source": "loc-undercity",
+      "type": "participant-in",
+      "target": "evt-siege",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-char-mira-rescue",
+      "source": "char-mira",
+      "type": "participant-in",
+      "target": "evt-rescue",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-char-tobin-rescue",
+      "source": "char-tobin",
+      "type": "participant-in",
+      "target": "evt-rescue",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-char-vessa-rescue",
+      "source": "char-vessa",
+      "type": "participant-in",
+      "target": "evt-rescue",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-org-court-rescue",
+      "source": "org-court",
+      "type": "participant-in",
+      "target": "evt-rescue",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-loc-undercity-rescue",
+      "source": "loc-undercity",
+      "type": "participant-in",
+      "target": "evt-rescue",
+      "validFrom": "q3",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Journal: Into the Undercity",
+          "availableAt": "q3",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    }
+  ],
+  "arcs": [
+    {
+      "id": "arc-siege",
+      "entityId": "evt-siege",
+      "firstStep": "q1",
+      "lastStep": "q4"
+    },
+    {
+      "id": "arc-rescue",
+      "entityId": "evt-rescue",
+      "firstStep": "q3",
+      "lastStep": "q3"
+    }
+  ]
+}

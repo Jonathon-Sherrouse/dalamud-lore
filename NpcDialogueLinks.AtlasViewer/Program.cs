@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 using NpcDialogueLinks.Atlas;
 
 // Local Atlas viewer. Usage:
-//   dotnet run --project NpcDialogueLinks.AtlasViewer -- [--data <atlas.json>] [--draft] [--port 5219]
+//   dotnet run --project NpcDialogueLinks.AtlasViewer -- [--data <atlas.json> | --arc-sample] [--draft] [--port 5219]
 // Defaults: the synthetic sample, Strict validation (same as the runtime), port 5219, bound to 127.0.0.1 only.
 
 var options = ViewerOptions.Parse(args);
@@ -53,6 +53,7 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
             switch (args[i])
             {
                 case "--data" when i + 1 < args.Length: data = Path.GetFullPath(args[++i]); break;
+                case "--arc-sample": data = Path.Combine(AppContext.BaseDirectory, "sample-arc-atlas.json"); break;
                 case "--draft": draft = true; break;
                 case "--port" when i + 1 < args.Length && int.TryParse(args[i + 1], out var p): port = p; i++; break;
                 case "--state" when i + 1 < args.Length: state = Path.GetFullPath(args[++i]); break;
@@ -133,6 +134,16 @@ internal sealed class ViewerHost(ViewerOptions options)
                     case "setContentView":
                         session.SetContentView(action.Value == "mainStory" ? AtlasContentView.MainStory : AtlasContentView.MainAndOptional);
                         break;
+                    case "setLens":
+                        if (Enum.TryParse<AtlasLens>(action.Value, ignoreCase: true, out var lens))
+                        {
+                            session.SetLens(lens);
+                        }
+
+                        break;
+                    case "pickArc": session.PickArc(string.IsNullOrEmpty(action.Value) ? null : action.Value); break;
+                    case "showWholeCast": session.ShowWholeCast(); break;
+                    case "selectChange": session.SelectChange(action.Value); break;
                 }
             }
 
@@ -176,7 +187,51 @@ internal sealed class ViewerHost(ViewerOptions options)
                 optionalTag = AtlasText.OptionalTag,
                 optionalTooltip = AtlasText.OptionalTooltip,
                 optionalSummaryNote = AtlasText.OptionalSummaryNote,
+                lensHeading = AtlasText.LensLabelHeading,
+                arcPickerLabel = AtlasText.ArcPickerLabel,
+                wholeCast = AtlasText.WholeCastButton,
+                noArc = AtlasText.NoArcHere,
+                arcNew = AtlasText.ArcNewHeading,
+                arcEnded = AtlasText.ArcEndedHeading,
+                arcNothingNew = AtlasText.ArcNothingNew,
+                arcNothingEnded = AtlasText.ArcNothingEnded,
+                noChanges = AtlasText.NoChanges,
+                changesNotOffered = AtlasText.ChangesNotOffered,
+                changesPickHint = AtlasText.ChangesPickHint,
+                eventCategory = AtlasText.CategoryLabel(AtlasCategory.Event),
             },
+            lens = s.Lens,
+            lenses = s.LensOptions.Select(l => new { id = l.Lens, l.Label, l.IsCurrent }),
+            position = s.PositionLabel,
+            coverage = s.CoverageNote,
+            arc = s.Lens == AtlasLens.Arc
+                ? new
+                {
+                    picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent }),
+                    wholeCast = s.ShowsWholeCast,
+                    castHeading = AtlasText.CastHeading(Math.Max(0, s.Snapshot.Entities.Count - 1)),
+                    view = s.Arc is { } a
+                        ? new
+                        {
+                            a.ArcId,
+                            entry = EntityDetails(a.Entry),
+                            recapLabel = a.RecapLabel,
+                            asOf = a.AsOfLabel,
+                            newRows = s.ArcNewRows.Select(Row),
+                            endedRows = s.ArcEndedRows.Select(Row),
+                        }
+                        : null,
+                }
+                : null,
+            changes = s.Lens == AtlasLens.Changes
+                ? new
+                {
+                    offered = s.ChangesOffered,
+                    label = s.ChangesLabel,
+                    groups = s.ChangeGroups.Select(g => new { g.Kind, g.Label, rows = g.Rows.Select(Row) }),
+                    selected = s.SelectedChange is { } c ? Row(c) : null,
+                }
+                : null,
             checkpoints = s.CheckpointOptions.Select(c => new
             {
                 c.Id,
@@ -215,7 +270,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                 ? new
                 {
                     nodes = layout.Nodes.Select(n => new { id = n.Entity.Id, name = n.Entity.Name, glyph = AtlasText.CategoryGlyph(n.Entity.Category), n.X, n.Y, n.IsFocus }),
-                    edges = layout.Edges.Select(e => new { relationshipId = e.Relationship.Id, e.FromId, e.ToId, e.Label, e.Symmetric, e.LaneIndex, e.LaneCount, optional = e.Relationship.IsOptional }),
+                    edges = layout.Edges.Select(e => new { relationshipId = e.Relationship.Id, e.FromId, e.ToId, e.Label, e.Symmetric, e.LaneIndex, e.LaneCount, optional = e.Relationship.IsOptional, participation = e.IsParticipation }),
                 }
                 : null,
             selectedRelationship = s.SelectedRelationship is { } r
@@ -235,6 +290,26 @@ internal sealed class ViewerHost(ViewerOptions options)
         includesOptional = entity.IncludesOptional,
         citations = Citations(entity.Citations),
         sourcesLabel = AtlasText.SourcesToggle(entity.Citations.Count),
+    };
+
+    /// <summary>A Changes or Arc-lens row. End evidence is present only on a Changes "ended" row (the core enforces it).</summary>
+    private static object Row(AtlasChangeRow row) => new
+    {
+        row.Key,
+        row.Kind,
+        row.Text,
+        sourceId = row.Source?.Id,
+        sourceName = row.Source?.Name,
+        label = row.Relationship?.OutgoingLabel,
+        targetId = row.Target?.Id,
+        targetName = row.Target?.Name,
+        optional = row.Relationship?.IsOptional ?? false,
+        endedIn = row.EndedInLabel,
+        citations = row.Relationship is { } r ? Citations(r.Citations) : null,
+        sourcesLabel = row.Relationship is { } r2 ? AtlasText.SourcesToggle(r2.Citations.Count) : null,
+        endCitations = Citations(row.EndCitations),
+        endSourcesLabel = AtlasText.EndSourcesToggle(row.EndCitations.Count),
+        entity = row.Entity is { } e ? EntityDetails(e) : null,
     };
 
     private static object Citations(IReadOnlyList<AtlasCitationView> citations) =>
