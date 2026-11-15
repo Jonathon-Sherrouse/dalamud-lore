@@ -2,6 +2,13 @@
 
 ## Status and priority exception
 
+**Atlas v2 approved (2026-11-14).** The user approved [Atlas v2: arc context](atlas/v2-plan.md) after an eight-round council review, and made it the priority ahead of `Pre-Ship`. v2 amends this contract as follows. The pilot text below stays the record of v1.
+- **Exclusions.** v2 lifts two items from the excluded list in [Fixed pilot scope](#fixed-pilot-scope): **story-event entities** (now the `event` category, with arc entries) and **automatic progression filtering**. Follow uses client completed-quest flags for authored `gameQuestIds` as the **only** allowed progress source, and moves only the view within the spoiler limit. The rest of the list stays excluded, including dictionary/Lore Explain bridges. v2's Lore Explain "Open Atlas" button only opens the window; no data passes between the two.
+- **Checkpoints.** v2 replaces "exactly two ordered checkpoints" with a main-scenario timeline of one "after this quest" step per covered quest. `cp-arr-2-0` and `cp-arr-2-55` stay as milestone steps.
+- **Defaults.** v2 replaces "Both default to `cp-arr-2-0`": absent or invalid saved state resets both controls to the earliest checkpoint. The limit-raise and clamping rules stay, with v2's no-titles rule for raising.
+- **Guardrail.** The guardrail "never infer relationships from … the active quest list" stands unchanged. Completion flags place the view, and never create, infer or alter relationships.
+- **Bounds.** Unchanged for v2; later content stories may raise them with a justification.
+
 **Pilot complete (2026-11-14).** `NDL-002`, `NDL-003`, `NDL-005` and `NDL-004` are all User Accepted, and `/npclinks atlas` ships the pilot. See the [Atlas guide](atlas/README.md). The text below records how the pilot was authorized.
 
 The user authorized Part 1 (planning publication) on 2026-11-14 after council agreement on the pilot and research-to-implementation order. This planning bootstrap publishes the pilot contract and the three approved **To Do** cards in [backlog.md](backlog.md). No research, plugin implementation, content acceptance, or in-game validation has been completed by this change.

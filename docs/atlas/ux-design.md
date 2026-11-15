@@ -1,5 +1,7 @@
 # Atlas UX design (NDL-005)
 
+> **v2 note (2026-11-14).** Under [Atlas v2](v2-plan.md), flows F5 and F6 change: above the spoiler limit, pickers show only neutral milestone labels plus an unnamed "next story step", and never quest titles. The raise menu offers the same choices. `NDL-008` redesigns the window for v2's lenses. Until then, this document stays the accepted v1 design.
+>
 > **Status: accepted.** The user accepted this design on 2026-11-14. `NDL-004` builds it in game, and the [local viewer](local-viewer.md) is its reference implementation. Sections marked **Prototyped** are built in the viewer and accepted as part of the whole design. Later changes go through `NDL-004` or a new story, and update both front ends together.
 
 ## Constraints the design keeps
