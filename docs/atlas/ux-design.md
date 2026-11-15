@@ -1,6 +1,6 @@
 # Atlas UX design (NDL-005)
 
-> **Status: prototyped, awaiting acceptance.** This is the design that `NDL-004` will build in game. The user answered the proposal's four questions on 2026-11-14 ([D2–D5](#decisions)), and the whole design is now prototyped in the [local viewer](local-viewer.md). Sections marked **Prototyped** are built in the viewer but not yet accepted. Nothing is accepted until the user accepts the whole story ([backlog card](../backlog.md)).
+> **Status: accepted.** The user accepted this design on 2026-11-14. `NDL-004` builds it in game, and the [local viewer](local-viewer.md) is its reference implementation. Sections marked **Prototyped** are built in the viewer and accepted as part of the whole design. Later changes go through `NDL-004` or a new story, and update both front ends together.
 
 ## Constraints the design keeps
 

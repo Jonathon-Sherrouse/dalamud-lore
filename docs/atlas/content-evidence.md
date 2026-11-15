@@ -25,7 +25,7 @@ Running the script without `reviewed` marks **every** record `pending` again. Th
 To browse the real data without FFXIV:
 
 ```sh
-dotnet run --project NpcDialogueLinks.AtlasViewer -- --data "$PWD/NpcDialogueLinks/atlas.json" --draft
+dotnet run --project NpcDialogueLinks.AtlasViewer -- --data "$PWD/NpcDialogueLinks/atlas.json"
 ```
 
 Pass an absolute path: `dotnet run` starts the viewer in its own project folder, so a relative `--data` path would not resolve from the repository root.
