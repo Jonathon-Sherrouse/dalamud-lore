@@ -47,6 +47,11 @@ internal sealed class AtlasWindow : Window
     private string syncedQuery = string.Empty;
     private bool openConfirmNextFrame;
 
+    // Pane scroll (council round 3): panes reset when the lens, view or content view changes, as in the viewer, and the
+    // details pane shows a new selection's card or subject from the top.
+    private string? scrollContext;
+    private (string? Relationship, string? Change, string? Focus) shownSelection;
+
     public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures)
         : base($"{AtlasText.WindowTitle}###NpcDialogueLinksAtlas")
     {
@@ -166,6 +171,16 @@ internal sealed class AtlasWindow : Window
         var spacing = ImGui.GetStyle().ItemSpacing.X;
         var graphWidth = Math.Max(ImGui.GetContentRegionAvail().X - browseWidth - detailsWidth - (spacing * 2), 120 * scale);
 
+        var context = $"{s.Lens}|{s.SpoilerState.ViewId}|{s.ContentView}";
+        var resetPanes = context != this.scrollContext;
+        this.scrollContext = context;
+        var selection = (s.SelectedRelationshipId, s.SelectedChangeKey, s.FocusId);
+        var revealDetails = resetPanes
+            || (selection.SelectedRelationshipId is not null && selection.SelectedRelationshipId != this.shownSelection.Relationship)
+            || (selection.SelectedChangeKey is not null && selection.SelectedChangeKey != this.shownSelection.Change)
+            || (selection.FocusId is not null && selection.FocusId != this.shownSelection.Focus);
+        this.shownSelection = selection;
+
         // ImRaii scopes end every child and popup even if drawing throws, so a failure stays inside the Atlas.
         if (s.Lens == AtlasLens.Changes)
         {
@@ -174,6 +189,11 @@ internal sealed class AtlasWindow : Window
             {
                 if (list)
                 {
+                    if (resetPanes)
+                    {
+                        ImGui.SetScrollY(0);
+                    }
+
                     DrawChangesList(s);
                 }
             }
@@ -184,6 +204,11 @@ internal sealed class AtlasWindow : Window
             {
                 if (browse)
                 {
+                    if (resetPanes)
+                    {
+                        ImGui.SetScrollY(0);
+                    }
+
                     this.DrawBrowse(s);
                 }
             }
@@ -203,6 +228,11 @@ internal sealed class AtlasWindow : Window
         {
             if (details)
             {
+                if (revealDetails)
+                {
+                    ImGui.SetScrollY(0);
+                }
+
                 if (s.Lens == AtlasLens.Changes)
                 {
                     DrawChangeDetails(s);
@@ -498,7 +528,7 @@ internal sealed class AtlasWindow : Window
         // truncated to the gap between ring neighbours (AtlasChartStyle). The centre name is placed last and shortened
         // until it clears every ring node and ring name.
         var ringCount = layout.Nodes.Count(n => !n.IsFocus);
-        var ringNameMax = ringCount >= 3
+        var ringNameMax = ringCount >= AtlasChartStyle.FewNodesThreshold
             ? Math.Min(AtlasChartStyle.NameMaxWidth * scale, (float)(2 * ring * Math.Sin(Math.PI / ringCount)) - (8 * scale))
             : AtlasChartStyle.FewNodesNameMaxWidth * scale;
         var names = new Dictionary<string, (string Text, bool Truncated, Vector2 Min, Vector2 Max)>(StringComparer.Ordinal);
@@ -620,6 +650,12 @@ internal sealed class AtlasWindow : Window
                 drawList.AddLine(chosen.Anchor, Vector2.Clamp(chosen.Anchor, chosen.Min, chosen.Max), ImGui.GetColorU32(MutedColor with { W = 0.6f }), 1f * scale);
             }
 
+            // A hovered label lights its edge first, so the label is drawn over the lit line, never struck through.
+            if (ImGui.IsWindowHovered() && ImGui.IsMouseHoveringRect(chosen.Min, chosen.Max))
+            {
+                DrawEdge(drawList, label.P1, label.P2, label.Normal, label.Arrow, label.Optional, ImGui.GetColorU32(HoverColor), 2.2f * scale);
+            }
+
             drawList.AddRectFilled(chosen.Min, chosen.Max, ImGui.GetColorU32(LabelBackColor), 3 * scale);
             ImGui.SetCursorScreenPos(chosen.Min);
             var clicked = ImGui.InvisibleButton($"##edge-{label.RelationshipId}", chosen.Max - chosen.Min);
@@ -628,8 +664,7 @@ internal sealed class AtlasWindow : Window
             drawList.AddText(((chosen.Min + chosen.Max) / 2) - (textSize / 2), ImGui.GetColorU32(textColor), label.Text);
             if (hovered)
             {
-                // The edge lights up and the full sentence names both ends, so a label is never ambiguous.
-                DrawEdge(drawList, label.P1, label.P2, label.Normal, label.Arrow, label.Optional, ImGui.GetColorU32(HoverColor), 2.2f * scale);
+                // The full sentence names both ends, so a label is never ambiguous.
                 ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
                 ImGui.SetTooltip(label.Optional ? $"{label.Sentence}\n{AtlasText.OptionalTooltip}" : label.Sentence);
             }
@@ -656,9 +691,11 @@ internal sealed class AtlasWindow : Window
             {
                 DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
             }
-            else if (hovered)
+
+            // The clickable centre of the whole-cast chart gets the hover ring too, as in the viewer.
+            if (hovered && canClick)
             {
-                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (2 * scale), ImGui.GetColorU32(HoverColor), 2 * scale);
+                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (node.IsFocus ? 5 : 2) * scale, ImGui.GetColorU32(HoverColor), 2 * scale);
             }
 
             this.DrawMark(drawList, node.Entity.Category, node.Entity.Portrait, p, r, true, badge: true);

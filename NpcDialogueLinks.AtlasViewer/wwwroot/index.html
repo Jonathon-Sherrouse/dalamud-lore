@@ -262,7 +262,7 @@ function chartSvg(L, W, H) {
   const cx = W / 2, cy = H / 2, ring = Math.min(W, H) * C.ringFraction;
   const ringCount = L.nodes.filter(n => !n.isFocus).length;
   // A ring name fits the gap between ring neighbours; with fewer than 3 there is no such gap to respect.
-  const ringNameMax = ringCount >= 3 ? Math.min(C.nameMaxWidth, 2 * ring * Math.sin(Math.PI / ringCount) - 8) : C.fewNodesNameMaxWidth;
+  const ringNameMax = ringCount >= C.fewNodesThreshold ? Math.min(C.nameMaxWidth, 2 * ring * Math.sin(Math.PI / ringCount) - 8) : C.fewNodesNameMaxWidth;
 
   // Nodes: position, radius, edge extent (the shape's outline: a diamond or hexagon reaches past its radius) and the
   // obstacle disc labels and the centre name keep clear of (a portrait's covers its badge).
@@ -490,6 +490,7 @@ function changeDetails() {
 // Pane scroll positions survive ordinary actions (picking a row, opening Sources), as ImGui child windows do. They
 // reset only when the lens, view or content view changes, which rebuilds what the panes show.
 let renderedContext = null;
+let renderedSelection = ["", "", ""];
 const SCROLL_REGIONS = ["browse", "details", "changes"];
 
 function render() {
@@ -499,6 +500,11 @@ function render() {
   const context = state.ok ? `${state.lens}|${state.checkpoints.find(c => c.isView)?.id}|${state.contentView}` : null;
   const keepScroll = context !== null && context === renderedContext;
   renderedContext = context;
+  // A new selection (connection, change or focus) shows its card or subject at the top of the details pane.
+  // Closing a card or clearing a selection keeps the pane where it was.
+  const selection = state.ok ? [state.selectedRelationship?.id ?? "", state.changes?.selected?.key ?? "", state.focus?.id ?? ""] : ["", "", ""];
+  const revealDetails = selection.some((part, i) => part !== "" && part !== renderedSelection[i]);
+  renderedSelection = selection;
   if (!state.ok) {
     root.innerHTML = `<div class="error"><h2>Lore Atlas</h2><p>${esc(state.error)}</p>
       <p class="help">Details are printed in the viewer's terminal.</p><button id="reload">Reload data</button></div>`;
@@ -584,12 +590,16 @@ function render() {
   drawChart(true);
   if (main) chartObserver.observe(main);
   if (keepScroll) {
-    for (const r of SCROLL_REGIONS) { const el = $(`[data-region="${r}"]`); if (el) el.scrollTop = scrolls[r]; }
+    for (const r of SCROLL_REGIONS) {
+      const el = $(`[data-region="${r}"]`);
+      if (el) el.scrollTop = r === "details" && revealDetails ? 0 : scrolls[r];
+    }
   }
   restoreFocus(key);
   // Keep a keyboard-focused row visible without jumping the pane.
   const focused = document.activeElement;
-  if (focused && focused.closest(SCROLL_REGIONS.map(r => `[data-region="${r}"]`).join(","))) focused.scrollIntoView({ block: "nearest" });
+  const focusedRegion = focused?.closest(SCROLL_REGIONS.map(r => `[data-region="${r}"]`).join(","));
+  if (focusedRegion && !(revealDetails && focusedRegion.dataset.region === "details")) focused.scrollIntoView({ block: "nearest" });
   // The raise confirmation takes focus when it opens.
   if (state.pendingCeiling && !document.activeElement?.closest(".modal")) $("#cancel").focus();
 }

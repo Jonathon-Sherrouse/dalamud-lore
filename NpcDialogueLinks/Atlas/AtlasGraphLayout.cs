@@ -72,8 +72,10 @@ public static class AtlasChartStyle
     /// <summary>The centre name is also capped to this many ring radii, so in a small window it stays clear of the ring.</summary>
     public const double CentreNameRingWidth = 1.6;
 
-    /// <summary>A ring name's width cap when there are too few ring members (under 3) for a neighbour gap to apply.</summary>
+    /// <summary>A ring name's width cap when the ring has fewer than <see cref="FewNodesThreshold"/> members, so a small chart doesn't cut names it has room for.</summary>
     public const int FewNodesNameMaxWidth = 200;
+
+    public const int FewNodesThreshold = 4;
 
     /// <summary>Clearance kept around nodes, names and labels when placing a label, in unscaled pixels.</summary>
     public const int Clearance = 3;
@@ -83,7 +85,7 @@ public static class AtlasChartStyle
     /// normal: on the edge first, then to either side. An off-edge label gets a short leader line back to its edge.
     /// Candidates are tried for each fraction in <see cref="LabelPositions"/>, all offsets of one fraction before the next.
     /// </summary>
-    public static readonly int[] LabelOffsets = [0, 1, -1];
+    public static readonly int[] LabelOffsets = [0, 1, -1, 2, -2];
 
     /// <summary>
     /// When no candidate is clear, the label takes the one with the least weighted overlap. A name plate weighs most, so

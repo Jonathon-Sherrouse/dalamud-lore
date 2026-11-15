@@ -206,6 +206,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                 hexagonExtent = AtlasChartStyle.HexagonExtent,
                 centreNameMinWidth = AtlasChartStyle.CentreNameMinWidth,
                 fewNodesNameMaxWidth = AtlasChartStyle.FewNodesNameMaxWidth,
+                fewNodesThreshold = AtlasChartStyle.FewNodesThreshold,
                 browseFraction = AtlasChartStyle.BrowseFraction,
                 browseMin = AtlasChartStyle.BrowseMin,
                 browseMax = AtlasChartStyle.BrowseMax,
