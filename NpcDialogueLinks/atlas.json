@@ -2,9 +2,72 @@
   "schemaVersion": 2,
   "checkpoints": [
     {
+      "id": "cp-msq-154",
+      "label": "After Every Little Thing She Does Is Magitek",
+      "questTitle": "Every Little Thing She Does Is Magitek",
+      "gameQuestIds": [
+        66541
+      ]
+    },
+    {
+      "id": "cp-msq-155",
+      "label": "After Escape from Castrum Centri",
+      "questTitle": "Escape from Castrum Centri",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66057
+      ]
+    },
+    {
+      "id": "cp-msq-156",
+      "label": "After The Black Wolf's Ultimatum",
+      "questTitle": "The Black Wolf's Ultimatum",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66058
+      ]
+    },
+    {
+      "id": "cp-msq-157",
+      "label": "After Operation Archon",
+      "questTitle": "Operation Archon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        70057
+      ]
+    },
+    {
+      "id": "cp-msq-158",
+      "label": "After A Hero in Need",
+      "questTitle": "A Hero in Need",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66573
+      ]
+    },
+    {
+      "id": "cp-msq-159",
+      "label": "After Hearts on Fire",
+      "questTitle": "Hearts on Fire",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69408
+      ]
+    },
+    {
+      "id": "cp-msq-160",
+      "label": "After Rock the Castrum",
+      "questTitle": "Rock the Castrum",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69409
+      ]
+    },
+    {
       "id": "cp-arr-2-0",
       "label": "A Realm Reborn — Patch 2.0 complete",
       "milestone": true,
+      "contiguousWithPrevious": true,
       "gameQuestIds": [
         70058
       ]
@@ -66,6 +129,30 @@
       "outgoingLabel": "conceals",
       "incomingLabel": "concealed by",
       "symmetric": false
+    },
+    {
+      "id": "participant-in",
+      "outgoingLabel": "part of",
+      "incomingLabel": "involves",
+      "symmetric": false
+    },
+    {
+      "id": "prisoner-of",
+      "outgoingLabel": "prisoner of",
+      "incomingLabel": "holds prisoner",
+      "symmetric": false
+    },
+    {
+      "id": "possessed-by",
+      "outgoingLabel": "possessed by",
+      "incomingLabel": "possesses",
+      "symmetric": false
+    },
+    {
+      "id": "serves",
+      "outgoingLabel": "serves",
+      "incomingLabel": "served by",
+      "symmetric": false
     }
   ],
   "entities": [
@@ -73,6 +160,87 @@
       "id": "char-minfilia",
       "category": "character",
       "presentations": [
+        {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "Minfilia",
+          "aliases": [],
+          "summary": "Leader of the Scions of the Seventh Dawn, who has the Echo. When imperial forces under Livia raided the Waking Sands, they refused her surrender and took her prisoner. She and other captured Scions are held at Castrum Centri, and the Empire wants her for the Echo. Cid's crew is ready to break in and rescue them.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Come-Into-My-Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Come-Into-My-Castrum",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Every Little Thing She Does Is Magitek — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Every_Little_Thing_She_Does_Is_Magitek",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-156",
+          "scope": "main",
+          "name": "Minfilia",
+          "aliases": [],
+          "summary": "Leader of the Scions of the Seventh Dawn, who has the Echo. She was freed from Castrum Centri's storage tower in the rescue, but during the escape the Scions learned that Thancred has been possessed by the Ascian Lahabrea.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-156",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Minfilia",
+          "aliases": [],
+          "summary": "Leader of the Scions of the Seventh Dawn. She urged Eorzea's leaders to reject the Black Wolf's ultimatum, warning that his offer would doom the realm rather than deliver it, and they resolved to fight. She believes destroying the Crystal of Darkness on Thancred's person may free him from the Ascian who possesses him.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
         {
           "validFrom": "cp-arr-2-0",
           "validUntil": "cp-arr-2-55",
@@ -86,19 +254,19 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             }
           ],
@@ -148,6 +316,75 @@
       "category": "character",
       "presentations": [
         {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "Thancred",
+          "aliases": [],
+          "summary": "A Scion who serves as the order's man in Ul'dah, and who briefed your first investigation.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-156",
+          "scope": "main",
+          "name": "Thancred",
+          "aliases": [],
+          "summary": "A Scion who serves as the order's man in Ul'dah. During the rescue at Castrum Centri, the Scions discovered that the Ascian Lahabrea has possessed him.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-156",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Thancred",
+          "aliases": [],
+          "summary": "A Scion who serves as the order's man in Ul'dah, now in the thrall of the Ascian Lahabrea. Ascians possess mortals through Crystals of Darkness, and Minfilia believes destroying the Crystal on his person may save him.",
+          "citations": [
+            {
+              "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            },
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
           "validFrom": "cp-arr-2-0",
           "validUntil": "cp-arr-2-55",
           "scope": "main",
@@ -158,13 +395,13 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             },
             {
@@ -216,13 +453,13 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -268,19 +505,19 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             }
           ],
@@ -322,6 +559,52 @@
       "category": "character",
       "presentations": [
         {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "Alphinaud",
+          "aliases": [],
+          "summary": "A young Scion who stands against the primals and the Empire, as his grandfather once did. Since the raid on the Waking Sands he has worked to rebuild the Scions, and he sought out Cid, the greatest engineer of the age, to help.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Reclamation — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Alphinaud",
+          "aliases": [],
+          "summary": "A young Scion who stands against the primals and the Empire, as his grandfather once did. He briefed you on Operation Archon, the Alliance's great counteroffensive, and advises its main host alongside Minfilia and Cid.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
           "validFrom": "cp-arr-2-0",
           "validUntil": "cp-arr-2-55",
           "scope": "main",
@@ -332,19 +615,19 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Eyes on Me — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -367,7 +650,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -414,13 +697,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -437,13 +720,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -466,13 +749,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -501,7 +784,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -551,19 +834,19 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "The Gridanian Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gridanian_Envoy",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -583,7 +866,7 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -682,19 +965,19 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             }
           ],
@@ -742,6 +1025,87 @@
       "category": "organization",
       "presentations": [
         {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "The Scions of the Seventh Dawn",
+          "aliases": [],
+          "summary": "An order devoted to preserving Eorzea's future, led by Minfilia. Imperial forces raided its headquarters at the Waking Sands and took members prisoner, Minfilia among them. Alphinaud means to rebuild the order, and its free members are working with Cid to rescue the captives from Castrum Centri.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Reclamation — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Come-Into-My-Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Come-Into-My-Castrum",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "The Scions of the Seventh Dawn",
+          "aliases": [],
+          "summary": "An order devoted to preserving Eorzea's future, led by Minfilia. Its captured members were freed from Castrum Centri, though Thancred was found to be possessed by the Ascian Lahabrea. Eorzea's leaders had believed the Scions dead or missing.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "The Scions of the Seventh Dawn",
+          "aliases": [],
+          "summary": "An order devoted to preserving Eorzea's future, led by Minfilia. It stands with the Eorzean Alliance in Operation Archon: Minfilia and Alphinaud advise the main host, and the other Scions go with their Grand Companies.",
+          "citations": [
+            {
+              "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
           "validFrom": "cp-arr-2-0",
           "validUntil": "cp-arr-2-55",
           "scope": "main",
@@ -752,31 +1116,31 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "All Good Things — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -875,19 +1239,19 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "All Good Things — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -958,6 +1322,840 @@
           "review": "reviewed"
         }
       ]
+    },
+    {
+      "id": "evt-black-wolfs-challenge",
+      "category": "event",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-156",
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "You and Cid's crew broke into Castrum Centri and freed Minfilia and the captive Scions, but the escape revealed that the Ascian Lahabrea has possessed Thancred. The Empire has finished the Ultima Weapon, an ancient Allagan relic, and Gaius, the Black Wolf, has given Eorzea's leaders an ultimatum: submit to his power, or share the primals' fate.",
+          "citations": [
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-156",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "Eorzea's leaders refused the Black Wolf's ultimatum and resolved to fight, with the Scions beside them. Thancred remains in the thrall of the Ascian Lahabrea; Minfilia believes destroying the Crystal of Darkness on his person may free him. The Empire still holds the Ultima Weapon, and Cid now serves as the Alliance's man in Ul'dah.",
+          "citations": [
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-msq-158",
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "The Eorzean Alliance has launched Operation Archon, the largest counteroffensive in the realm's history. You led its first phase and slew Rhitahtyn, one of the Black Wolf's most trusted lieutenants, and the Maelstrom and the Order of the Twin Adder now move on imperial castra. The final aim is the Praetorium, where the Ultima Weapon is believed to be housed. Thancred is still possessed.",
+          "citations": [
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-158",
+          "validUntil": "cp-msq-159",
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "Operation Archon's second phase is under way. While the Immortal Flames strike Castrum Meridianum as a diversion, your task is to slip inside and bring down the magitek field around the Praetorium, where the Ultima Weapon waits. First you raised the spirits of the Alliance troops at Camp Bluefog, who dread what may be the bloodiest battle in history.",
+          "citations": [
+            {
+              "title": "A Hero in Need — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_Need",
+              "availableAt": "cp-msq-158",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-159",
+          "validUntil": "cp-msq-160",
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "With the assault on Castrum Meridianum close, you helped General Raubahn rally the wavering garrison at the Ceruleum Processing Plant. The plan holds: while the Alliance strikes outside, you are to infiltrate the castrum and bring down the magitek field that shields the Praetorium and the Ultima Weapon. Thancred remains in the Ascian Lahabrea's thrall.",
+          "citations": [
+            {
+              "title": "Hearts on Fire — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Hearts_on_Fire",
+              "availableAt": "cp-msq-159",
+              "scope": "main"
+            },
+            {
+              "title": "A Hero in Need — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_Need",
+              "availableAt": "cp-msq-158",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-160",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "You broke into Castrum Meridianum and, with Cid guiding you, brought down the magitek field around the Praetorium. Livia, the tribunus who captured the Scions, fought you and fell. The Praetorium can now be reached only aboard Cid's airship, the Enterprise, and what remains is to find and destroy the Ultima Weapon. Thancred is still possessed.",
+          "citations": [
+            {
+              "title": "Rock the Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Rock_the_Castrum",
+              "availableAt": "cp-msq-160",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Black Wolf's Challenge",
+          "aliases": [],
+          "summary": "Aboard the Enterprise you stormed the Praetorium. Gaius urged Cid to take up his father's mantle in the Empire, and Cid refused. The Black Wolf turned the Ultima Weapon on you and you laid it low; then the Ascian Lahabrea, who had quickened the weapon with the primals' life force, came for you himself, and you freed Thancred from his enthrallment. Gaius is slain and the Ultima Weapon destroyed.",
+          "citations": [
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Ultimate_Weapon",
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "evt-operation-archon",
+      "category": "event",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-msq-160",
+          "scope": "main",
+          "name": "Operation Archon",
+          "aliases": [],
+          "summary": "The Eorzean Alliance's eleventh-hour bid to drive the Empire from the realm: the largest counteroffensive in its history, in four phases, ending with the destruction of the Ultima Weapon in the Praetorium of Castrum Meridianum. You led the first phase and slew Rhitahtyn, and the Maelstrom and the Order of the Twin Adder move against imperial castra. The Scions and Cid stand with the Alliance.",
+          "citations": [
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-160",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Operation Archon",
+          "aliases": [],
+          "summary": "The Eorzean Alliance's eleventh-hour bid to drive the Empire from the realm, in four phases. You slew Rhitahtyn in the first, the Maelstrom blockaded Castrum Occidens and Castrum Marinum in the second, and in the third you and Cid brought down the magitek field around the Praetorium. The last phase is to destroy the Ultima Weapon within.",
+          "citations": [
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            },
+            {
+              "title": "Rock the Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Rock_the_Castrum",
+              "availableAt": "cp-msq-160",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Operation Archon",
+          "aliases": [],
+          "summary": "The Eorzean Alliance's eleventh-hour counteroffensive against the Empire, the largest in the realm's history. It ran from the death of Rhitahtyn at Cape Westwind to the Praetorium of Castrum Meridianum, where Gaius was slain and the Ultima Weapon destroyed.",
+          "citations": [
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            },
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Ultimate_Weapon",
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-cid",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "Cid",
+          "aliases": [],
+          "summary": "A brilliant engineer, born and raised in Garlemald, who left the Empire for Eorzea and built the Ironworks. He has an airship of his own. Gaius knows him and scorns him for forsaking kin and country. With his crew he restored a suit of magitek armor to break into Castrum Centri and rescue the captive Scions.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Come-Into-My-Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Come-Into-My-Castrum",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Every Little Thing She Does Is Magitek — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Every_Little_Thing_She_Does_Is_Magitek",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-156",
+          "scope": "main",
+          "name": "Cid",
+          "aliases": [],
+          "summary": "A brilliant engineer from Garlemald who left the Empire and built the Ironworks. He planned the rescue at Castrum Centri, and he and Alphinaud drew off the guards while the captive Scions were freed.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-156",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "Cid",
+          "aliases": [],
+          "summary": "A brilliant engineer from Garlemald who left the Empire and built the Ironworks. After the rescue at Castrum Centri, the Alliance asked him to be its man in Ul'dah.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-msq-160",
+          "scope": "main",
+          "name": "Cid",
+          "aliases": [],
+          "summary": "A brilliant engineer from Garlemald who left the Empire and built the Ironworks. The Alliance asked him to be its man in Ul'dah, and he advises the main host of Operation Archon alongside Minfilia and Alphinaud.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-160",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Cid",
+          "aliases": [],
+          "summary": "A brilliant engineer from Garlemald who left the Empire and built the Ironworks. In the assault on Castrum Meridianum he found the field generator and brought down the magitek field while you created a diversion, and only his airship, the Enterprise, can now reach the Praetorium.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Rock the Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Rock_the_Castrum",
+              "availableAt": "cp-msq-160",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Cid",
+          "aliases": [],
+          "summary": "A brilliant engineer from Garlemald who left the Empire and built the Ironworks. He flew you into the Praetorium aboard his airship, the Enterprise, where Gaius urged him to take up his father's mantle as the Empire's lead engineer, and he refused.",
+          "citations": [
+            {
+              "title": "Eyes on Me — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Rock the Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Rock_the_Castrum",
+              "availableAt": "cp-msq-160",
+              "scope": "main"
+            },
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Ultimate_Weapon",
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-gaius",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "Gaius",
+          "aliases": [
+            "the Black Wolf"
+          ],
+          "summary": "The Black Wolf: legatus of the XIVth Imperial Legion and supreme commander of the Garlean invasion of Eorzea. He called forth an imperial weapon that overpowered and seemingly absorbed three primals, and he means to purge the land of its false gods.",
+          "citations": [
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Casing the Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "Gaius",
+          "aliases": [
+            "the Black Wolf"
+          ],
+          "summary": "The Black Wolf: legatus of the XIVth Imperial Legion and supreme commander of the Garlean invasion of Eorzea. The Empire has finished the Ultima Weapon, an ancient Allagan relic, and he demands that the realm submit to his power or share the primals' fate. The Ascian Lahabrea stands beside him.",
+          "citations": [
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Gaius",
+          "aliases": [
+            "the Black Wolf"
+          ],
+          "summary": "The Black Wolf: legatus of the XIVth Imperial Legion and supreme commander of the Garlean invasion of Eorzea. Eorzea's leaders rejected his ultimatum, and when Operation Archon claimed his trusted lieutenant Rhitahtyn, he ordered his tribuni to crush the resistance. He holds the Ultima Weapon.",
+          "citations": [
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Gaius",
+          "aliases": [
+            "the Black Wolf"
+          ],
+          "summary": "The Black Wolf: legatus of the XIVth Imperial Legion and supreme commander of the Garlean invasion of Eorzea. In the Praetorium he urged Cid to join the Empire and turned the Ultima Weapon on you. He was slain, and the weapon destroyed.",
+          "citations": [
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Ultimate_Weapon",
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-livia",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "Livia",
+          "aliases": [],
+          "summary": "An imperial officer who led the raid on the Waking Sands. She refused Minfilia's surrender, took her prisoner, and is eager to learn about the Echo.",
+          "citations": [
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "Livia",
+          "aliases": [],
+          "summary": "An imperial tribunus who captured the Scions in the raid on the Waking Sands and means to study Minfilia's Echo. The captives escaped her at Castrum Centri.",
+          "citations": [
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-msq-160",
+          "scope": "main",
+          "name": "Livia",
+          "aliases": [],
+          "summary": "An imperial tribunus who captured the Scions in the raid on the Waking Sands. She stands in Gaius's war council, and mourned Rhitahtyn when Operation Archon claimed him.",
+          "citations": [
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-160",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Livia",
+          "aliases": [],
+          "summary": "An imperial tribunus who captured the Scions in the raid on the Waking Sands. Utterly devoted to Gaius, she fought you in Castrum Meridianum and died.",
+          "citations": [
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            },
+            {
+              "title": "All Good Things — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Rock the Castrum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Rock_the_Castrum",
+              "availableAt": "cp-msq-160",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "char-lahabrea",
+      "category": "character",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-154",
+          "validUntil": "cp-msq-155",
+          "scope": "main",
+          "name": "Lahabrea",
+          "aliases": [],
+          "summary": "An Ascian, one of an elusive kind that the Scions are troubled to find consorting with the Empire. He marveled as the Empire's weapon grew stronger with each primal it consumed.",
+          "citations": [
+            {
+              "title": "In Pursuit of the Past — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/In_Pursuit_of_the_Past",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lord of Crags — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lord_of_Crags",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Lady of the Vortex — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Lady_of_the_Vortex",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-156",
+          "scope": "main",
+          "name": "Lahabrea",
+          "aliases": [],
+          "summary": "An Ascian who stands beside the Black Wolf. During the rescue at Castrum Centri, the Scions discovered that he has possessed Thancred.",
+          "citations": [
+            {
+              "title": "In Pursuit of the Past — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/In_Pursuit_of_the_Past",
+              "availableAt": "cp-msq-154",
+              "scope": "main"
+            },
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-156",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "Lahabrea",
+          "aliases": [],
+          "summary": "An Ascian who stands beside the Black Wolf and has possessed Thancred. Ascians are immortal beings without physical form who possess mortals through Crystals of Darkness.",
+          "citations": [
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            },
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": null,
+          "scope": "main",
+          "name": "Lahabrea",
+          "aliases": [],
+          "summary": "An Ascian. He quickened the Ultima Weapon's core with the life force of the primals it absorbed, and when the weapon fell he came for you himself. You freed Thancred, whom he had possessed.",
+          "citations": [
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Ultimate_Weapon",
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "org-eorzean-alliance",
+      "category": "organization",
+      "presentations": [
+        {
+          "validFrom": "cp-msq-155",
+          "validUntil": "cp-msq-156",
+          "scope": "main",
+          "name": "The Eorzean Alliance",
+          "aliases": [],
+          "summary": "The alliance of Eorzea's city-states. Its leaders had staked their hopes on the Scions and believed them dead or missing, and they are weighing the Black Wolf's ultimatum.",
+          "citations": [
+            {
+              "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+              "availableAt": "cp-msq-155",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-156",
+          "validUntil": "cp-msq-157",
+          "scope": "main",
+          "name": "The Eorzean Alliance",
+          "aliases": [],
+          "summary": "The alliance of Eorzea's city-states. Its leaders rejected the Black Wolf's ultimatum and resolved to fight: Gridania goes to war, and the Maelstrom will secure the Lominsan coast. They asked Cid to be the Alliance's man in Ul'dah.",
+          "citations": [
+            {
+              "title": "The Black Wolf's Ultimatum — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Black_Wolf's_Ultimatum",
+              "availableAt": "cp-msq-156",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-msq-157",
+          "validUntil": "cp-arr-2-0",
+          "scope": "main",
+          "name": "The Eorzean Alliance",
+          "aliases": [],
+          "summary": "The alliance of Eorzea's city-states, now waging Operation Archon, its eleventh-hour counteroffensive to drive the Empire from the realm.",
+          "citations": [
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        },
+        {
+          "validFrom": "cp-arr-2-0",
+          "validUntil": null,
+          "scope": "main",
+          "name": "The Eorzean Alliance",
+          "aliases": [],
+          "summary": "The alliance of Eorzea's city-states. Its Operation Archon carried the fight to the Praetorium, where Gaius was slain and the Ultima Weapon destroyed. Its leaders proclaimed the Seventh Astral Era and announced that their Grand Companies will be joined.",
+          "citations": [
+            {
+              "title": "Operation Archon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+              "availableAt": "cp-msq-157",
+              "scope": "main"
+            },
+            {
+              "title": "The Ultimate Weapon — main scenario quest (2.0)",
+              "url": "https://ffxiv.consolegameswiki.com/wiki/The_Ultimate_Weapon",
+              "availableAt": "cp-arr-2-0",
+              "scope": "main"
+            }
+          ],
+          "review": "reviewed"
+        }
+      ]
     }
   ],
   "relationships": [
@@ -973,7 +2171,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -991,7 +2189,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1009,7 +2207,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1027,13 +2225,13 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         },
         {
           "title": "Casing the Castrum — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1051,7 +2249,7 @@
         {
           "title": "Eyes on Me — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1069,13 +2267,13 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         },
         {
           "title": "Casing the Castrum — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1093,7 +2291,7 @@
         {
           "title": "A Hero in the Making — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1111,7 +2309,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1242,6 +2440,378 @@
         }
       ],
       "review": "reviewed"
+    },
+    {
+      "id": "rel-minfilia-leads-scions-a4",
+      "source": "char-minfilia",
+      "type": "leads",
+      "target": "org-scions",
+      "validFrom": "cp-msq-154",
+      "validUntil": "cp-arr-2-0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
+          "availableAt": "cp-msq-154",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-thancred-member-scions-a4",
+      "source": "char-thancred",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-msq-154",
+      "validUntil": "cp-arr-2-0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
+          "availableAt": "cp-msq-154",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-alphinaud-member-scions-a4",
+      "source": "char-alphinaud",
+      "type": "member-of",
+      "target": "org-scions",
+      "validFrom": "cp-msq-154",
+      "validUntil": "cp-arr-2-0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Eyes on Me — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
+          "availableAt": "cp-msq-154",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-minfilia-prisoner-livia",
+      "source": "char-minfilia",
+      "type": "prisoner-of",
+      "target": "char-livia",
+      "validFrom": "cp-msq-154",
+      "validUntil": "cp-msq-155",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "All Good Things — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
+          "availableAt": "cp-msq-154",
+          "scope": "main"
+        },
+        {
+          "title": "Come-Into-My-Castrum — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Come-Into-My-Castrum",
+          "availableAt": "cp-msq-154",
+          "scope": "main"
+        }
+      ],
+      "endCitations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-thancred-possessed-lahabrea",
+      "source": "char-thancred",
+      "type": "possessed-by",
+      "target": "char-lahabrea",
+      "validFrom": "cp-msq-155",
+      "validUntil": "cp-arr-2-0",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-livia-serves-gaius",
+      "source": "char-livia",
+      "type": "serves",
+      "target": "char-gaius",
+      "validFrom": "cp-msq-157",
+      "validUntil": "cp-msq-160",
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Operation Archon — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+          "availableAt": "cp-msq-157",
+          "scope": "main"
+        }
+      ],
+      "endCitations": [
+        {
+          "title": "Rock the Castrum — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Rock_the_Castrum",
+          "availableAt": "cp-msq-160",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-alliance-in-archon",
+      "source": "org-eorzean-alliance",
+      "type": "participant-in",
+      "target": "evt-operation-archon",
+      "validFrom": "cp-msq-157",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Operation Archon — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+          "availableAt": "cp-msq-157",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-scions-in-archon",
+      "source": "org-scions",
+      "type": "participant-in",
+      "target": "evt-operation-archon",
+      "validFrom": "cp-msq-157",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Operation Archon — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+          "availableAt": "cp-msq-157",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "rel-cid-in-archon",
+      "source": "char-cid",
+      "type": "participant-in",
+      "target": "evt-operation-archon",
+      "validFrom": "cp-msq-157",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Operation Archon — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+          "availableAt": "cp-msq-157",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-minfilia-a4",
+      "source": "char-minfilia",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-thancred-a4",
+      "source": "char-thancred",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-alphinaud-a4",
+      "source": "char-alphinaud",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-scions-a4",
+      "source": "org-scions",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-cid-a4",
+      "source": "char-cid",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-gaius-a4",
+      "source": "char-gaius",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-livia-a4",
+      "source": "char-livia",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-lahabrea-a4",
+      "source": "char-lahabrea",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-alliance-a4",
+      "source": "org-eorzean-alliance",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-155",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Escape from Castrum Centri — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
+          "availableAt": "cp-msq-155",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    },
+    {
+      "id": "p-archon-a4",
+      "source": "evt-operation-archon",
+      "type": "participant-in",
+      "target": "evt-black-wolfs-challenge",
+      "validFrom": "cp-msq-157",
+      "validUntil": null,
+      "scope": "main",
+      "citations": [
+        {
+          "title": "Operation Archon — main scenario quest (2.0)",
+          "url": "https://ffxiv.consolegameswiki.com/wiki/Operation_Archon",
+          "availableAt": "cp-msq-157",
+          "scope": "main"
+        }
+      ],
+      "review": "reviewed"
+    }
+  ],
+  "arcs": [
+    {
+      "id": "arc-a4-black-wolf",
+      "entityId": "evt-black-wolfs-challenge",
+      "firstStep": "cp-msq-155",
+      "lastStep": "cp-arr-2-0"
     }
   ]
 }

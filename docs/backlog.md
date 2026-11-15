@@ -24,7 +24,9 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
-- [ ] `NDL-009` **Research and review the first arc's content**
+## User Accepted
+
+- [x] `NDL-009` **Research and review the first arc's content**
   - Owner: `content`
   - Outcome: At least one complete, human-reviewed arc (the candidate is the 2.0 raid → rescue), with a story-so-far recap at every step and its cast's relationships, ships in `atlas.json`.
   - Acceptance:
@@ -39,9 +41,6 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
   - Notes from `NDL-006`:
     - The user chose arc A4, *The Black Wolf's challenge* (MSQ #155–161), with an editorial cast of 10 ([v2-discovery.md](atlas/v2-discovery.md)).
     - End evidence (`endCitations`) loads only on an ending the Changes lens can show: both sides of the ending must be slices (or both milestones), and the same relationship must not carry straight on. The possession that ends at the slice → `cp-arr-2-0` boundary therefore carries none.
-  - Substantive PR: [#23](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/23)
-
-## User Accepted
 
 - [x] `NDL-008` **Design the v2 lenses in the local viewer**
   - Owner: `ui`
