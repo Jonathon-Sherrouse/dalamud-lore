@@ -272,10 +272,15 @@ public class V2LeakSweepTests
 {
     private const string EndOnlySource = "End-only evidence for the release";
 
-    public static TheoryData<string> Datasets() => new() { "v2fx", "arc-sample" };
+    public static TheoryData<string> Datasets() => new() { "v2fx", "arc-sample", "real" };
 
     private static AtlasDataset LoadNamed(string name)
     {
+        if (name == "real")
+        {
+            return AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Draft).Dataset!;
+        }
+
         if (name == "arc-sample")
         {
             return AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "sample-arc-atlas.json"), AtlasValidationMode.Strict).Dataset!;

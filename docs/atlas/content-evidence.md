@@ -1,6 +1,10 @@
-# Atlas pilot content evidence (NDL-003)
+# Atlas content evidence (NDL-003 pilot, NDL-009 arc A4)
 
-> **Status: accepted.** The user explicitly accepted this content on 2026-11-14, and every record is marked `reviewed`. This is the completed evidence matrix for [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json). It supersedes the provisional [discovery evidence](discovery-evidence.md) for every record it covers. AI research and AI review are not canon acceptance; any later content change needs review again.
+> **Status:**
+> - **Pilot (NDL-003): accepted.** The user explicitly accepted this content on 2026-11-14, and its records are marked `reviewed`.
+> - **Arc A4 (NDL-009): awaiting the user's review.** Every A4 record is `pending`, so Strict validation (and the plugin) refuses the data until it is accepted. See [Arc A4](#arc-a4-the-black-wolfs-challenge-ndl-009) below.
+>
+> For the pilot: This is the completed evidence matrix for [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json). It supersedes the provisional [discovery evidence](discovery-evidence.md) for every record it covers. AI research and AI review are not canon acceptance; any later content change needs review again.
 
 | File | What it holds |
 |---|---|
@@ -107,3 +111,50 @@ None of these is needed for the pilot's changes, and several are reframed by lat
 1. **In-client confirmation.** Every locator is a fan transcription. Spot-checking a few passages in game would raise confidence; the evidence already ties each claim to a specific quest and line.
 2. **Content decisions:** resolved on 2026-11-14. Links are on, and R14 and R13 stay. See the [review sheet](content-review.md#decisions-recorded).
 3. **Checkpoint help text (NDL-004).** Snapshots include optional story content released by each patch, and the selector's help text should say so.
+
+## Arc A4: The Black Wolf's Challenge (NDL-009)
+
+Researched 2026-11-14. Arc A4 covers MSQ #155 *Escape from Castrum Centri* to #161 *The Ultimate Weapon*. #154 *Every Little Thing She Does Is Magitek* is the pre-arc baseline, and #161 is the `cp-arr-2-0` milestone. The decisions are in the [review sheet](content-review.md#decisions-recorded).
+
+### Method
+- **Research lanes.** Three parallel Haiku research lanes read the raw Console Games Wiki wikitext saved during `NDL-006` discovery:
+  - A: #154–157;
+  - B: #158–161;
+  - C: what a player has been shown about each candidate cast member by #154, from #103–154.
+
+  Together they reported 704 verbatim locators. Each lane checked its own against the saved pages.
+- **Lead verification.** The lead wrote 50 claims (K01–K75) from those reports. A script checked every fragment of every claim's locator verbatim against the saved page. It also checked that no fragment sits inside `-optional` dialogue or a `> If` conditional branch, and that none contains a banned surname. All 50 passed. Pilot claims reused by the arc (C01, C06, C09, C25, C31, C33, C34, C37, C39) were verified in `NDL-003`.
+- **The pilot's evidence rules apply unchanged:** main records only, original summaries, and "shown, not occurred". Each source counts from the step after its quest. A 2.0 quest before #154 counts from the baseline.
+
+### Rules for the slice
+- **Baseline rule.** Entities the player already knows by #154 are covered from the baseline. That covers Minfilia, Thancred, Alphinaud, the Scions, Cid, Gaius, Livia and Lahabrea, along with their existing ties to each other.
+  - The ties are *Minfilia leads the Scions*, and *Thancred* and *Alphinaud are members*. They are backfilled as separate records ending at `cp-arr-2-0`, where the accepted pilot records of the same triples continue them unchanged. That way no false "added" or "ended" row appears at the milestone.
+  - The Eorzean Alliance is mentioned only once before #155, so it enters at #155.
+- **Fresh presentations.** Every slice presentation is new research. None reuses the accepted 2.0 summaries, which narrate the whole arc.
+- **Slice text names only the cast.** A character the slice doesn't cover, such as Tataru or Y'shtola, is never named at #154–160. The per-step leak sweep can't tell "met before #154" from "not met yet", and it caught the one early draft that broke this rule.
+- **End evidence only where Changes can show it.** The rescue ends the captivity between #154 and #155, and Livia's fall ends her service to Gaius between #159 and #160. Both are slice-to-slice endings, so both carry end citations. Thancred's possession ends across the slice-to-milestone boundary at `cp-arr-2-0`, so it carries none, as `NDL-006` recorded.
+
+### Deliberately left out
+These appear in the 2.0 text but are kept out of every record:
+- **The finale's later-content setups:** Bahamut stirring, the new primal's roar, other Ascians (Nabriales, Igeyorhm, Pashtarot), their god, "the Reckoning" and "the Dark One". The sweep bans them by name.
+- **Nero:** his grievance, his escape and his rank. The finale doesn't show his end.
+- **Lahabrea's end:** the text never says he dies, and he speaks again in the final scene.
+- **Cid's father's name and the "Meteor" project,** which belong to later context.
+- **Optional dialogue,** for example Cid's regrets about magitek, and the Students of Baldesion beyond their one main line.
+
+### Authoring cost (the card asks for it per step)
+For 7 slice steps plus the milestone:
+
+| Item | Total | Per arc step (8) |
+|---|---|---|
+| Claims with verified locators | 50 | about 6 |
+| New presentations (recaps included) | 43 | about 5 |
+| New relationships | 19 | about 2.4 |
+| Recaps (one per step, each new) | 7 | 1 |
+
+The work took three research lanes (about 20 minutes, in parallel) plus the lead's drafting and verification. Most of the lead's time went into the cast and type decisions and the baseline backfill.
+
+### Open questions
+1. **In-client confirmation,** as for the pilot.
+2. **Follow's quest IDs.** Every step carries the wiki's `id-gt` for its quest, but Follow is deferred and `NDL-007` never verified them. Patch 6.1 replaced the *Operation Archon* and *The Ultimate Weapon* rows (70057 and 70058).
+

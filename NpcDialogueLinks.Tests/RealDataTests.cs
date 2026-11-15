@@ -90,13 +90,25 @@ public class RealDataTests
         "rel-urianger-member-scions", "rel-yshtola-member-scions",
     ];
 
-    public static TheoryData<string, AtlasContentView, string[], string[]> ExpectedSnapshots() => new()
+    public static TheoryData<string, AtlasContentView, string[], string[]> ExpectedSnapshots()
     {
-        { Cp20, AtlasContentView.MainStory, [.. AllEntities.Except(Hidden20Entities)], [.. MainEdges20] },
-        { Cp20, AtlasContentView.MainAndOptional, [.. AllEntities.Except(Hidden20Entities)], [.. MainEdges20, .. OptionalEdges20] },
-        { Cp255, AtlasContentView.MainStory, AllEntities, [.. MainEdges255] },
-        { Cp255, AtlasContentView.MainAndOptional, AllEntities, [.. MainEdges255, .. OptionalEdges255] },
-    };
+        var data = new TheoryData<string, AtlasContentView, string[], string[]>
+        {
+            { Cp20, AtlasContentView.MainStory, [.. AllEntities.Except(Hidden20Entities), .. ArcEntities], [.. MainEdges20, .. ArcEdgesAtMilestones] },
+            { Cp20, AtlasContentView.MainAndOptional, [.. AllEntities.Except(Hidden20Entities), .. ArcEntities], [.. MainEdges20, .. OptionalEdges20, .. ArcEdgesAtMilestones] },
+            { Cp255, AtlasContentView.MainStory, [.. AllEntities, .. ArcEntities], [.. MainEdges255, .. ArcEdgesAtMilestones] },
+            { Cp255, AtlasContentView.MainAndOptional, [.. AllEntities, .. ArcEntities], [.. MainEdges255, .. OptionalEdges255, .. ArcEdgesAtMilestones] },
+        };
+
+        // NDL-009: the A4 slice covers only the arc's cast, and every slice record is main scope.
+        foreach (var (step, entities, relationships) in SliceSnapshots)
+        {
+            data.Add(step, AtlasContentView.MainStory, entities, relationships);
+            data.Add(step, AtlasContentView.MainAndOptional, entities, relationships);
+        }
+
+        return data;
+    }
 
     [Theory]
     [MemberData(nameof(ExpectedSnapshots))]
@@ -107,13 +119,16 @@ public class RealDataTests
         Assert.Equal(relationships.Order(StringComparer.Ordinal), snapshot.Relationships.Select(r => r.Id).Order(StringComparer.Ordinal));
     }
 
+    public static TheoryData<string> AllCheckpoints() => new(SliceSteps.Concat([Cp20, Cp255]));
+
     [Theory]
-    [InlineData(Cp20)]
-    [InlineData(Cp255)]
+    [MemberData(nameof(AllCheckpoints))]
     public void Real_OpensOnTheScionsAtEveryCheckpoint(string checkpoint)
     {
-        // NDL-005 D5: the pilot home entry exists and is visible wherever the Atlas can open.
+        // NDL-005 D5: the pilot home entry exists and is visible wherever the Atlas can open. In the Story point lens,
+        // which the in-game window pins until NDL-010; inside the arc the default lens is Arc, resting on the whole cast.
         var session = new AtlasSession(LoadDraft(), new AtlasSpoilerState(Cp255, checkpoint));
+        session.SetLens(AtlasLens.StoryPoint);
         Assert.Equal(AtlasDefaults.HomeEntityId, session.FocusId);
         Assert.NotEmpty(session.Neighborhood!.Neighbors);
     }
@@ -122,7 +137,7 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        Assert.InRange(dataset.Entities.Count, 8, 12);
+        Assert.Equal(AllEntities.Length + ArcEntities.Length, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);
@@ -142,25 +157,31 @@ public class RealDataTests
     [
         "Warde", "Waters", "Rhul", "Augurelt", "Leveilleur", "Taru", "Totolymo", "Hext", "Ascilia", "Ascilla",
         "Lyse", "Ryne", "Exarch", "Emet-Selch", "Hythlodaeus", "Hades", "Lightwarden", "Wyrmblood", "The First",
+        // NDL-009 (arc A4): imperial and engineer surnames, and the 2.0 finale's setups for later content.
+        "Garlond", "Baelsar", "Junius", "Scaeva", "Arvina", "Midas", "Nero", "Zodiark", "Nabriales", "Igeyorhm", "Pashtarot",
     ];
 
     /// <summary>Later-story phrases: case-insensitive.</summary>
     private static readonly string[] BannedPhrases =
     [
         "Oracle of Light", "Word of the Mother", "Warrior of Darkness", "Warriors of Darkness", "Heavensward",
-        "Shadowbringers", "Stormblood", "Endwalker",
+        "Shadowbringers", "Stormblood", "Endwalker", "Bahamut stirs", "the Reckoning", "Dark One", "new primal",
     ];
 
     /// <summary>Things that exist only from 2.1 onward and must never surface in a 2.0 snapshot.</summary>
     private static readonly string[] NotYetAt20 = ["Crystal Braves", "Rising Stones", "banquet", "regicide"];
 
-    public static TheoryData<string, AtlasContentView> AllSnapshots() => new()
+    public static TheoryData<string, AtlasContentView> AllSnapshots()
     {
-        { Cp20, AtlasContentView.MainStory },
-        { Cp20, AtlasContentView.MainAndOptional },
-        { Cp255, AtlasContentView.MainStory },
-        { Cp255, AtlasContentView.MainAndOptional },
-    };
+        var data = new TheoryData<string, AtlasContentView>();
+        foreach (var checkpoint in SliceSteps.Concat([Cp20, Cp255]))
+        {
+            data.Add(checkpoint, AtlasContentView.MainStory);
+            data.Add(checkpoint, AtlasContentView.MainAndOptional);
+        }
+
+        return data;
+    }
 
     [Theory]
     [MemberData(nameof(AllSnapshots))]
@@ -179,7 +200,7 @@ public class RealDataTests
                 Assert.False(text.Contains(phrase, StringComparison.OrdinalIgnoreCase), $"'{phrase}' appears in: {text}");
             }
 
-            if (checkpoint == Cp20)
+            if (checkpoint != Cp255)
             {
                 foreach (var phrase in NotYetAt20)
                 {
@@ -209,7 +230,7 @@ public class RealDataTests
             Assert.Empty(url.Query);
             var page = Uri.UnescapeDataString(url.AbsolutePath["/wiki/".Length..]);
             Assert.DoesNotContain(NeverLink, bad => page.Contains(bad, StringComparison.OrdinalIgnoreCase));
-            if (checkpoint == Cp20)
+            if (checkpoint != Cp255)
             {
                 Assert.DoesNotContain("Louisoix", page, StringComparison.OrdinalIgnoreCase);
             }
@@ -276,4 +297,42 @@ public class RealDataTests
     ];
 
     private static readonly string[] OptionalEdges255 = [.. OptionalEdges20, "rel-alphinaud-grandchild-louisoix"];
+
+    // ---- NDL-009: arc A4, The Black Wolf's Challenge ----
+
+    private static readonly string[] SliceSteps = ["cp-msq-154", "cp-msq-155", "cp-msq-156", "cp-msq-157", "cp-msq-158", "cp-msq-159", "cp-msq-160"];
+
+    private static readonly string[] ArcEntities =
+    [
+        "evt-black-wolfs-challenge", "evt-operation-archon", "char-cid", "char-gaius", "char-livia", "char-lahabrea", "org-eorzean-alliance",
+    ];
+
+    private static readonly string[] ArcSpokes =
+    [
+        "p-minfilia-a4", "p-thancred-a4", "p-alphinaud-a4", "p-scions-a4", "p-cid-a4", "p-gaius-a4", "p-livia-a4", "p-lahabrea-a4", "p-alliance-a4",
+    ];
+
+    private static readonly string[] ArchonEdges = ["rel-alliance-in-archon", "rel-scions-in-archon", "rel-cid-in-archon", "p-archon-a4"];
+
+    /// <summary>What stays at the milestones: the arc's cast edges, which never end.</summary>
+    private static readonly string[] ArcEdgesAtMilestones = [.. ArcSpokes, .. ArchonEdges];
+
+    private static readonly string[] Backfill = ["rel-minfilia-leads-scions-a4", "rel-thancred-member-scions-a4", "rel-alphinaud-member-scions-a4"];
+
+    private static readonly string[] BaselineEntities = ["char-minfilia", "char-thancred", "char-alphinaud", "org-scions", "char-cid", "char-gaius", "char-livia", "char-lahabrea"];
+
+    private static readonly string[] ArcCast155 = [.. BaselineEntities, "evt-black-wolfs-challenge", "org-eorzean-alliance"];
+
+    private static readonly string[] During155To159 = [.. Backfill, "rel-thancred-possessed-lahabrea", .. ArcSpokes];
+
+    private static readonly (string Step, string[] Entities, string[] Relationships)[] SliceSnapshots =
+    [
+        ("cp-msq-154", BaselineEntities, [.. Backfill, "rel-minfilia-prisoner-livia"]),
+        ("cp-msq-155", ArcCast155, During155To159),
+        ("cp-msq-156", ArcCast155, During155To159),
+        ("cp-msq-157", [.. ArcCast155, "evt-operation-archon"], [.. During155To159, "rel-livia-serves-gaius", .. ArchonEdges]),
+        ("cp-msq-158", [.. ArcCast155, "evt-operation-archon"], [.. During155To159, "rel-livia-serves-gaius", .. ArchonEdges]),
+        ("cp-msq-159", [.. ArcCast155, "evt-operation-archon"], [.. During155To159, "rel-livia-serves-gaius", .. ArchonEdges]),
+        ("cp-msq-160", [.. ArcCast155, "evt-operation-archon"], [.. During155To159, .. ArchonEdges]),
+    ];
 }
