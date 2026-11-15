@@ -68,7 +68,9 @@ Record each result as pass or fail. A check that wasn't run stays pending; it ne
 
 ## In-game test (NDL-010)
 
-Point the dev plugin at the branch build first: in `/xlsettings` → **Experimental**, use `Z:\Users\jonathon\Desktop\Codex Projects\dalamud-lore-ndl-010\NpcDialogueLinks\bin\x64\Debug\NpcDialogueLinks.dll`, then **Reload** the plugin. After the merge, point it back at the main checkout.
+> **Status:** the user accepted `NDL-010` on 2026-11-15 without running this table, so every row is still untested in game.
+
+Build the main checkout (see [Loading a development build](#loading-a-development-build)), then **Reload** the plugin.
 
 | # | Do | Expect |
 |---|---|---|

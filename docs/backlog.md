@@ -12,7 +12,9 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
-- [ ] `NDL-010` **Ship v2 in game**
+## User Accepted
+
+- [x] `NDL-010` **Ship v2 in game**
   - Owner: `ui`
   - Outcome: The in-game Atlas window and the viewer render the accepted v2 design over the accepted arc content.
   - Acceptance:
@@ -23,9 +25,7 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
     - The scope statement is in the guide and handoff.
   - Evidence: Host tests; locked builds and packaging; an in-game do/expect test by the user; viewer parity. Report the lanes separately.
   - Dependencies: Accepted `NDL-008` and `NDL-009`; branch `codex/ndl-010-atlas-v2-window`. Lead owns `Plugin.cs` and Lore Explain integration.
-  - Substantive PR: [#25](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/25)
-
-## User Accepted
+  - Acceptance record: the user accepted on 2026-11-15 without running the in-game test ("i wont be testing this but i trust you"). The in-game lane is untested; the 11-row table is in the [Atlas guide](atlas/README.md#in-game-test-ndl-010).
 
 - [x] `NDL-009` **Research and review the first arc's content**
   - Owner: `content`
