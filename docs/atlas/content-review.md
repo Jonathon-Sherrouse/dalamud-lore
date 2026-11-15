@@ -6,13 +6,15 @@ How to read it:
 
 - **Main** text is what the main-story view shows. **Optional** text replaces it in the default *main + optional* view, because it includes optional Binding Coil quests that are doable and released by that patch (the [available-content rule](../lore-relationship-atlas.md#research-and-content-rules)).
 - Each claim quotes a short locator from the Console Games Wiki transcription of that quest, so you can find it. Patch numbers are when the quest was released, which sets the earliest checkpoint where the claim counts.
-- Sources are shown as text only, with no outbound links (see [Decisions for you](#decisions-for-you)).
+- Every source links to its quest page on the Console Games Wiki. The Atlas warns before opening it, because those pages list NPCs by full name and can mention later patches.
 
-## Decisions for you
+## Decisions recorded
 
-1. **Source links.** The [citation audit](content-evidence.md#citation-safety) found that almost every quest page lists NPCs by full name, so following a link at 2.0 would show surnames such as "Warde" and "Leveilleur" (the second one hints at the twins' grandfather). The data therefore ships every source as **text only**. If you want links anyway, behind the Atlas's spoiler warning, say so; it is a mechanical change.
-2. **Alisaie as a Scion (R14, optional only).** The only direct support is the optional *Alisaie's Pledge* journal calling her "the young Scion" (C30). In context it can only mean her, but it is an epithet, not a membership statement. Keep the edge, or drop it?
-3. **Alphinaud as Louisoix's grandchild (R13, optional, from 2.55).** It rests on two optional lines together: Urianger says Louisoix was Alisaie's grandsire (C13, 2.0), and Alphinaud speaks of "our grandsire" shared with his sister (C26, 2.2). The main story only hints at it. Keep, or drop?
+The user decided these on 2026-11-14:
+
+1. **Source links: on.** Every citation links to its quest page. The [citation audit](content-evidence.md#citation-safety) found that most quest pages list NPCs by full name ("Warde", and "Leveilleur" from 2.2), so the link opens only behind the Atlas's external-page spoiler warning. Each URL names only the quest itself.
+2. **Alisaie as a Scion (R14, optional only): keep.** Its only direct support is the optional *Alisaie's Pledge* journal calling her "the young Scion" (C30).
+3. **Alphinaud as Louisoix's grandchild (R13, optional, from 2.55): keep.** It rests on two optional lines read together: Louisoix was Alisaie's grandsire (C13, 2.0), and Alphinaud speaks of "our grandsire" shared with his sister (C26, 2.2).
 
 ## Snapshot overview
 

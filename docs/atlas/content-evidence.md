@@ -62,7 +62,7 @@ Together the lanes swept all 2.0–2.55 main-scenario quest pages for their enti
 | C27 (Louisoix sealed Bahamut) | **Narrowed.** The journal says "seemingly by Louisoix". Summaries say "apparently". |
 | C29 (Louisoix's power erased memories of the player) | **Dropped.** The line is shown only to Legacy characters, and it is speculation ("we can only assume"). |
 | R04 (Urianger is a Scion), open question 6 | **Supported** by C31 (introduced among "your friends in the order") and C36 (among the captives Y'shtola calls "our fellow Scions"). |
-| Alisaie's wording, open question 7 | **Resolved.** The main story never calls her a Scion; it says she walks her own path toward the same goal (C11). Only the optional record says "young Scion" (C30), so the main and full views do not contradict each other. Whether R14 stays is a [user decision](content-review.md#decisions-for-you). |
+| Alisaie's wording, open question 7 | **Resolved.** The main story never calls her a Scion; it says she walks her own path toward the same goal (C11). Only the optional record says "young Scion" (C30), so the main and full views do not contradict each other. The user decided to keep R14 (2026-11-14). |
 | Louisoix's identity as grandfather | No main-scenario line names Louisoix as the twins' grandfather. The 2.3 hint is in optional dialogue. R12 and R13 therefore stay `optional`, and the main-story Louisoix text never mentions grandchildren. |
 
 ## Citation safety
@@ -73,7 +73,11 @@ Lane D fetched every candidate source page in rendered form. The "Related NPCs" 
 
 Some pages also carry notes about later patches; for example, *The Parting Glass* names a level-54 quest. Only *Alisaie's Pledge* came out clean.
 
-The contract does not extend the Atlas's filtering guarantee to destination pages, but a surname would leak a family link the Atlas deliberately keeps optional. **Default: every citation is text only (`url: null`).** The display title gives the quest name, its scope and its patch, so a player can still find it in game. Switching to links is a [user decision](content-review.md#decisions-for-you). The `Real_CitationLinksAreSafe` test still bounds any future link to wiki article pages that do not name a known-unsafe title.
+**Decision (user, 2026-11-14): links on.** Every citation links to its quest article page. The contract does not extend the Atlas's filtering guarantee to destination pages: the link opens only behind the shared external-page spoiler warning (`AtlasText.ExternalLinkWarning`).
+
+- **Each URL names only the quest itself.** None names a character, and none carries a surname or a later title.
+- **All 27 URLs resolve.** Each returns HTTP 200, and the wiki API confirms all 27 pages exist with no redirects.
+- **Tests guard every link.** `Real_CitationLinksAreSafe` requires `https://ffxiv.consolegameswiki.com/wiki/` article paths with no query, rejects known-unsafe titles, and rejects any Louisoix page at 2.0. The leak sweep also scans each decoded URL for banned terms.
 
 ## Spoiler review
 
@@ -97,5 +101,5 @@ None of these is needed for the pilot's changes, and several are reframed by lat
 ## Open questions
 
 1. **In-client confirmation.** Every locator is a fan transcription. Spot-checking a few passages in game would raise confidence; the evidence already ties each claim to a specific quest and line.
-2. **Three content decisions for the user:** source links, R14 and R13. See the [review sheet](content-review.md#decisions-for-you).
+2. **Content decisions:** resolved on 2026-11-14. Links are on, and R14 and R13 stay. See the [review sheet](content-review.md#decisions-recorded).
 3. **Checkpoint help text (NDL-004).** Snapshots include optional story content released by each patch, and the selector's help text should say so.
