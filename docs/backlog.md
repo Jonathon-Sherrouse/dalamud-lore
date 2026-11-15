@@ -8,18 +8,6 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
 
-- [ ] `NDL-008` **Design the v2 lenses in the local viewer**
-  - Owner: `ui`
-  - Outcome: The user accepts the v2 interaction design, prototyped in the viewer: the Arc, Story point and Changes lenses.
-  - Acceptance:
-    - The Arc lens's default view shows the arc name and the "Story so far, through ‹quest›" recap alongside a whole-cast chart, without refocusing.
-    - Default and switch-to-Arc lens rules; arc picker and selection lifetime; Changes rows; honest positioning labels; no-title raise options; the event glyph; the coverage note.
-    - No Follow toggle or status lines: Follow is deferred.
-    - Updated `ux-design.md` with ImGui feasibility notes.
-    - A viewer-only prototype is allowed; production parity comes in `NDL-010`.
-  - Evidence: Design doc, viewer walkthrough on synthetic or real data, host tests for any core text or state, locked builds. In-game: not applicable. User design acceptance.
-  - Dependencies: Accepted `NDL-006`; `NDL-007` concluded by the user's deferral (2026-11-14); branch `codex/ndl-008-atlas-v2-ux`.
-
 - [ ] `NDL-009` **Research and review the first arc's content**
   - Owner: `content`
   - Outcome: At least one complete, human-reviewed arc (the candidate is the 2.0 raid → rescue), with a story-so-far recap at every step and its cast's relationships, ships in `atlas.json`.
@@ -51,6 +39,19 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
 ## In Review
+
+- [ ] `NDL-008` **Design the v2 lenses in the local viewer**
+  - Owner: `ui`
+  - Outcome: The user accepts the v2 interaction design, prototyped in the viewer: the Arc, Story point and Changes lenses.
+  - Acceptance:
+    - The Arc lens's default view shows the arc name and the "Story so far, through ‹quest›" recap alongside a whole-cast chart, without refocusing.
+    - Default and switch-to-Arc lens rules; arc picker and selection lifetime; Changes rows; honest positioning labels; no-title raise options; the event glyph; the coverage note.
+    - No Follow toggle or status lines: Follow is deferred.
+    - Updated `ux-design.md` with ImGui feasibility notes.
+    - A viewer-only prototype is allowed; production parity comes in `NDL-010`.
+  - Evidence: Design doc, viewer walkthrough on synthetic or real data, host tests for any core text or state, locked builds. In-game: not applicable. User design acceptance.
+  - Dependencies: Accepted `NDL-006`; `NDL-007` concluded by the user's deferral (2026-11-14); branch `codex/ndl-008-atlas-v2-ux`.
+  - Substantive PR: [#21](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/21)
 
 ## User Accepted
 
