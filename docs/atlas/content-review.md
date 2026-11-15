@@ -1,4 +1,4 @@
-# Atlas content review sheet (NDL-003)
+# Atlas content review sheet
 
 > **Status: REVIEWED.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.
 
@@ -18,18 +18,25 @@ The user decided these on 2026-11-14:
 
 ## Snapshot overview
 
-| | 2.0 main story | 2.0 main + optional | 2.55 main story | 2.55 main + optional |
-|---|---|---|---|---|
-| Entities | 10 | 10 | 12 | 12 |
-| Relationships | 8 | 10 | 10 | 13 |
+Visible records at each step, in the main-story view and the main + optional view. Slice steps (#…) cover only the arc's cast.
 
-Hidden at 2.0: the Crystal Braves and the Rising Stones (both first appear in 2.1–2.3), and every relationship that starts at 2.55.
+| Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |
+|---|---|---|---|---|
+| #154 After Every Little Thing She Does Is Magitek | 0 | 0 | 0 | 0 |
+| #155 After Escape from Castrum Centri | 0 | 0 | 0 | 0 |
+| #156 After The Black Wolf's Ultimatum | 0 | 0 | 0 | 0 |
+| #157 After Operation Archon | 0 | 0 | 0 | 0 |
+| #158 After A Hero in Need | 0 | 0 | 0 | 0 |
+| #159 After Hearts on Fire | 0 | 0 | 0 | 0 |
+| #160 After Rock the Castrum | 0 | 0 | 0 | 0 |
+| 2.0 A Realm Reborn — Patch 2.0 complete | 10 | 10 | 8 | 10 |
+| 2.55 A Realm Reborn — Patch 2.55 complete | 12 | 12 | 10 | 13 |
 
 ## Entities
 
 ### Minfilia (`char-minfilia`, character)
 
-**2.0 · main** · Also searchable as: the Antecedent
+**2.0 only · main** · Also searchable as: the Antecedent
 
 > Leader of the Scions of the Seventh Dawn, who welcomes you at the Waking Sands. Like you, she has the Echo. She was taken prisoner when imperial forces raided the Waking Sands, and after her rescue from Castrum Centri she leads the Scions again.
 
@@ -62,7 +69,7 @@ Sources shown: The Gifted — main scenario quest (2.1); Laying the Foundation �
 
 ### Thancred (`char-thancred`, character)
 
-**2.0 · main**
+**2.0 only · main**
 
 > A Scion and bard who serves as the order's man in Ul'dah and briefed your first investigation. During the rescue at Castrum Centri, the Scions learned that the Ascian Lahabrea had possessed him. You freed him from that enthrallment, and he came home with you.
 
@@ -93,7 +100,7 @@ Sources shown: The Parting Glass — main scenario quest (2.55); Before the Dawn
 
 ### Y'shtola (`char-yshtola`, character)
 
-**2.0 · main**
+**2.0 only · main**
 
 > A Sharlayan Scion who looks after the order's affairs in Limsa Lominsa. She explains how the Scions came to be: after their leader was lost at Carteneau, they sought out Minfilia and others with the Echo. She helped plan the rescue of the Scions captured in the imperial raid.
 
@@ -122,7 +129,7 @@ Sources shown: The Parting Glass — main scenario quest (2.55); Before the Dawn
 
 ### Urianger (`char-urianger`, character)
 
-**2.0 · main**
+**2.0 only · main**
 
 > A learned Sharlayan Scion who presides over the affairs of the Waking Sands. He was among the Scions taken prisoner in the imperial raid, and was freed in the rescue at Castrum Centri.
 
@@ -153,7 +160,7 @@ Sources shown: An Uninvited Ascian — main scenario quest (2.5); The Gifted —
 
 ### Alphinaud (`char-alphinaud`, character)
 
-**2.0 · main**
+**2.0 only · main**
 
 > A young Scion and Alisaie's twin brother. The twins first appear as self-described students of history, touring the city-states' remembrance services. After the raid on the Waking Sands he worked to rebuild the Scions, and he sees their cause as the dream of his grandfather, who gave his life for the realm.
 
@@ -187,7 +194,7 @@ Sources shown: A Hero in the Making — main scenario quest (2.0); Brave New Com
 
 ### Alisaie (`char-alisaie`, character)
 
-**2.0 · main**
+**2.0 only · main**
 
 > Alphinaud's twin sister. She doubts her brother's approach and has set out to find her own way to heal the realm's troubles. Alphinaud says that although she walks her own path, the twins share the same goal.
 
@@ -201,7 +208,7 @@ Sources shown: A Hero in the Making — main scenario quest (2.0); Back from the
 
 </details>
 
-**2.0 · optional**
+**2.0 only · optional**
 
 > Alphinaud's twin sister, a young Scion who walks her own path apart from her brother. She is investigating the Binding Coil of Bahamut, where she believes she saw her grandfather, Louisoix, who is presumed to have died sealing the primal away.
 
@@ -251,7 +258,7 @@ Sources shown: A Hero in the Making — main scenario quest (2.0); Alisaie's Ple
 
 ### Louisoix (`char-louisoix`, character)
 
-**2.0 · main** · Also searchable as: Archon Louisoix, Master Louisoix
+**2.0 only · main** · Also searchable as: Archon Louisoix, Master Louisoix
 
 > A revered Archon and man of learning. He never returned from the Battle of Carteneau, and the realm's leaders lament the loss of his wisdom. The Scions still speak of his guidance.
 
@@ -265,7 +272,7 @@ Sources shown: The Lominsan Envoy — main scenario quest (2.0); The Gridanian E
 
 </details>
 
-**2.0 · optional** · Also searchable as: Archon Louisoix, Master Louisoix
+**2.0 only · optional** · Also searchable as: Archon Louisoix, Master Louisoix
 
 > A revered Archon and man of learning, and Alisaie's grandfather. He never returned from the Battle of Carteneau and is presumed dead, having apparently sealed the primal Bahamut away there. Alisaie believes she has seen him alive within the Binding Coil.
 
@@ -312,7 +319,7 @@ Sources shown: An Uninvited Ascian — main scenario quest (2.5); Another Turn i
 
 ### Tataru (`char-tataru`, character)
 
-**2.0 · main**
+**2.0 only · main**
 
 > The Scions' clerk, who greets visitors at the Waking Sands and keeps the order running smoothly. She was among those taken prisoner in the imperial raid, and was freed in the rescue at Castrum Centri.
 
@@ -345,7 +352,7 @@ Sources shown: Build on the Stone — main scenario quest (2.1); Administrative 
 
 ### The Scions of the Seventh Dawn (`org-scions`, organization)
 
-**2.0 · main**
+**2.0 only · main**
 
 > An order that stands apart from the city-states' politics, devoted to preserving Eorzea's future. Minfilia leads it from the Waking Sands in Vesper Bay, and its members include Sharlayans who stayed in Eorzea when their countrymen fled. An imperial raid devastated the order and took several members prisoner, but the Scions rescued them and rebuilt.
 
@@ -400,7 +407,7 @@ Sources shown: Brave New Companions — main scenario quest (2.3); Traitor in th
 
 ### The Waking Sands (`loc-waking-sands`, location)
 
-**2.0 · main**
+**2.0 only · main**
 
 > The Scions' headquarters in Vesper Bay, in western Thanalan, where Minfilia receives visitors. Imperial forces raided it and took prisoners, and the Scions later restored it.
 

@@ -625,7 +625,8 @@ public class V2FollowTests
     public void Follow_UsesTheRealMilestoneQuestIds()
     {
         var real = AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Strict).Dataset!;
-        AtlasQuestProgress Done(int id) => id == 70058 ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
+        var throughUltimateWeapon = new HashSet<int> { 66541, 66057, 66058, 70057, 66573, 69408, 69409, 70058 };
+        AtlasQuestProgress Done(int id) => throughUltimateWeapon.Contains(id) ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
         Assert.Equal("cp-arr-2-0", AtlasFollow.Position(real, Done, "cp-arr-2-55").CheckpointId);
     }
 }

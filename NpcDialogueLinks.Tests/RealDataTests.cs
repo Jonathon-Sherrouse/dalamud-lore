@@ -42,12 +42,25 @@ public class RealDataTests
     public void Real_HasExactlyTheApprovedCheckpoints()
     {
         var dataset = LoadDraft();
+        // NDL-009: the A4 slice (the baseline after MSQ #154, then #155–160), then the two kept milestone ids.
         Assert.Equal(
-            new[] { (Cp20, "A Realm Reborn — Patch 2.0 complete"), (Cp255, "A Realm Reborn — Patch 2.55 complete") },
-            dataset.Checkpoints.Select(c => (c.Id, c.Label)));
-        Assert.All(dataset.Checkpoints, c => Assert.True(c.Milestone));
-        Assert.Equal(new[] { 70058 }, dataset.Checkpoints[0].GameQuestIds); // The Ultimate Weapon
-        Assert.Equal(new[] { 65964 }, dataset.Checkpoints[1].GameQuestIds); // Before the Dawn
+            new[]
+            {
+                ("cp-msq-154", "After Every Little Thing She Does Is Magitek", 66541),
+                ("cp-msq-155", "After Escape from Castrum Centri", 66057),
+                ("cp-msq-156", "After The Black Wolf's Ultimatum", 66058),
+                ("cp-msq-157", "After Operation Archon", 70057),
+                ("cp-msq-158", "After A Hero in Need", 66573),
+                ("cp-msq-159", "After Hearts on Fire", 69408),
+                ("cp-msq-160", "After Rock the Castrum", 69409),
+                (Cp20, "A Realm Reborn — Patch 2.0 complete", 70058), // The Ultimate Weapon (#161)
+                (Cp255, "A Realm Reborn — Patch 2.55 complete", 65964), // Before the Dawn
+            },
+            dataset.Checkpoints.Select(c => (c.Id, c.Label, c.GameQuestIds.Single())));
+        Assert.All(dataset.Checkpoints.Take(7), c => Assert.False(c.Milestone));
+        Assert.All(dataset.Checkpoints.Skip(7), c => Assert.True(c.Milestone));
+        Assert.All(dataset.Checkpoints.Take(7), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
+        Assert.Equal(new[] { false, true, true, true, true, true, true, true, false }, dataset.Checkpoints.Select(c => c.ContiguousWithPrevious));
     }
 
     /// <summary>

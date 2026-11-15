@@ -2,9 +2,72 @@
   "schemaVersion": 2,
   "checkpoints": [
     {
+      "id": "cp-msq-154",
+      "label": "After Every Little Thing She Does Is Magitek",
+      "questTitle": "Every Little Thing She Does Is Magitek",
+      "gameQuestIds": [
+        66541
+      ]
+    },
+    {
+      "id": "cp-msq-155",
+      "label": "After Escape from Castrum Centri",
+      "questTitle": "Escape from Castrum Centri",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66057
+      ]
+    },
+    {
+      "id": "cp-msq-156",
+      "label": "After The Black Wolf's Ultimatum",
+      "questTitle": "The Black Wolf's Ultimatum",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66058
+      ]
+    },
+    {
+      "id": "cp-msq-157",
+      "label": "After Operation Archon",
+      "questTitle": "Operation Archon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        70057
+      ]
+    },
+    {
+      "id": "cp-msq-158",
+      "label": "After A Hero in Need",
+      "questTitle": "A Hero in Need",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66573
+      ]
+    },
+    {
+      "id": "cp-msq-159",
+      "label": "After Hearts on Fire",
+      "questTitle": "Hearts on Fire",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69408
+      ]
+    },
+    {
+      "id": "cp-msq-160",
+      "label": "After Rock the Castrum",
+      "questTitle": "Rock the Castrum",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69409
+      ]
+    },
+    {
       "id": "cp-arr-2-0",
       "label": "A Realm Reborn — Patch 2.0 complete",
       "milestone": true,
+      "contiguousWithPrevious": true,
       "gameQuestIds": [
         70058
       ]
@@ -86,19 +149,19 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             }
           ],
@@ -158,13 +221,13 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             },
             {
@@ -216,13 +279,13 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -268,19 +331,19 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             }
           ],
@@ -332,19 +395,19 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Eyes on Me — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -367,7 +430,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -414,13 +477,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -437,13 +500,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -466,13 +529,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -501,7 +564,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -551,19 +614,19 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "The Gridanian Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gridanian_Envoy",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -583,7 +646,7 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
@@ -682,19 +745,19 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Escape from Castrum Centri — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Escape_from_Castrum_Centri",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-155",
               "scope": "main"
             }
           ],
@@ -752,31 +815,31 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "All Good Things — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Casing the Castrum — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -875,19 +938,19 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "All Good Things — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/All_Good_Things",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             },
             {
               "title": "Reclamation — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Reclamation",
-              "availableAt": "cp-arr-2-0",
+              "availableAt": "cp-msq-154",
               "scope": "main"
             }
           ],
@@ -973,7 +1036,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -991,7 +1054,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1009,7 +1072,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1027,13 +1090,13 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         },
         {
           "title": "Casing the Castrum — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1051,7 +1114,7 @@
         {
           "title": "Eyes on Me — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/Eyes_on_Me",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1069,13 +1132,13 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         },
         {
           "title": "Casing the Castrum — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/Casing_the_Castrum",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1093,7 +1156,7 @@
         {
           "title": "A Hero in the Making — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],
@@ -1111,7 +1174,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-arr-2-0",
+          "availableAt": "cp-msq-154",
           "scope": "main"
         }
       ],

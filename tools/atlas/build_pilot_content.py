@@ -1,4 +1,4 @@
-"""Authoring source for the Atlas pilot content (NDL-003).
+"""Authoring source for the Atlas content: the pilot (NDL-003) and arc A4 (NDL-009).
 
 Builds, from the claims and text below:
   - NpcDialogueLinks/atlas.json       the data the plugin and the local viewer load
@@ -28,13 +28,38 @@ PRINT_PENDING = sys.argv[1:] == ["--print-pending"]
 if sys.argv[1:] and not (SELF_TEST or PRINT_PENDING):
     sys.exit("Usage: build_pilot_content.py [--self-test | --print-pending]. Review status is per record (see ACCEPTED).")
 A, B = "cp-arr-2-0", "cp-arr-2-55"
-CP_LABEL = {A: "A Realm Reborn — Patch 2.0 complete", B: "A Realm Reborn — Patch 2.55 complete"}
-CP_SHORT = {A: "2.0", B: "2.55"}
+
+# ---- Timeline (schema v2) ---------------------------------------------------------------------------------------
+# The A4 slice (NDL-009): the baseline step after MSQ #154, then one step after each of #155–160. Each step means
+# "after this quest". The milestone A (cp-arr-2-0) is the step after #161, The Ultimate Weapon, so it is contiguous
+# with the slice. Every step carries its quest's game id (wiki id-gt) for Follow (deferred; NDL-007 verifies them).
+SLICE = [  # (checkpoint id, MSQ index, quest title, game quest id)
+    ("cp-msq-154", 154, "Every Little Thing She Does Is Magitek", 66541),
+    ("cp-msq-155", 155, "Escape from Castrum Centri", 66057),
+    ("cp-msq-156", 156, "The Black Wolf's Ultimatum", 66058),
+    ("cp-msq-157", 157, "Operation Archon", 70057),
+    ("cp-msq-158", 158, "A Hero in Need", 66573),
+    ("cp-msq-159", 159, "Hearts on Fire", 69408),
+    ("cp-msq-160", 160, "Rock the Castrum", 69409),
+]
+BASE = SLICE[0][0]
+STEP_OF = {title: cid for cid, _, title, _ in SLICE}
+CP_LABEL = {A: "A Realm Reborn — Patch 2.0 complete", B: "A Realm Reborn — Patch 2.55 complete",
+            **{cid: f"After {title}" for cid, _, title, _ in SLICE}}
+CP_SHORT = {A: "2.0", B: "2.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}}
+ORDER = [cid for cid, _, _, _ in SLICE] + [A, B]
 
 # ---- Sources: wiki page title -> (display title, patch, availableAt, scope) -------------------------------
+# availableAt is the earliest timeline step at or after the quest: a 2.0 main quest before #154 counts from the
+# baseline, a slice quest from its own step, The Ultimate Weapon from cp-arr-2-0; later patches from cp-arr-2-55, and
+# optional quests from the milestone of their patch. Moving an accepted citation's availableAt earlier this way is the
+# v2 plan's permitted mechanical change (it is never displayed, and the fingerprint ignores it).
 SRC = {}
 def src(key, page, patch, scope="main", kind=None):
-    avail = A if patch == "2.0" else B
+    if scope == "optional" or patch != "2.0":
+        avail = A if patch == "2.0" else B
+    else:
+        avail = A if key == "The Ultimate Weapon" else STEP_OF.get(key, BASE)
     label = kind or ("main scenario quest" if scope == "main" else "optional Binding Coil quest")
     SRC[key] = dict(page=page, patch=patch, avail=avail, scope=scope,
                     title=f"{key} — {label} ({patch})")
@@ -123,9 +148,11 @@ def cites(claims):
 def P(frm, until, scope, name, summary, claims, aliases=()):
     return dict(frm=frm, until=until, scope=scope, name=name, aliases=list(aliases), summary=summary, claims=claims)
 
-# Timeline (schema v2). Milestones carry the game quest ids of their terminal quests for Follow (verified in NDL-007).
 CHECKPOINTS = [
-    {"id": A, "label": CP_LABEL[A], "milestone": True, "gameQuestIds": [70058]},  # The Ultimate Weapon
+    {"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({"contiguousWithPrevious": True} if i else {}), "gameQuestIds": [gid]}
+    for i, (cid, _, title, gid) in enumerate(SLICE)
+] + [
+    {"id": A, "label": CP_LABEL[A], "milestone": True, "contiguousWithPrevious": True, "gameQuestIds": [70058]},  # The Ultimate Weapon (#161)
     {"id": B, "label": CP_LABEL[B], "milestone": True, "gameQuestIds": [65964]},  # Before the Dawn
 ]
 
@@ -290,51 +317,55 @@ RELS = [
  ("rel-alisaie-member-scions", "char-alisaie", "member-of", "org-scions", A, None, "optional", ["C30"], "R14"),
 ]
 
+# Arcs (schema v2): (arc id, arc entry event id, first step, last step), in authored order.
+ARCS = []
+
 # Records the user explicitly accepted (NDL-003, 2026-11-14), each bound to a fingerprint of its accepted content and
-# context. Re-recorded mechanically in NDL-006 when the fingerprint gained the context; RealDataTests' v1 pin proves the
+# context. Re-recorded mechanically in NDL-006 when the fingerprint gained the context, and in NDL-009 when it dropped
+# the sources' mechanical availability; each time only fingerprint inputs moved, and RealDataTests' v1 pin proves the
 # content itself did not change.
 # Only an exact content match is emitted "reviewed"; see fingerprint() and the module docstring.
 ACCEPTED = {
-    ('presentation', 'char-minfilia', 'cp-arr-2-0', 'main'): '56105077390654ec00521e02',
-    ('presentation', 'char-minfilia', 'cp-arr-2-55', 'main'): '10c77f152242e8e395c39c59',
-    ('presentation', 'char-thancred', 'cp-arr-2-0', 'main'): '37e1dea8b9ae1d802125fc02',
-    ('presentation', 'char-thancred', 'cp-arr-2-55', 'main'): 'd88425ba05ba1423496b8eb0',
-    ('presentation', 'char-yshtola', 'cp-arr-2-0', 'main'): '7419eb6143163295e946f098',
-    ('presentation', 'char-yshtola', 'cp-arr-2-55', 'main'): '411aeb4e7d69a0f64f3f928e',
-    ('presentation', 'char-urianger', 'cp-arr-2-0', 'main'): '7495778e2ac3c09e0c5883cd',
-    ('presentation', 'char-urianger', 'cp-arr-2-55', 'main'): 'c03fe211d54c969a0c197f12',
-    ('presentation', 'char-alphinaud', 'cp-arr-2-0', 'main'): 'e2670094099dea2525e5a5b5',
-    ('presentation', 'char-alphinaud', 'cp-arr-2-55', 'main'): 'b4a8286dead34d06e5ba6615',
-    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'main'): '681ed43a90e12b809befa91d',
-    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'optional'): '3cb34cee3a849c1e2fcda720',
-    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'main'): '715c1a696b8f7704023e86cc',
-    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'optional'): '0e1d83c42669360f410dad29',
-    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'main'): 'a5e36d4fa093518e849cb6e5',
-    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'optional'): '17172a64a195e98698c55808',
-    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'main'): '77aed4871fd1ef13be3230df',
-    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'optional'): 'f4b0c1e85fd69bdcd444e370',
-    ('presentation', 'char-tataru', 'cp-arr-2-0', 'main'): '39d22d004275137f02db0dc1',
-    ('presentation', 'char-tataru', 'cp-arr-2-55', 'main'): '0103e14fa72717db02102d9c',
-    ('presentation', 'org-scions', 'cp-arr-2-0', 'main'): '30b0dbcae87fc3d2a0e7641f',
-    ('presentation', 'org-scions', 'cp-arr-2-55', 'main'): '5df2c1a1f2c9e0c271ffb529',
-    ('presentation', 'org-crystal-braves', 'cp-arr-2-55', 'main'): '0500a58d394b187ed7258e09',
-    ('presentation', 'loc-waking-sands', 'cp-arr-2-0', 'main'): '0f69650c96edf3b0d1e5c2a1',
-    ('presentation', 'loc-waking-sands', 'cp-arr-2-55', 'main'): 'b17947420595507e4a95823f',
-    ('presentation', 'loc-rising-stones', 'cp-arr-2-55', 'main'): 'ec2484a7a1679c1c9f1bcad1',
-    ('relationship', 'rel-minfilia-leads-scions'): 'c75ef37863948e8d7e957955',
-    ('relationship', 'rel-thancred-member-scions'): 'c4584f49e08f09365771cf58',
-    ('relationship', 'rel-yshtola-member-scions'): '10c52033c7be464f5aca0387',
-    ('relationship', 'rel-urianger-member-scions'): 'db53f719adfe611ef8550f6c',
-    ('relationship', 'rel-alphinaud-member-scions'): '1347a6c368714f8cf3eb6235',
-    ('relationship', 'rel-tataru-member-scions'): 'd2804ada143793fa86d8e5f0',
-    ('relationship', 'rel-alphinaud-twin-alisaie'): '2ac4d6428c481547e1cf3db2',
-    ('relationship', 'rel-scions-hq-waking-sands'): '87306ba5cab71b55a7a6b4b5',
-    ('relationship', 'rel-braves-control-rising-stones'): '0f344e0b6452645da6a6199b',
-    ('relationship', 'rel-braves-turned-against-scions'): '7827ab27780b20dd8dd58cf2',
-    ('relationship', 'rel-urianger-conceals-waking-sands'): 'ee9e765b856b90d56cdb9d97',
-    ('relationship', 'rel-alisaie-grandchild-louisoix'): '25486a917901e7e06b9e25db',
-    ('relationship', 'rel-alphinaud-grandchild-louisoix'): '38f6c5895821c9fbcdacf04e',
-    ('relationship', 'rel-alisaie-member-scions'): '02d1a3bbf15068aa26c0c978',
+    ('presentation', 'char-minfilia', 'cp-arr-2-0', 'main'): 'bfc89614a1861a0ced86e6dc',
+    ('presentation', 'char-minfilia', 'cp-arr-2-55', 'main'): '54bd6ce1624348d24caf5841',
+    ('presentation', 'char-thancred', 'cp-arr-2-0', 'main'): '2094032d324714afdadba967',
+    ('presentation', 'char-thancred', 'cp-arr-2-55', 'main'): '31ef5a5836c6ffebe9261f80',
+    ('presentation', 'char-yshtola', 'cp-arr-2-0', 'main'): '56985d6f9d0dc0b9a534c60e',
+    ('presentation', 'char-yshtola', 'cp-arr-2-55', 'main'): '99945ac958a6a86cacdfe2ef',
+    ('presentation', 'char-urianger', 'cp-arr-2-0', 'main'): '5fb92be56b707e2cc005d6f2',
+    ('presentation', 'char-urianger', 'cp-arr-2-55', 'main'): '73fbf8adcb6bcd100fe5c5fc',
+    ('presentation', 'char-alphinaud', 'cp-arr-2-0', 'main'): '035ce3f714d759e8041b3c00',
+    ('presentation', 'char-alphinaud', 'cp-arr-2-55', 'main'): '87fc6b363949382022d65bf8',
+    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'main'): '0ac538cac4294a9472e53cf4',
+    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'optional'): '1c1135fb1fd217896cdd1a02',
+    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'main'): '7dc53e74beb0010764b446b1',
+    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'optional'): '091a16a246558de3708c8e49',
+    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'main'): '967fcc43a76eeb49777f6a7a',
+    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'optional'): 'aaf5f08634e8b1925f651962',
+    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'main'): '63b81514561793b28152105f',
+    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'optional'): '5b5f18f63ea33c70fa4fdd8b',
+    ('presentation', 'char-tataru', 'cp-arr-2-0', 'main'): '490f82c1573e07f83b19b5f9',
+    ('presentation', 'char-tataru', 'cp-arr-2-55', 'main'): '9b4bab84c0557fe329d34611',
+    ('presentation', 'org-scions', 'cp-arr-2-0', 'main'): '7b33c9e8e006ec54a13bfc1a',
+    ('presentation', 'org-scions', 'cp-arr-2-55', 'main'): '7c4e9f62567c24170da32c0c',
+    ('presentation', 'org-crystal-braves', 'cp-arr-2-55', 'main'): 'a8c8e111edd7eda1a1e8a107',
+    ('presentation', 'loc-waking-sands', 'cp-arr-2-0', 'main'): '0db3feac0806311b706fa5b3',
+    ('presentation', 'loc-waking-sands', 'cp-arr-2-55', 'main'): '1a055d80873713f68c88055a',
+    ('presentation', 'loc-rising-stones', 'cp-arr-2-55', 'main'): '6578619646fc193958c8e930',
+    ('relationship', 'rel-minfilia-leads-scions'): 'b8132fbcc20efdf161e54e11',
+    ('relationship', 'rel-thancred-member-scions'): 'a811de0a14892ad6f1258496',
+    ('relationship', 'rel-yshtola-member-scions'): '74b54427aa328e15c4bde01e',
+    ('relationship', 'rel-urianger-member-scions'): 'a05362ba743578b5e76afe98',
+    ('relationship', 'rel-alphinaud-member-scions'): '67bc179a99ae72883a7c456c',
+    ('relationship', 'rel-tataru-member-scions'): '9a9a5c8eb4d7c6a0e5aeb09e',
+    ('relationship', 'rel-alphinaud-twin-alisaie'): 'f58f7f36d201b1a4c759fd17',
+    ('relationship', 'rel-scions-hq-waking-sands'): '7b68b5a2f4867c58652e7e4b',
+    ('relationship', 'rel-braves-control-rising-stones'): 'b4a77f73ae9a8c40c932e5d0',
+    ('relationship', 'rel-braves-turned-against-scions'): '2184c0fa4cad67c5e10fcdea',
+    ('relationship', 'rel-urianger-conceals-waking-sands'): '7cb94d05b001cca73bfc4ab0',
+    ('relationship', 'rel-alisaie-grandchild-louisoix'): '800de2048776ba880a364001',
+    ('relationship', 'rel-alphinaud-grandchild-louisoix'): '47f4e9a585e113c723d7835e',
+    ('relationship', 'rel-alisaie-member-scions'): '8f163e268ab8d05aed8a811b',
 }
 
 def fingerprint(record, context=None):
@@ -359,10 +390,26 @@ def with_review(key, record, context=None, accepted=None):
 FINGERPRINTS = {}
 
 def evidence(claims):
-    """The reviewed evidence behind a record: each claim's id, wording, source entry and locator."""
-    return [[c, C[c][0], C[c][2], SRC[C[c][1]]] for c in claims]
+    """The reviewed evidence behind a record: each claim's id, wording, source entry and locator. The source's
+    availability is left out, like a citation's availableAt: it may move earlier mechanically (v2 plan)."""
+    return [[c, C[c][0], C[c][2], {k: v for k, v in SRC[C[c][1]].items() if k != "avail"}] for c in claims]
 
 TYPE_ROW = {i: [o, n, sym] for i, o, n, sym in TYPES}
+
+def rel_parts(r):
+    """A RELS row: (id, source, type, target, from, until, scope, claims, review-sheet label[, end claims])."""
+    rid, s, t, g, f, u, sc, cl, rn, *rest = r
+    return rid, s, t, g, f, u, sc, cl, rn, (rest[0] if rest else [])
+
+def rel_record(r):
+    rid, s, t, g, f, u, sc, cl, _, end = rel_parts(r)
+    record = {"id": rid, "source": s, "type": t, "target": g, "validFrom": f, "validUntil": u, "scope": sc,
+              "citations": [citation(k) for k in cites(cl)]}
+    context = {"type": TYPE_ROW[t], "evidence": evidence(cl)}
+    if end:  # end evidence, shown only on the Changes "ended" row (v2 spoiler rule 2)
+        record["endCitations"] = [citation(k) for k in cites(end)]
+        context["endEvidence"] = evidence(end)
+    return with_review(("relationship", rid), record, context)
 
 def missing_accepted(accepted, emitted):
     return sorted(set(accepted) - emitted)
@@ -388,12 +435,8 @@ doc = {
         {"category": cat, "evidence": evidence(p["claims"])})
       for p in pres]}
     for eid, cat, pres in ENT],
-  "relationships": [
-    with_review(("relationship", rid),
-      {"id": rid, "source": s, "type": t, "target": g, "validFrom": f, "validUntil": u, "scope": sc,
-       "citations": [citation(k) for k in cites(cl)]},
-      {"type": TYPE_ROW[t], "evidence": evidence(cl)})
-    for rid, s, t, g, f, u, sc, cl, _ in RELS],
+  "relationships": [rel_record(r) for r in RELS],
+  **({"arcs": [{"id": aid, "entityId": eid, "firstStep": f, "lastStep": l} for aid, eid, f, l in ARCS]} if ARCS else {}),
 }
 
 # An accepted key that no longer exists means a record was renamed or deleted: fail loudly instead of drifting.
@@ -417,7 +460,7 @@ if SELF_TEST:
         print(("ok   " if cond else "FAIL ") + label)
         if not cond:
             sys.exit(1)
-    rid, _, rtype, _, _, _, _, rclaims, _ = RELS[0]
+    rid, _, rtype, _, _, _, _, rclaims, _, _ = rel_parts(RELS[0])
     sample = copy.deepcopy(doc["relationships"][0]); sample.pop("review")
     key = ("relationship", sample["id"])
     ctx = {"type": TYPE_ROW[rtype], "evidence": evidence(rclaims)}
@@ -448,7 +491,10 @@ if SELF_TEST:
     check("changed presentation text is pending", status(reworded, pctx, pkey, paccepted) == "pending")
     check("a changed category is pending", status(pres, {**pctx, "category": "location"}, pkey, paccepted) == "pending")
     check("an accepted key that no longer exists is reported", missing_accepted({**ACCEPTED, ("relationship", "rel-gone"): "x"}, EMITTED_KEYS) == [("relationship", "rel-gone")])
-    check("every bundled record is currently reviewed", all(pr["review"] == "reviewed" for e in doc["entities"] for pr in e["presentations"]) and all(r["review"] == "reviewed" for r in doc["relationships"]))
+    ended = copy.deepcopy(sample); ended["endCitations"] = [{"title": "Why it ended", "url": None, "availableAt": "cp-arr-2-0", "scope": "main"}]
+    check("added end evidence is pending", status(ended) == "pending")
+    check("every accepted record is currently reviewed", all(pr["review"] == "reviewed" for e in doc["entities"] for pr in e["presentations"] if ("presentation", e["id"], pr["validFrom"], pr["scope"]) in ACCEPTED)
+          and all(r["review"] == "reviewed" for r in doc["relationships"] if ("relationship", r["id"]) in ACCEPTED))
     sys.exit(0)
 for c in C.values():
     assert c[1] in SRC, c
@@ -457,13 +503,26 @@ for c in C.values():
 # ---- Review sheet ---------------------------------------------------------------------------------------------
 NAME = {eid: pres[0]["name"] for eid, _, pres in ENT}
 TLAB = {i: (o, n) for i, o, n, _ in TYPES}
-def interval(f, u): return f"{CP_SHORT[f]} onward" if u is None else f"{CP_SHORT[f]} only"
+def interval(f, u):
+    if u is None:
+        return f"{CP_SHORT[f]} onward"
+    last = ORDER[ORDER.index(u) - 1]
+    return f"{CP_SHORT[f]} only" if last == f else f"{CP_SHORT[f]}–{CP_SHORT[last]}"
+
+def covers(f, u, cid):
+    return ORDER.index(f) <= ORDER.index(cid) and (u is None or ORDER.index(cid) < ORDER.index(u))
+
+def visible_counts(cid, view):
+    scopes = ("main",) if view == "main" else ("main", "optional")
+    ents = sum(1 for _, _, pres in ENT if any(p["scope"] in scopes and covers(p["frm"], p["until"], cid) for p in pres))
+    rels = sum(1 for r in RELS if (lambda x: x[6] in scopes and covers(x[4], x[5], cid))(rel_parts(r)))
+    return ents, rels
 def claimrows(claims):
     return "\n".join(f"  - **{c}** {C[c][0]} *{C[c][1]}* ({SRC[C[c][1]]['patch']}, {SRC[C[c][1]]['scope']}): \"{C[c][2]}\"" for c in claims)
 
 out = []
 w = out.append
-w("# Atlas content review sheet (NDL-003)\n")
+w("# Atlas content review sheet\n")
 PENDING = sum(1 for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending") + sum(1 for r in doc["relationships"] if r["review"] == "pending")
 w(f"> **Status: {'REVIEWED' if PENDING == 0 else f'AWAITING HUMAN REVIEW ({PENDING} pending)'}.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), "
   "exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. "
@@ -478,22 +537,41 @@ w("1. **Source links: on.** Every citation links to its quest page. The [citatio
 w("2. **Alisaie as a Scion (R14, optional only): keep.** Its only direct support is the optional *Alisaie's Pledge* journal calling her \"the young Scion\" (C30).")
 w("3. **Alphinaud as Louisoix's grandchild (R13, optional, from 2.55): keep.** It rests on two optional lines read together: Louisoix was Alisaie's grandsire (C13, 2.0), and Alphinaud speaks of \"our grandsire\" shared with his sister (C26, 2.2).\n")
 w("## Snapshot overview\n")
-w("| | 2.0 main story | 2.0 main + optional | 2.55 main story | 2.55 main + optional |\n|---|---|---|---|---|")
-w("| Entities | 10 | 10 | 12 | 12 |\n| Relationships | 8 | 10 | 10 | 13 |\n")
-w("Hidden at 2.0: the Crystal Braves and the Rising Stones (both first appear in 2.1–2.3), and every relationship that starts at 2.55.\n")
+w("Visible records at each step, in the main-story view and the main + optional view. Slice steps (#…) cover only the arc's cast.\n")
+w("| Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |\n|---|---|---|---|---|")
+for cid in ORDER:
+    em, rm = visible_counts(cid, "main"); eo, ro = visible_counts(cid, "full")
+    w(f"| {CP_SHORT[cid]} {CP_LABEL[cid]} | {em} | {eo} | {rm} | {ro} |")
+w("")
+if ARCS:
+    w("## Arcs\n")
+    for aid, entry, first, last in ARCS:
+        pres = next(p for e, _, p in ENT if e == entry)
+        w(f"### {pres[0]['name']} (`{aid}`)\n")
+        w(f"From {CP_SHORT[first]} *{CP_LABEL[first]}* to {CP_SHORT[last]} *{CP_LABEL[last]}*. {ARC_NOTES[aid]}\n")
+        w("| Step | Arc name | Recap | Recap status | Cast at this step |\n|---|---|---|---|---|")
+        cast = []
+        for cid in ORDER[ORDER.index(first):ORDER.index(last) + 1]:
+            p = next(x for x in pres if covers(x["frm"], x["until"], cid))
+            status = "new recap" if p["frm"] == cid else "unchanged, still accurate"
+            members = [NAME[s] for r in RELS for (rid, s, t, g, f, u, sc, cl, rn, end) in [rel_parts(r)] if t == "participant-in" and g == entry and covers(f, u, cid)]
+            w(f"| {CP_SHORT[cid]} | {p['name']} | {p['summary']} | {status} | {', '.join(members)} ({len(members)}) |")
+        w("")
 w("## Entities\n")
 for eid, cat, pres in ENT:
     w(f"### {NAME[eid]} (`{eid}`, {cat})\n")
     for p in pres:
         al = f" · Also searchable as: {', '.join(p['aliases'])}" if p["aliases"] else ""
-        w(f"**{CP_SHORT[p['frm']]}{' onward' if p['until'] is None else ''} · {p['scope']}**{al}\n")
+        w(f"**{interval(p['frm'], p['until'])} · {p['scope']}**{al}\n")
         w(f"> {p['summary']}\n")
         w("Sources shown: " + "; ".join(SRC[k]["title"] for k in cites(p["claims"])) + "\n")
         w("<details><summary>Evidence</summary>\n\n" + claimrows(p["claims"]) + "\n\n</details>\n")
 w("## Relationships\n")
 w("| ID | Edge | Visible | Scope | Claims |\n|---|---|---|---|---|")
-for rid, s, t, g, f, u, sc, cl, rn in RELS:
-    w(f"| {rn} | {NAME[s]} → *{TLAB[t][0]}* → {NAME[g]} | {interval(f, u)} | {sc} | {', '.join(cl)} |")
+w("| ID | Edge | Visible | Scope | Claims | End evidence |\n|---|---|---|---|---|---|") if False else None
+for r in RELS:
+    rid, s, t, g, f, u, sc, cl, rn, end = rel_parts(r)
+    w(f"| {rn} | {NAME[s]} → *{TLAB[t][0]}* → {NAME[g]} | {interval(f, u)} | {sc} | {', '.join(cl)}{(' · ends: ' + ', '.join(end)) if end else ''} |")
 w("\nEvidence for each claim is listed under the entities above and in full in the [claims table](content-claims.md).\n")
 (REPO / "docs/atlas/content-review.md").write_text("\n".join(out))
 
@@ -502,7 +580,7 @@ rows = ["| ID | Claim (own words) | Source · patch · scope | Locator | Counts 
 for cid in sorted(C, key=lambda x: (int(''.join(ch for ch in x[1:] if ch.isdigit())), x)):
     t, k, q = C[cid]
     rows.append(f"| {cid} | {t} | *{SRC[k]['page']}* · {SRC[k]['patch']} · {SRC[k]['scope']} | \"{q}\" | {CP_SHORT[SRC[k]['avail']]} |")
-head = ("# Atlas pilot claims (NDL-003)\n\nGenerated by `tools/atlas/build_pilot_content.py`; do not edit by hand. "
+head = ("# Atlas claims\n\nGenerated by `tools/atlas/build_pilot_content.py`; do not edit by hand. "
         "Method, decisions and citation safety: [content-evidence.md](content-evidence.md). "
         "Locators quote Console Games Wiki transcriptions of in-game text; \"Counts from\" is the earliest checkpoint where the quest is player knowledge.\n\n")
 (REPO / "docs/atlas/content-claims.md").write_text(head + "\n".join(rows) + "\n")
