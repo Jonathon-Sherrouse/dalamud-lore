@@ -177,7 +177,15 @@ internal sealed class ViewerHost(ViewerOptions options)
                 optionalTooltip = AtlasText.OptionalTooltip,
                 optionalSummaryNote = AtlasText.OptionalSummaryNote,
             },
-            checkpoints = s.CheckpointOptions,
+            checkpoints = s.CheckpointOptions.Select(c => new
+            {
+                c.Id,
+                c.Label,
+                c.IsCeiling,
+                c.IsView,
+                c.ViewSelectable,
+                lockedLabel = AtlasText.LockedCheckpoint(c.Label),
+            }),
             contentView = s.ContentView,
             contentViews = new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory }
                 .Select(v => new { id = v, label = AtlasText.ContentViewLabel(v) }),

@@ -42,6 +42,7 @@ public sealed class Plugin : IDalamudPlugin
 
     private readonly DialogueCapture dialogueCapture;
     private readonly DialogueHistory dialogueHistory = new();
+    private readonly AtlasWindow atlasWindow;
     private readonly DictionaryWindow dictionaryWindow;
     private readonly GameContextProvider gameContextProvider;
     private readonly LoreExplainClient loreExplainClient = new();
@@ -77,9 +78,11 @@ public sealed class Plugin : IDalamudPlugin
             Path.Combine(PluginInterface.ConfigDirectory.FullName, "user-terms.json"));
         this.dictionaryWindow = new DictionaryWindow(this.termDictionary, this.RefreshLastCandidates);
         this.settingsWindow = new SettingsWindow(this.configuration);
+        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration);
         this.windowSystem.AddWindow(this.dictionaryWindow);
         this.windowSystem.AddWindow(this.settingsWindow);
         this.windowSystem.AddWindow(this.loreExplainWindow);
+        this.windowSystem.AddWindow(this.atlasWindow);
         this.linkPayload = ChatGui.AddChatLinkHandler(LinkCommandId, this.OnLinkClicked);
         this.dialogueCapture = new DialogueCapture(AddonLifecycle, this.OnDialogueChanged);
         PluginInterface.UiBuilder.Draw += this.DrawUi;
@@ -88,7 +91,7 @@ public sealed class Plugin : IDalamudPlugin
             CommandName,
             new CommandInfo(this.OnCommand)
             {
-                HelpMessage = "Use /npclinks show, /npclinks list, /npclinks dict, /npclinks config, /npclinks lore, /npclinks questprobe, or /npclinks explain <dialogue> | <question>.",
+                HelpMessage = "Use /npclinks show, /npclinks list, /npclinks dict, /npclinks atlas, /npclinks config, /npclinks lore, /npclinks questprobe, or /npclinks explain <dialogue> | <question>.",
             });
 
         Log.Information("NPC Dialogue Links loaded.");
@@ -205,6 +208,9 @@ public sealed class Plugin : IDalamudPlugin
                 }
 
                 break;
+            case "atlas":
+                this.atlasWindow.Toggle();
+                break;
             case "config":
             case "settings":
                 this.settingsWindow.Toggle();
@@ -227,7 +233,7 @@ public sealed class Plugin : IDalamudPlugin
                 this.HandleLoreExplain(parts.Length > 1 ? parts[1] : string.Empty);
                 break;
             default:
-                ChatGui.Print("Usage: /npclinks [dict|questprobe|config|lore|show|list|explain <dialogue> | <question>]", "NPC Links");
+                ChatGui.Print("Usage: /npclinks [dict|atlas|questprobe|config|lore|show|list|explain <dialogue> | <question>]", "NPC Links");
                 break;
         }
     }

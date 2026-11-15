@@ -202,6 +202,12 @@ public class StateAndSessionTests
     }
 
     [Fact]
+    public void Text_LockedCheckpointNamesOnlyTheCheckpoint()
+    {
+        Assert.Equal("Later (locked)", AtlasText.LockedCheckpoint("Later"));
+    }
+
+    [Fact]
     public void Text_SourcesToggleShowsCount()
     {
         Assert.Equal("Sources (3)", AtlasText.SourcesToggle(3));

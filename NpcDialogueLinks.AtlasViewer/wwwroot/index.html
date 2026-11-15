@@ -209,7 +209,7 @@ function render() {
   }
   const t = state.text;
   const ceiling = state.checkpoints.find(c => c.isCeiling);
-  const viewOpts = state.checkpoints.map(c => `<option value="${esc(c.id)}"${c.isView ? " selected" : ""}${c.viewSelectable ? "" : " disabled"}>${c.viewSelectable ? "" : "🔒 "}${esc(c.label)}</option>`).join("");
+  const viewOpts = state.checkpoints.map(c => `<option value="${esc(c.id)}"${c.isView ? " selected" : ""}${c.viewSelectable ? "" : " disabled"}>${esc(c.viewSelectable ? c.label : c.lockedLabel)}</option>`).join("");
   const menu = limitMenuOpen ? `<div class="menu">${state.checkpoints.map(c => c.isCeiling
       ? `<button class="current" disabled>✓ ${esc(c.label)}</button>`
       : `<button data-ceiling="${esc(c.id)}">${esc(c.label)}</button>`).join("")}</div>` : "";

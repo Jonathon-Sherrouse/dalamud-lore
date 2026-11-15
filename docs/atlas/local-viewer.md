@@ -40,9 +40,9 @@ Neither front end has its own browsing logic. Everything lives in the pure core 
 | `AtlasText` | Every player-facing string, the category glyphs, and the neutral confirmation prompt |
 | `AtlasLoader` | Loading, Strict validation, and failure isolation |
 
-The plugin, the viewer and the tests all compile these same files. The viewer (`NpcDialogueLinks.AtlasViewer/`) and the future Dalamud window (`NDL-004`) only render a session and forward clicks to its methods.
+The plugin, the viewer and the tests all compile these same files. The viewer (`NpcDialogueLinks.AtlasViewer/`) and the Dalamud window (`NpcDialogueLinks/AtlasWindow.cs`, `NDL-004`) only render a session and forward clicks to its methods.
 
-Maintenance rules for every change, starting with `NDL-004`:
+Maintenance rules for every change (the in-game window shipped in `NDL-004`):
 
 1. **Change behavior in the core first.** Then render it in both the ImGui window and `wwwroot/index.html` in the same pull request.
 2. **Add new player-facing text to `AtlasText`,** never inline in one front end.
@@ -53,10 +53,10 @@ Maintenance rules for every change, starting with `NDL-004`:
 
 | Viewer | In-game window |
 |---|---|
-| Content selector (main story only / main + optional) is always shown, so both views can be compared. | Uses the default main + optional view until a toggle is approved. |
+| Content selector, persisted only for the viewer process. | The same selector (accepted design, NDL-005), reset to main + optional on every open. |
 | `--data` and `--draft` flags, a draft banner, and a Reload button. | Loads only the bundled `atlas.json`, Strict, once per open. |
 | Errors go to the terminal. | Errors go to the Dalamud log. |
-| Browser rendering (HTML and SVG). | ImGui rendering. Same layout coordinates, glyphs and text. |
+| Browser rendering (HTML and SVG). Direction arrows are text glyphs (← → ↔), and optional edges use an SVG dash. | ImGui rendering (`NpcDialogueLinks/AtlasWindow.cs`), with the same layout coordinates, glyphs, colors and text. Arrows are drawn, so they never depend on font coverage, and dashes are short line segments. |
 
 ## Tests
 
