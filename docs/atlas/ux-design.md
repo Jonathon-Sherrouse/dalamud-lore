@@ -1,6 +1,6 @@
 # Atlas UX design (NDL-005)
 
-> **Status: proposal, awaiting the user's reaction.** This is the design that `NDL-004` will build in game, prototyped in the [local viewer](local-viewer.md). Sections marked **Proposed** are not decided. Sections marked **Decided** record a user decision. Nothing is accepted until the user accepts the whole story ([backlog card](../backlog.md)).
+> **Status: prototyped, awaiting acceptance.** This is the design that `NDL-004` will build in game. The user answered the proposal's four questions on 2026-11-14 ([D2–D5](#decisions)), and the whole design is now prototyped in the [local viewer](local-viewer.md). Sections marked **Prototyped** are built in the viewer but not yet accepted. Nothing is accepted until the user accepts the whole story ([backlog card](../backlog.md)).
 
 ## Constraints the design keeps
 
@@ -13,9 +13,9 @@ These come from the accepted contract and the frozen schema. The design may not 
 - **The graph shows one hop:** the focus plus at most 8 neighbors on the canvas, with every neighbor always in the list. There is no force-directed layout and no navigation history.
 - **Every string and every behavior lives in the shared core** (`AtlasText`, `AtlasSession`, `AtlasGraphLayout`), so the ImGui window and the viewer render the same thing.
 
-## Layout (Proposed)
+## Layout (Prototyped)
 
-A static mockup in real 2.0 data is in [ux-mockup.html](ux-mockup.html). Open it in a browser.
+The live prototype is the local viewer. The original static mockup is in [ux-mockup.html](ux-mockup.html).
 
 The window has one top bar, three panes, and a one-line footer.
 
@@ -51,23 +51,23 @@ The window has one top bar, three panes, and a one-line footer.
 
 The browse pane and the details pane scroll independently. The graph never scrolls; it scales to fit.
 
-## Flows (Proposed)
+## Flows (Prototyped)
 
 | # | Flow | Behavior |
 |---|---|---|
-| F1 | **First open** | View and limit are at the earliest checkpoint and nothing is focused. The browse pane lists every visible entry, and the canvas shows "Search or pick an entry to see its connections." |
+| F1 | **First open** | View and limit are at the earliest checkpoint, and the window opens focused on the home entry, the Scions ([D5](#d5-open-on-the-scions-user-decision-2026-11-14)). The browse pane lists every visible entry, grouped by category. |
 | F2 | **Search → focus** | Typing filters names and aliases live, as a case-insensitive substring. Clicking an entry, or pressing Enter for the top result, focuses it. |
 | F3 | **Refocus** | Click a neighbor on the canvas or a name in the Connections list. The graph re-centers on it and the details update. There is no back button: history is out of scope. |
 | F4 | **Inspect a connection** | Click an edge label or a Connections row's label. A card shows "Minfilia **leads** The Scions…" with its own sources. **Close** dismisses it. |
-| F5 | **Change "Viewing as of"** | Only checkpoints at or below the limit are selectable. Later ones show greyed with a lock, and their labels stay neutral. Changing the view clears the focus, search and selection, and shows a hint: "Selection cleared because the story point changed." |
+| F5 | **Change "Viewing as of"** | Only checkpoints at or below the limit are selectable. Later ones show greyed with a lock, and their labels stay neutral. Changing the view clears the search and selection and returns the focus to the Scions. If that discarded something you had chosen, a hint shows above the browse list: "Selection reset because the story settings changed." |
 | F6 | **Raise the limit** | **Raise…** opens a menu of later checkpoints. Picking one opens a modal: *Allow story knowledge through "…"? The current view will not change.* **Show** raises the limit only, and the view stays put. **Cancel** changes nothing. |
-| F7 | **Lower the limit** | Choosing an earlier limit from the same menu needs no confirmation. If the view was above the new limit, it clamps down, with the same cleared-selection hint as F5. |
-| F8 | **Content view** | The segmented toggle switches between Main story + optional (the default) and Main story only. Switching clears transient state, like F5. |
+| F7 | **Lower the limit** | Choosing an earlier limit from the same menu needs no confirmation. If the view was above the new limit, it clamps down and resets like F5. |
+| F8 | **Content view** | The segmented toggle switches between Main story + optional (the default) and Main story only. Switching resets like F5. In the full view, optional-quest records are marked ([D3](#d3-optional-content-is-marked-user-decision-2026-11-14)). |
 | F9 | **More than 8 neighbors** | The canvas keeps the first 8 in category/ID order. The Connections list always shows every neighbor and marks the extras "(list only)". |
 | F10 | **Open a source** | Expand Sources (n). The warning, *External pages may contain later spoilers…*, sits at the top of the section. Clicking a title opens it in the browser. Nothing opens without an explicit click. |
 | F11 | **Data fails to load** | The window shows only the generic message, *The Lore Atlas could not load its data. Other features are unaffected.*, and the details go to the log. Reopening the window retries. |
 
-## Visual language (Proposed)
+## Visual language (Prototyped)
 
 - **Categories use shape plus color, never color alone.** The category name always appears in the details too.
 
@@ -86,20 +86,21 @@ The browse pane and the details pane scroll independently. The graph never scrol
   - Rows read from the focus's point of view: "← led by Minfilia", "→ headquartered at The Waking Sands", "↔ twin of Alisaie".
   - The arrow glyph repeats the direction, so color is never the only cue.
 - **Selection:** the selected edge and its label turn the accent color. The selected row is highlighted in the list.
-- **Text:** summaries wrap. Canvas names truncate with an ellipsis and show the full name in a tooltip.
+- **Text:** summaries wrap. Canvas names truncate with an ellipsis, show the full name in a tooltip, and have a dark halo so they stay legible where they cross an edge.
+- **Optional content** ([D3](#d3-optional-content-is-marked-user-decision-2026-11-14)): optional edges are dashed, optional connections carry an "optional" tag, and text that includes optional quests carries an "Includes optional quests." tag.
 
-## States (Proposed)
+## States (Prototyped)
 
 | State | What shows |
 |---|---|
-| Nothing focused | Canvas hint (F1). Details show the same hint. |
+| Nothing focused | Only when the home entry is not visible. Canvas hint: "Search or pick an entry to see its connections." Details show the same hint. |
 | No search results | "No matching entries at this point in the story." It never says "hidden". |
 | Focus has no connections | "None at this point." in Connections, with a lone node on the canvas. |
-| Selection cleared by a story-point or content change | One-line hint above the browse list until the next action. |
+| Selection reset by a story-settings change | One-line hint above the browse list until the next browsing action (`AtlasSession.SelectionWasReset`). |
 | Load failure | F11. Nothing else renders. |
 | Viewer only: draft data | "Draft data — not shippable" badge in the footer. |
 
-## Accessibility (Proposed)
+## Accessibility (Prototyped)
 
 - Every fixed width, the minimum window size and the graph's node radius multiply by the global font scale. The layout is checked at 100% and 150%.
 - Text contrast is at least 4.5:1 against its panel. No meaning is carried by color alone: shapes, arrows and labels carry it.
@@ -114,19 +115,13 @@ The browse pane and the details pane scroll independently. The graph never scrol
 | Raise confirmation | `BeginPopupModal` with `AtlasText.ConfirmRaise` and the Show / Cancel buttons |
 | Content toggle | Two `Selectable` / `RadioButton` items in a row |
 | Search and browse list | `InputTextWithHint`; `Selectable` rows under `SeparatorText` category headers |
-| Graph | `ImDrawList` circles, squares (`AddRectFilled`) and diamonds (`AddQuadFilled`); `AddLine` plus a triangle for arrowheads; `InvisibleButton` hit areas for nodes and labels |
+| Graph | `ImDrawList` circles, squares (`AddRectFilled`) and diamonds (`AddQuadFilled`); `AddLine` plus a triangle for arrowheads; `InvisibleButton` hit areas for nodes and labels. Dashed optional edges: short `AddLine` segments along the edge, since ImGui has no dash style. Label halo: a dark `AddRectFilled` behind the text. |
+| Optional tags | `TextDisabled` (or a small framed `SmallButton`-style label) with the `OptionalTooltip` on hover |
 | Tooltips | `IsItemHovered` + `SetTooltip` for truncated names and links |
 | Sources | `CollapsingHeader`, with its state driven by `SourcesExpanded` ([D1](#d1-sources-are-collapsed-by-default-user-decision-2026-11-14)) |
 | Links | Text buttons that call Dalamud's `Util.OpenLink` on click only |
 
-## Questions for the user
-
-1. **Control names.** Rename "Knowledge approved through" to **"Spoiler limit"**, and keep "Viewing as of"? It's shorter, and it says what the control does.
-2. **Mark optional content?** In the main + optional view, should edges from optional quests be **dashed**, with descriptions tagged "includes optional quests"? It helps you see what the toggle changes. It needs a small core change to expose each record's scope to the UI; that isn't a spoiler, and the schema doesn't change.
-3. **Group the browse list by category** (Characters / Organizations / Locations), or keep one flat list?
-4. **Starting focus.** Open with nothing focused (current), or focus a starting entry such as the Scions?
-
-## Decisions so far
+## Decisions
 
 ### D1. Sources are collapsed by default (user decision, 2026-11-14)
 
@@ -137,3 +132,31 @@ The details pane shows the summary and connections first. Sources sit in one sma
 - **Spoiler warning.** The external-page warning (`AtlasText.ExternalLinkWarning`) sits inside the section, so it is always visible before any link can be clicked.
 - **Shared core.** The state is `AtlasSession.SourcesExpanded` and `SetSourcesExpanded`, and the label is `AtlasText.SourcesToggle(count)`. Both front ends render them; neither keeps its own copy.
 - **ImGui feasibility.** `ImGui.CollapsingHeader` (or a `TreeNode`) labelled with `SourcesToggle`, with its open state driven by `SourcesExpanded` through `ImGui.SetNextItemOpen` on every frame, and toggles written back through `SetSourcesExpanded`. Links are buttons that show the warning tooltip and open only on an explicit click.
+
+### D2. "Spoiler limit" (user decision, 2026-11-14)
+
+The ceiling control is labelled **Spoiler limit** (`AtlasText.CeilingLabel`). "Viewing as of" stays. The confirmation prompt is unchanged.
+
+### D3. Optional content is marked (user decision, 2026-11-14)
+
+In the main + optional view:
+- edges known only from optional quests are dashed;
+- their Connections rows and the selected-connection card carry an "optional" tag;
+- an entity whose shown text is an optional presentation carries "Includes optional quests.";
+- every tag explains itself on hover (`AtlasText.OptionalTooltip`).
+
+The main-story view never shows a mark, because it has no optional records.
+
+The marks come from `AtlasRelationshipView.IsOptional` and `AtlasEntityView.IncludesOptional`, set by the projector. This is a display flag only: the schema is unchanged, and it reveals nothing that is not already visible.
+
+### D4. The browse list is grouped by category (user decision, 2026-11-14)
+
+The list is grouped under Characters, Organizations and Locations (`AtlasSession.SearchResultGroups`, with headings from `AtlasText.CategoryGroupLabel`). Search filters within the groups, and empty groups are omitted.
+
+### D5. Open on the Scions (user decision, 2026-11-14)
+
+The window opens focused on the Scions (`AtlasDefaults.HomeEntityId`). It returns there whenever a story-settings change (limit, view or content view) resets the selection, as long as the Scions are visible.
+
+- The reset hint appears only when the reset discarded something the player had chosen.
+- The home entry is a pilot constant in the shared core, not data. A later schema version could move it into `atlas.json`.
+

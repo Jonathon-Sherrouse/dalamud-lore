@@ -34,7 +34,8 @@ Neither front end has its own browsing logic. Everything lives in the pure core 
 
 | Core piece | Provides |
 |---|---|
-| `AtlasSession` | Spoiler controls and the confirmation flow, content view, search, focus and refocus, relationship selection, the collapsed-by-default sources section, transient-state clearing, persistence events |
+| `AtlasSession` | Spoiler controls and the confirmation flow, content view, search and grouped results, focus and refocus, the home entry (`AtlasDefaults`), relationship selection, the collapsed-by-default sources section, transient-state reset and its notice, persistence events |
+| `AtlasProjector` | Visible-only snapshots, including each record's optional-content flag |
 | `AtlasGraphLayout` | Deterministic node positions (at most 8 neighbors) and edge lanes |
 | `AtlasText` | Every player-facing string, the category glyphs, and the neutral confirmation prompt |
 | `AtlasLoader` | Loading, Strict validation, and failure isolation |

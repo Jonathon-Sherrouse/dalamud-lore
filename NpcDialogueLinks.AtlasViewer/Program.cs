@@ -164,6 +164,18 @@ internal sealed class ViewerHost(ViewerOptions options)
                 noResults = AtlasText.NoResults,
                 confirmButton = AtlasText.ConfirmRaiseButton,
                 cancelButton = AtlasText.CancelRaiseButton,
+                raiseButton = AtlasText.RaiseButton,
+                contentLabel = AtlasText.ContentLabel,
+                searchPlaceholder = AtlasText.SearchPlaceholder,
+                connectionsHeading = AtlasText.ConnectionsHeading,
+                noConnections = AtlasText.NoConnections,
+                closeConnection = AtlasText.CloseConnectionButton,
+                selectedConnectionHeading = AtlasText.SelectedConnectionHeading,
+                listOnly = AtlasText.ListOnlyMarker,
+                selectionReset = AtlasText.SelectionReset,
+                optionalTag = AtlasText.OptionalTag,
+                optionalTooltip = AtlasText.OptionalTooltip,
+                optionalSummaryNote = AtlasText.OptionalSummaryNote,
             },
             checkpoints = s.CheckpointOptions,
             contentView = s.ContentView,
@@ -171,8 +183,13 @@ internal sealed class ViewerHost(ViewerOptions options)
                 .Select(v => new { id = v, label = AtlasText.ContentViewLabel(v) }),
             pendingCeiling = s.PendingCeiling is { } pending ? new { pending.Id, prompt = AtlasText.ConfirmRaise(pending.Label) } : null,
             sourcesExpanded = s.SourcesExpanded,
+            selectionWasReset = s.SelectionWasReset,
             search = s.SearchQuery,
-            results = s.SearchResults.Select(e => new { e.Id, e.Name, category = AtlasText.CategoryLabel(e.Category), glyph = AtlasText.CategoryGlyph(e.Category) }),
+            groups = s.SearchResultGroups.Select(g => new
+            {
+                g.Label,
+                entries = g.Entries.Select(e => new { e.Id, e.Name, glyph = AtlasText.CategoryGlyph(e.Category) }),
+            }),
             focus = s.Focus is { } focus ? EntityDetails(focus) : null,
             neighbors = s.Neighborhood?.Neighbors.Select(n => new
             {
@@ -183,17 +200,18 @@ internal sealed class ViewerHost(ViewerOptions options)
                 label = n.Label,
                 direction = n.Direction,
                 symmetric = n.Relationship.Symmetric,
+                optional = n.Relationship.IsOptional,
                 onCanvas = s.Neighborhood!.CanvasEntities.Any(c => c.Id == n.Entity.Id),
             }),
             layout = s.Layout is { } layout
                 ? new
                 {
                     nodes = layout.Nodes.Select(n => new { id = n.Entity.Id, name = n.Entity.Name, glyph = AtlasText.CategoryGlyph(n.Entity.Category), n.X, n.Y, n.IsFocus }),
-                    edges = layout.Edges.Select(e => new { relationshipId = e.Relationship.Id, e.FromId, e.ToId, e.Label, e.Symmetric, e.LaneIndex, e.LaneCount }),
+                    edges = layout.Edges.Select(e => new { relationshipId = e.Relationship.Id, e.FromId, e.ToId, e.Label, e.Symmetric, e.LaneIndex, e.LaneCount, optional = e.Relationship.IsOptional }),
                 }
                 : null,
             selectedRelationship = s.SelectedRelationship is { } r
-                ? new { r.Id, source = s.Snapshot.FindEntity(r.SourceId)!.Name, target = s.Snapshot.FindEntity(r.TargetId)!.Name, label = r.OutgoingLabel, citations = Citations(r.Citations), sourcesLabel = AtlasText.SourcesToggle(r.Citations.Count) }
+                ? new { r.Id, source = s.Snapshot.FindEntity(r.SourceId)!.Name, target = s.Snapshot.FindEntity(r.TargetId)!.Name, label = r.OutgoingLabel, optional = r.IsOptional, citations = Citations(r.Citations), sourcesLabel = AtlasText.SourcesToggle(r.Citations.Count) }
                 : null,
         };
     }
@@ -205,6 +223,8 @@ internal sealed class ViewerHost(ViewerOptions options)
         category = AtlasText.CategoryLabel(entity.Category),
         aliases = entity.Aliases,
         entity.Summary,
+        glyph = AtlasText.CategoryGlyph(entity.Category),
+        includesOptional = entity.IncludesOptional,
         citations = Citations(entity.Citations),
         sourcesLabel = AtlasText.SourcesToggle(entity.Citations.Count),
     };
