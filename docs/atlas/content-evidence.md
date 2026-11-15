@@ -1,6 +1,6 @@
 # Atlas pilot content evidence (NDL-003)
 
-> **Status: awaiting human review.** This is the completed evidence matrix for [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json). It supersedes the provisional [discovery evidence](discovery-evidence.md) for every record it covers. The records stay `pending` until the user explicitly accepts the content in the [review sheet](content-review.md). AI research and AI review are not canon acceptance.
+> **Status: accepted.** The user explicitly accepted this content on 2026-11-14, and every record is marked `reviewed`. This is the completed evidence matrix for [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json). It supersedes the provisional [discovery evidence](discovery-evidence.md) for every record it covers. AI research and AI review are not canon acceptance; any later content change needs review again.
 
 | File | What it holds |
 |---|---|
@@ -19,6 +19,8 @@ dotnet test NpcDialogueLinks.Tests
 ```
 
 After explicit human acceptance, the mechanical commit runs `python3 tools/atlas/build_pilot_content.py reviewed`. That changes only the review markers and the sheet's status line. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
+
+Running the script without `reviewed` marks **every** record `pending` again. That is the safe default after any content change: Strict validation, and therefore the plugin, will refuse the data until the changes are reviewed and accepted.
 
 To browse the real data without FFXIV:
 
