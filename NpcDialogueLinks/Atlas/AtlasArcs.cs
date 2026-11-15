@@ -24,8 +24,18 @@ public sealed record AtlasArcView(
     public string? AsOfLabel => PastEnd ? AtlasText.ArcEnded : null;
 }
 
-/// <summary>One arc in the picker: its id and its name as of its effective step. Never its span (rule 7).</summary>
-public sealed record AtlasArcOption(string ArcId, string Name);
+/// <summary>
+/// One arc in the picker: its id and its name as of its effective step. Never its span (rule 7). It also says where the
+/// arc sits in the story: <see cref="StartLabel"/> names the step it starts at (always at or below the view, so never a
+/// spoiler) and <see cref="Group"/> the patch it starts in, from the first milestone at or after its start (milestone
+/// labels are neutral). Group is null when no milestone follows.
+/// </summary>
+public sealed record AtlasArcOption(string ArcId, string Name)
+{
+    public string StartLabel { get; init; } = string.Empty;
+
+    public string? Group { get; init; }
+}
 
 /// <summary>
 /// The arc to show, and whether an explicit pick just ended because the view dropped below its first step. When
@@ -56,7 +66,11 @@ public static class AtlasArcs
             .Where(a => a.FirstOrder <= viewPoint.Order)
             .OrderBy(a => a.FirstOrder)
             .ThenBy(a => a.AuthoredOrder)
-            .Select(a => new AtlasArcOption(a.Id, AtlasProjector.Project(dataset, dataset.Checkpoints[Math.Min(viewPoint.Order, a.LastOrder)].Id, view).FindEntity(a.EntityId)!.Name))
+            .Select(a => new AtlasArcOption(a.Id, AtlasProjector.Project(dataset, dataset.Checkpoints[Math.Min(viewPoint.Order, a.LastOrder)].Id, view).FindEntity(a.EntityId)!.Name)
+            {
+                StartLabel = AtlasText.ArcStartsAt(dataset.Checkpoints[a.FirstOrder]),
+                Group = dataset.Checkpoints.Skip(a.FirstOrder).FirstOrDefault(c => c.Milestone) is { } patch ? AtlasText.ArcGroup(patch.Label) : null,
+            })
             .ToList();
     }
 

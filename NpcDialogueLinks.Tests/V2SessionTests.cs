@@ -157,6 +157,21 @@ public class V2ArcSessionTests
     }
 
     [Fact]
+    public void Picker_SaysWhereEachArcStartsAndGroupsOnlyAcrossPatches()
+    {
+        // NDL-011: each arc names the step it starts at, and its patch; headings show only across more than one patch.
+        var s = At("m2", "s2");
+        var arcs = s.ArcPickerOptions.Where(o => o.ArcId is not null).ToList();
+        Assert.Equal(new[] { "from Quest One", "from Quest Two", "from Quest Two" }, arcs.Select(o => o.Detail));
+        Assert.All(arcs, o => Assert.Equal("Patch One", o.Group));
+        Assert.False(s.ArcPickerGrouped);
+        Assert.Equal(string.Empty, s.ArcPickerOptions[0].Detail);
+        Assert.Null(s.ArcPickerOptions[0].Group);
+        Assert.Equal("A Realm Reborn — Patch 2.0", AtlasText.ArcGroup("A Realm Reborn — Patch 2.0 complete"));
+        Assert.Equal("Volume One", AtlasText.ArcGroup("Volume One"));
+    }
+
+    [Fact]
     public void Arc_EndedArcStaysViewableAsOfItsLastQuest()
     {
         var s = At("m2", "s5");
@@ -535,7 +550,7 @@ public class V2LeakSweepTests
         x.Texts.Add(s.PositionLabel);
         x.Texts.AddRange(new[] { s.CoverageNote, s.CastHeading, s.ArcNewHeading, s.ChangesLabel }.OfType<string>());
         x.Texts.AddRange(s.LensOptions.Select(o => o.Label));
-        x.Texts.AddRange(s.ArcPickerOptions.Select(o => o.Label));
+        x.Texts.AddRange(s.ArcPickerOptions.SelectMany(o => new[] { o.Label, o.Detail, o.Group ?? string.Empty }));
         if (s.Arc is { } arc)
         {
             x.Texts.Add(arc.RecapLabel);

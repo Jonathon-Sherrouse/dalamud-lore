@@ -132,4 +132,14 @@ public class ArcA4Tests
         Assert.Contains(baseline.Relationships, r => r.Id == "rel-minfilia-prisoner-livia");
         Assert.DoesNotContain(baseline.Entities, e => e.Id == "evt-black-wolfs-challenge"); // the arc's name never shows before #155
     }
+
+    [Fact]
+    public void Picker_PlacesTheArcInTheStory()
+    {
+        var s = new AtlasSession(D, new AtlasSpoilerState("cp-arr-2-0", "cp-msq-160"));
+        var arc = s.ArcPickerOptions.Single(o => o.ArcId == "arc-a4-black-wolf");
+        Assert.Equal("from Escape from Castrum Centri", arc.Detail);
+        Assert.Equal("A Realm Reborn — Patch 2.0", arc.Group);
+        Assert.False(s.ArcPickerGrouped);
+    }
 }

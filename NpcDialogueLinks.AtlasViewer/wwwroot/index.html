@@ -526,8 +526,20 @@ function render() {
         `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" ${BTN} title="${esc(e.name)}">${e.portrait ? mark(e.glyph, e.portrait, 18) : glyphSvg(e.glyph)}<span class="name">${esc(e.name)}</span></div>`).join("")).join("")
     : `<p class="help">${esc(t.noResults)}</p>`;
   const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}" aria-pressed="${l.isCurrent}">${esc(l.label)}</button>`).join("");
-  const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${state.arc.picker.map(o =>
-      `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}</option>`).join("")}</select>` : "";
+  // The arc picker: each arc with where it starts; patch headings (optgroups) only when the arcs span more than one patch.
+  const pickOpt = o => `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}${o.detail ? ` — ${esc(o.detail)}` : ""}</option>`;
+  const pickerBody = state.arc ? (() => {
+    const list = state.arc.picker;
+    if (!state.arc.pickerGrouped) return list.map(pickOpt).join("");
+    let html = "", group;
+    for (const o of list) {
+      if (o.group == null) { html += pickOpt(o); continue; }
+      if (o.group !== group) { if (group !== undefined) html += "</optgroup>"; group = o.group; html += `<optgroup label="${esc(group)}">`; }
+      html += pickOpt(o);
+    }
+    return group !== undefined ? html + "</optgroup>" : html;
+  })() : "";
+  const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${pickerBody}</select>` : "";
   // The arc lens with no arc: the browse pane is empty apart from the picker (v2 States).
   const searchBox = noArc ? "" : `<input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">`;
   const resetNotice = state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : "";

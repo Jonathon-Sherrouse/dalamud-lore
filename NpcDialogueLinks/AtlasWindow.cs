@@ -949,9 +949,19 @@ internal sealed class AtlasWindow : Window
         AtlasArcPickerOption? picked = null;
         using (var combo = ImRaii.Combo("##AtlasArcPicker", current.Label))
         {
+            string? group = null;
             foreach (var option in combo ? options : Array.Empty<AtlasArcPickerOption>())
             {
-                if (ImGui.Selectable($"{option.Label}##arc-{option.ArcId ?? "auto"}", option.IsCurrent) && !option.IsCurrent)
+                // Patch headings, only when the arcs span more than one patch (user decision, 2026-11-15).
+                if (s.ArcPickerGrouped && option.Group is { } heading && heading != group)
+                {
+                    group = heading;
+                    ImGui.Spacing();
+                    ImGui.TextColored(MutedColor, heading.ToUpperInvariant());
+                    ImGui.Separator();
+                }
+
+                if (PickerItem(option) && !option.IsCurrent)
                 {
                     picked = option;
                 }
@@ -964,6 +974,23 @@ internal sealed class AtlasWindow : Window
         }
 
         ImGui.Spacing();
+    }
+
+    /// <summary>An arc picker entry: the arc's name, with where it starts on a muted second line.</summary>
+    private static bool PickerItem(AtlasArcPickerOption option)
+    {
+        var line = ImGui.GetTextLineHeight();
+        var hasDetail = option.Detail.Length > 0;
+        var start = ImGui.GetCursorScreenPos();
+        var clicked = ImGui.Selectable($"##arc-{option.ArcId ?? "auto"}", option.IsCurrent, ImGuiSelectableFlags.None, new Vector2(0, hasDetail ? line * 2 : line));
+        var drawList = ImGui.GetWindowDrawList();
+        drawList.AddText(start, ImGui.GetColorU32(TextColor), option.Label);
+        if (hasDetail)
+        {
+            drawList.AddText(start + new Vector2(0, line), ImGui.GetColorU32(MutedColor), option.Detail);
+        }
+
+        return clicked;
     }
 
     /// <summary>The Arc lens at rest (L3): the arc's name, its reviewed recap, and what is new and what has ended so far.</summary>

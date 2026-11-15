@@ -256,7 +256,8 @@ internal sealed class ViewerHost(ViewerOptions options)
             arc = s.Lens == AtlasLens.Arc
                 ? new
                 {
-                    picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent }),
+                    picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent, o.Detail, o.Group }),
+                    pickerGrouped = s.ArcPickerGrouped,
                     wholeCast = s.ShowsWholeCast,
                     castHeading = s.CastHeading,
                     view = s.Arc is { } a

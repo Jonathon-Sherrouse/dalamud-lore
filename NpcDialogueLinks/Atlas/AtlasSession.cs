@@ -138,6 +138,17 @@ public static class AtlasText
     /// <summary>The arc picker's first option: follow the default selection for the current view.</summary>
     public const string ArcAutomatic = "The arc at this point";
 
+    /// <summary>Under an arc's name in the picker: where it starts. The start is always at or below the view.</summary>
+    public static string ArcStartsAt(AtlasCheckpoint firstStep) =>
+        firstStep.Milestone ? $"from {firstStep.Label}" : $"from {firstStep.DisplayTitle}";
+
+    /// <summary>
+    /// A picker group heading: the patch an arc starts in, from the label of the first milestone at or after its start
+    /// ("A Realm Reborn — Patch 2.0 complete" → "A Realm Reborn — Patch 2.0").
+    /// </summary>
+    public static string ArcGroup(string milestoneLabel) =>
+        milestoneLabel.EndsWith(" complete", StringComparison.Ordinal) ? milestoneLabel[..^" complete".Length] : milestoneLabel;
+
     public const string WholeCastButton = "Whole cast";
 
     public static string CastHeading(int count) => $"Cast ({count})";
@@ -192,7 +203,14 @@ public enum AtlasLens
 public sealed record AtlasLensOption(AtlasLens Lens, string Label, bool IsCurrent);
 
 /// <summary>One arc-picker row. <see cref="ArcId"/> null is the automatic choice.</summary>
-public sealed record AtlasArcPickerOption(string? ArcId, string Label, bool IsCurrent);
+public sealed record AtlasArcPickerOption(string? ArcId, string Label, bool IsCurrent)
+{
+    /// <summary>"from ‹start quest›", so a player can tell where the arc sits; empty for the automatic option.</summary>
+    public string Detail { get; init; } = string.Empty;
+
+    /// <summary>The patch heading the arc is listed under; null for the automatic option.</summary>
+    public string? Group { get; init; }
+}
 
 public enum AtlasChangeKind
 {
@@ -327,6 +345,12 @@ public sealed class AtlasSession
     /// <summary>The arc picker: the automatic choice, then every arc started by the view, named as of its effective step.</summary>
     public IReadOnlyList<AtlasArcPickerOption> ArcPickerOptions => arcPickerOptions ??= BuildArcPickerOptions();
 
+    /// <summary>
+    /// Whether the picker shows patch headings: only when its arcs start in more than one patch (user decision,
+    /// 2026-11-15), so a single heading over everything never adds clutter.
+    /// </summary>
+    public bool ArcPickerGrouped => ArcPickerOptions.Where(o => o.ArcId is not null).Select(o => o.Group).Distinct().Count() > 1;
+
     /// <summary>"Cast (n)" above the cast list: the arc's members, not counting the arc entry. Null outside an arc view.</summary>
     public string? CastHeading => ArcView is { } arc ? AtlasText.CastHeading(arc.Cast.Entities.Count - 1) : null;
 
@@ -443,7 +467,7 @@ public sealed class AtlasSession
     {
         var options = new List<AtlasArcPickerOption> { new(null, AtlasText.ArcAutomatic, explicitArcId is null) };
         options.AddRange(AtlasArcs.Eligible(Dataset, SpoilerState.ViewId, ContentView)
-            .Select(a => new AtlasArcPickerOption(a.ArcId, a.Name, a.ArcId == explicitArcId)));
+            .Select(a => new AtlasArcPickerOption(a.ArcId, a.Name, a.ArcId == explicitArcId) { Detail = a.StartLabel, Group = a.Group }));
         return options;
     }
 
