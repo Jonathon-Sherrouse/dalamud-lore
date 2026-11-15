@@ -76,6 +76,7 @@ This is the working planning list for feature polish and future enhancements. Ag
 - **Priority (user decision, 2026-11-14):** Atlas v2 goes ahead of `Pre-Ship` and `Next Polish Pass`; those items stay open.
 - **Plan:** [docs/atlas/v2-plan.md](atlas/v2-plan.md). A confused player opens the Atlas mid-story and sees the researched arc they're in: a reviewed "story so far" recap plus the whole cast's relationships, built quest by quest. It also adds the Story point and Changes lenses and Follow (completed progress). It is proven on one 2.0 arc.
 - **Cards:** `NDL-006` to `NDL-010` in [backlog.md](backlog.md).
+- **Status (2026-11-14):** `NDL-006` (arc discovery, schema v2 and the pure core) is **User Accepted**; the user chose arc A4, *The Black Wolf's challenge*. `NDL-007` is in progress; `NDL-008` is next.
 - **Future candidates (not approved):**
   - **Breadth coverage across the main story.** The route is decided after the slice proves it helps; it must not use patch-sized outer arcs, and milestone-only recaps give endpoint coverage only.
   - **Lore Explain grounded in the reviewed recaps,** and a deep link into the Atlas.

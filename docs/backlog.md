@@ -66,7 +66,9 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
-- [ ] `NDL-006` **Arc discovery, schema v2 and core**
+## User Accepted
+
+- [x] `NDL-006` **Arc discovery, schema v2 and core**
   - Owner: `lead`
   - Outcome: A research-verified arc map and worked examples freeze a v2 data model and pure core that support arcs, quest-level steps, the Arc, Story point and Changes lenses, and Follow positioning, without breaking the shipped Atlas.
   - Acceptance:
@@ -77,9 +79,6 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
     - The window, viewer and bundled data keep working.
   - Evidence: Discovery documents with passages; host tests for the core and fixtures; real-data pinned-snapshot tests; locked restore and builds; viewer parity smoke. In-game: not applicable. User acceptance of the arc map and the core is recorded separately.
   - Dependencies: Atlas v2 planning publication; branch `codex/ndl-006-atlas-v2-core`, PR base `main`.
-  - Substantive PR: [#17](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/17)
-
-## User Accepted
 
 - [x] `NDL-004` **Deliver the standalone Atlas window and validate it in game**
   - Owner: `ui`
