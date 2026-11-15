@@ -25,15 +25,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
   - Dependencies: Accepted `NDL-002`; branch `codex/ndl-005-atlas-ux-design`, PR base `main` after NDL-002 merge. May run in parallel with `NDL-003`: this story owns the viewer front end, `docs/atlas/ux-design.md`, and presentation-level core files, while `NDL-003` owns content; serialize any overlapping core edits.
   - Substantive PR: [#10](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/10)
 
-- [ ] `NDL-003` **Research and curate the reviewed Scions Atlas dataset**
+## User Accepted
+
+- [x] `NDL-003` **Research and curate the reviewed Scions Atlas dataset**
   - Owner: `content`
   - Outcome: The pilot's two historical snapshots contain researched, original, human-reviewed descriptions and relationships.
   - Acceptance: 8–12 entities, exactly the two approved checkpoints, at least one description and one relationship change, safe names/aliases/citations, complete evidence matrix and readable review sheet, plus actual `NpcDialogueLinks/atlas.json` passing production validation/snapshot tests. Human acceptance precedes the mechanical reviewed-marker commit and strict shippable recheck. Omit/narrow unsupported claims; any necessary pilot-preserving contract correction is one bounded versioned model-plus-tests amendment, explicitly flagged in this PR. No packaging or runtime integration.
   - Evidence: Web research with claim/source passage/player-knowledge boundary traceability; real-data structural and expected-snapshot tests, human content review, then strict shippable validation before merge. In-game: not applicable to unintegrated content. AI review is not human canon acceptance.
   - Dependencies: Accepted `NDL-002`; branch `codex/ndl-003-atlas-scions-content`, PR base `main` after NDL-002 merge. Research may overlap after its contract freezes; finalization may not bypass foundation acceptance.
-  - Substantive PR: [#8](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/8)
-
-## User Accepted
 
 - [x] `NDL-002` **Research Atlas requirements and build the tested foundation**
   - Owner: `lead`

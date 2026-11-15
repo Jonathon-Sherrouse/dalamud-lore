@@ -16,7 +16,7 @@ Run this from the repository root, then open <http://127.0.0.1:5219/>.
 
 | Flag | Default | Purpose |
 |---|---|---|
-| `--data <path>` | the synthetic `sample-atlas.json` | Load another Atlas file, such as the real `NpcDialogueLinks/atlas.json` once `NDL-003` adds it. |
+| `--data <path>` | the synthetic `sample-atlas.json` | Load another Atlas file, such as the real pilot data: `--data "$PWD/NpcDialogueLinks/atlas.json" --draft` (Draft is needed until its records are marked reviewed). Use an absolute path, because `dotnet run` starts the viewer in its project folder. |
 | `--draft` | off (Strict, same as the runtime) | Allow `pending` records. A banner marks the data as not shippable. Needed for content still under review. |
 | `--port <n>` | `5219` | Listen on another port. The viewer only ever binds to `127.0.0.1`. |
 | `--state <path>` | `NpcDialogueLinks.AtlasViewer/viewer-state.json` in the OS local app-data folder; the exact path is printed at startup | Where the two spoiler controls persist. It mirrors the plugin's configuration and is kept outside the repository. |
