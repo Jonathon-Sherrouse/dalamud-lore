@@ -17,6 +17,7 @@ internal sealed class LoreExplainWindow : Window
     private static readonly Vector4 ErrorColor = new(1.0f, 0.42f, 0.42f, 1.0f);
     private readonly Action<string> onFollowUpRequested;
     private readonly Func<DictionaryProposal, DictionaryMutationResult> onDictionaryProposalSave;
+    private readonly Action onOpenAtlas;
     private string dialogue = string.Empty;
     private string question = string.Empty;
     private LoreContextMetadata metadata = LoreContextMetadata.Empty;
@@ -32,9 +33,11 @@ internal sealed class LoreExplainWindow : Window
 
     public LoreExplainWindow(
         Action<string> onFollowUpRequested,
-        Func<DictionaryProposal, DictionaryMutationResult> onDictionaryProposalSave)
+        Func<DictionaryProposal, DictionaryMutationResult> onDictionaryProposalSave,
+        Action onOpenAtlas)
         : base("Lore Explain###NpcDialogueLinksLoreExplain")
     {
+        this.onOpenAtlas = onOpenAtlas;
         this.onFollowUpRequested = onFollowUpRequested;
         this.onDictionaryProposalSave = onDictionaryProposalSave;
         this.Size = new Vector2(760, 560);
@@ -307,6 +310,16 @@ internal sealed class LoreExplainWindow : Window
         ImGui.TextUnformatted("Status");
         ImGui.SameLine();
         ImGui.TextColored(this.GetStatusColor(), this.isLoading ? $"{this.status}..." : this.status);
+
+        // NDL-010: one entry point into the Lore Atlas. It only opens the window; nothing from this explanation is
+        // passed to the Atlas, which keeps its own spoiler limit and view.
+        var buttonLabel = $"{Atlas.AtlasText.OpenAtlasButton}##NpcDialogueLinksOpenAtlas";
+        var buttonWidth = ImGui.CalcTextSize(Atlas.AtlasText.OpenAtlasButton).X + (ImGui.GetStyle().FramePadding.X * 2);
+        ImGui.SameLine(Math.Max(ImGui.GetWindowContentRegionMax().X - buttonWidth, 0));
+        if (ImGui.Button(buttonLabel))
+        {
+            this.onOpenAtlas();
+        }
     }
 
     private Vector4 GetStatusColor()

@@ -70,7 +70,7 @@ public sealed class Plugin : IDalamudPlugin
 
         this.configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
         this.configuration.Initialize(PluginInterface);
-        this.loreExplainWindow = new LoreExplainWindow(this.HandleLoreExplainFollowUp, this.SaveDictionaryProposal);
+        this.loreExplainWindow = new LoreExplainWindow(this.HandleLoreExplainFollowUp, this.SaveDictionaryProposal, this.OpenAtlas);
         this.gameContextProvider = new GameContextProvider(ClientState, DataManager, TargetManager);
         this.questMetadataProbe = new QuestMetadataProbe(PluginInterface, AddonLifecycle, ClientState, DataManager, TargetManager);
         this.termDictionary = new TermDictionary(
@@ -95,6 +95,13 @@ public sealed class Plugin : IDalamudPlugin
             });
 
         Log.Information("NPC Dialogue Links loaded.");
+    }
+
+    /// <summary>Opens the Atlas from Lore Explain's button (NDL-010). The Atlas keeps its own spoiler limit and view.</summary>
+    private void OpenAtlas()
+    {
+        this.atlasWindow.IsOpen = true;
+        this.atlasWindow.BringToFront();
     }
 
     public void Dispose()

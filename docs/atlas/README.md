@@ -1,6 +1,6 @@
 # Lore Atlas guide
 
-> **Next:** [Atlas v2: arc context](v2-plan.md) is approved and planned as `NDL-006` to `NDL-010`.
+> **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
 The Lore Atlas is a spoiler-safe relationship browser for the Scions of the Seventh Dawn pilot. You pick a story point, and it shows only what a player knows by then. The contract is [lore-relationship-atlas.md](../lore-relationship-atlas.md).
 
@@ -17,6 +17,12 @@ This toggles the Atlas window. It works offline and needs no OpenAI key.
 - **Content** switches between main story + optional (the default) and main story only. In the full view, optional-quest connections are dashed and tagged "optional".
 - The window opens on the Scions. Click a node or a name to refocus, and click an edge label or a connection's label to inspect that connection.
 - **Sources (n)** starts collapsed. Links open in your browser only when clicked, behind the spoiler warning.
+- **Lens** (the second row) switches between three views of the same story point ([design](ux-design.md#v2-lenses-ndl-008)). Next to it, "Viewing: after ‹quest›" names the point you chose, and quest steps add a note that they cover only the characters involved.
+  - **Arc** shows the arc around the point: its whole cast on one chart, with the arc at the centre and faint lines to each member. The right pane has the arc's "Story so far" recap, what is new at this point, and what has ended so far. Click a member to see their own connections, inside the cast, and **< Whole cast** to go back. The **Story arc** picker reopens an arc that has already started.
+  - **Story point** is the v1 browser described above.
+  - **Changes** lists what this point added, ended or redescribed compared with the one before. Only an ended row shows **Sources for the ending**.
+  - Until you pick a lens or an arc, the window chooses for you each time the view changes: Arc inside an arc, Story point elsewhere. A pick lasts until the window closes and is never saved.
+- **Open Atlas** in the Lore Explain window opens this window. It passes nothing across; the Atlas keeps its own spoiler limit and view.
 
 Only the two spoiler controls are saved, in the plugin configuration. They are revalidated every time the window opens. The window reads the bundled `atlas.json` in Strict mode on every open. If the file is missing or invalid, only the Atlas shows a generic message; the structured errors go to the Dalamud log (`/xllog`), and every other plugin feature keeps working.
 
@@ -59,3 +65,24 @@ Record each result as pass or fail. A check that wasn't run stays pending; it ne
 | 13 | Rename `atlas.json` in the output folder and reopen the Atlas. Then restore it, add a stray character to the file, and reopen. | Both times the Atlas shows only "The Lore Atlas could not load its data. Other features are unaffected.", and `/xllog` has the details. Restoring the file and reopening fixes it. |
 | 14 | With the Atlas broken (13), talk to an NPC, click a chat link, and open `/npclinks dict` and `/npclinks lore`. | Dialogue links, the dictionary and Lore Explain all still work. |
 | 15 | Disable the plugin. In `pluginConfigs/NpcDialogueLinks.json` (XIV on Mac: `~/Library/Application Support/XIV on Mac/pluginConfigs/`), set `AtlasViewId` to `nope`. Re-enable the plugin and open the Atlas. | The Atlas falls back to 2.0 with no error, and the config is repaired. |
+
+## In-game test (NDL-010)
+
+> **Status:** the user accepted `NDL-010` on 2026-11-15 without running this table, so every row is still untested in game.
+
+Build the main checkout (see [Loading a development build](#loading-a-development-build)), then **Reload** the plugin.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | `/npclinks atlas` | A second row under the top bar: **Lens** [Arc · Story point · Changes] and "Viewing: after …". |
+| 2 | **Viewing as of** → "After Every Little Thing She Does Is Magitek". If later points are locked: **Raise…** → "A Realm Reborn — Patch 2.0 complete" → **Show**. | Story point is highlighted, and a grey note says the point covers only the characters involved. |
+| 3 | View → "After Escape from Castrum Centri". | The lens switches to **Arc** by itself. Left: the **Story arc** picker ("The arc at this point") and CAST (9). Centre: a violet hexagon with 9 members around it, faint violet lines to each, and 4 labelled edges. Right: The Black Wolf's Challenge, "STORY SO FAR, THROUGH ESCAPE FROM CASTRUM CENTRI", the recap, New: "Thancred possessed by Lahabrea", Ended: "Minfilia prisoner of Livia (ended in Escape from Castrum Centri)", with no sources on either row. |
+| 4 | Click the "possessed by" label on the chart, then **Close**. Try clicking a faint line. | A Selected connection card with Sources (n) appears above the recap, and Close removes it. The faint lines do nothing. |
+| 5 | Click "Thancred" in the New row, then **< Whole cast**. Then click the centre hexagon, and **< Whole cast** again. | Thancred's one-hop graph shows, with only cast members in Connections. The button brings the chart back. The hexagon opens the arc's own connections. |
+| 6 | View → "After Rock the Castrum". | Still Arc, now CAST (10). Ended adds "Livia serves Gaius (ended in Rock the Castrum)". |
+| 7 | **Lens → Changes**, then click "- Livia serves Gaius". | The list fills the left and centre: "What this quest changed", ENDED, and DESCRIPTION UPDATED (Cid, Livia, The Black Wolf's Challenge, Operation Archon). The right pane shows the row, Sources (n) and **Sources for the ending (1)**. |
+| 8 | View → "A Realm Reborn — Patch 2.0 complete". | Still Changes: "Changes compare one quest step with the one before it … There is no comparison for this point." |
+| 9 | **Lens → Story point**. Search and refocus as usual. | The v1 browser, unchanged. |
+| 10 | Resize to the minimum size and repeat 3 and 7 at 150% font scale. | Nothing overlaps or clips; long rows wrap. |
+| 11 | `/npclinks lore`. Close the Atlas, then click **Open Atlas** (right end of the Status line). Click it again with the Atlas behind another window. | The Atlas opens at the view you left. The second click brings it to the front. Lore Explain is unchanged. |
+

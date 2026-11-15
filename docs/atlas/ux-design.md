@@ -164,7 +164,7 @@ The window opens focused on the Scions (`AtlasDefaults.HomeEntityId`). It return
 
 ## v2 lenses (NDL-008)
 
-> **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). The in-game window keeps the Story point lens only until `NDL-010` brings it to parity. **Follow is deferred** (user decision, 2026-11-14), so there is no Follow toggle, status line or "your progress" wording.
+> **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). `NDL-010` renders it in the in-game window. **Follow is deferred** (user decision, 2026-11-14), so there is no Follow toggle, status line or "your progress" wording.
 
 ### What changes on screen
 
@@ -251,7 +251,7 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 | ← Whole cast | `SmallButton` at the top of the details pane |
 | Changes list | One `BeginChild` spanning the browse and canvas width (the window already sizes panes from a table), group headings in the same heading pattern, full-width `Selectable` rows; the mark glyph as a fixed-width `TextDisabled` |
 | End evidence | A second `CollapsingHeader` labelled `EndSourcesToggle(n)`, driven by the same `SourcesExpanded` setting |
-| Known layout limit | With an even ring (for example ten members), an edge between two opposite members runs through the centre hexagon and its label. The viewer accepts it; `NDL-010` may bend such an edge or offset its label. |
+| Known layout limit | With an even ring (for example ten members), an edge between two opposite members runs through the centre hexagon and its label. The viewer accepts it. The in-game window (`NDL-010`) moves such a label off the centre node. |
 
 ### Decisions (accepted by the user, 2026-11-14)
 
