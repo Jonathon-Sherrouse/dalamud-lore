@@ -22,6 +22,7 @@ internal sealed class AtlasWindow : Window
     private static readonly Vector4 CharacterColor = new(0.498f, 0.698f, 0.898f, 1f);
     private static readonly Vector4 OrganizationColor = new(0.851f, 0.706f, 0.353f, 1f);
     private static readonly Vector4 LocationColor = new(0.498f, 0.812f, 0.604f, 1f);
+    private static readonly Vector4 EventColor = new(0.765f, 0.608f, 0.827f, 1f);
     private static readonly Vector4 MutedColor = new(0.604f, 0.639f, 0.698f, 1f);
     private static readonly Vector4 AccentColor = new(0.851f, 0.706f, 0.353f, 1f);
     private static readonly Vector4 HoverColor = new(0.498f, 0.698f, 0.898f, 1f);
@@ -636,7 +637,7 @@ internal sealed class AtlasWindow : Window
             this.openConfirmNextFrame = false;
         }
 
-        var pending = s.PendingCeiling;
+        var pending = s.PendingCeilingId;
         ImGui.SetNextWindowSize(new Vector2(420 * ImGuiHelpers.GlobalScale, 0), ImGuiCond.Appearing);
         using var modal = ImRaii.PopupModal(ConfirmModalId, ImGuiWindowFlags.AlwaysAutoResize);
         if (!modal)
@@ -651,7 +652,7 @@ internal sealed class AtlasWindow : Window
         }
 
         ImGui.PushTextWrapPos(400 * ImGuiHelpers.GlobalScale);
-        ImGui.TextWrapped(AtlasText.ConfirmRaise(pending.Label));
+        ImGui.TextWrapped(s.PendingCeilingPrompt ?? string.Empty);
         ImGui.PopTextWrapPos();
         ImGui.Spacing();
         if (ImGui.Button($"{AtlasText.CancelRaiseButton}##AtlasCancelRaise"))
@@ -673,6 +674,7 @@ internal sealed class AtlasWindow : Window
     {
         AtlasGlyph.Square => OrganizationColor,
         AtlasGlyph.Diamond => LocationColor,
+        AtlasGlyph.Hexagon => EventColor,
         _ => CharacterColor,
     };
 
@@ -688,6 +690,9 @@ internal sealed class AtlasWindow : Window
             case AtlasGlyph.Diamond:
                 var d = radius * 1.25f;
                 drawList.AddQuadFilled(center - new Vector2(0, d), center + new Vector2(d, 0), center + new Vector2(0, d), center - new Vector2(d, 0), fill);
+                break;
+            case AtlasGlyph.Hexagon:
+                drawList.AddNgonFilled(center, radius * 1.15f, fill, 6);
                 break;
             default:
                 drawList.AddCircleFilled(center, radius, fill);
@@ -710,6 +715,9 @@ internal sealed class AtlasWindow : Window
             case AtlasGlyph.Diamond:
                 var d = radius * 1.25f;
                 drawList.AddQuad(center - new Vector2(0, d), center + new Vector2(d, 0), center + new Vector2(0, d), center - new Vector2(d, 0), color, thickness);
+                break;
+            case AtlasGlyph.Hexagon:
+                drawList.AddNgon(center, radius * 1.15f, color, 6, thickness);
                 break;
             default:
                 drawList.AddCircle(center, radius, color, 0, thickness);

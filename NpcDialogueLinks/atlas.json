@@ -1,13 +1,21 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "checkpoints": [
     {
       "id": "cp-arr-2-0",
-      "label": "A Realm Reborn — Patch 2.0 complete"
+      "label": "A Realm Reborn — Patch 2.0 complete",
+      "milestone": true,
+      "gameQuestIds": [
+        70058
+      ]
     },
     {
       "id": "cp-arr-2-55",
-      "label": "A Realm Reborn — Patch 2.55 complete"
+      "label": "A Realm Reborn — Patch 2.55 complete",
+      "milestone": true,
+      "gameQuestIds": [
+        65964
+      ]
     }
   ],
   "relationshipTypes": [

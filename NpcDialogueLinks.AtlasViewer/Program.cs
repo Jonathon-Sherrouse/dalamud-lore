@@ -189,7 +189,7 @@ internal sealed class ViewerHost(ViewerOptions options)
             contentView = s.ContentView,
             contentViews = new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory }
                 .Select(v => new { id = v, label = AtlasText.ContentViewLabel(v) }),
-            pendingCeiling = s.PendingCeiling is { } pending ? new { pending.Id, prompt = AtlasText.ConfirmRaise(pending.Label) } : null,
+            pendingCeiling = s.PendingCeilingId is { } pendingId ? new { Id = pendingId, prompt = s.PendingCeilingPrompt } : null,
             sourcesExpanded = s.SourcesExpanded,
             selectionWasReset = s.SelectionWasReset,
             search = s.SearchQuery,

@@ -18,9 +18,11 @@ python3 tools/atlas/build_pilot_content.py
 dotnet test NpcDialogueLinks.Tests
 ```
 
-After explicit human acceptance, the mechanical commit runs `python3 tools/atlas/build_pilot_content.py reviewed`. That changes only the review markers and the sheet's status line. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
+Review status is **per record and bound to content** (since `NDL-006`). The generator's `ACCEPTED` maps each accepted record to a fingerprint of its accepted content, and a record is emitted `reviewed` only when its current content matches. The fingerprint covers the emitted record and the reviewed context it is shown with: the entity's category for a presentation, the relationship type's labels and symmetry, and the claims behind the record (wording, source and locator). A new record, or any change to an accepted one or to that context, is emitted `pending`. The only exception is a citation's `availableAt`, which the v2 plan allows to move earlier mechanically. `python3 tools/atlas/build_pilot_content.py --self-test` checks these rules.
 
-Running the script without `reviewed` marks **every** record `pending` again. That is the safe default after any content change: Strict validation, and therefore the plugin, will refuse the data until the changes are reviewed and accepted.
+To record an acceptance, run `python3 tools/atlas/build_pilot_content.py --print-pending`. It prints the key and fingerprint of **only the pending records**. Copy into `ACCEPTED` exactly the lines the user accepted, then regenerate. Never re-record everything: that would accept pending edits nobody reviewed. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
+
+New or changed records default to `pending`. Strict validation, and therefore the plugin, refuses the data until those records are reviewed and accepted. Accepted records are never flipped back by editing others.
 
 To browse the real data without FFXIV:
 

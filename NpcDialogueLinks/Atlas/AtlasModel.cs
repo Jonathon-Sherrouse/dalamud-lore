@@ -5,13 +5,16 @@ namespace NpcDialogueLinks.Atlas;
 
 // Pure Atlas core. No Dalamud, ImGui, or Plugin dependencies: every file in this folder is
 // compile-linked into NpcDialogueLinks.Tests and NpcDialogueLinks.AtlasViewer.
-// Contract: docs/atlas/schema.md (schema v1).
+// Contract: docs/atlas/schema.md (schema v2) and docs/atlas/v2-plan.md.
 
 public enum AtlasCategory
 {
     Character = 0,
     Organization = 1,
     Location = 2,
+
+    /// <summary>A story event or an arc entry (schema v2). Ordered last.</summary>
+    Event = 3,
 }
 
 public enum AtlasScope
@@ -44,7 +47,35 @@ public enum AtlasContentView
     MainAndOptional,
 }
 
-public sealed record AtlasCheckpoint(string Id, string Label, int Order);
+/// <summary>
+/// One timeline step: "after this quest" (schema v2), or a patch milestone. <see cref="Order"/> is story order.
+/// </summary>
+public sealed record AtlasCheckpoint(string Id, string Label, int Order)
+{
+    /// <summary>A patch milestone. Its label is neutral, so it may be shown above the spoiler limit.</summary>
+    public bool Milestone { get; init; }
+
+    /// <summary>Reviewed quest title for a quest step; shown only at or below the limit.</summary>
+    public string? QuestTitle { get; init; }
+
+    /// <summary>True when the previous step is the quest immediately before this one.</summary>
+    public bool ContiguousWithPrevious { get; init; }
+
+    /// <summary>Game quest ids whose completion marks this step complete. Used only by Follow.</summary>
+    public IReadOnlyList<int> GameQuestIds { get; init; } = Array.Empty<int>();
+
+    /// <summary>The quest title when there is one, otherwise the label.</summary>
+    public string DisplayTitle => QuestTitle ?? Label;
+}
+
+/// <summary>
+/// A researched story arc (schema v2): an event entity as its entry, spanning <see cref="FirstOrder"/> through
+/// <see cref="LastOrder"/> inclusive. Arcs may overlap or nest. <see cref="AuthoredOrder"/> breaks ties.
+/// </summary>
+public sealed record AtlasArc(string Id, string EntityId, int FirstOrder, int LastOrder, int AuthoredOrder)
+{
+    public bool Contains(int order) => order >= FirstOrder && order <= LastOrder;
+}
 
 /// <summary>A source citation. <see cref="AvailableAtOrder"/> is the earliest checkpoint where the source is player knowledge.</summary>
 public sealed record AtlasCitation(string Title, Uri? Url, int AvailableAtOrder, AtlasScope Scope);
@@ -116,6 +147,12 @@ public sealed record AtlasRelationship(
     IReadOnlyList<AtlasCitation> Citations,
     AtlasReviewStatus Review)
 {
+    /// <summary>
+    /// Reviewed evidence for why the relationship ended (schema v2). Shown only in the Changes row for that ending,
+    /// never on the record elsewhere, so it can never leak an ending early.
+    /// </summary>
+    public IReadOnlyList<AtlasCitation> EndCitations { get; init; } = Array.Empty<AtlasCitation>();
+
     public bool IsVisibleAt(int order, AtlasContentView view) =>
         Interval.Contains(order) && (Scope == AtlasScope.Main || view == AtlasContentView.MainAndOptional);
 }
@@ -129,12 +166,14 @@ public sealed class AtlasDataset
         IReadOnlyList<AtlasCheckpoint> checkpoints,
         IReadOnlyDictionary<string, AtlasRelationshipType> relationshipTypes,
         IReadOnlyList<AtlasEntity> entities,
-        IReadOnlyList<AtlasRelationship> relationships)
+        IReadOnlyList<AtlasRelationship> relationships,
+        IReadOnlyList<AtlasArc>? arcs = null)
     {
         Checkpoints = checkpoints;
         RelationshipTypes = relationshipTypes;
         Entities = entities;
         Relationships = relationships;
+        Arcs = arcs ?? Array.Empty<AtlasArc>();
         checkpointsById = new Dictionary<string, AtlasCheckpoint>(StringComparer.Ordinal);
         foreach (var checkpoint in checkpoints)
         {
@@ -151,6 +190,15 @@ public sealed class AtlasDataset
     internal IReadOnlyList<AtlasEntity> Entities { get; }
 
     internal IReadOnlyList<AtlasRelationship> Relationships { get; }
+
+    /// <summary>
+    /// Researched arcs in authored order. Internal: an arc's span is never shown (rule 7), so front ends go through
+    /// <see cref="AtlasArcs"/>, which exposes only ids and names.
+    /// </summary>
+    internal IReadOnlyList<AtlasArc> Arcs { get; }
+
+    /// <summary>The relationship type that makes an entity part of an arc's cast when it targets the arc entry.</summary>
+    public const string ParticipantTypeId = "participant-in";
 
     public AtlasCheckpoint EarliestCheckpoint => Checkpoints[0];
 
