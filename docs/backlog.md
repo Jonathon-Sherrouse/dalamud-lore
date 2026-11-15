@@ -40,7 +40,9 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
-- [ ] `NDL-008` **Design the v2 lenses in the local viewer**
+## User Accepted
+
+- [x] `NDL-008` **Design the v2 lenses in the local viewer**
   - Owner: `ui`
   - Outcome: The user accepts the v2 interaction design, prototyped in the viewer: the Arc, Story point and Changes lenses.
   - Acceptance:
@@ -51,9 +53,6 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
     - A viewer-only prototype is allowed; production parity comes in `NDL-010`.
   - Evidence: Design doc, viewer walkthrough on synthetic or real data, host tests for any core text or state, locked builds. In-game: not applicable. User design acceptance.
   - Dependencies: Accepted `NDL-006`; `NDL-007` concluded by the user's deferral (2026-11-14); branch `codex/ndl-008-atlas-v2-ux`.
-  - Substantive PR: [#21](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/21)
-
-## User Accepted
 
 - [x] `NDL-006` **Arc discovery, schema v2 and core**
   - Owner: `lead`

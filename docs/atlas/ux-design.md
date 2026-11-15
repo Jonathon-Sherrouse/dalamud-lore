@@ -1,6 +1,6 @@
 # Atlas UX design (NDL-005)
 
-> **v2 note.** [Atlas v2](v2-plan.md) adds three lenses, designed in [v2 lenses](#v2-lenses-ndl-008) below (`NDL-008`, awaiting the user's acceptance). Everything above that section is the accepted v1 design, and it stays the **Story point** lens unchanged, except that flows F5 and F6 follow v2 spoiler rule 1: above the spoiler limit, pickers and the raise menu show only neutral milestone labels plus an unnamed "next story step", never quest titles.
+> **v2 note.** [Atlas v2](v2-plan.md) adds three lenses, designed in [v2 lenses](#v2-lenses-ndl-008) below (`NDL-008`, accepted 2026-11-14; `NDL-010` builds it in game). Everything above that section is the accepted v1 design, and it stays the **Story point** lens unchanged, except that flows F5 and F6 follow v2 spoiler rule 1: above the spoiler limit, pickers and the raise menu show only neutral milestone labels plus an unnamed "next story step", never quest titles.
 >
 > **Status: accepted.** The user accepted this design on 2026-11-14. `NDL-004` builds it in game, and the [local viewer](local-viewer.md) is its reference implementation. Sections marked **Prototyped** are built in the viewer and accepted as part of the whole design. Later changes go through `NDL-004` or a new story, and update both front ends together.
 
@@ -164,7 +164,7 @@ The window opens focused on the Scions (`AtlasDefaults.HomeEntityId`). It return
 
 ## v2 lenses (NDL-008)
 
-> **Status: proposed, awaiting the user's acceptance.** Prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). The in-game window keeps the Story point lens only until `NDL-010` brings it to parity. **Follow is deferred** (user decision, 2026-11-14), so there is no Follow toggle, status line or "your progress" wording.
+> **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). The in-game window keeps the Story point lens only until `NDL-010` brings it to parity. **Follow is deferred** (user decision, 2026-11-14), so there is no Follow toggle, status line or "your progress" wording.
 
 ### What changes on screen
 
@@ -199,12 +199,12 @@ A **lens bar** sits under the top bar: the lens switch, then the position line, 
 
 | # | Flow | Behavior |
 |---|---|---|
-| L1 | **Open** | The default lens rule: **Arc** when an arc contains the view, **Story point** otherwise. Until the player picks a lens or an arc, the rule is re-applied whenever the view changes ([D11](#decisions-for-the-user-to-accept)). An explicit pick lasts for the session and is never saved. Saved state still opens at the earliest checkpoint when absent or invalid, which is the pre-arc baseline, so a first open is always Story point. |
+| L1 | **Open** | The default lens rule: **Arc** when an arc contains the view, **Story point** otherwise. Until the player picks a lens or an arc, the rule is re-applied whenever the view changes ([D11](#decisions-accepted-by-the-user-2026-11-14)). An explicit pick lasts for the session and is never saved. Saved state still opens at the earliest checkpoint when absent or invalid, which is the pre-arc baseline, so a first open is always Story point. |
 | L2 | **Switch lens** | The lens switch changes what is shown. Like a checkpoint change it clears search, focus and selection, but it never shows the "Selection reset" hint, because the player did it on purpose. |
 | L3 | **Arc lens at rest** | Nothing is focused: the whole-cast chart and the arc panel show. The recap is the arc entry's reviewed summary at the effective step. Clicking a labelled edge on the chart opens its **Selected connection** card, with its sources and Close, at the top of the arc panel; the recap stays below it. |
 | L4 | **Refocus in the arc** | Clicking a cast member (canvas, cast list, or a name in the panel's rows) shows the v1 one-hop graph and details, **inside the cast**. Search, counts and connections never leave the cast. A **← Whole cast** button returns to rest. |
 | L5 | **Pick an arc** | The **Story arc** picker lists "The arc at this point" (the automatic choice), then every arc already started by the view, by start and then authored order, each named as of its effective step. No spans, step counts or end markers. |
-| L6 | **Pick lifetime** | Picking an arc also chooses the Arc lens ([D12](#decisions-for-the-user-to-accept)). A pick holds while the view moves, and ends when the view drops below the arc's first step (also when lowering the limit clamps the view there); it does not come back when the view rises again. "The arc at this point" clears it; the Arc lens stays chosen either way. A picked arc that has already ended shows "As of ‹last quest›" beside the recap, and its "New" heading becomes "New in ‹last quest›". |
+| L6 | **Pick lifetime** | Picking an arc also chooses the Arc lens ([D12](#decisions-accepted-by-the-user-2026-11-14)). A pick holds while the view moves, and ends when the view drops below the arc's first step (also when lowering the limit clamps the view there); it does not come back when the view rises again. "The arc at this point" clears it; the Arc lens stays chosen either way. A picked arc that has already ended shows "As of ‹last quest›" beside the recap, and its "New" heading becomes "New in ‹last quest›". |
 | L7 | **No arc here** | In the Arc lens with no arc covering the view: "No story arc covers this point." The picker still lists started arcs, so an ended one can be reopened. |
 | L8 | **Changes lens** | A heading, "What this quest changed" or "Changes since ‹previous point›", then rows under **Added** (+), **Ended** (−) and **Description updated** (~). Picking a row shows it on the right: the relationship and its sources, plus **Sources for the ending (n)** on an ended row, the only place end evidence ever appears. |
 | L9 | **Changes not offered** | At the first step or across a slice ↔ milestone boundary: "Changes compare one quest step with the one before it, or one milestone with the previous milestone. There is no comparison for this point." |
@@ -253,7 +253,7 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 | End evidence | A second `CollapsingHeader` labelled `EndSourcesToggle(n)`, driven by the same `SourcesExpanded` setting |
 | Known layout limit | With an even ring (for example ten members), an edge between two opposite members runs through the centre hexagon and its label. The viewer accepts it; `NDL-010` may bend such an edge or offset its label. |
 
-### Decisions for the user to accept
+### Decisions (accepted by the user, 2026-11-14)
 
 1. **D6. The lens bar** is a second row under the top bar, not a tab strip above the panes.
 2. **D7. The Changes lens takes the browse pane and the canvas** for its list, with no chart. A diff is a list; a chart of a diff would need its own layout rules.
