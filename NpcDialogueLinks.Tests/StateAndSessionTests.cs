@@ -126,6 +126,30 @@ public class StateAndSessionTests
     }
 
     [Fact]
+    public void Session_SourcesStartCollapsedAndStayAsSetForTheSession()
+    {
+        var session = new AtlasSession(Sample, new AtlasSpoilerState(Fx.Later, Fx.Early));
+        Assert.False(session.SourcesExpanded);
+
+        session.SetSourcesExpanded(true);
+        session.FocusOn("org-lantern-guild");
+        session.SelectRelationship("rel-guild-hq-old-hall");
+        session.SetView(Fx.Later);
+        session.SetContentView(AtlasContentView.MainStory);
+        Assert.True(session.SourcesExpanded);
+
+        session.SetSourcesExpanded(false);
+        Assert.False(session.SourcesExpanded);
+        Assert.False(new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample)).SourcesExpanded);
+    }
+
+    [Fact]
+    public void Text_SourcesToggleShowsCount()
+    {
+        Assert.Equal("Sources (3)", AtlasText.SourcesToggle(3));
+    }
+
+    [Fact]
     public void Layout_IsDeterministicAndBounded()
     {
         var neighborhood = Fx.Project(Sample, Fx.Early).GetNeighborhood("org-lantern-guild")!;

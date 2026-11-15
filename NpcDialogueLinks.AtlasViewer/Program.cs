@@ -129,6 +129,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                     case "confirmCeiling": session.ConfirmPendingCeiling(); break;
                     case "cancelCeiling": session.CancelPendingCeiling(); break;
                     case "setView": session.SetView(action.Value); break;
+                    case "setSourcesExpanded": session.SetSourcesExpanded(action.Value == "true"); break;
                     case "setContentView":
                         session.SetContentView(action.Value == "mainStory" ? AtlasContentView.MainStory : AtlasContentView.MainAndOptional);
                         break;
@@ -169,6 +170,7 @@ internal sealed class ViewerHost(ViewerOptions options)
             contentViews = new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory }
                 .Select(v => new { id = v, label = AtlasText.ContentViewLabel(v) }),
             pendingCeiling = s.PendingCeiling is { } pending ? new { pending.Id, prompt = AtlasText.ConfirmRaise(pending.Label) } : null,
+            sourcesExpanded = s.SourcesExpanded,
             search = s.SearchQuery,
             results = s.SearchResults.Select(e => new { e.Id, e.Name, category = AtlasText.CategoryLabel(e.Category), glyph = AtlasText.CategoryGlyph(e.Category) }),
             focus = s.Focus is { } focus ? EntityDetails(focus) : null,
@@ -191,7 +193,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                 }
                 : null,
             selectedRelationship = s.SelectedRelationship is { } r
-                ? new { r.Id, source = s.Snapshot.FindEntity(r.SourceId)!.Name, target = s.Snapshot.FindEntity(r.TargetId)!.Name, label = r.OutgoingLabel, citations = Citations(r.Citations) }
+                ? new { r.Id, source = s.Snapshot.FindEntity(r.SourceId)!.Name, target = s.Snapshot.FindEntity(r.TargetId)!.Name, label = r.OutgoingLabel, citations = Citations(r.Citations), sourcesLabel = AtlasText.SourcesToggle(r.Citations.Count) }
                 : null,
         };
     }
@@ -204,6 +206,7 @@ internal sealed class ViewerHost(ViewerOptions options)
         aliases = entity.Aliases,
         entity.Summary,
         citations = Citations(entity.Citations),
+        sourcesLabel = AtlasText.SourcesToggle(entity.Citations.Count),
     };
 
     private static object Citations(IReadOnlyList<AtlasCitationView> citations) =>

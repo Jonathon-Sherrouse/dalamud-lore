@@ -41,7 +41,9 @@
   h2 { font-size: 18px; margin: 0 0 2px; }
   h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 18px 0 6px; }
   .aliases { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
-  .sources { margin: 0; padding-left: 18px; }
+  details.sources-box { margin-top: 12px; color: var(--muted); font-size: 12px; }
+  details.sources-box > summary { cursor: pointer; user-select: none; }
+  .sources { margin: 6px 0 0; padding-left: 18px; }
   .sources li { margin: 2px 0; }
   .warn { font-size: 12px; color: var(--muted); border-left: 2px solid var(--accent); padding-left: 8px; margin-top: 8px; }
   a { color: var(--accent-2); }
@@ -138,13 +140,14 @@ function graph() {
     </defs>${edges}${labels}${nodes}</svg>`;
 }
 
-function sources(list) {
+// Collapsible, collapsed by default; the open/closed state lives in the shared AtlasSession.
+function sources(list, label) {
   if (!list?.length) return "";
   const items = list.map(c => c.url
     ? `<li><a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a></li>`
     : `<li>${esc(c.title)}</li>`).join("");
   const warn = list.some(c => c.url) ? `<div class="warn">${esc(state.text.externalLinkWarning)}</div>` : "";
-  return `<h3>Sources</h3><ol class="sources">${items}</ol>${warn}`;
+  return `<details class="sources-box"${state.sourcesExpanded ? " open" : ""}><summary>${esc(label)}</summary><ol class="sources">${items}</ol>${warn}</details>`;
 }
 
 function details() {
@@ -156,10 +159,10 @@ function details() {
       <span class="who" data-focus="${esc(n.entityId)}">${esc(n.entityName)}</span>${n.onCanvas ? "" : `<span class="off">(list only)</span>`}</li>`;
   }).join("");
   const r = state.selectedRelationship;
-  const rel = r ? `<h3>Selected connection</h3><div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong></div>${sources(r.citations)}
+  const rel = r ? `<h3>Selected connection</h3><div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong></div>${sources(r.citations, r.sourcesLabel)}
       <p><button data-clear>Close connection</button></p>` : "";
   return `<h2>${esc(f.name)}</h2><div class="aliases">${esc(f.category)}${f.aliases.length ? " · also " + f.aliases.map(esc).join(", ") : ""}</div>
-    <div>${esc(f.summary)}</div>${sources(f.citations)}
+    <div>${esc(f.summary)}</div>${sources(f.citations, f.sourcesLabel)}
     <h3>Connections (${(state.neighbors ?? []).length})</h3><ul class="neighbors">${neighbors || "<li class='off'>None at this point.</li>"}</ul>${rel}`;
 }
 
@@ -208,6 +211,9 @@ function render() {
   root.querySelectorAll("[data-focus]").forEach(el => el.onclick = () => act("focus", el.dataset.focus));
   root.querySelectorAll("[data-rel]").forEach(el => el.onclick = () => act("selectRelationship", el.dataset.rel));
   root.querySelectorAll("[data-clear]").forEach(el => el.onclick = () => act("clearSelection"));
+  root.querySelectorAll("details.sources-box").forEach(el => el.ontoggle = () => {
+    if (el.open !== state.sourcesExpanded) act("setSourcesExpanded", String(el.open));
+  });
 }
 
 load();

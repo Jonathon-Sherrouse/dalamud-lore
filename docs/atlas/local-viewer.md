@@ -4,7 +4,7 @@ The local viewer lets you browse the Atlas in a browser without launching FFXIV.
 
 **Parity rule** (user decision, 2026-11-14): the local viewer and the in-game Atlas window are maintained together for the whole pilot.
 
-The page's current look and layout are a functional placeholder. `NDL-005` owns the real UX design, and both front ends will follow it.
+The page's current look and layout are a functional placeholder. `NDL-005` owns the real UX design ([ux-design.md](ux-design.md)), and both front ends will follow it.
 
 ## Run it
 
@@ -34,7 +34,7 @@ Neither front end has its own browsing logic. Everything lives in the pure core 
 
 | Core piece | Provides |
 |---|---|
-| `AtlasSession` | Spoiler controls and the confirmation flow, content view, search, focus and refocus, relationship selection, transient-state clearing, persistence events |
+| `AtlasSession` | Spoiler controls and the confirmation flow, content view, search, focus and refocus, relationship selection, the collapsed-by-default sources section, transient-state clearing, persistence events |
 | `AtlasGraphLayout` | Deterministic node positions (at most 8 neighbors) and edge lanes |
 | `AtlasText` | Every player-facing string, the category glyphs, and the neutral confirmation prompt |
 | `AtlasLoader` | Loading, Strict validation, and failure isolation |

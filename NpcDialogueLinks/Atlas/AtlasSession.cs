@@ -39,6 +39,9 @@ public static class AtlasText
         _ => AtlasGlyph.Circle,
     };
 
+    /// <summary>Label of the collapsible sources section, with its count (e.g. "Sources (3)").</summary>
+    public static string SourcesToggle(int count) => $"Sources ({count})";
+
     public static string ContentViewLabel(AtlasContentView view) => view switch
     {
         AtlasContentView.MainStory => "Main story only",
@@ -86,6 +89,13 @@ public sealed class AtlasSession
 
     public string? SelectedRelationshipId { get; private set; }
 
+    /// <summary>
+    /// Whether the details' sources sections are open. Collapsed by default (user decision, 2026-11-14), so
+    /// sources stay out of the way until asked for. One setting covers entity and connection sources; it lasts
+    /// for the session and is never persisted, so every new session starts collapsed.
+    /// </summary>
+    public bool SourcesExpanded { get; private set; }
+
     /// <summary>A requested ceiling awaiting confirmation, or null.</summary>
     public AtlasCheckpoint? PendingCeiling { get; private set; }
 
@@ -113,6 +123,8 @@ public sealed class AtlasSession
 
     public AtlasRelationshipView? SelectedRelationship =>
         Neighborhood?.Neighbors.FirstOrDefault(n => n.Relationship.Id == SelectedRelationshipId)?.Relationship;
+
+    public void SetSourcesExpanded(bool expanded) => SourcesExpanded = expanded;
 
     public void SetSearch(string? query)
     {
