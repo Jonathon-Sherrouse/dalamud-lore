@@ -8,22 +8,6 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
 
-- [ ] `NDL-009` **Research and review the first arc's content**
-  - Owner: `content`
-  - Outcome: At least one complete, human-reviewed arc (the candidate is the 2.0 raid → rescue), with a story-so-far recap at every step and its cast's relationships, ships in `atlas.json`.
-  - Acceptance:
-    - The approved arc map is authored within the caps and never truncated.
-    - Baseline coverage for pre-known entities; fresh arc-era presentations, never reused from the 2.0 summaries; reviewed quest titles, arc names and recaps.
-    - The review sheet has an Arcs section with one row per step.
-    - Pinned "added" rows match the worked examples.
-    - Human acceptance precedes the per-record reviewed marking and the strict recheck.
-    - The handoff reports the authoring cost per arc step.
-  - Evidence: Research lanes with claim/passage/boundary traceability; real-data tests, including the per-step leak sweep; human content review, then strict validation. In-game: not applicable.
-  - Dependencies: `NDL-006` schema frozen; branch `codex/ndl-009-atlas-arc-content`. Finalization needs accepted `NDL-006`.
-  - Notes from `NDL-006`:
-    - The user chose arc A4, *The Black Wolf's challenge* (MSQ #155–161), with an editorial cast of 10 ([v2-discovery.md](atlas/v2-discovery.md)).
-    - End evidence (`endCitations`) loads only on an ending the Changes lens can show: both sides of the ending must be slices (or both milestones), and the same relationship must not carry straight on. The possession that ends at the slice → `cp-arr-2-0` boundary therefore carries none.
-
 - [ ] `NDL-010` **Ship v2 in game**
   - Owner: `ui`
   - Outcome: The in-game Atlas window and the viewer render the accepted v2 design over the accepted arc content.
@@ -39,6 +23,23 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
 ## In Review
+
+- [ ] `NDL-009` **Research and review the first arc's content**
+  - Owner: `content`
+  - Outcome: At least one complete, human-reviewed arc (the candidate is the 2.0 raid → rescue), with a story-so-far recap at every step and its cast's relationships, ships in `atlas.json`.
+  - Acceptance:
+    - The approved arc map is authored within the caps and never truncated.
+    - Baseline coverage for pre-known entities; fresh arc-era presentations, never reused from the 2.0 summaries; reviewed quest titles, arc names and recaps.
+    - The review sheet has an Arcs section with one row per step.
+    - Pinned "added" rows match the worked examples.
+    - Human acceptance precedes the per-record reviewed marking and the strict recheck.
+    - The handoff reports the authoring cost per arc step.
+  - Evidence: Research lanes with claim/passage/boundary traceability; real-data tests, including the per-step leak sweep; human content review, then strict validation. In-game: not applicable.
+  - Dependencies: `NDL-006` schema frozen; branch `codex/ndl-009-atlas-arc-content`. Finalization needs accepted `NDL-006`.
+  - Notes from `NDL-006`:
+    - The user chose arc A4, *The Black Wolf's challenge* (MSQ #155–161), with an editorial cast of 10 ([v2-discovery.md](atlas/v2-discovery.md)).
+    - End evidence (`endCitations`) loads only on an ending the Changes lens can show: both sides of the ending must be slices (or both milestones), and the same relationship must not carry straight on. The possession that ends at the slice → `cp-arr-2-0` boundary therefore carries none.
+  - Substantive PR: [#23](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/23)
 
 ## User Accepted
 
