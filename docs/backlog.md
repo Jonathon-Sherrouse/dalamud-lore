@@ -8,18 +8,6 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. `NDL-006` and `NDL-007` start in parallel.
 
-- [ ] `NDL-006` **Arc discovery, schema v2 and core**
-  - Owner: `lead`
-  - Outcome: A research-verified arc map and worked examples freeze a v2 data model and pure core that support arcs, quest-level steps, the Arc, Story point and Changes lenses, and Follow positioning, without breaking the shipped Atlas.
-  - Acceptance:
-    - Discovery comes first: a verified quest-order inventory, 2–3 worked examples with passages, and a proposed arc map with evidence for each boundary and its overlaps, flagging any cap overflow.
-    - Then schema v2 per the plan: timeline-step fields, the `event` category, `arcs`, and `endCitations`.
-    - The validator, the v2 spoiler rules, the triple-based snapshot diff, the Arc-lens projection (cumulative cast, "Ended so far", selection and lifetime), a pure whole-cast layout, and a pure `FollowPosition`.
-    - Per-record review in the generator, regenerated v2 data with pinned milestone snapshots, earliest-checkpoint defaults, and every synthetic fixture the plan lists.
-    - The window, viewer and bundled data keep working.
-  - Evidence: Discovery documents with passages; host tests for the core and fixtures; real-data pinned-snapshot tests; locked restore and builds; viewer parity smoke. In-game: not applicable. User acceptance of the arc map and the core is recorded separately.
-  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-006-atlas-v2-core`, PR base `main`.
-
 - [ ] `NDL-007` **Investigate completed-progress detection for Follow**
   - Owner: `runtime`
   - Outcome: Runtime evidence settles whether client completed-quest flags can drive Follow safely.
@@ -74,6 +62,19 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
 ## In Review
+
+- [ ] `NDL-006` **Arc discovery, schema v2 and core**
+  - Owner: `lead`
+  - Outcome: A research-verified arc map and worked examples freeze a v2 data model and pure core that support arcs, quest-level steps, the Arc, Story point and Changes lenses, and Follow positioning, without breaking the shipped Atlas.
+  - Acceptance:
+    - Discovery comes first: a verified quest-order inventory, 2–3 worked examples with passages, and a proposed arc map with evidence for each boundary and its overlaps, flagging any cap overflow.
+    - Then schema v2 per the plan: timeline-step fields, the `event` category, `arcs`, and `endCitations`.
+    - The validator, the v2 spoiler rules, the triple-based snapshot diff, the Arc-lens projection (cumulative cast, "Ended so far", selection and lifetime), a pure whole-cast layout, and a pure `FollowPosition`.
+    - Per-record review in the generator, regenerated v2 data with pinned milestone snapshots, earliest-checkpoint defaults, and every synthetic fixture the plan lists.
+    - The window, viewer and bundled data keep working.
+  - Evidence: Discovery documents with passages; host tests for the core and fixtures; real-data pinned-snapshot tests; locked restore and builds; viewer parity smoke. In-game: not applicable. User acceptance of the arc map and the core is recorded separately.
+  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-006-atlas-v2-core`, PR base `main`.
+  - Substantive PR: [#17](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/17)
 
 ## User Accepted
 
