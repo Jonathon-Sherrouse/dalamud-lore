@@ -16,6 +16,8 @@
 
   <ItemGroup>
     <Compile Include="../NpcDialogueLinks/Atlas/**/*.cs" Link="Atlas/%(RecursiveDir)%(Filename)%(Extension)" />
+    <!-- NDL-007: pure progress rules for Follow (the game adapter itself is not host-testable). -->
+    <Compile Include="../NpcDialogueLinks/Progress/**/*.cs" Link="Progress/%(RecursiveDir)%(Filename)%(Extension)" />
     <!-- The local viewer's sample must always pass Strict validation; tests load the same file. -->
     <None Include="../NpcDialogueLinks.AtlasViewer/sample-atlas.json" Link="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <!-- The real pilot data (NDL-003). Linked for tests only; the plugin does not package it until NDL-004. -->
