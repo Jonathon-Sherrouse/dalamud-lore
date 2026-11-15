@@ -8,13 +8,6 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
-- [ ] `NDL-005` **Design the Atlas user experience and prototype it in the local viewer**
-  - Owner: `ui`
-  - Outcome: The user accepts a concrete Atlas interaction and visual design, proven in the local viewer, before any ImGui window is built.
-  - Acceptance: `docs/atlas/ux-design.md` specifies the layout and minimum window size; the primary flows (first open at the earliest checkpoint, search → focus → refocus, raising the ceiling with confirmation, lowering and clamping, switching the content view, the overflow neighbor list, opening a source behind the spoiler warning); the visual language (category glyph plus color, never color alone; edge direction and labels; symmetric edges; hover, selected and focus states); empty, no-result and load-failure states; accessibility at 100%/150% font scale and contrast; and an ImGui feasibility note for every element. The local viewer is updated to the accepted design over synthetic sample data. Any new behavior or player-facing text goes into the shared core (`AtlasSession`, `AtlasText`, `AtlasGraphLayout`) with tests, so `NDL-004` renders the same thing. Frozen schema and spoiler invariants are unchanged; a needed change is flagged, not made. No plugin wiring, packaging, or real lore.
-  - Evidence: Design doc with annotated viewer screenshots at the minimum and a large size; a walkthrough of each flow; host tests for core changes; locked restore and plugin/viewer builds; ImGui feasibility review. In-game: not applicable. User design acceptance recorded separately.
-  - Dependencies: Accepted `NDL-002`; branch `codex/ndl-005-atlas-ux-design`, PR base `main` after NDL-002 merge. May run in parallel with `NDL-003`: this story owns the viewer front end, `docs/atlas/ux-design.md`, and presentation-level core files, while `NDL-003` owns content; serialize any overlapping core edits.
-
 - [ ] `NDL-004` **Deliver the standalone Atlas window and validate it in game**
   - Owner: `ui`
   - Outcome: `/npclinks atlas` opens a readable offline relationship browser over the accepted pilot data.
@@ -23,6 +16,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
   - Dependencies: Accepted `NDL-002`, `NDL-003`, and `NDL-005` (the window implements the accepted `NDL-005` design); branch `codex/ndl-004-atlas-window`, PR base `main` after all three merges. Lead coordinates integration; no overlapping Plugin.cs edits.
 
 ## In Review
+
+- [ ] `NDL-005` **Design the Atlas user experience and prototype it in the local viewer**
+  - Owner: `ui`
+  - Outcome: The user accepts a concrete Atlas interaction and visual design, proven in the local viewer, before any ImGui window is built.
+  - Acceptance: `docs/atlas/ux-design.md` specifies the layout and minimum window size; the primary flows (first open at the earliest checkpoint, search → focus → refocus, raising the ceiling with confirmation, lowering and clamping, switching the content view, the overflow neighbor list, opening a source behind the spoiler warning); the visual language (category glyph plus color, never color alone; edge direction and labels; symmetric edges; hover, selected and focus states); empty, no-result and load-failure states; accessibility at 100%/150% font scale and contrast; and an ImGui feasibility note for every element. The local viewer is updated to the accepted design over synthetic sample data. Any new behavior or player-facing text goes into the shared core (`AtlasSession`, `AtlasText`, `AtlasGraphLayout`) with tests, so `NDL-004` renders the same thing. Frozen schema and spoiler invariants are unchanged; a needed change is flagged, not made. No plugin wiring, packaging, or real lore.
+  - Evidence: Design doc with annotated viewer screenshots at the minimum and a large size; a walkthrough of each flow; host tests for core changes; locked restore and plugin/viewer builds; ImGui feasibility review. In-game: not applicable. User design acceptance recorded separately.
+  - Dependencies: Accepted `NDL-002`; branch `codex/ndl-005-atlas-ux-design`, PR base `main` after NDL-002 merge. May run in parallel with `NDL-003`: this story owns the viewer front end, `docs/atlas/ux-design.md`, and presentation-level core files, while `NDL-003` owns content; serialize any overlapping core edits.
+  - Substantive PR: [#10](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/10)
 
 - [ ] `NDL-003` **Research and curate the reviewed Scions Atlas dataset**
   - Owner: `content`
