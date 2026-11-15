@@ -8,6 +8,10 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
 
+The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
+
+## In Review
+
 - [ ] `NDL-010` **Ship v2 in game**
   - Owner: `ui`
   - Outcome: The in-game Atlas window and the viewer render the accepted v2 design over the accepted arc content.
@@ -19,10 +23,7 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
     - The scope statement is in the guide and handoff.
   - Evidence: Host tests; locked builds and packaging; an in-game do/expect test by the user; viewer parity. Report the lanes separately.
   - Dependencies: Accepted `NDL-008` and `NDL-009`; branch `codex/ndl-010-atlas-v2-window`. Lead owns `Plugin.cs` and Lore Explain integration.
-
-The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
-
-## In Review
+  - Substantive PR: [#25](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/25)
 
 ## User Accepted
 
