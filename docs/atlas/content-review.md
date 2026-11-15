@@ -1,6 +1,6 @@
 # Atlas content review sheet
 
-> **Status: AWAITING HUMAN REVIEW (62 pending).** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.
+> **Status: REVIEWED.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.
 
 How to read it:
 
@@ -21,7 +21,7 @@ For arc A4 (`NDL-009`), the user decided on 2026-11-14:
 4. **The arc:** A4, MSQ #155 *Escape from Castrum Centri* to #161 *The Ultimate Weapon*, with #154 as the baseline ([v2-discovery.md](v2-discovery.md)).
 5. **The cast of 10:** Minfilia, Thancred, Alphinaud and the Scions (already in the Atlas); Cid, Gaius, Livia, Lahabrea and the Eorzean Alliance (new); and the Operation Archon event. The plan's caps were raised by one each: five new entities instead of four, and four new relationship types instead of three (*part of*, *prisoner of*, *possessed by*, *serves*).
 
-Lead decisions for you to confirm in this review:
+Lead decisions, confirmed by the user with the content on 2026-11-14:
 
 6. **First names only**, as in the pilot: Gaius, Livia, Cid. Cid's company is "the Ironworks", never its full name.
 7. **Slice steps name only the cast.** Text at #154–160 never names a character the slice doesn't cover (such as Tataru or Y'shtola), because the leak sweep can't tell "met before #154" from "not met yet". Raubahn and Rhitahtyn, who are not Atlas entries, are named only from the quest where they appear.

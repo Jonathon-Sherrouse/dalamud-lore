@@ -2,7 +2,7 @@
 
 > **Status:**
 > - **Pilot (NDL-003): accepted.** The user explicitly accepted this content on 2026-11-14, and its records are marked `reviewed`.
-> - **Arc A4 (NDL-009): awaiting the user's review.** Every A4 record is `pending`, so Strict validation (and the plugin) refuses the data until it is accepted. See [Arc A4](#arc-a4-the-black-wolfs-challenge-ndl-009) below.
+> - **Arc A4 (NDL-009): accepted.** The user explicitly accepted the arc's content and the decisions in the review sheet on 2026-11-14, and its 62 records are marked `reviewed`. See [Arc A4](#arc-a4-the-black-wolfs-challenge-ndl-009) below.
 >
 > For the pilot: This is the completed evidence matrix for [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json). It supersedes the provisional [discovery evidence](discovery-evidence.md) for every record it covers. AI research and AI review are not canon acceptance; any later content change needs review again.
 
