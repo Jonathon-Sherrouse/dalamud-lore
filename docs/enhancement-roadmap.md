@@ -71,6 +71,15 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Add a setting to suppress repeated detections within the same conversation.
 - Add a user ignore list for noisy terms.
 
+## Approved: Atlas v2 (arc context)
+
+- **Priority (user decision, 2026-11-14):** Atlas v2 goes ahead of `Pre-Ship` and `Next Polish Pass`; those items stay open.
+- **Plan:** [docs/atlas/v2-plan.md](atlas/v2-plan.md). A confused player opens the Atlas mid-story and sees the researched arc they're in: a reviewed "story so far" recap plus the whole cast's relationships, built quest by quest. It also adds the Story point and Changes lenses and Follow (completed progress). It is proven on one 2.0 arc.
+- **Cards:** `NDL-006` to `NDL-010` in [backlog.md](backlog.md).
+- **Future candidates (not approved):**
+  - **Breadth coverage across the main story.** The route is decided after the slice proves it helps; it must not use patch-sized outer arcs, and milestone-only recaps give endpoint coverage only.
+  - **Lore Explain grounded in the reviewed recaps,** and a deep link into the Atlas.
+
 ## Approved Atlas Pilot
 
 ### Lore Relationship Atlas
@@ -84,7 +93,7 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Sources, names, aliases, descriptions, and relationships require player-knowledge boundaries and human review. No AI-inferred canon or private feelings. Default category glyphs avoid portrait dependencies.
 - Future **View in Atlas** bridges, dictionary-text reuse, story-event entities, maps, additional groups/checkpoints, and portraits require separately approved stories. They are not pilot slices or current acceptance prerequisites.
 - See [lore-relationship-atlas.md](lore-relationship-atlas.md) for the complete reconciled pilot contract, research order, safety rules, and evidence lanes. This planning publication alone does not start research or implementation or complete the product; update this status only as the actual stories progress.
-- **Status (2026-11-14): pilot complete.** `NDL-002` (foundation and local viewer), `NDL-003` (reviewed Scions content), `NDL-005` (UX design) and `NDL-004` (in-game window) are all **User Accepted**. The priority exception has served its purpose: `Pre-Ship` and `Next Polish Pass` are the default priority again. Broader Atlas ideas, including the quest-scoped views parked in the backlog, still need their own approved stories. User guide: [docs/atlas/README.md](atlas/README.md).
+- **Status (2026-11-14): pilot complete.** `NDL-002` (foundation and local viewer), `NDL-003` (reviewed Scions content), `NDL-005` (UX design) and `NDL-004` (in-game window) are all **User Accepted**. The priority exception has served its purpose: `Pre-Ship` and `Next Polish Pass` were the default priority again until Atlas v2 was approved; see above. Broader Atlas ideas, including the quest-scoped views parked in the backlog, still need their own approved stories. User guide: [docs/atlas/README.md](atlas/README.md).
 
 ## Later Enhancements
 

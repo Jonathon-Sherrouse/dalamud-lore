@@ -1,5 +1,7 @@
 # Lore Atlas guide
 
+> **Next:** [Atlas v2: arc context](v2-plan.md) is approved and planned as `NDL-006` to `NDL-010`.
+
 The Lore Atlas is a spoiler-safe relationship browser for the Scions of the Seventh Dawn pilot. You pick a story point, and it shows only what a player knows by then. The contract is [lore-relationship-atlas.md](../lore-relationship-atlas.md).
 
 ## In game
