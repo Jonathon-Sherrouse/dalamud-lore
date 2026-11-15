@@ -429,7 +429,7 @@ public class V2ArcTests
         Assert.False(atLast.PastEnd);
         Assert.Null(atLast.AsOfLabel);
         Assert.True(pastEnd.PastEnd);
-        Assert.Equal(AtlasText.ArcAsOf("Quest Three"), pastEnd.AsOfLabel);
+        Assert.Equal(AtlasText.ArcEnded, pastEnd.AsOfLabel);
         Assert.Equal(SnapshotDigest.Of(atLast.Cast), SnapshotDigest.Of(pastEnd.Cast));
         Assert.Equal(V2Fx.Ids(atLast.New), V2Fx.Ids(pastEnd.New));
         Assert.Equal(V2Fx.Ids(atLast.EndedSoFar), V2Fx.Ids(pastEnd.EndedSoFar));
@@ -440,7 +440,7 @@ public class V2ArcTests
     public void Arc_RecapIsTheEntrySummaryAtTheEffectiveStep()
     {
         Assert.Equal("Recap one.", Arc("arc-hold", "s2").Entry.Summary);
-        Assert.Equal(AtlasText.RecapThrough("Quest Two"), Arc("arc-hold", "s2").RecapLabel);
+        Assert.Equal("Story so far, through Quest Two", Arc("arc-hold", "s2").RecapLabel);
         Assert.Equal("Recap two.", Arc("arc-hold", "s5").Entry.Summary); // past the end: as of s3
     }
 
@@ -658,7 +658,7 @@ public class V2SpoilerTests
         var session = new AtlasSession(D, AtlasSpoilerPolicy.Default(D));
         var options = session.CheckpointOptions;
         Assert.Equal(new[] { "s0", "s1", "m1", "m2" }, options.Select(o => o.Id));
-        Assert.Equal(AtlasText.NextStoryStep, options.Single(o => o.Id == "s1").Label);
+        Assert.Equal(AtlasText.NextStoryStepOption, options.Single(o => o.Id == "s1").Label);
         Assert.All(options, o => Assert.DoesNotContain("Quest", o.Label.Replace("Baseline Quest", string.Empty)));
     }
 
@@ -684,7 +684,7 @@ public class V2SpoilerTests
         Assert.Contains("Patch One complete", session.PendingCeilingPrompt);
         session.ConfirmPendingCeiling();
         Assert.Contains(session.CheckpointOptions, o => o.Id == "s3" && o.Label == "After Quest Three"); // now at or below the limit
-        Assert.Equal(AtlasText.NextStoryStep, session.CheckpointOptions.Single(o => o.Id == "s5").Label);
+        Assert.Equal(AtlasText.NextStoryStepOption, session.CheckpointOptions.Single(o => o.Id == "s5").Label);
     }
 }
 

@@ -67,7 +67,7 @@ public class ArcA4Tests
         var atLast = At(Milestone);
         Assert.False(atLast.Arc!.PastEnd);
         Assert.Null(atLast.Arc.AsOfLabel);
-        Assert.Equal(AtlasText.RecapThrough("A Realm Reborn — Patch 2.0 complete"), atLast.Arc.RecapLabel);
+        Assert.Equal("Story so far, as of A Realm Reborn — Patch 2.0 complete", atLast.Arc.RecapLabel);
 
         var after = At("cp-arr-2-55");
         Assert.Null(after.Arc); // the automatic choice: no arc contains 2.55

@@ -10,7 +10,7 @@ public static class AtlasText
     public const string WindowTitle = "Lore Atlas";
     public const string CeilingLabel = "Spoiler limit";
     public const string ViewLabel = "Viewing as of";
-    public const string ContentViewHelp = "Includes optional story content available by the selected patch.";
+    public const string ContentViewHelp = "Includes optional story content available by the selected story point.";
     public const string ExternalLinkWarning = "External pages may contain later spoilers. The Atlas only filters what it shows itself.";
     public const string EmptyFocus = "Search or pick an entry to see its connections.";
     public const string NoResults = "No matching entries at this point in the story.";
@@ -32,7 +32,7 @@ public static class AtlasText
 
     /// <summary>Tag on records known only from optional quests (user decision, 2026-11-14).</summary>
     public const string OptionalTag = "optional";
-    public const string OptionalTooltip = "Known from optional quests available by this patch.";
+    public const string OptionalTooltip = "Known from optional quests available by this story point.";
     public const string OptionalSummaryNote = "Includes optional quests.";
 
     /// <summary>Neutral confirmation: names only the checkpoint label, never what lies beyond it.</summary>
@@ -77,17 +77,24 @@ public static class AtlasText
     /// <summary>The one step just beyond the spoiler limit, offered without its quest title (v2 spoiler rule 1).</summary>
     public const string NextStoryStep = "the next story step";
 
+    /// <summary><see cref="NextStoryStep"/> standing alone as a picker or menu item, so it starts with a capital.</summary>
+    public const string NextStoryStepOption = "The next story step";
+
     /// <summary>Changes-lens heading for a step contiguous with the previous one.</summary>
     public const string ChangesThisQuest = "What this quest changed";
 
     /// <summary>Changes-lens heading across a gap in the covered steps.</summary>
     public static string ChangesSince(string previousPoint) => $"Changes since {previousPoint}";
 
-    /// <summary>Label above an arc's reviewed recap, naming the step it covers.</summary>
-    public static string RecapThrough(string questOrPoint) => $"Story so far, through {questOrPoint}";
+    /// <summary>Label above an arc's reviewed recap, naming the step it covers. A milestone reads "as of ‹milestone›".</summary>
+    public static string RecapThrough(AtlasCheckpoint step) =>
+        step.Milestone ? $"Story so far, as of {step.Label}" : $"Story so far, through {step.DisplayTitle}";
 
-    /// <summary>Marker for an explicitly picked arc viewed after it ended.</summary>
-    public static string ArcAsOf(string lastQuest) => $"As of {lastQuest}";
+    /// <summary>
+    /// Marker for an explicitly picked arc viewed after it ended. The recap label already names the arc's last step,
+    /// so this only says that the arc is over.
+    /// </summary>
+    public const string ArcEnded = "This arc has ended.";
 
     public const string NoArcHere = "No story arc covers this point.";
     public const string FollowBeforeCoverage = "Your completed story is before the points covered here.";
@@ -100,7 +107,8 @@ public static class AtlasText
     public static string FollowProgress(string questOrPoint) => $"Your progress: through {questOrPoint}";
 
     /// <summary>A default or manually chosen position, never presented as "you are here".</summary>
-    public static string ViewingAfter(string questOrPoint) => $"Viewing: after {questOrPoint}";
+    public static string ViewingAt(AtlasCheckpoint point) =>
+        point.Milestone ? $"Viewing: {point.Label}" : $"Viewing: after {point.DisplayTitle}";
 
     public static string ContentViewLabel(AtlasContentView view) => view switch
     {
@@ -134,19 +142,36 @@ public static class AtlasText
     public const string ArcNewHeading = "New at this point";
 
     /// <summary>The "new" heading for a picked arc viewed after it ended: the rows are new at its last quest.</summary>
-    public static string ArcNewIn(string lastQuest) => $"New in {lastQuest}";
+    public static string ArcNewIn(AtlasCheckpoint lastStep) =>
+        lastStep.Milestone ? $"New as of {lastStep.Label}" : $"New in {lastStep.DisplayTitle}";
     public const string ArcEndedHeading = "Ended so far in this arc";
     public const string ArcNothingNew = "Nothing new.";
     public const string ArcNothingEnded = "Nothing has ended yet.";
 
     /// <summary>When an ended row's relationship ended (a step at or below the view).</summary>
-    public static string EndedIn(string questOrPoint) => $"ended in {questOrPoint}";
+    public static string EndedIn(AtlasCheckpoint step) =>
+        step.Milestone ? $"ended by {step.Label}" : $"ended in {step.DisplayTitle}";
+
+    /// <summary>
+    /// What a picked Changes row did at the view, shown at the top of its details so an ended relationship never reads
+    /// as current. Front ends put the row's mark (+, −, ~) before it.
+    /// </summary>
+    public static string ChangeStatus(AtlasChangeKind kind, AtlasCheckpoint view)
+    {
+        var at = view.Milestone ? $"by {view.Label}" : $"in {view.DisplayTitle}";
+        return kind switch
+        {
+            AtlasChangeKind.Added => $"Added {at}",
+            AtlasChangeKind.Ended => $"Ended {at}",
+            _ => $"Description updated {at}",
+        };
+    }
 
     public const string ChangesAdded = "Added";
     public const string ChangesEnded = "Ended";
     public const string ChangesUpdated = "Description updated";
     public const string NoChanges = "Nothing changed at this point.";
-    public const string ChangesNotOffered = "Changes compare one quest step with the one before it, or one milestone with the previous milestone. There is no comparison for this point.";
+    public const string ChangesNotOffered = "Nothing to compare here. Changes compares a quest step with the one before it, or a milestone with the previous milestone.";
     public const string ChangesPickHint = "Pick a change to see its details.";
 
     /// <summary>Label of the collapsible end-evidence section, shown only on a Changes "ended" row.</summary>
@@ -273,7 +298,7 @@ public sealed class AtlasSession
             .ToList();
 
     /// <summary>"Viewing: after ‹quest›": the chosen point, never "you are here" (v2 plan, "Honest positioning").</summary>
-    public string PositionLabel => AtlasText.ViewingAfter(ViewCheckpoint.DisplayTitle);
+    public string PositionLabel => AtlasText.ViewingAt(ViewCheckpoint);
 
     /// <summary>The coverage line on slice steps; null on milestones.</summary>
     public string? CoverageNote => ViewCheckpoint.Milestone ? null : AtlasText.CoverageNote;
@@ -303,7 +328,7 @@ public sealed class AtlasSession
     public string? CastHeading => ArcView is { } arc ? AtlasText.CastHeading(arc.Cast.Entities.Count - 1) : null;
 
     /// <summary>"New at this point", or "New in ‹last quest›" for a picked arc viewed after it ended. Null outside an arc view.</summary>
-    public string? ArcNewHeading => ArcView is { } arc ? (arc.PastEnd ? AtlasText.ArcNewIn(arc.Effective.DisplayTitle) : AtlasText.ArcNewHeading) : null;
+    public string? ArcNewHeading => ArcView is { } arc ? (arc.PastEnd ? AtlasText.ArcNewIn(arc.Effective) : AtlasText.ArcNewHeading) : null;
 
     /// <summary><see cref="Arc"/> while the Arc lens shows it; null in the other lenses, so Arc-only surfaces stay empty there.</summary>
     private AtlasArcView? ArcView => Lens == AtlasLens.Arc ? Arc : null;
@@ -393,6 +418,9 @@ public sealed class AtlasSession
 
     public string? SelectedChangeKey { get; private set; }
 
+    /// <summary>"Added in ‹quest›", "Ended by ‹milestone›"… for the picked Changes row; null when none is picked.</summary>
+    public string? SelectedChangeStatus => SelectedChange is { } row ? AtlasText.ChangeStatus(row.Kind, ViewCheckpoint) : null;
+
     public AtlasChangeRow? SelectedChange =>
         SelectedChangeKey is null ? null : ChangeGroups.SelectMany(g => g.Rows).FirstOrDefault(r => r.Key == SelectedChangeKey);
 
@@ -431,7 +459,7 @@ public sealed class AtlasSession
     private string EndedInFor(string checkpointId)
     {
         Dataset.TryGetCheckpoint(checkpointId, out var ended);
-        return AtlasText.EndedIn(ended.DisplayTitle);
+        return AtlasText.EndedIn(ended);
     }
 
     /// <summary>The entry focused on open and after story-setting changes, when visible. See <see cref="AtlasDefaults"/>.</summary>
@@ -465,13 +493,14 @@ public sealed class AtlasSession
     public bool SourcesExpanded { get; private set; }
 
     /// <summary>The neutral confirmation for <see cref="PendingCeiling"/>; it never names a quest beyond the limit.</summary>
-    public string? PendingCeilingPrompt => PendingCeiling is { } pending ? AtlasText.ConfirmRaise(RaiseLabel(pending)) : null;
+    public string? PendingCeilingPrompt => PendingCeiling is { } pending ? AtlasText.ConfirmRaise(RaiseLabel(pending, inSentence: true)) : null;
 
     /// <summary>A checkpoint's label as shown in pickers and prompts: real at or below the limit or for milestones.</summary>
-    private string RaiseLabel(AtlasCheckpoint checkpoint)
+    private string RaiseLabel(AtlasCheckpoint checkpoint, bool inSentence = false)
     {
         Dataset.TryGetCheckpoint(SpoilerState.CeilingId, out var ceiling);
-        return checkpoint.Order <= ceiling.Order || checkpoint.Milestone ? checkpoint.Label : AtlasText.NextStoryStep;
+        return checkpoint.Order <= ceiling.Order || checkpoint.Milestone ? checkpoint.Label
+            : inSentence ? AtlasText.NextStoryStep : AtlasText.NextStoryStepOption;
     }
 
     /// <summary>

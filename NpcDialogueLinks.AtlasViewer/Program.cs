@@ -186,6 +186,17 @@ internal sealed class ViewerHost(ViewerOptions options)
                 badgeRadius = AtlasPortraitStyle.BadgeRadius,
                 badgeOffset = AtlasPortraitStyle.BadgeOffset,
                 headerSize = AtlasPortraitStyle.HeaderSize,
+                minNodePixels = AtlasPortraitStyle.MinNodePixels,
+                minFocusPixels = AtlasPortraitStyle.MinFocusPixels,
+            },
+            chartStyle = new
+            {
+                ringFraction = AtlasChartStyle.RingFraction,
+                labelPositions = AtlasChartStyle.LabelPositions,
+                nameMaxWidth = AtlasChartStyle.NameMaxWidth,
+                centreNameMaxWidth = AtlasChartStyle.CentreNameMaxWidth,
+                centreNameRingWidth = AtlasChartStyle.CentreNameRingWidth,
+                clearance = AtlasChartStyle.Clearance,
             },
             text = new
             {
@@ -253,6 +264,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                     label = s.ChangesLabel,
                     groups = s.ChangeGroups.Select(g => new { g.Kind, g.Label, rows = g.Rows.Select(Row) }),
                     selected = s.SelectedChange is { } c ? Row(c) : null,
+                    selectedStatus = s.SelectedChangeStatus,
                 }
                 : null,
             checkpoints = s.CheckpointOptions.Select(c => new

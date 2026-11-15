@@ -74,7 +74,7 @@ Maintenance rules for every change (the in-game window shipped in `NDL-004`):
 | Errors go to the terminal. | Errors go to the Dalamud log. |
 | Browser rendering (HTML and SVG). Direction arrows are text glyphs (← → ↔), and optional edges use an SVG dash. | ImGui rendering (`NpcDialogueLinks/AtlasWindow.cs`), with the same layout coordinates, glyphs, colors and text. Arrows are drawn, so they never depend on font coverage, and dashes are short line segments. |
 | Portraits from the local cache (`tools/atlas/PortraitCache`); shapes without it. | Portraits from the game's own icons through Dalamud's texture provider; shapes until they load. |
-| v2 lenses (`NDL-008`): "← Whole cast" and the change marks `+ − ~`. On the whole-cast chart, an edge label that lands on the centre node stays there. | The same lenses (`NDL-010`): "< Whole cast" and `+ - ~` in plain ASCII, so they never depend on font coverage. A whole-cast edge label that would land on the centre node is moved clear of it. |
+| v2 lenses (`NDL-008`): "← Whole cast" and the change marks `+ − ~`. | The same lenses (`NDL-010`): "< Whole cast" and `+ - ~` in plain ASCII, so they never depend on font coverage. |
 
 ## Tests
 

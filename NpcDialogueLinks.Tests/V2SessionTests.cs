@@ -83,7 +83,7 @@ public class V2LensTests
         Assert.Equal(AtlasText.CoverageNote, slice.CoverageNote);
 
         var milestone = At("m2", "m1");
-        Assert.Equal("Viewing: after Patch One complete", milestone.PositionLabel);
+        Assert.Equal("Viewing: Patch One complete", milestone.PositionLabel);
         Assert.Null(milestone.CoverageNote);
     }
 }
@@ -164,7 +164,7 @@ public class V2ArcSessionTests
         Assert.Null(s.Arc); // the automatic choice: no arc contains s5
         Assert.True(s.PickArc("arc-hold"));
         Assert.True(s.Arc!.PastEnd);
-        Assert.Equal(AtlasText.ArcAsOf("Quest Three"), s.Arc.AsOfLabel);
+        Assert.Equal(AtlasText.ArcEnded, s.Arc.AsOfLabel);
     }
 
     [Fact]
@@ -182,7 +182,7 @@ public class V2ArcSessionTests
         Assert.Equal(new[] { "r-cy-bo-2", "r-dee-bo-2" }, s.ArcNewRows.Select(r => r.Relationship!.Id).Order(StringComparer.Ordinal));
         var ended = s.ArcEndedRows;
         Assert.Equal(new[] { "r-ana-prisoner", "r-bo-possessed" }, ended.Select(r => r.Relationship!.Id));
-        Assert.Equal(new[] { AtlasText.EndedIn("Quest Two"), AtlasText.EndedIn("Quest Three") }, ended.Select(r => r.EndedInLabel));
+        Assert.Equal(new[] { "ended in Quest Two", "ended in Quest Three" }, ended.Select(r => r.EndedInLabel));
         Assert.All(ended, r =>
         {
             Assert.Empty(r.EndCitations);
@@ -243,6 +243,30 @@ public class V2ChangesSessionTests
         s.SetView("s3");
         Assert.Null(s.SelectedChangeKey);
         Assert.True(s.SelectionWasReset);
+    }
+
+    [Fact]
+    public void Changes_PickedRowSaysWhatHappenedAndWhen()
+    {
+        // Council round 1 (NDL-011): an ended row's details must not read as a live relationship.
+        var s = Changes("s2");
+        Assert.Null(s.SelectedChangeStatus);
+        Assert.True(s.SelectChange("ended:r-ana-prisoner"));
+        Assert.Equal("Ended in Quest Two", s.SelectedChangeStatus);
+    }
+
+    [Fact]
+    public void Text_MilestonesReadAsPointsNotQuests()
+    {
+        var quest = new AtlasCheckpoint("q", "After Quest Two", 1) { QuestTitle = "Quest Two" };
+        var milestone = new AtlasCheckpoint("m", "Patch One complete", 2) { Milestone = true };
+        Assert.Equal("Viewing: after Quest Two", AtlasText.ViewingAt(quest));
+        Assert.Equal("Viewing: Patch One complete", AtlasText.ViewingAt(milestone));
+        Assert.Equal("Story so far, as of Patch One complete", AtlasText.RecapThrough(milestone));
+        Assert.Equal("ended by Patch One complete", AtlasText.EndedIn(milestone));
+        Assert.Equal("New as of Patch One complete", AtlasText.ArcNewIn(milestone));
+        Assert.Equal("Added by Patch One complete", AtlasText.ChangeStatus(AtlasChangeKind.Added, milestone));
+        Assert.Equal("Description updated in Quest Two", AtlasText.ChangeStatus(AtlasChangeKind.Updated, quest));
     }
 
     [Fact]
@@ -632,8 +656,8 @@ public class V2SessionEdgeTests
         Assert.True(s.LensIsExplicit); // picking an arc is choosing the Arc lens
         s.SetView("s5"); // no arc contains s5, so the default rule alone would have switched to Story point
         Assert.Equal(AtlasLens.Arc, s.Lens);
-        Assert.Equal(AtlasText.ArcAsOf("Quest Three"), s.Arc!.AsOfLabel);
-        Assert.Equal(AtlasText.ArcNewIn("Quest Three"), s.ArcNewHeading);
+        Assert.Equal(AtlasText.ArcEnded, s.Arc!.AsOfLabel);
+        Assert.Equal("New in Quest Three", s.ArcNewHeading);
     }
 
     [Fact]
@@ -856,7 +880,7 @@ public class ArcSampleTests
         var s = new AtlasSession(d, new AtlasSpoilerState("v2", "q2"));
         Assert.Equal(AtlasLens.Arc, s.Lens);
         Assert.Equal("The Siege of Saltmere", s.Arc!.Entry.Name);
-        Assert.Equal(AtlasText.RecapThrough("The Captain's Bargain"), s.Arc.RecapLabel);
+        Assert.Equal("Story so far, through The Captain's Bargain", s.Arc.RecapLabel);
         Assert.DoesNotContain(s.Snapshot.Entities, e => e.Id == "char-orrin"); // in the story, not in the cast
         Assert.Equal(new[] { "Captain Mira allied with Vessa", "Vessa member of The Drowned Court" }, s.ArcNewRows.Select(r => r.Text));
         Assert.Equal(new[] { "Captain Mira member of The Harbor Watch" }, s.ArcEndedRows.Select(r => r.Text));

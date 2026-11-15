@@ -18,10 +18,10 @@ public sealed record AtlasArcView(
     bool PastEnd)
 {
     /// <summary>"Story so far, through ‹quest›", the label above the entry's recap summary.</summary>
-    public string RecapLabel => AtlasText.RecapThrough(Effective.DisplayTitle);
+    public string RecapLabel => AtlasText.RecapThrough(Effective);
 
     /// <summary>The "as of ‹last quest›" marker, shown only once the view is after the arc's last step (rule 7).</summary>
-    public string? AsOfLabel => PastEnd ? AtlasText.ArcAsOf(Effective.DisplayTitle) : null;
+    public string? AsOfLabel => PastEnd ? AtlasText.ArcEnded : null;
 }
 
 /// <summary>One arc in the picker: its id and its name as of its effective step. Never its span (rule 7).</summary>

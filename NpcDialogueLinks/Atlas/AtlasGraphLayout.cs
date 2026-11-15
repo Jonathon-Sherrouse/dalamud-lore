@@ -43,6 +43,37 @@ public static class AtlasPortraitStyle
 
     /// <summary>The portrait's diameter in the details and arc-panel headers, in unscaled pixels.</summary>
     public const int HeaderSize = 48;
+
+    /// <summary>Smallest on-screen radius of a portrait node and of the centre node, in unscaled pixels, so a small window keeps faces legible.</summary>
+    public const int MinNodePixels = 14;
+
+    public const int MinFocusPixels = 20;
+}
+
+/// <summary>
+/// How both front ends place chart text (council round 1, NDL-011). The chart is drawn in screen pixels: ring radius
+/// <see cref="RingFraction"/> of the canvas's shorter side, text at the UI font size. Names sit outside the ring (above
+/// a node in the upper half, below it otherwise) so chords never cross them. Each edge label sits on its edge, on a
+/// backing plate, at the first fraction in <see cref="LabelPositions"/> whose box clears every node, name and label
+/// already placed; if none is clear it stays at the middle.
+/// </summary>
+public static class AtlasChartStyle
+{
+    public const double RingFraction = 0.36;
+
+    /// <summary>Fractions along an edge to try for its label, in order.</summary>
+    public static readonly double[] LabelPositions = [0.5, 0.38, 0.62, 0.28, 0.72, 0.2, 0.8];
+
+    /// <summary>A name's widest truncation, in unscaled pixels; a ring name is also capped to the gap between ring neighbours.</summary>
+    public const int NameMaxWidth = 150;
+
+    public const int CentreNameMaxWidth = 200;
+
+    /// <summary>The centre name is also capped to this many ring radii, so in a small window it stays clear of the ring.</summary>
+    public const double CentreNameRingWidth = 1.6;
+
+    /// <summary>Clearance kept around nodes, names and labels when placing a label, in unscaled pixels.</summary>
+    public const int Clearance = 3;
 }
 
 /// <summary>
