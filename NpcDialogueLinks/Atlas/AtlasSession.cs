@@ -15,6 +15,9 @@ public static class AtlasText
     public const string EmptyFocus = "Search or pick an entry to see its connections.";
     public const string NoResults = "No matching entries at this point in the story.";
     public const string LoadFailed = "The Lore Atlas could not load its data. Other features are unaffected.";
+
+    /// <summary>The Lore Explain window's single entry point into the Atlas (NDL-010). It opens the window and passes no data.</summary>
+    public const string OpenAtlasButton = "Open Atlas";
     public const string ConfirmRaiseButton = "Show";
     public const string CancelRaiseButton = "Cancel";
     public const string RaiseButton = "Raise…";

@@ -60,6 +60,7 @@ Maintenance rules for every change (the in-game window shipped in `NDL-004`):
 | `--data` and `--draft` flags, a draft banner, and a Reload button. | Loads only the bundled `atlas.json`, Strict, once per open. |
 | Errors go to the terminal. | Errors go to the Dalamud log. |
 | Browser rendering (HTML and SVG). Direction arrows are text glyphs (← → ↔), and optional edges use an SVG dash. | ImGui rendering (`NpcDialogueLinks/AtlasWindow.cs`), with the same layout coordinates, glyphs, colors and text. Arrows are drawn, so they never depend on font coverage, and dashes are short line segments. |
+| v2 lenses (`NDL-008`): "← Whole cast" and the change marks `+ − ~`. On the whole-cast chart, an edge label that lands on the centre node stays there. | The same lenses (`NDL-010`): "< Whole cast" and `+ - ~` in plain ASCII, so they never depend on font coverage. A whole-cast edge label that would land on the centre node is moved clear of it. |
 
 ## Tests
 
