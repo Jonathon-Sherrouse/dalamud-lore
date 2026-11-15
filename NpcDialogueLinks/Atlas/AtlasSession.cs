@@ -8,7 +8,7 @@ namespace NpcDialogueLinks.Atlas;
 public static class AtlasText
 {
     public const string WindowTitle = "Lore Atlas";
-    public const string CeilingLabel = "Knowledge approved through";
+    public const string CeilingLabel = "Spoiler limit";
     public const string ViewLabel = "Viewing as of";
     public const string ContentViewHelp = "Includes optional story content available by the selected patch.";
     public const string ExternalLinkWarning = "External pages may contain later spoilers. The Atlas only filters what it shows itself.";
@@ -17,6 +17,20 @@ public static class AtlasText
     public const string LoadFailed = "The Lore Atlas could not load its data. Other features are unaffected.";
     public const string ConfirmRaiseButton = "Show";
     public const string CancelRaiseButton = "Cancel";
+    public const string RaiseButton = "Raise…";
+    public const string ContentLabel = "Content";
+    public const string SearchPlaceholder = "Search names…";
+    public const string ConnectionsHeading = "Connections";
+    public const string NoConnections = "None at this point.";
+    public const string CloseConnectionButton = "Close";
+    public const string SelectedConnectionHeading = "Selected connection";
+    public const string ListOnlyMarker = "(list only)";
+    public const string SelectionReset = "Selection reset because the story settings changed.";
+
+    /// <summary>Tag on records known only from optional quests (user decision, 2026-11-14).</summary>
+    public const string OptionalTag = "optional";
+    public const string OptionalTooltip = "Known from optional quests available by this patch.";
+    public const string OptionalSummaryNote = "Includes optional quests.";
 
     /// <summary>Neutral confirmation: names only the checkpoint label, never what lies beyond it.</summary>
     public static string ConfirmRaise(string checkpointLabel) =>
@@ -39,6 +53,18 @@ public static class AtlasText
         _ => AtlasGlyph.Circle,
     };
 
+    /// <summary>Label of the collapsible sources section, with its count (e.g. "Sources (3)").</summary>
+    public static string SourcesToggle(int count) => $"Sources ({count})";
+
+    /// <summary>Browse-list group heading (user decision, 2026-11-14: group by category).</summary>
+    public static string CategoryGroupLabel(AtlasCategory category) => category switch
+    {
+        AtlasCategory.Character => "Characters",
+        AtlasCategory.Organization => "Organizations",
+        AtlasCategory.Location => "Locations",
+        _ => "Entries",
+    };
+
     public static string ContentViewLabel(AtlasContentView view) => view switch
     {
         AtlasContentView.MainStory => "Main story only",
@@ -53,6 +79,19 @@ public enum AtlasGlyph
     Diamond,
 }
 
+/// <summary>Pilot-wide browsing defaults shared by every front end.</summary>
+public static class AtlasDefaults
+{
+    /// <summary>
+    /// The entry the Atlas opens on and returns to when story settings clear the focus (user decision,
+    /// 2026-11-14). Ignored when it is absent or not visible. A later schema version could carry this in the data.
+    /// </summary>
+    public const string HomeEntityId = "org-scions";
+}
+
+/// <summary>One browse-list group: a category heading and its visible entries, in category-then-id order.</summary>
+public sealed record AtlasResultGroup(AtlasCategory Category, string Label, IReadOnlyList<AtlasEntityView> Entries);
+
 public sealed record AtlasCheckpointOption(string Id, string Label, bool IsCeiling, bool IsView, bool ViewSelectable);
 
 /// <summary>
@@ -64,13 +103,28 @@ public sealed class AtlasSession
 {
     private AtlasSnapshot snapshot;
 
-    public AtlasSession(AtlasDataset dataset, AtlasSpoilerState initialState, AtlasContentView contentView = AtlasContentView.MainAndOptional)
+    public AtlasSession(
+        AtlasDataset dataset,
+        AtlasSpoilerState initialState,
+        AtlasContentView contentView = AtlasContentView.MainAndOptional,
+        string? homeEntityId = AtlasDefaults.HomeEntityId)
     {
         Dataset = dataset ?? throw new ArgumentNullException(nameof(dataset));
         SpoilerState = AtlasSpoilerPolicy.Restore(dataset, initialState?.CeilingId, initialState?.ViewId);
         ContentView = contentView;
+        HomeEntityId = homeEntityId;
         snapshot = Project();
+        FocusHome();
     }
+
+    /// <summary>The entry focused on open and after story-setting changes, when visible. See <see cref="AtlasDefaults"/>.</summary>
+    public string? HomeEntityId { get; }
+
+    /// <summary>
+    /// True after a story-setting change (limit, view or content view) reset a search, focus or selection the
+    /// player had made, until their next browsing action. Front ends show <see cref="AtlasText.SelectionReset"/>.
+    /// </summary>
+    public bool SelectionWasReset { get; private set; }
 
     public AtlasDataset Dataset { get; }
 
@@ -85,6 +139,13 @@ public sealed class AtlasSession
     public string? FocusId { get; private set; }
 
     public string? SelectedRelationshipId { get; private set; }
+
+    /// <summary>
+    /// Whether the details' sources sections are open. Collapsed by default (user decision, 2026-11-14), so
+    /// sources stay out of the way until asked for. One setting covers entity and connection sources; it lasts
+    /// for the session and is never persisted, so every new session starts collapsed.
+    /// </summary>
+    public bool SourcesExpanded { get; private set; }
 
     /// <summary>A requested ceiling awaiting confirmation, or null.</summary>
     public AtlasCheckpoint? PendingCeiling { get; private set; }
@@ -105,6 +166,13 @@ public sealed class AtlasSession
 
     public IReadOnlyList<AtlasEntityView> SearchResults => snapshot.Search(SearchQuery);
 
+    /// <summary>Search results grouped by category, omitting empty groups (user decision, 2026-11-14).</summary>
+    public IReadOnlyList<AtlasResultGroup> SearchResultGroups =>
+        SearchResults
+            .GroupBy(e => e.Category)
+            .Select(g => new AtlasResultGroup(g.Key, AtlasText.CategoryGroupLabel(g.Key), g.ToList()))
+            .ToList();
+
     public AtlasEntityView? Focus => snapshot.FindEntity(FocusId);
 
     public AtlasNeighborhood? Neighborhood => snapshot.GetNeighborhood(FocusId);
@@ -114,8 +182,11 @@ public sealed class AtlasSession
     public AtlasRelationshipView? SelectedRelationship =>
         Neighborhood?.Neighbors.FirstOrDefault(n => n.Relationship.Id == SelectedRelationshipId)?.Relationship;
 
+    public void SetSourcesExpanded(bool expanded) => SourcesExpanded = expanded;
+
     public void SetSearch(string? query)
     {
+        SelectionWasReset = false;
         SearchQuery = (query ?? string.Empty).Length > AtlasSnapshot.MaxSearchQueryLength
             ? query![..AtlasSnapshot.MaxSearchQueryLength]
             : query ?? string.Empty;
@@ -131,6 +202,7 @@ public sealed class AtlasSession
 
         FocusId = entityId;
         SelectedRelationshipId = null;
+        SelectionWasReset = false;
         return true;
     }
 
@@ -143,10 +215,15 @@ public sealed class AtlasSession
         }
 
         SelectedRelationshipId = relationshipId;
+        SelectionWasReset = false;
         return true;
     }
 
-    public void ClearSelection() => SelectedRelationshipId = null;
+    public void ClearSelection()
+    {
+        SelectedRelationshipId = null;
+        SelectionWasReset = false;
+    }
 
     /// <summary>Request a new ceiling. Raising it sets <see cref="PendingCeiling"/> until confirmed or cancelled.</summary>
     public AtlasStateChange RequestCeiling(string? checkpointId)
@@ -195,8 +272,7 @@ public sealed class AtlasSession
         }
 
         ContentView = view;
-        ResetTransient();
-        snapshot = Project();
+        Reproject();
     }
 
     private void Apply(AtlasStateResult result)
@@ -207,17 +283,31 @@ public sealed class AtlasSession
         }
 
         SpoilerState = result.State;
-        ResetTransient();
-        snapshot = Project();
+        Reproject();
         SpoilerStateChanged?.Invoke(SpoilerState);
     }
 
-    private void ResetTransient()
+    /// <summary>Re-project after a story-setting change: clear transient state, then return to the home entry.</summary>
+    private void Reproject()
     {
+        var hadPlayerState = SearchQuery.Length > 0
+            || (FocusId is not null && FocusId != HomeEntityId)
+            || SelectedRelationshipId is not null;
         SearchQuery = string.Empty;
         FocusId = null;
         SelectedRelationshipId = null;
         PendingCeiling = null;
+        snapshot = Project();
+        FocusHome();
+        SelectionWasReset = hadPlayerState;
+    }
+
+    private void FocusHome()
+    {
+        if (snapshot.FindEntity(HomeEntityId) is not null)
+        {
+            FocusId = HomeEntityId;
+        }
     }
 
     private AtlasSnapshot Project() => AtlasProjector.Project(Dataset, SpoilerState.ViewId, ContentView);

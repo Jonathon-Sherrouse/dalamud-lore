@@ -126,6 +126,88 @@ public class StateAndSessionTests
     }
 
     [Fact]
+    public void Session_SourcesStartCollapsedAndStayAsSetForTheSession()
+    {
+        var session = new AtlasSession(Sample, new AtlasSpoilerState(Fx.Later, Fx.Early));
+        Assert.False(session.SourcesExpanded);
+
+        session.SetSourcesExpanded(true);
+        session.FocusOn("org-lantern-guild");
+        session.SelectRelationship("rel-guild-hq-old-hall");
+        session.SetView(Fx.Later);
+        session.SetContentView(AtlasContentView.MainStory);
+        Assert.True(session.SourcesExpanded);
+
+        session.SetSourcesExpanded(false);
+        Assert.False(session.SourcesExpanded);
+        Assert.False(new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample)).SourcesExpanded);
+    }
+
+    [Fact]
+    public void Session_OpensOnTheHomeEntryOnlyWhenVisible()
+    {
+        Assert.Equal("org-lantern-guild", new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample), homeEntityId: "org-lantern-guild").FocusId);
+        Assert.Null(new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample), homeEntityId: "org-wardens").FocusId); // hidden early
+        Assert.Null(new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample)).FocusId); // pilot home is absent from the sample
+        Assert.Equal("org-scions", AtlasDefaults.HomeEntityId);
+    }
+
+    [Fact]
+    public void Session_StorySettingChangesReturnHomeAndFlagOnlyRealResets()
+    {
+        var session = new AtlasSession(Sample, new AtlasSpoilerState(Fx.Later, Fx.Early), homeEntityId: "org-lantern-guild");
+
+        // Sitting on the home entry with nothing else: a change is not a "reset" worth announcing.
+        session.SetView(Fx.Later);
+        Assert.Equal("org-lantern-guild", session.FocusId);
+        Assert.False(session.SelectionWasReset);
+
+        // Player state is cleared, focus returns home, and the notice shows until the next browsing action.
+        session.FocusOn("char-maren");
+        session.SetContentView(AtlasContentView.MainStory);
+        Assert.Equal("org-lantern-guild", session.FocusId);
+        Assert.True(session.SelectionWasReset);
+        session.SetSearch("Ma");
+        Assert.False(session.SelectionWasReset);
+
+        session.SetView(Fx.Early);
+        Assert.Equal(string.Empty, session.SearchQuery);
+        Assert.True(session.SelectionWasReset);
+    }
+
+    [Fact]
+    public void Session_ResultsAreGroupedByCategoryWithoutEmptyGroups()
+    {
+        var session = new AtlasSession(Sample, AtlasSpoilerPolicy.Default(Sample));
+        var groups = session.SearchResultGroups;
+        Assert.Equal(new[] { "Characters", "Organizations", "Locations" }, groups.Select(g => g.Label));
+        Assert.Equal(session.SearchResults.Select(e => e.Id), groups.SelectMany(g => g.Entries).Select(e => e.Id));
+
+        session.SetSearch("Guild");
+        Assert.Equal(new[] { AtlasCategory.Organization }, session.SearchResultGroups.Select(g => g.Category));
+    }
+
+    [Fact]
+    public void Projection_FlagsOptionalRecordsOnlyInTheFullView()
+    {
+        var full = Fx.Project(Sample, Fx.Early, AtlasContentView.MainAndOptional);
+        Assert.True(full.FindEntity("char-corin")!.IncludesOptional);
+        Assert.False(full.FindEntity("char-maren")!.IncludesOptional);
+        Assert.True(full.Relationships.Single(r => r.Id == "rel-ada-grandchild-corin").IsOptional);
+        Assert.Contains(full.Relationships, r => !r.IsOptional);
+
+        var main = Fx.Project(Sample, Fx.Early, AtlasContentView.MainStory);
+        Assert.DoesNotContain(main.Entities, e => e.IncludesOptional);
+        Assert.DoesNotContain(main.Relationships, r => r.IsOptional);
+    }
+
+    [Fact]
+    public void Text_SourcesToggleShowsCount()
+    {
+        Assert.Equal("Sources (3)", AtlasText.SourcesToggle(3));
+    }
+
+    [Fact]
     public void Layout_IsDeterministicAndBounded()
     {
         var neighborhood = Fx.Project(Sample, Fx.Early).GetNeighborhood("org-lantern-guild")!;

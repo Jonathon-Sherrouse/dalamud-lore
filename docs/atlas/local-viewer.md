@@ -4,7 +4,7 @@ The local viewer lets you browse the Atlas in a browser without launching FFXIV.
 
 **Parity rule** (user decision, 2026-11-14): the local viewer and the in-game Atlas window are maintained together for the whole pilot.
 
-The page's current look and layout are a functional placeholder. `NDL-005` owns the real UX design, and both front ends will follow it.
+The page's current look and layout are a functional placeholder. `NDL-005` owns the real UX design ([ux-design.md](ux-design.md)), and both front ends will follow it.
 
 ## Run it
 
@@ -16,7 +16,7 @@ Run this from the repository root, then open <http://127.0.0.1:5219/>.
 
 | Flag | Default | Purpose |
 |---|---|---|
-| `--data <path>` | the synthetic `sample-atlas.json` | Load another Atlas file, such as the real pilot data: `--data "$PWD/NpcDialogueLinks/atlas.json" --draft` (Draft is needed until its records are marked reviewed). Use an absolute path, because `dotnet run` starts the viewer in its project folder. |
+| `--data <path>` | the synthetic `sample-atlas.json` | Load another Atlas file, such as the real pilot data: `--data "$PWD/NpcDialogueLinks/atlas.json"`. Its records are reviewed, so it loads in Strict mode like the plugin. Use an absolute path, because `dotnet run` starts the viewer in its project folder. |
 | `--draft` | off (Strict, same as the runtime) | Allow `pending` records. A banner marks the data as not shippable. Needed for content still under review. |
 | `--port <n>` | `5219` | Listen on another port. The viewer only ever binds to `127.0.0.1`. |
 | `--state <path>` | `NpcDialogueLinks.AtlasViewer/viewer-state.json` in the OS local app-data folder; the exact path is printed at startup | Where the two spoiler controls persist. It mirrors the plugin's configuration and is kept outside the repository. |
@@ -34,7 +34,8 @@ Neither front end has its own browsing logic. Everything lives in the pure core 
 
 | Core piece | Provides |
 |---|---|
-| `AtlasSession` | Spoiler controls and the confirmation flow, content view, search, focus and refocus, relationship selection, transient-state clearing, persistence events |
+| `AtlasSession` | Spoiler controls and the confirmation flow, content view, search and grouped results, focus and refocus, the home entry (`AtlasDefaults`), relationship selection, the collapsed-by-default sources section, transient-state reset and its notice, persistence events |
+| `AtlasProjector` | Visible-only snapshots, including each record's optional-content flag |
 | `AtlasGraphLayout` | Deterministic node positions (at most 8 neighbors) and edge lanes |
 | `AtlasText` | Every player-facing string, the category glyphs, and the neutral confirmation prompt |
 | `AtlasLoader` | Loading, Strict validation, and failure isolation |

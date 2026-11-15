@@ -64,6 +64,17 @@ public class RealDataTests
         Assert.Equal(relationships.Order(StringComparer.Ordinal), snapshot.Relationships.Select(r => r.Id).Order(StringComparer.Ordinal));
     }
 
+    [Theory]
+    [InlineData(Cp20)]
+    [InlineData(Cp255)]
+    public void Real_OpensOnTheScionsAtEveryCheckpoint(string checkpoint)
+    {
+        // NDL-005 D5: the pilot home entry exists and is visible wherever the Atlas can open.
+        var session = new AtlasSession(LoadDraft(), new AtlasSpoilerState(Cp255, checkpoint));
+        Assert.Equal(AtlasDefaults.HomeEntityId, session.FocusId);
+        Assert.NotEmpty(session.Neighborhood!.Neighbors);
+    }
+
     [Fact]
     public void Real_MeetsPilotShape()
     {

@@ -7,13 +7,18 @@ namespace NpcDialogueLinks.Atlas;
 /// <summary>A citation as displayed: title and optional outbound link only.</summary>
 public sealed record AtlasCitationView(string Title, Uri? Url);
 
+/// <param name="IncludesOptional">
+/// True when the shown text is an optional presentation, i.e. it includes knowledge from optional quests.
+/// Only ever true in the MainAndOptional view. Display-only; it reveals nothing that is not already visible.
+/// </param>
 public sealed record AtlasEntityView(
     string Id,
     AtlasCategory Category,
     string Name,
     IReadOnlyList<string> Aliases,
     string Summary,
-    IReadOnlyList<AtlasCitationView> Citations);
+    IReadOnlyList<AtlasCitationView> Citations,
+    bool IncludesOptional = false);
 
 public sealed record AtlasRelationshipView(
     string Id,
@@ -23,7 +28,8 @@ public sealed record AtlasRelationshipView(
     string OutgoingLabel,
     string IncomingLabel,
     bool Symmetric,
-    IReadOnlyList<AtlasCitationView> Citations);
+    IReadOnlyList<AtlasCitationView> Citations,
+    bool IsOptional = false);
 
 public enum AtlasDirection
 {
@@ -166,7 +172,8 @@ public static class AtlasProjector
                 presentation.Name,
                 presentation.Aliases.ToArray(),
                 presentation.Summary,
-                ToViews(presentation.Citations)));
+                ToViews(presentation.Citations),
+                presentation.Scope == AtlasScope.Optional));
         }
 
         entities.Sort(CompareEntities);
@@ -192,7 +199,8 @@ public static class AtlasProjector
                 type.OutgoingLabel,
                 type.IncomingLabel,
                 type.Symmetric,
-                ToViews(relationship.Citations)));
+                ToViews(relationship.Citations),
+                relationship.Scope == AtlasScope.Optional));
         }
 
         relationships.Sort((a, b) => string.CompareOrdinal(a.Id, b.Id));
