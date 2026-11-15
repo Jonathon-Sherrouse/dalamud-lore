@@ -46,6 +46,9 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
     - The handoff reports the authoring cost per arc step.
   - Evidence: Research lanes with claim/passage/boundary traceability; real-data tests, including the per-step leak sweep; human content review, then strict validation. In-game: not applicable.
   - Dependencies: `NDL-006` schema frozen; branch `codex/ndl-009-atlas-arc-content`. Finalization needs accepted `NDL-006`.
+  - Notes from `NDL-006`:
+    - The user chose arc A4, *The Black Wolf's challenge* (MSQ #155–161), with an editorial cast of 10 ([v2-discovery.md](atlas/v2-discovery.md)).
+    - End evidence (`endCitations`) loads only on an ending the Changes lens can show: both sides of the ending must be slices (or both milestones), and the same relationship must not carry straight on. The possession that ends at the slice → `cp-arr-2-0` boundary therefore carries none.
 
 - [ ] `NDL-010` **Ship v2 in game**
   - Owner: `ui`

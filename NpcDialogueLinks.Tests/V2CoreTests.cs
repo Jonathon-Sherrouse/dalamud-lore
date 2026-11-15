@@ -232,6 +232,37 @@ public class V2ValidationFixTests
     }
 
     [Fact]
+    public void V2_EndCitationsNeedARealEnding()
+    {
+        // r-cy-foe-a ends at s2 only to split citations: r-cy-foe-b carries the same triple on, so no ended row ever shows.
+        var doc = V2Fx.Doc();
+        V2Fx.Rel(doc, "r-cy-foe-a")["endCitations"] = new JsonArray(V2Fx.Cite("Src s2", "s2"));
+        var result = Fx.Try(doc);
+        Fx.AssertFails(result, AtlasErrorCode.EndCitationOutOfRange);
+        Assert.Contains(result.Errors, e => e.Path.EndsWith(".endCitations") && e.Message.Contains("continues"));
+    }
+
+    [Fact]
+    public void V2_MainEndingContinuedOnlyByOptionalContentKeepsItsEvidence()
+    {
+        // The main-story view still shows the ending, so the evidence is displayable there.
+        var doc = V2Fx.Doc();
+        V2Fx.Rel(doc, "r-cy-foe-a")["endCitations"] = new JsonArray(V2Fx.Cite("Src s2", "s2"));
+        V2Fx.Rel(doc, "r-cy-foe-b")["scope"] = "optional";
+        V2Fx.Rel(doc, "r-cy-foe-b")["citations"] = new JsonArray(V2Fx.Cite("Opt s2", "s2", "optional"));
+        Assert.True(Fx.Try(doc).Success, string.Join("; ", Fx.Try(doc).Errors.Select(e => $"{e.Code} {e.Path} {e.Message}")));
+    }
+
+    [Fact]
+    public void V2_CoverageErrorsPointAtTheAuthoredCheckpoint()
+    {
+        var doc = V2Fx.Doc();
+        V2Fx.Checkpoint(doc, "s1")["label"] = "";
+        V2Fx.Checkpoint(doc, "s2").Remove("gameQuestIds");
+        Assert.Contains(Fx.Try(doc).Errors, e => e.Path == "$.checkpoints[2].gameQuestIds");
+    }
+
+    [Fact]
     public void V2_ArcEntryPresentationsAreAllMainScope()
     {
         var doc = V2Fx.Doc();
@@ -459,9 +490,10 @@ public class V2ArcTests
     }
 
     [Fact]
-    public void Arc_DroppedPickDoesNotReturnWhenTheViewRisesAgain()
+    public void Arc_DroppedPickContractForTheSession()
     {
-        // s3 with an explicit pick, drop to s1 (the pick ends), then rise to s3: the session cleared the pick, so the default shows.
+        // Documents the session contract only: PickDropped tells the session to clear the pick, after which rising to s3
+        // shows the default. The session itself (and a real lifetime test) is NDL-008.
         var pick = (string?)"arc-shadow";
         var atS1 = AtlasArcs.Resolve(D, "s1", pick);
         Assert.True(atS1.PickDropped);
@@ -536,11 +568,11 @@ public class V2FollowTests
         var follow = AtlasFollow.Position(D, Progress(103), state.CeilingId); // reached s3, limit s1
         Assert.Equal(("s1", "s3"), (follow.CheckpointId, follow.ReachedCheckpointId));
 
-        var ask = AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, follow, confirmed: false);
+        var ask = AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, Progress(103), confirmed: false);
         Assert.Equal(AtlasStateChange.NeedsConfirmation, ask.Change);
         Assert.Equal(state, ask.State);
 
-        var done = AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, follow, confirmed: true);
+        var done = AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, Progress(103), confirmed: true);
         Assert.Equal(AtlasStateChange.Changed, done.Change);
         Assert.Equal(new AtlasSpoilerState("s3", "s0"), done.State); // the view is left alone
     }
@@ -549,10 +581,23 @@ public class V2FollowTests
     public void Follow_RaiseIsRejectedUnlessProgressIsBeyondTheLimit()
     {
         var state = AtlasSpoilerPolicy.Restore(D, "m1", "s0");
-        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, AtlasFollow.Position(D, Progress(102), "m1"), confirmed: true).Change);
-        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, AtlasFollowResult.Unknown, confirmed: true).Change);
-        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, AtlasFollowResult.BeforeCoverage, confirmed: true).Change);
-        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, new AtlasFollowResult(AtlasFollowKind.Position, "m1", true, "nope"), confirmed: true).Change);
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, Progress(102), confirmed: true).Change);    // below the limit
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, Progress(104), confirmed: true).Change);    // exactly at it
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, Progress(99, 103), confirmed: true).Change); // unknown
+        Assert.Equal(AtlasStateChange.Rejected, AtlasSpoilerPolicy.SetCeilingToFollowed(D, state, Progress(99), confirmed: true).Change);     // before coverage
+    }
+
+    [Fact]
+    public void Follow_RaiseCannotApplyAStaleResult()
+    {
+        // Follow ran with the limit at s1 (reached s3); the user then raised the limit to m1 by hand. Progress is re-read
+        // against the current limit, so the old "beyond the limit" can never lower it back to s3.
+        var stale = AtlasFollow.Position(D, Progress(103), "s1");
+        Assert.True(stale.BeyondLimit);
+        var raised = AtlasSpoilerPolicy.Restore(D, "m1", "s0");
+        var result = AtlasSpoilerPolicy.SetCeilingToFollowed(D, raised, Progress(103), confirmed: true);
+        Assert.Equal(AtlasStateChange.Rejected, result.Change);
+        Assert.Equal(raised, result.State);
     }
 
     [Fact]

@@ -39,8 +39,8 @@ internal static class AtlasValidator
             return AtlasLoadResult.Fail(errors.ToList());
         }
 
-        var checkpoints = BuildCheckpoints(errors, file.Checkpoints!);
-        CheckGameQuestCoverage(errors, checkpoints);
+        var checkpoints = BuildCheckpoints(errors, file.Checkpoints!, out var checkpointPaths);
+        CheckGameQuestCoverage(errors, checkpoints, checkpointPaths);
         var types = BuildTypes(errors, file.RelationshipTypes!);
         if (errors.HasStructuralErrors)
         {
@@ -78,9 +78,10 @@ internal static class AtlasValidator
         Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)> CitationRegistry,
         IReadOnlyList<AtlasCheckpoint> Checkpoints);
 
-    private static List<AtlasCheckpoint> BuildCheckpoints(ErrorSink errors, List<AtlasCheckpointDto?> dtos)
+    private static List<AtlasCheckpoint> BuildCheckpoints(ErrorSink errors, List<AtlasCheckpointDto?> dtos, out List<string> paths)
     {
         var result = new List<AtlasCheckpoint>();
+        paths = new List<string>();
         var seen = new HashSet<string>(StringComparer.Ordinal);
         for (var i = 0; i < dtos.Count; i++)
         {
@@ -113,6 +114,7 @@ internal static class AtlasValidator
                 continue;
             }
 
+            paths.Add(path);
             result.Add(new AtlasCheckpoint(id!, label!, result.Count)
             {
                 Milestone = dto.Milestone ?? false,
@@ -317,6 +319,7 @@ internal static class AtlasValidator
         }
 
         CheckDuplicatePairs(errors, result, paths, types);
+        CheckEndingsAreReal(errors, result, paths);
         return result;
     }
 
@@ -430,6 +433,34 @@ internal static class AtlasValidator
                     errors.Add(AtlasErrorCode.EndpointNotVisible, path, $"An endpoint is hidden at checkpoint {order} in the {view} view.");
                     return;
                 }
+            }
+        }
+    }
+
+    /// <summary>
+    /// End evidence shows only on a Changes "ended" row, and Changes diffs by (source, type, target). A record whose
+    /// triple carries straight on at its validUntil, in every view where the record was visible, never produces that row,
+    /// so its end citations could never be shown. A main ending continued only by optional content still shows in the
+    /// main-story view.
+    /// </summary>
+    private static void CheckEndingsAreReal(ErrorSink errors, List<AtlasRelationship> relationships, List<string> paths)
+    {
+        for (var a = 0; a < relationships.Count; a++)
+        {
+            var ending = relationships[a];
+            if (ending.EndCitations.Count == 0 || ending.Interval.UntilOrder is not { } until)
+            {
+                continue;
+            }
+
+            var continued = relationships.Any(next =>
+                !ReferenceEquals(next, ending)
+                && next.SourceId == ending.SourceId && next.TypeId == ending.TypeId && next.TargetId == ending.TargetId
+                && next.Interval.Contains(until)
+                && (next.Scope == AtlasScope.Main || ending.Scope == AtlasScope.Optional));
+            if (continued)
+            {
+                errors.Add(AtlasErrorCode.EndCitationOutOfRange, $"{paths[a]}.endCitations", "The same relationship continues at validUntil, so it never ends and its end evidence could never be shown.");
             }
         }
     }
@@ -721,7 +752,7 @@ internal static class AtlasValidator
     /// Follow treats a step as covered when it has game quest ids, so coverage is all-or-none: if any checkpoint has
     /// ids, every checkpoint must, and no id may mark two different steps.
     /// </summary>
-    private static void CheckGameQuestCoverage(ErrorSink errors, List<AtlasCheckpoint> checkpoints)
+    private static void CheckGameQuestCoverage(ErrorSink errors, List<AtlasCheckpoint> checkpoints, List<string> paths)
     {
         if (checkpoints.All(c => c.GameQuestIds.Count == 0))
         {
@@ -734,7 +765,7 @@ internal static class AtlasValidator
             var checkpoint = checkpoints[i];
             if (checkpoint.GameQuestIds.Count == 0)
             {
-                errors.Add(AtlasErrorCode.InvalidField, $"$.checkpoints[{i}].gameQuestIds", "Once any checkpoint has game quest ids, every checkpoint must.");
+                errors.Add(AtlasErrorCode.InvalidField, $"{paths[i]}.gameQuestIds", "Once any checkpoint has game quest ids, every checkpoint must.");
                 continue;
             }
 
@@ -742,7 +773,7 @@ internal static class AtlasValidator
             {
                 if (!owner.TryAdd(id, checkpoint.Id))
                 {
-                    errors.Add(AtlasErrorCode.InvalidField, $"$.checkpoints[{i}].gameQuestIds", $"Game quest id {id} already marks checkpoint '{owner[id]}'.");
+                    errors.Add(AtlasErrorCode.InvalidField, $"{paths[i]}.gameQuestIds", $"Game quest id {id} already marks checkpoint '{owner[id]}'.");
                 }
             }
         }

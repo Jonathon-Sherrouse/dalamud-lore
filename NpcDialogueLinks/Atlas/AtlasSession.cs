@@ -198,7 +198,7 @@ public sealed class AtlasSession
     /// A requested ceiling awaiting confirmation, or null. Internal: the checkpoint carries its label and quest title,
     /// which may lie above the limit; front ends use <see cref="PendingCeilingId"/> and <see cref="PendingCeilingPrompt"/>.
     /// </summary>
-    internal AtlasCheckpoint? PendingCeiling { get; private set; }
+    private AtlasCheckpoint? PendingCeiling { get; set; }
 
     /// <summary>The id of the ceiling awaiting confirmation, or null.</summary>
     public string? PendingCeilingId => PendingCeiling?.Id;

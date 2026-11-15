@@ -177,7 +177,7 @@ Every accepted change tells the UI to clear search, focus, selection and details
 
 **Category `event`.** A story event or an arc entry. It is ordered last and drawn as a hexagon.
 
-**`endCitations`** (relationships, optional, at most 8) hold reviewed evidence for why a relationship ended. The relationship must have a `validUntil`. Each citation must become available after `validFrom` and no later than `validUntil`. The scope rule (a main record cites only main sources) and the same-title consistency rule apply. They are shown only in the Changes row for that ending, never on the record elsewhere, and never in the Arc lens. So the ending step must be one where Changes is offered: `validUntil` and the step before it must be the same kind (both slices or both milestones).
+**`endCitations`** (relationships, optional, at most 8) hold reviewed evidence for why a relationship ended. The relationship must have a `validUntil`. Each citation must become available after `validFrom` and no later than `validUntil`. The scope rule (a main record cites only main sources) and the same-title consistency rule apply. They are shown only in the Changes row for that ending, never on the record elsewhere, and never in the Arc lens. So the ending must be one Changes can show. `validUntil` and the step before it must be the same kind (both slices or both milestones), and no record of the same source, type and target may carry on at `validUntil` in every view where the ending was visible. A main ending continued only by optional content is allowed, because the main-story view still shows it.
 
 **`arcs`** (top level, optional, at most 16). Each arc is `{ "id", "entityId", "firstStep", "lastStep" }`, in authored order. Arcs may overlap or nest. Validation:
 - The relationship type `participant-in` must exist and must not be symmetric. A `participant-in` edge that targets an arc entry makes its source part of that arc's cast.
@@ -198,7 +198,7 @@ Every accepted change tells the UI to clear search, focus, selection and details
 **Pure v2 core:**
 - `AtlasChanges`: the triple-based snapshot diff, the offering rule and labels.
 - `AtlasArcs`: selection, the picker, and the Arc-lens projection with its cumulative cast, "New" and "Ended so far" (rows carry no citations of any kind). `Resolve` reports `PickDropped` when an explicit pick ends because the view fell below its first step; the session must then clear the pick.
-- `AtlasFollow`: completed-progress positioning. `CheckpointId` is the clamped view and `ReachedCheckpointId` the real progress step; `AtlasSpoilerPolicy.SetCeilingToFollowed` raises the limit to exactly that step, with confirmation, and leaves the view where it is.
+- `AtlasFollow`: completed-progress positioning. `CheckpointId` is the clamped view and `ReachedCheckpointId` the real progress step; `AtlasSpoilerPolicy.SetCeilingToFollowed(dataset, state, progress, confirmed)` re-reads progress against the current limit, so a stale or hand-built result can never be applied. It raises the limit to exactly the reached step, with confirmation, and leaves the view where it is.
 - `AtlasGraphLayout.ComputeWholeCast`.
 
 Arc spans stay internal: the public arc API exposes only ids and names (rule 7).

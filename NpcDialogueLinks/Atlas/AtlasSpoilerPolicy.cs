@@ -91,19 +91,17 @@ public static class AtlasSpoilerPolicy
     }
 
     /// <summary>
-    /// Follow's neutral "your completed quests" raise: the limit rises to exactly the verified progress step in
-    /// <paramref name="follow"/>, only with <paramref name="confirmed"/>, and the view never moves. Anything else is rejected.
+    /// Follow's neutral "your completed quests" raise. Progress is read here, against the current limit, so the raise is
+    /// verified by construction and a stale or hand-built Follow result can never be applied. The limit rises to exactly
+    /// the reached step, only with <paramref name="confirmed"/>, and the view never moves. Anything else is rejected.
     /// </summary>
-    public static AtlasStateResult SetCeilingToFollowed(AtlasDataset dataset, AtlasSpoilerState state, AtlasFollowResult follow, bool confirmed)
+    public static AtlasStateResult SetCeilingToFollowed(AtlasDataset dataset, AtlasSpoilerState state, Func<int, AtlasQuestProgress> progress, bool confirmed)
     {
         ArgumentNullException.ThrowIfNull(dataset);
         ArgumentNullException.ThrowIfNull(state);
-        ArgumentNullException.ThrowIfNull(follow);
-        if (follow.Kind != AtlasFollowKind.Position
-            || !follow.BeyondLimit
-            || !dataset.TryGetCheckpoint(follow.ReachedCheckpointId, out var reached)
-            || !dataset.TryGetCheckpoint(state.CeilingId, out var current)
-            || reached.Order <= current.Order)
+        ArgumentNullException.ThrowIfNull(progress);
+        var follow = AtlasFollow.Position(dataset, progress, state.CeilingId);
+        if (follow.Kind != AtlasFollowKind.Position || !follow.BeyondLimit || !dataset.TryGetCheckpoint(follow.ReachedCheckpointId, out var reached))
         {
             return new AtlasStateResult(state, AtlasStateChange.Rejected);
         }
