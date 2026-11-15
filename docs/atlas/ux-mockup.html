@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Mockup</title>
+<!-- NDL-005 design proposal mockup: static, real 2.0 data (main + optional view, focused on the Scions). Not the viewer. -->
+<style>
+  :root {
+    --bg: #15161a; --win: #1e1f24; --panel: #24262c; --panel-2: #2b2e35; --border: #3a3d46;
+    --text: #e6e8ee; --muted: #9aa3b2; --accent: #d9b45a;
+    --char: #7fb2e5; --org: #d9b45a; --loc: #7fcf9a; --edge: #6b7486;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--text); font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .win { width: 960px; max-width: 100%; margin: 0 auto; background: var(--win); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; box-shadow: 0 10px 40px #0008; }
+  .title { display: flex; align-items: center; padding: 6px 10px; background: #2f3340; font-weight: 600; font-size: 12px; letter-spacing: .3px; }
+  .title .x { margin-left: auto; color: var(--muted); }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .lbl { color: var(--muted); font-size: 12px; margin-right: 6px; }
+  .combo { display: inline-flex; align-items: center; gap: 8px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; padding: 4px 8px; }
+  .combo::after { content: "▾"; color: var(--muted); font-size: 11px; }
+  .btn { background: #34394a; border: 1px solid var(--border); border-radius: 3px; padding: 3px 10px; color: var(--text); font-size: 12px; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; }
+  .seg span { padding: 4px 10px; font-size: 12px; color: var(--muted); }
+  .seg .on { background: #3b4256; color: var(--text); }
+  .body { display: grid; grid-template-columns: 200px 1fr 280px; height: 470px; }
+  .browse, .details { background: var(--panel); overflow: hidden; padding: 10px; }
+  .browse { border-right: 1px solid var(--border); }
+  .details { border-left: 1px solid var(--border); }
+  .search { background: var(--panel-2); border: 1px solid var(--border); border-radius: 3px; padding: 5px 8px; color: var(--muted); margin-bottom: 8px; }
+  .grp { font-size: 10.5px; letter-spacing: .8px; color: var(--muted); margin: 10px 0 3px; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
+  .row { display: flex; align-items: center; gap: 7px; padding: 2px 4px; border-radius: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row.sel { background: #3b4256; }
+  .g { flex: none; width: 10px; height: 10px; display: inline-block; }
+  .g.c { border-radius: 50%; background: var(--char); }
+  .g.o { background: var(--org); }
+  .g.l { background: var(--loc); transform: rotate(45deg) scale(.85); }
+  main { position: relative; }
+  main svg { width: 100%; height: 100%; display: block; }
+  .details h2 { margin: 0 0 2px; font-size: 15px; display: flex; gap: 8px; align-items: center; }
+  .cat { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+  .sum { margin: 0 0 8px; }
+  .src { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .h3 { font-size: 10.5px; letter-spacing: .8px; color: var(--muted); margin: 8px 0 4px; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
+  .conn { display: grid; grid-template-columns: 14px auto 1fr; gap: 6px; align-items: baseline; padding: 1px 0; font-size: 12.5px; }
+  .conn .a { color: var(--muted); }
+  .conn .l { color: var(--muted); }
+  .opt { font-size: 10px; color: var(--muted); border: 1px dashed var(--muted); border-radius: 3px; padding: 0 4px; margin-left: 4px; }
+  .foot { display: flex; justify-content: space-between; padding: 6px 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+  .notes { width: 960px; max-width: 100%; margin: 14px auto 0; color: var(--muted); font-size: 12.5px; }
+  .notes b { color: var(--text); }
+  @media (max-width: 760px) { body { padding: 16px; } .body { grid-template-columns: 1fr; height: auto; } main { height: 380px; } }
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="title">Lore Atlas <span class="x">✕</span></div>
+  <div class="bar">
+    <span><span class="lbl">Viewing as of</span><span class="combo">A Realm Reborn — Patch 2.0 complete</span></span>
+    <span><span class="lbl">Spoiler limit</span>Patch 2.0 complete <span class="btn">Raise…</span></span>
+    <span><span class="lbl">Content</span><span class="seg"><span class="on">Main story + optional</span><span>Main story only</span></span></span>
+  </div>
+  <div class="body">
+    <aside class="browse">
+      <div class="search">Search names…</div>
+      <div class="grp">CHARACTERS</div>
+      <div class="row"><i class="g c"></i>Alisaie</div>
+      <div class="row"><i class="g c"></i>Alphinaud</div>
+      <div class="row"><i class="g c"></i>Louisoix</div>
+      <div class="row"><i class="g c"></i>Minfilia</div>
+      <div class="row"><i class="g c"></i>Tataru</div>
+      <div class="row"><i class="g c"></i>Thancred</div>
+      <div class="row"><i class="g c"></i>Urianger</div>
+      <div class="row"><i class="g c"></i>Y'shtola</div>
+      <div class="grp">ORGANIZATIONS</div>
+      <div class="row sel"><i class="g o"></i>The Scions of the Seventh Dawn</div>
+      <div class="grp">LOCATIONS</div>
+      <div class="row"><i class="g l"></i>The Waking Sands</div>
+    </aside>
+    <main>
+      <svg viewBox="0 0 440 470" role="img" aria-label="Graph: The Scions of the Seventh Dawn and eight connections">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7486"/></marker>
+        </defs>
+        <g stroke="#6b7486" stroke-width="1.4" fill="none" marker-end="url(#ar)">
+          <line x1="220" y1="95" x2="220" y2="205" stroke-dasharray="5 4"/>
+          <line x1="317" y1="137" x2="242" y2="210"/>
+          <line x1="350" y1="235" x2="246" y2="235"/>
+          <line x1="317" y1="333" x2="242" y2="258"/>
+          <line x1="220" y1="375" x2="220" y2="263"/>
+          <line x1="123" y1="333" x2="198" y2="258"/>
+          <line x1="90" y1="235" x2="194" y2="235"/>
+          <line x1="198" y1="212" x2="129" y2="143"/>
+        </g>
+        <g font-size="10.5" fill="#9aa3b2" text-anchor="middle">
+          <text x="236" y="152">member of</text>
+          <text x="300" y="180">member of</text>
+          <text x="298" y="228">leads</text>
+          <text x="300" y="300">member of</text>
+          <text x="248" y="322">member of</text>
+          <text x="140" y="300">member of</text>
+          <text x="142" y="228">member of</text>
+          <text x="128" y="182">headquartered at</text>
+        </g>
+        <g font-size="12" fill="#e6e8ee" text-anchor="middle">
+          <circle cx="220" cy="80" r="13" fill="#7fb2e5"/><text x="220" y="56">Alisaie</text>
+          <circle cx="327" cy="127" r="13" fill="#7fb2e5"/><text x="352" y="108">Alphinaud</text>
+          <circle cx="372" cy="235" r="13" fill="#7fb2e5"/><text x="372" y="265">Minfilia</text>
+          <circle cx="327" cy="343" r="13" fill="#7fb2e5"/><text x="327" y="373">Tataru</text>
+          <circle cx="220" cy="390" r="13" fill="#7fb2e5"/><text x="220" y="420">Thancred</text>
+          <circle cx="113" cy="343" r="13" fill="#7fb2e5"/><text x="113" y="373">Urianger</text>
+          <circle cx="68" cy="235" r="13" fill="#7fb2e5"/><text x="68" y="265">Y'shtola</text>
+          <rect x="102" y="114" width="20" height="20" fill="#7fcf9a" transform="rotate(45 112 124)"/><text x="98" y="96">The Waking Sands</text>
+          <rect x="201" y="216" width="38" height="38" rx="2" fill="#d9b45a" stroke="#fff6" stroke-width="3"/>
+          <text x="220" y="284" font-weight="600">The Scions of the Seventh Dawn</text>
+        </g>
+      </svg>
+    </main>
+    <section class="details">
+      <h2><i class="g o"></i>The Scions of the Seventh Dawn</h2>
+      <div class="cat">Organization</div>
+      <p class="sum">An order that stands apart from the city-states' politics, devoted to preserving Eorzea's future. Minfilia leads it from the Waking Sands in Vesper Bay, and its members include Sharlayans who stayed in Eorzea when their countrymen fled. An imperial raid devastated the order and took several members prisoner, but the Scions rescued them and rebuilt.</p>
+      <div class="src">▸ Sources (5)</div>
+      <div class="h3">CONNECTIONS (8)</div>
+      <div class="conn"><span class="a">←</span><span class="l">has member</span><span>Alisaie <span class="opt">optional</span></span></div>
+      <div class="conn"><span class="a">←</span><span class="l">has member</span><span>Alphinaud</span></div>
+      <div class="conn"><span class="a">←</span><span class="l">led by</span><span>Minfilia</span></div>
+      <div class="conn"><span class="a">←</span><span class="l">has member</span><span>Tataru</span></div>
+      <div class="conn"><span class="a">←</span><span class="l">has member</span><span>Thancred</span></div>
+      <div class="conn"><span class="a">←</span><span class="l">has member</span><span>Urianger</span></div>
+      <div class="conn"><span class="a">←</span><span class="l">has member</span><span>Y'shtola</span></div>
+      <div class="conn"><span class="a">→</span><span class="l">headquartered at</span><span>The Waking Sands</span></div>
+    </section>
+  </div>
+  <div class="foot"><span>Includes optional story content available by the selected patch.</span><span>960 × 600 default · 760 × 480 minimum</span></div>
+</div>
+<p class="notes"><b>Proposal mockup, real 2.0 data, focused on the Scions.</b> The dashed Alisaie edge and "optional" tag illustrate question 2 (mark optional content), which is not decided. Grouped browse list = question 3. "Spoiler limit" label = question 1.</p>
+</body>
+</html>
