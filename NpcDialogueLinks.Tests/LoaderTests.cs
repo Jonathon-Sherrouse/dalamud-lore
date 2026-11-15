@@ -24,9 +24,9 @@ public class LoaderTests
     [InlineData("")]
     [InlineData("not json")]
     [InlineData("[]")]
-    [InlineData("{\"schemaVersion\":1,")]
-    [InlineData("{\"schemaVersion\":1, /* comment */ \"checkpoints\":[]}")]
-    [InlineData("{\"schemaVersion\":1,\"schemaVersion\":1}")]
+    [InlineData("{\"schemaVersion\":2,")]
+    [InlineData("{\"schemaVersion\":2, /* comment */ \"checkpoints\":[]}")]
+    [InlineData("{\"schemaVersion\":2,\"schemaVersion\":2}")]
     public void Loader_MalformedJsonFailsWithoutThrowing(string json)
     {
         var result = AtlasLoader.LoadJson(json, AtlasValidationMode.Strict);
@@ -36,7 +36,8 @@ public class LoaderTests
 
     [Theory]
     [InlineData(0)]
-    [InlineData(2)]
+    [InlineData(1)] // v1 files are no longer accepted: the generator emits v2 and there is no runtime converter
+    [InlineData(3)]
     public void Loader_RejectsUnsupportedSchemaVersion(int version)
     {
         var doc = Fx.Sample();
@@ -55,7 +56,7 @@ public class LoaderTests
     [Fact]
     public void Loader_RejectsOversizedInput()
     {
-        var huge = "{\"schemaVersion\":1,\"pad\":\"" + new string('x', AtlasLoader.MaxFileBytes) + "\"}";
+        var huge = "{\"schemaVersion\":2,\"pad\":\"" + new string('x', AtlasLoader.MaxFileBytes) + "\"}";
         Fx.AssertFails(AtlasLoader.LoadJson(huge, AtlasValidationMode.Strict), AtlasErrorCode.TooLarge);
     }
 
@@ -88,7 +89,7 @@ public class LoaderTests
         var doc = Fx.Sample();
         doc["entities"] = new JsonArray(null, 5, "x", new JsonObject());
         Assert.False(Fx.Try(doc).Success);
-        Assert.False(AtlasLoader.LoadUtf8(Encoding.UTF8.GetBytes("{\"schemaVersion\":1}"), AtlasValidationMode.Strict).Success);
+        Assert.False(AtlasLoader.LoadUtf8(Encoding.UTF8.GetBytes("{\"schemaVersion\":2}"), AtlasValidationMode.Strict).Success);
     }
 
     [Fact]

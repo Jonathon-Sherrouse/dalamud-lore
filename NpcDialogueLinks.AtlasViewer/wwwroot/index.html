@@ -9,7 +9,7 @@
   :root {
     --bg: #15161a; --win: #1e1f24; --panel: #24262c; --panel-2: #2b2e35; --border: #3a3d46;
     --text: #e6e8ee; --muted: #9aa3b2; --accent: #d9b45a; --hover: #7fb2e5; --sel: #3b4256;
-    --char: #7fb2e5; --org: #d9b45a; --loc: #7fcf9a; --edge: #6b7486;
+    --char: #7fb2e5; --org: #d9b45a; --loc: #7fcf9a; --evt: #c39bd3; --edge: #6b7486;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
@@ -100,7 +100,9 @@
 // text live in C#; this page only draws state and posts actions, exactly as the in-game window will.
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const color = g => g === "square" ? "var(--org)" : g === "diamond" ? "var(--loc)" : "var(--char)";
+const color = g => g === "square" ? "var(--org)" : g === "diamond" ? "var(--loc)" : g === "hexagon" ? "var(--evt)" : "var(--char)";
+// Regular hexagon points around (cx, cy), flat sides top and bottom (events and arc entries, schema v2).
+const hexPoints = (cx, cy, r) => [0, 1, 2, 3, 4, 5].map(i => { const a = Math.PI / 3 * i; return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`; }).join(" ");
 let state = null, searchTimer = null, limitMenuOpen = false; // the menu's open flag is pure widget state, like an ImGui popup
 
 async function load() { state = await (await fetch("/api/state")).json(); render(); }
@@ -116,6 +118,7 @@ function glyphSvg(glyph, size = 12) {
   const c = color(glyph), h = size / 2;
   const shape = glyph === "square" ? `<rect x="1.5" y="1.5" width="${size - 3}" height="${size - 3}" rx="1.5" fill="${c}"/>`
     : glyph === "diamond" ? `<polygon points="${h},0.5 ${size - 0.5},${h} ${h},${size - 0.5} 0.5,${h}" fill="${c}"/>`
+    : glyph === "hexagon" ? `<polygon points="${hexPoints(h, h, h - 0.5)}" fill="${c}"/>`
     : `<circle cx="${h}" cy="${h}" r="${h - 1.5}" fill="${c}"/>`;
   return `<svg class="glyph" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">${shape}</svg>`;
 }
@@ -124,6 +127,7 @@ function nodeShape(glyph, r) {
   const c = color(glyph);
   if (glyph === "square") return `<rect class="shape" x="${-r}" y="${-r}" width="${2 * r}" height="${2 * r}" rx="${r * .15}" fill="${c}"/>`;
   if (glyph === "diamond") return `<polygon class="shape" points="0,${-r * 1.25} ${r * 1.25},0 0,${r * 1.25} ${-r * 1.25},0" fill="${c}"/>`;
+  if (glyph === "hexagon") return `<polygon class="shape" points="${hexPoints(0, 0, r * 1.15)}" fill="${c}"/>`;
   return `<circle class="shape" r="${r}" fill="${c}"/>`;
 }
 

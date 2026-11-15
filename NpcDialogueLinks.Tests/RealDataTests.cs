@@ -45,6 +45,23 @@ public class RealDataTests
         Assert.Equal(
             new[] { (Cp20, "A Realm Reborn — Patch 2.0 complete"), (Cp255, "A Realm Reborn — Patch 2.55 complete") },
             dataset.Checkpoints.Select(c => (c.Id, c.Label)));
+        Assert.All(dataset.Checkpoints, c => Assert.True(c.Milestone));
+        Assert.Equal(new[] { 70058 }, dataset.Checkpoints[0].GameQuestIds); // The Ultimate Weapon
+        Assert.Equal(new[] { 65964 }, dataset.Checkpoints[1].GameQuestIds); // Before the Dawn
+    }
+
+    /// <summary>
+    /// NDL-006: the accepted pilot content must come through the v1 → v2 upgrade unchanged. These fingerprints were
+    /// captured from the v1 data and code before the upgrade (SnapshotDigest covers every displayable field).
+    /// </summary>
+    [Theory]
+    [InlineData(Cp20, AtlasContentView.MainStory, "FAEC97F569394F8C2A447C4876118154715E3AF0B992EFB5BCBBF25F81F42C4A")]
+    [InlineData(Cp20, AtlasContentView.MainAndOptional, "7BF6B1A3A75E44709DD0C26186D84C8138BE8D98AF4ADC0B203937C3CE6AC4E9")]
+    [InlineData(Cp255, AtlasContentView.MainStory, "209CD97A67F5734F028388F5D592A9B56525BC315E21203478E3AAE16370B4BA")]
+    [InlineData(Cp255, AtlasContentView.MainAndOptional, "73B45A9AC8CAFFBF2BCD867D67FBC6775B7B62CEED7AC0B31242C6ADB2F25604")]
+    public void Real_AcceptedSnapshotsArePinnedAcrossTheV2Upgrade(string checkpoint, AtlasContentView view, string digest)
+    {
+        Assert.Equal(digest, SnapshotDigest.Of(AtlasProjector.Project(LoadDraft(), checkpoint, view)));
     }
 
     public static TheoryData<string, AtlasContentView, string[], string[]> ExpectedSnapshots() => new()

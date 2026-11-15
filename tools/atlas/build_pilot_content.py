@@ -6,15 +6,17 @@ Builds, from the claims and text below:
   - docs/atlas/content-claims.md      the claim-by-claim evidence table
 
 Edit this file, never the generated outputs, then run from the repository root:
-    python3 tools/atlas/build_pilot_content.py            # every record "pending"
-    python3 tools/atlas/build_pilot_content.py reviewed   # only after explicit human acceptance
+    python3 tools/atlas/build_pilot_content.py
 and rerun `dotnet test NpcDialogueLinks.Tests`. See docs/atlas/content-evidence.md.
+
+Review status is per record (schema v2, NDL-006): a record is "reviewed" only if it is listed in ACCEPTED below, and
+every other record is emitted "pending". Add records to ACCEPTED only after the user explicitly accepts them.
 """
 import json, sys, pathlib, urllib.parse
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
-REVIEW = sys.argv[1] if len(sys.argv) > 1 else "pending"
-assert REVIEW in ("pending", "reviewed"), REVIEW
+if len(sys.argv) > 1:
+    sys.exit("No arguments: review status is per record now (see ACCEPTED).")
 A, B = "cp-arr-2-0", "cp-arr-2-55"
 CP_LABEL = {A: "A Realm Reborn — Patch 2.0 complete", B: "A Realm Reborn — Patch 2.55 complete"}
 CP_SHORT = {A: "2.0", B: "2.55"}
@@ -110,6 +112,12 @@ def cites(claims):
 # ---- Entities -------------------------------------------------------------------------------------------------
 def P(frm, until, scope, name, summary, claims, aliases=()):
     return dict(frm=frm, until=until, scope=scope, name=name, aliases=list(aliases), summary=summary, claims=claims)
+
+# Timeline (schema v2). Milestones carry the game quest ids of their terminal quests for Follow (verified in NDL-007).
+CHECKPOINTS = [
+    {"id": A, "label": CP_LABEL[A], "milestone": True, "gameQuestIds": [70058]},  # The Ultimate Weapon
+    {"id": B, "label": CP_LABEL[B], "milestone": True, "gameQuestIds": [65964]},  # Before the Dawn
+]
 
 ENT = [
  ("char-minfilia", "character", [
@@ -272,6 +280,53 @@ RELS = [
  ("rel-alisaie-member-scions", "char-alisaie", "member-of", "org-scions", A, None, "optional", ["C30"], "R14"),
 ]
 
+# Records the user explicitly accepted (NDL-003, 2026-11-14). Only listed records are emitted "reviewed".
+ACCEPTED = {
+    ('presentation', 'char-minfilia', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-minfilia', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-thancred', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-thancred', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-yshtola', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-yshtola', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-urianger', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-urianger', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-alphinaud', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-alphinaud', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-alisaie', 'cp-arr-2-0', 'optional'),
+    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-alisaie', 'cp-arr-2-55', 'optional'),
+    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-louisoix', 'cp-arr-2-0', 'optional'),
+    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'main'),
+    ('presentation', 'char-louisoix', 'cp-arr-2-55', 'optional'),
+    ('presentation', 'char-tataru', 'cp-arr-2-0', 'main'),
+    ('presentation', 'char-tataru', 'cp-arr-2-55', 'main'),
+    ('presentation', 'org-scions', 'cp-arr-2-0', 'main'),
+    ('presentation', 'org-scions', 'cp-arr-2-55', 'main'),
+    ('presentation', 'org-crystal-braves', 'cp-arr-2-55', 'main'),
+    ('presentation', 'loc-waking-sands', 'cp-arr-2-0', 'main'),
+    ('presentation', 'loc-waking-sands', 'cp-arr-2-55', 'main'),
+    ('presentation', 'loc-rising-stones', 'cp-arr-2-55', 'main'),
+    ('relationship', 'rel-minfilia-leads-scions'),
+    ('relationship', 'rel-thancred-member-scions'),
+    ('relationship', 'rel-yshtola-member-scions'),
+    ('relationship', 'rel-urianger-member-scions'),
+    ('relationship', 'rel-alphinaud-member-scions'),
+    ('relationship', 'rel-tataru-member-scions'),
+    ('relationship', 'rel-alphinaud-twin-alisaie'),
+    ('relationship', 'rel-scions-hq-waking-sands'),
+    ('relationship', 'rel-braves-control-rising-stones'),
+    ('relationship', 'rel-braves-turned-against-scions'),
+    ('relationship', 'rel-urianger-conceals-waking-sands'),
+    ('relationship', 'rel-alisaie-grandchild-louisoix'),
+    ('relationship', 'rel-alphinaud-grandchild-louisoix'),
+    ('relationship', 'rel-alisaie-member-scions'),
+}
+
+def review_of(key):
+    return "reviewed" if key in ACCEPTED else "pending"
+
 def citation(k):
     s = SRC[k]
     return {"title": s["title"], "url": url(k), "availableAt": s["avail"], "scope": s["scope"]}
@@ -282,18 +337,19 @@ def url(k):
     return "https://ffxiv.consolegameswiki.com/wiki/" + urllib.parse.quote(SRC[k]["page"].replace(" ", "_"), safe="()'_-.")
 
 doc = {
-  "schemaVersion": 1,
-  "checkpoints": [{"id": A, "label": CP_LABEL[A]}, {"id": B, "label": CP_LABEL[B]}],
+  "schemaVersion": 2,
+  "checkpoints": CHECKPOINTS,
   "relationshipTypes": [{"id": i, "outgoingLabel": o, "incomingLabel": n, "symmetric": s} for i, o, n, s in TYPES],
   "entities": [
     {"id": eid, "category": cat, "presentations": [
       {"validFrom": p["frm"], "validUntil": p["until"], "scope": p["scope"], "name": p["name"], "aliases": p["aliases"],
-       "summary": p["summary"], "citations": [citation(k) for k in cites(p["claims"])], "review": REVIEW}
+       "summary": p["summary"], "citations": [citation(k) for k in cites(p["claims"])],
+       "review": review_of(("presentation", eid, p["frm"], p["scope"]))}
       for p in pres]}
     for eid, cat, pres in ENT],
   "relationships": [
     {"id": rid, "source": s, "type": t, "target": g, "validFrom": f, "validUntil": u, "scope": sc,
-     "citations": [citation(k) for k in cites(cl)], "review": REVIEW}
+     "citations": [citation(k) for k in cites(cl)], "review": review_of(("relationship", rid))}
     for rid, s, t, g, f, u, sc, cl, _ in RELS],
 }
 for c in C.values():
@@ -310,7 +366,8 @@ def claimrows(claims):
 out = []
 w = out.append
 w("# Atlas content review sheet (NDL-003)\n")
-w(f"> **Status: {'REVIEWED' if REVIEW == 'reviewed' else 'AWAITING HUMAN REVIEW'}.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), "
+PENDING = sum(1 for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending") + sum(1 for r in doc["relationships"] if r["review"] == "pending")
+w(f"> **Status: {'REVIEWED' if PENDING == 0 else f'AWAITING HUMAN REVIEW ({PENDING} pending)'}.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), "
   "exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. "
   "AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.\n")
 w("How to read it:\n")

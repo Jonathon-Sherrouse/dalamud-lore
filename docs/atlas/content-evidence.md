@@ -18,9 +18,9 @@ python3 tools/atlas/build_pilot_content.py
 dotnet test NpcDialogueLinks.Tests
 ```
 
-After explicit human acceptance, the mechanical commit runs `python3 tools/atlas/build_pilot_content.py reviewed`. That changes only the review markers and the sheet's status line. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
+Review status is **per record** (since `NDL-006`). The generator emits a record as `reviewed` only if it is listed in its `ACCEPTED` set; every other record is emitted `pending`. After explicit human acceptance, the mechanical commit adds the accepted records to `ACCEPTED` and regenerates. Strict validation must then pass with no errors (`RealDataTests.Real_StrictIsBlockedOnlyByReviewMarkers`).
 
-Running the script without `reviewed` marks **every** record `pending` again. That is the safe default after any content change: Strict validation, and therefore the plugin, will refuse the data until the changes are reviewed and accepted.
+New or changed records default to `pending`. Strict validation, and therefore the plugin, refuses the data until those records are reviewed and accepted. Accepted records are never flipped back by editing others.
 
 To browse the real data without FFXIV:
 

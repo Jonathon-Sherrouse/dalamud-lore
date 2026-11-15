@@ -82,6 +82,18 @@ public sealed class AtlasSnapshot
     public AtlasEntityView? FindEntity(string? id) =>
         id is not null && entitiesById.TryGetValue(id, out var entity) ? entity : null;
 
+    /// <summary>
+    /// The same snapshot restricted to <paramref name="entityIds"/>: only those entities, and only relationships with
+    /// both endpoints inside the set. Used by the Arc lens, where every search, count and connection stays in the cast.
+    /// </summary>
+    public AtlasSnapshot Filter(IReadOnlySet<string> entityIds)
+    {
+        ArgumentNullException.ThrowIfNull(entityIds);
+        var entities = Entities.Where(e => entityIds.Contains(e.Id)).ToList();
+        var relationships = Relationships.Where(r => entityIds.Contains(r.SourceId) && entityIds.Contains(r.TargetId)).ToList();
+        return new AtlasSnapshot(Checkpoint, View, entities, relationships);
+    }
+
     /// <summary>Case-insensitive substring search over visible names and aliases. Blank returns all.</summary>
     public IReadOnlyList<AtlasEntityView> Search(string? query)
     {

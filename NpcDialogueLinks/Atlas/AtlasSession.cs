@@ -41,6 +41,7 @@ public static class AtlasText
         AtlasCategory.Character => "Character",
         AtlasCategory.Organization => "Organization",
         AtlasCategory.Location => "Location",
+        AtlasCategory.Event => "Event",
         _ => "Entry",
     };
 
@@ -50,6 +51,7 @@ public static class AtlasText
         AtlasCategory.Character => AtlasGlyph.Circle,
         AtlasCategory.Organization => AtlasGlyph.Square,
         AtlasCategory.Location => AtlasGlyph.Diamond,
+        AtlasCategory.Event => AtlasGlyph.Hexagon,
         _ => AtlasGlyph.Circle,
     };
 
@@ -65,8 +67,34 @@ public static class AtlasText
         AtlasCategory.Character => "Characters",
         AtlasCategory.Organization => "Organizations",
         AtlasCategory.Location => "Locations",
+        AtlasCategory.Event => "Events",
         _ => "Entries",
     };
+
+    /// <summary>The one step just beyond the spoiler limit, offered without its quest title (v2 spoiler rule 1).</summary>
+    public const string NextStoryStep = "the next story step";
+
+    /// <summary>Changes-lens heading for a step contiguous with the previous one.</summary>
+    public const string ChangesThisQuest = "What this quest changed";
+
+    /// <summary>Changes-lens heading across a gap in the covered steps.</summary>
+    public static string ChangesSince(string previousPoint) => $"Changes since {previousPoint}";
+
+    /// <summary>Label above an arc's reviewed recap, naming the step it covers.</summary>
+    public static string RecapThrough(string questOrPoint) => $"Story so far, through {questOrPoint}";
+
+    /// <summary>Marker for an explicitly picked arc viewed after it ended.</summary>
+    public static string ArcAsOf(string lastQuest) => $"As of {lastQuest}";
+
+    public const string NoArcHere = "No story arc covers this point.";
+    public const string FollowBeforeCoverage = "Your completed story is before the points covered here.";
+    public const string FollowUnknown = "Progress unavailable.";
+
+    /// <summary>Only a Follow result is presented as the player's progress.</summary>
+    public static string FollowProgress(string questOrPoint) => $"Your progress: through {questOrPoint}";
+
+    /// <summary>A default or manually chosen position, never presented as "you are here".</summary>
+    public static string ViewingAfter(string questOrPoint) => $"Viewing: after {questOrPoint}";
 
     public static string ContentViewLabel(AtlasContentView view) => view switch
     {
@@ -80,6 +108,9 @@ public enum AtlasGlyph
     Circle,
     Square,
     Diamond,
+
+    /// <summary>Events and arc entries (schema v2). NDL-008 finalizes its look.</summary>
+    Hexagon,
 }
 
 /// <summary>Pilot-wide browsing defaults shared by every front end.</summary>
@@ -150,6 +181,16 @@ public sealed class AtlasSession
     /// </summary>
     public bool SourcesExpanded { get; private set; }
 
+    /// <summary>The neutral confirmation for <see cref="PendingCeiling"/>; it never names a quest beyond the limit.</summary>
+    public string? PendingCeilingPrompt => PendingCeiling is { } pending ? AtlasText.ConfirmRaise(RaiseLabel(pending)) : null;
+
+    /// <summary>A checkpoint's label as shown in pickers and prompts: real at or below the limit or for milestones.</summary>
+    private string RaiseLabel(AtlasCheckpoint checkpoint)
+    {
+        Dataset.TryGetCheckpoint(SpoilerState.CeilingId, out var ceiling);
+        return checkpoint.Order <= ceiling.Order || checkpoint.Milestone ? checkpoint.Label : AtlasText.NextStoryStep;
+    }
+
     /// <summary>A requested ceiling awaiting confirmation, or null.</summary>
     public AtlasCheckpoint? PendingCeiling { get; private set; }
 
@@ -160,9 +201,12 @@ public sealed class AtlasSession
     {
         get
         {
+            // v2 spoiler rule 1: above the limit, only neutral milestones and one unnamed "next story step" are listed,
+            // so no quest title beyond the limit ever reaches a picker.
             Dataset.TryGetCheckpoint(SpoilerState.CeilingId, out var ceiling);
             return Dataset.Checkpoints
-                .Select(c => new AtlasCheckpointOption(c.Id, c.Label, c.Id == SpoilerState.CeilingId, c.Id == SpoilerState.ViewId, c.Order <= ceiling.Order))
+                .Where(c => c.Order <= ceiling.Order || c.Milestone || c.Order == ceiling.Order + 1)
+                .Select(c => new AtlasCheckpointOption(c.Id, RaiseLabel(c), c.Id == SpoilerState.CeilingId, c.Id == SpoilerState.ViewId, c.Order <= ceiling.Order))
                 .ToList();
         }
     }

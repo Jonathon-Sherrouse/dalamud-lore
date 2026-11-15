@@ -22,7 +22,10 @@ public enum AtlasStateChange
 
 public sealed record AtlasStateResult(AtlasSpoilerState State, AtlasStateChange Change);
 
-/// <summary>Pure rules for the ceiling ("knowledge approved through") and view ("viewing as of") controls.</summary>
+/// <summary>
+/// Pure rules for the ceiling ("spoiler limit") and view ("viewing as of") controls. Absent or invalid saved state
+/// resets to the earliest checkpoint, the pre-arc baseline in v2, so a reset never raises the limit (v2 plan).
+/// </summary>
 public static class AtlasSpoilerPolicy
 {
     /// <summary>Both controls at the earliest checkpoint.</summary>
@@ -71,6 +74,13 @@ public static class AtlasSpoilerPolicy
 
         if (requested.Order > current.Order)
         {
+            // v2 spoiler rule 1: the limit rises only to a milestone or to the single next step, so raising can never
+            // require naming a quest further ahead.
+            if (!requested.Milestone && requested.Order != current.Order + 1)
+            {
+                return new AtlasStateResult(state, AtlasStateChange.Rejected);
+            }
+
             return confirmed
                 ? new AtlasStateResult(state with { CeilingId = requested.Id }, AtlasStateChange.Changed)
                 : new AtlasStateResult(state, AtlasStateChange.NeedsConfirmation);

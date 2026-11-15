@@ -1,12 +1,14 @@
-# Atlas data schema v1 (frozen for the pilot)
+# Atlas data schema v2
 
-This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces. It is frozen from the [discovery evidence](discovery-evidence.md) and the [Atlas contract](../lore-relationship-atlas.md). The four-delegate council reviewed it on 2026-11-14 (see [Review record](#review-record)). Changing it during `NDL-003` requires the one bounded, versioned model-plus-tests amendment that the contract allows.
+> **v2 (NDL-006, 2026-11-14).** The loader accepts `schemaVersion: 2` only, and v1 files are rejected. v2 is a superset of v1: every v1 rule below still holds, and the additions are listed in [Schema v2 additions](#schema-v2-additions). The accepted pilot content was regenerated as v2, and its four snapshots are pinned identical to v1 (`RealDataTests.Real_AcceptedSnapshotsArePinnedAcrossTheV2Upgrade`). Product behavior lives in [v2-plan.md](v2-plan.md).
+
+This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces. The v1 text below was frozen for the pilot. It is frozen from the [discovery evidence](discovery-evidence.md) and the [Atlas contract](../lore-relationship-atlas.md). The four-delegate council reviewed it on 2026-11-14 (see [Review record](#review-record)). Changing it during `NDL-003` requires the one bounded, versioned model-plus-tests amendment that the contract allows.
 
 ## File shape
 
 ```jsonc
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "checkpoints": [                       // ordered, earliest first; 1–16
     { "id": "cp-arr-2-0", "label": "A Realm Reborn — Patch 2.0 complete" }
   ],
@@ -161,6 +163,45 @@ Two persisted checkpoint IDs:
 | Set the view above the ceiling | Rejected. |
 
 Every accepted change tells the UI to clear search, focus, selection and details. The content view is a projection parameter, not a third persisted control, until a toggle is approved.
+
+## Schema v2 additions
+
+**Checkpoints** gain optional fields:
+
+| Field | Default | Rule |
+|---|---|---|
+| `milestone` | `false` | A patch milestone. Its label is neutral, so it may be listed above the spoiler limit. |
+| `questTitle` | absent | A reviewed display title for a quest step; non-empty trimmed text of at most 80 characters. Shown only at or below the limit. |
+| `contiguousWithPrevious` | `false` | The previous step is the quest immediately before this one. It must be false on the first checkpoint. |
+| `gameQuestIds` | `[]` | 0–8 distinct positive game quest ids whose completion marks the step complete. Used only by Follow. |
+
+**Category `event`.** A story event or an arc entry. It is ordered last and drawn as a hexagon.
+
+**`endCitations`** (relationships, optional, at most 8) hold reviewed evidence for why a relationship ended. The relationship must have a `validUntil`. Each citation must become available after `validFrom` and no later than `validUntil`. The scope rule (a main record cites only main sources) and the same-title consistency rule apply. They are shown only in the Changes row for that ending, never on the record elsewhere, and never in the Arc lens.
+
+**`arcs`** (top level, optional, at most 16). Each arc is `{ "id", "entityId", "firstStep", "lastStep" }`, in authored order. Arcs may overlap or nest. Validation:
+- The relationship type `participant-in` must exist. A `participant-in` edge that targets an arc entry makes its source part of that arc's cast.
+- The entry is an `event` entity used by only one arc, and all its presentations are main scope.
+- `firstStep` is at or before `lastStep`, and `firstStep` is never the first timeline step, so there is always a baseline before it.
+- The entry's first presentation starts exactly at `firstStep`, and the entry stays visible in the main-story view through `lastStep`.
+- Every `participant-in` edge to the entry is main scope, starts at or after `firstStep`, and has no `validUntil`. The cast only grows.
+- An arc has at most 10 participants at any step; the entry itself is not counted. Overflow fails as `CastTooLarge`.
+
+**New error codes:** `InvalidArc`, `CastTooLarge`, `EndCitationOutOfRange`.
+
+**Spoiler state in v2.**
+- The limit rises only to a milestone or to the single next step.
+- Pickers above the limit list only milestones and that next step, which is labelled "the next story step".
+- `AtlasSession.PendingCeilingPrompt` never names a later quest.
+- Absent or invalid saved state resets both controls to the earliest checkpoint.
+
+**Pure v2 core:**
+- `AtlasChanges`: the triple-based snapshot diff, the offering rule and labels.
+- `AtlasArcs`: selection, the picker, and the Arc-lens projection with its cumulative cast, "New" and "Ended so far".
+- `AtlasFollow`: completed-progress positioning.
+- `AtlasGraphLayout.ComputeWholeCast`.
+
+Arc spans stay internal: the public arc API exposes only ids and names (rule 7).
 
 ## Review record
 
