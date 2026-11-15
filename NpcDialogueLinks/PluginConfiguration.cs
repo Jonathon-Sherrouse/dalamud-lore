@@ -20,6 +20,12 @@ internal sealed class PluginConfiguration : IPluginConfiguration
 
     public int MaxOutputTokens { get; set; } = 2500;
 
+    /// <summary>Lore Atlas spoiler limit (checkpoint id). Revalidated against the data on every open.</summary>
+    public string? AtlasCeilingId { get; set; }
+
+    /// <summary>Lore Atlas "Viewing as of" checkpoint id. Revalidated against the data on every open.</summary>
+    public string? AtlasViewId { get; set; }
+
     public void Initialize(IDalamudPluginInterface pluginInterface)
     {
         this.pluginInterface = pluginInterface;

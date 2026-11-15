@@ -53,6 +53,9 @@ public static class AtlasText
         _ => AtlasGlyph.Circle,
     };
 
+    /// <summary>A checkpoint beyond the spoiler limit, shown greyed in the "Viewing as of" picker.</summary>
+    public static string LockedCheckpoint(string checkpointLabel) => $"{checkpointLabel} (locked)";
+
     /// <summary>Label of the collapsible sources section, with its count (e.g. "Sources (3)").</summary>
     public static string SourcesToggle(int count) => $"Sources ({count})";
 
