@@ -257,7 +257,7 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 
 1. **D6. The lens bar** is a second row under the top bar, not a tab strip above the panes.
 2. **D7. The Changes lens takes the browse pane and the canvas** for its list, with no chart. A diff is a list; a chart of a diff would need its own layout rules.
-3. **D8. Participation spokes are faint and unlabelled** on the whole-cast chart, and can't be clicked there. "New at this point" leaves out participation too, so a member joining shows by appearing on the chart, not as a row. After refocusing, the same edge is an ordinary labelled connection.
+3. **D8. Participation spokes are faint and unlabelled** on the whole-cast chart, and can't be clicked there. "New at this point" leaves out these spokes too, so a member joining shows by appearing on the chart, not as a row. After refocusing, the same edge is an ordinary labelled connection.
 4. **D9. The automatic arc option reads "The arc at this point".** It avoids "current" and "you are here", which would imply progress.
 5. **D10. Switching lens clears focus and search silently**, without the reset hint.
 6. **D11. The default lens rule re-applies on every view change** until the player picks a lens or an arc. The plan names only "on open" and "when Follow moves the view". With Follow deferred, this is how a player moving through the story lands in the Arc lens on their own.

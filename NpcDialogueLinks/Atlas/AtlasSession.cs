@@ -309,8 +309,8 @@ public sealed class AtlasSession
     public bool ShowsWholeCast => Lens == AtlasLens.Arc && Arc is not null && FocusId is null;
 
     /// <summary>
-    /// Relationships new at the arc's effective step, as rows (no end evidence). Participation edges are left out: a new
-    /// member already shows by appearing on the chart, and listing every spoke would bury the real changes (D8).
+    /// Relationships new at the arc's effective step, as rows (no end evidence). Spokes to the arc entry are left out: a
+    /// new member already shows by appearing on the chart, and listing every spoke would bury the real changes (D8).
     /// </summary>
     public IReadOnlyList<AtlasChangeRow> ArcNewRows => arcNewRows ??= ArcView is { } arc
         ? arc.New.Where(r => !AtlasArcs.IsSpoke(r, arc.Entry.Id)).Select(r => RelationshipRow(AtlasChangeKind.Added, r, arc.Cast)).ToList()
