@@ -8,18 +8,6 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. `NDL-006` and `NDL-007` start in parallel.
 
-- [ ] `NDL-006` **Arc discovery, schema v2 and core**
-  - Owner: `lead`
-  - Outcome: A research-verified arc map and worked examples freeze a v2 data model and pure core that support arcs, quest-level steps, the Arc, Story point and Changes lenses, and Follow positioning, without breaking the shipped Atlas.
-  - Acceptance:
-    - Discovery comes first: a verified quest-order inventory, 2–3 worked examples with passages, and a proposed arc map with evidence for each boundary and its overlaps, flagging any cap overflow.
-    - Then schema v2 per the plan: timeline-step fields, the `event` category, `arcs`, and `endCitations`.
-    - The validator, the v2 spoiler rules, the triple-based snapshot diff, the Arc-lens projection (cumulative cast, "Ended so far", selection and lifetime), a pure whole-cast layout, and a pure `FollowPosition`.
-    - Per-record review in the generator, regenerated v2 data with pinned milestone snapshots, earliest-checkpoint defaults, and every synthetic fixture the plan lists.
-    - The window, viewer and bundled data keep working.
-  - Evidence: Discovery documents with passages; host tests for the core and fixtures; real-data pinned-snapshot tests; locked restore and builds; viewer parity smoke. In-game: not applicable. User acceptance of the arc map and the core is recorded separately.
-  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-006-atlas-v2-core`, PR base `main`.
-
 - [ ] `NDL-007` **Investigate completed-progress detection for Follow**
   - Owner: `runtime`
   - Outcome: Runtime evidence settles whether client completed-quest flags can drive Follow safely.
@@ -74,6 +62,19 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
 ## In Review
+
+- [ ] `NDL-006` **Arc discovery, schema v2 and core**
+  - Owner: `lead`
+  - Outcome: A research-verified arc map and worked examples freeze a v2 data model and pure core that support arcs, quest-level steps, the Arc, Story point and Changes lenses, and Follow positioning, without breaking the shipped Atlas.
+  - Acceptance:
+    - Discovery comes first: a verified quest-order inventory, 2–3 worked examples with passages, and a proposed arc map with evidence for each boundary and its overlaps, flagging any cap overflow.
+    - Then schema v2 per the plan: timeline-step fields, the `event` category, `arcs`, and `endCitations`.
+    - The validator, the v2 spoiler rules, the triple-based snapshot diff, the Arc-lens projection (cumulative cast, "Ended so far", selection and lifetime), a pure whole-cast layout, and a pure `FollowPosition`.
+    - Per-record review in the generator, regenerated v2 data with pinned milestone snapshots, earliest-checkpoint defaults, and every synthetic fixture the plan lists.
+    - The window, viewer and bundled data keep working.
+  - Evidence: Discovery documents with passages; host tests for the core and fixtures; real-data pinned-snapshot tests; locked restore and builds; viewer parity smoke. In-game: not applicable. User acceptance of the arc map and the core is recorded separately.
+  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-006-atlas-v2-core`, PR base `main`.
+  - Substantive PR: [#17](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/17)
 
 ## User Accepted
 
@@ -161,6 +162,44 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 - Add dictionary review tooling to flag stale entries after new FFXIV patches or expansions.
 - Explore direct dialogue-box presentation instead of chat links.
 - Consider `/ndl` as a shorter alias once command naming settles.
+
+### Deferred during the Atlas work (collected by the user's request, 2026-11-14)
+
+Everything consciously put off during the Atlas pilot and the v2 planning, in one place. None of it is approved; each item needs its own groomed story. `Pre-Ship` and `Next Polish Pass` stay tracked in [enhancement-roadmap.md](enhancement-roadmap.md), so they aren't repeated here.
+
+**Atlas content and coverage**
+- **The arc "The rescue at Castrum Centri"** (MSQ #142–155, 14 quests). Deferred by the `NDL-006` arc-map decision ([v2-discovery.md](atlas/v2-discovery.md)). Building it would prove arc overlap in real content and would need higher step and checkpoint caps, plus an ordering rule for the parallel quest paths at #150–151.
+- **The long 2.0 threads:** "After the raid" (#106–155, the captives) and "Coerthas and the *Enterprise*" (#110–141). Candidates for breadth coverage.
+- **Breadth coverage across the main scenario.** Choose the route after the first arc shows whether a confused player can explain the story. Don't use patch-sized outer arcs, which break the selection rule and the cast cap; milestone-only recaps cover endpoints only ([v2-plan.md](atlas/v2-plan.md)).
+- **More checkpoints, groups and languages,** for example Heavensward and characters beyond the Scions (from the pilot's future-candidate list).
+- **A larger cast or more relationship types** if real arcs need them, for example an "opposes" type for the Alliance and the Empire. The v2 caps are 10 cast members and 3 new types.
+
+**Atlas views and behaviour**
+- **"During a quest" positions,** so facts that start and end inside one quest can be relationships. That needs a flagged amendment, because v2 keeps them as summary text.
+- **Richer Changes lens:** pairing a type change into one "~ changed" row, and distinguishing "revealed" from "began".
+- **Continuous Follow** (live updates, instead of on open or Refresh), and Follow for optional-quest progress.
+- **Optional quests on the timeline,** in some order. v2's timeline is main scenario only.
+- **Scene- or objective-level positions** inside a quest.
+- **Navigation history:** a back button. It was excluded from the pilot.
+- **Portraits** instead of category shapes, and **map or situation views** over the same data.
+- **Import and editing tools** for Atlas data that keep the source and review history.
+
+**Atlas and the rest of the plugin**
+- **"View in Atlas" from dictionary terms and Lore Explain,** with the term or quest passed through. v2 adds only a plain "Open Atlas" button.
+- **Lore Explain grounded in the Atlas's reviewed recaps,** and aware of the spoiler limit. Its own spoiler caution is only a prompt, not a reviewed guarantee.
+- **Reusing reviewed dictionary text** in Atlas descriptions.
+- **Document `/npclinks atlas` in the README** once the unrelated local README edits are settled. It was deferred in `NDL-004`, and the [Atlas guide](atlas/README.md) documents it in the meantime.
+
+**Data model**
+- **Optional-presentation persistence** ([schema.md](atlas/schema.md), "v2 candidate"). An optional presentation can never stop, even after the main story catches up, which forces some duplication. Spoiler-safe as-is; only a maintenance cost.
+- **Showing the "Leveilleur" surname** from patch 2.4 onward, and a general surname policy beyond first names.
+- **Atlas data for a "home" entry,** moving the pilot's hard-coded `AtlasDefaults.HomeEntityId` into `atlas.json`.
+
+**Verification and tooling**
+- **In-game checks never run for `NDL-004`** (recorded in PR #13): plugin reload, lowering the limit, the 150% font scale, no API key, a missing or broken `atlas.json`, and an invalid saved setting.
+- **Spot-checking the wiki transcriptions in game.** Every Atlas source is a fan transcription of in-game text.
+- **Agent-driven in-game testing.** Blocked because T3 Code lacks macOS Accessibility and Screen Recording access, and the game must be logged in (an automated run was tried during `NDL-004`).
+- **Visual review of the local viewer by an agent.** So far it has been checked through its API, a static snapshot, and the user's own eyes.
 
 ### Quest-scoped Atlas views (parked by the user, 2026-11-14)
 
