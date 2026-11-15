@@ -8,14 +8,15 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
+## In Review
+
 - [ ] `NDL-004` **Deliver the standalone Atlas window and validate it in game**
   - Owner: `ui`
   - Outcome: `/npclinks atlas` opens a readable offline relationship browser over the accepted pilot data.
   - Acceptance: Visible-only search, focus/refocus, directed incoming/outgoing one-hop graph with at most eight canvas neighbors and a complete neighbor list, original details/safe sources, two persisted manual controls, declared minimum window size, and Atlas-only failure recovery. The local viewer stays at parity with the window, both rendering the shared `AtlasSession` (see the Atlas local-viewer guide). Lead owns Plugin.cs command/help/window lifecycle, configuration, and project packaging. No new Talk hooks, quest/progression inference, bridge, or API dependency. README changes deliberately deferred while unrelated local edits remain; document the command in the Atlas guide/handoff. Update roadmap status on accepted closeout.
   - Evidence: Host tests on production and real data; locked restore/build; atlas.json in Debug output and Release latest.zip; in-game load/unload/reload, open/close/search/refocus, direction, forward/backward boundaries, state recovery/persistence, sources, minimum/large windows at 100%/150% scale, offline/no-key operation, and malformed/missing-data isolation with dictionary/chat links/Explain intact. Report all lanes and explicit acceptance separately; missing in-game evidence remains pending. Content fixes repeat affected-record validation/review.
   - Dependencies: Accepted `NDL-002`, `NDL-003`, and `NDL-005` (the window implements the accepted `NDL-005` design); branch `codex/ndl-004-atlas-window`, PR base `main` after all three merges. Lead coordinates integration; no overlapping Plugin.cs edits.
-
-## In Review
+  - Substantive PR: [#13](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/13)
 
 ## User Accepted
 
