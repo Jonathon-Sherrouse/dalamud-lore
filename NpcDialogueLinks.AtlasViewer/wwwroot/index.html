@@ -15,7 +15,7 @@
   html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text);
     font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
   /* The window: 760 x 480 minimum, as in the design. */
-  .win { display: grid; grid-template-rows: auto 1fr auto; height: 100vh; min-width: 760px; min-height: 480px; background: var(--win); }
+  .win { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; height: 100vh; min-width: 760px; min-height: 480px; background: var(--win); }
   .bar { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding: 9px 12px; border-bottom: 1px solid var(--border); }
   .bar .lbl { color: var(--muted); font-size: 12px; margin-right: 6px; }
   .bar .title { font-weight: 600; margin-right: 6px; }
@@ -34,6 +34,24 @@
   .seg button { border: 0; border-radius: 0; background: transparent; color: var(--muted); padding: 4px 10px; }
   .seg button.on { background: var(--sel); color: var(--text); }
   .body { display: grid; grid-template-columns: 200px 1fr 280px; min-height: 0; }
+  /* Changes lens: the change list takes the browse pane and the canvas (docs/atlas/ux-design.md, "v2 lenses"). */
+  .body.changes { grid-template-columns: 1fr 280px; }
+  .lensbar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 6px 12px; border-bottom: 1px solid var(--border); background: var(--panel); }
+  .lensbar .pos { color: var(--text); font-size: 12px; }
+  .lensbar .cov { color: var(--muted); font-size: 12px; font-style: italic; }
+  .arcpick { width: 100%; margin-bottom: 8px; }
+  .recap-label { font-size: 10.5px; letter-spacing: .08em; color: var(--accent); text-transform: uppercase; margin: 10px 0 4px; }
+  .recap { margin: 0 0 6px; font-size: 13.5px; line-height: 1.5; }
+  .crow { padding: 3px 4px; border-radius: 3px; }
+  .crow .ended-in { color: var(--muted); font-size: 11.5px; }
+  .crow .who { cursor: pointer; }
+  .crow .who:hover { text-decoration: underline; }
+  .changes-list { background: var(--panel); overflow: auto; padding: 12px 16px; min-height: 0; }
+  .changes-list h2 { font-size: 15px; margin: 0 0 6px; }
+  .changes-list .crow { cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+  .changes-list .crow:hover { background: var(--panel-2); }
+  .changes-list .crow.selected { background: var(--sel); }
+  .mark { width: 14px; flex: none; color: var(--muted); text-align: center; }
   .browse, .details { background: var(--panel); overflow: auto; padding: 10px; min-height: 0; }
   .browse { border-right: 1px solid var(--border); }
   .details { border-left: 1px solid var(--border); }
@@ -85,6 +103,8 @@
   svg .edge.optional { stroke-dasharray: 0.035 0.028; }
   svg .edge-hit { stroke: transparent; stroke-width: 0.06; fill: none; cursor: pointer; }
   svg .edge.selected { stroke: var(--accent); stroke-width: 0.017; }
+  /* Arc lens: a cast member's participation spoke to the arc entry: faint, unlabelled, not clickable. */
+  svg .edge.spoke { stroke: var(--evt); stroke-opacity: .28; stroke-width: 0.008; }
   svg .edge-label { fill: var(--muted); font-size: 0.05px; cursor: pointer; }
   svg .edge-label.selected { fill: var(--accent); }
   svg .node { cursor: pointer; }
@@ -133,9 +153,9 @@ function nodeShape(glyph, r) {
 
 function optTag(on) { return on ? `<span class="tag" title="${esc(state.text.optionalTooltip)}">${esc(state.text.optionalTag)}</span>` : ""; }
 
-function graph() {
+function graph(emptyText) {
   const L = state.layout;
-  if (!L) return `<div class="empty">${esc(state.text.emptyFocus)}</div>`;
+  if (!L) return `<div class="empty">${esc(emptyText ?? state.text.emptyFocus)}</div>`;
   const pos = {};
   L.nodes.forEach(n => pos[n.id] = { x: n.x, y: n.y, n });
   const sel = state.selectedRelationship?.id;
@@ -148,6 +168,8 @@ function graph() {
     const pad = 0.16;
     const x1 = a.x + dx / len * pad + nx * off, y1 = a.y + dy / len * pad + ny * off;
     const x2 = b.x - dx / len * pad + nx * off, y2 = b.y - dy / len * pad + ny * off;
+    // Faint, unlabelled spokes on the whole-cast chart only (D8); a refocused one-hop graph draws them as normal edges.
+    if (e.participation && state.arc?.wholeCast) { edges += `<line class="edge spoke" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; continue; }
     const isSel = e.relationshipId === sel ? " selected" : "";
     const opt = e.optional ? " optional" : "";
     const marker = e.symmetric ? "" : ` marker-end="url(#arrow${isSel ? "-sel" : ""})"`;
@@ -164,7 +186,7 @@ function graph() {
       + `<title>${esc(n.name)}</title>` + nodeShape(n.glyph, r)
       + `<text y="${r + 0.095}" text-anchor="middle"${n.isFocus ? ' font-weight="600"' : ""}>${esc(n.name)}</text></g>`;
   }
-  return `<svg viewBox="-1.6 -1.42 3.2 2.92" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(state.focus?.name ?? "")} connections">
+  return `<svg viewBox="-1.6 -1.42 3.2 2.92" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(state.focus?.name ?? state.arc?.view?.entry.name ?? "")} connections">
     <defs>
       <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7486"/></marker>
       <marker id="arrow-sel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9b45a"/></marker>
@@ -192,15 +214,65 @@ function details() {
       <span class="rel" data-rel="${esc(n.relationshipId)}">${esc(n.label)}</span>
       <span><span class="who" data-focus="${esc(n.entityId)}">${esc(n.entityName)}</span>${optTag(n.optional)}${n.onCanvas ? "" : ` <span class="help">${esc(t.listOnly)}</span>`}</span></div>`;
   }).join("");
-  const r = state.selectedRelationship;
-  const card = r ? `<div class="h3">${esc(t.selectedConnectionHeading)}</div><div class="card">
-      <div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong>${optTag(r.optional)}</div>
-      ${sources(r.citations, r.sourcesLabel)}<button data-clear>${esc(t.closeConnection)}</button></div>` : "";
+  const card = selectedCard();
   const aliases = f.aliases.length ? " · " + f.aliases.map(esc).join(", ") : "";
-  return `<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>
+  const back = state.arc?.view ? `<button data-wholecast>← ${esc(t.wholeCast)}</button><div style="height:8px"></div>` : "";
+  return `${back}<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>
     <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>
     ${sources(f.citations, f.sourcesLabel)}
     <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}${card}`;
+}
+
+// The selected connection's card, shared by the details pane and the Arc panel (L3): its sources and Close.
+function selectedCard() {
+  const t = state.text, r = state.selectedRelationship;
+  return r ? `<div class="h3">${esc(t.selectedConnectionHeading)}</div><div class="card">
+      <div><strong>${esc(r.source)}</strong> ${esc(r.label)} <strong>${esc(r.target)}</strong>${optTag(r.optional)}</div>
+      ${sources(r.citations, r.sourcesLabel)}<button data-clear>${esc(t.closeConnection)}</button></div>` : "";
+}
+
+// A relationship row ("Tobin prisoner of The Drowned Court"); endpoint names refocus when the row is in the Arc panel.
+function relRow(r, focusable) {
+  const who = (id, name) => focusable ? `<span class="who" data-focus="${esc(id)}">${esc(name)}</span>` : `<strong>${esc(name)}</strong>`;
+  return `${who(r.sourceId, r.sourceName)} ${esc(r.label)} ${who(r.targetId, r.targetName)}${optTag(r.optional)}`;
+}
+
+// Arc lens, nothing focused: the arc's name, its reviewed recap, and what is new and what has ended so far (no sources on rows).
+function arcPanel() {
+  const t = state.text, v = state.arc.view, e = v.entry;
+  const rows = (list, none) => list.length
+    ? list.map(r => `<div class="crow">${relRow(r, true)}${r.endedIn ? ` <span class="ended-in">(${esc(r.endedIn)})</span>` : ""}</div>`).join("")
+    : `<div class="help">${esc(none)}</div>`;
+  return `${selectedCard()}${state.selectedRelationship ? `<div style="height:10px"></div>` : ""}<h2>${glyphSvg(e.glyph, 14)}${esc(e.name)}</h2><div class="meta">${esc(e.category)}</div>
+    <div class="recap-label">${esc(v.recapLabel)}</div>${v.asOf ? `<div class="meta">${esc(v.asOf)}</div>` : ""}
+    <p class="recap">${esc(e.summary)}</p>
+    ${sources(e.citations, e.sourcesLabel)}
+    <div class="h3">${esc(v.newHeading)}</div>${rows(v.newRows, t.arcNothingNew)}
+    <div class="h3">${esc(t.arcEnded)}</div>${rows(v.endedRows, t.arcNothingEnded)}`;
+}
+
+function changesList() {
+  const t = state.text, c = state.changes, sel = c.selected?.key;
+  if (!c.offered) return `<div class="changes-list"><p class="help">${esc(t.changesNotOffered)}</p></div>`;
+  const mark = k => k === "added" ? "+" : k === "ended" ? "−" : "~";
+  const groups = c.groups.length ? c.groups.map(g => `<div class="h3">${esc(g.label)}</div>` + g.rows.map(r =>
+      `<div class="crow${r.key === sel ? " selected" : ""}" data-change="${esc(r.key)}"><span class="mark">${mark(r.kind)}</span><span>${r.entity ? `<strong>${esc(r.entity.name)}</strong>` : relRow(r, false)}</span></div>`).join("")).join("")
+    : `<p class="help">${esc(t.noChanges)}</p>`;
+  return `<div class="changes-list"><h2>${esc(c.label)}</h2>${groups}</div>`;
+}
+
+// The selected change. End evidence appears here, on an "ended" row, and nowhere else (v2 spoiler rule 2).
+function changeDetails() {
+  const t = state.text, r = state.changes?.selected;
+  if (!state.changes?.offered) return "";
+  if (!r) return `<p class="help">${esc(t.changesPickHint)}</p>`;
+  if (r.entity) {
+    const f = r.entity;
+    return `<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}</div>
+      <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>${sources(f.citations, f.sourcesLabel)}`;
+  }
+  const ending = r.kind === "ended" ? sources(r.endCitations, r.endSourcesLabel) : "";
+  return `<div class="card"><div>${relRow(r, false)}</div>${sources(r.citations, r.sourcesLabel)}${ending}</div>`;
 }
 
 function render() {
@@ -218,10 +290,13 @@ function render() {
       ? `<button class="current" disabled>✓ ${esc(c.label)}</button>`
       : `<button data-ceiling="${esc(c.id)}">${esc(c.label)}</button>`).join("")}</div>` : "";
   const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}">${esc(v.label)}</button>`).join("");
-  const groups = state.groups.length
+  const groups = state.lens === "arc" && !state.arc?.view ? "" : state.groups.length
     ? state.groups.map(g => `<div class="grp">${esc(g.label.toUpperCase())}</div>` + g.entries.map(e =>
         `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" title="${esc(e.name)}">${glyphSvg(e.glyph)}${esc(e.name)}</div>`).join("")).join("")
     : `<p class="help">${esc(t.noResults)}</p>`;
+  const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}">${esc(l.label)}</button>`).join("");
+  const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${state.arc.picker.map(o =>
+      `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}</option>`).join("")}</select>` : "";
   const hadFocus = document.activeElement?.id === "search";
   root.innerHTML = `<div class="win">
     <div class="bar">
@@ -231,15 +306,22 @@ function render() {
         <button id="raise" aria-haspopup="menu" aria-expanded="${limitMenuOpen}">${esc(t.raiseButton)}</button>${menu}</span>
       <span><span class="lbl">${esc(t.contentLabel)}</span><span class="seg">${seg}</span></span>
     </div>
-    <div class="body">
+    <div class="lensbar">
+      <span><span class="lbl">${esc(t.lensHeading)}</span><span class="seg">${lensSeg}</span></span>
+      <span class="pos">${esc(state.position)}</span>
+      ${state.coverage ? `<span class="cov">${esc(state.coverage)}</span>` : ""}
+    </div>
+    ${state.lens === "changes" ? `<div class="body changes">${changesList()}<section class="details">${state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : ""}${changeDetails()}</section></div>` : `<div class="body">
       <aside class="browse">
+        ${arcPicker}
         <input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">
         ${state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : ""}
+        ${state.arc?.view ? `<div class="grp">${esc(state.arc.castHeading.toUpperCase())}</div>` : ""}
         ${groups}
       </aside>
-      <main>${graph()}</main>
-      <section class="details">${details()}</section>
-    </div>
+      <main>${graph(state.lens === "arc" && !state.arc?.view ? t.noArc : null)}</main>
+      <section class="details">${state.arc?.wholeCast ? arcPanel() : state.lens === "arc" && !state.arc?.view ? `<p class="help">${esc(t.noArc)}</p>` : details()}</section>
+    </div>`}
     <div class="foot"><span>${esc(t.contentViewHelp)}</span><span class="spacer"></span>
       <span class="badge">local viewer</span>
       ${state.mode === "draft" ? `<span class="badge draft">Draft data — not shippable</span>` : `<span class="badge">strict</span>`}
@@ -253,10 +335,17 @@ function render() {
   $("#raise").onclick = () => { limitMenuOpen = !limitMenuOpen; render(); };
   root.querySelectorAll("[data-ceiling]").forEach(el => el.onclick = () => act("requestCeiling", el.dataset.ceiling));
   root.querySelectorAll("[data-cv]").forEach(el => el.onclick = () => { if (el.dataset.cv !== state.contentView) act("setContentView", el.dataset.cv); });
+  root.querySelectorAll("[data-lens]").forEach(el => el.onclick = () => act("setLens", el.dataset.lens));
+  root.querySelectorAll("[data-change]").forEach(el => el.onclick = () => act("selectChange", el.dataset.change));
+  root.querySelectorAll("[data-wholecast]").forEach(el => el.onclick = () => act("showWholeCast"));
+  const arcpick = $("#arcpick");
+  if (arcpick) arcpick.onchange = e => act("pickArc", e.target.value);
   const search = $("#search");
-  search.oninput = e => { clearTimeout(searchTimer); const v = e.target.value; searchTimer = setTimeout(() => act("search", v), 120); };
-  search.onkeydown = e => { const first = state.groups[0]?.entries[0]; if (e.key === "Enter" && first) act("focus", first.id); };
-  if (hadFocus) { search.focus(); search.setSelectionRange(search.value.length, search.value.length); }
+  if (search) {
+    search.oninput = e => { clearTimeout(searchTimer); const v = e.target.value; searchTimer = setTimeout(() => act("search", v), 120); };
+    search.onkeydown = e => { const first = state.groups[0]?.entries[0]; if (e.key === "Enter" && first) act("focus", first.id); };
+    if (hadFocus) { search.focus(); search.setSelectionRange(search.value.length, search.value.length); }
+  }
   if (state.pendingCeiling) { $("#confirm").onclick = () => act("confirmCeiling"); $("#cancel").onclick = () => act("cancelCeiling"); }
   root.querySelectorAll("[data-focus]").forEach(el => el.onclick = () => act("focus", el.dataset.focus));
   root.querySelectorAll("[data-rel]").forEach(el => el.onclick = () => act("selectRelationship", el.dataset.rel));

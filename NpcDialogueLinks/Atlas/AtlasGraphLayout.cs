@@ -10,7 +10,16 @@ public sealed record AtlasGraphNode(AtlasEntityView Entity, double X, double Y, 
 /// One drawn edge between the focus and a canvas neighbor. <see cref="FromId"/> → <see cref="ToId"/> is the stored direction;
 /// symmetric edges are drawn without an arrowhead. <see cref="LaneIndex"/>/<see cref="LaneCount"/> separate parallel edges.
 /// </summary>
-public sealed record AtlasGraphEdge(AtlasRelationshipView Relationship, string FromId, string ToId, string Label, bool Symmetric, int LaneIndex, int LaneCount);
+public sealed record AtlasGraphEdge(AtlasRelationshipView Relationship, string FromId, string ToId, string Label, bool Symmetric, int LaneIndex, int LaneCount)
+{
+    /// <summary>
+    /// A cast member's <c>participant-in</c> spoke to the arc entry at the centre of a whole-cast chart. Front ends draw it
+    /// as a faint, unlabelled, non-interactive line: membership is already shown by the member being on the chart
+    /// (NDL-008, D8). Set only by <see cref="AtlasGraphLayout.ComputeWholeCast"/>, and only for edges to its centre, so a
+    /// participation edge between two ring members (a nested arc's event in the cast) draws as a normal edge.
+    /// </summary>
+    public bool IsParticipation { get; init; }
+}
 
 /// <summary>
 /// Deterministic one-hop layout in a unit coordinate space: focus at (0, 0), up to eight canvas neighbors on a unit
@@ -76,7 +85,10 @@ public sealed record AtlasGraphLayout(IReadOnlyList<AtlasGraphNode> Nodes, IRead
             for (var lane = 0; lane < lanes.Count; lane++)
             {
                 var relationship = lanes[lane];
-                edges.Add(new AtlasGraphEdge(relationship, relationship.SourceId, relationship.TargetId, relationship.OutgoingLabel, relationship.Symmetric, lane, lanes.Count));
+                edges.Add(new AtlasGraphEdge(relationship, relationship.SourceId, relationship.TargetId, relationship.OutgoingLabel, relationship.Symmetric, lane, lanes.Count)
+                {
+                    IsParticipation = AtlasArcs.IsSpoke(relationship, center.Id),
+                });
             }
         }
 

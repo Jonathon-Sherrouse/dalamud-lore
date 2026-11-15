@@ -18,6 +18,7 @@
     <Compile Include="../NpcDialogueLinks/Atlas/**/*.cs" Link="Atlas/%(RecursiveDir)%(Filename)%(Extension)" />
     <!-- The local viewer's sample must always pass Strict validation; tests load the same file. -->
     <None Include="../NpcDialogueLinks.AtlasViewer/sample-atlas.json" Link="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../NpcDialogueLinks.AtlasViewer/sample-arc-atlas.json" Link="sample-arc-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <!-- The real pilot data (NDL-003). Linked for tests only; the plugin does not package it until NDL-004. -->
     <None Include="../NpcDialogueLinks/atlas.json" Link="atlas.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
