@@ -143,6 +143,12 @@ public static class AtlasText
         firstStep.Milestone ? $"from {firstStep.Label}" : $"from {firstStep.DisplayTitle}";
 
     /// <summary>
+    /// The picker line under an arc's name: where it starts, plus "ended" once the view is past its last step (user
+    /// decision, 2026-11-16, NDL-011). Never shown before the end, so it never spoils one.
+    /// </summary>
+    public static string ArcPickerDetail(string startLabel, bool ended) => ended ? $"{startLabel} · ended" : startLabel;
+
+    /// <summary>
     /// A picker group heading: the patch an arc starts in, from the label of the first milestone at or after its start
     /// ("A Realm Reborn — Patch 2.0 complete" → "A Realm Reborn — Patch 2.0").
     /// </summary>
@@ -467,7 +473,7 @@ public sealed class AtlasSession
     {
         var options = new List<AtlasArcPickerOption> { new(null, AtlasText.ArcAutomatic, explicitArcId is null) };
         options.AddRange(AtlasArcs.Eligible(Dataset, SpoilerState.ViewId, ContentView)
-            .Select(a => new AtlasArcPickerOption(a.ArcId, a.Name, a.ArcId == explicitArcId) { Detail = a.StartLabel, Group = a.Group }));
+            .Select(a => new AtlasArcPickerOption(a.ArcId, a.Name, a.ArcId == explicitArcId) { Detail = AtlasText.ArcPickerDetail(a.StartLabel, a.Ended), Group = a.Group }));
         return options;
     }
 

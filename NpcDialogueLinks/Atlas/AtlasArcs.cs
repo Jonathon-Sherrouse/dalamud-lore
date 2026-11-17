@@ -28,13 +28,16 @@ public sealed record AtlasArcView(
 /// One arc in the picker: its id and its name as of its effective step. Never its span (rule 7). It also says where the
 /// arc sits in the story: <see cref="StartLabel"/> names the step it starts at (always at or below the view, so never a
 /// spoiler) and <see cref="Group"/> the patch it starts in, from the first milestone at or after its start (milestone
-/// labels are neutral). Group is null when no milestone follows.
+/// labels are neutral). Group is null when no milestone follows. <see cref="Ended"/> is true only once the view is past
+/// the arc's last step, the same test as <see cref="AtlasArcView.PastEnd"/>, so it never says an arc will end.
 /// </summary>
 public sealed record AtlasArcOption(string ArcId, string Name)
 {
     public string StartLabel { get; init; } = string.Empty;
 
     public string? Group { get; init; }
+
+    public bool Ended { get; init; }
 }
 
 /// <summary>
@@ -70,6 +73,7 @@ public static class AtlasArcs
             {
                 StartLabel = AtlasText.ArcStartsAt(dataset.Checkpoints[a.FirstOrder]),
                 Group = dataset.Checkpoints.Skip(a.FirstOrder).FirstOrDefault(c => c.Milestone) is { } patch ? AtlasText.ArcGroup(patch.Label) : null,
+                Ended = viewPoint.Order > a.LastOrder,
             })
             .ToList();
     }

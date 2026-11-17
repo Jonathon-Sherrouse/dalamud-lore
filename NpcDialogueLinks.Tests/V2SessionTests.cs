@@ -172,6 +172,18 @@ public class V2ArcSessionTests
     }
 
     [Fact]
+    public void Picker_MarksAnArcEndedOnlyOnceTheViewIsPastIt()
+    {
+        // NDL-011: "· ended" answers "is this arc happening now?", and only after its last step.
+        Assert.DoesNotContain(At("m2", "s2").ArcPickerOptions, o => o.Detail.Contains("ended", StringComparison.Ordinal));
+        var s3 = At("m2", "s3").ArcPickerOptions;
+        Assert.Equal("from Quest Two · ended", s3.Single(o => o.ArcId == "arc-tie").Detail); // its last step is s2
+        Assert.Equal("from Quest One", s3.Single(o => o.ArcId == "arc-hold").Detail); // at its last step: not yet
+        Assert.Equal("from Quest One · ended", At("m2", "s5").ArcPickerOptions.Single(o => o.ArcId == "arc-hold").Detail);
+        Assert.Equal("from Quest One", AtlasText.ArcPickerDetail("from Quest One", ended: false));
+    }
+
+    [Fact]
     public void Arc_EndedArcStaysViewableAsOfItsLastQuest()
     {
         var s = At("m2", "s5");
