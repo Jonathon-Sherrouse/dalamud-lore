@@ -2,7 +2,10 @@ using System.Numerics;
 using Dalamud.Bindings.ImGui;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
+using Dalamud.Interface.Textures;
+using Dalamud.Interface.Textures.TextureWraps;
 using Dalamud.Interface.Windowing;
+using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using NpcDialogueLinks.Atlas;
 
@@ -33,6 +36,7 @@ internal sealed class AtlasWindow : Window
 
     private readonly string dataPath;
     private readonly PluginConfiguration configuration;
+    private readonly ITextureProvider textures;
 
     private AtlasSession? session;
     private bool loadFailed;
@@ -43,11 +47,18 @@ internal sealed class AtlasWindow : Window
     private string syncedQuery = string.Empty;
     private bool openConfirmNextFrame;
 
-    public AtlasWindow(string dataPath, PluginConfiguration configuration)
+    // Pane scroll (council round 3): panes reset when the lens, view or content view changes, as in the viewer, and the
+    // details pane shows a new selection's card or subject from the top.
+    private string? scrollContext;
+    private (string? Relationship, string? Change, string? Focus) shownSelection;
+    private bool forceRevealDetails;
+
+    public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures)
         : base($"{AtlasText.WindowTitle}###NpcDialogueLinksAtlas")
     {
         this.dataPath = dataPath;
         this.configuration = configuration;
+        this.textures = textures;
         this.Size = new Vector2(960, 600);
         this.SizeCondition = ImGuiCond.FirstUseEver;
         this.SizeConstraints = new()
@@ -154,10 +165,23 @@ internal sealed class AtlasWindow : Window
 
         var footerHeight = ImGui.GetTextLineHeightWithSpacing() + (ImGui.GetStyle().ItemSpacing.Y * 2);
         var bodyHeight = Math.Max(ImGui.GetContentRegionAvail().Y - footerHeight, 100 * scale);
-        var browseWidth = 200 * scale;
-        var detailsWidth = 280 * scale;
+        // Side panes give width to the chart in a small window (AtlasChartStyle), as the viewer's clamp() columns do.
+        var contentWidth = ImGui.GetContentRegionAvail().X;
+        var browseWidth = Math.Clamp(contentWidth * (float)AtlasChartStyle.BrowseFraction, AtlasChartStyle.BrowseMin * scale, AtlasChartStyle.BrowseMax * scale);
+        var detailsWidth = Math.Clamp(contentWidth * (float)AtlasChartStyle.DetailsFraction, AtlasChartStyle.DetailsMin * scale, AtlasChartStyle.DetailsMax * scale);
         var spacing = ImGui.GetStyle().ItemSpacing.X;
         var graphWidth = Math.Max(ImGui.GetContentRegionAvail().X - browseWidth - detailsWidth - (spacing * 2), 120 * scale);
+
+        var context = $"{s.Lens}|{s.SpoilerState.ViewId}|{s.ContentView}";
+        var resetPanes = context != this.scrollContext;
+        this.scrollContext = context;
+        var selection = (s.SelectedRelationshipId, s.SelectedChangeKey, s.FocusId);
+        var revealDetails = resetPanes || this.forceRevealDetails
+            || (selection.SelectedRelationshipId is not null && selection.SelectedRelationshipId != this.shownSelection.Relationship)
+            || (selection.SelectedChangeKey is not null && selection.SelectedChangeKey != this.shownSelection.Change)
+            || (selection.FocusId is not null && selection.FocusId != this.shownSelection.Focus);
+        this.shownSelection = selection;
+        this.forceRevealDetails = false;
 
         // ImRaii scopes end every child and popup even if drawing throws, so a failure stays inside the Atlas.
         if (s.Lens == AtlasLens.Changes)
@@ -167,6 +191,11 @@ internal sealed class AtlasWindow : Window
             {
                 if (list)
                 {
+                    if (resetPanes)
+                    {
+                        ImGui.SetScrollY(0);
+                    }
+
                     DrawChangesList(s);
                 }
             }
@@ -177,6 +206,11 @@ internal sealed class AtlasWindow : Window
             {
                 if (browse)
                 {
+                    if (resetPanes)
+                    {
+                        ImGui.SetScrollY(0);
+                    }
+
                     this.DrawBrowse(s);
                 }
             }
@@ -196,6 +230,11 @@ internal sealed class AtlasWindow : Window
         {
             if (details)
             {
+                if (revealDetails)
+                {
+                    ImGui.SetScrollY(0);
+                }
+
                 if (s.Lens == AtlasLens.Changes)
                 {
                     DrawChangeDetails(s);
@@ -215,7 +254,7 @@ internal sealed class AtlasWindow : Window
             }
         }
 
-        ImGui.TextColored(MutedColor, AtlasText.ContentViewHelp);
+        ImGui.TextColored(MutedColor, AtlasText.ContentViewHelp(s.ContentView));
 
         this.DrawConfirmModal(s);
     }
@@ -232,19 +271,19 @@ internal sealed class AtlasWindow : Window
         foreach (var option in s.LensOptions)
         {
             ImGui.SameLine();
-            using (ImRaii.PushColor(ImGuiCol.Button, SelectedButtonColor, option.IsCurrent))
+            if (ToggleButton($"{option.Label}##lens-{option.Lens}", option.IsCurrent) && !option.IsCurrent)
             {
-                if (ImGui.Button($"{option.Label}##lens-{option.Lens}") && !option.IsCurrent)
-                {
-                    picked = option.Lens;
-                }
+                picked = option.Lens;
             }
         }
 
-        ImGui.SameLine(0, 16 * ImGuiHelpers.GlobalScale);
+        // The position line moves to its own row when the window is too narrow for it.
+        SameLineIfFits(ImGui.CalcTextSize(s.PositionLabel).X, 16 * ImGuiHelpers.GlobalScale);
+        ImGui.AlignTextToFramePadding();
         ImGui.TextUnformatted(s.PositionLabel);
         if (s.CoverageNote is { } coverage)
         {
+            SameLineIfFits(ImGui.CalcTextSize(coverage).X, 16 * ImGuiHelpers.GlobalScale);
             ImGui.PushTextWrapPos();
             ImGui.TextColored(MutedColor, coverage);
             ImGui.PopTextWrapPos();
@@ -266,7 +305,9 @@ internal sealed class AtlasWindow : Window
         ImGui.AlignTextToFramePadding();
         ImGui.TextColored(MutedColor, AtlasText.ViewLabel);
         ImGui.SameLine();
-        ImGui.SetNextItemWidth(300 * scale);
+
+        // The picker gives up width before anything is pushed past the window edge (minimum 760 px wide).
+        ImGui.SetNextItemWidth(Math.Clamp(ImGui.GetContentRegionAvail().X, 160 * scale, 300 * scale));
         using (var combo = ImRaii.Combo("##AtlasView", view.Label))
         {
             foreach (var option in combo ? options : Array.Empty<AtlasCheckpointOption>())
@@ -282,7 +323,13 @@ internal sealed class AtlasWindow : Window
             }
         }
 
-        ImGui.SameLine(0, 20 * scale);
+        // The spoiler-limit group (label, limit, Raise…) wraps to its own row as a whole when it doesn't fit, so Raise…
+        // is always on screen.
+        var spacing = ImGui.GetStyle().ItemSpacing.X;
+        var limitWidth = ImGui.CalcTextSize(AtlasText.CeilingLabel).X + spacing + ImGui.CalcTextSize(ceiling.Label).X + spacing
+            + ImGui.CalcTextSize(AtlasText.RaiseButton).X + (ImGui.GetStyle().FramePadding.X * 2);
+        SameLineIfFits(limitWidth, 20 * scale);
+        ImGui.AlignTextToFramePadding();
         ImGui.TextColored(MutedColor, AtlasText.CeilingLabel);
         ImGui.SameLine();
         ImGui.TextUnformatted(ceiling.Label);
@@ -316,18 +363,19 @@ internal sealed class AtlasWindow : Window
             }
         }
 
+        // The Content group shares the row when it fits, as in the viewer.
+        var contentGroup = ImGui.CalcTextSize(AtlasText.ContentLabel).X + new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory }
+            .Sum(v => ImGui.CalcTextSize(AtlasText.ContentViewLabel(v)).X + (ImGui.GetStyle().FramePadding.X * 2) + spacing);
+        SameLineIfFits(contentGroup, 20 * scale);
         ImGui.AlignTextToFramePadding();
         ImGui.TextColored(MutedColor, AtlasText.ContentLabel);
         foreach (var contentView in new[] { AtlasContentView.MainAndOptional, AtlasContentView.MainStory })
         {
             ImGui.SameLine();
             var active = s.ContentView == contentView;
-            using (ImRaii.PushColor(ImGuiCol.Button, SelectedButtonColor, active))
+            if (ToggleButton($"{AtlasText.ContentViewLabel(contentView)}##cv-{contentView}", active) && !active)
             {
-                if (ImGui.Button($"{AtlasText.ContentViewLabel(contentView)}##cv-{contentView}") && !active)
-                {
-                    s.SetContentView(contentView);
-                }
+                s.SetContentView(contentView);
             }
         }
     }
@@ -337,6 +385,12 @@ internal sealed class AtlasWindow : Window
         if (s.Lens == AtlasLens.Arc)
         {
             DrawArcPicker(s);
+
+            // L7: with no arc here the browse pane is empty apart from the picker, so there is nothing to search.
+            if (s.Arc is null)
+            {
+                return;
+            }
         }
 
         if (!string.Equals(s.SearchQuery, this.syncedQuery, StringComparison.Ordinal))
@@ -398,9 +452,10 @@ internal sealed class AtlasWindow : Window
             ImGui.Separator();
             foreach (var entry in group.Entries)
             {
-                var glyphSize = ImGui.GetTextLineHeight() * 0.55f;
+                var line = ImGui.GetTextLineHeight();
+                var glyphSize = entry.Portrait is null ? line * 0.55f : line * 0.95f;
                 var start = ImGui.GetCursorScreenPos();
-                ImGui.Dummy(new Vector2(glyphSize + 4, 0));
+                ImGui.Dummy(new Vector2(line + 4, 0));
                 ImGui.SameLine(0, 0);
                 if (ImGui.Selectable($"{entry.Name}##browse-{entry.Id}", s.FocusId == entry.Id))
                 {
@@ -412,13 +467,13 @@ internal sealed class AtlasWindow : Window
                     ImGui.SetTooltip(entry.Name);
                 }
 
-                var center = new Vector2(start.X + (glyphSize / 2), start.Y + (ImGui.GetTextLineHeight() / 2));
-                DrawGlyph(ImGui.GetWindowDrawList(), entry.Category, center, glyphSize / 2, ColorFor(entry.Category), false);
+                var center = new Vector2(start.X + (line / 2), start.Y + (line / 2));
+                this.DrawMark(ImGui.GetWindowDrawList(), entry.Category, entry.Portrait, center, glyphSize / 2, false, badge: false);
             }
         }
     }
 
-    private static void DrawGraph(AtlasSession s)
+    private void DrawGraph(AtlasSession s)
     {
         var drawList = ImGui.GetWindowDrawList();
         var origin = ImGui.GetCursorScreenPos();
@@ -435,20 +490,93 @@ internal sealed class AtlasWindow : Window
 
         var scale = ImGuiHelpers.GlobalScale;
         var center = origin + (size / 2);
-        var ring = Math.Min(size.X * 0.36f, size.Y * 0.36f);
+        var ring = Math.Min(size.X, size.Y) * (float)AtlasChartStyle.RingFraction;
         var focusRadius = 16 * scale;
         var nodeRadius = 11 * scale;
+        var gap = AtlasChartStyle.Clearance * scale;
+        var inflate = new Vector2(gap, gap);
         Vector2 Pos(AtlasGraphNode n) => center + (new Vector2((float)n.X, (float)n.Y) * ring);
         var positions = layout.Nodes.ToDictionary(n => n.Entity.Id, Pos, StringComparer.Ordinal);
-        var radii = layout.Nodes.ToDictionary(n => n.Entity.Id, n => n.IsFocus ? focusRadius : nodeRadius, StringComparer.Ordinal);
+
+        // Portrait nodes scale with the ring but never shrink below a legible size (AtlasPortraitStyle).
+        float Radius(AtlasGraphNode n) => n.Entity.Portrait is null
+            ? (n.IsFocus ? focusRadius : nodeRadius)
+            : Math.Max(
+                (float)((n.IsFocus ? AtlasPortraitStyle.FocusRadius : AtlasPortraitStyle.NodeRadius) * ring),
+                (n.IsFocus ? AtlasPortraitStyle.MinFocusPixels : AtlasPortraitStyle.MinNodePixels) * scale);
+        var radii = layout.Nodes.ToDictionary(n => n.Entity.Id, Radius, StringComparer.Ordinal);
+
+        // How far a node reaches: a shape's outline (diamonds and hexagons reach past the radius), or the portrait's circle.
+        float Extent(AtlasGraphNode n) => radii[n.Entity.Id] * (n.Entity.Portrait is not null ? 1f : AtlasText.CategoryGlyph(n.Entity.Category) switch
+        {
+            AtlasGlyph.Diamond => (float)AtlasChartStyle.DiamondExtent,
+            AtlasGlyph.Hexagon => (float)AtlasChartStyle.HexagonExtent,
+            _ => 1f,
+        });
+        var extents = layout.Nodes.ToDictionary(n => n.Entity.Id, Extent, StringComparer.Ordinal);
         var selectedId = s.SelectedRelationshipId;
         var edgeColor = ImGui.GetColorU32(EdgeColor);
         var accent = ImGui.GetColorU32(AccentColor);
         var spokeColor = ImGui.GetColorU32(EventColor with { W = 0.28f });
         var wholeCast = s.ShowsWholeCast;
 
+        // Obstacles for label placement: each node (a portrait's covers its badge) and, below, each name plate.
+        var discs = layout.Nodes.Select(n => (
+            Center: positions[n.Entity.Id],
+            Radius: (n.Entity.Portrait is not null ? radii[n.Entity.Id] * (float)AtlasChartStyle.PortraitObstacleScale : extents[n.Entity.Id]) + gap,
+            IsFocus: n.IsFocus)).ToList();
+
+        // Names sit outside the ring (above a node in the upper half, below it otherwise), so chords never cross them,
+        // truncated to the gap between ring neighbours (AtlasChartStyle). The centre name is placed last and shortened
+        // until it clears every ring node and ring name.
+        var ringCount = layout.Nodes.Count(n => !n.IsFocus);
+        var ringNameMax = ringCount >= AtlasChartStyle.FewNodesThreshold
+            ? Math.Min(AtlasChartStyle.NameMaxWidth * scale, (float)(2 * ring * Math.Sin(Math.PI / ringCount)) - (8 * scale))
+            : AtlasChartStyle.FewNodesNameMaxWidth * scale;
+        var namePx = AtlasChartStyle.NamePixels * scale;
+        var labelPx = AtlasChartStyle.LabelPixels * scale;
+        var platePx = AtlasChartStyle.PlatePixels * scale;
+        var names = new Dictionary<string, (string Text, bool Truncated, Vector2 Min, Vector2 Max)>(StringComparer.Ordinal);
+        (string Text, bool Truncated, Vector2 Min, Vector2 Max) NamePlate(AtlasGraphNode node, float maxWidth)
+        {
+            var p = positions[node.Entity.Id];
+            var r = radii[node.Entity.Id];
+            var text = Truncate(node.Entity.Name, maxWidth, out var truncated, namePx);
+            var plate = new Vector2(ChartText(text, namePx).X + (4 * scale), platePx);
+            var above = !node.IsFocus && node.Y < -0.01;
+            var top = above ? p.Y - r - (3 * scale) - plate.Y : p.Y + r + (3 * scale);
+            var min = new Vector2(p.X - (plate.X / 2), top);
+            return (text, truncated, min, min + plate);
+        }
+
+        foreach (var node in layout.Nodes.Where(n => !n.IsFocus))
+        {
+            names[node.Entity.Id] = NamePlate(node, ringNameMax);
+        }
+
+        foreach (var node in layout.Nodes.Where(n => n.IsFocus))
+        {
+            var cap = Math.Min(AtlasChartStyle.CentreNameMaxWidth * scale, (float)(AtlasChartStyle.CentreNameRingWidth * ring));
+            var plate = NamePlate(node, cap);
+            bool Collides((string Text, bool Truncated, Vector2 Min, Vector2 Max) candidate)
+            {
+                var box = (candidate.Min - inflate, candidate.Max + inflate);
+                return discs.Any(d => !d.IsFocus && RectHitsCircle(box, d.Center, d.Radius))
+                    || names.Values.Any(n => RectsOverlap(box, (n.Min, n.Max)));
+            }
+
+            while (Collides(plate) && cap > AtlasChartStyle.CentreNameMinWidth * scale)
+            {
+                cap -= 10 * scale;
+                plate = NamePlate(node, cap);
+            }
+
+            names[node.Entity.Id] = plate;
+        }
+
         // Edges first, then labels and nodes on top.
-        var labels = new List<(Vector2 Pos, string Text, string RelationshipId, bool Selected, bool Optional)>();
+        var labels = new List<(Vector2 P1, Vector2 P2, Vector2 Normal, bool Arrow, string Text, string Sentence, string RelationshipId, bool Selected, bool Optional)>();
+        var nodesById = layout.Nodes.ToDictionary(n => n.Entity.Id, StringComparer.Ordinal);
         foreach (var edge in layout.Edges)
         {
             var a = positions[edge.FromId];
@@ -458,8 +586,8 @@ internal sealed class AtlasWindow : Window
             var dir = delta / length;
             var normal = new Vector2(-dir.Y, dir.X);
             var lane = (float)((edge.LaneIndex - ((edge.LaneCount - 1) / 2.0)) * 0.12 * ring);
-            var p1 = a + (dir * (radii[edge.FromId] + (4 * scale))) + (normal * lane);
-            var p2 = b - (dir * (radii[edge.ToId] + (4 * scale))) + (normal * lane);
+            var p1 = a + (dir * (extents[edge.FromId] + (4 * scale))) + (normal * lane);
+            var p2 = b - (dir * (extents[edge.ToId] + (4 * scale))) + (normal * lane);
 
             // D8: on the whole-cast chart a participation spoke is a faint line with no label, arrow or click target.
             if (edge.IsParticipation && wholeCast)
@@ -469,60 +597,110 @@ internal sealed class AtlasWindow : Window
             }
 
             var selected = edge.Relationship.Id == selectedId;
-            var color = selected ? accent : edgeColor;
-            var thickness = (selected ? 2.2f : 1.4f) * scale;
-
-            if (edge.Relationship.IsOptional)
-            {
-                DrawDashedLine(drawList, p1, p2, color, thickness, 6 * scale, 4 * scale);
-            }
-            else
-            {
-                drawList.AddLine(p1, p2, color, thickness);
-            }
-
-            if (!edge.Symmetric)
-            {
-                var tip = p2;
-                var back = tip - (dir * 8 * scale);
-                drawList.AddTriangleFilled(tip, back + (normal * 4 * scale), back - (normal * 4 * scale), color);
-            }
-
-            var mid = ((p1 + p2) / 2) + (normal * 9 * scale);
-
-            // An edge between two opposite ring members crosses the centre node; move its label clear of it
-            // (the "known layout limit" in docs/atlas/ux-design.md, v2 ImGui feasibility).
-            var clearance = focusRadius + (14 * scale);
-            if (wholeCast && Vector2.Distance(mid, center) < clearance)
-            {
-                mid = center + (normal * clearance);
-            }
-            labels.Add((mid, edge.Label, edge.Relationship.Id, selected, edge.Relationship.IsOptional));
+            DrawEdge(drawList, p1, p2, normal, !edge.Symmetric, edge.Relationship.IsOptional, selected ? accent : edgeColor, (selected ? 2.2f : 1.4f) * scale);
+            var sentence = $"{nodesById[edge.FromId].Entity.Name} {edge.Label} {nodesById[edge.ToId].Entity.Name}";
+            labels.Add((p1, p2, normal, !edge.Symmetric, edge.Label, sentence, edge.Relationship.Id, selected, edge.Relationship.IsOptional));
         }
 
+        // Each label sits at the first candidate (along its edge, then to either side) clear of every node, name and
+        // placed label; otherwise at the least-overlapping one, which avoids names above all (AtlasChartStyle).
+        var plates = names.Values.Select(n => (n.Min - inflate, n.Max + inflate)).ToList();
+        var placed = new List<(Vector2 Min, Vector2 Max)>();
+        var spots = new List<(Vector2 Min, Vector2 Max, Vector2 Anchor, int Offset, Vector2 TextSize)>();
         foreach (var label in labels)
         {
-            var textSize = ImGui.CalcTextSize(label.Text);
-            var min = label.Pos - (textSize / 2) - new Vector2(3 * scale, 1 * scale);
-            var max = label.Pos + (textSize / 2) + new Vector2(3 * scale, 1 * scale);
-            drawList.AddRectFilled(min, max, ImGui.GetColorU32(LabelBackColor), 3 * scale);
-            ImGui.SetCursorScreenPos(min);
-            var clicked = ImGui.InvisibleButton($"##edge-{label.RelationshipId}", max - min);
-            var hovered = ImGui.IsItemHovered();
+            var textSize = ChartText(label.Text, labelPx);
+            var half = new Vector2((textSize.X / 2) + (3 * scale), platePx / 2);
+            var step = platePx + gap;
+            (Vector2 Min, Vector2 Max, Vector2 Anchor, int Offset)? best = null;
+            var bestScore = double.MaxValue;
+            foreach (var t in AtlasChartStyle.LabelPositions)
+            {
+                var anchor = label.P1 + ((label.P2 - label.P1) * (float)t);
+                foreach (var offset in AtlasChartStyle.LabelOffsets)
+                {
+                    var at = anchor + (label.Normal * (offset * step));
+                    var box = (Min: at - half, Max: at + half);
+                    var padded = (box.Min - inflate, box.Max + inflate);
+                    var clear = !discs.Any(d => RectHitsCircle(padded, d.Center, d.Radius))
+                        && !plates.Any(p => RectsOverlap(padded, p))
+                        && !placed.Any(p => RectsOverlap(padded, p));
+                    if (clear)
+                    {
+                        best = (box.Min, box.Max, anchor, offset);
+                        bestScore = -1;
+                        break;
+                    }
+
+                    var score = (plates.Sum(p => OverlapArea(box, p)) * AtlasChartStyle.NameOverlapWeight)
+                        + (discs.Sum(d => OverlapArea(box, (d.Center - new Vector2(d.Radius, d.Radius), d.Center + new Vector2(d.Radius, d.Radius)))) * AtlasChartStyle.NodeOverlapWeight)
+                        + (placed.Sum(p => OverlapArea(box, p)) * AtlasChartStyle.LabelOverlapWeight);
+                    if (score < bestScore)
+                    {
+                        best = (box.Min, box.Max, anchor, offset);
+                        bestScore = score;
+                    }
+                }
+
+                if (bestScore < 0)
+                {
+                    break;
+                }
+            }
+
+            var chosen = best!.Value;
+            placed.Add((chosen.Min, chosen.Max));
+            spots.Add((chosen.Min, chosen.Max, chosen.Anchor, chosen.Offset, textSize));
+        }
+
+        // The hovered label (the last one under the mouse, as it is drawn on top) lights its edge before any label is
+        // drawn, so the lit line never crosses a label's text.
+        var hoveredLabel = -1;
+        if (ImGui.IsWindowHovered(ImGuiHoveredFlags.AllowWhenBlockedByActiveItem))
+        {
+            for (var i = 0; i < spots.Count; i++)
+            {
+                if (ImGui.IsMouseHoveringRect(spots[i].Min, spots[i].Max))
+                {
+                    hoveredLabel = i;
+                }
+            }
+        }
+
+        if (hoveredLabel >= 0)
+        {
+            var lit = labels[hoveredLabel];
+            DrawEdge(drawList, lit.P1, lit.P2, lit.Normal, lit.Arrow, lit.Optional, ImGui.GetColorU32(HoverColor), 2.2f * scale);
+        }
+
+        for (var i = 0; i < labels.Count; i++)
+        {
+            var label = labels[i];
+            var spot = spots[i];
+            if (spot.Offset != 0)
+            {
+                // A short leader line ties an off-edge label back to its edge.
+                drawList.AddLine(spot.Anchor, Vector2.Clamp(spot.Anchor, spot.Min, spot.Max), ImGui.GetColorU32(MutedColor with { W = 0.6f }), 1f * scale);
+            }
+
+            drawList.AddRectFilled(spot.Min, spot.Max, ImGui.GetColorU32(LabelBackColor), 3 * scale);
+            ImGui.SetCursorScreenPos(spot.Min);
+            var clicked = ImGui.InvisibleButton($"##edge-{label.RelationshipId}", spot.Max - spot.Min);
+            var hovered = i == hoveredLabel;
             var textColor = label.Selected ? AccentColor : hovered ? HoverColor : MutedColor;
-            drawList.AddText(label.Pos - (textSize / 2), ImGui.GetColorU32(textColor), label.Text);
+            drawList.AddText(ImGui.GetFont(), labelPx, ((spot.Min + spot.Max) / 2) - (spot.TextSize / 2), ImGui.GetColorU32(textColor), label.Text);
             if (hovered)
             {
+                // The full sentence names both ends, so a label is never ambiguous.
                 ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
-                if (label.Optional)
-                {
-                    ImGui.SetTooltip(AtlasText.OptionalTooltip);
-                }
+                ImGui.SetTooltip(label.Optional ? $"{label.Sentence}\n{AtlasText.OptionalTooltip}" : label.Sentence);
             }
 
             if (clicked)
             {
+                // Picking a connection always shows its card, even if it was already selected.
                 s.SelectRelationship(label.RelationshipId);
+                this.forceRevealDetails = true;
             }
         }
 
@@ -531,39 +709,56 @@ internal sealed class AtlasWindow : Window
         {
             var p = positions[node.Entity.Id];
             var r = radii[node.Entity.Id];
+            var canClick = !node.IsFocus || wholeCast;
             ImGui.SetCursorScreenPos(p - new Vector2(r, r));
             var clicked = ImGui.InvisibleButton($"##node-{node.Entity.Id}", new Vector2(r * 2, r * 2));
             var hovered = ImGui.IsItemHovered();
-            DrawGlyph(drawList, node.Entity.Category, p, r, ColorFor(node.Entity.Category), true);
+
+            // The outline goes under the mark, so it never crosses the category badge.
+            var round = node.Entity.Portrait is not null && this.TryPortraitTexture(node.Entity.Portrait, out _);
             if (node.IsFocus)
             {
-                DrawGlyphOutline(drawList, node.Entity.Category, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
-            }
-            else if (hovered)
-            {
-                DrawGlyphOutline(drawList, node.Entity.Category, p, r + (2 * scale), ImGui.GetColorU32(HoverColor), 2 * scale);
+                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
             }
 
-            // Name below the node, truncated to a fixed width, on a dark backing for legibility.
-            var maxWidth = 150 * scale;
-            var name = Truncate(node.Entity.Name, maxWidth, out var truncated);
-            var nameSize = ImGui.CalcTextSize(name);
-            var namePos = new Vector2(p.X - (nameSize.X / 2), p.Y + r + (3 * scale));
-            drawList.AddRectFilled(namePos - new Vector2(2 * scale, 0), namePos + nameSize + new Vector2(2 * scale, 0), ImGui.GetColorU32(LabelBackColor), 2 * scale);
-            drawList.AddText(namePos, ImGui.GetColorU32(new Vector4(0.902f, 0.910f, 0.933f, 1f)), name);
+            // A clickable node, the whole-cast centre included, gets a hover ring (as in the viewer).
+            if (hovered && canClick)
+            {
+                DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (node.IsFocus ? 6 : 2) * scale, ImGui.GetColorU32(HoverColor), 2 * scale);
+            }
+
+            this.DrawMark(drawList, node.Entity.Category, node.Entity.Portrait, p, r, true, badge: true);
+
+            var name = names[node.Entity.Id];
+            drawList.AddRectFilled(name.Min, name.Max, ImGui.GetColorU32(LabelBackColor), 2 * scale);
+            drawList.AddText(ImGui.GetFont(), namePx, name.Min + new Vector2(2 * scale, ((name.Max.Y - name.Min.Y) - namePx) / 2), ImGui.GetColorU32(TextColor), name.Text);
 
             if (hovered)
             {
-                ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                if (canClick)
+                {
+                    ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                }
+
                 ImGui.SetTooltip(node.Entity.Name);
             }
-            else if (truncated && ImGui.IsMouseHoveringRect(namePos, namePos + nameSize))
+            else if (ImGui.IsMouseHoveringRect(name.Min, name.Max) && ImGui.IsWindowHovered() && !ImGui.IsAnyItemHovered())
             {
-                ImGui.SetTooltip(node.Entity.Name);
+                // A node's name is part of its click target, as in the viewer, unless a label sits on top of it.
+                if (canClick)
+                {
+                    ImGui.SetMouseCursor(ImGuiMouseCursor.Hand);
+                    clicked |= ImGui.IsMouseClicked(ImGuiMouseButton.Left);
+                }
+
+                if (name.Truncated)
+                {
+                    ImGui.SetTooltip(node.Entity.Name);
+                }
             }
 
             // The arc entry at the centre of the whole-cast chart can always be clicked (L4); a focused node cannot.
-            if (clicked && (!node.IsFocus || wholeCast))
+            if (clicked && canClick)
             {
                 refocus = node.Entity.Id;
             }
@@ -575,7 +770,7 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    private static void DrawDetails(AtlasSession s)
+    private void DrawDetails(AtlasSession s)
     {
         var focus = s.Focus;
         if (focus is null)
@@ -595,6 +790,14 @@ internal sealed class AtlasWindow : Window
                 return;
             }
 
+            ImGui.Spacing();
+        }
+
+        // The selected connection's card comes first, as in the arc panel, so picking an edge never pushes it below the fold.
+        if (s.SelectedRelationship is not null)
+        {
+            DrawSelectedCard(s);
+            ImGui.Spacing();
             ImGui.Spacing();
         }
 
@@ -621,31 +824,34 @@ internal sealed class AtlasWindow : Window
             var selected = relationship.Id == s.SelectedRelationshipId;
             DrawDirectionArrow(neighbor.Direction, relationship.Symmetric, selected);
             ImGui.SameLine();
-            if (ClickableText(neighbor.Label, selected ? AccentColor : MutedColor, $"rel-{relationship.Id}"))
-            {
-                select = relationship.Id;
-            }
 
-            ImGui.SameLine();
-            if (ClickableText(neighbor.Entity.Name, new Vector4(0.902f, 0.910f, 0.933f, 1f), $"who-{relationship.Id}-{neighbor.Entity.Id}"))
+            // The row wraps inside the pane, so long names stay readable; the label selects, the name refocuses.
+            var pieces = new List<FlowPiece>
             {
-                refocus = neighbor.Entity.Id;
-            }
-
+                new(neighbor.Label, selected ? AccentColor : MutedColor, $"rel-{relationship.Id}", "rel"),
+                new(neighbor.Entity.Name, TextColor, $"who-{relationship.Id}-{neighbor.Entity.Id}", "who", Underline: true),
+            };
             if (relationship.IsOptional)
             {
-                ImGui.SameLine();
-                OptionalTag(AtlasText.OptionalTag);
+                pieces.Add(new($"[{AtlasText.OptionalTag}]", MutedColor));
             }
 
             if (neighborhood!.CanvasEntities.All(c => c.Id != neighbor.Entity.Id))
             {
-                ImGui.SameLine();
-                ImGui.TextColored(MutedColor, AtlasText.ListOnlyMarker);
+                pieces.Add(new(AtlasText.ListOnlyMarker, MutedColor));
+            }
+
+            switch (Flow(pieces))
+            {
+                case "rel":
+                    select = relationship.Id;
+                    break;
+                case "who":
+                    refocus = neighbor.Entity.Id;
+                    break;
             }
         }
 
-        DrawSelectedCard(s);
 
         if (select is not null)
         {
@@ -694,14 +900,10 @@ internal sealed class AtlasWindow : Window
                 continue;
             }
 
-            if (ClickableText(citation.Title, HoverColor, $"src-{scopeId}-{i}", underline: true))
+            // Long titles wrap; every word of a title is part of the same link.
+            if (Flow([new(citation.Title, HoverColor, $"src-{scopeId}-{i}", "open", Underline: true, Tooltip: $"{AtlasText.ExternalLinkWarning}\n{citation.Url}")]) is not null)
             {
                 OpenLink(citation.Url);
-            }
-
-            if (ImGui.IsItemHovered())
-            {
-                ImGui.SetTooltip($"{AtlasText.ExternalLinkWarning}\n{citation.Url}");
             }
         }
 
@@ -747,9 +949,19 @@ internal sealed class AtlasWindow : Window
         AtlasArcPickerOption? picked = null;
         using (var combo = ImRaii.Combo("##AtlasArcPicker", current.Label))
         {
+            string? group = null;
             foreach (var option in combo ? options : Array.Empty<AtlasArcPickerOption>())
             {
-                if (ImGui.Selectable($"{option.Label}##arc-{option.ArcId ?? "auto"}", option.IsCurrent) && !option.IsCurrent)
+                // Patch headings, only when the arcs span more than one patch (user decision, 2026-11-15).
+                if (s.ArcPickerGrouped && option.Group is { } heading && heading != group)
+                {
+                    group = heading;
+                    ImGui.Spacing();
+                    ImGui.TextColored(MutedColor, heading.ToUpperInvariant());
+                    ImGui.Separator();
+                }
+
+                if (PickerItem(option) && !option.IsCurrent)
                 {
                     picked = option;
                 }
@@ -764,8 +976,25 @@ internal sealed class AtlasWindow : Window
         ImGui.Spacing();
     }
 
+    /// <summary>An arc picker entry: the arc's name, with where it starts on a muted second line.</summary>
+    private static bool PickerItem(AtlasArcPickerOption option)
+    {
+        var line = ImGui.GetTextLineHeight();
+        var hasDetail = option.Detail.Length > 0;
+        var start = ImGui.GetCursorScreenPos();
+        var clicked = ImGui.Selectable($"##arc-{option.ArcId ?? "auto"}", option.IsCurrent, ImGuiSelectableFlags.None, new Vector2(0, hasDetail ? line * 2 : line));
+        var drawList = ImGui.GetWindowDrawList();
+        drawList.AddText(start, ImGui.GetColorU32(TextColor), option.Label);
+        if (hasDetail)
+        {
+            drawList.AddText(start + new Vector2(0, line), ImGui.GetColorU32(MutedColor), option.Detail);
+        }
+
+        return clicked;
+    }
+
     /// <summary>The Arc lens at rest (L3): the arc's name, its reviewed recap, and what is new and what has ended so far.</summary>
-    private static void DrawArcPanel(AtlasSession s)
+    private void DrawArcPanel(AtlasSession s)
     {
         var arc = s.Arc!;
         if (s.SelectedRelationship is not null)
@@ -817,9 +1046,12 @@ internal sealed class AtlasWindow : Window
                 continue;
             }
 
-            var pieces = new List<FlowPiece> { new(row.Source!.Name, TextColor, $"arcrow-{row.Key}-s", row.Source.Id) };
-            pieces.AddRange(row.Relationship.OutgoingLabel.Split(' ').Select(word => new FlowPiece(word, MutedColor)));
-            pieces.Add(new(row.Target!.Name, TextColor, $"arcrow-{row.Key}-t", row.Target.Id));
+            var pieces = new List<FlowPiece>
+            {
+                new(row.Source!.Name, TextColor, $"arcrow-{row.Key}-s", row.Source.Id, Underline: true),
+                new(row.Relationship.OutgoingLabel, MutedColor),
+                new(row.Target!.Name, TextColor, $"arcrow-{row.Key}-t", row.Target.Id, Underline: true),
+            };
             if (row.Relationship.IsOptional)
             {
                 pieces.Add(new($"[{AtlasText.OptionalTag}]", MutedColor));
@@ -860,14 +1092,9 @@ internal sealed class AtlasWindow : Window
             ImGui.Separator();
             foreach (var row in group.Rows)
             {
-                var mark = row.Kind switch
-                {
-                    AtlasChangeKind.Added => "+",
-                    AtlasChangeKind.Ended => "-",
-                    _ => "~",
-                };
+                var mark = ChangeMark(row.Kind);
                 var optional = row.Relationship?.IsOptional == true ? $"  [{AtlasText.OptionalTag}]" : string.Empty;
-                if (ImGui.Selectable($"{mark}   {row.Text}{optional}##change-{row.Key}", row.Key == s.SelectedChangeKey) && row.Key != s.SelectedChangeKey)
+                if (WrappedSelectable(mark, row.Text + optional, $"change-{row.Key}", row.Key == s.SelectedChangeKey) && row.Key != s.SelectedChangeKey)
                 {
                     pick = row.Key;
                 }
@@ -881,9 +1108,10 @@ internal sealed class AtlasWindow : Window
     }
 
     /// <summary>The selected change. End evidence appears here, on an "ended" row, and nowhere else (v2 spoiler rule 2).</summary>
-    private static void DrawChangeDetails(AtlasSession s)
+    private void DrawChangeDetails(AtlasSession s)
     {
-        if (s.SelectionWasReset)
+        // The reset hint only makes sense where there is something to pick.
+        if (s.SelectionWasReset && s.ChangesOffered)
         {
             ImGui.PushTextWrapPos();
             ImGui.TextColored(MutedColor, AtlasText.SelectionReset);
@@ -902,6 +1130,12 @@ internal sealed class AtlasWindow : Window
             Muted(AtlasText.ChangesPickHint);
             return;
         }
+
+        // What the row did, first, so an ended relationship never reads as current (council round 1).
+        ImGui.PushTextWrapPos();
+        ImGui.TextColored(AccentColor, $"{ChangeMark(row.Kind)} {s.SelectedChangeStatus}");
+        ImGui.PopTextWrapPos();
+        ImGui.Spacing();
 
         if (row.Entity is { } entity)
         {
@@ -928,8 +1162,29 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    private static void DrawEntityHeader(AtlasEntityView entity, bool withAliases)
+    private void DrawEntityHeader(AtlasEntityView entity, bool withAliases)
     {
+        var meta = AtlasText.CategoryLabel(entity.Category) + (withAliases && entity.Aliases.Count > 0 ? " · " + string.Join(", ", entity.Aliases) : string.Empty);
+        if (entity.Portrait is not null)
+        {
+            // A large portrait beside the name and category, as in the viewer's header.
+            var size = AtlasPortraitStyle.HeaderSize * ImGuiHelpers.GlobalScale;
+            var origin = ImGui.GetCursorScreenPos();
+            ImGui.Dummy(new Vector2(size, size));
+            this.DrawMark(ImGui.GetWindowDrawList(), entity.Category, entity.Portrait, origin + new Vector2(size / 2, size / 2), size / 2, false, badge: true);
+            ImGui.SameLine();
+            using (ImRaii.Group())
+            {
+                ImGui.SetCursorPosY(ImGui.GetCursorPosY() + Math.Max((size - (ImGui.GetTextLineHeightWithSpacing() * 2)) / 2, 0));
+                ImGui.PushTextWrapPos();
+                ImGui.TextUnformatted(entity.Name);
+                ImGui.TextColored(MutedColor, meta);
+                ImGui.PopTextWrapPos();
+            }
+
+            return;
+        }
+
         var glyphSize = ImGui.GetTextLineHeight() * 0.6f;
         var start = ImGui.GetCursorScreenPos();
         ImGui.Dummy(new Vector2(glyphSize + 6, 0));
@@ -937,7 +1192,6 @@ internal sealed class AtlasWindow : Window
         ImGui.PushTextWrapPos();
         ImGui.TextUnformatted(entity.Name);
         DrawGlyph(ImGui.GetWindowDrawList(), entity.Category, start + new Vector2(glyphSize / 2, ImGui.GetTextLineHeight() / 2), glyphSize / 2, ColorFor(entity.Category), false);
-        var meta = AtlasText.CategoryLabel(entity.Category) + (withAliases && entity.Aliases.Count > 0 ? " · " + string.Join(", ", entity.Aliases) : string.Empty);
         ImGui.TextColored(MutedColor, meta);
         ImGui.PopTextWrapPos();
     }
@@ -961,9 +1215,16 @@ internal sealed class AtlasWindow : Window
         ImGui.PopTextWrapPos();
     }
 
-    private sealed record FlowPiece(string Text, Vector4 Color, string? ClickId = null, string? FocusId = null);
+    /// <summary>
+    /// A run of inline text. A clickable piece (with <see cref="ClickId"/>) returns <see cref="Value"/> when any of its
+    /// words is clicked; <see cref="Underline"/> gives it a faint persistent underline so it reads as clickable.
+    /// </summary>
+    private sealed record FlowPiece(string Text, Vector4 Color, string? ClickId = null, string? Value = null, bool Underline = false, string? Tooltip = null);
 
-    /// <summary>Draws pieces inline, wrapping between pieces at the pane edge. Returns the entity id of a clicked name.</summary>
+    /// <summary>
+    /// Draws pieces inline, wrapping word by word at the pane edge so nothing runs past it. Starts on the current line
+    /// (after a <c>SameLine</c>) or a fresh one. Returns the <see cref="FlowPiece.Value"/> of a clicked piece.
+    /// </summary>
     private static string? Flow(IReadOnlyList<FlowPiece> pieces)
     {
         var space = ImGui.CalcTextSize(" ").X;
@@ -972,35 +1233,68 @@ internal sealed class AtlasWindow : Window
         string? clicked = null;
         foreach (var piece in pieces)
         {
-            var pieceWidth = ImGui.CalcTextSize(piece.Text).X;
-            if (used > 0)
+            var words = piece.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            for (var w = 0; w < words.Length; w++)
             {
-                if (used + space + pieceWidth > width)
+                var word = words[w];
+                var wordWidth = ImGui.CalcTextSize(word).X;
+                if (used > 0)
                 {
-                    used = 0;
+                    if (used + space + wordWidth > width)
+                    {
+                        // A new row starts at the pane's left edge with the pane's full width.
+                        used = 0;
+                        width = ImGui.GetContentRegionAvail().X;
+                    }
+                    else
+                    {
+                        ImGui.SameLine(0, space);
+                        used += space;
+                    }
+                }
+
+                if (piece.ClickId is not null)
+                {
+                    if (ClickableText(word, piece.Color, $"{piece.ClickId}-{w}", underline: piece.Underline, underlineColor: piece.Color with { W = 0.45f }))
+                    {
+                        clicked = piece.Value;
+                    }
                 }
                 else
                 {
-                    ImGui.SameLine(0, space);
-                    used += space;
+                    ImGui.TextColored(piece.Color, word);
                 }
-            }
 
-            if (piece.ClickId is not null)
-            {
-                if (ClickableText(piece.Text, piece.Color, piece.ClickId))
+                if (piece.Tooltip is not null && ImGui.IsItemHovered())
                 {
-                    clicked = piece.FocusId;
+                    ImGui.SetTooltip(piece.Tooltip);
                 }
-            }
-            else
-            {
-                ImGui.TextColored(piece.Color, piece.Text);
-            }
 
-            used += pieceWidth;
+                used += wordWidth;
+            }
         }
 
+        return clicked;
+    }
+
+    private static string ChangeMark(AtlasChangeKind kind) => kind switch
+    {
+        AtlasChangeKind.Added => "+",
+        AtlasChangeKind.Ended => "-",
+        _ => "~",
+    };
+
+    /// <summary>A full-width selectable row whose text wraps under a fixed mark column, for long Changes rows.</summary>
+    private static bool WrappedSelectable(string mark, string text, string id, bool selected)
+    {
+        var markWidth = ImGui.CalcTextSize("~").X + (10 * ImGuiHelpers.GlobalScale);
+        var start = ImGui.GetCursorScreenPos();
+        var wrap = Math.Max(ImGui.GetContentRegionAvail().X - markWidth, 40 * ImGuiHelpers.GlobalScale);
+        var height = ImGui.CalcTextSize(text, false, wrap).Y;
+        var clicked = ImGui.Selectable($"##{id}", selected, ImGuiSelectableFlags.None, new Vector2(0, height));
+        var drawList = ImGui.GetWindowDrawList();
+        drawList.AddText(start, ImGui.GetColorU32(MutedColor), mark);
+        drawList.AddText(ImGui.GetFont(), ImGui.GetFontSize(), start + new Vector2(markWidth, 0), ImGui.GetColorU32(TextColor), text, wrap);
         return clicked;
     }
 
@@ -1062,6 +1356,64 @@ internal sealed class AtlasWindow : Window
         AtlasGlyph.Hexagon => EventColor,
         _ => CharacterColor,
     };
+
+    /// <summary>
+    /// An entity's mark: its reviewed portrait from the game's own icons, clipped round inside a ring in the category
+    /// colour with the category shape as a badge, or the category shape alone when there is no portrait or its texture
+    /// is not loaded yet (NDL-011). Returns true when it drew a round portrait.
+    /// </summary>
+    private bool DrawMark(ImDrawListPtr drawList, AtlasCategory category, AtlasPortrait? portrait, Vector2 center, float radius, bool border, bool badge)
+    {
+        if (portrait is null || !this.TryPortraitTexture(portrait, out var wrap))
+        {
+            DrawGlyph(drawList, category, center, portrait is null ? radius : radius * 0.8f, ColorFor(category), border);
+            return false;
+        }
+
+        var (u0, v0, u1, v1) = portrait.Uv(wrap.Width, wrap.Height);
+        var half = new Vector2(radius, radius);
+        drawList.AddImageRounded(wrap.Handle, center - half, center + half, new Vector2((float)u0, (float)v0), new Vector2((float)u1, (float)v1), 0xFFFFFFFF, radius);
+        drawList.AddCircle(center, radius, ImGui.GetColorU32(ColorFor(category)), 0, Math.Max((float)(radius * AtlasPortraitStyle.RingWidth), 1.5f));
+        if (badge)
+        {
+            var offset = (float)(radius * AtlasPortraitStyle.BadgeOffset);
+            DrawGlyph(drawList, category, center + new Vector2(offset, offset), (float)(radius * AtlasPortraitStyle.BadgeRadius), ColorFor(category), true);
+        }
+
+        return true;
+    }
+
+    /// <summary>The game icon's texture, once Dalamud has loaded it from the game data. Never throws.</summary>
+    private bool TryPortraitTexture(AtlasPortrait portrait, out IDalamudTextureWrap wrap)
+    {
+        wrap = null!;
+        try
+        {
+            if (this.textures.GetFromGameIcon(new GameIconLookup(portrait.GameIcon, false, true)).TryGetWrap(out var loaded, out _) && loaded is not null)
+            {
+                wrap = loaded;
+                return true;
+            }
+        }
+        catch (Exception exception)
+        {
+            Plugin.Log.Verbose(exception, $"Lore Atlas portrait icon {portrait.GameIcon} is unavailable; drawing the category shape.");
+        }
+
+        return false;
+    }
+
+    private static void DrawMarkOutline(ImDrawListPtr drawList, AtlasCategory category, bool round, Vector2 center, float radius, uint color, float thickness)
+    {
+        if (round)
+        {
+            drawList.AddCircle(center, radius, color, 0, thickness);
+        }
+        else
+        {
+            DrawGlyphOutline(drawList, category, center, radius, color, thickness);
+        }
+    }
 
     private static void DrawGlyph(ImDrawListPtr drawList, AtlasCategory category, Vector2 center, float radius, Vector4 color, bool border)
     {
@@ -1152,7 +1504,7 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    private static bool ClickableText(string text, Vector4 color, string id, bool underline = false)
+    private static bool ClickableText(string text, Vector4 color, string id, bool underline = false, Vector4? underlineColor = null)
     {
         var start = ImGui.GetCursorScreenPos();
         var size = ImGui.CalcTextSize(text);
@@ -1162,7 +1514,8 @@ internal sealed class AtlasWindow : Window
         drawList.AddText(start, ImGui.GetColorU32(hovered ? HoverColor : color), text);
         if (hovered || underline)
         {
-            drawList.AddLine(new Vector2(start.X, start.Y + size.Y), new Vector2(start.X + size.X, start.Y + size.Y), ImGui.GetColorU32(hovered ? HoverColor : color), 1f);
+            var line = hovered ? HoverColor : underlineColor ?? color;
+            drawList.AddLine(new Vector2(start.X, start.Y + size.Y), new Vector2(start.X + size.X, start.Y + size.Y), ImGui.GetColorU32(line), 1f);
         }
 
         if (hovered)
@@ -1182,10 +1535,87 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    private static string Truncate(string text, float maxWidth, out bool truncated)
+    /// <summary>Continues the current row when <paramref name="width"/> still fits on it, otherwise starts a new row.</summary>
+    private static void SameLineIfFits(float width, float spacing)
     {
+        var rowEnd = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
+        if (ImGui.GetItemRectMax().X + spacing + width <= rowEnd)
+        {
+            ImGui.SameLine(0, spacing);
+        }
+    }
+
+    /// <summary>
+    /// A segmented-control button. The active one is filled and underlined in the accent colour, so the choice never
+    /// rests on a slight colour difference alone.
+    /// </summary>
+    private static bool ToggleButton(string label, bool active)
+    {
+        bool clicked;
+        using (ImRaii.PushColor(ImGuiCol.Button, SelectedButtonColor, active))
+        {
+            clicked = ImGui.Button(label);
+        }
+
+        if (active)
+        {
+            var min = ImGui.GetItemRectMin();
+            var max = ImGui.GetItemRectMax();
+            var inset = 4 * ImGuiHelpers.GlobalScale;
+            ImGui.GetWindowDrawList().AddLine(new Vector2(min.X + inset, max.Y - 1), new Vector2(max.X - inset, max.Y - 1), ImGui.GetColorU32(AccentColor), 2 * ImGuiHelpers.GlobalScale);
+        }
+
+        return clicked;
+    }
+
+    /// <summary>An edge line, dashed when optional, with an arrowhead at <paramref name="p2"/> when directed.</summary>
+    private static void DrawEdge(ImDrawListPtr drawList, Vector2 p1, Vector2 p2, Vector2 normal, bool arrow, bool optional, uint color, float thickness)
+    {
+        var scale = ImGuiHelpers.GlobalScale;
+        if (optional)
+        {
+            DrawDashedLine(drawList, p1, p2, color, thickness, 6 * scale, 4 * scale);
+        }
+        else
+        {
+            drawList.AddLine(p1, p2, color, thickness);
+        }
+
+        if (arrow)
+        {
+            var dir = Vector2.Normalize(p2 - p1);
+            var back = p2 - (dir * 8 * scale);
+            drawList.AddTriangleFilled(p2, back + (normal * 4 * scale), back - (normal * 4 * scale), color);
+        }
+    }
+
+    private static double OverlapArea((Vector2 Min, Vector2 Max) a, (Vector2 Min, Vector2 Max) b)
+    {
+        var w = Math.Min(a.Max.X, b.Max.X) - Math.Max(a.Min.X, b.Min.X);
+        var h = Math.Min(a.Max.Y, b.Max.Y) - Math.Max(a.Min.Y, b.Min.Y);
+        return w > 0 && h > 0 ? w * h : 0;
+    }
+
+    private static bool RectsOverlap((Vector2 Min, Vector2 Max) a, (Vector2 Min, Vector2 Max) b) =>
+        a.Min.X < b.Max.X && b.Min.X < a.Max.X && a.Min.Y < b.Max.Y && b.Min.Y < a.Max.Y;
+
+    private static bool RectHitsCircle((Vector2 Min, Vector2 Max) rect, Vector2 center, float radius)
+    {
+        var nearest = Vector2.Clamp(center, rect.Min, rect.Max);
+        return Vector2.DistanceSquared(nearest, center) < radius * radius;
+    }
+
+    /// <summary>
+    /// Text size at a given pixel size, for chart text drawn smaller than the UI font (AtlasChartStyle). ImGui scales
+    /// glyph advances linearly with the font size, so measuring at the UI size and scaling is exact.
+    /// </summary>
+    private static Vector2 ChartText(string text, float pixels) => ImGui.CalcTextSize(text) * (pixels / ImGui.GetFontSize());
+
+    private static string Truncate(string text, float maxWidth, out bool truncated, float? pixels = null)
+    {
+        Vector2 Measure(string t) => pixels is { } px ? ChartText(t, px) : ImGui.CalcTextSize(t);
         truncated = false;
-        if (ImGui.CalcTextSize(text).X <= maxWidth)
+        if (Measure(text).X <= maxWidth)
         {
             return text;
         }
@@ -1193,7 +1623,7 @@ internal sealed class AtlasWindow : Window
         truncated = true;
         const string ellipsis = "…";
         var end = text.Length;
-        while (end > 1 && ImGui.CalcTextSize(text[..end] + ellipsis).X > maxWidth)
+        while (end > 1 && Measure(text[..end] + ellipsis).X > maxWidth)
         {
             end--;
         }

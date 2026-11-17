@@ -619,6 +619,38 @@ ARC_NOTES = {"arc-a4-black-wolf": "MSQ #155 *Escape from Castrum Centri* to #161
              "It opens with the rescue that frees the Scions and reveals Thancred's possession (K20, C37), and runs through Operation Archon to the Praetorium, where Gaius is slain, the Ultima Weapon destroyed and Thancred freed (K73, C09). "
              "Boundaries per [v2-discovery.md](v2-discovery.md#proposed-arc-map)."}
 
+# ---- Portraits (NDL-011) ---------------------------------------------------------------------------------------
+# Each is a game icon from the player's own install (never an image file in the repository or the package), cropped
+# to a square: (x, y) is the crop's centre as fractions of the image, and size a fraction of its shorter side. Found
+# by searching the game's Triple Triad cards, quest illustrations and duty art. The user approved every pick on
+# 2026-11-15 from a review page showing each crop beside its source image. An entity without a portrait keeps its
+# category shape: the Waking Sands has no usable image in the game data.
+PORTRAITS = {
+    "char-tataru": (87019, 0.42, 0.36, 0.72, "Triple Triad card #19"),
+    "char-livia": (87031, 0.45, 0.42, 0.75, "Triple Triad card #31"),
+    "char-thancred": (87046, 0.52, 0.40, 0.75, "Triple Triad card #46"),
+    "char-yshtola": (87049, 0.50, 0.45, 0.75, "Triple Triad card #49"),
+    "char-urianger": (87050, 0.50, 0.42, 0.75, "Triple Triad card #50"),
+    "char-minfilia": (87056, 0.52, 0.40, 0.75, "Triple Triad card #56"),
+    "char-lahabrea": (87057, 0.50, 0.42, 0.75, "Triple Triad card #57 (the masked Ascian, as first seen)"),
+    "char-cid": (87058, 0.48, 0.38, 0.75, "Triple Triad card #58"),
+    "char-alphinaud": (87059, 0.30, 0.36, 0.55, "Triple Triad card #59 (shared with Alisaie), left half"),
+    "char-alisaie": (87059, 0.66, 0.40, 0.55, "Triple Triad card #59 (shared with Alphinaud), right half"),
+    "char-louisoix": (87060, 0.52, 0.38, 0.75, "Triple Triad card #60"),
+    "char-gaius": (87064, 0.50, 0.38, 0.80, "Triple Triad card #64"),
+    "org-scions": (100073, 0.50, 0.50, 1.00, "Quest illustration, The Scions of the Seventh Dawn (2.0)"),
+    "org-eorzean-alliance": (100164, 0.50, 0.50, 1.00, "Quest illustration, The Black Wolf's Ultimatum (MSQ #156)"),
+    "org-crystal-braves": (100316, 0.68, 0.55, 1.00, "Quest illustration, Traitor in the Midst (2.4)"),
+    "loc-rising-stones": (100177, 0.62, 0.50, 1.00, "Quest illustration, Build on the Stone (2.1)"),
+    "evt-operation-archon": (112016, 0.37, 0.45, 1.00, "Duty art, Castrum Meridianum"),
+    "evt-black-wolfs-challenge": (100163, 0.17, 0.50, 1.00, "Quest illustration, Escape from Castrum Centri (MSQ #155)"),
+}
+
+def portrait_record(eid):
+    icon, x, y, size, source = PORTRAITS[eid]
+    record = {"gameIcon": icon, "crop": {"x": x, "y": y, "size": size}}
+    return with_review(("portrait", eid), record, {"source": source})
+
 # Records the user explicitly accepted (NDL-003, 2026-11-14), each bound to a fingerprint of its accepted content and
 # context. Re-recorded mechanically in NDL-006 when the fingerprint gained the context, and in NDL-009 when it dropped
 # the sources' mechanical availability; each time only fingerprint inputs moved, and RealDataTests' v1 pin proves the
@@ -728,6 +760,25 @@ ACCEPTED = {
     ('relationship', 'p-lahabrea-a4'): 'cf6f681dd76641d6f6e37b89',
     ('relationship', 'p-alliance-a4'): 'ed529c7075fbd6b67095741b',
     ('relationship', 'p-archon-a4'): '3b0d6fc80731cff94accbcc5',
+    # NDL-011 portraits: the user approved all 18 picks ("all good!", 2026-11-15) from the candidate review page.
+    ('portrait', 'char-minfilia'): '9cb488e506aa0c61d09890bd',
+    ('portrait', 'char-thancred'): '49e143665e649e434f9845b0',
+    ('portrait', 'char-yshtola'): 'bd90200535870aeec58746cc',
+    ('portrait', 'char-urianger'): '999ef70275b3025e90a805b8',
+    ('portrait', 'char-alphinaud'): '0f029343c44498998227462a',
+    ('portrait', 'char-alisaie'): 'b899ad8b980ca1618d86a785',
+    ('portrait', 'char-louisoix'): 'ef326a23ee9e3f11b35a9b34',
+    ('portrait', 'char-tataru'): '9c1b41d4d4bb46b7c9ef16b8',
+    ('portrait', 'org-scions'): '942fc3cc48bee2c6cd704e59',
+    ('portrait', 'org-crystal-braves'): '779cde58a8de9e22653f6450',
+    ('portrait', 'loc-rising-stones'): '331a57ebe003bc54f8c7e55d',
+    ('portrait', 'evt-black-wolfs-challenge'): 'd7008477a8d90c07a08b12b4',
+    ('portrait', 'evt-operation-archon'): 'fcbebcf61000a478070f0ad2',
+    ('portrait', 'char-cid'): '3827b678df980b90f781caed',
+    ('portrait', 'char-gaius'): '1e0891737c32d45e587b0f1d',
+    ('portrait', 'char-livia'): '98b76b1692eb82f7499d793b',
+    ('portrait', 'char-lahabrea'): '4464efc5029b3fbadc098364',
+    ('portrait', 'org-eorzean-alliance'): 'c5f30fa37132d1290c6a490e',
 }
 
 def fingerprint(record, context=None):
@@ -790,7 +841,7 @@ doc = {
   "checkpoints": CHECKPOINTS,
   "relationshipTypes": [{"id": i, "outgoingLabel": o, "incomingLabel": n, "symmetric": s} for i, o, n, s in TYPES],
   "entities": [
-    {"id": eid, "category": cat, "presentations": [
+    {"id": eid, "category": cat, **({"portrait": portrait_record(eid)} if eid in PORTRAITS else {}), "presentations": [
       with_review(("presentation", eid, p["frm"], p["scope"]),
         {"validFrom": p["frm"], "validUntil": p["until"], "scope": p["scope"], "name": p["name"], "aliases": p["aliases"],
          "summary": p["summary"], "citations": [citation(k) for k in cites(p["claims"])]},
@@ -802,7 +853,8 @@ doc = {
 }
 
 # An accepted key that no longer exists means a record was renamed or deleted: fail loudly instead of drifting.
-EMITTED_KEYS = {("presentation", e["id"], pr["validFrom"], pr["scope"]) for e in doc["entities"] for pr in e["presentations"]} | {("relationship", r["id"]) for r in doc["relationships"]}
+EMITTED_KEYS = {("presentation", e["id"], pr["validFrom"], pr["scope"]) for e in doc["entities"] for pr in e["presentations"]} | {("relationship", r["id"]) for r in doc["relationships"]} | {("portrait", e["id"]) for e in doc["entities"] if "portrait" in e}
+assert set(PORTRAITS) <= {e["id"] for e in doc["entities"]}, "PORTRAITS names an unknown entity" 
 MISSING = missing_accepted(ACCEPTED, EMITTED_KEYS)
 if MISSING:
     sys.exit(f"ACCEPTED lists records that no longer exist: {MISSING}")
@@ -815,6 +867,9 @@ if PRINT_PENDING:
     for r in doc["relationships"]:
         if r["review"] == "pending":
             k = ("relationship", r["id"]); print(f"    {k!r}: {FINGERPRINTS[k]!r},")
+    for e in doc["entities"]:
+        if e.get("portrait", {}).get("review") == "pending":
+            k = ("portrait", e["id"]); print(f"    {k!r}: {FINGERPRINTS[k]!r},")
     sys.exit(0)
 
 if SELF_TEST:
@@ -857,6 +912,15 @@ if SELF_TEST:
     check("added end evidence is pending", status(ended) == "pending")
     check("every accepted record is currently reviewed", all(pr["review"] == "reviewed" for e in doc["entities"] for pr in e["presentations"] if ("presentation", e["id"], pr["validFrom"], pr["scope"]) in ACCEPTED)
           and all(r["review"] == "reviewed" for r in doc["relationships"] if ("relationship", r["id"]) in ACCEPTED))
+    por = copy.deepcopy(next(e["portrait"] for e in doc["entities"] if "portrait" in e)); por.pop("review")
+    pokey = ("portrait", "x"); poctx = {"source": "s"}
+    poacc = {pokey: fingerprint(por, poctx)}
+    check("unchanged accepted portrait stays reviewed", with_review(pokey, copy.deepcopy(por), poctx, poacc)["review"] == "reviewed")
+    moved = copy.deepcopy(por); moved["crop"]["x"] += 0.01
+    check("a moved crop makes the portrait pending", with_review(pokey, moved, poctx, poacc)["review"] == "pending")
+    swapped = copy.deepcopy(por); swapped["gameIcon"] += 1
+    check("a different icon makes the portrait pending", with_review(pokey, swapped, poctx, poacc)["review"] == "pending")
+    check("every accepted portrait is currently reviewed", all(e["portrait"]["review"] == "reviewed" for e in doc["entities"] if "portrait" in e))
     sys.exit(0)
 for c in C.values():
     assert c[1] in SRC, c
@@ -885,7 +949,7 @@ def claimrows(claims):
 out = []
 w = out.append
 w("# Atlas content review sheet\n")
-PENDING = sum(1 for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending") + sum(1 for r in doc["relationships"] if r["review"] == "pending")
+PENDING = sum(1 for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending") + sum(1 for r in doc["relationships"] if r["review"] == "pending") + sum(1 for e in doc["entities"] if e.get("portrait", {}).get("review") == "pending")
 w(f"> **Status: {'REVIEWED' if PENDING == 0 else f'AWAITING HUMAN REVIEW ({PENDING} pending)'}.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), "
   "exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. "
   "AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.\n")
@@ -928,6 +992,17 @@ if ARCS:
             members = [NAME[s] for r in RELS for (rid, s, t, g, f, u, sc, cl, rn, end) in [rel_parts(r)] if t == "participant-in" and g == entry and covers(f, u, cid)]
             w(f"| {CP_SHORT[cid]} | {p['name']} | {p['summary']} | {status} | {', '.join(members)} ({len(members)}) |")
         w("")
+w("## Portraits\n")
+w("Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. "
+  "The user approved every pick on 2026-11-15 from a page showing each crop beside its source image. Crop: centre x, y and size, as fractions of the image (size of its shorter side).\n")
+w("| Entity | Source in the game | Icon | Crop (x, y, size) |\n|---|---|---|---|")
+for eid, _, _ in ENT:
+    if eid in PORTRAITS:
+        icon, x, y, size, source = PORTRAITS[eid]
+        w(f"| {NAME[eid]} | {source} | {icon} | {x}, {y}, {size} |")
+    else:
+        w(f"| {NAME[eid]} | none: keeps its category shape | – | – |")
+w("")
 w("## Entities\n")
 for eid, cat, pres in ENT:
     w(f"### {NAME[eid]} (`{eid}`, {cat})\n")

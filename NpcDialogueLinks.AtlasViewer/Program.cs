@@ -4,8 +4,10 @@ using System.Text.Json.Serialization;
 using NpcDialogueLinks.Atlas;
 
 // Local Atlas viewer. Usage:
-//   dotnet run --project NpcDialogueLinks.AtlasViewer -- [--data <atlas.json> | --arc-sample] [--draft] [--port 5219]
+//   dotnet run --project NpcDialogueLinks.AtlasViewer -- [--data <atlas.json> | --arc-sample] [--draft] [--port 5219] [--portraits <dir>]
 // Defaults: the synthetic sample, Strict validation (same as the runtime), port 5219, bound to 127.0.0.1 only.
+// Portraits (NDL-011) are read from a local cache filled from your own game install by tools/atlas/PortraitCache;
+// without it the viewer draws category shapes, as the game does before an icon loads.
 
 var options = ViewerOptions.Parse(args);
 var host = new ViewerHost(options);
@@ -35,12 +37,15 @@ app.MapPost("/api/action", async (HttpRequest request) =>
     return Results.Json(host.Apply(action), json);
 });
 app.MapPost("/api/reload", () => Results.Json(host.Reload(), json));
+app.MapGet("/portraits/{icon}.png", (uint icon) =>
+    host.PortraitFile(icon) is { } file ? Results.File(file, "image/png") : Results.NotFound());
 
 Console.WriteLine($"Lore Atlas local viewer: http://127.0.0.1:{options.Port}/");
 Console.WriteLine($"Data: {options.DataPath} ({(options.Draft ? "Draft" : "Strict")} validation). State: {options.StatePath}");
+Console.WriteLine($"Portraits: {options.PortraitDir} ({(Directory.Exists(options.PortraitDir) ? "found" : "missing; run tools/atlas/PortraitCache to fill it")})");
 app.Run();
 
-internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, string StatePath)
+internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, string StatePath, string PortraitDir)
 {
     public static ViewerOptions Parse(string[] args)
     {
@@ -48,6 +53,7 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
         var draft = false;
         var port = 5219;
         string? state = null;
+        string? portraits = null;
         for (var i = 0; i < args.Length; i++)
         {
             switch (args[i])
@@ -57,13 +63,20 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
                 case "--draft": draft = true; break;
                 case "--port" when i + 1 < args.Length && int.TryParse(args[i + 1], out var p): port = p; i++; break;
                 case "--state" when i + 1 < args.Length: state = Path.GetFullPath(args[++i]); break;
+                case "--portraits" when i + 1 < args.Length: portraits = Path.GetFullPath(args[++i]); break;
             }
         }
 
         // Mirrors the plugin persisting both controls in its configuration; kept outside the repository.
-        state ??= Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "NpcDialogueLinks.AtlasViewer", "viewer-state.json");
-        return new ViewerOptions(data, draft, port, state);
+        state ??= Path.Combine(DefaultFolder, "viewer-state.json");
+
+        // Game images never enter the repository: the cache lives beside the viewer's state, outside it.
+        portraits ??= Path.Combine(DefaultFolder, "portraits");
+        return new ViewerOptions(data, draft, port, state, portraits);
     }
+
+    public static string DefaultFolder =>
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "NpcDialogueLinks.AtlasViewer");
 }
 
 internal sealed record ViewerAction(string Type, string? Value);
@@ -74,6 +87,7 @@ internal sealed record SavedState(string? CeilingId, string? ViewId);
 internal sealed class ViewerHost(ViewerOptions options)
 {
     private readonly object gate = new();
+    private readonly Dictionary<uint, (int Width, int Height)?> portraitSizes = new();
     private AtlasSession? session;
     private string? loadError;
 
@@ -164,12 +178,48 @@ internal sealed class ViewerHost(ViewerOptions options)
         {
             ok = true,
             mode,
+            portraitStyle = new
+            {
+                nodeRadius = AtlasPortraitStyle.NodeRadius,
+                focusRadius = AtlasPortraitStyle.FocusRadius,
+                ringWidth = AtlasPortraitStyle.RingWidth,
+                badgeRadius = AtlasPortraitStyle.BadgeRadius,
+                badgeOffset = AtlasPortraitStyle.BadgeOffset,
+                headerSize = AtlasPortraitStyle.HeaderSize,
+                minNodePixels = AtlasPortraitStyle.MinNodePixels,
+                minFocusPixels = AtlasPortraitStyle.MinFocusPixels,
+            },
+            chartStyle = new
+            {
+                ringFraction = AtlasChartStyle.RingFraction,
+                labelPositions = AtlasChartStyle.LabelPositions,
+                nameMaxWidth = AtlasChartStyle.NameMaxWidth,
+                centreNameMaxWidth = AtlasChartStyle.CentreNameMaxWidth,
+                centreNameRingWidth = AtlasChartStyle.CentreNameRingWidth,
+                clearance = AtlasChartStyle.Clearance,
+                labelOffsets = AtlasChartStyle.LabelOffsets,
+                nameOverlapWeight = AtlasChartStyle.NameOverlapWeight,
+                nodeOverlapWeight = AtlasChartStyle.NodeOverlapWeight,
+                labelOverlapWeight = AtlasChartStyle.LabelOverlapWeight,
+                portraitObstacleScale = AtlasChartStyle.PortraitObstacleScale,
+                diamondExtent = AtlasChartStyle.DiamondExtent,
+                hexagonExtent = AtlasChartStyle.HexagonExtent,
+                centreNameMinWidth = AtlasChartStyle.CentreNameMinWidth,
+                fewNodesNameMaxWidth = AtlasChartStyle.FewNodesNameMaxWidth,
+                fewNodesThreshold = AtlasChartStyle.FewNodesThreshold,
+                browseFraction = AtlasChartStyle.BrowseFraction,
+                browseMin = AtlasChartStyle.BrowseMin,
+                browseMax = AtlasChartStyle.BrowseMax,
+                detailsFraction = AtlasChartStyle.DetailsFraction,
+                detailsMin = AtlasChartStyle.DetailsMin,
+                detailsMax = AtlasChartStyle.DetailsMax,
+            },
             text = new
             {
                 title = AtlasText.WindowTitle,
                 ceilingLabel = AtlasText.CeilingLabel,
                 viewLabel = AtlasText.ViewLabel,
-                contentViewHelp = AtlasText.ContentViewHelp,
+                contentViewHelp = AtlasText.ContentViewHelp(s.ContentView),
                 externalLinkWarning = AtlasText.ExternalLinkWarning,
                 emptyFocus = AtlasText.EmptyFocus,
                 noResults = AtlasText.NoResults,
@@ -206,7 +256,8 @@ internal sealed class ViewerHost(ViewerOptions options)
             arc = s.Lens == AtlasLens.Arc
                 ? new
                 {
-                    picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent }),
+                    picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent, o.Detail, o.Group }),
+                    pickerGrouped = s.ArcPickerGrouped,
                     wholeCast = s.ShowsWholeCast,
                     castHeading = s.CastHeading,
                     view = s.Arc is { } a
@@ -230,6 +281,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                     label = s.ChangesLabel,
                     groups = s.ChangeGroups.Select(g => new { g.Kind, g.Label, rows = g.Rows.Select(Row) }),
                     selected = s.SelectedChange is { } c ? Row(c) : null,
+                    selectedStatus = s.SelectedChangeStatus,
                 }
                 : null,
             checkpoints = s.CheckpointOptions.Select(c => new
@@ -251,7 +303,7 @@ internal sealed class ViewerHost(ViewerOptions options)
             groups = s.SearchResultGroups.Select(g => new
             {
                 g.Label,
-                entries = g.Entries.Select(e => new { e.Id, e.Name, glyph = AtlasText.CategoryGlyph(e.Category) }),
+                entries = g.Entries.Select(e => new { e.Id, e.Name, glyph = AtlasText.CategoryGlyph(e.Category), portrait = Portrait(e.Portrait) }),
             }),
             focus = s.Focus is { } focus ? EntityDetails(focus) : null,
             neighbors = s.Neighborhood?.Neighbors.Select(n => new
@@ -269,7 +321,7 @@ internal sealed class ViewerHost(ViewerOptions options)
             layout = s.Layout is { } layout
                 ? new
                 {
-                    nodes = layout.Nodes.Select(n => new { id = n.Entity.Id, name = n.Entity.Name, glyph = AtlasText.CategoryGlyph(n.Entity.Category), n.X, n.Y, n.IsFocus }),
+                    nodes = layout.Nodes.Select(n => new { id = n.Entity.Id, name = n.Entity.Name, glyph = AtlasText.CategoryGlyph(n.Entity.Category), n.X, n.Y, n.IsFocus, hasPortrait = n.Entity.Portrait is not null, portrait = Portrait(n.Entity.Portrait) }),
                     edges = layout.Edges.Select(e => new { relationshipId = e.Relationship.Id, e.FromId, e.ToId, e.Label, e.Symmetric, e.LaneIndex, e.LaneCount, optional = e.Relationship.IsOptional, participation = e.IsParticipation }),
                 }
                 : null,
@@ -279,9 +331,10 @@ internal sealed class ViewerHost(ViewerOptions options)
         };
     }
 
-    private static object EntityDetails(AtlasEntityView entity) => new
+    private object EntityDetails(AtlasEntityView entity) => new
     {
         entity.Id,
+        portrait = Portrait(entity.Portrait),
         entity.Name,
         category = AtlasText.CategoryLabel(entity.Category),
         aliases = entity.Aliases,
@@ -293,7 +346,7 @@ internal sealed class ViewerHost(ViewerOptions options)
     };
 
     /// <summary>A Changes or Arc-lens row. End evidence is present only on a Changes "ended" row (the core enforces it).</summary>
-    private static object Row(AtlasChangeRow row) => new
+    private object Row(AtlasChangeRow row) => new
     {
         row.Key,
         row.Kind,
@@ -311,6 +364,72 @@ internal sealed class ViewerHost(ViewerOptions options)
         endSourcesLabel = AtlasText.EndSourcesToggle(row.EndCitations.Count),
         entity = row.Entity is { } e ? EntityDetails(e) : null,
     };
+
+    /// <summary>The cached image for a portrait's icon, if the cache has it. Only icons named in the loaded data are served.</summary>
+    public string? PortraitFile(uint icon)
+    {
+        lock (gate)
+        {
+            // The core files are compiled into the viewer, so it can see every entity, not only the visible ones.
+            if (session is null || !session.Dataset.Entities.Any(e => e.Portrait?.GameIcon == icon))
+            {
+                return null;
+            }
+        }
+
+        var file = Path.Combine(options.PortraitDir, $"{icon}.png");
+        return File.Exists(file) ? file : null;
+    }
+
+    /// <summary>
+    /// A portrait as the page draws it: the cached image and the crop as texture coordinates, from the same
+    /// <see cref="AtlasPortrait.Uv"/> the window uses. Null without a portrait or a cached image, so the page draws the shape.
+    /// </summary>
+    private object? Portrait(AtlasPortrait? portrait)
+    {
+        if (portrait is null || PortraitSize(portrait.GameIcon) is not { } size)
+        {
+            return null;
+        }
+
+        var (u0, v0, u1, v1) = portrait.Uv(size.Width, size.Height);
+        return new { url = $"/portraits/{portrait.GameIcon}.png", u0, v0, u1, v1 };
+    }
+
+    /// <summary>The cached PNG's pixel size, read from its header once.</summary>
+    private (int Width, int Height)? PortraitSize(uint icon)
+    {
+        if (portraitSizes.TryGetValue(icon, out var known))
+        {
+            return known;
+        }
+
+        (int, int)? size = null;
+        try
+        {
+            var file = Path.Combine(options.PortraitDir, $"{icon}.png");
+            if (File.Exists(file))
+            {
+                using var stream = File.OpenRead(file);
+                var header = new byte[24];
+                if (stream.Read(header, 0, 24) == 24 && header[12] == (byte)'I' && header[13] == (byte)'H')
+                {
+                    size = (System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(16)), System.Buffers.Binary.BinaryPrimitives.ReadInt32BigEndian(header.AsSpan(20)));
+                }
+            }
+        }
+        catch (IOException)
+        {
+        }
+
+        // Only a found image is remembered, so filling the cache while the viewer runs takes effect on the next request.
+        if (size is not null)
+        {
+            portraitSizes[icon] = size;
+        }
+
+        return size;
+    }
 
     private static object Citations(IReadOnlyList<AtlasCitationView> citations) =>
         citations.Select(c => new { c.Title, url = c.Url?.AbsoluteUri });

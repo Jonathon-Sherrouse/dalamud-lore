@@ -77,6 +77,7 @@ This is the working planning list for feature polish and future enhancements. Ag
 - **Plan:** [docs/atlas/v2-plan.md](atlas/v2-plan.md). A confused player opens the Atlas mid-story and sees the researched arc they're in: a reviewed "story so far" recap plus the whole cast's relationships, built quest by quest. It also adds the Story point and Changes lenses and Follow (completed progress). It is proven on one 2.0 arc.
 - **Cards:** `NDL-006` to `NDL-010` in [backlog.md](backlog.md).
 - **Status (2026-11-14):** `NDL-006` (arc discovery, schema v2 and the pure core) is **User Accepted**; the user chose arc A4, *The Black Wolf's challenge*. Follow (`NDL-007`) is deferred by the user, so v2 ships without it. `NDL-008` (the lens design, prototyped in the viewer), `NDL-009` (arc A4, *The Black Wolf's Challenge*) and `NDL-010` (ship v2 in game, 2026-11-15) are **User Accepted**. Atlas v2 is complete without Follow; see Completed.
+- **User Accepted (2026-11-16): `NDL-011` Atlas portraits.** The polish piece for a strong Atlas vertical slice: portraits from the player's own game data, in the window and identically in the local viewer. Card in [backlog.md](backlog.md).
 - **Future candidates (not approved):**
   - **Breadth coverage across the main story.** The route is decided after the slice proves it helps; it must not use patch-sized outer arcs, and milestone-only recaps give endpoint coverage only.
   - **Lore Explain grounded in the reviewed recaps,** and a deep link into the Atlas.
@@ -120,6 +121,7 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ## Completed
 
+- Shipped Atlas portraits (`NDL-011`, 2026-11-16). 18 of 19 entries show a reviewed portrait from the player's own game data (Triple Triad cards, quest and duty art), on chart nodes, headers and the browse list; the Waking Sands keeps its shape. The local viewer draws the same portraits from a cache the repository tool fills from the user's install, and the chart's text placement matches the window. The story arc picker says where each arc starts and when it has ended. The in-game look is untested.
 - Shipped Atlas v2 without Follow (`NDL-006`, `NDL-008`–`NDL-010`, 2026-11-15). The in-game Atlas adds quest-level steps from MSQ #154 to #160, the first reviewed story arc (*The Black Wolf's Challenge*, a recap at every step and a cast of 10), and the Arc, Story point and Changes lenses. Lore Explain gains an Open Atlas button. The user accepted it without running the in-game test. Follow (`NDL-007`) stays parked.
 - Shipped the Lore Relationship Atlas pilot (`NDL-002`–`NDL-005`, 2026-11-14). `/npclinks atlas` opens a spoiler-safe, offline relationship browser over 12 human-reviewed Scions entities at ARR 2.0 and 2.55, with main-story and optional-content views. A local browser viewer renders the same core without FFXIV. Guide: [docs/atlas/README.md](atlas/README.md).
 - Added a merged dictionary model with bundled seed terms plus user `user-terms.json`.

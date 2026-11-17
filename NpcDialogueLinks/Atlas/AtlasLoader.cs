@@ -239,7 +239,22 @@ internal sealed class AtlasEntityDto
 {
     public string? Id { get; set; }
     public string? Category { get; set; }
+    public AtlasPortraitDto? Portrait { get; set; }
     public List<AtlasPresentationDto?>? Presentations { get; set; }
+}
+
+internal sealed class AtlasPortraitDto
+{
+    public uint? GameIcon { get; set; }
+    public AtlasCropDto? Crop { get; set; }
+    public string? Review { get; set; }
+}
+
+internal sealed class AtlasCropDto
+{
+    public double? X { get; set; }
+    public double? Y { get; set; }
+    public double? Size { get; set; }
 }
 
 internal sealed class AtlasPresentationDto

@@ -40,6 +40,9 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService]
     internal static ITargetManager TargetManager { get; private set; } = null!;
 
+    [PluginService]
+    internal static ITextureProvider TextureProvider { get; private set; } = null!;
+
     private readonly DialogueCapture dialogueCapture;
     private readonly DialogueHistory dialogueHistory = new();
     private readonly AtlasWindow atlasWindow;
@@ -78,7 +81,7 @@ public sealed class Plugin : IDalamudPlugin
             Path.Combine(PluginInterface.ConfigDirectory.FullName, "user-terms.json"));
         this.dictionaryWindow = new DictionaryWindow(this.termDictionary, this.RefreshLastCandidates);
         this.settingsWindow = new SettingsWindow(this.configuration);
-        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration);
+        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider);
         this.windowSystem.AddWindow(this.dictionaryWindow);
         this.windowSystem.AddWindow(this.settingsWindow);
         this.windowSystem.AddWindow(this.loreExplainWindow);

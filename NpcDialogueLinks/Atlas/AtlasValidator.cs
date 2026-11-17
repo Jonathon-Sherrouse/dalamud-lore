@@ -14,6 +14,12 @@ internal static class AtlasValidator
     public const int MaxCitationTitleLength = 200;
     public const int MaxUrlLength = 2048;
     public const int MaxPresentations = 32;
+
+    /// <summary>The highest game icon number a portrait may name (the game's icon folders stop below a million).</summary>
+    public const uint MaxGameIcon = 999_999;
+
+    /// <summary>The smallest crop, as a fraction of the image's shorter side, so a portrait is never a few stray pixels.</summary>
+    public const double MinCropSize = 0.1;
     public const int MaxAliases = 8;
     public const int MaxCitations = 8;
     public const int MaxGameQuestIds = 8;
@@ -185,6 +191,7 @@ internal static class AtlasValidator
             var before = errors.Count;
             var id = RequireId(errors, $"{path}.id", dto.Id);
             var category = ParseCategory(errors, $"{path}.category", dto.Category);
+            var portrait = dto.Portrait is null ? null : BuildPortrait(context, $"{path}.portrait", dto.Portrait);
             var presentations = new List<AtlasPresentation>();
             if (dto.Presentations is null || dto.Presentations.Count == 0 || dto.Presentations.Count > MaxPresentations)
             {
@@ -213,7 +220,7 @@ internal static class AtlasValidator
                 continue;
             }
 
-            var entity = new AtlasEntity(id!, category!.Value, presentations);
+            var entity = new AtlasEntity(id!, category!.Value, presentations) { Portrait = portrait };
             CheckPresentationOverlap(errors, path, presentations);
             CheckOptionalBoundaries(errors, path, presentations, context.CheckpointCount);
             CheckOptionalPersistence(errors, path, entity, context.CheckpointCount);
@@ -222,6 +229,30 @@ internal static class AtlasValidator
         }
 
         return result;
+    }
+
+    /// <summary>A portrait: a game icon number, a crop inside the image, and its own review (NDL-011).</summary>
+    private static AtlasPortrait? BuildPortrait(Context context, string path, AtlasPortraitDto dto)
+    {
+        var errors = context.Errors;
+        var before = errors.Count;
+        if (dto.GameIcon is not { } icon || icon == 0 || icon > MaxGameIcon)
+        {
+            errors.Add(AtlasErrorCode.InvalidField, $"{path}.gameIcon", $"gameIcon must be a game icon number from 1 to {MaxGameIcon}.");
+        }
+
+        var crop = dto.Crop;
+        if (crop?.X is not { } x || crop.Y is not { } y || crop.Size is not { } size
+            || !double.IsFinite(x) || !double.IsFinite(y) || !double.IsFinite(size)
+            || x < 0 || x > 1 || y < 0 || y > 1 || size < MinCropSize || size > 1)
+        {
+            errors.Add(AtlasErrorCode.InvalidField, $"{path}.crop", $"crop needs x and y from 0 to 1 and a size from {MinCropSize} to 1.");
+        }
+
+        var review = ParseReview(errors, $"{path}.review", dto.Review, context.Mode);
+        return errors.Count != before
+            ? null
+            : new AtlasPortrait(dto.GameIcon!.Value, crop!.X!.Value, crop.Y!.Value, crop.Size!.Value, review!.Value);
     }
 
     private static AtlasPresentation? BuildPresentation(Context context, string path, AtlasPresentationDto? dto)

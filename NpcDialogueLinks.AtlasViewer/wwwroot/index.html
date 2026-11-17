@@ -17,7 +17,7 @@
   /* The window: 760 x 480 minimum, as in the design. */
   .win { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; height: 100vh; min-width: 760px; min-height: 480px; background: var(--win); }
   .bar { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding: 9px 12px; border-bottom: 1px solid var(--border); }
-  .bar .lbl { color: var(--muted); font-size: 12px; margin-right: 6px; }
+  .lbl { color: var(--muted); font-size: 12px; margin-right: 6px; }
   .bar .title { font-weight: 600; margin-right: 6px; }
   .limit { position: relative; display: inline-flex; align-items: center; gap: 8px; }
   .menu { position: absolute; top: calc(100% + 4px); left: 0; z-index: 5; min-width: 290px; background: var(--panel-2);
@@ -30,12 +30,18 @@
   button:hover { border-color: var(--hover); }
   button.primary { background: var(--accent); color: #1b1b1b; border-color: var(--accent); }
   select { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); border-radius: 3px; padding: 4px 6px; font: inherit; }
+  /* Keyboard focus (council round 1): one visible outline everywhere; the chart draws its own rings. */
+  button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible, a:focus-visible,
+  [role=button]:focus-visible { outline: 2px solid var(--hover); outline-offset: 1px; }
+  svg [role=button]:focus-visible { outline: none; }
   .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 3px; overflow: hidden; vertical-align: middle; }
   .seg button { border: 0; border-radius: 0; background: transparent; color: var(--muted); padding: 4px 10px; }
-  .seg button.on { background: var(--sel); color: var(--text); }
-  .body { display: grid; grid-template-columns: 200px 1fr 280px; min-height: 0; }
+  .seg button.on { background: var(--sel); color: var(--text); box-shadow: inset 0 -2px 0 var(--accent); }
+  .seg button:focus-visible { outline-offset: -2px; }
+  /* Side panes shrink with the window (AtlasChartStyle.Browse and Details limits; render() sets the two widths). */
+  .body { display: grid; grid-template-columns: var(--browse-w, 200px) 1fr var(--details-w, 280px); min-height: 0; }
   /* Changes lens: the change list takes the browse pane and the canvas (docs/atlas/ux-design.md, "v2 lenses"). */
-  .body.changes { grid-template-columns: 1fr 280px; }
+  .body.changes { grid-template-columns: 1fr var(--details-w, 280px); }
   .lensbar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 6px 12px; border-bottom: 1px solid var(--border); background: var(--panel); }
   .lensbar .pos { color: var(--text); font-size: 12px; }
   .lensbar .cov { color: var(--muted); font-size: 12px; font-style: italic; }
@@ -44,14 +50,18 @@
   .recap { margin: 0 0 6px; font-size: 13.5px; line-height: 1.5; }
   .crow { padding: 3px 4px; border-radius: 3px; }
   .crow .ended-in { color: var(--muted); font-size: 11.5px; }
-  .crow .who { cursor: pointer; }
-  .crow .who:hover { text-decoration: underline; }
+  /* Names that refocus: a quiet dotted underline at rest, solid on hover. */
+  .who { cursor: pointer; text-decoration: underline dotted var(--muted); text-underline-offset: 2px; }
+  .who:hover { text-decoration: underline solid; }
   .changes-list { background: var(--panel); overflow: auto; padding: 12px 16px; min-height: 0; }
   .changes-list h2 { font-size: 15px; margin: 0 0 6px; }
   .changes-list .crow { cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
   .changes-list .crow:hover { background: var(--panel-2); }
   .changes-list .crow.selected { background: var(--sel); }
   .mark { width: 14px; flex: none; color: var(--muted); text-align: center; }
+  .status { display: flex; gap: 6px; align-items: baseline; font-size: 12px; color: var(--accent); margin: 0 0 8px;
+    padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .status .mark { color: inherit; font-weight: 600; width: auto; }
   .browse, .details { background: var(--panel); overflow: auto; padding: 10px; min-height: 0; }
   .browse { border-right: 1px solid var(--border); }
   .details { border-left: 1px solid var(--border); }
@@ -59,13 +69,14 @@
     border-radius: 3px; padding: 5px 8px; font: inherit; }
   .notice { font-size: 12px; color: var(--muted); border-left: 2px solid var(--accent); padding: 2px 0 2px 8px; margin: 8px 0 0; }
   .grp { font-size: 10.5px; letter-spacing: .08em; color: var(--muted); margin: 12px 0 3px; border-bottom: 1px solid var(--border); padding-bottom: 2px; }
-  .row { display: flex; align-items: center; gap: 7px; padding: 3px 5px; border-radius: 3px; cursor: pointer;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row { display: flex; align-items: center; gap: 7px; padding: 3px 5px; border-radius: 3px; cursor: pointer; white-space: nowrap; overflow: hidden; }
+  .row .name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .row:hover { background: var(--panel-2); }
   .row.active { background: var(--sel); }
+  .row:focus-visible { outline-offset: -2px; }
   .help { color: var(--muted); font-size: 12px; }
-  main { position: relative; min-height: 0; }
-  main svg { width: 100%; height: 100%; display: block; }
+  main { position: relative; min-height: 0; min-width: 0; overflow: hidden; }
+  main svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .empty { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); padding: 24px; text-align: center; }
   .details h2 { font-size: 15px; margin: 0 0 2px; display: flex; gap: 8px; align-items: center; }
   .meta { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
@@ -85,8 +96,6 @@
   .conn .arrow { color: var(--muted); }
   .conn .rel { color: var(--muted); cursor: pointer; }
   .conn .rel:hover { color: var(--text); text-decoration: underline; }
-  .conn .who { cursor: pointer; }
-  .conn .who:hover { text-decoration: underline; }
   .card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 4px; padding: 8px; margin-top: 6px; }
   .foot { display: flex; gap: 10px; align-items: center; padding: 6px 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
   .foot .spacer { flex: 1; }
@@ -97,20 +106,38 @@
   .modal .box { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 18px; max-width: 420px; }
   .modal .actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
   .error { padding: 40px; max-width: 560px; margin: 0 auto; }
-  /* Halo behind canvas text so names stay legible where they cross an edge (ImGui: draw a dark backing rect). */
-  svg text { fill: var(--text); font-size: 0.07px; paint-order: stroke; stroke: var(--win); stroke-width: 0.022px; stroke-linejoin: round; }
-  svg .edge { stroke: var(--edge); stroke-width: 0.011; fill: none; }
-  svg .edge.optional { stroke-dasharray: 0.035 0.028; }
-  svg .edge-hit { stroke: transparent; stroke-width: 0.06; fill: none; cursor: pointer; }
-  svg .edge.selected { stroke: var(--accent); stroke-width: 0.017; }
+  /* The chart is drawn in screen pixels, like the in-game window (AtlasWindow.DrawGraph, AtlasChartStyle):
+     fixed text sizes, names and labels on dark backing plates. */
+  svg text { fill: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  svg .plate { fill: var(--win); fill-opacity: .85; }
+  svg .name { font-size: 12px; }
+  svg .edge { stroke: var(--edge); stroke-width: 1.4px; fill: none; }
+  svg .edge.optional { stroke-dasharray: 6 4; }
+  svg .edge.selected { stroke: var(--accent); stroke-width: 2.2px; }
+  svg .head { fill: var(--edge); }
+  svg .head.selected { fill: var(--accent); }
+  /* The edge of a hovered or keyboard-focused label. */
+  svg .edge.hot:not(.selected) { stroke: var(--hover); }
+  svg .head.hot:not(.selected) { fill: var(--hover); }
+  svg .leader { stroke: var(--muted); stroke-opacity: .6; stroke-width: 1px; }
+  svg .edge-hit { stroke: transparent; stroke-width: 10px; fill: none; cursor: pointer; }
   /* Arc lens: a cast member's participation spoke to the arc entry: faint, unlabelled, not clickable. */
-  svg .edge.spoke { stroke: var(--evt); stroke-opacity: .28; stroke-width: 0.008; }
-  svg .edge-label { fill: var(--muted); font-size: 0.05px; cursor: pointer; }
-  svg .edge-label.selected { fill: var(--accent); }
-  svg .node { cursor: pointer; }
-  svg .node .shape { stroke: #0e0f12; stroke-width: 0.012; }
-  svg .node.focus .shape { stroke: #fff9; stroke-width: 0.02; }
-  svg .node:hover .shape { stroke: var(--hover); }
+  svg .edge.spoke { stroke: var(--evt); stroke-opacity: .28; stroke-width: 1px; }
+  svg .elabel { cursor: pointer; }
+  svg .elabel text { fill: var(--muted); font-size: 11px; }
+  svg .elabel:hover text, svg .elabel:focus-visible text { fill: var(--hover); }
+  svg .elabel.selected text { fill: var(--accent); }
+  svg .elabel:focus-visible .plate { stroke: var(--hover); stroke-width: 2px; }
+  svg .node[data-focus] { cursor: pointer; }
+  svg .node .shape { stroke: #0e0f12; stroke-width: 1.2px; }
+  /* The portrait badge keeps its own dark border whatever the node's state (council round 1). */
+  svg .badge-shape { stroke: #0e0f12; stroke-width: 1.2px; }
+  svg .node .fo { fill: none; stroke: rgba(255,255,255,.6); stroke-width: 2px; }
+  svg .node .ho { fill: none; stroke: transparent; stroke-width: 2px; }
+  svg .node:hover .ho, svg .node:focus-visible .ho { stroke: var(--hover); }
+  .hdr { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }
+  .hdr h2 { margin: 0; }
+  .hdr .meta { margin: 0; }
 </style>
 </head>
 <body>
@@ -123,16 +150,53 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 const color = g => g === "square" ? "var(--org)" : g === "diamond" ? "var(--loc)" : g === "hexagon" ? "var(--evt)" : "var(--char)";
 // Regular hexagon points around (cx, cy), flat sides top and bottom (events and arc entries, schema v2).
 const hexPoints = (cx, cy, r) => [0, 1, 2, 3, 4, 5].map(i => { const a = Math.PI / 3 * i; return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`; }).join(" ");
+const BTN = 'tabindex="0" role="button"'; // keyboard-operable non-button element; Enter/Space click it (see keydown below)
+let clipSeq = 0, actSeq = 0, chartSize = null;
 let state = null, searchTimer = null, limitMenuOpen = false; // the menu's open flag is pure widget state, like an ImGui popup
 
 async function load() { state = await (await fetch("/api/state")).json(); render(); }
 async function act(type, value) {
   limitMenuOpen = false;
-  state = await (await fetch("/api/action", { method: "POST", headers: { "content-type": "application/json" },
+  const seq = ++actSeq;
+  const next = await (await fetch("/api/action", { method: "POST", headers: { "content-type": "application/json" },
     body: JSON.stringify({ type, value: value ?? null }) })).json();
+  if (seq !== actSeq) return; // a later action's response supersedes this one
+  state = next;
   render();
 }
 async function reload() { state = await (await fetch("/api/reload", { method: "POST" })).json(); render(); }
+
+// ---- Keyboard focus across re-renders (council round 1) ------------------------------------------------------
+// Every render rebuilds the DOM, so note what had focus (region + identifying attribute + index) and put it back.
+const FOCUS_ATTRS = ["data-focus", "data-rel", "data-change", "data-lens", "data-cv", "data-ceiling", "data-clear", "data-wholecast"];
+const FOCUSABLE = "[tabindex], button, input, select, summary, a[href]";
+function focusKey() {
+  const el = document.activeElement;
+  if (!el || el === document.body || !$("#root").contains(el)) return null;
+  const regionEl = el.closest("[data-region]");
+  const scope = regionEl ?? document;
+  let sel = null;
+  for (const a of FOCUS_ATTRS) if (el.hasAttribute(a)) { sel = `[${a}="${CSS.escape(el.getAttribute(a))}"]`; break; }
+  if (!sel) sel = el.id ? "#" + CSS.escape(el.id) : el.tagName.toLowerCase();
+  const matches = [...scope.querySelectorAll(sel)].filter(m => m.matches(FOCUSABLE));
+  return { region: regionEl?.dataset.region ?? null, sel, nth: Math.max(0, matches.indexOf(el)),
+    caret: el.id === "search" ? el.selectionStart : null };
+}
+function restoreFocus(key) {
+  if (!key) return;
+  const scope = key.region ? $(`[data-region="${key.region}"]`) : document;
+  const matches = scope ? [...scope.querySelectorAll(key.sel)].filter(m => m.matches(FOCUSABLE)) : [];
+  const el = matches[key.nth] ?? matches[0];
+  if (el) {
+    el.focus({ preventScroll: true });
+    if (key.caret != null && el.setSelectionRange) { const c = Math.min(key.caret, el.value.length); el.setSelectionRange(c, c); }
+  } else if (/data-ceiling|#cancel|#confirm/.test(key.sel)) {
+    $("#raise")?.focus(); // the menu or the confirmation closed: back to the button that opened it
+  } else if (key.region && scope) {
+    // The element is gone (say, a node that became the centre): stay in the same pane rather than drop to <body>.
+    scope.querySelector(FOCUSABLE)?.focus({ preventScroll: true });
+  }
+}
 
 function glyphSvg(glyph, size = 12) {
   const c = color(glyph), h = size / 2;
@@ -143,55 +207,192 @@ function glyphSvg(glyph, size = 12) {
   return `<svg class="glyph" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">${shape}</svg>`;
 }
 
-function nodeShape(glyph, r) {
-  const c = color(glyph);
-  if (glyph === "square") return `<rect class="shape" x="${-r}" y="${-r}" width="${2 * r}" height="${2 * r}" rx="${r * .15}" fill="${c}"/>`;
-  if (glyph === "diamond") return `<polygon class="shape" points="0,${-r * 1.25} ${r * 1.25},0 0,${r * 1.25} ${-r * 1.25},0" fill="${c}"/>`;
-  if (glyph === "hexagon") return `<polygon class="shape" points="${hexPoints(0, 0, r * 1.15)}" fill="${c}"/>`;
-  return `<circle class="shape" r="${r}" fill="${c}"/>`;
+// A portrait clipped round inside a category-coloured ring, with the category shape as a badge (NDL-011). Sizes come
+// from AtlasPortraitStyle and the crop from AtlasPortrait.Uv, the same values the in-game window draws with. Pixels.
+function portraitParts(p, glyph, r, badge) {
+  const S = state.portraitStyle, id = "pc" + (++clipSeq);
+  const w = 2 * r / (p.u1 - p.u0), h = 2 * r / (p.v1 - p.v0);
+  const ring = Math.max(r * S.ringWidth, 1.5);
+  const o = r * S.badgeOffset, br = r * S.badgeRadius;
+  const b = badge ? `<g transform="translate(${o},${o})">${nodeShape(glyph, br, "badge-shape")}</g>` : "";
+  return `<clipPath id="${id}"><circle r="${r}"/></clipPath>`
+    + `<image href="${esc(p.url)}" x="${-r - p.u0 * w}" y="${-r - p.v0 * h}" width="${w}" height="${h}" preserveAspectRatio="none" clip-path="url(#${id})"/>`
+    + `<circle r="${r}" fill="none" stroke="${color(glyph)}" stroke-width="${ring}"/>${b}`;
+}
+
+// An entity's mark in HTML (lists, headers): its portrait when the local cache has one, else the category shape.
+function mark(glyph, portrait, size, badge = false) {
+  if (!portrait) return glyphSvg(glyph, Math.round(size * 0.6));
+  const r = size / 2;
+  return `<svg class="glyph" width="${size}" height="${size}" viewBox="${-r} ${-r} ${size} ${size}" overflow="visible" aria-hidden="true">${portraitParts(portrait, glyph, r, badge)}</svg>`;
+}
+
+// A category shape around (0, 0), the same proportions as AtlasWindow.DrawGlyph. fill = "none" draws an outline.
+function nodeShape(glyph, r, cls = "shape", fill = color(glyph)) {
+  if (glyph === "square") return `<rect class="${cls}" x="${-r}" y="${-r}" width="${2 * r}" height="${2 * r}" rx="${r * .15}" fill="${fill}"/>`;
+  if (glyph === "diamond") return `<polygon class="${cls}" points="0,${-r * 1.25} ${r * 1.25},0 0,${r * 1.25} ${-r * 1.25},0" fill="${fill}"/>`;
+  if (glyph === "hexagon") return `<polygon class="${cls}" points="${hexPoints(0, 0, r * 1.15)}" fill="${fill}"/>`;
+  return `<circle class="${cls}" r="${r}" fill="${fill}"/>`;
 }
 
 function optTag(on) { return on ? `<span class="tag" title="${esc(state.text.optionalTooltip)}">${esc(state.text.optionalTag)}</span>` : ""; }
 
-function graph(emptyText) {
-  const L = state.layout;
-  if (!L) return `<div class="empty">${esc(emptyText ?? state.text.emptyFocus)}</div>`;
-  const pos = {};
-  L.nodes.forEach(n => pos[n.id] = { x: n.x, y: n.y, n });
-  const sel = state.selectedRelationship?.id;
-  let edges = "", labels = "";
-  for (const e of L.edges) {
-    const a = pos[e.fromId], b = pos[e.toId];
-    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
-    const nx = -dy / len, ny = dx / len;
-    const off = (e.laneIndex - (e.laneCount - 1) / 2) * 0.12;
-    const pad = 0.16;
-    const x1 = a.x + dx / len * pad + nx * off, y1 = a.y + dy / len * pad + ny * off;
-    const x2 = b.x - dx / len * pad + nx * off, y2 = b.y - dy / len * pad + ny * off;
-    // Faint, unlabelled spokes on the whole-cast chart only (D8); a refocused one-hop graph draws them as normal edges.
-    if (e.participation && state.arc?.wholeCast) { edges += `<line class="edge spoke" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; continue; }
-    const isSel = e.relationshipId === sel ? " selected" : "";
-    const opt = e.optional ? " optional" : "";
-    const marker = e.symmetric ? "" : ` marker-end="url(#arrow${isSel ? "-sel" : ""})"`;
-    edges += `<line class="edge${isSel}${opt}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"${marker}/>`
-      + `<line class="edge-hit" data-rel="${esc(e.relationshipId)}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
-    const mx = (x1 + x2) / 2 + nx * 0.05, my = (y1 + y2) / 2 + ny * 0.05;
-    const tip = e.optional ? `<title>${esc(state.text.optionalTooltip)}</title>` : "";
-    labels += `<text class="edge-label${isSel}" data-rel="${esc(e.relationshipId)}" x="${mx}" y="${my}" text-anchor="middle">${tip}${esc(e.label)}</text>`;
-  }
-  let nodes = "";
-  for (const n of L.nodes) {
-    const p = pos[n.id], r = n.isFocus ? 0.11 : 0.075;
-    nodes += `<g class="node${n.isFocus ? " focus" : ""}" data-focus="${esc(n.id)}" transform="translate(${p.x},${p.y})">`
-      + `<title>${esc(n.name)}</title>` + nodeShape(n.glyph, r)
-      + `<text y="${r + 0.095}" text-anchor="middle"${n.isFocus ? ' font-weight="600"' : ""}>${esc(n.name)}</text></g>`;
-  }
-  return `<svg viewBox="-1.6 -1.42 3.2 2.92" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${esc(state.focus?.name ?? state.arc?.view?.entry.name ?? "")} connections">
-    <defs>
-      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7486"/></marker>
-      <marker id="arrow-sel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9b45a"/></marker>
-    </defs>${edges}${labels}${nodes}</svg>`;
+// ---- Chart (screen pixels; parity with AtlasWindow.DrawGraph and AtlasChartStyle) --------------------------
+const CHART_FONT = 'system-ui, -apple-system, "Segoe UI", sans-serif';
+const NAME_PX = 12, LABEL_PX = 11, PLATE_H = 15, NAME_PAD = 2, LABEL_PAD = 3, EDGE_GAP = 4;
+const measureCtx = document.createElement("canvas").getContext("2d");
+function textWidth(s, px, bold = false) { measureCtx.font = `${bold ? "bold " : ""}${px}px ${CHART_FONT}`; return measureCtx.measureText(s).width; }
+// Same rule as AtlasWindow.Truncate: drop characters until text + "…" fits, then trim trailing space.
+function truncate(s, max, px, bold) {
+  if (textWidth(s, px, bold) <= max) return s;
+  let end = s.length;
+  while (end > 1 && textWidth(s.slice(0, end) + "…", px, bold) > max) end--;
+  return s.slice(0, end).trimEnd() + "…";
 }
+const inflate = (b, d) => ({ x0: b.x0 - d, y0: b.y0 - d, x1: b.x1 + d, y1: b.y1 + d });
+const hitsRect = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+const hitsDisc = (b, c) => { const x = Math.max(b.x0, Math.min(c.x, b.x1)), y = Math.max(b.y0, Math.min(c.y, b.y1)); return (x - c.x) ** 2 + (y - c.y) ** 2 < c.r * c.r; };
+const plate = b => `<rect class="plate" x="${b.x0}" y="${b.y0}" width="${b.x1 - b.x0}" height="${b.y1 - b.y0}" rx="2"/>`;
+
+// Area of overlap between two boxes (0 when apart), for scoring a label candidate that is never fully clear.
+const overlap = (a, b) => Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) * Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+
+function chartSvg(L, W, H) {
+  const C = state.chartStyle, S = state.portraitStyle, wholeCast = !!state.arc?.wholeCast;
+  const cx = W / 2, cy = H / 2, ring = Math.min(W, H) * C.ringFraction;
+  const ringCount = L.nodes.filter(n => !n.isFocus).length;
+  // A ring name fits the gap between ring neighbours; a small ring (under chartStyle.fewNodesThreshold) gets the wider cap.
+  const ringNameMax = ringCount >= C.fewNodesThreshold ? Math.min(C.nameMaxWidth, 2 * ring * Math.sin(Math.PI / ringCount) - 8) : C.fewNodesNameMaxWidth;
+
+  // Nodes: position, radius, edge extent (the shape's outline: a diamond or hexagon reaches past its radius) and the
+  // obstacle disc labels and the centre name keep clear of (a portrait's covers its badge).
+  const geo = {};
+  for (const n of L.nodes) {
+    const x = cx + n.x * ring, y = cy + n.y * ring;
+    const r = n.hasPortrait
+      ? Math.max(ring * (n.isFocus ? S.focusRadius : S.nodeRadius), n.isFocus ? S.minFocusPixels : S.minNodePixels)
+      : (n.isFocus ? 16 : 11);
+    const ext = n.hasPortrait ? r : r * (n.glyph === "diamond" ? C.diamondExtent : n.glyph === "hexagon" ? C.hexagonExtent : 1);
+    const disc = { x, y, r: (n.hasPortrait && n.portrait ? r * C.portraitObstacleScale : ext) + C.clearance };
+    geo[n.id] = { n, x, y, r, ext, disc, bold: n.isFocus };
+  }
+  // Names sit outside the ring: above a node in the upper half, below it otherwise; the centre's below.
+  const setName = (g, max) => {
+    g.name = truncate(g.n.name, max, NAME_PX, g.bold);
+    const w = textWidth(g.name, NAME_PX, g.bold) + 2 * NAME_PAD;
+    const y0 = !g.n.isFocus && g.n.y < -0.01 ? g.y - g.r - C.clearance - PLATE_H : g.y + g.r + C.clearance;
+    g.plate = { x0: g.x - w / 2, y0, x1: g.x + w / 2, y1: y0 + PLATE_H };
+    g.namebox = inflate(g.plate, C.clearance); // the name as an obstacle
+  };
+  const all = Object.values(geo), ringGeo = all.filter(g => !g.n.isFocus);
+  for (const g of ringGeo) setName(g, ringNameMax);
+  // The centre name, after the ring's: narrowed 10 px at a time while it runs into a ring node or name.
+  for (const g of all.filter(g => g.n.isFocus)) {
+    let cap = Math.min(C.centreNameMaxWidth, C.centreNameRingWidth * ring);
+    setName(g, cap);
+    while (ringGeo.some(o => hitsDisc(g.namebox, o.disc) || hitsRect(g.namebox, o.namebox)) && cap > C.centreNameMinWidth) {
+      cap -= 10;
+      setName(g, cap);
+    }
+  }
+
+  // Edges: endpoints clear of each node's outline, parallel edges in lanes, arrowheads as filled triangles.
+  let edges = "", labels = "";
+  const sel = state.selectedRelationship?.id;
+  const placed = [];
+  const k = PLATE_H + C.clearance;
+  const clear = box => { const b = inflate(box, C.clearance);
+    return !all.some(g => hitsDisc(b, g.disc) || hitsRect(b, g.namebox)) && !placed.some(p => hitsRect(b, p)); };
+  const score = box => all.reduce((s, g) => s + overlap(box, g.namebox) * C.nameOverlapWeight
+      + overlap(box, { x0: g.disc.x - g.disc.r, y0: g.disc.y - g.disc.r, x1: g.disc.x + g.disc.r, y1: g.disc.y + g.disc.r }) * C.nodeOverlapWeight, 0)
+    + placed.reduce((s, p) => s + overlap(box, p) * C.labelOverlapWeight, 0);
+  for (const e of L.edges) {
+    const a = geo[e.fromId], b = geo[e.toId];
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.max(Math.hypot(dx, dy), 1);
+    const ux = dx / len, uy = dy / len, nx = -uy, ny = ux;
+    const lane = (e.laneIndex - (e.laneCount - 1) / 2) * 0.12 * ring;
+    const x1 = a.x + ux * (a.ext + EDGE_GAP) + nx * lane, y1 = a.y + uy * (a.ext + EDGE_GAP) + ny * lane;
+    const x2 = b.x - ux * (b.ext + EDGE_GAP) + nx * lane, y2 = b.y - uy * (b.ext + EDGE_GAP) + ny * lane;
+    const line = `x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"`;
+    // Faint, unlabelled spokes on the whole-cast chart only (D8); a refocused one-hop graph draws them as normal edges.
+    if (e.participation && wholeCast) { edges += `<line class="edge spoke" ${line}/>`; continue; }
+    const isSel = e.relationshipId === sel ? " selected" : "", rel = esc(e.relationshipId);
+    edges += `<line class="edge${isSel}${e.optional ? " optional" : ""}" data-edge="${rel}" ${line}/>`;
+    if (!e.symmetric) {
+      const bx = x2 - ux * 8, by = y2 - uy * 8;
+      edges += `<polygon class="head${isSel}" data-edge="${rel}" points="${x2},${y2} ${bx + nx * 4},${by + ny * 4} ${bx - nx * 4},${by - ny * 4}"/>`;
+    }
+    edges += `<line class="edge-hit" data-rel="${rel}" ${line}/>`;
+
+    // Label: the first clear candidate (each fraction along the edge, on it then to either side); else the least
+    // weighted overlap, earliest on a tie. An off-edge label gets a leader line back to its edge, under the plate.
+    const w = textWidth(e.label, LABEL_PX) + 2 * LABEL_PAD;
+    let best = null;
+    search: for (const t of C.labelPositions) for (const o of C.labelOffsets) {
+      const px = x1 + (x2 - x1) * t + nx * o * k, py = y1 + (y2 - y1) * t + ny * o * k;
+      const box = { x0: px - w / 2, y0: py - PLATE_H / 2, x1: px + w / 2, y1: py + PLATE_H / 2 };
+      if (clear(box)) { best = { box, t, o }; break search; }
+      const sc = score(box);
+      if (!best || sc < best.sc) best = { box, t, o, sc };
+    }
+    const box = best.box;
+    placed.push(box);
+    let leader = "";
+    if (best.o !== 0) {
+      const qx = x1 + (x2 - x1) * best.t, qy = y1 + (y2 - y1) * best.t;
+      leader = `<line class="leader" x1="${qx}" y1="${qy}" x2="${Math.max(box.x0, Math.min(qx, box.x1))}" y2="${Math.max(box.y0, Math.min(qy, box.y1))}"/>`;
+    }
+    const sentence = `${a.n.name} ${e.label} ${b.n.name}`;
+    const tip = `<title>${esc(sentence)}${e.optional ? "\n" + esc(state.text.optionalTooltip) : ""}</title>`;
+    labels += `<g class="elabel${isSel}" data-rel="${rel}" aria-label="${esc(sentence)}" ${BTN}>${tip}${leader}${plate(box)}`
+      + `<text x="${(box.x0 + box.x1) / 2}" y="${(box.y0 + box.y1) / 2}" text-anchor="middle" dominant-baseline="central">${esc(e.label)}</text></g>`;
+  }
+
+  // Nodes on top. A focused node only refocuses on the whole-cast chart (L4), as in the in-game window.
+  let nodes = "";
+  for (const g of all) {
+    const n = g.n, r = g.r, round = !!n.portrait || !["square", "diamond", "hexagon"].includes(n.glyph);
+    const body = n.portrait ? portraitParts(n.portrait, n.glyph, r, true) : nodeShape(n.glyph, n.hasPortrait ? r * 0.8 : r);
+    const ring = (rr, cls) => round ? `<circle class="${cls}" r="${rr}"/>` : nodeShape(n.glyph, rr, cls, "none");
+    const clickable = !n.isFocus || wholeCast;
+    const outline = (n.isFocus ? ring(r + 3, "fo") : "") + (clickable ? ring(r + (n.isFocus ? 6 : 2), "ho") : "");
+    const p = g.plate, lx = (p.x0 + p.x1) / 2 - g.x, ly = (p.y0 + p.y1) / 2 - g.y;
+    nodes += `<g class="node${n.isFocus ? " focus" : ""}"${clickable ? ` data-focus="${esc(n.id)}" ${BTN}` : ""} aria-label="${esc(n.name)}" transform="translate(${g.x},${g.y})">`
+      // A portrait's focus and hover rings go under it, so they never cross its badge.
+      + `<title>${esc(n.name)}</title>${n.portrait ? outline + body : body + outline}`
+      + plate({ x0: p.x0 - g.x, y0: p.y0 - g.y, x1: p.x1 - g.x, y1: p.y1 - g.y })
+      + `<text class="name" x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="central"${g.bold ? ' font-weight="bold"' : ""}>${esc(g.name)}</text></g>`;
+  }
+  const label = state.focus?.name ?? state.arc?.view?.entry.name ?? "";
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} connections">${edges}${labels}${nodes}</svg>`;
+}
+
+// Hovering or keyboard-focusing a label lights its edge and arrowhead. Delegated: the chart redraws on resize.
+// Re-checked after the event settles, so leaving by mouse keeps it lit while the label still has keyboard focus.
+function lightEdge(e) {
+  const g = e.target.closest?.("svg .elabel[data-rel]");
+  if (!g) return;
+  setTimeout(() => {
+    const on = document.contains(g) && (g.matches(":hover") || g.contains(document.activeElement));
+    g.ownerSVGElement?.querySelectorAll(`[data-edge="${CSS.escape(g.dataset.rel)}"]`).forEach(el => el.classList.toggle("hot", on));
+  });
+}
+for (const type of ["mouseover", "mouseout", "focusin", "focusout"]) document.addEventListener(type, lightEdge);
+
+// Draws the chart into <main> at its current pixel size. Called after each render and when <main> resizes.
+function drawChart(force = true) {
+  const main = $("main[data-region=chart]");
+  if (!main) return;
+  const L = state.layout;
+  if (!L) { main.innerHTML = `<div class="empty">${esc(main.dataset.empty)}</div>`; chartSize = null; return; }
+  const W = main.clientWidth, H = main.clientHeight, size = `${W}x${H}`;
+  if (!W || !H || (!force && size === chartSize)) return;
+  chartSize = size;
+  const key = main.contains(document.activeElement) ? focusKey() : null;
+  main.innerHTML = chartSvg(L, W, H);
+  restoreFocus(key);
+}
+const chartObserver = new ResizeObserver(() => drawChart(false));
 
 // Collapsible, collapsed by default (D1); the open/closed state lives in the shared AtlasSession.
 function sources(list, label) {
@@ -203,6 +404,8 @@ function sources(list, label) {
   return `<details class="sources-box"${state.sourcesExpanded ? " open" : ""}><summary>${esc(label)}</summary>${warn}<ol class="sources">${items}</ol></details>`;
 }
 
+const who = (id, name) => `<span class="who" data-focus="${esc(id)}" ${BTN}>${esc(name)}</span>`;
+
 function details() {
   const f = state.focus, t = state.text;
   if (!f) return `<p class="help">${esc(t.emptyFocus)}</p>`;
@@ -211,16 +414,23 @@ function details() {
   const rows = list.map(n => {
     const arrow = n.symmetric ? "↔" : n.direction === "outgoing" ? "→" : "←";
     return `<div class="conn${n.relationshipId === sel ? " selected" : ""}"><span class="arrow">${arrow}</span>
-      <span class="rel" data-rel="${esc(n.relationshipId)}">${esc(n.label)}</span>
-      <span><span class="who" data-focus="${esc(n.entityId)}">${esc(n.entityName)}</span>${optTag(n.optional)}${n.onCanvas ? "" : ` <span class="help">${esc(t.listOnly)}</span>`}</span></div>`;
+      <span class="rel" data-rel="${esc(n.relationshipId)}" ${BTN}>${esc(n.label)}</span>
+      <span>${who(n.entityId, n.entityName)}${optTag(n.optional)}${n.onCanvas ? "" : ` <span class="help">${esc(t.listOnly)}</span>`}</span></div>`;
   }).join("");
-  const card = selectedCard();
   const aliases = f.aliases.length ? " · " + f.aliases.map(esc).join(", ") : "";
   const back = state.arc?.view ? `<button data-wholecast>← ${esc(t.wholeCast)}</button><div style="height:8px"></div>` : "";
-  return `${back}<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>
+  // The selected connection's card leads the pane, as in the Arc panel, so picking an edge never needs a scroll.
+  const card = state.selectedRelationship ? `${selectedCard()}<div style="height:10px"></div>` : "";
+  return `${back}${card}${header(f, aliases)}
     <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>
     ${sources(f.citations, f.sourcesLabel)}
-    <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}${card}`;
+    <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}`;
+}
+
+// An entity's heading: a large portrait beside the name and category when it has one (NDL-011), else the shape.
+function header(f, aliases = "") {
+  if (f.portrait) return `<div class="hdr">${mark(f.glyph, f.portrait, state.portraitStyle.headerSize, true)}<div><h2>${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div></div></div>`;
+  return `<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}${aliases}</div>`;
 }
 
 // The selected connection's card, shared by the details pane and the Arc panel (L3): its sources and Close.
@@ -233,8 +443,8 @@ function selectedCard() {
 
 // A relationship row ("Tobin prisoner of The Drowned Court"); endpoint names refocus when the row is in the Arc panel.
 function relRow(r, focusable) {
-  const who = (id, name) => focusable ? `<span class="who" data-focus="${esc(id)}">${esc(name)}</span>` : `<strong>${esc(name)}</strong>`;
-  return `${who(r.sourceId, r.sourceName)} ${esc(r.label)} ${who(r.targetId, r.targetName)}${optTag(r.optional)}`;
+  const name = (id, n) => focusable ? who(id, n) : `<strong>${esc(n)}</strong>`;
+  return `${name(r.sourceId, r.sourceName)} ${esc(r.label)} ${name(r.targetId, r.targetName)}${optTag(r.optional)}`;
 }
 
 // Arc lens, nothing focused: the arc's name, its reviewed recap, and what is new and what has ended so far (no sources on rows).
@@ -243,7 +453,7 @@ function arcPanel() {
   const rows = (list, none) => list.length
     ? list.map(r => `<div class="crow">${relRow(r, true)}${r.endedIn ? ` <span class="ended-in">(${esc(r.endedIn)})</span>` : ""}</div>`).join("")
     : `<div class="help">${esc(none)}</div>`;
-  return `${selectedCard()}${state.selectedRelationship ? `<div style="height:10px"></div>` : ""}<h2>${glyphSvg(e.glyph, 14)}${esc(e.name)}</h2><div class="meta">${esc(e.category)}</div>
+  return `${selectedCard()}${state.selectedRelationship ? `<div style="height:10px"></div>` : ""}${header(e)}
     <div class="recap-label">${esc(v.recapLabel)}</div>${v.asOf ? `<div class="meta">${esc(v.asOf)}</div>` : ""}
     <p class="recap">${esc(e.summary)}</p>
     ${sources(e.citations, e.sourcesLabel)}
@@ -251,32 +461,52 @@ function arcPanel() {
     <div class="h3">${esc(t.arcEnded)}</div>${rows(v.endedRows, t.arcNothingEnded)}`;
 }
 
+const changeMark = k => k === "added" ? "+" : k === "ended" ? "−" : "~";
+
 function changesList() {
   const t = state.text, c = state.changes, sel = c.selected?.key;
-  if (!c.offered) return `<div class="changes-list"><p class="help">${esc(t.changesNotOffered)}</p></div>`;
-  const mark = k => k === "added" ? "+" : k === "ended" ? "−" : "~";
+  if (!c.offered) return `<div class="changes-list" data-region="changes"><p class="help">${esc(t.changesNotOffered)}</p></div>`;
   const groups = c.groups.length ? c.groups.map(g => `<div class="h3">${esc(g.label)}</div>` + g.rows.map(r =>
-      `<div class="crow${r.key === sel ? " selected" : ""}" data-change="${esc(r.key)}"><span class="mark">${mark(r.kind)}</span><span>${r.entity ? `<strong>${esc(r.entity.name)}</strong>` : relRow(r, false)}</span></div>`).join("")).join("")
+      `<div class="crow${r.key === sel ? " selected" : ""}" data-change="${esc(r.key)}" ${BTN}><span class="mark">${changeMark(r.kind)}</span><span>${r.entity ? `<strong>${esc(r.entity.name)}</strong>` : relRow(r, false)}</span></div>`).join("")).join("")
     : `<p class="help">${esc(t.noChanges)}</p>`;
-  return `<div class="changes-list"><h2>${esc(c.label)}</h2>${groups}</div>`;
+  return `<div class="changes-list" data-region="changes"><h2>${esc(c.label)}</h2>${groups}</div>`;
 }
 
 // The selected change. End evidence appears here, on an "ended" row, and nowhere else (v2 spoiler rule 2).
 function changeDetails() {
-  const t = state.text, r = state.changes?.selected;
-  if (!state.changes?.offered) return "";
+  const t = state.text, c = state.changes, r = c?.selected;
+  if (!c?.offered) return "";
   if (!r) return `<p class="help">${esc(t.changesPickHint)}</p>`;
+  const status = `<div class="status"><span class="mark">${changeMark(r.kind)}</span><span>${esc(c.selectedStatus)}</span></div>`;
   if (r.entity) {
     const f = r.entity;
-    return `<h2>${glyphSvg(f.glyph, 14)}${esc(f.name)}</h2><div class="meta">${esc(f.category)}</div>
+    return `${status}${header(f)}
       <p class="summary">${esc(f.summary)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>${sources(f.citations, f.sourcesLabel)}`;
   }
   const ending = r.kind === "ended" ? sources(r.endCitations, r.endSourcesLabel) : "";
-  return `<div class="card"><div>${relRow(r, false)}</div>${sources(r.citations, r.sourcesLabel)}${ending}</div>`;
+  return `${status}<div class="card"><div>${relRow(r, false)}</div>${sources(r.citations, r.sourcesLabel)}${ending}</div>`;
 }
+
+// Pane scroll positions survive ordinary actions (picking a row, opening Sources), as ImGui child windows do. They
+// reset only when the lens, view or content view changes, which rebuilds what the panes show.
+let renderedContext = null;
+let renderedSelection = ["", "", ""];
+let forceReveal = false;
+const SCROLL_REGIONS = ["browse", "details", "changes"];
 
 function render() {
   const root = $("#root");
+  const key = focusKey();
+  const scrolls = Object.fromEntries(SCROLL_REGIONS.map(r => [r, $(`[data-region="${r}"]`)?.scrollTop ?? 0]));
+  const context = state.ok ? `${state.lens}|${state.checkpoints.find(c => c.isView)?.id}|${state.contentView}` : null;
+  const keepScroll = context !== null && context === renderedContext;
+  renderedContext = context;
+  // A new selection (connection, change or focus) shows its card or subject at the top of the details pane.
+  // Closing a card or clearing a selection keeps the pane where it was.
+  const selection = state.ok ? [state.selectedRelationship?.id ?? "", state.changes?.selected?.key ?? "", state.focus?.id ?? ""] : ["", "", ""];
+  const revealDetails = forceReveal || selection.some((part, i) => part !== "" && part !== renderedSelection[i]);
+  forceReveal = false;
+  renderedSelection = selection;
   if (!state.ok) {
     root.innerHTML = `<div class="error"><h2>Lore Atlas</h2><p>${esc(state.error)}</p>
       <p class="help">Details are printed in the viewer's terminal.</p><button id="reload">Reload data</button></div>`;
@@ -284,79 +514,146 @@ function render() {
     return;
   }
   const t = state.text;
+  const noArc = state.lens === "arc" && !state.arc?.view;
   const ceiling = state.checkpoints.find(c => c.isCeiling);
   const viewOpts = state.checkpoints.map(c => `<option value="${esc(c.id)}"${c.isView ? " selected" : ""}${c.viewSelectable ? "" : " disabled"}>${esc(c.viewSelectable ? c.label : c.lockedLabel)}</option>`).join("");
   const menu = limitMenuOpen ? `<div class="menu">${state.checkpoints.map(c => c.isCeiling
       ? `<button class="current" disabled>✓ ${esc(c.label)}</button>`
       : `<button data-ceiling="${esc(c.id)}">${esc(c.label)}</button>`).join("")}</div>` : "";
-  const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}">${esc(v.label)}</button>`).join("");
-  const groups = state.lens === "arc" && !state.arc?.view ? "" : state.groups.length
+  const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}" aria-pressed="${v.id === state.contentView}">${esc(v.label)}</button>`).join("");
+  const groups = noArc ? "" : state.groups.length
     ? state.groups.map(g => `<div class="grp">${esc(g.label.toUpperCase())}</div>` + g.entries.map(e =>
-        `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" title="${esc(e.name)}">${glyphSvg(e.glyph)}${esc(e.name)}</div>`).join("")).join("")
+        `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" ${BTN} title="${esc(e.name)}">${e.portrait ? mark(e.glyph, e.portrait, 18) : glyphSvg(e.glyph)}<span class="name">${esc(e.name)}</span></div>`).join("")).join("")
     : `<p class="help">${esc(t.noResults)}</p>`;
-  const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}">${esc(l.label)}</button>`).join("");
-  const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${state.arc.picker.map(o =>
-      `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}</option>`).join("")}</select>` : "";
-  const hadFocus = document.activeElement?.id === "search";
-  root.innerHTML = `<div class="win">
-    <div class="bar">
+  const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}" aria-pressed="${l.isCurrent}">${esc(l.label)}</button>`).join("");
+  // The arc picker: each arc with where it starts; patch headings (optgroups) only when the arcs span more than one patch.
+  const pickOpt = o => `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}${o.detail ? ` — ${esc(o.detail)}` : ""}</option>`;
+  const pickerBody = state.arc ? (() => {
+    const list = state.arc.picker;
+    if (!state.arc.pickerGrouped) return list.map(pickOpt).join("");
+    let html = "", group;
+    for (const o of list) {
+      if (o.group == null) { html += pickOpt(o); continue; }
+      if (o.group !== group) { if (group !== undefined) html += "</optgroup>"; group = o.group; html += `<optgroup label="${esc(group)}">`; }
+      html += pickOpt(o);
+    }
+    return group !== undefined ? html + "</optgroup>" : html;
+  })() : "";
+  const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${pickerBody}</select>` : "";
+  // The arc lens with no arc: the browse pane is empty apart from the picker (v2 States).
+  const searchBox = noArc ? "" : `<input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">`;
+  const resetNotice = state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : "";
+  const C = state.chartStyle, pane = (f, lo, hi) => `clamp(${lo}px, ${f * 100}vw, ${hi}px)`;
+  root.innerHTML = `<div class="win" style="--browse-w: ${pane(C.browseFraction, C.browseMin, C.browseMax)}; --details-w: ${pane(C.detailsFraction, C.detailsMin, C.detailsMax)}">
+    <div class="bar" data-region="bar">
       <span class="title">${esc(t.title)}</span>
       <span><label class="lbl" for="view">${esc(t.viewLabel)}</label><select id="view">${viewOpts}</select></span>
       <span class="limit"><span class="lbl">${esc(t.ceilingLabel)}</span>${esc(ceiling?.label)}
         <button id="raise" aria-haspopup="menu" aria-expanded="${limitMenuOpen}">${esc(t.raiseButton)}</button>${menu}</span>
       <span><span class="lbl">${esc(t.contentLabel)}</span><span class="seg">${seg}</span></span>
     </div>
-    <div class="lensbar">
+    <div class="lensbar" data-region="lens">
       <span><span class="lbl">${esc(t.lensHeading)}</span><span class="seg">${lensSeg}</span></span>
       <span class="pos">${esc(state.position)}</span>
       ${state.coverage ? `<span class="cov">${esc(state.coverage)}</span>` : ""}
     </div>
-    ${state.lens === "changes" ? `<div class="body changes">${changesList()}<section class="details">${state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : ""}${changeDetails()}</section></div>` : `<div class="body">
-      <aside class="browse">
+    ${state.lens === "changes" ? `<div class="body changes">${changesList()}<section class="details" data-region="details">${state.changes?.offered ? resetNotice : ""}${changeDetails()}</section></div>` : `<div class="body">
+      <aside class="browse" data-region="browse">
         ${arcPicker}
-        <input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">
-        ${state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : ""}
+        ${searchBox}
+        ${resetNotice}
         ${state.arc?.view ? `<div class="grp">${esc(state.arc.castHeading.toUpperCase())}</div>` : ""}
         ${groups}
       </aside>
-      <main>${graph(state.lens === "arc" && !state.arc?.view ? t.noArc : null)}</main>
-      <section class="details">${state.arc?.wholeCast ? arcPanel() : state.lens === "arc" && !state.arc?.view ? `<p class="help">${esc(t.noArc)}</p>` : details()}</section>
+      <main data-region="chart" data-empty="${esc(noArc ? t.noArc : t.emptyFocus)}"></main>
+      <section class="details" data-region="details">${state.arc?.wholeCast ? arcPanel() : noArc ? `<p class="help">${esc(t.noArc)}</p>` : details()}</section>
     </div>`}
-    <div class="foot"><span>${esc(t.contentViewHelp)}</span><span class="spacer"></span>
+    <div class="foot" data-region="foot"><span>${esc(t.contentViewHelp)}</span><span class="spacer"></span>
       <span class="badge">local viewer</span>
       ${state.mode === "draft" ? `<span class="badge draft">Draft data — not shippable</span>` : `<span class="badge">strict</span>`}
       <button id="reload" title="Re-read the data file from disk">Reload data</button></div>
   </div>
-  ${state.pendingCeiling ? `<div class="modal" role="dialog" aria-modal="true"><div class="box"><div>${esc(state.pendingCeiling.prompt)}</div>
+  ${state.pendingCeiling ? `<div class="modal" data-region="modal" role="dialog" aria-modal="true" aria-labelledby="modal-prompt"><div class="box"><div id="modal-prompt">${esc(state.pendingCeiling.prompt)}</div>
     <div class="actions"><button id="cancel">${esc(t.cancelButton)}</button><button class="primary" id="confirm">${esc(t.confirmButton)}</button></div></div></div>` : ""}`;
 
   $("#reload").onclick = reload;
   $("#view").onchange = e => act("setView", e.target.value);
   $("#raise").onclick = () => { limitMenuOpen = !limitMenuOpen; render(); };
-  root.querySelectorAll("[data-ceiling]").forEach(el => el.onclick = () => act("requestCeiling", el.dataset.ceiling));
-  root.querySelectorAll("[data-cv]").forEach(el => el.onclick = () => { if (el.dataset.cv !== state.contentView) act("setContentView", el.dataset.cv); });
-  root.querySelectorAll("[data-lens]").forEach(el => el.onclick = () => act("setLens", el.dataset.lens));
-  root.querySelectorAll("[data-change]").forEach(el => el.onclick = () => act("selectChange", el.dataset.change));
-  root.querySelectorAll("[data-wholecast]").forEach(el => el.onclick = () => act("showWholeCast"));
   const arcpick = $("#arcpick");
   if (arcpick) arcpick.onchange = e => act("pickArc", e.target.value);
   const search = $("#search");
   if (search) {
     search.oninput = e => { clearTimeout(searchTimer); const v = e.target.value; searchTimer = setTimeout(() => act("search", v), 120); };
-    search.onkeydown = e => { const first = state.groups[0]?.entries[0]; if (e.key === "Enter" && first) act("focus", first.id); };
-    if (hadFocus) { search.focus(); search.setSelectionRange(search.value.length, search.value.length); }
+    // Enter: run the search now (no pending debounce), then focus the first result of that fresh response.
+    search.onkeydown = async e => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      clearTimeout(searchTimer);
+      await act("search", e.target.value);
+      const first = state.groups?.[0]?.entries[0];
+      if (first) act("focus", first.id);
+    };
   }
   if (state.pendingCeiling) { $("#confirm").onclick = () => act("confirmCeiling"); $("#cancel").onclick = () => act("cancelCeiling"); }
-  root.querySelectorAll("[data-focus]").forEach(el => el.onclick = () => act("focus", el.dataset.focus));
-  root.querySelectorAll("[data-rel]").forEach(el => el.onclick = () => act("selectRelationship", el.dataset.rel));
-  root.querySelectorAll("[data-clear]").forEach(el => el.onclick = () => act("clearSelection"));
   root.querySelectorAll("details.sources-box").forEach(el => el.ontoggle = () => {
     if (el.open !== state.sourcesExpanded) act("setSourcesExpanded", String(el.open));
   });
+
+  chartObserver.disconnect();
+  const main = $("main[data-region=chart]");
+  drawChart(true);
+  if (main) chartObserver.observe(main);
+  if (keepScroll) {
+    for (const r of SCROLL_REGIONS) {
+      const el = $(`[data-region="${r}"]`);
+      if (el) el.scrollTop = r === "details" && revealDetails ? 0 : scrolls[r];
+    }
+  }
+  restoreFocus(key);
+  // Keep a keyboard-focused row visible without jumping the pane.
+  const focused = document.activeElement;
+  const focusedRegion = focused?.closest(SCROLL_REGIONS.map(r => `[data-region="${r}"]`).join(","));
+  if (focusedRegion && !(revealDetails && focusedRegion.dataset.region === "details")) focused.scrollIntoView({ block: "nearest" });
+  // The raise confirmation takes focus when it opens.
+  if (state.pendingCeiling && !document.activeElement?.closest(".modal")) $("#cancel").focus();
 }
 
-document.addEventListener("click", e => { if (limitMenuOpen && !e.target.closest(".limit")) { limitMenuOpen = false; render(); } });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && limitMenuOpen) { limitMenuOpen = false; render(); } });
+// One delegated click handler: the chart is redrawn on resize without a full render, so it can't bind per element.
+document.addEventListener("click", e => {
+  const el = e.target.closest?.("[data-focus],[data-rel],[data-change],[data-ceiling],[data-cv],[data-lens],[data-clear],[data-wholecast]");
+  if (limitMenuOpen && !e.target.closest(".limit")) { limitMenuOpen = false; if (!el) render(); }
+  if (!el || !document.contains(el)) return;
+  const d = el.dataset;
+  if (d.focus !== undefined) act("focus", d.focus);
+  else if (d.rel !== undefined) { forceReveal = true; act("selectRelationship", d.rel); } // a re-click shows the card again
+  else if (d.change !== undefined) act("selectChange", d.change);
+  else if (d.ceiling !== undefined) act("requestCeiling", d.ceiling);
+  else if (d.cv !== undefined) { if (d.cv !== state.contentView) act("setContentView", d.cv); }
+  else if (d.lens !== undefined) act("setLens", d.lens);
+  else if (d.clear !== undefined) act("clearSelection");
+  else if (d.wholecast !== undefined) act("showWholeCast");
+});
+
+document.addEventListener("keydown", e => {
+  // The raise confirmation is modal: Escape cancels, Tab cycles inside it.
+  if (state?.pendingCeiling) {
+    if (e.key === "Escape") { e.preventDefault(); act("cancelCeiling"); return; }
+    if (e.key === "Tab") {
+      const f = [...document.querySelectorAll(".modal button")];
+      const i = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[i < 0 ? 0 : (i + (e.shiftKey ? -1 : 1) + f.length) % f.length]?.focus();
+      return;
+    }
+  }
+  if (e.key === "Escape" && limitMenuOpen) { limitMenuOpen = false; render(); return; }
+  // Enter or Space on a keyboard-operable non-button (rows, names, chart nodes and labels) acts like a click.
+  const t = e.target;
+  if ((e.key === "Enter" || e.key === " ") && t instanceof Element && t.getAttribute("role") === "button" && t.tagName !== "BUTTON") {
+    e.preventDefault();
+    t.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  }
+});
 load();
 </script>
 </body>

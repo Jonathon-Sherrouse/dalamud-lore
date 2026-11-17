@@ -67,7 +67,7 @@ public class ArcA4Tests
         var atLast = At(Milestone);
         Assert.False(atLast.Arc!.PastEnd);
         Assert.Null(atLast.Arc.AsOfLabel);
-        Assert.Equal(AtlasText.RecapThrough("A Realm Reborn — Patch 2.0 complete"), atLast.Arc.RecapLabel);
+        Assert.Equal("Story so far, as of A Realm Reborn — Patch 2.0 complete", atLast.Arc.RecapLabel);
 
         var after = At("cp-arr-2-55");
         Assert.Null(after.Arc); // the automatic choice: no arc contains 2.55
@@ -131,5 +131,15 @@ public class ArcA4Tests
         var baseline = AtlasProjector.Project(D, "cp-msq-154", AtlasContentView.MainStory);
         Assert.Contains(baseline.Relationships, r => r.Id == "rel-minfilia-prisoner-livia");
         Assert.DoesNotContain(baseline.Entities, e => e.Id == "evt-black-wolfs-challenge"); // the arc's name never shows before #155
+    }
+
+    [Fact]
+    public void Picker_PlacesTheArcInTheStory()
+    {
+        var s = new AtlasSession(D, new AtlasSpoilerState("cp-arr-2-0", "cp-msq-160"));
+        var arc = s.ArcPickerOptions.Single(o => o.ArcId == "arc-a4-black-wolf");
+        Assert.Equal("from Escape from Castrum Centri", arc.Detail);
+        Assert.Equal("A Realm Reborn — Patch 2.0", arc.Group);
+        Assert.False(s.ArcPickerGrouped);
     }
 }
