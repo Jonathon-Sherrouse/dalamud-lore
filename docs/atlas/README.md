@@ -91,7 +91,9 @@ Build the main checkout (see [Loading a development build](#loading-a-developmen
 
 ## In-game look (NDL-011)
 
-Build the branch or main checkout, **Reload** the plugin, and open `/npclinks atlas`.
+> **Status:** the user accepted `NDL-011` on 2026-11-16; this table was not reported, so it is still untested in game.
+
+Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`.
 
 | # | Do | Expect |
 |---|---|---|

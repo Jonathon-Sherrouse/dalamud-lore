@@ -12,9 +12,11 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
+## User Accepted
+
 The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas vertical slice, with the condition that the local viewer looks like the in-game window.
 
-- [ ] `NDL-011` **Atlas portraits, in game and in the local viewer**
+- [x] `NDL-011` **Atlas portraits, in game and in the local viewer**
   - Owner: `ui` (rendering) and `content` (picking and review)
   - Outcome: Every Atlas entry with a suitable, spoiler-safe image in the game's own data shows it as a portrait, in the in-game window and identically in the local viewer. The rest keep their category shape.
   - Acceptance:
@@ -37,9 +39,7 @@ The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas
     - a side-by-side of the viewer and the window;
     - one in-game look by the user.
   - Dependencies: Atlas v2 (`NDL-006`, `NDL-008`–`NDL-010`) accepted; branch `codex/ndl-011-atlas-portraits`.
-  - Substantive PR: [#27](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/27)
-
-## User Accepted
+  - Acceptance record: the user approved all 18 portrait picks and accepted on 2026-11-16. A four-delegate council review of the viewer reached 9/10 from every delegate. The user also asked for the story arc picker to show where each arc starts, patch headings across patches, and "· ended" once the view is past an arc; that shipped in this story. The in-game look was not reported, so that lane is untested; the table is in the [Atlas guide](atlas/README.md#in-game-look-ndl-011).
 
 - [x] `NDL-010` **Ship v2 in game**
   - Owner: `ui`
