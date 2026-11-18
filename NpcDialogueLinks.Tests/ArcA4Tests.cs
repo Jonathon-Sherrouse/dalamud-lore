@@ -46,9 +46,11 @@ public class ArcA4Tests
     [Fact]
     public void A4_IsNotOpenBeforeItsFirstStep()
     {
+        // NDL-012: #154 is the last step of the rescue arc that precedes A4, so an arc is open, but never A4 or its name.
         var s = At("cp-msq-154");
-        Assert.Null(s.Arc);
-        Assert.Equal(new[] { AtlasText.ArcAutomatic }, s.ArcPickerOptions.Select(o => o.Label)); // no name, no span
+        Assert.Equal("arc-b5-road-to-castrum-centri", s.Arc!.ArcId);
+        Assert.DoesNotContain(s.ArcPickerOptions, o => o.ArcId == Arc);
+        Assert.DoesNotContain(s.ArcPickerOptions, o => o.Label.Contains("Black Wolf", StringComparison.Ordinal));
     }
 
     [Fact]
@@ -111,13 +113,20 @@ public class ArcA4Tests
         var rescue = At("cp-msq-155");
         rescue.SetLens(AtlasLens.Changes);
         Assert.Equal(AtlasText.ChangesThisQuest, rescue.ChangesLabel);
-        var freed = rescue.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows.Single();
+        // NDL-012 adds the four "held at Castrum Centri" edges, which end with the same rescue and the same evidence.
+        var endedAtRescue = rescue.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows;
+        Assert.Equal(5, endedAtRescue.Count);
+        Assert.All(endedAtRescue, r => Assert.Equal("Escape from Castrum Centri — main scenario quest (2.0)", r.EndCitations.Single().Title));
+        var freed = endedAtRescue.Single(r => r.Relationship!.Id == "rel-minfilia-prisoner-livia");
         Assert.Equal("rel-minfilia-prisoner-livia", freed.Relationship!.Id);
         Assert.Equal("Escape from Castrum Centri — main scenario quest (2.0)", freed.EndCitations.Single().Title);
 
         var fall = At("cp-msq-160");
         fall.SetLens(AtlasLens.Changes);
-        Assert.Equal("Rock the Castrum — main scenario quest (2.0)", fall.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows.Single().EndCitations.Single().Title);
+        // NDL-012: Livia's fall also ends her membership of the Empire, with the same evidence.
+        var fallen = fall.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows;
+        Assert.Equal(new[] { "rel-livia-member-empire", "rel-livia-serves-gaius" }, fallen.Select(r => r.Relationship!.Id).Order(StringComparer.Ordinal));
+        Assert.All(fallen, r => Assert.Equal("Rock the Castrum — main scenario quest (2.0)", r.EndCitations.Single().Title));
 
         // The possession ends across the slice → milestone boundary, where Changes is never offered (WE-1).
         var finale = At(Milestone);

@@ -78,7 +78,10 @@ This is the working planning list for feature polish and future enhancements. Ag
 - **Cards:** `NDL-006` to `NDL-010` in [backlog.md](backlog.md).
 - **Status (2026-11-14):** `NDL-006` (arc discovery, schema v2 and the pure core) is **User Accepted**; the user chose arc A4, *The Black Wolf's challenge*. Follow (`NDL-007`) is deferred by the user, so v2 ships without it. `NDL-008` (the lens design, prototyped in the viewer), `NDL-009` (arc A4, *The Black Wolf's Challenge*) and `NDL-010` (ship v2 in game, 2026-11-15) are **User Accepted**. Atlas v2 is complete without Follow; see Completed.
 - **User Accepted (2026-11-16): `NDL-011` Atlas portraits.** The polish piece for a strong Atlas vertical slice: portraits from the player's own game data, in the window and identically in the local viewer. Card in [backlog.md](backlog.md).
+- **In progress (2026-11-17): `NDL-012` ARR 2.0 before the Black Wolf.** The first breadth step, which the user asked for: one step per quest from MSQ #102 to #153 and five more arcs, so the Atlas covers 2.0 from the Company of Heroes to the finale. Card in [backlog.md](backlog.md); research in [ndl-012-discovery.md](atlas/ndl-012-discovery.md).
 - **Future candidates (not approved):**
+  - **Portraits for the `NDL-012` entries** (25 entries keep their shapes for now).
+  - **The rest of the breadth:** the 2.1–2.55 patch story between the two milestones, and the main scenario before #102.
   - **Breadth coverage across the main story.** The route is decided after the slice proves it helps; it must not use patch-sized outer arcs, and milestone-only recaps give endpoint coverage only.
   - **Lore Explain grounded in the reviewed recaps,** and a deep link into the Atlas.
 

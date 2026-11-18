@@ -625,7 +625,9 @@ public class V2FollowTests
     public void Follow_UsesTheRealMilestoneQuestIds()
     {
         var real = AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Draft).Dataset!;
-        var throughUltimateWeapon = new HashSet<int> { 66541, 66057, 66058, 70057, 66573, 69408, 69409, 70058 };
+        // NDL-012: the timeline now starts at MSQ #102, so every quest from there through The Ultimate Weapon is done.
+        var throughUltimateWeapon = real.Checkpoints.Where(c => c.Id != "cp-arr-2-55").SelectMany(c => c.GameQuestIds).Select(id => (int)id).ToHashSet();
+        Assert.Contains(70058, throughUltimateWeapon);
         AtlasQuestProgress Done(int id) => throughUltimateWeapon.Contains(id) ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
         Assert.Equal("cp-arr-2-0", AtlasFollow.Position(real, Done, "cp-arr-2-55").CheckpointId);
     }

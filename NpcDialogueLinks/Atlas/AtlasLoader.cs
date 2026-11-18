@@ -66,7 +66,7 @@ public static class AtlasLoader
 {
     public const int SupportedSchemaVersion = 2;
     public const int MaxFileBytes = 1024 * 1024;
-    public const int MaxCheckpoints = 16;
+    public const int MaxCheckpoints = 128;
     public const int MaxEntities = 64;
     public const int MaxRelationships = 256;
     public const int MaxRelationshipTypes = 32;

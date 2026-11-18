@@ -21,6 +21,7 @@ plan allows to move earlier mechanically.
     --print-pending   prints the key and fingerprint of each pending record, to copy into ACCEPTED after acceptance
 """
 import copy, hashlib, json, sys, pathlib, urllib.parse
+import content_arr_2_0 as ARR  # NDL-012: MSQ #102–#154, five arcs before A4 (data only)
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
 SELF_TEST = sys.argv[1:] == ["--self-test"]
@@ -33,7 +34,7 @@ A, B = "cp-arr-2-0", "cp-arr-2-55"
 # The A4 slice (NDL-009): the baseline step after MSQ #154, then one step after each of #155–160. Each step means
 # "after this quest". The milestone A (cp-arr-2-0) is the step after #161, The Ultimate Weapon, so it is contiguous
 # with the slice. Every step carries its quest's game id (wiki id-gt) for Follow (deferred; NDL-007 verifies them).
-SLICE = [  # (checkpoint id, MSQ index, quest title, game quest id)
+SLICE = ARR.EARLY_SLICE + [  # (checkpoint id, MSQ index, quest title, game quest id); NDL-012 prepends #102–#153
     ("cp-msq-154", 154, "Every Little Thing She Does Is Magitek", 66541),
     ("cp-msq-155", 155, "Escape from Castrum Centri", 66057),
     ("cp-msq-156", 156, "The Black Wolf's Ultimatum", 66058),
@@ -46,7 +47,7 @@ BASE = SLICE[0][0]
 STEP_OF = {title: cid for cid, _, title, _ in SLICE}
 CP_LABEL = {A: "A Realm Reborn — Patch 2.0 complete", B: "A Realm Reborn — Patch 2.55 complete",
             **{cid: f"After {title}" for cid, _, title, _ in SLICE}}
-CP_SHORT = {A: "2.0", B: "2.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}}
+CP_SHORT = {A: "2.0", B: "2.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT}
 ORDER = [cid for cid, _, _, _ in SLICE] + [A, B]
 
 # ---- Sources: wiki page title -> (display title, patch, availableAt, scope) -------------------------------
@@ -149,7 +150,7 @@ def P(frm, until, scope, name, summary, claims, aliases=()):
     return dict(frm=frm, until=until, scope=scope, name=name, aliases=list(aliases), summary=summary, claims=claims)
 
 CHECKPOINTS = [
-    {"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({"contiguousWithPrevious": True} if i else {}), "gameQuestIds": [gid]}
+    {"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({"contiguousWithPrevious": True} if i and cid not in ARR.NOT_CONTIGUOUS else {}), "gameQuestIds": [gid]}
     for i, (cid, _, title, gid) in enumerate(SLICE)
 ] + [
     {"id": A, "label": CP_LABEL[A], "milestone": True, "contiguousWithPrevious": True, "gameQuestIds": [70058]},  # The Ultimate Weapon (#161)
@@ -323,7 +324,7 @@ RELS = [
 # Scions, plus Cid, Gaius, Livia, Lahabrea and the Eorzean Alliance, plus the Operation Archon event; the caps were
 # raised by one each (5 new entities, 4 new relationship types). First names only; "Garlond Ironworks" is shown as
 # "the Ironworks". Q1..Q7 below are the slice steps.
-Q154, Q155, Q156, Q157, Q158, Q159, Q160 = (cid for cid, _, _, _ in SLICE)
+Q154, Q155, Q156, Q157, Q158, Q159, Q160 = (cid for cid, _, _, _ in SLICE[len(ARR.EARLY_SLICE):])
 for k, p in [("Come-Into-My-Castrum", None), ("Lady of the Vortex", None), ("In Pursuit of the Past", None), ("Lord of Crags", None),
              ("Every Little Thing She Does Is Magitek", None), ("The Black Wolf's Ultimatum", None), ("Operation Archon", None),
              ("A Hero in Need", None), ("Hearts on Fire", None), ("Rock the Castrum", None)]:
@@ -618,6 +619,37 @@ ARCS = [("arc-a4-black-wolf", ARC, Q155, A)]
 ARC_NOTES = {"arc-a4-black-wolf": "MSQ #155 *Escape from Castrum Centri* to #161 *The Ultimate Weapon* (the `cp-arr-2-0` milestone), with #154 as the baseline. "
              "It opens with the rescue that frees the Scions and reveals Thancred's possession (K20, C37), and runs through Operation Archon to the Praetorium, where Gaius is slain, the Ultima Weapon destroyed and Thancred freed (K73, C09). "
              "Boundaries per [v2-discovery.md](v2-discovery.md#proposed-arc-map)."}
+
+# ==== A Realm Reborn 2.0, MSQ #102–#154 (NDL-012) ================================================================
+# Data lives in content_arr_2_0.py; merged here so review status, citations and generated files work as for A4.
+for _, _, title, _ in ARR.EARLY_SLICE:
+    src(title, ARR.PAGES.get(title, title), "2.0")
+for title in ARR.EXTRA_SOURCES:
+    src(title, title, "2.0")
+assert not set(ARR.CLAIMS) & set(C), "claim id collision"
+C.update(ARR.CLAIMS)
+_known = {eid for eid, _, _ in ENT}
+assert set(ARR.EARLY_PRES) <= _known and not {eid for eid, _, _ in ARR.NEW_ENT} & _known
+ENT = [(eid, cat, ARR.EARLY_PRES.get(eid, []) + pres) for eid, cat, pres in ENT] + ARR.NEW_ENT
+TYPES += ARR.TYPES
+RELS += ARR.RELS
+_n = 11
+for entry, members in ARR.CASTS.items():
+    arc_tag = next(aid for aid, e, _, _ in ARR.ARCS if e == entry).split("-")[1]
+    for member, frm, claims in members:
+        RELS.append((f"p-{member.split('-', 1)[1]}-{arc_tag}", member, "participant-in", entry, frm, None, "main", claims, f"P{_n}"))
+        _n += 1
+ARCS = ARR.ARCS + ARCS
+ARC_NOTES.update(ARR.ARC_NOTES)
+# Catch a record citing a quest that comes after its own start here, before the C# validator does (CitationTooNew).
+for _eid, _, _pres in ENT:
+    for _p in _pres:
+        for _c in _p["claims"]:
+            assert ORDER.index(SRC[C[_c][1]]["avail"]) <= ORDER.index(_p["frm"]), (_eid, _p["frm"], _c)
+for _r in RELS:
+    _rid, _, _, _, _f, _, _, _cl, _, *_ = _r
+    for _c in _cl:
+        assert ORDER.index(SRC[C[_c][1]]["avail"]) <= ORDER.index(_f), (_rid, _c)
 
 # ---- Portraits (NDL-011) ---------------------------------------------------------------------------------------
 # Each is a game icon from the player's own install (never an image file in the repository or the package), cropped
@@ -971,8 +1003,15 @@ w("7. **Slice steps name only the cast.** Text at #154–160 never names a chara
 w("8. **Current quest versions.** Patch 6.1 reworked *Operation Archon* and *The Ultimate Weapon* (the Lahabrea fight became a solo duty). The wiki transcribes the current versions, which is what a player sees today, so the evidence follows them.")
 w("9. **Lahabrea is never written as dead,** and Nero is left out: the 2.0 finale shows neither's end. Livia is written as dead, from Cid's \"May her soul know rest\" (K62).")
 w("10. **The arc's name, *The Black Wolf's Challenge*.** It reveals nothing past its first step: by the end of #155 the Black Wolf's ultimatum is already being debated (K26). It avoids reusing #156's quest title, *The Black Wolf's Ultimatum*.\n")
+w("For A Realm Reborn 2.0 before the Black Wolf (`NDL-012`), the user chose the scope on 2026-11-17 (MSQ #102–#154, with the step bound raised). "
+  "The lead decided the rest, and it awaits your review; the reasoning is in [ndl-012-discovery.md](ndl-012-discovery.md#decisions-to-review):\n")
+w("11. **Five arcs**: *The Road to Titan* (#103–105), *The Fall of the Waking Sands* (#106–110), *The Search for the Enterprise* (#110–129, sharing #110 with the arc before), *Garuda's Barrier* (#130–141) and *The Road to Castrum Centri* (#142–154, stopping before #155 so the Black Wolf's Challenge stays the default there).")
+w("12. **The step bound rises from 16 to 128**: one step per main-scenario quest, both #150 paths included, ordered by MSQ index and then authored order.")
+w("13. **Marques is his own entry, with no portrait**, because Cid's portrait shows his later look. From #110 he is *revealed as* Cid, and Cid is searchable as \"Marques\".")
+w("14. **Rule 7 above is relaxed**: with #102–#160 covered, text names any entry that is already visible. The leak tests still forbid any name that isn't visible yet, and any later quest title (so the arcs are not named after #105's or #141's quests).")
+w("15. **Left out**, as before: Nero, and surnames. The Company of Heroes holds a \"feast\", because \"banquet\" is reserved for the 2.55 story.\n")
 w("## Snapshot overview\n")
-w("Visible records at each step, in the main-story view and the main + optional view. Slice steps (#…) cover only the arc's cast.\n")
+w("Visible records at each step, in the main-story view and the main + optional view. Slice steps (#…) cover only the characters involved in the story so far.\n")
 w("| Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |\n|---|---|---|---|---|")
 for cid in ORDER:
     em, rm = visible_counts(cid, "main"); eo, ro = visible_counts(cid, "full")

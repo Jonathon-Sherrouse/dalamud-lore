@@ -112,6 +112,10 @@ None of these is needed for the pilot's changes, and several are reframed by lat
 2. **Content decisions:** resolved on 2026-11-14. Links are on, and R14 and R13 stay. See the [review sheet](content-review.md#decisions-recorded).
 3. **Checkpoint help text (NDL-004).** Snapshots include optional story content released by each patch, and the selector's help text should say so.
 
+## ARR 2.0 before the Black Wolf (NDL-012)
+
+Five arcs over MSQ #102–#154: method, quest inventory, arc map, worked examples and decisions are in [ndl-012-discovery.md](ndl-012-discovery.md). The data is authored in `tools/atlas/content_arr_2_0.py`, which the generator merges. Its claims (IDs `E…`) are in the same [claims table](content-claims.md), and its records are in the same [review sheet](content-review.md). Every locator was checked by script against the raw wikitext saved during research.
+
 ## Arc A4: The Black Wolf's Challenge (NDL-009)
 
 Researched 2026-11-14. Arc A4 covers MSQ #155 *Escape from Castrum Centri* to #161 *The Ultimate Weapon*. #154 *Every Little Thing She Does Is Magitek* is the pre-arc baseline, and #161 is the `cp-arr-2-0` milestone. The decisions are in the [review sheet](content-review.md#decisions-recorded).
