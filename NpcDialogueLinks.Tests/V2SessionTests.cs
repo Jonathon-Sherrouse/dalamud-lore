@@ -411,21 +411,18 @@ public class V2LeakSweepTests
     {
         Assert.True(d.TryGetCheckpoint(s.SpoilerState.ViewId, out var view));
         var surface = Gather(s);
-        var known = d.Checkpoints.Where(c => c.Order <= view.Order).Select(c => AtlasProjector.Project(d, c.Id, contentView)).ToList();
+        var (knownEntities, knownRelationships, knownSources, laterBad) = Known(d, view, contentView);
 
-        var knownEntities = known.SelectMany(p => p.Entities).Select(EntityKey).ToHashSet();
         foreach (var entity in surface.Entities)
         {
             Assert.True(knownEntities.Contains(EntityKey(entity)), $"entity {entity.Id} '{entity.Summary}' is not as of the view at {where}");
         }
 
-        var knownRelationships = known.SelectMany(p => p.Relationships).Select(RelationshipKey).ToHashSet();
         foreach (var relationship in surface.Relationships)
         {
             Assert.True(knownRelationships.Contains(RelationshipKey(relationship)), $"relationship {relationship.Id} is not as of the view at {where}");
         }
 
-        var knownSources = known.SelectMany(p => p.Entities.SelectMany(e => e.Citations).Concat(p.Relationships.SelectMany(r => r.Citations))).ToHashSet();
         foreach (var citation in surface.Citations)
         {
             Assert.True(knownSources.Contains(citation), $"source '{citation.Title}' ({citation.Url}) is not available by the view at {where}");
@@ -449,16 +446,7 @@ public class V2LeakSweepTests
             Assert.All(row.EndCitations, c => Assert.True(allowed.Contains((c.Title, c.Url?.ToString())), $"end citation '{c.Title}' ({c.Url}) is not {row.Key}'s own available end evidence at {where}"));
         }
 
-        var later = d.Checkpoints.Where(c => c.Order > view.Order).ToList();
-        var knownNames = known.SelectMany(p => p.Entities).SelectMany(e => e.Aliases.Append(e.Name)).ToHashSet();
-        var laterNames = later.SelectMany(c => AtlasProjector.Project(d, c.Id, AtlasContentView.MainAndOptional).Entities)
-            .SelectMany(e => e.Aliases.Append(e.Name)).Where(n => !knownNames.Contains(n)).Distinct();
-        var knownTitles = knownSources.Select(c => c.Title).ToHashSet();
-        var laterSources = later.SelectMany(c => AtlasProjector.Project(d, c.Id, AtlasContentView.MainAndOptional).Relationships.SelectMany(r => r.Citations)
-                .Concat(AtlasProjector.Project(d, c.Id, AtlasContentView.MainAndOptional).Entities.SelectMany(e => e.Citations)))
-            .Select(c => c.Title).Where(t => !knownTitles.Contains(t)).Distinct();
-        var laterQuestTitles = later.Select(c => c.QuestTitle).OfType<string>();
-        foreach (var bad in laterNames.Concat(laterSources).Concat(laterQuestTitles))
+        foreach (var bad in laterBad)
         {
             AssertNoText(surface.Texts, bad, where);
         }
@@ -475,6 +463,60 @@ public class V2LeakSweepTests
         {
             Assert.DoesNotContain(surface.Texts, t => t.StartsWith("As of", StringComparison.Ordinal)); // rule 7
             Assert.DoesNotContain(surface.Texts, t => t.StartsWith("New in", StringComparison.Ordinal));
+        }
+    }
+
+    /// <summary>
+    /// What is known by a view, and the texts that must not appear there. Projections are pure, so this is computed once
+    /// per (dataset, view, content view) and reused by every stop (NDL-012: 61 steps made the uncached sweep take 35 min).
+    /// </summary>
+    private static (HashSet<(string, string, string, string)> Entities, HashSet<(string, string, string, string)> Relationships, HashSet<AtlasCitationView> Sources, List<string> LaterBad)
+        Known(AtlasDataset d, AtlasCheckpoint view, AtlasContentView contentView)
+    {
+        var cache = KnownCache.GetOrCreateValue(d);
+        lock (cache)
+        {
+            if (cache.TryGetValue((view.Id, contentView), out var hit))
+            {
+                return hit;
+            }
+
+            var known = d.Checkpoints.Where(c => c.Order <= view.Order).Select(c => Project(d, c.Id, contentView)).ToList();
+            var knownSources = known.SelectMany(p => p.Entities.SelectMany(e => e.Citations).Concat(p.Relationships.SelectMany(r => r.Citations))).ToHashSet();
+            var later = d.Checkpoints.Where(c => c.Order > view.Order).ToList();
+            var knownNames = known.SelectMany(p => p.Entities).SelectMany(e => e.Aliases.Append(e.Name)).ToHashSet();
+            var laterNames = later.SelectMany(c => Project(d, c.Id, AtlasContentView.MainAndOptional).Entities)
+                .SelectMany(e => e.Aliases.Append(e.Name)).Where(n => !knownNames.Contains(n)).Distinct();
+            var knownTitles = knownSources.Select(c => c.Title).ToHashSet();
+            var laterSources = later.SelectMany(c => Project(d, c.Id, AtlasContentView.MainAndOptional).Relationships.SelectMany(r => r.Citations)
+                    .Concat(Project(d, c.Id, AtlasContentView.MainAndOptional).Entities.SelectMany(e => e.Citations)))
+                .Select(c => c.Title).Where(t => !knownTitles.Contains(t)).Distinct();
+            var laterQuestTitles = later.Select(c => c.QuestTitle).OfType<string>();
+            var result = (
+                known.SelectMany(p => p.Entities).Select(EntityKey).ToHashSet(),
+                known.SelectMany(p => p.Relationships).Select(RelationshipKey).ToHashSet(),
+                knownSources,
+                laterNames.Concat(laterSources).Concat(laterQuestTitles).Distinct().ToList());
+            cache[(view.Id, contentView)] = result;
+            return result;
+        }
+    }
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), (HashSet<(string, string, string, string)>, HashSet<(string, string, string, string)>, HashSet<AtlasCitationView>, List<string>)>> KnownCache = new();
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), AtlasSnapshot>> ProjectionCache = new();
+
+    private static AtlasSnapshot Project(AtlasDataset d, string checkpointId, AtlasContentView view)
+    {
+        var cache = ProjectionCache.GetOrCreateValue(d);
+        lock (cache)
+        {
+            if (!cache.TryGetValue((checkpointId, view), out var snapshot))
+            {
+                cache[(checkpointId, view)] = snapshot = AtlasProjector.Project(d, checkpointId, view);
+            }
+
+            return snapshot;
         }
     }
 

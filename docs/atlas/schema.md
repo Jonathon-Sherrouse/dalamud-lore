@@ -9,7 +9,7 @@ This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces
 ```jsonc
 {
   "schemaVersion": 2,
-  "checkpoints": [                       // ordered, earliest first; 1–16
+  "checkpoints": [                       // ordered, earliest first; 1–128 (raised from 16 by NDL-012)
     { "id": "cp-arr-2-0", "label": "A Realm Reborn — Patch 2.0 complete" }
   ],
   "relationshipTypes": [                 // closed vocabulary; 1–32

@@ -122,11 +122,20 @@ public class PortraitTests
     private static IReadOnlyDictionary<string, AtlasPortrait?> RealPortraits =>
         Real.Entities.ToDictionary(e => e.Id, e => e.Portrait);
 
+    private static readonly HashSet<string> NdlElevenEntries =
+    [
+        "char-minfilia", "char-thancred", "char-yshtola", "char-urianger", "char-alphinaud", "char-alisaie", "char-louisoix", "char-tataru",
+        "org-scions", "org-crystal-braves", "loc-waking-sands", "loc-rising-stones", "evt-black-wolfs-challenge", "evt-operation-archon",
+        "char-cid", "char-gaius", "char-livia", "char-lahabrea", "org-eorzean-alliance",
+    ];
+
     [Fact]
     public void Real_EveryEntryButTheWakingSandsHasAReviewedPortrait()
     {
-        var portraits = RealPortraits;
+        // The 19 entries NDL-011 covered. NDL-012's 25 new entries have no portraits yet; they keep their shapes.
+        var portraits = RealPortraits.Where(p => NdlElevenEntries.Contains(p.Key)).ToDictionary(p => p.Key, p => p.Value);
         Assert.Equal(19, portraits.Count);
+        Assert.All(RealPortraits.Where(p => !NdlElevenEntries.Contains(p.Key)), p => Assert.Null(p.Value));
         Assert.Null(portraits["loc-waking-sands"]);
         Assert.All(portraits.Where(p => p.Key != "loc-waking-sands"), p =>
         {
@@ -138,7 +147,7 @@ public class PortraitTests
     [Fact]
     public void Real_CharactersUseTripleTriadCardsAndTheTwinsShareOne()
     {
-        var portraits = RealPortraits;
+        var portraits = RealPortraits.Where(p => p.Value is not null).ToDictionary(p => p.Key, p => p.Value);
         foreach (var (id, portrait) in portraits.Where(p => p.Key.StartsWith("char-", StringComparison.Ordinal)))
         {
             Assert.InRange(portrait!.GameIcon, 87001u, 87999u);

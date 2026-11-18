@@ -2,6 +2,8 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
+> **Coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
+
 The Lore Atlas is a spoiler-safe relationship browser for the Scions of the Seventh Dawn pilot. You pick a story point, and it shows only what a player knows by then. The contract is [lore-relationship-atlas.md](../lore-relationship-atlas.md).
 
 ## In game
@@ -101,3 +103,21 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`.
 | 2 | Click Thancred. | A large portrait beside his name in the details pane. |
 | 3 | **Story point**, view → "A Realm Reborn — Patch 2.55 complete", search "Waking". | The Waking Sands is still a green diamond: it has no portrait. |
 | 4 | Resize to the minimum and to something large. | Portraits stay round and sharp, and names stay readable below them. |
+
+## In-game check (NDL-012)
+
+> **Status:** the user accepted `NDL-012` on 2026-11-17 without reporting this table, so every row is still untested in game.
+
+Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If later points are locked, use **Raise…** → "A Realm Reborn — Patch 2.0 complete" → **Show**.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | Open **Viewing as of**. | The list starts at "After It Was a Very Good Year" and runs one quest at a time to "After Rock the Castrum", then the two milestones. |
+| 2 | View → "After Lord of Crags". | Arc lens: *The Road to Titan*, CAST (6), and a "New" row "Lahabrea allied with The Garlean Empire". No "Nero" anywhere. |
+| 3 | View → "After Bury Me Not on the Lone Prairie". Search "Cid". | *The Fall of the Waking Sands*. Marques is in the cast, shown as a shape (no portrait), and the search finds nothing. |
+| 4 | View → "After Eyes on Me". Open the **Story arc** picker. | The default is still *The Fall of the Waking Sands*, with "Marques revealed as Cid" under New. The picker also offers *The Search for the Enterprise*. |
+| 5 | View → "After The Heretic among Us", then **Lens → Changes**. | Ended: "The false Guillaime opposes Alphinaud", with **Sources for the ending (1)**. |
+| 6 | View → "After Lady of the Vortex". | *Garuda's Barrier*, CAST (8). Garuda's aliases now include "the Lady of the Vortex". |
+| 7 | View → "After Acting the Part", then **Lens → Changes**. | The label reads "Changes since …", not "What this quest changed". |
+| 8 | View → "After Escape from Castrum Centri". | Still *The Black Wolf's Challenge*, exactly as before. |
+| 9 | Scroll the **Viewing as of** list at the minimum window size and at 150% font scale. | It scrolls, and nothing overlaps or clips. |
