@@ -116,9 +116,8 @@ public class PortraitTests
 
     // ---- real data ----
 
-    // Draft, so pending text records (NDL-012) don't hide the portraits; each portrait's own review is still asserted.
     private static readonly AtlasDataset Real =
-        AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Draft).Dataset!;
+        AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Strict).Dataset!;
 
     private static IReadOnlyDictionary<string, AtlasPortrait?> RealPortraits =>
         Real.Entities.ToDictionary(e => e.Id, e => e.Portrait);

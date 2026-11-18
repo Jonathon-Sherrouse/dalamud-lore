@@ -2,7 +2,7 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
-> **Coverage (`NDL-012`, awaiting review):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
+> **Coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
 
 The Lore Atlas is a spoiler-safe relationship browser for the Scions of the Seventh Dawn pilot. You pick a story point, and it shows only what a player knows by then. The contract is [lore-relationship-atlas.md](../lore-relationship-atlas.md).
 
@@ -106,7 +106,7 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`.
 
 ## In-game check (NDL-012)
 
-> **Status:** not yet run.
+> **Status:** the user accepted `NDL-012` on 2026-11-17 without reporting this table, so every row is still untested in game.
 
 Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If later points are locked, use **Raise…** → "A Realm Reborn — Patch 2.0 complete" → **Show**.
 

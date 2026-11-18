@@ -1,6 +1,6 @@
 # NDL-012: A Realm Reborn 2.0 before the Black Wolf (MSQ #102–#154)
 
-> **Status: researched and authored; awaiting your content review.** Every new record in `atlas.json` is `pending` until you accept it. The review sheet ([content-review.md](content-review.md)) shows every record exactly as the Atlas will display it, with its evidence. The claims table ([content-claims.md](content-claims.md)) lists every locator.
+> **Status: User Accepted (2026-11-17).** The user accepted the content and every decision below as proposed. The records are marked `reviewed`, and Strict validation passes. The review sheet ([content-review.md](content-review.md)) shows every record exactly as the Atlas will display it, with its evidence. The claims table ([content-claims.md](content-claims.md)) lists every locator.
 
 ## Scope (user decision, 2026-11-17)
 

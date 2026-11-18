@@ -12,9 +12,11 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
+## User Accepted
+
 The user asked on 2026-11-17 for "a lot more story research to populate the Atlas" and chose the scope: the rest of A Realm Reborn 2.0 before the Black Wolf's Challenge, accepting a raised step bound.
 
-- [ ] `NDL-012` **Research and author ARR 2.0 before the Black Wolf (MSQ #102–#154)**
+- [x] `NDL-012` **Research and author ARR 2.0 before the Black Wolf (MSQ #102–#154)**
   - Owner: `content` (research and records), `lead` (bound change and tests)
   - Outcome: A player anywhere from the Company of Heroes' test (#103) to the armor being ready (#154) can open the Atlas at their quest and read a reviewed, spoiler-safe story so far and cast chart.
   - Acceptance:
@@ -27,9 +29,8 @@ The user asked on 2026-11-17 for "a lot more story research to populate the Atla
     - New records are `pending` until you accept them; then the mechanical marker commit runs, and Strict passes.
   - Evidence: Locator verification; generator self-test; host tests (real-data pins, the new arc tests, the per-step and v2 leak sweeps); locked builds of the plugin and the viewer. In-game: a short do/expect check of the new steps. Human content review.
   - Dependencies: Accepted `NDL-009` and `NDL-011`; branch `codex/ndl-012-arr-2-0-arcs`.
-  - Substantive PR: [#29](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/29)
+  - Acceptance record: the user accepted the content and all 11 decisions on 2026-11-17 ("accepted!"). The 241 new records were then marked `reviewed` mechanically, and Strict passes. The in-game check was not reported, so that lane is untested; the table is in the [Atlas guide](atlas/README.md#in-game-check-ndl-012).
 
-## User Accepted
 
 The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas vertical slice, with the condition that the local viewer looks like the in-game window.
 

@@ -1,6 +1,6 @@
 # Atlas content review sheet
 
-> **Status: AWAITING HUMAN REVIEW (241 pending).** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.
+> **Status: REVIEWED.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.
 
 How to read it:
 
