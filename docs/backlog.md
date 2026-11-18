@@ -12,6 +12,23 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
+The user asked on 2026-11-17 for "a lot more story research to populate the Atlas" and chose the scope: the rest of A Realm Reborn 2.0 before the Black Wolf's Challenge, accepting a raised step bound.
+
+- [ ] `NDL-012` **Research and author ARR 2.0 before the Black Wolf (MSQ #102–#154)**
+  - Owner: `content` (research and records), `lead` (bound change and tests)
+  - Outcome: A player anywhere from the Company of Heroes' test (#103) to the armor being ready (#154) can open the Atlas at their quest and read a reviewed, spoiler-safe story so far and cast chart.
+  - Acceptance:
+    - One step per main-scenario quest from #102 to #153, both #150 paths included, ahead of the accepted A4 slice; every existing checkpoint ID is kept.
+    - Researched arcs with editorial boundaries backed by evidence ([ndl-012-discovery.md](atlas/ndl-012-discovery.md)): a recap at every step, casts of at most 10, and overlap proven in real content.
+    - Every claim quotes the quest's journal, steps or main dialogue verbatim, checked by script against the fetched page; optional and branch lines are left out.
+    - Spoiler rules hold at every step: no later quest title, no entity before it is visible, no surnames, Nero left out. Marques never shows Cid's name or portrait before #110.
+    - Accepted records are unchanged: A4's Arc lens rows and the v1 milestone pins still pass.
+    - The step bound rises from 16 to 128, flagged for review. All other bounds are unchanged.
+    - New records are `pending` until you accept them; then the mechanical marker commit runs, and Strict passes.
+  - Evidence: Locator verification; generator self-test; host tests (real-data pins, the new arc tests, the per-step and v2 leak sweeps); locked builds of the plugin and the viewer. In-game: a short do/expect check of the new steps. Human content review.
+  - Dependencies: Accepted `NDL-009` and `NDL-011`; branch `codex/ndl-012-arr-2-0-arcs`.
+  - Substantive PR: [#29](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/29)
+
 ## User Accepted
 
 The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas vertical slice, with the condition that the local viewer looks like the in-game window.
