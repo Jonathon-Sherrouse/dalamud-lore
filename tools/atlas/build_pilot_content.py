@@ -1339,7 +1339,7 @@ doc = {
 
 # An accepted key that no longer exists means a record was renamed or deleted: fail loudly instead of drifting.
 EMITTED_KEYS = {("presentation", e["id"], pr["validFrom"], pr["scope"]) for e in doc["entities"] for pr in e["presentations"]} | {("relationship", r["id"]) for r in doc["relationships"]} | {("portrait", e["id"]) for e in doc["entities"] if "portrait" in e}
-assert set(PORTRAITS) <= {e["id"] for e in doc["entities"]}, "PORTRAITS names an unknown entity" 
+assert LINT_ONLY or set(PORTRAITS) <= {e["id"] for e in doc["entities"]}, "PORTRAITS names an unknown entity"
 MISSING = missing_accepted(ACCEPTED_CORE, EMITTED_KEYS)  # stale ACCEPTED_LATER keys are dropped by --accept-pending
 if MISSING:
     sys.exit(f"ACCEPTED lists records that no longer exist: {MISSING}")
@@ -1498,7 +1498,8 @@ if ACCEPT_PENDING:
     keys += [("relationship", r["id"]) for r in doc["relationships"] if r["review"] == "pending"]
     keys += [("portrait", e["id"]) for e in doc["entities"] if e.get("portrait", {}).get("review") == "pending"]
     later = json.loads(ACCEPTED_LATER_FILE.read_text()) if ACCEPTED_LATER_FILE.exists() else []
-    later = [kv for kv in later if tuple(kv[0]) in EMITTED_KEYS] + [[list(k), FINGERPRINTS[k]] for k in keys]
+    # Replace, never duplicate: a record re-accepted after a change keeps only its new fingerprint.
+    later = [kv for kv in later if tuple(kv[0]) in EMITTED_KEYS and tuple(kv[0]) not in set(keys)] + [[list(k), FINGERPRINTS[k]] for k in keys]
     ACCEPTED_LATER_FILE.write_text(json.dumps(sorted(later), ensure_ascii=False, indent=0) + "\n")
     print(f"accepted {len(keys)} pending records into {ACCEPTED_LATER_FILE.name}; rerun the build")
     sys.exit(0)

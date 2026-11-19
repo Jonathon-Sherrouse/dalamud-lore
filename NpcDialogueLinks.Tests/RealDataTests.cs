@@ -238,9 +238,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (170 in all on 2026-11-19).
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (268 through Stormblood).
         Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
-        Assert.Equal(170, dataset.Entities.Count);
+        Assert.Equal(268, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);

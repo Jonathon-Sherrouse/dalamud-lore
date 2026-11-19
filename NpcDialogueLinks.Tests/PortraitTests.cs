@@ -138,6 +138,13 @@ public class PortraitTests
         "loc-waking-sands", "char-glaumunt", "char-slafborn", "char-teledji", "char-nabriales", "char-yuyuhase", "char-alianne",
         "char-wilred", "char-grinnaux", "char-zephirin", "char-dewlala", "char-guillaime", "char-iliud", "char-eline", "char-hydaelyn",
         "org-students-of-baldesion", "org-masks", "char-ivy", "char-masked-man", "char-marques",
+        // Stormblood: no faithful image, or a face would give away a disguise (Shadowhunter, the enigmatic figure).
+        "char-aulus", "char-bunchin", "char-curtis", "char-enigmatic-figure", "char-hakuro", "char-isse", "char-kaien", "char-maxima",
+        "char-meffrid", "char-sarisha", "char-shadowhunter", "char-shanti", "char-shiosai", "char-solus", "char-soroban", "char-stark",
+        "char-temulun", "char-theodoric", "char-tsuranuki", "char-wiscar", "evt-the-siege-of-specula-imperatoris", "loc-ala-ghiri",
+        "loc-castellum-velodyna", "loc-castrum-oriens", "loc-house-of-the-fierce", "loc-namai", "loc-specula-imperatoris",
+        "org-confederacy", "org-doman-liberation-front", "org-dotharl", "org-ferae-domitae", "org-oronir", "org-populares", "org-raen",
+        "org-sekiseigumi",
     ];
 
     [Fact]

@@ -11,9 +11,9 @@ the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the rev
 | `content_3_0_part1.py` | 3.0, *Coming to Ishgard* to *New Winds, Old Friends* | `cp-msq-242` … `cp-msq-291` | `e` |
 | `content_3_0_part2.py` | 3.0, *A General Summons* to *Heavensward* | `cp-msq-292` … `cp-hw-3-0` | `f` |
 | `content_3_1_to_3_56.py` | 3.1 to 3.56 | `cp-msq-336` … `cp-hw-3-56` | `g` |
-| `content_4_0_part1.py` | 4.0, *Beyond the Great Wall* to *Open Water* | `cp-msq-380` … `cp-msq-418` | `h` |
-| `content_4_0_part2.py` | 4.0, *Boys with Boats* to *In Crimson They Walked* | `cp-msq-419` … `cp-msq-464` | `i` |
-| `content_4_0_part3.py` | 4.0, *The Hour of Reckoning* to *Stormblood* | `cp-msq-465` … `cp-sb-4-0` | `j` |
+| `content_4_0_part1.py` | 4.0, *Beyond the Great Wall* to *Boys with Boats* | `cp-msq-380` … `cp-msq-418` | `h` |
+| `content_4_0_part2.py` | 4.0, *To Bend with the Wind* to *The Hour of Reckoning* | `cp-msq-419` … `cp-msq-464` | `i` |
+| `content_4_0_part3.py` | 4.0, *The Room Where It Happened* to *Stormblood* | `cp-msq-465` … `cp-sb-4-0` | `j` |
 | `content_4_1_to_4_56.py` | 4.1 to 4.56 | `cp-msq-502` … `cp-sb-4-56` | `k` |
 
 The timeline itself is `timeline_2x_3x.py` and, for Stormblood, `timeline_4x.py`: one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
