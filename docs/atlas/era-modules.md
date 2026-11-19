@@ -1,7 +1,7 @@
 # Atlas era modules (patches 2.1–3.56)
 
-Starting 2026-11-19, the Atlas covers every main-scenario quest through *The Far Edge of Fate* (3.56). The content after
-2.0 lives in five data-only Python modules under `tools/atlas/`, one per era. `build_pilot_content.py` merges them with
+Starting 2026-11-19, the Atlas covers every main-scenario quest through *A Requiem for Heroes* (4.56). The content after
+2.0 lives in data-only Python modules under `tools/atlas/`, one per era. `build_pilot_content.py` merges them with
 the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the review sheets, and lints them.
 
 | Module | Era | Steps it may start records on | Arc tag |
@@ -11,11 +11,16 @@ the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the rev
 | `content_3_0_part1.py` | 3.0, *Coming to Ishgard* to *New Winds, Old Friends* | `cp-msq-242` … `cp-msq-291` | `e` |
 | `content_3_0_part2.py` | 3.0, *A General Summons* to *Heavensward* | `cp-msq-292` … `cp-hw-3-0` | `f` |
 | `content_3_1_to_3_56.py` | 3.1 to 3.56 | `cp-msq-336` … `cp-hw-3-56` | `g` |
+| `content_4_0_part1.py` | 4.0, *Beyond the Great Wall* to *Boys with Boats* | `cp-msq-380` … `cp-msq-418` | `h` |
+| `content_4_0_part2.py` | 4.0, *To Bend with the Wind* to *The Hour of Reckoning* | `cp-msq-419` … `cp-msq-464` | `i` |
+| `content_4_0_part3.py` | 4.0, *The Room Where It Happened* to *Stormblood* | `cp-msq-465` … `cp-sb-4-0` | `j` |
+| `content_4_1_to_4_56.py` | 4.1 to 4.56 | `cp-msq-502` … `cp-sb-4-56` | `k` |
 
-The timeline itself is `timeline_2x_3x.py`: one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
+The timeline itself is `timeline_2x_3x.py` and, for Stormblood, `timeline_4x.py`: one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
 parallel paths share an index (`cp-msq-234b`, `cp-msq-245b` … `cp-msq-251b`, `cp-msq-282b`, `cp-msq-282c`). Each step
 means "after this quest". Each patch's last quest is a milestone instead of a step: `cp-arr-2-55` (after *Before the
-Dawn*), `cp-hw-3-0` (after *Heavensward*) and `cp-hw-3-56` (after *The Far Edge of Fate*). The 2.0 milestone,
+Dawn*), `cp-hw-3-0` (after *Heavensward*), `cp-hw-3-56` (after *The Far Edge of Fate*), `cp-sb-4-0` (after *Stormblood*) and
+`cp-sb-4-56` (after *A Requiem for Heroes*). The 2.0 milestone,
 `cp-arr-2-0`, comes right before `cp-msq-162`.
 
 ## Commands
@@ -89,6 +94,8 @@ ALLOW = {}  # a banned term this era needs -> the first step it may appear (the 
   | The Dravanian Horde | `org-dravanian-horde` |
   | Beast tribes | `org-<tribe>`, as `org-ixal` (`org-sahagin`, `org-kobolds`, `org-amaljaa`, `org-sylphs`, `org-moogles`, `org-gnath`, `org-vanu-vanu`) |
   | Primals and dragons | `char-<name>`, as `char-titan` (`char-leviathan`, `char-ramuh`, `char-shiva`, `char-nidhogg` …) |
+  | Ala Mhigo, Gyr Abania's resistance; Doma's people; the Xaela tribes | `loc-ala-mhigo`, `org-ala-mhigan-resistance`, `org-doman-refugees`, `org-<tribe>` (`org-mol`, `org-oronir`, `org-dotharl` …) |
+  | Zenos (the 3.56 entry is `char-zenos`, named "The Viceroy") | `char-zenos` |
 
 - Relationships: `rel-<source without prefix>-<type>-<target without prefix>`, with `-2`, `-3` for a later interval
   of the same triple. Arcs: `arc-<tag><n>-<slug>`. Claims: `M` + the step's number and suffix + a letter (`M200a`,

@@ -2,7 +2,7 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
-> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #102 through 3.56 (*Fly Free, My Pretty*), plus the 2.0, 2.55, 3.0 and 3.56 milestones: 278 points and 37 arcs. See [through-heavensward.md](through-heavensward.md).
+> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #102 through 4.56 (*A Brief Reprieve*), plus the 2.0, 2.55, 3.0, 3.56, 4.0 and 4.56 milestones: 440 points and 62 arcs. See [through-heavensward.md](through-heavensward.md) and [through-stormblood.md](through-stormblood.md).
 
 > **Earlier coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
 
@@ -144,4 +144,18 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 10 | View → "After Rock the Castrum", search "Raubahn". | Raubahn is there (from #159), with no 2.1+ details. |
 | 11 | View → "After Coming to Ishgard" (Arc lens). | Nearly every node is a round portrait: the arc's picture is Ishgard, and Artoirel, Emmanellain and Edmont show their cards. |
 | 12 | View → "After All Good Things", search "Marques". | Marques is still a shape with no portrait, so Cid's face never shows before #110. |
+
+## In-game check (through Stormblood)
+
+> **Status:** not run in game.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | **Raise…** → "Stormblood — Patch 4.56 complete" → **Show**. Open **Viewing as of**. | The list runs on past 3.56 to "After A Brief Reprieve" and the 4.0 and 4.56 milestones. |
+| 2 | View → "After Beyond the Great Wall". | Arc lens: *Envoys to the Resistance*, with Conrad's portrait in the cast. |
+| 3 | View → "After A Familiar Face Forgotten". | Arc lens: *Return to Ala Gannha* (the second Gyr Abania chain). |
+| 4 | View → "After Once More, to the Ruby Sea", search "Hien". | Hien, with his card portrait. |
+| 5 | View → "Stormblood — Patch 4.0 complete". | *The March on Ala Mhigo*. Zenos's entry says he took his own life. |
+| 6 | View → "After Gosetsu and Tsuyu", search "Tsuyu". | Yotsuyu, also searchable as Tsuyu. |
+| 7 | View → "Stormblood — Patch 4.56 complete". | *War on the Border*. No "Exarch" anywhere; the hooded figure is "the enigmatic figure", with no portrait. |
 

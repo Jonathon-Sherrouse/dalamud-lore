@@ -13,12 +13,17 @@ public class RealDataTests
     private const string Cp255 = "cp-arr-2-55";
     private const string Cp30 = "cp-hw-3-0";
     private const string Cp356 = "cp-hw-3-56";
+    private const string Cp40 = "cp-sb-4-0";
+    private const string Cp456 = "cp-sb-4-56";
 
     private static string RealPath => Path.Combine(AppContext.BaseDirectory, "atlas.json");
 
+    /// <summary>Parsed once: the file is several megabytes, and hundreds of per-checkpoint cases read it.</summary>
+    private static readonly Lazy<AtlasLoadResult> Draft = new(() => AtlasLoader.LoadFile(RealPath, AtlasValidationMode.Draft));
+
     private static AtlasDataset LoadDraft()
     {
-        var result = AtlasLoader.LoadFile(RealPath, AtlasValidationMode.Draft);
+        var result = Draft.Value;
         Assert.True(result.Success, "atlas.json failed Draft validation:\n" + string.Join("\n", result.Errors));
         return result.Dataset!;
     }
@@ -114,9 +119,10 @@ public class RealDataTests
 
         // After 2.0 (2026-11-19): one step per main-scenario quest of 2.1–3.56, generated from the wiki infoboxes
         // (tools/atlas/timeline_2x_3x.py), with each patch's last quest as a milestone: 2.55, 3.0 and 3.56.
-        Assert.Equal(278, dataset.Checkpoints.Count);
+        // Stormblood (2026-11-19): one step per quest of 4.0–4.56 (tools/atlas/timeline_4x.py), with the 4.0 and 4.56 milestones.
+        Assert.Equal(440, dataset.Checkpoints.Count);
         Assert.Equal(
-            new[] { (Cp20, 59, 70058), (Cp255, 139, 65964), (Cp30, 233, 67205), (Cp356, 277, 67895) },
+            new[] { (Cp20, 59, 70058), (Cp255, 139, 65964), (Cp30, 233, 67205), (Cp356, 277, 67895), (Cp40, 399, 68089), (Cp456, 439, 68721) },
             dataset.Checkpoints.Where(c => c.Milestone).Select(c => (c.Id, c.Order, c.GameQuestIds.Single())));
         Assert.Equal("A Realm Reborn — Patch 2.55 complete", dataset.Checkpoints[139].Label);
         Assert.Equal("Heavensward — Patch 3.0 complete", dataset.Checkpoints[233].Label);
@@ -127,13 +133,19 @@ public class RealDataTests
         Assert.Equal(("cp-msq-334", "Fetters of Lament"), (dataset.Checkpoints[232].Id, dataset.Checkpoints[232].QuestTitle));
         Assert.Equal(("cp-msq-336", "An Uncertain Future"), (dataset.Checkpoints[234].Id, dataset.Checkpoints[234].QuestTitle));
         Assert.Equal(("cp-msq-378", "Fly Free, My Pretty"), (dataset.Checkpoints[276].Id, dataset.Checkpoints[276].QuestTitle));
+        Assert.Equal(("cp-msq-380", "Beyond the Great Wall", 67982), (dataset.Checkpoints[278].Id, dataset.Checkpoints[278].QuestTitle, dataset.Checkpoints[278].GameQuestIds.Single()));
+        Assert.Equal(("cp-msq-500", "The Measure of His Reach"), (dataset.Checkpoints[398].Id, dataset.Checkpoints[398].QuestTitle));
+        Assert.Equal(("cp-msq-502", "Arenvald's Adventure"), (dataset.Checkpoints[400].Id, dataset.Checkpoints[400].QuestTitle));
+        Assert.Equal(("cp-msq-540", "A Brief Reprieve"), (dataset.Checkpoints[438].Id, dataset.Checkpoints[438].QuestTitle));
+        Assert.Equal("Stormblood — Patch 4.0 complete", dataset.Checkpoints[399].Label);
+        Assert.Equal("Stormblood — Patch 4.56 complete", dataset.Checkpoints[439].Label);
         Assert.Equal(dataset.Checkpoints.Count, dataset.Checkpoints.Select(c => c.Id).Distinct().Count());
         Assert.All(dataset.Checkpoints.Where(c => !c.Milestone), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
 
         // Not contiguous: the first step, and each step that follows another parallel path (#150, 2.55's pairs, the
         // Artoirel and Emmanellain chains, the moogle trials). Every milestone follows its patch's last quest.
         Assert.Equal(
-            new[] { "cp-msq-102", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c" },
+            new[] { "cp-msq-102", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c" },
             dataset.Checkpoints.Where(c => !c.ContiguousWithPrevious).Select(c => c.Id));
     }
 
@@ -208,7 +220,7 @@ public class RealDataTests
 
     /// <summary>NDL-012: every step from #102 to #160, read from the file, so the sweeps cover the whole timeline.</summary>
     private static string[] SliceSteps =>
-        AtlasLoader.LoadFile(RealPath, AtlasValidationMode.Draft).Dataset!.Checkpoints.Where(c => !c.Milestone).Select(c => c.Id).ToArray();
+        Draft.Value.Dataset!.Checkpoints.Where(c => !c.Milestone).Select(c => c.Id).ToArray();
 
     [Theory]
     [MemberData(nameof(AllCheckpoints))]
@@ -226,9 +238,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (170 in all on 2026-11-19).
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (268 through Stormblood).
         Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
-        Assert.Equal(170, dataset.Entities.Count);
+        Assert.Equal(268, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);
