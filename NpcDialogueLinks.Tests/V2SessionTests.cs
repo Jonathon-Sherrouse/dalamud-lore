@@ -323,7 +323,8 @@ public class V2LeakSweepTests
 {
     private const string EndOnlySource = "End-only evidence for the release";
 
-    public static TheoryData<string> Datasets() => new() { "v2fx", "arc-sample", "real" };
+    /// <summary>The exhaustive sweep runs on the synthetic data; the real timeline has its own sweep below.</summary>
+    public static TheoryData<string> Datasets() => new() { "v2fx", "arc-sample" };
 
     private static AtlasDataset LoadNamed(string name)
     {
@@ -399,6 +400,69 @@ public class V2LeakSweepTests
         Assert.True(stops > 100, $"only {stops} stops swept");
     }
 
+    /// <summary>
+    /// The real timeline (one step per quest through 3.56): the exhaustive sweep grows with the cube of the step count,
+    /// so this one keeps what the content can break and drops what the synthetic sweep already proves for the code.
+    /// Every view is swept at its own limit (the strictest picker check: everything past it is locked), in both content
+    /// views and all three lenses, with no pick, each arc containing the view, and the most recently ended arc. Each
+    /// arc's pick is also held along a walk from its last step down to two steps before its first and back up. Surfaces
+    /// skip the refocus of every entry: each neighbour's entry and edge is already on the snapshot.
+    /// </summary>
+    [Fact]
+    public void Sweep_RealTimeline_EveryViewLensAndArc()
+    {
+        var d = LoadNamed("real");
+        var stops = 0;
+        foreach (var contentView in new[] { AtlasContentView.MainStory, AtlasContentView.MainAndOptional })
+        {
+            foreach (var lens in new[] { AtlasLens.Arc, AtlasLens.StoryPoint, AtlasLens.Changes })
+            {
+                foreach (var view in d.Checkpoints)
+                {
+                    var eligible = AtlasArcs.Eligible(d, view.Id, contentView).Select(a => a.ArcId).ToHashSet();
+                    var arcs = d.Arcs.Where(a => eligible.Contains(a.Id)).ToList();
+                    var picks = new List<string?> { null };
+                    picks.AddRange(arcs.Where(a => a.LastOrder >= view.Order).Select(a => a.Id));
+                    picks.AddRange(arcs.Where(a => a.LastOrder < view.Order).OrderByDescending(a => a.LastOrder).Take(1).Select(a => a.Id));
+                    foreach (var pick in picks)
+                    {
+                        var s = Open(d, view, view, contentView, lens, pick);
+                        Check(d, s, view, contentView, $"real limit=view={view.Id} {contentView} {lens} pick={pick}", refocus: false);
+                        stops++;
+                    }
+                }
+
+                foreach (var arc in d.Arcs)
+                {
+                    // Held from the last step down to the first and back up, then past the first (where it drops) and back.
+                    var last = d.Checkpoints[arc.LastOrder];
+                    var held = Open(d, last, last, contentView, lens, arc.Id);
+                    var turn = d.Checkpoints.Where(c => c.Order >= arc.FirstOrder && c.Order < last.Order).Reverse()
+                        .Concat(d.Checkpoints.Where(c => c.Order > arc.FirstOrder && c.Order <= last.Order));
+                    foreach (var step in turn)
+                    {
+                        held.SetView(step.Id);
+                        Assert.True(held.ArcPickerOptions.Single(o => o.ArcId == arc.Id).IsCurrent, $"pick {arc.Id} lost at {step.Id}");
+                        Check(d, held, last, contentView, $"real held walk limit={last.Id} at={step.Id} {contentView} {lens} pick={arc.Id}", refocus: false);
+                        stops++;
+                    }
+
+                    var bottom = Math.Max(0, arc.FirstOrder - 2);
+                    var below = d.Checkpoints.Where(c => c.Order >= bottom && c.Order < last.Order).Reverse()
+                        .Concat(d.Checkpoints.Where(c => c.Order > bottom && c.Order <= arc.FirstOrder));
+                    foreach (var step in below)
+                    {
+                        held.SetView(step.Id);
+                        Check(d, held, last, contentView, $"real walk limit={last.Id} at={step.Id} {contentView} {lens} pick={arc.Id}", refocus: false);
+                        stops++;
+                    }
+                }
+            }
+        }
+
+        Assert.True(stops > 1000, $"only {stops} stops swept");
+    }
+
     private static AtlasSession Open(AtlasDataset d, AtlasCheckpoint ceiling, AtlasCheckpoint view, AtlasContentView contentView, AtlasLens lens, string? pick)
     {
         var s = new AtlasSession(d, new AtlasSpoilerState(ceiling.Id, view.Id), contentView);
@@ -407,10 +471,10 @@ public class V2LeakSweepTests
         return s;
     }
 
-    private static void Check(AtlasDataset d, AtlasSession s, AtlasCheckpoint ceiling, AtlasContentView contentView, string where)
+    private static void Check(AtlasDataset d, AtlasSession s, AtlasCheckpoint ceiling, AtlasContentView contentView, string where, bool refocus = true)
     {
         Assert.True(d.TryGetCheckpoint(s.SpoilerState.ViewId, out var view));
-        var surface = Gather(s);
+        var surface = Gather(s, refocus);
         var (knownEntities, knownRelationships, knownSources, laterBad) = Known(d, view, contentView);
 
         foreach (var entity in surface.Entities)
@@ -446,9 +510,14 @@ public class V2LeakSweepTests
             Assert.All(row.EndCitations, c => Assert.True(allowed.Contains((c.Title, c.Url?.ToString())), $"end citation '{c.Title}' ({c.Url}) is not {row.Key}'s own available end evidence at {where}"));
         }
 
-        foreach (var bad in laterBad)
+        // One scan for every later name, source and quest title; only a hit falls back to naming the culprit.
+        var joined = string.Join("\n", surface.Texts);
+        if (LaterPattern(d, view, contentView, laterBad) is { } pattern && pattern.IsMatch(joined))
         {
-            AssertNoText(surface.Texts, bad, where);
+            foreach (var bad in laterBad)
+            {
+                AssertNoText(surface.Texts, bad, where);
+            }
         }
 
         var lockedTitles = d.Checkpoints.Where(c => c.Order > ceiling.Order)
@@ -505,6 +574,23 @@ public class V2LeakSweepTests
     private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), (HashSet<(string, string, string, string)>, HashSet<(string, string, string, string)>, HashSet<AtlasCitationView>, List<string>)>> KnownCache = new();
 
     private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), AtlasSnapshot>> ProjectionCache = new();
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), System.Text.RegularExpressions.Regex?>> PatternCache = new();
+
+    private static System.Text.RegularExpressions.Regex? LaterPattern(AtlasDataset d, AtlasCheckpoint view, AtlasContentView contentView, List<string> laterBad)
+    {
+        var cache = PatternCache.GetOrCreateValue(d);
+        lock (cache)
+        {
+            if (!cache.TryGetValue((view.Id, contentView), out var pattern))
+            {
+                cache[(view.Id, contentView)] = pattern = laterBad.Count == 0 ? null
+                    : new System.Text.RegularExpressions.Regex(string.Join("|", laterBad.Select(System.Text.RegularExpressions.Regex.Escape)), System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+            }
+
+            return pattern;
+        }
+    }
 
     private static AtlasSnapshot Project(AtlasDataset d, string checkpointId, AtlasContentView view)
     {
@@ -598,7 +684,7 @@ public class V2LeakSweepTests
         }
     }
 
-    private static Surface Gather(AtlasSession s)
+    private static Surface Gather(AtlasSession s, bool refocus = true)
     {
         var x = new Surface();
         x.Texts.Add(s.PositionLabel);
@@ -663,7 +749,7 @@ public class V2LeakSweepTests
 
         // Refocusing every entry on the snapshot (the arc entry included) shows its one-hop surface.
         var focusBefore = s.FocusId;
-        foreach (var entity in s.Snapshot.Entities.ToList())
+        foreach (var entity in refocus ? s.Snapshot.Entities.ToList() : [])
         {
             if (s.FocusOn(entity.Id) && s.Neighborhood is { } neighborhood)
             {

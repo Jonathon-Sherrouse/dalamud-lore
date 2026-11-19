@@ -11,6 +11,8 @@ public class RealDataTests
 {
     private const string Cp20 = "cp-arr-2-0";
     private const string Cp255 = "cp-arr-2-55";
+    private const string Cp30 = "cp-hw-3-0";
+    private const string Cp356 = "cp-hw-3-56";
 
     private static string RealPath => Path.Combine(AppContext.BaseDirectory, "atlas.json");
 
@@ -107,16 +109,32 @@ public class RealDataTests
                 ("cp-msq-159", "After Hearts on Fire", 69408),
                 ("cp-msq-160", "After Rock the Castrum", 69409),
                 (Cp20, "A Realm Reborn — Patch 2.0 complete", 70058), // The Ultimate Weapon (#161)
-                (Cp255, "A Realm Reborn — Patch 2.55 complete", 65964), // Before the Dawn
             },
-            dataset.Checkpoints.Select(c => (c.Id, c.Label, c.GameQuestIds.Single())));
-        var steps = dataset.Checkpoints.Count - 2;
-        Assert.Equal(59, steps);
-        Assert.All(dataset.Checkpoints.Take(steps), c => Assert.False(c.Milestone));
-        Assert.All(dataset.Checkpoints.Skip(steps), c => Assert.True(c.Milestone));
-        Assert.All(dataset.Checkpoints.Take(steps), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
-        // Not contiguous: the first step, Acting the Part (it follows the other #150 path), and the 2.55 milestone.
-        Assert.Equal(new[] { "cp-msq-102", "cp-msq-150b", Cp255 }, dataset.Checkpoints.Where(c => !c.ContiguousWithPrevious).Select(c => c.Id));
+            dataset.Checkpoints.Take(60).Select(c => (c.Id, c.Label, c.GameQuestIds.Single())));
+
+        // After 2.0 (2026-11-19): one step per main-scenario quest of 2.1–3.56, generated from the wiki infoboxes
+        // (tools/atlas/timeline_2x_3x.py), with each patch's last quest as a milestone: 2.55, 3.0 and 3.56.
+        Assert.Equal(278, dataset.Checkpoints.Count);
+        Assert.Equal(
+            new[] { (Cp20, 59, 70058), (Cp255, 139, 65964), (Cp30, 233, 67205), (Cp356, 277, 67895) },
+            dataset.Checkpoints.Where(c => c.Milestone).Select(c => (c.Id, c.Order, c.GameQuestIds.Single())));
+        Assert.Equal("A Realm Reborn — Patch 2.55 complete", dataset.Checkpoints[139].Label);
+        Assert.Equal("Heavensward — Patch 3.0 complete", dataset.Checkpoints[233].Label);
+        Assert.Equal("Heavensward — Patch 3.56 complete", dataset.Checkpoints[277].Label);
+        Assert.Equal(("cp-msq-162", "The Price of Principles", 66711), (dataset.Checkpoints[60].Id, dataset.Checkpoints[60].QuestTitle, dataset.Checkpoints[60].GameQuestIds.Single()));
+        Assert.Equal(("cp-msq-240", "The Parting Glass"), (dataset.Checkpoints[138].Id, dataset.Checkpoints[138].QuestTitle));
+        Assert.Equal(("cp-msq-242", "Coming to Ishgard"), (dataset.Checkpoints[140].Id, dataset.Checkpoints[140].QuestTitle));
+        Assert.Equal(("cp-msq-334", "Fetters of Lament"), (dataset.Checkpoints[232].Id, dataset.Checkpoints[232].QuestTitle));
+        Assert.Equal(("cp-msq-336", "An Uncertain Future"), (dataset.Checkpoints[234].Id, dataset.Checkpoints[234].QuestTitle));
+        Assert.Equal(("cp-msq-378", "Fly Free, My Pretty"), (dataset.Checkpoints[276].Id, dataset.Checkpoints[276].QuestTitle));
+        Assert.Equal(dataset.Checkpoints.Count, dataset.Checkpoints.Select(c => c.Id).Distinct().Count());
+        Assert.All(dataset.Checkpoints.Where(c => !c.Milestone), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
+
+        // Not contiguous: the first step, and each step that follows another parallel path (#150, 2.55's pairs, the
+        // Artoirel and Emmanellain chains, the moogle trials). Every milestone follows its patch's last quest.
+        Assert.Equal(
+            new[] { "cp-msq-102", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c" },
+            dataset.Checkpoints.Where(c => !c.ContiguousWithPrevious).Select(c => c.Id));
     }
 
     /// <summary>
@@ -228,8 +246,27 @@ public class RealDataTests
         "Shadowbringers", "Stormblood", "Endwalker", "Bahamut stirs", "the Reckoning", "Dark One", "new primal",
     ];
 
-    /// <summary>Things that exist only from 2.1 onward and must never surface in a 2.0 snapshot.</summary>
-    private static readonly string[] NotYetAt20 = ["Crystal Braves", "Rising Stones", "banquet", "regicide"];
+    /// <summary>
+    /// Banned names and phrases that the story itself establishes later: each may appear from the step named here on
+    /// (2026-11-19, the timeline through 3.56). Mirrored in tools/atlas/build_pilot_content.py (ALLOWED_FROM).
+    /// </summary>
+    private static readonly Dictionary<string, string> AllowedFrom = new()
+    {
+    };
+
+    /// <summary>Terms of the 2.x story that must not surface before the quest that introduces them (case-insensitive).</summary>
+    private static readonly (string Term, string From)[] NotBefore =
+    [
+        ("Rising Stones", "cp-msq-171"), ("Crystal Braves", "cp-msq-199"), ("regicide", "cp-msq-168"), ("banquet", "cp-msq-233"),
+    ];
+
+    private static readonly HashSet<string> QuestTitles =
+        AtlasLoader.LoadFile(RealPath, AtlasValidationMode.Draft).Dataset!.Checkpoints.Select(c => c.QuestTitle).OfType<string>().ToHashSet();
+
+    private static readonly Dictionary<string, int> Orders =
+        AtlasLoader.LoadFile(RealPath, AtlasValidationMode.Draft).Dataset!.Checkpoints.ToDictionary(c => c.Id, c => c.Order);
+
+    private static int OrderOf(string checkpoint) => Orders[checkpoint];
 
     public static TheoryData<string, AtlasContentView> AllSnapshots()
     {
@@ -248,24 +285,23 @@ public class RealDataTests
     public void Real_NoDisplayedTextLeaksLaterStory(string checkpoint, AtlasContentView view)
     {
         var snapshot = AtlasProjector.Project(LoadDraft(), checkpoint, view);
+        var at = OrderOf(checkpoint);
+        bool Allowed(string term) => AllowedFrom.TryGetValue(term, out var from) && at >= OrderOf(from);
         foreach (var text in DisplayedText(snapshot))
         {
-            foreach (var name in BannedNames)
+            foreach (var name in BannedNames.Where(n => !Allowed(n)))
             {
                 Assert.False(Regex.IsMatch(text, $@"(?<![\p{{L}}-]){Regex.Escape(name)}(?![\p{{L}}-])"), $"'{name}' appears in: {text}");
             }
 
-            foreach (var phrase in BannedPhrases)
+            foreach (var phrase in BannedPhrases.Where(n => !Allowed(n)))
             {
                 Assert.False(text.Contains(phrase, StringComparison.OrdinalIgnoreCase), $"'{phrase}' appears in: {text}");
             }
 
-            if (checkpoint != Cp255)
+            foreach (var (term, from) in NotBefore.Where(n => at < OrderOf(n.From)))
             {
-                foreach (var phrase in NotYetAt20)
-                {
-                    Assert.False(text.Contains(phrase, StringComparison.OrdinalIgnoreCase), $"2.55 term '{phrase}' appears at 2.0 in: {text}");
-                }
+                Assert.False(text.Contains(term, StringComparison.OrdinalIgnoreCase), $"'{term}' appears before {from} in: {text}");
             }
         }
     }
@@ -289,8 +325,13 @@ public class RealDataTests
             Assert.StartsWith("/wiki/", url.AbsolutePath, StringComparison.Ordinal);
             Assert.Empty(url.Query);
             var page = Uri.UnescapeDataString(url.AbsolutePath["/wiki/".Length..]);
-            Assert.DoesNotContain(NeverLink, bad => page.Contains(bad, StringComparison.OrdinalIgnoreCase));
-            if (checkpoint != Cp255)
+            var quest = page.Replace('_', ' ').Replace(" (Quest)", string.Empty, StringComparison.Ordinal);
+            if (!QuestTitles.Contains(quest)) // a quest's own title (such as Shadows of the First) is not a name page
+            {
+                Assert.DoesNotContain(NeverLink, bad => page.Contains(bad, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (OrderOf(checkpoint) < OrderOf(Cp255))
             {
                 Assert.DoesNotContain("Louisoix", page, StringComparison.OrdinalIgnoreCase);
             }

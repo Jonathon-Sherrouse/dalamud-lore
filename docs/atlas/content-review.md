@@ -103,7 +103,224 @@ Visible records at each step, in the main-story view and the main + optional vie
 | #159 After Hearts on Fire | 40 | 40 | 80 | 80 |
 | #160 After Rock the Castrum | 40 | 40 | 78 | 78 |
 | 2.0 A Realm Reborn — Patch 2.0 complete | 42 | 42 | 77 | 79 |
+| #162 After The Price of Principles | 42 | 42 | 77 | 79 |
+| #163 After Moving On | 42 | 42 | 77 | 79 |
+| #164 After All Things in Time | 42 | 42 | 77 | 79 |
+| #165 After Laying the Foundation | 42 | 42 | 77 | 79 |
+| #166 After It's Possibly a Primal | 42 | 42 | 77 | 79 |
+| #167 After Hail to the King, Kupo | 42 | 42 | 77 | 79 |
+| #168 After You Have Selected Regicide | 42 | 42 | 77 | 79 |
+| #169 After On the Properties of Primals | 42 | 42 | 77 | 79 |
+| #170 After The Gifted | 42 | 42 | 77 | 79 |
+| #171 After Build on the Stone | 42 | 42 | 77 | 79 |
+| #172 After Still Waters | 42 | 42 | 77 | 79 |
+| #173 After A Final Temptation | 42 | 42 | 77 | 79 |
+| #174 After The Mother of Exiles | 42 | 42 | 77 | 79 |
+| #175 After Promises to Keep | 42 | 42 | 77 | 79 |
+| #176 After Yugiri's Game | 42 | 42 | 77 | 79 |
+| #177 After Why We Adventure | 42 | 42 | 77 | 79 |
+| #178 After All Due Respect | 42 | 42 | 77 | 79 |
+| #179 After The Sea Rises | 42 | 42 | 77 | 79 |
+| #180 After Scouts in Distress | 42 | 42 | 77 | 79 |
+| #181 After The Gift of Eternity | 42 | 42 | 77 | 79 |
+| #182 After Into the Heart of the Whorl | 42 | 42 | 77 | 79 |
+| #183 After Lord of the Whorl | 42 | 42 | 77 | 79 |
+| #184 After When Yugiri Met the Fraternity | 42 | 42 | 77 | 79 |
+| #185 After Through the Maelstrom | 42 | 42 | 77 | 79 |
+| #186 After The Great Divide | 42 | 42 | 77 | 79 |
+| #187 After Desperate Times | 42 | 42 | 77 | 79 |
+| #188 After Shock and Awe | 42 | 42 | 77 | 79 |
+| #189 After Reap the Whirlwind | 42 | 42 | 77 | 79 |
+| #190 After Revolution | 42 | 42 | 77 | 79 |
+| #191 After Stories We Tell | 42 | 42 | 77 | 79 |
+| #192 After Lord of Levin | 42 | 42 | 77 | 79 |
+| #193 After Levin an Impression | 42 | 42 | 77 | 79 |
+| #194 After What Little Gods Are Made Of | 42 | 42 | 77 | 79 |
+| #195 After Guardian of Eorzea | 42 | 42 | 77 | 79 |
+| #196 After Recruiting the Realm | 42 | 42 | 77 | 79 |
+| #197 After Heretical Harassment | 42 | 42 | 77 | 79 |
+| #198 After When the Cold Sets In | 42 | 42 | 77 | 79 |
+| #199 After Brave New Companions | 42 | 42 | 77 | 79 |
+| #200 After Traitor in the Midst | 42 | 42 | 77 | 79 |
+| #201 After Back and Fourth | 42 | 42 | 77 | 79 |
+| #202 After Coming to Terms | 42 | 42 | 77 | 79 |
+| #203 After The Intercession of Saints | 42 | 42 | 77 | 79 |
+| #204 After Strength in Unity | 42 | 42 | 77 | 79 |
+| #205 After Dark Words, Dark Deeds | 42 | 42 | 77 | 79 |
+| #206 After First Blood | 42 | 42 | 77 | 79 |
+| #207 After The Path of the Righteous | 42 | 42 | 77 | 79 |
+| #208 After For the Greater Good | 42 | 42 | 77 | 79 |
+| #209 After Tendrils of Intrigue | 42 | 42 | 77 | 79 |
+| #210 After Chasing Ivy | 42 | 42 | 77 | 79 |
+| #211 After In Flagrante Delicto | 42 | 42 | 77 | 79 |
+| #212 After A Simple Plan | 42 | 42 | 77 | 79 |
+| #213 After The Instruments of Our Deliverance | 42 | 42 | 77 | 79 |
+| #214 After The Road Less Traveled | 42 | 42 | 77 | 79 |
+| #215 After Eyes Unclouded | 42 | 42 | 77 | 79 |
+| #216 After The Reason Roaille | 42 | 42 | 77 | 79 |
+| #217 After Let Us Cling Together | 42 | 42 | 77 | 79 |
+| #218 After Good Intentions | 42 | 42 | 77 | 79 |
+| #219 After Bait and Switch | 42 | 42 | 77 | 79 |
+| #220 After Best-laid Schemes | 42 | 42 | 77 | 79 |
+| #221 After The Rising Chorus | 42 | 42 | 77 | 79 |
+| #222 After Aether on Demand | 42 | 42 | 77 | 79 |
+| #223 After On the Counteroffensive | 42 | 42 | 77 | 79 |
+| #224 After An Uninvited Ascian | 42 | 42 | 77 | 79 |
+| #225 After In Memory of Moenbryda | 42 | 42 | 77 | 79 |
+| #226 After Mask of Grief | 42 | 42 | 77 | 79 |
+| #227 After Defenders for Ishgard | 42 | 42 | 77 | 79 |
+| #228 After The Wyrm's Roar | 42 | 42 | 77 | 79 |
+| #229 After Committed to the Cause | 42 | 42 | 77 | 79 |
+| #230 After Volunteer Dragonslayers | 42 | 42 | 77 | 79 |
+| #231 After An Allied Perspective | 42 | 42 | 77 | 79 |
+| #232 After The Steps of Faith | 42 | 42 | 77 | 79 |
+| #233 After Administrative Decision | 42 | 42 | 77 | 79 |
+| #234 After An Unexpected Ambition | 42 | 42 | 77 | 79 |
+| #235 After Ancient Ways, Timeless Wants | 42 | 42 | 77 | 79 |
+| #234b After Where We Are Needed | 42 | 42 | 77 | 79 |
+| #235b After The Least among Us | 42 | 42 | 77 | 79 |
+| #238 After A Time to Every Purpose | 42 | 42 | 77 | 79 |
+| #239 After Come, but Not Gone | 42 | 42 | 77 | 79 |
+| #240 After The Parting Glass | 42 | 42 | 77 | 79 |
 | 2.55 A Realm Reborn — Patch 2.55 complete | 44 | 44 | 79 | 82 |
+| #242 After Coming to Ishgard | 44 | 44 | 79 | 82 |
+| #243 After Taking in the Sights | 44 | 44 | 79 | 82 |
+| #244 After The Better Half | 44 | 44 | 79 | 82 |
+| #245 After Over the Wall | 44 | 44 | 79 | 82 |
+| #246 After Work in Progress | 44 | 44 | 79 | 82 |
+| #247 After The First and Foremost | 44 | 44 | 79 | 82 |
+| #248 After From on High | 44 | 44 | 79 | 82 |
+| #249 After Reconnaissance Lost | 44 | 44 | 79 | 82 |
+| #250 After At the End of Our Hope | 44 | 44 | 79 | 82 |
+| #251 After Knights Be Not Proud | 44 | 44 | 79 | 82 |
+| #245b After Onwards and Upwards | 44 | 44 | 79 | 82 |
+| #246b After An Indispensable Ally | 44 | 44 | 79 | 82 |
+| #247b After Meeting the Neighbors | 44 | 44 | 79 | 82 |
+| #248b After Sense of Urgency | 44 | 44 | 79 | 82 |
+| #249b After Hope Springs Eternal | 44 | 44 | 79 | 82 |
+| #250b After A Series of Unfortunate Events | 44 | 44 | 79 | 82 |
+| #251b After A Reward Long in Coming | 44 | 44 | 79 | 82 |
+| #259 After Divine Intervention | 44 | 44 | 79 | 82 |
+| #260 After Disclosure | 44 | 44 | 79 | 82 |
+| #261 After Flame General Affairs | 44 | 44 | 79 | 82 |
+| #262 After In Search of Raubahn | 44 | 44 | 79 | 82 |
+| #263 After Keeping the Flame Alive | 44 | 44 | 79 | 82 |
+| #264 After To Siege or Not to Siege | 44 | 44 | 79 | 82 |
+| #265 After Alphinaud's Way | 44 | 44 | 79 | 82 |
+| #266 After In Search of Iceheart | 44 | 44 | 79 | 82 |
+| #267 After From One Heretic to Another | 44 | 44 | 79 | 82 |
+| #268 After Sounding Out the Amphitheatre | 44 | 44 | 79 | 82 |
+| #269 After Camp of the Convictors | 44 | 44 | 79 | 82 |
+| #270 After Purple Flame, Purple Flame | 44 | 44 | 79 | 82 |
+| #271 After Where the Chocobos Roam | 44 | 44 | 79 | 82 |
+| #272 After Worse than Dragons | 44 | 44 | 79 | 82 |
+| #273 After The Trine Towers | 44 | 44 | 79 | 82 |
+| #274 After Gifts for the Outcasts | 44 | 44 | 79 | 82 |
+| #275 After The Nonmind | 44 | 44 | 79 | 82 |
+| #276 After A Gnathic Deity | 44 | 44 | 79 | 82 |
+| #277 After Breaking into Hives | 44 | 44 | 79 | 82 |
+| #278 After Lord of the Hive | 44 | 44 | 79 | 82 |
+| #279 After Mourn in Passing | 44 | 44 | 79 | 82 |
+| #280 After Beyond the Clouds | 44 | 44 | 79 | 82 |
+| #281 After Mountaintop Diplomacy | 44 | 44 | 79 | 82 |
+| #282 After Moghan's Trial | 44 | 44 | 79 | 82 |
+| #282b After Mogmug's Trial | 44 | 44 | 79 | 82 |
+| #282c After Mogwin's Trial | 44 | 44 | 79 | 82 |
+| #285 After Moglin's Judgment | 44 | 44 | 79 | 82 |
+| #286 After Leaving Moghome | 44 | 44 | 79 | 82 |
+| #287 After The Road to Zenith | 44 | 44 | 79 | 82 |
+| #288 After Waiting for the Wind to Change | 44 | 44 | 79 | 82 |
+| #289 After Heart of Ice | 44 | 44 | 79 | 82 |
+| #290 After The Wyrm's Lair | 44 | 44 | 79 | 82 |
+| #291 After New Winds, Old Friends | 44 | 44 | 79 | 82 |
+| #292 After A General Summons | 44 | 44 | 79 | 82 |
+| #293 After Awakening in Ul'dah | 44 | 44 | 79 | 82 |
+| #294 After A Brave Resolution | 44 | 44 | 79 | 82 |
+| #295 After Ready to Fly | 44 | 44 | 79 | 82 |
+| #296 After Into the Aery | 44 | 44 | 79 | 82 |
+| #297 After The Song Begins | 44 | 44 | 79 | 82 |
+| #298 After Unrest in Ishgard | 44 | 44 | 79 | 82 |
+| #299 After He Who Would Not Be Denied | 44 | 44 | 79 | 82 |
+| #300 After Ill-weather Friends | 44 | 44 | 79 | 82 |
+| #301 After The Spice of Life | 44 | 44 | 79 | 82 |
+| #302 After Noble Indiscretions | 44 | 44 | 79 | 82 |
+| #303 After A Child Apart | 44 | 44 | 79 | 82 |
+| #304 After Bloodlines | 44 | 44 | 79 | 82 |
+| #305 After Fire and Blood | 44 | 44 | 79 | 82 |
+| #306 After A Knight's Calling | 44 | 44 | 79 | 82 |
+| #307 After The Sins of Antiquity | 44 | 44 | 79 | 82 |
+| #308 After In Search of the Soleil | 44 | 44 | 79 | 82 |
+| #309 After Into the Blue | 44 | 44 | 79 | 82 |
+| #310 After Familiar Faces | 44 | 44 | 79 | 82 |
+| #311 After Devourer of Worlds | 44 | 44 | 79 | 82 |
+| #312 After Black and the White | 44 | 44 | 79 | 82 |
+| #313 After Bolt, Chain, and Island | 44 | 44 | 79 | 82 |
+| #314 After A Difference of Opinion | 44 | 44 | 79 | 82 |
+| #315 After One Good Turn | 44 | 44 | 79 | 82 |
+| #316 After An Engineering Enterprise | 44 | 44 | 79 | 82 |
+| #317 After Aetherial Trail | 44 | 44 | 79 | 82 |
+| #318 After Lost in the Lifestream | 44 | 44 | 79 | 82 |
+| #319 After Tataru's Surprise | 44 | 44 | 79 | 82 |
+| #320 After Onward to Sharlayan | 44 | 44 | 79 | 82 |
+| #321 After A Great New Nation | 44 | 44 | 79 | 82 |
+| #322 After Golems Begone | 44 | 44 | 79 | 82 |
+| #323 After An Illuminati Incident | 44 | 44 | 79 | 82 |
+| #324 After Leaving Idyllshire | 44 | 44 | 79 | 82 |
+| #325 After Matoya's Cave | 44 | 44 | 79 | 82 |
+| #326 After Forbidden Knowledge | 44 | 44 | 79 | 82 |
+| #327 After An Eye for Aether | 44 | 44 | 79 | 82 |
+| #328 After Hour of Departure | 44 | 44 | 79 | 82 |
+| #329 After The First Flight of the Excelsior | 44 | 44 | 79 | 82 |
+| #330 After Systematic Exploration | 44 | 44 | 79 | 82 |
+| #331 After In Node We Trust | 44 | 44 | 79 | 82 |
+| #332 After Chimerical Maintenance | 44 | 44 | 79 | 82 |
+| #333 After Close Encounters of the VIth Kind | 44 | 44 | 79 | 82 |
+| #334 After Fetters of Lament | 44 | 44 | 79 | 82 |
+| 3.0 Heavensward — Patch 3.0 complete | 44 | 44 | 79 | 82 |
+| #336 After An Uncertain Future | 44 | 44 | 79 | 82 |
+| #337 After Breaking the Cycle | 44 | 44 | 79 | 82 |
+| #338 After Another Time, Another Place | 44 | 44 | 79 | 82 |
+| #339 After In the Eye of the Beholder | 44 | 44 | 79 | 82 |
+| #340 After A Little Slow, a Little Late | 44 | 44 | 79 | 82 |
+| #341 After Dreams of the Lost | 44 | 44 | 79 | 82 |
+| #342 After Against the Dying of the Light | 44 | 44 | 79 | 82 |
+| #343 After As Goes Light, So Goes Darkness | 44 | 44 | 79 | 82 |
+| #344 After As It Once Was | 44 | 44 | 79 | 82 |
+| #345 After The Word of the Mother | 44 | 44 | 79 | 82 |
+| #346 After This War of Ours | 44 | 44 | 79 | 82 |
+| #347 After Staunch Conviction | 44 | 44 | 79 | 82 |
+| #348 After Once More, a Favor | 44 | 44 | 79 | 82 |
+| #349 After For Those We Have Lost | 44 | 44 | 79 | 82 |
+| #350 After Consequences | 44 | 44 | 79 | 82 |
+| #351 After Choices | 44 | 44 | 79 | 82 |
+| #352 After A Spectacle for the Ages | 44 | 44 | 79 | 82 |
+| #353 After For Those We Can Yet Save | 44 | 44 | 79 | 82 |
+| #354 After Causes and Costs | 44 | 44 | 79 | 82 |
+| #355 After The Man Within | 44 | 44 | 79 | 82 |
+| #356 After An Ally for Ishgard | 44 | 44 | 79 | 82 |
+| #357 After Winning Over the Wyrm | 44 | 44 | 79 | 82 |
+| #358 After An End to the Song | 44 | 44 | 79 | 82 |
+| #359 After Heroes of the Hour | 44 | 44 | 79 | 82 |
+| #360 After Litany of Peace | 44 | 44 | 79 | 82 |
+| #361 After Promises Kept | 44 | 44 | 79 | 82 |
+| #362 After Shadows of the First | 44 | 44 | 79 | 82 |
+| #363 After Two Sides of a Coin | 44 | 44 | 79 | 82 |
+| #364 After Unlikely Allies | 44 | 44 | 79 | 82 |
+| #365 After The Beast That Mourned at the Heart of the Mountain | 44 | 44 | 79 | 82 |
+| #366 After Beneath a Star-filled Sky | 44 | 44 | 79 | 82 |
+| #367 After When We Were Free | 44 | 44 | 79 | 82 |
+| #368 After Honorable Heroes | 44 | 44 | 79 | 82 |
+| #369 After One Life for One World | 44 | 44 | 79 | 82 |
+| #370 After An Ending to Mark a New Beginning | 44 | 44 | 79 | 82 |
+| #371 After Tidings from Gyr Abania | 44 | 44 | 79 | 82 |
+| #372 After An Envoy for Ishgard | 44 | 44 | 79 | 82 |
+| #373 After An Allied Decision | 44 | 44 | 79 | 82 |
+| #374 After Griffin, Griffin on the Wall | 44 | 44 | 79 | 82 |
+| #375 After Louisoix's Finest Student | 44 | 44 | 79 | 82 |
+| #376 After The Obvious Solution | 44 | 44 | 79 | 82 |
+| #377 After The Greater Obeisance | 44 | 44 | 79 | 82 |
+| #378 After Fly Free, My Pretty | 44 | 44 | 79 | 82 |
+| 3.56 Heavensward — Patch 3.56 complete | 44 | 44 | 79 | 82 |
 
 ## Arcs
 
@@ -371,7 +588,7 @@ Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); The
 
 </details>
 
-**2.0 only · main** · Also searchable as: the Antecedent
+**2.0–#240 · main** · Also searchable as: the Antecedent
 
 > Leader of the Scions of the Seventh Dawn, who welcomes you at the Waking Sands. Like you, she has the Echo. She was taken prisoner when imperial forces raided the Waking Sands, and after her rescue from Castrum Centri she leads the Scions again.
 
@@ -459,7 +676,7 @@ Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Esca
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > A Scion and bard who serves as the order's man in Ul'dah and briefed your first investigation. During the rescue at Castrum Centri, the Scions learned that the Ascian Lahabrea had possessed him. You freed him from that enthrallment, and he came home with you.
 
@@ -588,7 +805,7 @@ Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Esca
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > A Sharlayan Scion who looks after the order's affairs in Limsa Lominsa. She explains how the Scions came to be: after their leader was lost at Carteneau, they sought out Minfilia and others with the Echo. She helped plan the rescue of the Scions captured in the imperial raid.
 
@@ -657,7 +874,7 @@ Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Casi
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > A learned Sharlayan Scion who presides over the affairs of the Waking Sands. He was among the Scions taken prisoner in the imperial raid, and was freed in the rescue at Castrum Centri.
 
@@ -787,7 +1004,7 @@ Sources shown: Eyes on Me — main scenario quest (2.0); Operation Archon — ma
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > A young Scion and Alisaie's twin brother. The twins first appear as self-described students of history, touring the city-states' remembrance services. After the raid on the Waking Sands he worked to rebuild the Scions, and he sees their cause as the dream of his grandfather, who gave his life for the realm.
 
@@ -821,7 +1038,7 @@ Sources shown: A Hero in the Making — main scenario quest (2.0); Brave New Com
 
 ### Alisaie (`char-alisaie`, character)
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > Alphinaud's twin sister. She doubts her brother's approach and has set out to find her own way to heal the realm's troubles. Alphinaud says that although she walks her own path, the twins share the same goal.
 
@@ -835,7 +1052,7 @@ Sources shown: A Hero in the Making — main scenario quest (2.0); Back from the
 
 </details>
 
-**2.0 only · optional**
+**2.0–#240 · optional**
 
 > Alphinaud's twin sister, a young Scion who walks her own path apart from her brother. She is investigating the Binding Coil of Bahamut, where she believes she saw her grandfather, Louisoix, who is presumed to have died sealing the primal away.
 
@@ -885,7 +1102,7 @@ Sources shown: A Hero in the Making — main scenario quest (2.0); Alisaie's Ple
 
 ### Louisoix (`char-louisoix`, character)
 
-**2.0 only · main** · Also searchable as: Archon Louisoix, Master Louisoix
+**2.0–#240 · main** · Also searchable as: Archon Louisoix, Master Louisoix
 
 > A revered Archon and man of learning. He never returned from the Battle of Carteneau, and the realm's leaders lament the loss of his wisdom. The Scions still speak of his guidance.
 
@@ -899,7 +1116,7 @@ Sources shown: The Lominsan Envoy — main scenario quest (2.0); The Gridanian E
 
 </details>
 
-**2.0 only · optional** · Also searchable as: Archon Louisoix, Master Louisoix
+**2.0–#240 · optional** · Also searchable as: Archon Louisoix, Master Louisoix
 
 > A revered Archon and man of learning, and Alisaie's grandfather. He never returned from the Battle of Carteneau and is presumed dead, having apparently sealed the primal Bahamut away there. Alisaie believes she has seen him alive within the Binding Coil.
 
@@ -985,7 +1202,7 @@ Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Casi
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > The Scions' clerk, who greets visitors at the Waking Sands and keeps the order running smoothly. She was among those taken prisoner in the imperial raid, and was freed in the rescue at Castrum Centri.
 
@@ -1144,7 +1361,7 @@ Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Ope
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > An order that stands apart from the city-states' politics, devoted to preserving Eorzea's future. Minfilia leads it from the Waking Sands in Vesper Bay, and its members include Sharlayans who stayed in Eorzea when their countrymen fled. An imperial raid devastated the order and took several members prisoner, but the Scions rescued them and rebuilt.
 
@@ -1240,7 +1457,7 @@ Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); All
 
 </details>
 
-**2.0 only · main**
+**2.0–#240 · main**
 
 > The Scions' headquarters in Vesper Bay, in western Thanalan, where Minfilia receives visitors. Imperial forces raided it and took prisoners, and the Scions later restored it.
 
@@ -3875,7 +4092,7 @@ Sources shown: Reclamation — main scenario quest (2.0); Escape from Castrum Ce
 | R05 | Alphinaud → *member of* → The Scions of the Seventh Dawn | 2.0 onward | main | C25 |
 | R06 | Tataru → *member of* → The Scions of the Seventh Dawn | 2.0 onward | main | C32, C36 |
 | R07 | Alphinaud → *twin of* → Alisaie | 2.0 onward | main | C10 |
-| R08 | The Scions of the Seventh Dawn → *headquartered at* → The Waking Sands | 2.0 only | main | C02 |
+| R08 | The Scions of the Seventh Dawn → *headquartered at* → The Waking Sands | 2.0–#240 | main | C02 |
 | R09 | The Crystal Braves → *controls* → The Rising Stones | 2.55 onward | main | C19, C19b |
 | R10 | The Crystal Braves → *turned against* → The Scions of the Seventh Dawn | 2.55 onward | main | C19, C20 |
 | R11 | Urianger → *conceals* → The Waking Sands | 2.55 onward | main | C21 |

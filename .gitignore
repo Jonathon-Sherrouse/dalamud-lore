@@ -5,3 +5,4 @@ obj/
 *.suo
 *.userosscache
 *.sln.docstates
+__pycache__/

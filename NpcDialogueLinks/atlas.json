@@ -540,11 +540,1961 @@
       ]
     },
     {
+      "id": "cp-msq-162",
+      "label": "After The Price of Principles",
+      "questTitle": "The Price of Principles",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66711
+      ]
+    },
+    {
+      "id": "cp-msq-163",
+      "label": "After Moving On",
+      "questTitle": "Moving On",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69410
+      ]
+    },
+    {
+      "id": "cp-msq-164",
+      "label": "After All Things in Time",
+      "questTitle": "All Things in Time",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69411
+      ]
+    },
+    {
+      "id": "cp-msq-165",
+      "label": "After Laying the Foundation",
+      "questTitle": "Laying the Foundation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69412
+      ]
+    },
+    {
+      "id": "cp-msq-166",
+      "label": "After It's Possibly a Primal",
+      "questTitle": "It's Possibly a Primal",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69413
+      ]
+    },
+    {
+      "id": "cp-msq-167",
+      "label": "After Hail to the King, Kupo",
+      "questTitle": "Hail to the King, Kupo",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66725
+      ]
+    },
+    {
+      "id": "cp-msq-168",
+      "label": "After You Have Selected Regicide",
+      "questTitle": "You Have Selected Regicide",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66726
+      ]
+    },
+    {
+      "id": "cp-msq-169",
+      "label": "After On the Properties of Primals",
+      "questTitle": "On the Properties of Primals",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66727
+      ]
+    },
+    {
+      "id": "cp-msq-170",
+      "label": "After The Gifted",
+      "questTitle": "The Gifted",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66728
+      ]
+    },
+    {
+      "id": "cp-msq-171",
+      "label": "After Build on the Stone",
+      "questTitle": "Build on the Stone",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69414
+      ]
+    },
+    {
+      "id": "cp-msq-172",
+      "label": "After Still Waters",
+      "questTitle": "Still Waters",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69415
+      ]
+    },
+    {
+      "id": "cp-msq-173",
+      "label": "After A Final Temptation",
+      "questTitle": "A Final Temptation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66882
+      ]
+    },
+    {
+      "id": "cp-msq-174",
+      "label": "After The Mother of Exiles",
+      "questTitle": "The Mother of Exiles",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66883
+      ]
+    },
+    {
+      "id": "cp-msq-175",
+      "label": "After Promises to Keep",
+      "questTitle": "Promises to Keep",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69416
+      ]
+    },
+    {
+      "id": "cp-msq-176",
+      "label": "After Yugiri's Game",
+      "questTitle": "Yugiri's Game",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69417
+      ]
+    },
+    {
+      "id": "cp-msq-177",
+      "label": "After Why We Adventure",
+      "questTitle": "Why We Adventure",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66888
+      ]
+    },
+    {
+      "id": "cp-msq-178",
+      "label": "After All Due Respect",
+      "questTitle": "All Due Respect",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69418
+      ]
+    },
+    {
+      "id": "cp-msq-179",
+      "label": "After The Sea Rises",
+      "questTitle": "The Sea Rises",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66892
+      ]
+    },
+    {
+      "id": "cp-msq-180",
+      "label": "After Scouts in Distress",
+      "questTitle": "Scouts in Distress",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66894
+      ]
+    },
+    {
+      "id": "cp-msq-181",
+      "label": "After The Gift of Eternity",
+      "questTitle": "The Gift of Eternity",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66895
+      ]
+    },
+    {
+      "id": "cp-msq-182",
+      "label": "After Into the Heart of the Whorl",
+      "questTitle": "Into the Heart of the Whorl",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66896
+      ]
+    },
+    {
+      "id": "cp-msq-183",
+      "label": "After Lord of the Whorl",
+      "questTitle": "Lord of the Whorl",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66897
+      ]
+    },
+    {
+      "id": "cp-msq-184",
+      "label": "After When Yugiri Met the Fraternity",
+      "questTitle": "When Yugiri Met the Fraternity",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66898
+      ]
+    },
+    {
+      "id": "cp-msq-185",
+      "label": "After Through the Maelstrom",
+      "questTitle": "Through the Maelstrom",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66899
+      ]
+    },
+    {
+      "id": "cp-msq-186",
+      "label": "After The Great Divide",
+      "questTitle": "The Great Divide",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66978
+      ]
+    },
+    {
+      "id": "cp-msq-187",
+      "label": "After Desperate Times",
+      "questTitle": "Desperate Times",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66979
+      ]
+    },
+    {
+      "id": "cp-msq-188",
+      "label": "After Shock and Awe",
+      "questTitle": "Shock and Awe",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69419
+      ]
+    },
+    {
+      "id": "cp-msq-189",
+      "label": "After Reap the Whirlwind",
+      "questTitle": "Reap the Whirlwind",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69420
+      ]
+    },
+    {
+      "id": "cp-msq-190",
+      "label": "After Revolution",
+      "questTitle": "Revolution",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66982
+      ]
+    },
+    {
+      "id": "cp-msq-191",
+      "label": "After Stories We Tell",
+      "questTitle": "Stories We Tell",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66983
+      ]
+    },
+    {
+      "id": "cp-msq-192",
+      "label": "After Lord of Levin",
+      "questTitle": "Lord of Levin",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66984
+      ]
+    },
+    {
+      "id": "cp-msq-193",
+      "label": "After Levin an Impression",
+      "questTitle": "Levin an Impression",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69421
+      ]
+    },
+    {
+      "id": "cp-msq-194",
+      "label": "After What Little Gods Are Made Of",
+      "questTitle": "What Little Gods Are Made Of",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66989
+      ]
+    },
+    {
+      "id": "cp-msq-195",
+      "label": "After Guardian of Eorzea",
+      "questTitle": "Guardian of Eorzea",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66992
+      ]
+    },
+    {
+      "id": "cp-msq-196",
+      "label": "After Recruiting the Realm",
+      "questTitle": "Recruiting the Realm",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66993
+      ]
+    },
+    {
+      "id": "cp-msq-197",
+      "label": "After Heretical Harassment",
+      "questTitle": "Heretical Harassment",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66994
+      ]
+    },
+    {
+      "id": "cp-msq-198",
+      "label": "After When the Cold Sets In",
+      "questTitle": "When the Cold Sets In",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66995
+      ]
+    },
+    {
+      "id": "cp-msq-199",
+      "label": "After Brave New Companions",
+      "questTitle": "Brave New Companions",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66996
+      ]
+    },
+    {
+      "id": "cp-msq-200",
+      "label": "After Traitor in the Midst",
+      "questTitle": "Traitor in the Midst",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65588
+      ]
+    },
+    {
+      "id": "cp-msq-201",
+      "label": "After Back and Fourth",
+      "questTitle": "Back and Fourth",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65589
+      ]
+    },
+    {
+      "id": "cp-msq-202",
+      "label": "After Coming to Terms",
+      "questTitle": "Coming to Terms",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65590
+      ]
+    },
+    {
+      "id": "cp-msq-203",
+      "label": "After The Intercession of Saints",
+      "questTitle": "The Intercession of Saints",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65593
+      ]
+    },
+    {
+      "id": "cp-msq-204",
+      "label": "After Strength in Unity",
+      "questTitle": "Strength in Unity",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65598
+      ]
+    },
+    {
+      "id": "cp-msq-205",
+      "label": "After Dark Words, Dark Deeds",
+      "questTitle": "Dark Words, Dark Deeds",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65605
+      ]
+    },
+    {
+      "id": "cp-msq-206",
+      "label": "After First Blood",
+      "questTitle": "First Blood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65610
+      ]
+    },
+    {
+      "id": "cp-msq-207",
+      "label": "After The Path of the Righteous",
+      "questTitle": "The Path of the Righteous",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65611
+      ]
+    },
+    {
+      "id": "cp-msq-208",
+      "label": "After For the Greater Good",
+      "questTitle": "For the Greater Good",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65613
+      ]
+    },
+    {
+      "id": "cp-msq-209",
+      "label": "After Tendrils of Intrigue",
+      "questTitle": "Tendrils of Intrigue",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65614
+      ]
+    },
+    {
+      "id": "cp-msq-210",
+      "label": "After Chasing Ivy",
+      "questTitle": "Chasing Ivy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69422
+      ]
+    },
+    {
+      "id": "cp-msq-211",
+      "label": "After In Flagrante Delicto",
+      "questTitle": "In Flagrante Delicto",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69423
+      ]
+    },
+    {
+      "id": "cp-msq-212",
+      "label": "After A Simple Plan",
+      "questTitle": "A Simple Plan",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65618
+      ]
+    },
+    {
+      "id": "cp-msq-213",
+      "label": "After The Instruments of Our Deliverance",
+      "questTitle": "The Instruments of Our Deliverance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65620
+      ]
+    },
+    {
+      "id": "cp-msq-214",
+      "label": "After The Road Less Traveled",
+      "questTitle": "The Road Less Traveled",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65622
+      ]
+    },
+    {
+      "id": "cp-msq-215",
+      "label": "After Eyes Unclouded",
+      "questTitle": "Eyes Unclouded",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65623
+      ]
+    },
+    {
+      "id": "cp-msq-216",
+      "label": "After The Reason Roaille",
+      "questTitle": "The Reason Roaille",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65624
+      ]
+    },
+    {
+      "id": "cp-msq-217",
+      "label": "After Let Us Cling Together",
+      "questTitle": "Let Us Cling Together",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65625
+      ]
+    },
+    {
+      "id": "cp-msq-218",
+      "label": "After Good Intentions",
+      "questTitle": "Good Intentions",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65899
+      ]
+    },
+    {
+      "id": "cp-msq-219",
+      "label": "After Bait and Switch",
+      "questTitle": "Bait and Switch",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65900
+      ]
+    },
+    {
+      "id": "cp-msq-220",
+      "label": "After Best-laid Schemes",
+      "questTitle": "Best-laid Schemes",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65901
+      ]
+    },
+    {
+      "id": "cp-msq-221",
+      "label": "After The Rising Chorus",
+      "questTitle": "The Rising Chorus",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65902
+      ]
+    },
+    {
+      "id": "cp-msq-222",
+      "label": "After Aether on Demand",
+      "questTitle": "Aether on Demand",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69424
+      ]
+    },
+    {
+      "id": "cp-msq-223",
+      "label": "After On the Counteroffensive",
+      "questTitle": "On the Counteroffensive",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65904
+      ]
+    },
+    {
+      "id": "cp-msq-224",
+      "label": "After An Uninvited Ascian",
+      "questTitle": "An Uninvited Ascian",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65905
+      ]
+    },
+    {
+      "id": "cp-msq-225",
+      "label": "After In Memory of Moenbryda",
+      "questTitle": "In Memory of Moenbryda",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65965
+      ]
+    },
+    {
+      "id": "cp-msq-226",
+      "label": "After Mask of Grief",
+      "questTitle": "Mask of Grief",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65906
+      ]
+    },
+    {
+      "id": "cp-msq-227",
+      "label": "After Defenders for Ishgard",
+      "questTitle": "Defenders for Ishgard",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65907
+      ]
+    },
+    {
+      "id": "cp-msq-228",
+      "label": "After The Wyrm's Roar",
+      "questTitle": "The Wyrm's Roar",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65908
+      ]
+    },
+    {
+      "id": "cp-msq-229",
+      "label": "After Committed to the Cause",
+      "questTitle": "Committed to the Cause",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65909
+      ]
+    },
+    {
+      "id": "cp-msq-230",
+      "label": "After Volunteer Dragonslayers",
+      "questTitle": "Volunteer Dragonslayers",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65927
+      ]
+    },
+    {
+      "id": "cp-msq-231",
+      "label": "After An Allied Perspective",
+      "questTitle": "An Allied Perspective",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65954
+      ]
+    },
+    {
+      "id": "cp-msq-232",
+      "label": "After The Steps of Faith",
+      "questTitle": "The Steps of Faith",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        70127
+      ]
+    },
+    {
+      "id": "cp-msq-233",
+      "label": "After Administrative Decision",
+      "questTitle": "Administrative Decision",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65956
+      ]
+    },
+    {
+      "id": "cp-msq-234",
+      "label": "After An Unexpected Ambition",
+      "questTitle": "An Unexpected Ambition",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65957
+      ]
+    },
+    {
+      "id": "cp-msq-235",
+      "label": "After Ancient Ways, Timeless Wants",
+      "questTitle": "Ancient Ways, Timeless Wants",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65958
+      ]
+    },
+    {
+      "id": "cp-msq-234b",
+      "label": "After Where We Are Needed",
+      "questTitle": "Where We Are Needed",
+      "gameQuestIds": [
+        65959
+      ]
+    },
+    {
+      "id": "cp-msq-235b",
+      "label": "After The Least among Us",
+      "questTitle": "The Least among Us",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65960
+      ]
+    },
+    {
+      "id": "cp-msq-238",
+      "label": "After A Time to Every Purpose",
+      "questTitle": "A Time to Every Purpose",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65961
+      ]
+    },
+    {
+      "id": "cp-msq-239",
+      "label": "After Come, but Not Gone",
+      "questTitle": "Come, but Not Gone",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65962
+      ]
+    },
+    {
+      "id": "cp-msq-240",
+      "label": "After The Parting Glass",
+      "questTitle": "The Parting Glass",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65963
+      ]
+    },
+    {
       "id": "cp-arr-2-55",
       "label": "A Realm Reborn — Patch 2.55 complete",
       "milestone": true,
+      "contiguousWithPrevious": true,
       "gameQuestIds": [
         65964
+      ]
+    },
+    {
+      "id": "cp-msq-242",
+      "label": "After Coming to Ishgard",
+      "questTitle": "Coming to Ishgard",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67116
+      ]
+    },
+    {
+      "id": "cp-msq-243",
+      "label": "After Taking in the Sights",
+      "questTitle": "Taking in the Sights",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67117
+      ]
+    },
+    {
+      "id": "cp-msq-244",
+      "label": "After The Better Half",
+      "questTitle": "The Better Half",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67118
+      ]
+    },
+    {
+      "id": "cp-msq-245",
+      "label": "After Over the Wall",
+      "questTitle": "Over the Wall",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67119
+      ]
+    },
+    {
+      "id": "cp-msq-246",
+      "label": "After Work in Progress",
+      "questTitle": "Work in Progress",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67120
+      ]
+    },
+    {
+      "id": "cp-msq-247",
+      "label": "After The First and Foremost",
+      "questTitle": "The First and Foremost",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67121
+      ]
+    },
+    {
+      "id": "cp-msq-248",
+      "label": "After From on High",
+      "questTitle": "From on High",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67122
+      ]
+    },
+    {
+      "id": "cp-msq-249",
+      "label": "After Reconnaissance Lost",
+      "questTitle": "Reconnaissance Lost",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67123
+      ]
+    },
+    {
+      "id": "cp-msq-250",
+      "label": "After At the End of Our Hope",
+      "questTitle": "At the End of Our Hope",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67124
+      ]
+    },
+    {
+      "id": "cp-msq-251",
+      "label": "After Knights Be Not Proud",
+      "questTitle": "Knights Be Not Proud",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67125
+      ]
+    },
+    {
+      "id": "cp-msq-245b",
+      "label": "After Onwards and Upwards",
+      "questTitle": "Onwards and Upwards",
+      "gameQuestIds": [
+        67126
+      ]
+    },
+    {
+      "id": "cp-msq-246b",
+      "label": "After An Indispensable Ally",
+      "questTitle": "An Indispensable Ally",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67127
+      ]
+    },
+    {
+      "id": "cp-msq-247b",
+      "label": "After Meeting the Neighbors",
+      "questTitle": "Meeting the Neighbors",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67128
+      ]
+    },
+    {
+      "id": "cp-msq-248b",
+      "label": "After Sense of Urgency",
+      "questTitle": "Sense of Urgency",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67129
+      ]
+    },
+    {
+      "id": "cp-msq-249b",
+      "label": "After Hope Springs Eternal",
+      "questTitle": "Hope Springs Eternal",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67130
+      ]
+    },
+    {
+      "id": "cp-msq-250b",
+      "label": "After A Series of Unfortunate Events",
+      "questTitle": "A Series of Unfortunate Events",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67131
+      ]
+    },
+    {
+      "id": "cp-msq-251b",
+      "label": "After A Reward Long in Coming",
+      "questTitle": "A Reward Long in Coming",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67132
+      ]
+    },
+    {
+      "id": "cp-msq-259",
+      "label": "After Divine Intervention",
+      "questTitle": "Divine Intervention",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67133
+      ]
+    },
+    {
+      "id": "cp-msq-260",
+      "label": "After Disclosure",
+      "questTitle": "Disclosure",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67134
+      ]
+    },
+    {
+      "id": "cp-msq-261",
+      "label": "After Flame General Affairs",
+      "questTitle": "Flame General Affairs",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67135
+      ]
+    },
+    {
+      "id": "cp-msq-262",
+      "label": "After In Search of Raubahn",
+      "questTitle": "In Search of Raubahn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67136
+      ]
+    },
+    {
+      "id": "cp-msq-263",
+      "label": "After Keeping the Flame Alive",
+      "questTitle": "Keeping the Flame Alive",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67137
+      ]
+    },
+    {
+      "id": "cp-msq-264",
+      "label": "After To Siege or Not to Siege",
+      "questTitle": "To Siege or Not to Siege",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67138
+      ]
+    },
+    {
+      "id": "cp-msq-265",
+      "label": "After Alphinaud's Way",
+      "questTitle": "Alphinaud's Way",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67139
+      ]
+    },
+    {
+      "id": "cp-msq-266",
+      "label": "After In Search of Iceheart",
+      "questTitle": "In Search of Iceheart",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67140
+      ]
+    },
+    {
+      "id": "cp-msq-267",
+      "label": "After From One Heretic to Another",
+      "questTitle": "From One Heretic to Another",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67141
+      ]
+    },
+    {
+      "id": "cp-msq-268",
+      "label": "After Sounding Out the Amphitheatre",
+      "questTitle": "Sounding Out the Amphitheatre",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67142
+      ]
+    },
+    {
+      "id": "cp-msq-269",
+      "label": "After Camp of the Convictors",
+      "questTitle": "Camp of the Convictors",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67143
+      ]
+    },
+    {
+      "id": "cp-msq-270",
+      "label": "After Purple Flame, Purple Flame",
+      "questTitle": "Purple Flame, Purple Flame",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67144
+      ]
+    },
+    {
+      "id": "cp-msq-271",
+      "label": "After Where the Chocobos Roam",
+      "questTitle": "Where the Chocobos Roam",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67145
+      ]
+    },
+    {
+      "id": "cp-msq-272",
+      "label": "After Worse than Dragons",
+      "questTitle": "Worse than Dragons",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67146
+      ]
+    },
+    {
+      "id": "cp-msq-273",
+      "label": "After The Trine Towers",
+      "questTitle": "The Trine Towers",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67147
+      ]
+    },
+    {
+      "id": "cp-msq-274",
+      "label": "After Gifts for the Outcasts",
+      "questTitle": "Gifts for the Outcasts",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67148
+      ]
+    },
+    {
+      "id": "cp-msq-275",
+      "label": "After The Nonmind",
+      "questTitle": "The Nonmind",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67149
+      ]
+    },
+    {
+      "id": "cp-msq-276",
+      "label": "After A Gnathic Deity",
+      "questTitle": "A Gnathic Deity",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67150
+      ]
+    },
+    {
+      "id": "cp-msq-277",
+      "label": "After Breaking into Hives",
+      "questTitle": "Breaking into Hives",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67151
+      ]
+    },
+    {
+      "id": "cp-msq-278",
+      "label": "After Lord of the Hive",
+      "questTitle": "Lord of the Hive",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67152
+      ]
+    },
+    {
+      "id": "cp-msq-279",
+      "label": "After Mourn in Passing",
+      "questTitle": "Mourn in Passing",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67153
+      ]
+    },
+    {
+      "id": "cp-msq-280",
+      "label": "After Beyond the Clouds",
+      "questTitle": "Beyond the Clouds",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67154
+      ]
+    },
+    {
+      "id": "cp-msq-281",
+      "label": "After Mountaintop Diplomacy",
+      "questTitle": "Mountaintop Diplomacy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67155
+      ]
+    },
+    {
+      "id": "cp-msq-282",
+      "label": "After Moghan's Trial",
+      "questTitle": "Moghan's Trial",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67156
+      ]
+    },
+    {
+      "id": "cp-msq-282b",
+      "label": "After Mogmug's Trial",
+      "questTitle": "Mogmug's Trial",
+      "gameQuestIds": [
+        67157
+      ]
+    },
+    {
+      "id": "cp-msq-282c",
+      "label": "After Mogwin's Trial",
+      "questTitle": "Mogwin's Trial",
+      "gameQuestIds": [
+        67158
+      ]
+    },
+    {
+      "id": "cp-msq-285",
+      "label": "After Moglin's Judgment",
+      "questTitle": "Moglin's Judgment",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67159
+      ]
+    },
+    {
+      "id": "cp-msq-286",
+      "label": "After Leaving Moghome",
+      "questTitle": "Leaving Moghome",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67160
+      ]
+    },
+    {
+      "id": "cp-msq-287",
+      "label": "After The Road to Zenith",
+      "questTitle": "The Road to Zenith",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67161
+      ]
+    },
+    {
+      "id": "cp-msq-288",
+      "label": "After Waiting for the Wind to Change",
+      "questTitle": "Waiting for the Wind to Change",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67162
+      ]
+    },
+    {
+      "id": "cp-msq-289",
+      "label": "After Heart of Ice",
+      "questTitle": "Heart of Ice",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67163
+      ]
+    },
+    {
+      "id": "cp-msq-290",
+      "label": "After The Wyrm's Lair",
+      "questTitle": "The Wyrm's Lair",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67164
+      ]
+    },
+    {
+      "id": "cp-msq-291",
+      "label": "After New Winds, Old Friends",
+      "questTitle": "New Winds, Old Friends",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67165
+      ]
+    },
+    {
+      "id": "cp-msq-292",
+      "label": "After A General Summons",
+      "questTitle": "A General Summons",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67166
+      ]
+    },
+    {
+      "id": "cp-msq-293",
+      "label": "After Awakening in Ul'dah",
+      "questTitle": "Awakening in Ul'dah",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67167
+      ]
+    },
+    {
+      "id": "cp-msq-294",
+      "label": "After A Brave Resolution",
+      "questTitle": "A Brave Resolution",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67168
+      ]
+    },
+    {
+      "id": "cp-msq-295",
+      "label": "After Ready to Fly",
+      "questTitle": "Ready to Fly",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67169
+      ]
+    },
+    {
+      "id": "cp-msq-296",
+      "label": "After Into the Aery",
+      "questTitle": "Into the Aery",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67170
+      ]
+    },
+    {
+      "id": "cp-msq-297",
+      "label": "After The Song Begins",
+      "questTitle": "The Song Begins",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67171
+      ]
+    },
+    {
+      "id": "cp-msq-298",
+      "label": "After Unrest in Ishgard",
+      "questTitle": "Unrest in Ishgard",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67172
+      ]
+    },
+    {
+      "id": "cp-msq-299",
+      "label": "After He Who Would Not Be Denied",
+      "questTitle": "He Who Would Not Be Denied",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67173
+      ]
+    },
+    {
+      "id": "cp-msq-300",
+      "label": "After Ill-weather Friends",
+      "questTitle": "Ill-weather Friends",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67174
+      ]
+    },
+    {
+      "id": "cp-msq-301",
+      "label": "After The Spice of Life",
+      "questTitle": "The Spice of Life",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67529
+      ]
+    },
+    {
+      "id": "cp-msq-302",
+      "label": "After Noble Indiscretions",
+      "questTitle": "Noble Indiscretions",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67530
+      ]
+    },
+    {
+      "id": "cp-msq-303",
+      "label": "After A Child Apart",
+      "questTitle": "A Child Apart",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67531
+      ]
+    },
+    {
+      "id": "cp-msq-304",
+      "label": "After Bloodlines",
+      "questTitle": "Bloodlines",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67532
+      ]
+    },
+    {
+      "id": "cp-msq-305",
+      "label": "After Fire and Blood",
+      "questTitle": "Fire and Blood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67175
+      ]
+    },
+    {
+      "id": "cp-msq-306",
+      "label": "After A Knight's Calling",
+      "questTitle": "A Knight's Calling",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67176
+      ]
+    },
+    {
+      "id": "cp-msq-307",
+      "label": "After The Sins of Antiquity",
+      "questTitle": "The Sins of Antiquity",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67177
+      ]
+    },
+    {
+      "id": "cp-msq-308",
+      "label": "After In Search of the Soleil",
+      "questTitle": "In Search of the Soleil",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67178
+      ]
+    },
+    {
+      "id": "cp-msq-309",
+      "label": "After Into the Blue",
+      "questTitle": "Into the Blue",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67179
+      ]
+    },
+    {
+      "id": "cp-msq-310",
+      "label": "After Familiar Faces",
+      "questTitle": "Familiar Faces",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67180
+      ]
+    },
+    {
+      "id": "cp-msq-311",
+      "label": "After Devourer of Worlds",
+      "questTitle": "Devourer of Worlds",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67181
+      ]
+    },
+    {
+      "id": "cp-msq-312",
+      "label": "After Black and the White",
+      "questTitle": "Black and the White",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67182
+      ]
+    },
+    {
+      "id": "cp-msq-313",
+      "label": "After Bolt, Chain, and Island",
+      "questTitle": "Bolt, Chain, and Island",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67183
+      ]
+    },
+    {
+      "id": "cp-msq-314",
+      "label": "After A Difference of Opinion",
+      "questTitle": "A Difference of Opinion",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67184
+      ]
+    },
+    {
+      "id": "cp-msq-315",
+      "label": "After One Good Turn",
+      "questTitle": "One Good Turn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67185
+      ]
+    },
+    {
+      "id": "cp-msq-316",
+      "label": "After An Engineering Enterprise",
+      "questTitle": "An Engineering Enterprise",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67186
+      ]
+    },
+    {
+      "id": "cp-msq-317",
+      "label": "After Aetherial Trail",
+      "questTitle": "Aetherial Trail",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67187
+      ]
+    },
+    {
+      "id": "cp-msq-318",
+      "label": "After Lost in the Lifestream",
+      "questTitle": "Lost in the Lifestream",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67188
+      ]
+    },
+    {
+      "id": "cp-msq-319",
+      "label": "After Tataru's Surprise",
+      "questTitle": "Tataru's Surprise",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67189
+      ]
+    },
+    {
+      "id": "cp-msq-320",
+      "label": "After Onward to Sharlayan",
+      "questTitle": "Onward to Sharlayan",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67190
+      ]
+    },
+    {
+      "id": "cp-msq-321",
+      "label": "After A Great New Nation",
+      "questTitle": "A Great New Nation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67191
+      ]
+    },
+    {
+      "id": "cp-msq-322",
+      "label": "After Golems Begone",
+      "questTitle": "Golems Begone",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67192
+      ]
+    },
+    {
+      "id": "cp-msq-323",
+      "label": "After An Illuminati Incident",
+      "questTitle": "An Illuminati Incident",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67193
+      ]
+    },
+    {
+      "id": "cp-msq-324",
+      "label": "After Leaving Idyllshire",
+      "questTitle": "Leaving Idyllshire",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67194
+      ]
+    },
+    {
+      "id": "cp-msq-325",
+      "label": "After Matoya's Cave",
+      "questTitle": "Matoya's Cave",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67195
+      ]
+    },
+    {
+      "id": "cp-msq-326",
+      "label": "After Forbidden Knowledge",
+      "questTitle": "Forbidden Knowledge",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67196
+      ]
+    },
+    {
+      "id": "cp-msq-327",
+      "label": "After An Eye for Aether",
+      "questTitle": "An Eye for Aether",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67197
+      ]
+    },
+    {
+      "id": "cp-msq-328",
+      "label": "After Hour of Departure",
+      "questTitle": "Hour of Departure",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67198
+      ]
+    },
+    {
+      "id": "cp-msq-329",
+      "label": "After The First Flight of the Excelsior",
+      "questTitle": "The First Flight of the Excelsior",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67199
+      ]
+    },
+    {
+      "id": "cp-msq-330",
+      "label": "After Systematic Exploration",
+      "questTitle": "Systematic Exploration",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67200
+      ]
+    },
+    {
+      "id": "cp-msq-331",
+      "label": "After In Node We Trust",
+      "questTitle": "In Node We Trust",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67201
+      ]
+    },
+    {
+      "id": "cp-msq-332",
+      "label": "After Chimerical Maintenance",
+      "questTitle": "Chimerical Maintenance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67202
+      ]
+    },
+    {
+      "id": "cp-msq-333",
+      "label": "After Close Encounters of the VIth Kind",
+      "questTitle": "Close Encounters of the VIth Kind",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67203
+      ]
+    },
+    {
+      "id": "cp-msq-334",
+      "label": "After Fetters of Lament",
+      "questTitle": "Fetters of Lament",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67204
+      ]
+    },
+    {
+      "id": "cp-hw-3-0",
+      "label": "Heavensward — Patch 3.0 complete",
+      "milestone": true,
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67205
+      ]
+    },
+    {
+      "id": "cp-msq-336",
+      "label": "After An Uncertain Future",
+      "questTitle": "An Uncertain Future",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67692
+      ]
+    },
+    {
+      "id": "cp-msq-337",
+      "label": "After Breaking the Cycle",
+      "questTitle": "Breaking the Cycle",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67693
+      ]
+    },
+    {
+      "id": "cp-msq-338",
+      "label": "After Another Time, Another Place",
+      "questTitle": "Another Time, Another Place",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67694
+      ]
+    },
+    {
+      "id": "cp-msq-339",
+      "label": "After In the Eye of the Beholder",
+      "questTitle": "In the Eye of the Beholder",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67695
+      ]
+    },
+    {
+      "id": "cp-msq-340",
+      "label": "After A Little Slow, a Little Late",
+      "questTitle": "A Little Slow, a Little Late",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67696
+      ]
+    },
+    {
+      "id": "cp-msq-341",
+      "label": "After Dreams of the Lost",
+      "questTitle": "Dreams of the Lost",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67697
+      ]
+    },
+    {
+      "id": "cp-msq-342",
+      "label": "After Against the Dying of the Light",
+      "questTitle": "Against the Dying of the Light",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67698
+      ]
+    },
+    {
+      "id": "cp-msq-343",
+      "label": "After As Goes Light, So Goes Darkness",
+      "questTitle": "As Goes Light, So Goes Darkness",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67699
+      ]
+    },
+    {
+      "id": "cp-msq-344",
+      "label": "After As It Once Was",
+      "questTitle": "As It Once Was",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67767
+      ]
+    },
+    {
+      "id": "cp-msq-345",
+      "label": "After The Word of the Mother",
+      "questTitle": "The Word of the Mother",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67768
+      ]
+    },
+    {
+      "id": "cp-msq-346",
+      "label": "After This War of Ours",
+      "questTitle": "This War of Ours",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67769
+      ]
+    },
+    {
+      "id": "cp-msq-347",
+      "label": "After Staunch Conviction",
+      "questTitle": "Staunch Conviction",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67770
+      ]
+    },
+    {
+      "id": "cp-msq-348",
+      "label": "After Once More, a Favor",
+      "questTitle": "Once More, a Favor",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67771
+      ]
+    },
+    {
+      "id": "cp-msq-349",
+      "label": "After For Those We Have Lost",
+      "questTitle": "For Those We Have Lost",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67772
+      ]
+    },
+    {
+      "id": "cp-msq-350",
+      "label": "After Consequences",
+      "questTitle": "Consequences",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67773
+      ]
+    },
+    {
+      "id": "cp-msq-351",
+      "label": "After Choices",
+      "questTitle": "Choices",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67774
+      ]
+    },
+    {
+      "id": "cp-msq-352",
+      "label": "After A Spectacle for the Ages",
+      "questTitle": "A Spectacle for the Ages",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67775
+      ]
+    },
+    {
+      "id": "cp-msq-353",
+      "label": "After For Those We Can Yet Save",
+      "questTitle": "For Those We Can Yet Save",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67776
+      ]
+    },
+    {
+      "id": "cp-msq-354",
+      "label": "After Causes and Costs",
+      "questTitle": "Causes and Costs",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67777
+      ]
+    },
+    {
+      "id": "cp-msq-355",
+      "label": "After The Man Within",
+      "questTitle": "The Man Within",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67778
+      ]
+    },
+    {
+      "id": "cp-msq-356",
+      "label": "After An Ally for Ishgard",
+      "questTitle": "An Ally for Ishgard",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67779
+      ]
+    },
+    {
+      "id": "cp-msq-357",
+      "label": "After Winning Over the Wyrm",
+      "questTitle": "Winning Over the Wyrm",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67780
+      ]
+    },
+    {
+      "id": "cp-msq-358",
+      "label": "After An End to the Song",
+      "questTitle": "An End to the Song",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67781
+      ]
+    },
+    {
+      "id": "cp-msq-359",
+      "label": "After Heroes of the Hour",
+      "questTitle": "Heroes of the Hour",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67782
+      ]
+    },
+    {
+      "id": "cp-msq-360",
+      "label": "After Litany of Peace",
+      "questTitle": "Litany of Peace",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67783
+      ]
+    },
+    {
+      "id": "cp-msq-361",
+      "label": "After Promises Kept",
+      "questTitle": "Promises Kept",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67877
+      ]
+    },
+    {
+      "id": "cp-msq-362",
+      "label": "After Shadows of the First",
+      "questTitle": "Shadows of the First",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67878
+      ]
+    },
+    {
+      "id": "cp-msq-363",
+      "label": "After Two Sides of a Coin",
+      "questTitle": "Two Sides of a Coin",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67879
+      ]
+    },
+    {
+      "id": "cp-msq-364",
+      "label": "After Unlikely Allies",
+      "questTitle": "Unlikely Allies",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67880
+      ]
+    },
+    {
+      "id": "cp-msq-365",
+      "label": "After The Beast That Mourned at the Heart of the Mountain",
+      "questTitle": "The Beast That Mourned at the Heart of the Mountain",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67881
+      ]
+    },
+    {
+      "id": "cp-msq-366",
+      "label": "After Beneath a Star-filled Sky",
+      "questTitle": "Beneath a Star-filled Sky",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67882
+      ]
+    },
+    {
+      "id": "cp-msq-367",
+      "label": "After When We Were Free",
+      "questTitle": "When We Were Free",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67883
+      ]
+    },
+    {
+      "id": "cp-msq-368",
+      "label": "After Honorable Heroes",
+      "questTitle": "Honorable Heroes",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67884
+      ]
+    },
+    {
+      "id": "cp-msq-369",
+      "label": "After One Life for One World",
+      "questTitle": "One Life for One World",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67885
+      ]
+    },
+    {
+      "id": "cp-msq-370",
+      "label": "After An Ending to Mark a New Beginning",
+      "questTitle": "An Ending to Mark a New Beginning",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67886
+      ]
+    },
+    {
+      "id": "cp-msq-371",
+      "label": "After Tidings from Gyr Abania",
+      "questTitle": "Tidings from Gyr Abania",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67887
+      ]
+    },
+    {
+      "id": "cp-msq-372",
+      "label": "After An Envoy for Ishgard",
+      "questTitle": "An Envoy for Ishgard",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67888
+      ]
+    },
+    {
+      "id": "cp-msq-373",
+      "label": "After An Allied Decision",
+      "questTitle": "An Allied Decision",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67889
+      ]
+    },
+    {
+      "id": "cp-msq-374",
+      "label": "After Griffin, Griffin on the Wall",
+      "questTitle": "Griffin, Griffin on the Wall",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67890
+      ]
+    },
+    {
+      "id": "cp-msq-375",
+      "label": "After Louisoix's Finest Student",
+      "questTitle": "Louisoix's Finest Student",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67891
+      ]
+    },
+    {
+      "id": "cp-msq-376",
+      "label": "After The Obvious Solution",
+      "questTitle": "The Obvious Solution",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67892
+      ]
+    },
+    {
+      "id": "cp-msq-377",
+      "label": "After The Greater Obeisance",
+      "questTitle": "The Greater Obeisance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67893
+      ]
+    },
+    {
+      "id": "cp-msq-378",
+      "label": "After Fly Free, My Pretty",
+      "questTitle": "Fly Free, My Pretty",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67894
+      ]
+    },
+    {
+      "id": "cp-hw-3-56",
+      "label": "Heavensward — Patch 3.56 complete",
+      "milestone": true,
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67895
       ]
     }
   ],
@@ -901,19 +2851,19 @@
             {
               "title": "The Gifted — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gifted",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-170",
               "scope": "main"
             },
             {
               "title": "Laying the Foundation — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Laying_the_Foundation",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-165",
               "scope": "main"
             },
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -1066,7 +3016,7 @@
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -1288,7 +3238,7 @@
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -1424,13 +3374,13 @@
             {
               "title": "An Uninvited Ascian — main scenario quest (2.5)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/An_Uninvited_Ascian",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-224",
               "scope": "main"
             },
             {
               "title": "The Gifted — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gifted",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-170",
               "scope": "main"
             },
             {
@@ -1658,19 +3608,19 @@
             {
               "title": "Brave New Companions — main scenario quest (2.3)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Brave_New_Companions",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-199",
               "scope": "main"
             },
             {
               "title": "Traitor in the Midst — main scenario quest (2.4)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Traitor_in_the_Midst",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-200",
               "scope": "main"
             },
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -1772,13 +3722,13 @@
             {
               "title": "The Gifted — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gifted",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-170",
               "scope": "main"
             },
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             }
           ],
@@ -1819,7 +3769,7 @@
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             }
           ],
@@ -1912,13 +3862,13 @@
             {
               "title": "An Uninvited Ascian — main scenario quest (2.5)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/An_Uninvited_Ascian",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-224",
               "scope": "main"
             },
             {
               "title": "The Steps of Faith — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Steps_of_Faith",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-232",
               "scope": "main"
             }
           ],
@@ -1938,7 +3888,7 @@
             {
               "title": "An Uninvited Ascian — main scenario quest (2.5)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/An_Uninvited_Ascian",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-224",
               "scope": "main"
             },
             {
@@ -2092,19 +4042,19 @@
             {
               "title": "Build on the Stone — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Build_on_the_Stone",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-171",
               "scope": "main"
             },
             {
               "title": "Administrative Decision — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Administrative_Decision",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-233",
               "scope": "main"
             },
             {
               "title": "An Unexpected Ambition — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/An_Unexpected_Ambition",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-234",
               "scope": "main"
             },
             {
@@ -2385,19 +4335,19 @@
             {
               "title": "Laying the Foundation — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Laying_the_Foundation",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-165",
               "scope": "main"
             },
             {
               "title": "Build on the Stone — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Build_on_the_Stone",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-171",
               "scope": "main"
             },
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -2435,19 +4385,19 @@
             {
               "title": "Brave New Companions — main scenario quest (2.3)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Brave_New_Companions",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-199",
               "scope": "main"
             },
             {
               "title": "Traitor in the Midst — main scenario quest (2.4)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Traitor_in_the_Midst",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-200",
               "scope": "main"
             },
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -2580,7 +4530,7 @@
             {
               "title": "The Gifted — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gifted",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-170",
               "scope": "main"
             },
             {
@@ -2618,19 +4568,19 @@
             {
               "title": "Laying the Foundation — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Laying_the_Foundation",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-165",
               "scope": "main"
             },
             {
               "title": "Build on the Stone — main scenario quest (2.1)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Build_on_the_Stone",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-171",
               "scope": "main"
             },
             {
               "title": "The Parting Glass — main scenario quest (2.55)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-              "availableAt": "cp-arr-2-55",
+              "availableAt": "cp-msq-240",
               "scope": "main"
             },
             {
@@ -7292,7 +9242,7 @@
         {
           "title": "The Parting Glass — main scenario quest (2.55)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-          "availableAt": "cp-arr-2-55",
+          "availableAt": "cp-msq-240",
           "scope": "main"
         },
         {
@@ -7316,7 +9266,7 @@
         {
           "title": "The Parting Glass — main scenario quest (2.55)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Parting_Glass",
-          "availableAt": "cp-arr-2-55",
+          "availableAt": "cp-msq-240",
           "scope": "main"
         },
         {
