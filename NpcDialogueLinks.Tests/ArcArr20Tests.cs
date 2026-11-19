@@ -18,7 +18,7 @@ public class ArcArr20Tests
 
     private static AtlasSession At(string view, string? pick = null)
     {
-        var session = new AtlasSession(D, new AtlasSpoilerState("cp-arr-2-55", view));
+        var session = new AtlasSession(D, new AtlasSpoilerState("cp-hw-3-56", view));
         session.SetLens(AtlasLens.Arc);
         Assert.True(session.PickArc(pick));
         return session;

@@ -308,7 +308,8 @@ internal sealed class AtlasWindow : Window
 
         // The picker gives up width before anything is pushed past the window edge (minimum 760 px wide).
         ImGui.SetNextItemWidth(Math.Clamp(ImGui.GetContentRegionAvail().X, 160 * scale, 300 * scale));
-        using (var combo = ImRaii.Combo("##AtlasView", view.Label))
+        // One point per quest through 3.56: a tall list that opens scrolled to the point being viewed.
+        using (var combo = ImRaii.Combo("##AtlasView", view.Label, ImGuiComboFlags.HeightLarge))
         {
             foreach (var option in combo ? options : Array.Empty<AtlasCheckpointOption>())
             {
@@ -318,6 +319,11 @@ internal sealed class AtlasWindow : Window
                     if (ImGui.Selectable($"{label}##view-{option.Id}", option.IsView) && !option.IsView)
                     {
                         s.SetView(option.Id);
+                    }
+
+                    if (option.IsView)
+                    {
+                        ImGui.SetItemDefaultFocus();
                     }
                 }
             }
@@ -341,23 +347,35 @@ internal sealed class AtlasWindow : Window
 
         using (var menu = ImRaii.Popup(LimitMenuId))
         {
-            foreach (var option in menu ? options : Array.Empty<AtlasCheckpointOption>())
+            if (menu)
             {
-                if (option.IsCeiling)
+                // One point per quest through 3.56: at most 16 rows tall, scrolled to the current limit when it opens.
+                var appearing = ImGui.IsWindowAppearing(); // the popup's own first frame, read before the child begins
+                var listWidth = options.Max(o => ImGui.CalcTextSize(o.Label).X) + (ImGui.GetStyle().ScrollbarSize * 2) + (16 * scale);
+                using var list = ImRaii.Child("##AtlasLimitList", new System.Numerics.Vector2(listWidth, Math.Min(options.Count, 16) * ImGui.GetTextLineHeightWithSpacing()));
+                foreach (var option in options)
                 {
-                    using (ImRaii.Disabled())
+                    if (option.IsCeiling)
                     {
-                        ImGui.Selectable($"{option.Label}##limit-{option.Id}", true);
+                        using (ImRaii.Disabled())
+                        {
+                            ImGui.Selectable($"{option.Label}##limit-{option.Id}", true);
+                        }
+
+                        if (appearing)
+                        {
+                            ImGui.SetScrollHereY();
+                        }
+
+                        continue;
                     }
 
-                    continue;
-                }
-
-                if (ImGui.Selectable($"{option.Label}##limit-{option.Id}"))
-                {
-                    if (s.RequestCeiling(option.Id) == AtlasStateChange.NeedsConfirmation)
+                    if (ImGui.Selectable($"{option.Label}##limit-{option.Id}"))
                     {
-                        this.openConfirmNextFrame = true;
+                        if (s.RequestCeiling(option.Id) == AtlasStateChange.NeedsConfirmation)
+                        {
+                            this.openConfirmNextFrame = true;
+                        }
                     }
                 }
             }

@@ -20,15 +20,36 @@ plan allows to move earlier mechanically.
     --self-test       checks these rules without writing anything
     --print-pending   prints the key and fingerprint of each pending record, to copy into ACCEPTED after acceptance
 """
-import copy, hashlib, json, sys, pathlib, urllib.parse
+import copy, hashlib, importlib, json, re, sys, pathlib, urllib.parse
 import content_arr_2_0 as ARR  # NDL-012: MSQ #102–#154, five arcs before A4 (data only)
+import timeline_2x_3x as TL  # one step per main-scenario quest of 2.1–3.56, plus the 2.55, 3.0 and 3.56 milestones
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
-SELF_TEST = sys.argv[1:] == ["--self-test"]
-PRINT_PENDING = sys.argv[1:] == ["--print-pending"]
-if sys.argv[1:] and not (SELF_TEST or PRINT_PENDING):
-    sys.exit("Usage: build_pilot_content.py [--self-test | --print-pending]. Review status is per record (see ACCEPTED).")
+ARGS = sys.argv[1:]
+SELF_TEST = ARGS == ["--self-test"]
+PRINT_PENDING = ARGS == ["--print-pending"]
+ACCEPT_PENDING = ARGS == ["--accept-pending"]
+LINT = bool(ARGS) and ARGS[0] == "--lint" and len(ARGS) <= 2
+VERIFY = len(ARGS) == 2 and ARGS[0] == "--verify-locators"
+if ARGS and not (SELF_TEST or PRINT_PENDING or ACCEPT_PENDING or LINT or VERIFY):
+    sys.exit("Usage: build_pilot_content.py [--self-test | --print-pending | --accept-pending | --lint [ERA_MODULE] | --verify-locators PAGES_DIR].")
 A, B = "cp-arr-2-0", "cp-arr-2-55"
+C3, D3 = TL.MILESTONE_3_0[0], TL.MILESTONE_3_56[0]
+
+# The era modules after 2.0, in timeline order: (module, first step it may start a record on, last checkpoint).
+ERAS = [
+    ("content_2_1_to_2_3", "cp-msq-162", "cp-msq-199"),
+    ("content_2_4_to_2_55", "cp-msq-200", B),
+    ("content_3_0_part1", "cp-msq-242", "cp-msq-291"),
+    ("content_3_0_part2", "cp-msq-292", C3),
+    ("content_3_1_to_3_56", "cp-msq-336", D3),
+    # The lead's integration module, merged last: earlier entries for entities that accepted or earlier-era text already
+    # names (so nothing is named before it is visible), and the cross-era endings no single era could write.
+    ("content_lead_integration", "cp-msq-102", D3),
+]
+LINT_ONLY = ARGS[1] if LINT and len(ARGS) == 2 else None
+if LINT_ONLY and LINT_ONLY not in {m for m, _, _ in ERAS}:
+    sys.exit(f"--lint takes one of: {', '.join(m for m, _, _ in ERAS)}")
 
 # ---- Timeline (schema v2) ---------------------------------------------------------------------------------------
 # The A4 slice (NDL-009): the baseline step after MSQ #154, then one step after each of #155–160. Each step means
@@ -44,11 +65,18 @@ SLICE = ARR.EARLY_SLICE + [  # (checkpoint id, MSQ index, quest title, game ques
     ("cp-msq-160", 160, "Rock the Castrum", 69409),
 ]
 BASE = SLICE[0][0]
-STEP_OF = {title: cid for cid, _, title, _ in SLICE}
-CP_LABEL = {A: "A Realm Reborn — Patch 2.0 complete", B: "A Realm Reborn — Patch 2.55 complete",
-            **{cid: f"After {title}" for cid, _, title, _ in SLICE}}
-CP_SHORT = {A: "2.0", B: "2.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT}
-ORDER = [cid for cid, _, _, _ in SLICE] + [A, B]
+LATER = TL.STEPS_2X + TL.STEPS_3_0 + TL.STEPS_3X  # (checkpoint id, MSQ index, quest title, game quest id, patch)
+MILESTONES = {A: ("A Realm Reborn — Patch 2.0 complete", "The Ultimate Weapon", 70058), B: TL.MILESTONE_2_55[1:],
+              C3: TL.MILESTONE_3_0[1:], D3: TL.MILESTONE_3_56[1:]}
+STEP_OF = {title: cid for cid, _, title, _ in SLICE} | {title: cid for cid, _, title, _, _ in LATER}
+MILESTONE_OF = {quest: cid for cid, (_, quest, _) in MILESTONES.items()}  # a milestone's own quest counts from it
+CP_LABEL = {cid: label for cid, (label, _, _) in MILESTONES.items()} | {cid: f"After {title}" for cid, _, title, _ in SLICE} \
+    | {cid: f"After {title}" for cid, _, title, _, _ in LATER}
+CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT,
+            **{cid: f"#{n}" for cid, n, _, _, _ in LATER}, **TL.SHORT}
+ORDER = ([cid for cid, _, _, _ in SLICE] + [A] + [c for c, *_ in TL.STEPS_2X] + [B] + [c for c, *_ in TL.STEPS_3_0] + [C3]
+         + [c for c, *_ in TL.STEPS_3X] + [D3])
+IDX = {cid: i for i, cid in enumerate(ORDER)}
 
 # ---- Sources: wiki page title -> (display title, patch, availableAt, scope) -------------------------------
 # availableAt is the earliest timeline step at or after the quest: a 2.0 main quest before #154 counts from the
@@ -57,10 +85,14 @@ ORDER = [cid for cid, _, _, _ in SLICE] + [A, B]
 # v2 plan's permitted mechanical change (it is never displayed, and the fingerprint ignores it).
 SRC = {}
 def src(key, page, patch, scope="main", kind=None):
-    if scope == "optional" or patch != "2.0":
+    if scope == "optional":
         avail = A if patch == "2.0" else B
-    else:
-        avail = A if key == "The Ultimate Weapon" else STEP_OF.get(key, BASE)
+    elif key in MILESTONE_OF:
+        avail = MILESTONE_OF[key]
+    elif patch == "2.0":
+        avail = STEP_OF.get(key, BASE)
+    else:  # every later main-scenario quest has its own step (timeline_2x_3x)
+        avail = STEP_OF[key]
     label = kind or ("main scenario quest" if scope == "main" else "optional Binding Coil quest")
     SRC[key] = dict(page=page, patch=patch, avail=avail, scope=scope,
                     title=f"{key} — {label} ({patch})")
@@ -79,6 +111,12 @@ for k, patch in [("The Gifted", "2.1"), ("Laying the Foundation", "2.1"), ("Buil
     src(k, k, patch)
 for k, patch in [("Another Turn in the Coil", "2.2"), ("Alisaie's Resolve", "2.2"), ("Alisaie's Path", "2.4")]:
     src(k, k, patch, "optional")
+# Every later main-scenario quest, and the quest each later milestone follows, so era modules can cite any of them.
+for _, _, k, _, patch in LATER:
+    if k not in SRC:
+        src(k, TL.PAGES.get(k, k), patch)
+for k, patch in [("Heavensward", "3.0"), ("The Far Edge of Fate", "3.56")]:
+    src(k, TL.PAGES.get(k, k), patch)
 
 # ---- Claims: id -> (own-words claim, source key, locator quote) ------------------------------------------------
 C = {
@@ -152,10 +190,17 @@ def P(frm, until, scope, name, summary, claims, aliases=()):
 CHECKPOINTS = [
     {"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({"contiguousWithPrevious": True} if i and cid not in ARR.NOT_CONTIGUOUS else {}), "gameQuestIds": [gid]}
     for i, (cid, _, title, gid) in enumerate(SLICE)
-] + [
-    {"id": A, "label": CP_LABEL[A], "milestone": True, "contiguousWithPrevious": True, "gameQuestIds": [70058]},  # The Ultimate Weapon (#161)
-    {"id": B, "label": CP_LABEL[B], "milestone": True, "gameQuestIds": [65964]},  # Before the Dawn
 ]
+# Each milestone is the step after its patch's last quest, so it is contiguous with the step before it; each later step
+# is contiguous unless it follows another parallel path (timeline_2x_3x.NOT_CONTIGUOUS).
+def _milestone(cid):
+    label, _, gid = MILESTONES[cid]
+    return {"id": cid, "label": label, "milestone": True, "contiguousWithPrevious": True, "gameQuestIds": [gid]}
+def _later(steps):
+    return [{"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({} if cid in TL.NOT_CONTIGUOUS else {"contiguousWithPrevious": True}),
+             "gameQuestIds": [gid]} for cid, _, title, gid, _ in steps]
+CHECKPOINTS += [_milestone(A)] + _later(TL.STEPS_2X) + [_milestone(B)] + _later(TL.STEPS_3_0) + [_milestone(C3)] + _later(TL.STEPS_3X) + [_milestone(D3)]
+assert [c["id"] for c in CHECKPOINTS] == ORDER
 
 ENT = [
  ("char-minfilia", "character", [
@@ -641,15 +686,161 @@ for entry, members in ARR.CASTS.items():
         _n += 1
 ARCS = ARR.ARCS + ARCS
 ARC_NOTES.update(ARR.ARC_NOTES)
+
+# ==== After 2.0: patches 2.1–3.56, one module per era (ERAS) =====================================================
+# Each module holds only data (see docs/atlas/era-modules.md for the contract): CLAIMS, ENTITIES (new id -> category),
+# PRES (entity id -> presentations, for new or existing entities), TYPES, RELS, ADJUST (interval changes to
+# relationships an earlier module or the accepted content defined), ARCS, CASTS, ARC_NOTES and DECISIONS.
+# Presentations are merged per entity and scope in timeline order; each one runs until the next one starts (so an
+# earlier open or longer record is closed there), which keeps every entity continuously visible.
+ERA_MODULES = []
+ERA_OF = {}
+_known_ids = {eid for eid, _, _ in ENT}
+_ent_index = {eid: i for i, (eid, _, _) in enumerate(ENT)}
+_rel_ids = {r[0] for r in RELS}
+_type_rows = {i: (o, n, s) for i, o, n, s in TYPES}
+LINT_ERRORS = []
+DROPPED_DUPLICATES = []
+def _lint(msg):
+    LINT_ERRORS.append(msg)
+for _mod, _first, _last in ERAS:
+    if LINT_ONLY and _mod != LINT_ONLY:
+        continue
+    try:
+        M = importlib.import_module(_mod)
+    except ModuleNotFoundError:
+        continue
+    ERA_MODULES.append((_mod, M))
+    _lo, _hi = IDX[_first], IDX[_last]
+    def _in_era(step, what):
+        if step not in IDX:
+            _lint(f"{_mod}: {what}: unknown step {step!r}")
+        elif not (_lo <= IDX[step] <= _hi):
+            _lint(f"{_mod}: {what}: step {step} is outside this era ({_first}–{_last})")
+    for k, v in getattr(M, "CLAIMS", {}).items():
+        if k in C:
+            _lint(f"{_mod}: claim id {k} already exists")
+        elif v[1] not in SRC:
+            _lint(f"{_mod}: claim {k} cites unknown source {v[1]!r} (use the quest title exactly)")
+        else:
+            C[k] = v
+            ERA_OF[("claim", k)] = _mod
+    for eid, cat in getattr(M, "ENTITIES", {}).items():
+        if eid in _known_ids:
+            known_cat = ENT[_ent_index[eid]][1]
+            if known_cat != cat:
+                _lint(f"{_mod}: entity {eid} already exists as {known_cat}, not {cat}")
+            continue
+        if cat not in ("character", "organization", "location", "event"):
+            _lint(f"{_mod}: entity {eid}: unknown category {cat}")
+        _ent_index[eid] = len(ENT); ENT.append((eid, cat, [])); _known_ids.add(eid)
+        ERA_OF[("entity", eid)] = _mod
+    for eid, plist in getattr(M, "PRES", {}).items():
+        if eid not in _known_ids:
+            _lint(f"{_mod}: presentations for unknown entity {eid} (add it to ENTITIES)")
+            continue
+        for pr in plist:
+            _in_era(pr["frm"], f"presentation of {eid}")
+            pr = dict(pr, _era=_mod)
+            ENT[_ent_index[eid]][2].append(pr)
+    for i, o, n, s in getattr(M, "TYPES", []):
+        if i in _type_rows:
+            if _type_rows[i] != (o, n, s):
+                _lint(f"{_mod}: relationship type {i} already exists with different labels {_type_rows[i]}")
+            continue
+        _type_rows[i] = (o, n, s); TYPES.append((i, o, n, s))
+    for r in getattr(M, "RELS", []):
+        rid, s, ty, g, f, u, sc, cl, *rest = r
+        if rid in _rel_ids:
+            # Parallel eras sometimes wrote the same relationship under the conventional id: keep the earlier era's
+            # record (it starts first) and drop this copy, unless the two disagree on what the relationship is.
+            prior = next(x for x in RELS if x[0] == rid)
+            if (prior[1], prior[2], prior[3], prior[6]) != (s, ty, g, sc):
+                _lint(f"{_mod}: relationship id {rid} already exists as a different relationship")
+            else:
+                DROPPED_DUPLICATES.append((_mod, rid))
+            continue
+        _in_era(f, f"relationship {rid}")
+        _rel_ids.add(rid); RELS.append((rid, s, ty, g, f, u, sc, cl, f"R{len(RELS) + 1}", *(rest[:1])))
+        ERA_OF[("relationship", rid)] = _mod
+    for rid, change in getattr(M, "ADJUST", {}).items():
+        hit = [i for i, r in enumerate(RELS) if r[0] == rid]
+        if not hit:
+            _lint(f"{_mod}: ADJUST names unknown relationship {rid}"); continue
+        _r = RELS[hit[0]]
+        r = list(_r[:9]) + [(_r[9] if len(_r) > 9 else [])]
+        if "frm" in change:
+            r[4] = change["frm"]
+        if "until" in change:
+            r[5] = change["until"]
+            if change["until"] is not None:
+                _in_era(change["until"], f"ADJUST until of {rid}")
+        if "end" in change:
+            r[9] = change["end"]
+        RELS[hit[0]] = tuple(r[:9]) + ((r[9],) if r[9] else ())
+    for aid, entry, f, l in getattr(M, "ARCS", []):
+        _in_era(f, f"arc {aid} first step"); _in_era(l, f"arc {aid} last step")
+        ARCS.append((aid, entry, f, l))
+    ARC_NOTES.update(getattr(M, "ARC_NOTES", {}))
+    for entry, members in getattr(M, "CASTS", {}).items():
+        arc = [a for a in getattr(M, "ARCS", []) if a[1] == entry]
+        if not arc:
+            _lint(f"{_mod}: CASTS names {entry}, which is no arc entry in this module"); continue
+        tag = arc[0][0].split("-")[1]
+        for member, frm, claims in members:
+            _in_era(frm, f"cast member {member} of {arc[0][0]}")
+            RELS.append((f"p-{member.split('-', 1)[1]}-{tag}", member, "participant-in", entry, frm, None, "main", claims, f"P{len(RELS) + 1}"))
+
+# Merge each entity's presentations in timeline order, per scope; each runs until the next one of its scope starts.
+for _eid, _cat, _pres in ENT:
+    _pres.sort(key=lambda p: (IDX.get(p["frm"], -1), p["scope"] != "main"))
+    for _scope in ("main", "optional"):
+        _ps = [p for p in _pres if p["scope"] == _scope]
+        for _p, _q in zip(_ps, _ps[1:]):
+            if _p["until"] is None or IDX[_p["until"]] > IDX[_q["frm"]]:
+                _p["until"] = _q["frm"]
+            elif IDX[_p["until"]] < IDX[_q["frm"]]:
+                _lint(f"{_eid}: {_scope} presentations leave a gap from {_p['until']} to {_q['frm']}")
+            if _p["frm"] == _q["frm"]:
+                _lint(f"{_eid}: two {_scope} presentations start at {_p['frm']}")
+    # Optional follows main boundaries, and optional persists (schema v1): an optional record ends where a later main
+    # record starts inside it, and from there the optional view carries each newer main record's text unchanged.
+    _mains = [p for p in _pres if p["scope"] == "main" and p["frm"] in IDX]
+    _extra = []
+    for _p in [p for p in _pres if p["scope"] == "optional" and p["frm"] in IDX]:
+        _end = len(ORDER) if _p["until"] is None else IDX[_p["until"]]
+        _inside = [m for m in _mains if IDX[_p["frm"]] < IDX[m["frm"]] < _end]
+        if not _inside:
+            continue
+        _p["until"] = _inside[0]["frm"]
+        for _m in _inside:
+            _mu = len(ORDER) if _m["until"] is None else IDX[_m["until"]]
+            _u = min(_mu, _end)
+            _extra.append(dict(_m, scope="optional", until=None if _u == len(ORDER) else ORDER[_u], _mirrors_main=True))
+    _pres.extend(_extra)
+    _pres.sort(key=lambda p: (IDX.get(p["frm"], -1), p["scope"] != "main"))
 # Catch a record citing a quest that comes after its own start here, before the C# validator does (CitationTooNew).
 for _eid, _, _pres in ENT:
     for _p in _pres:
         for _c in _p["claims"]:
-            assert ORDER.index(SRC[C[_c][1]]["avail"]) <= ORDER.index(_p["frm"]), (_eid, _p["frm"], _c)
+            if _c not in C:
+                _lint(f"{_eid} at {_p['frm']}: unknown claim {_c}")
+            elif IDX[SRC[C[_c][1]]["avail"]] > IDX.get(_p["frm"], -1):
+                _lint(f"{_eid} at {_p['frm']}: claim {_c} cites {C[_c][1]!r}, which comes later")
 for _r in RELS:
-    _rid, _, _, _, _f, _, _, _cl, _, *_ = _r
+    _rid, _, _, _, _f, _u, _, _cl, _, *_rest = _r
     for _c in _cl:
-        assert ORDER.index(SRC[C[_c][1]]["avail"]) <= ORDER.index(_f), (_rid, _c)
+        if _c not in C:
+            _lint(f"{_rid}: unknown claim {_c}")
+        elif IDX[SRC[C[_c][1]]["avail"]] > IDX.get(_f, -1):
+            _lint(f"{_rid} at {_f}: claim {_c} cites {C[_c][1]!r}, which comes later")
+    for _c in (_rest[0] if _rest else []):
+        if _c not in C:
+            _lint(f"{_rid}: unknown end claim {_c}")
+        elif _u is None or IDX[SRC[C[_c][1]]["avail"]] > IDX.get(_u, -1):
+            _lint(f"{_rid}: end claim {_c} cites {C[_c][1]!r}, which is not available by the ending step {_u}")
+if LINT_ERRORS and not LINT:
+    sys.exit("Content errors (run --lint for the full report):\n  " + "\n  ".join(LINT_ERRORS[:40]))
 
 # ---- Portraits (NDL-011) ---------------------------------------------------------------------------------------
 # Each is a game icon from the player's own install (never an image file in the repository or the package), cropped
@@ -677,6 +868,10 @@ PORTRAITS = {
     "evt-operation-archon": (112016, 0.37, 0.45, 1.00, "Duty art, Castrum Meridianum"),
     "evt-black-wolfs-challenge": (100163, 0.17, 0.50, 1.00, "Quest illustration, Escape from Castrum Centri (MSQ #155)"),
 }
+
+import portraits_later
+assert not set(portraits_later.PORTRAITS) & set(PORTRAITS), "portrait defined twice"
+PORTRAITS.update(portraits_later.PORTRAITS)
 
 def portrait_record(eid):
     icon, x, y, size, source = PORTRAITS[eid]
@@ -1055,6 +1250,14 @@ ACCEPTED = {
     ('relationship', 'p-glaumunt-b5'): '0d48d9eb0b33a44042af120a',
 }
 
+# Records accepted after NDL-012 (the post-2.0 eras): written by --accept-pending, keyed like ACCEPTED. The user waived
+# the per-story acceptance gate for Atlas content on 2026-11-19 ("abandon the story approach"), so the lead records these
+# after verification: every locator checked by script against the saved wiki pages, and the lint and host tests green.
+ACCEPTED_LATER_FILE = pathlib.Path(__file__).with_name("accepted_later.json")
+ACCEPTED_LATER = {tuple(k): v for k, v in json.loads(ACCEPTED_LATER_FILE.read_text())} if ACCEPTED_LATER_FILE.exists() else {}
+ACCEPTED_CORE = dict(ACCEPTED)  # the records the user accepted story by story (NDL-003 to NDL-012)
+ACCEPTED.update(ACCEPTED_LATER)
+
 def fingerprint(record, context=None):
     """Content fingerprint of an emitted record plus the reviewed context it is shown with (never emitted), ignoring
     `review` and each citation's mechanical `availableAt`."""
@@ -1129,9 +1332,168 @@ doc = {
 # An accepted key that no longer exists means a record was renamed or deleted: fail loudly instead of drifting.
 EMITTED_KEYS = {("presentation", e["id"], pr["validFrom"], pr["scope"]) for e in doc["entities"] for pr in e["presentations"]} | {("relationship", r["id"]) for r in doc["relationships"]} | {("portrait", e["id"]) for e in doc["entities"] if "portrait" in e}
 assert set(PORTRAITS) <= {e["id"] for e in doc["entities"]}, "PORTRAITS names an unknown entity" 
-MISSING = missing_accepted(ACCEPTED, EMITTED_KEYS)
+MISSING = missing_accepted(ACCEPTED_CORE, EMITTED_KEYS)  # stale ACCEPTED_LATER keys are dropped by --accept-pending
 if MISSING:
     sys.exit(f"ACCEPTED lists records that no longer exist: {MISSING}")
+
+# ---- Lint (--lint): the content rules the host tests enforce, checked fast in Python -------------------------------
+BANNED_NAMES = [  # case-sensitive whole words (RealDataTests.BannedNames)
+    "Warde", "Waters", "Rhul", "Augurelt", "Leveilleur", "Taru", "Totolymo", "Hext", "Ascilia", "Ascilla",
+    "Lyse", "Ryne", "Exarch", "Emet-Selch", "Hythlodaeus", "Hades", "Lightwarden", "Wyrmblood", "The First",
+    "Garlond", "Baelsar", "Junius", "Scaeva", "Arvina", "Midas", "Nero", "Zodiark", "Nabriales", "Igeyorhm", "Pashtarot",
+]
+BANNED_PHRASES = [  # case-insensitive (RealDataTests.BannedPhrases)
+    "Oracle of Light", "Word of the Mother", "Warrior of Darkness", "Warriors of Darkness", "Heavensward",
+    "Shadowbringers", "Stormblood", "Endwalker", "Bahamut stirs", "the Reckoning", "Dark One", "new primal",
+]
+# A banned term may appear from the step named here (mirrored in RealDataTests.AllowedFrom). Era modules may propose
+# more in ALLOW; the lead copies the accepted ones here.
+ALLOWED_FROM = {  # accepted by the lead on 2026-11-19, each from the step where the pages establish it
+    "Nabriales": "cp-msq-224", "Warriors of Darkness": "cp-msq-340", "Warrior of Darkness": "cp-msq-340",
+    "Word of the Mother": "cp-msq-345", "Nero": "cp-msq-376", "Lyse": D3, "Heavensward": C3,
+}
+for _mod, M in ERA_MODULES:
+    for term, step in getattr(M, "ALLOW", {}).items():
+        ALLOWED_FROM.setdefault(term, step)
+
+def _texts_of_presentation(p):
+    """(text, is_citation) pairs. A citation shows its quest's title, which is public and only appears once that quest
+    is reached, so the banned-name lists don't apply to it (Still Waters, Shadows of the First, Heavensward)."""
+    yield p["name"], False; yield p["summary"], False
+    for a in p["aliases"]:
+        yield a, False
+    for k in cites(p["claims"]):
+        yield SRC[k]["title"], True; yield urllib.parse.unquote(url(k)).replace("_", " "), True
+
+def lint():
+    errs = list(LINT_ERRORS)
+    later_titles = {}  # step index -> quest titles of later steps
+    titles = [(IDX[c["id"]], c["questTitle"]) for c in CHECKPOINTS if c.get("questTitle")]
+    first_known = {}
+    for eid, _, pres in ENT:
+        for p in pres:
+            for n in [p["name"], *p["aliases"]]:
+                first_known[n] = min(first_known.get(n, 10**6), IDX[p["frm"]])
+    def check_text(where, at, text, citation=False):
+        for i, title in titles:
+            if i > at and title in text:
+                errs.append(f"{where}: names a later quest, {title!r} ({ORDER[i]}): {text[:140]}")
+        for n, i in first_known.items():
+            if i > at and n in text:
+                errs.append(f"{where}: names {n!r} before it is visible (from {ORDER[i]}): {text[:140]}")
+        for n in ([] if citation else BANNED_NAMES):
+            if re.search(rf"(?<![\w-]){re.escape(n)}(?![\w-])", text) and not (n in ALLOWED_FROM and at >= IDX[ALLOWED_FROM[n]]):
+                errs.append(f"{where}: banned name {n!r}: {text[:140]}")
+        for n in ([] if citation else BANNED_PHRASES):
+            if n.lower() in text.lower() and not (n in ALLOWED_FROM and at >= IDX[ALLOWED_FROM[n]]):
+                errs.append(f"{where}: banned phrase {n!r}: {text[:140]}")
+        for bad in ("[[", "]]", "''", "[Forename]", "<<", "Forename", "{{"):
+            if bad in text and not text.startswith("https://"):
+                errs.append(f"{where}: wiki markup or placeholder {bad!r}: {text[:140]}")
+    type_ids = {i for i, *_ in TYPES}
+    cat = {eid: c for eid, c, _ in ENT}
+    vis = {}
+    for eid, _, pres in ENT:
+        if not pres:
+            errs.append(f"{eid}: has no presentations"); continue
+        if len(pres) > 64:
+            errs.append(f"{eid}: {len(pres)} presentations (max 64)")
+        if len(eid) > 64:
+            errs.append(f"{eid}: id longer than 64")
+        for p in pres:
+            where = f"{eid} @{p['frm']} {p['scope']}"
+            if p["frm"] not in IDX or (p["until"] is not None and p["until"] not in IDX):
+                errs.append(f"{where}: unknown step"); continue
+            if len(p["summary"]) > 1200: errs.append(f"{where}: summary longer than 1200")
+            if len(p["name"]) > 80 or any(len(a) > 80 for a in p["aliases"]): errs.append(f"{where}: name or alias longer than 80")
+            if len(p["aliases"]) > 8: errs.append(f"{where}: more than 8 aliases")
+            if not 1 <= len(cites(p["claims"])) <= 8: errs.append(f"{where}: needs 1–8 distinct sources, has {len(cites(p['claims']))}")
+            for text, citation in _texts_of_presentation(p):
+                check_text(where, IDX[p["frm"]], text, citation)
+            end = len(ORDER) if p["until"] is None else IDX[p["until"]]
+            for i in range(IDX[p["frm"]], end):
+                vis.setdefault((eid, p["scope"]), set()).add(i)
+    def visible(eid, scope, i):
+        return i in vis.get((eid, "main"), ()) or (scope == "optional" and i in vis.get((eid, "optional"), ()))
+    triples = {}
+    for r in RELS:
+        rid, s, ty, g, f, u, sc, cl, _, end = rel_parts(r)
+        where = f"{rid}"
+        if len(rid) > 64: errs.append(f"{where}: id longer than 64")
+        if ty not in type_ids: errs.append(f"{where}: unknown type {ty}")
+        if s not in cat or g not in cat: errs.append(f"{where}: unknown endpoint"); continue
+        if f not in IDX or (u is not None and u not in IDX): errs.append(f"{where}: unknown step"); continue
+        hi = len(ORDER) if u is None else IDX[u]
+        if hi <= IDX[f]: errs.append(f"{where}: empty interval")
+        for i in range(IDX[f], hi):
+            if not (visible(s, sc, i) and visible(g, sc, i)):
+                errs.append(f"{where}: endpoint not visible at {ORDER[i]}"); break
+        for i in range(IDX[f], hi):
+            key = (s, ty, g, sc, i)
+            if key in triples:
+                errs.append(f"{where}: overlaps {triples[key]} (same source, type, target and scope) at {ORDER[i]}"); break
+            triples[key] = rid
+        if not 1 <= len(cites(cl)) <= 8: errs.append(f"{where}: needs 1–8 distinct sources")
+        for k in cites(cl):
+            check_text(where, IDX[f], SRC[k]["title"], citation=True)
+        if end:
+            if u is None:
+                errs.append(f"{where}: end claims without validUntil")
+            elif CHECKPOINTS[IDX[u] - 1].get("milestone", False) != CHECKPOINTS[IDX[u]].get("milestone", False):
+                errs.append(f"{where}: end claims need an ending step where Changes is offered; {u} is next to a milestone boundary")
+            if len(cites(end)) > 8: errs.append(f"{where}: more than 8 end sources")
+    for aid, entry, f, l in ARCS:
+        if cat.get(entry) != "event": errs.append(f"{aid}: entry {entry} is not an event entity")
+        if f not in IDX or l not in IDX or IDX[f] > IDX[l]: errs.append(f"{aid}: bad interval"); continue
+        if not visible(entry, "main", IDX[f]): errs.append(f"{aid}: entry not visible at its first step")
+        members = [(rel_parts(r)[1], IDX[rel_parts(r)[4]]) for r in RELS if rel_parts(r)[2] == "participant-in" and rel_parts(r)[3] == entry]
+        for i in range(IDX[f], IDX[l] + 1):
+            n = len({m for m, frm in members if frm <= i})
+            if n > 10: errs.append(f"{aid}: {n} cast members at {ORDER[i]} (max 10)"); break
+    starts = sorted((IDX[f], IDX[l], aid) for aid, _, f, l in ARCS if f in IDX and l in IDX)
+    for (f1, l1, a1), (f2, l2, a2) in zip(starts, starts[1:]):
+        if f2 <= l1 and l1 - f2 >= 1:
+            errs.append(f"{a1} and {a2} overlap on {l1 - f2 + 1} steps; arcs may share at most one step (the earlier one hides the later)")
+    return errs
+
+if LINT:
+    errs = lint()
+    scope = LINT_ONLY or "all eras"
+    print(f"lint ({scope}): {len(ERA_MODULES)} era modules, {len(C)} claims, {sum(len(p) for _, _, p in ENT)} presentations, {len(RELS)} relationships, {len(ARCS)} arcs")
+    for e in errs:
+        print("  " + e)
+    if LINT_ONLY:
+        print("  (note: only this era is loaded, so ADJUST entries for another era's relationships report as unknown)")
+    print("lint: " + ("OK" if not errs else f"{len(errs)} problems"))
+    sys.exit(1 if errs else 0)
+
+if VERIFY:
+    pages = pathlib.Path(ARGS[1]); bad = []; missing = set(); n = 0
+    for k, (_, source, loc) in C.items():
+        if ("claim", k) not in ERA_OF:
+            continue
+        f = pages / (SRC[source]["page"].replace(" ", "_") + ".txt")
+        if not f.exists():
+            missing.add(f.name); continue
+        text = f.read_text()
+        for frag in loc.split(" … "):
+            n += 1
+            if frag not in text:
+                bad.append((k, source, frag))
+    print(f"verify: {n} locator fragments in {sum(1 for k in C if ('claim', k) in ERA_OF)} era claims; {len(bad)} not found; missing pages: {sorted(missing)}")
+    for b in bad:
+        print("  ", b)
+    sys.exit(1 if bad or missing else 0)
+
+if ACCEPT_PENDING:
+    keys = [(("presentation", e["id"], pr["validFrom"], pr["scope"])) for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending"]
+    keys += [("relationship", r["id"]) for r in doc["relationships"] if r["review"] == "pending"]
+    keys += [("portrait", e["id"]) for e in doc["entities"] if e.get("portrait", {}).get("review") == "pending"]
+    later = json.loads(ACCEPTED_LATER_FILE.read_text()) if ACCEPTED_LATER_FILE.exists() else []
+    later = [kv for kv in later if tuple(kv[0]) in EMITTED_KEYS] + [[list(k), FINGERPRINTS[k]] for k in keys]
+    ACCEPTED_LATER_FILE.write_text(json.dumps(sorted(later), ensure_ascii=False, indent=0) + "\n")
+    print(f"accepted {len(keys)} pending records into {ACCEPTED_LATER_FILE.name}; rerun the build")
+    sys.exit(0)
 
 if PRINT_PENDING:
     for e in doc["entities"]:
@@ -1226,7 +1588,9 @@ w("# Atlas content review sheet\n")
 PENDING = sum(1 for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending") + sum(1 for r in doc["relationships"] if r["review"] == "pending") + sum(1 for e in doc["entities"] if e.get("portrait", {}).get("review") == "pending")
 w(f"> **Status: {'REVIEWED' if PENDING == 0 else f'AWAITING HUMAN REVIEW ({PENDING} pending)'}.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), "
   "exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. "
-  "AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.\n")
+  "AI research and AI review are not canon acceptance: through NDL-012, only your explicit approval marked records `reviewed`. "
+  "For the content after 2.0 (patches 2.1–3.56) you waived the per-story acceptance gate on 2026-11-19, so the lead marked it `reviewed` after "
+  "checking every locator by script against the saved wiki pages and running the lint and host tests ([era-modules.md](era-modules.md)).\n")
 w("How to read it:\n")
 w("- **Main** text is what the main-story view shows. **Optional** text replaces it in the default *main + optional* view, because it includes optional Binding Coil quests that are doable and released by that patch (the [available-content rule](../lore-relationship-atlas.md#research-and-content-rules)).")
 w("- Each claim quotes a short locator from the Console Games Wiki transcription of that quest, so you can find it. Patch numbers are when the quest was released, which sets the earliest checkpoint where the claim counts.")
@@ -1252,6 +1616,12 @@ w("12. **The step bound rises from 16 to 128**: one step per main-scenario quest
 w("13. **Marques is his own entry, with no portrait**, because Cid's portrait shows his later look. From #110 he is *revealed as* Cid, and Cid is searchable as \"Marques\".")
 w("14. **Rule 7 above is relaxed**: with #102–#160 covered, text names any entry that is already visible. The leak tests still forbid any name that isn't visible yet, and any later quest title (so the arcs are not named after #105's or #141's quests).")
 w("15. **Left out**, as before: Nero, and surnames. The Company of Heroes holds a \"feast\", because \"banquet\" is reserved for the 2.55 story.\n")
+w("For the content after 2.0 (patches 2.1–3.56, 2026-11-19), the era authors and the lead recorded these decisions; flag any you want changed:\n")
+_n = 16
+for _mod, _M in ERA_MODULES:
+    for _d in getattr(_M, "DECISIONS", []):
+        w(f"{_n}. *({_mod})* {_d}"); _n += 1
+w("")
 w("## Snapshot overview\n")
 w("Visible records at each step, in the main-story view and the main + optional view. Slice steps (#…) cover only the characters involved in the story so far.\n")
 w("| Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |\n|---|---|---|---|---|")
@@ -1275,7 +1645,7 @@ if ARCS:
         w("")
 w("## Portraits\n")
 w("Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. "
-  "The user approved every pick on 2026-11-15 from a page showing each crop beside its source image. Crop: centre x, y and size, as fractions of the image (size of its shorter side).\n")
+  "The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).\n")
 w("| Entity | Source in the game | Icon | Crop (x, y, size) |\n|---|---|---|---|")
 for eid, _, _ in ENT:
     if eid in PORTRAITS:

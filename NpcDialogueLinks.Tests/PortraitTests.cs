@@ -129,33 +129,47 @@ public class PortraitTests
         "char-cid", "char-gaius", "char-livia", "char-lahabrea", "org-eorzean-alliance",
     ];
 
+    /// <summary>
+    /// Entries without a portrait (2026-11-19): the Waking Sands (no usable image), entries with no faithful image in the
+    /// game data, Hydaelyn (her only card shows a later form), and two disguise identities whose faces would give them away.
+    /// </summary>
+    private static readonly HashSet<string> NoPortrait =
+    [
+        "loc-waking-sands", "char-glaumunt", "char-slafborn", "char-teledji", "char-nabriales", "char-yuyuhase", "char-alianne",
+        "char-wilred", "char-grinnaux", "char-zephirin", "char-dewlala", "char-guillaime", "char-iliud", "char-eline", "char-hydaelyn",
+        "org-students-of-baldesion", "org-masks", "char-ivy", "char-masked-man", "char-marques",
+    ];
+
     [Fact]
-    public void Real_EveryEntryButTheWakingSandsHasAReviewedPortrait()
+    public void Real_EveryEntryButTheListedOnesHasAReviewedPortrait()
     {
-        // The 19 entries NDL-011 covered. NDL-012's 25 new entries have no portraits yet; they keep their shapes.
-        var portraits = RealPortraits.Where(p => NdlElevenEntries.Contains(p.Key)).ToDictionary(p => p.Key, p => p.Value);
-        Assert.Equal(19, portraits.Count);
-        Assert.All(RealPortraits.Where(p => !NdlElevenEntries.Contains(p.Key)), p => Assert.Null(p.Value));
-        Assert.Null(portraits["loc-waking-sands"]);
-        Assert.All(portraits.Where(p => p.Key != "loc-waking-sands"), p =>
+        Assert.All(NdlElevenEntries.Where(id => id != "loc-waking-sands"), id => Assert.NotNull(RealPortraits[id])); // NDL-011's picks stay
+        Assert.All(RealPortraits, p =>
         {
-            Assert.NotNull(p.Value);
-            Assert.Equal(AtlasReviewStatus.Reviewed, p.Value!.Review);
+            if (NoPortrait.Contains(p.Key))
+            {
+                Assert.Null(p.Value);
+            }
+            else
+            {
+                Assert.NotNull(p.Value);
+                Assert.Equal(AtlasReviewStatus.Reviewed, p.Value!.Review);
+            }
         });
     }
 
     [Fact]
-    public void Real_CharactersUseTripleTriadCardsAndTheTwinsShareOne()
+    public void Real_PortraitsAreCardsQuestArtOrDutyArtAndTheTwinsShareOne()
     {
-        var portraits = RealPortraits.Where(p => p.Value is not null).ToDictionary(p => p.Key, p => p.Value);
-        foreach (var (id, portrait) in portraits.Where(p => p.Key.StartsWith("char-", StringComparison.Ordinal)))
+        var portraits = RealPortraits.Where(p => p.Value is not null).ToDictionary(p => p.Key, p => p.Value!);
+        foreach (var (id, portrait) in portraits)
         {
-            Assert.InRange(portrait!.GameIcon, 87001u, 87999u);
+            // Triple Triad cards (87xxx), quest illustrations (100xxx) and duty art (112xxx): nothing else.
+            Assert.True(portrait.GameIcon is (>= 87001 and <= 87999) or (>= 100000 and <= 101999) or (>= 112000 and <= 112999), $"{id}: {portrait.GameIcon}");
         }
 
-        Assert.Equal(portraits["char-alphinaud"]!.GameIcon, portraits["char-alisaie"]!.GameIcon);
-        Assert.True(portraits["char-alphinaud"]!.CropX < 0.5 && portraits["char-alisaie"]!.CropX > 0.5, "Alphinaud is the card's left half, Alisaie its right.");
-        Assert.Equal(17, portraits.Values.Where(p => p is not null).Select(p => p!.GameIcon).Distinct().Count());
+        Assert.Equal(portraits["char-alphinaud"].GameIcon, portraits["char-alisaie"].GameIcon);
+        Assert.True(portraits["char-alphinaud"].CropX < 0.5 && portraits["char-alisaie"].CropX > 0.5, "Alphinaud is the card's left half, Alisaie its right.");
     }
 
     [Fact]
