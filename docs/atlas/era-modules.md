@@ -1,6 +1,6 @@
 # Atlas era modules (patches 2.1–3.56)
 
-Starting 2026-11-19, the Atlas covers every main-scenario quest through *A Requiem for Heroes* (4.56). The content after
+Starting 2026-11-19, the Atlas covers every main-scenario quest through *Death Unto Dawn* (5.55). The content after
 2.0 lives in data-only Python modules under `tools/atlas/`, one per era. `build_pilot_content.py` merges them with
 the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the review sheets, and lints them.
 
@@ -15,12 +15,17 @@ the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the rev
 | `content_4_0_part2.py` | 4.0, *To Bend with the Wind* to *The Hour of Reckoning* | `cp-msq-419` … `cp-msq-464` | `i` |
 | `content_4_0_part3.py` | 4.0, *The Room Where It Happened* to *Stormblood* | `cp-msq-465` … `cp-sb-4-0` | `j` |
 | `content_4_1_to_4_56.py` | 4.1 to 4.56 | `cp-msq-502` … `cp-sb-4-56` | `k` |
+| `content_5_0_part1.py` | 5.0, *The Syrcus Trench* to *The Lawless Ones* | `cp-msq-542` … `cp-msq-579` | `l` |
+| `content_5_0_part2.py` | 5.0, *The Elder's Answer* to *Crossing Paths* | `cp-msq-580` … `cp-msq-620` | `m` |
+| `content_5_0_part3.py` | 5.0, *A Fresh Start* to *Shadowbringers* | `cp-msq-621` … `cp-shb-5-0` | `n` |
+| `content_5_1_to_5_3.py` | 5.1 to 5.3 | `cp-msq-648` … `cp-msq-681` | `o` |
+| `content_5_4_to_5_55.py` | 5.4 to 5.55 | `cp-msq-682` … `cp-shb-5-55` | `p` |
 
-The timeline itself is `timeline_2x_3x.py` and, for Stormblood, `timeline_4x.py`: one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
+The timeline itself is `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood) and `timeline_5x.py` (Shadowbringers): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
 parallel paths share an index (`cp-msq-234b`, `cp-msq-245b` … `cp-msq-251b`, `cp-msq-282b`, `cp-msq-282c`). Each step
 means "after this quest". Each patch's last quest is a milestone instead of a step: `cp-arr-2-55` (after *Before the
 Dawn*), `cp-hw-3-0` (after *Heavensward*), `cp-hw-3-56` (after *The Far Edge of Fate*), `cp-sb-4-0` (after *Stormblood*) and
-`cp-sb-4-56` (after *A Requiem for Heroes*). The 2.0 milestone,
+`cp-sb-4-56` (after *A Requiem for Heroes*), `cp-shb-5-0` (after *Shadowbringers*) and `cp-shb-5-55` (after *Death Unto Dawn*). The 2.0 milestone,
 `cp-arr-2-0`, comes right before `cp-msq-162`.
 
 ## Commands

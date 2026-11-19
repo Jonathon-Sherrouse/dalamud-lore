@@ -15,6 +15,8 @@ public class RealDataTests
     private const string Cp356 = "cp-hw-3-56";
     private const string Cp40 = "cp-sb-4-0";
     private const string Cp456 = "cp-sb-4-56";
+    private const string Cp50 = "cp-shb-5-0";
+    private const string Cp555 = "cp-shb-5-55";
 
     private static string RealPath => Path.Combine(AppContext.BaseDirectory, "atlas.json");
 
@@ -120,9 +122,10 @@ public class RealDataTests
         // After 2.0 (2026-11-19): one step per main-scenario quest of 2.1–3.56, generated from the wiki infoboxes
         // (tools/atlas/timeline_2x_3x.py), with each patch's last quest as a milestone: 2.55, 3.0 and 3.56.
         // Stormblood (2026-11-19): one step per quest of 4.0–4.56 (tools/atlas/timeline_4x.py), with the 4.0 and 4.56 milestones.
-        Assert.Equal(440, dataset.Checkpoints.Count);
+        // Shadowbringers (2026-11-19): one step per quest of 5.0–5.55 (tools/atlas/timeline_5x.py), with the 5.0 and 5.55 milestones.
+        Assert.Equal(597, dataset.Checkpoints.Count);
         Assert.Equal(
-            new[] { (Cp20, 59, 70058), (Cp255, 139, 65964), (Cp30, 233, 67205), (Cp356, 277, 67895), (Cp40, 399, 68089), (Cp456, 439, 68721) },
+            new[] { (Cp20, 59, 70058), (Cp255, 139, 65964), (Cp30, 233, 67205), (Cp356, 277, 67895), (Cp40, 399, 68089), (Cp456, 439, 68721), (Cp50, 545, 69190), (Cp555, 596, 69602) },
             dataset.Checkpoints.Where(c => c.Milestone).Select(c => (c.Id, c.Order, c.GameQuestIds.Single())));
         Assert.Equal("A Realm Reborn — Patch 2.55 complete", dataset.Checkpoints[139].Label);
         Assert.Equal("Heavensward — Patch 3.0 complete", dataset.Checkpoints[233].Label);
@@ -139,13 +142,18 @@ public class RealDataTests
         Assert.Equal(("cp-msq-540", "A Brief Reprieve"), (dataset.Checkpoints[438].Id, dataset.Checkpoints[438].QuestTitle));
         Assert.Equal("Stormblood — Patch 4.0 complete", dataset.Checkpoints[399].Label);
         Assert.Equal("Stormblood — Patch 4.56 complete", dataset.Checkpoints[439].Label);
+        Assert.Equal(("cp-msq-542", "The Syrcus Trench"), (dataset.Checkpoints[440].Id, dataset.Checkpoints[440].QuestTitle));
+        Assert.Equal(("cp-msq-646", "A Greater Purpose"), (dataset.Checkpoints[544].Id, dataset.Checkpoints[544].QuestTitle));
+        Assert.Equal(("cp-msq-697", "On Official Business"), (dataset.Checkpoints[595].Id, dataset.Checkpoints[595].QuestTitle));
+        Assert.Equal("Shadowbringers — Patch 5.0 complete", dataset.Checkpoints[545].Label);
+        Assert.Equal("Shadowbringers — Patch 5.55 complete", dataset.Checkpoints[596].Label);
         Assert.Equal(dataset.Checkpoints.Count, dataset.Checkpoints.Select(c => c.Id).Distinct().Count());
         Assert.All(dataset.Checkpoints.Where(c => !c.Milestone), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
 
         // Not contiguous: the first step, and each step that follows another parallel path (#150, 2.55's pairs, the
         // Artoirel and Emmanellain chains, the moogle trials). Every milestone follows its patch's last quest.
         Assert.Equal(
-            new[] { "cp-msq-102", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c" },
+            new[] { "cp-msq-102", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c", "cp-msq-545b", "cp-msq-570b", "cp-msq-570c" },
             dataset.Checkpoints.Where(c => !c.ContiguousWithPrevious).Select(c => c.Id));
     }
 

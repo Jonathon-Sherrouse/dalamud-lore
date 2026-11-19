@@ -3948,6 +3948,1416 @@
       "gameQuestIds": [
         68721
       ]
+    },
+    {
+      "id": "cp-msq-542",
+      "label": "After The Syrcus Trench",
+      "questTitle": "The Syrcus Trench",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68815
+      ]
+    },
+    {
+      "id": "cp-msq-543",
+      "label": "After City of the First",
+      "questTitle": "City of the First",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68816
+      ]
+    },
+    {
+      "id": "cp-msq-544",
+      "label": "After Travelers of Norvrandt",
+      "questTitle": "Travelers of Norvrandt",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68817
+      ]
+    },
+    {
+      "id": "cp-msq-545",
+      "label": "After In Search of Alphinaud",
+      "questTitle": "In Search of Alphinaud",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68818
+      ]
+    },
+    {
+      "id": "cp-msq-546",
+      "label": "After A Still Tide",
+      "questTitle": "A Still Tide",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68819
+      ]
+    },
+    {
+      "id": "cp-msq-547",
+      "label": "After Open Arms, Closed Gate",
+      "questTitle": "Open Arms, Closed Gate",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68820
+      ]
+    },
+    {
+      "id": "cp-msq-548",
+      "label": "After A Fickle Existence",
+      "questTitle": "A Fickle Existence",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68821
+      ]
+    },
+    {
+      "id": "cp-msq-549",
+      "label": "After City of Final Pleasures",
+      "questTitle": "City of Final Pleasures",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68822
+      ]
+    },
+    {
+      "id": "cp-msq-550",
+      "label": "After Free to Sightsee",
+      "questTitle": "Free to Sightsee",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68823
+      ]
+    },
+    {
+      "id": "cp-msq-551",
+      "label": "After A Taste of Honey",
+      "questTitle": "A Taste of Honey",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68824
+      ]
+    },
+    {
+      "id": "cp-msq-552",
+      "label": "After A Blessed Instrument",
+      "questTitle": "A Blessed Instrument",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68825
+      ]
+    },
+    {
+      "id": "cp-msq-553",
+      "label": "After Emergent Splendor",
+      "questTitle": "Emergent Splendor",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68826
+      ]
+    },
+    {
+      "id": "cp-msq-545b",
+      "label": "After In Search of Alisaie",
+      "questTitle": "In Search of Alisaie",
+      "gameQuestIds": [
+        68827
+      ]
+    },
+    {
+      "id": "cp-msq-546b",
+      "label": "After City of the Mord",
+      "questTitle": "City of the Mord",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68828
+      ]
+    },
+    {
+      "id": "cp-msq-547b",
+      "label": "After Working Off the Meal",
+      "questTitle": "Working Off the Meal",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68829
+      ]
+    },
+    {
+      "id": "cp-msq-548b",
+      "label": "After A Desert Crossing",
+      "questTitle": "A Desert Crossing",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68830
+      ]
+    },
+    {
+      "id": "cp-msq-549b",
+      "label": "After Following in Her Footprints",
+      "questTitle": "Following in Her Footprints",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68831
+      ]
+    },
+    {
+      "id": "cp-msq-550b",
+      "label": "After Culling Their Ranks",
+      "questTitle": "Culling Their Ranks",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68832
+      ]
+    },
+    {
+      "id": "cp-msq-551b",
+      "label": "After A Purchase of Fruit",
+      "questTitle": "A Purchase of Fruit",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68833
+      ]
+    },
+    {
+      "id": "cp-msq-552b",
+      "label": "After The Time Left to Us",
+      "questTitle": "The Time Left to Us",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68834
+      ]
+    },
+    {
+      "id": "cp-msq-553b",
+      "label": "After Tears on the Sand",
+      "questTitle": "Tears on the Sand",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68835
+      ]
+    },
+    {
+      "id": "cp-msq-563",
+      "label": "After The Lightwardens",
+      "questTitle": "The Lightwardens",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68836
+      ]
+    },
+    {
+      "id": "cp-msq-564",
+      "label": "After Warrior of Darkness",
+      "questTitle": "Warrior of Darkness",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68837
+      ]
+    },
+    {
+      "id": "cp-msq-565",
+      "label": "After An Unwelcome Guest",
+      "questTitle": "An Unwelcome Guest",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68838
+      ]
+    },
+    {
+      "id": "cp-msq-566",
+      "label": "After The Crystarium's Resolve",
+      "questTitle": "The Crystarium's Resolve",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68839
+      ]
+    },
+    {
+      "id": "cp-msq-567",
+      "label": "After Logistics of War",
+      "questTitle": "Logistics of War",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68840
+      ]
+    },
+    {
+      "id": "cp-msq-568",
+      "label": "After The Oracle of Light",
+      "questTitle": "The Oracle of Light",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68841
+      ]
+    },
+    {
+      "id": "cp-msq-569",
+      "label": "After Il Mheg, the Faerie Kingdom",
+      "questTitle": "Il Mheg, the Faerie Kingdom",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68842
+      ]
+    },
+    {
+      "id": "cp-msq-570",
+      "label": "After Sul Uin's Request",
+      "questTitle": "Sul Uin's Request",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68843
+      ]
+    },
+    {
+      "id": "cp-msq-570b",
+      "label": "After Ys Iala's Errand",
+      "questTitle": "Ys Iala's Errand",
+      "gameQuestIds": [
+        68844
+      ]
+    },
+    {
+      "id": "cp-msq-570c",
+      "label": "After Oul Sigun's Plea",
+      "questTitle": "Oul Sigun's Plea",
+      "gameQuestIds": [
+        68845
+      ]
+    },
+    {
+      "id": "cp-msq-573",
+      "label": "After Unto the Truth",
+      "questTitle": "Unto the Truth",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68846
+      ]
+    },
+    {
+      "id": "cp-msq-574",
+      "label": "After Courting Cooperation",
+      "questTitle": "Courting Cooperation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68847
+      ]
+    },
+    {
+      "id": "cp-msq-575",
+      "label": "After The Key to the Castle",
+      "questTitle": "The Key to the Castle",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68848
+      ]
+    },
+    {
+      "id": "cp-msq-576",
+      "label": "After A Visit to the Nu Mou",
+      "questTitle": "A Visit to the Nu Mou",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68849
+      ]
+    },
+    {
+      "id": "cp-msq-577",
+      "label": "After A Fitting Payment",
+      "questTitle": "A Fitting Payment",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68850
+      ]
+    },
+    {
+      "id": "cp-msq-578",
+      "label": "After Spore Sweeper",
+      "questTitle": "Spore Sweeper",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68851
+      ]
+    },
+    {
+      "id": "cp-msq-579",
+      "label": "After The Lawless Ones",
+      "questTitle": "The Lawless Ones",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68852
+      ]
+    },
+    {
+      "id": "cp-msq-580",
+      "label": "After The Elder's Answer",
+      "questTitle": "The Elder's Answer",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68853
+      ]
+    },
+    {
+      "id": "cp-msq-581",
+      "label": "After A Resounding Roar",
+      "questTitle": "A Resounding Roar",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68854
+      ]
+    },
+    {
+      "id": "cp-msq-582",
+      "label": "After Memento of a Friend",
+      "questTitle": "Memento of a Friend",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68855
+      ]
+    },
+    {
+      "id": "cp-msq-583",
+      "label": "After Acht-la Ormh Inn",
+      "questTitle": "Acht-la Ormh Inn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68856
+      ]
+    },
+    {
+      "id": "cp-msq-584",
+      "label": "After The Wheel Turns",
+      "questTitle": "The Wheel Turns",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68857
+      ]
+    },
+    {
+      "id": "cp-msq-585",
+      "label": "After A Party Soon Divided",
+      "questTitle": "A Party Soon Divided",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68858
+      ]
+    },
+    {
+      "id": "cp-msq-586",
+      "label": "After A Little Faith",
+      "questTitle": "A Little Faith",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68859
+      ]
+    },
+    {
+      "id": "cp-msq-587",
+      "label": "After Into the Dark",
+      "questTitle": "Into the Dark",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68860
+      ]
+    },
+    {
+      "id": "cp-msq-588",
+      "label": "After A Day in the Neighborhood",
+      "questTitle": "A Day in the Neighborhood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68861
+      ]
+    },
+    {
+      "id": "cp-msq-589",
+      "label": "After A Helping Hand",
+      "questTitle": "A Helping Hand",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68862
+      ]
+    },
+    {
+      "id": "cp-msq-590",
+      "label": "After Lost but Not Forgotten",
+      "questTitle": "Lost but Not Forgotten",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68863
+      ]
+    },
+    {
+      "id": "cp-msq-591",
+      "label": "After Saying Good-bye",
+      "questTitle": "Saying Good-bye",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68864
+      ]
+    },
+    {
+      "id": "cp-msq-592",
+      "label": "After Stirring up Trouble",
+      "questTitle": "Stirring up Trouble",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68865
+      ]
+    },
+    {
+      "id": "cp-msq-593",
+      "label": "After A Beeautiful Plan",
+      "questTitle": "A Beeautiful Plan",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68866
+      ]
+    },
+    {
+      "id": "cp-msq-594",
+      "label": "After An Unwanted Proposal",
+      "questTitle": "An Unwanted Proposal",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68867
+      ]
+    },
+    {
+      "id": "cp-msq-595",
+      "label": "After Put to the Proof",
+      "questTitle": "Put to the Proof",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68868
+      ]
+    },
+    {
+      "id": "cp-msq-596",
+      "label": "After Into the Wood",
+      "questTitle": "Into the Wood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68869
+      ]
+    },
+    {
+      "id": "cp-msq-597",
+      "label": "After Top of the Tree",
+      "questTitle": "Top of the Tree",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68870
+      ]
+    },
+    {
+      "id": "cp-msq-598",
+      "label": "After Look to the Stars",
+      "questTitle": "Look to the Stars",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68871
+      ]
+    },
+    {
+      "id": "cp-msq-599",
+      "label": "After Mi Casa, Toupasa",
+      "questTitle": "Mi Casa, Toupasa",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68872
+      ]
+    },
+    {
+      "id": "cp-msq-600",
+      "label": "After Legend of the Not-so-hidden Temple",
+      "questTitle": "Legend of the Not-so-hidden Temple",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68873
+      ]
+    },
+    {
+      "id": "cp-msq-601",
+      "label": "After The Aftermath",
+      "questTitle": "The Aftermath",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68874
+      ]
+    },
+    {
+      "id": "cp-msq-602",
+      "label": "After In Good Faith",
+      "questTitle": "In Good Faith",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68875
+      ]
+    },
+    {
+      "id": "cp-msq-603",
+      "label": "After The Burden of Knowledge",
+      "questTitle": "The Burden of Knowledge",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68876
+      ]
+    },
+    {
+      "id": "cp-msq-604",
+      "label": "After Bearing With It",
+      "questTitle": "Bearing With It",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68877
+      ]
+    },
+    {
+      "id": "cp-msq-605",
+      "label": "After Out of the Wood",
+      "questTitle": "Out of the Wood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68878
+      ]
+    },
+    {
+      "id": "cp-msq-606",
+      "label": "After When It Rains",
+      "questTitle": "When It Rains",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69142
+      ]
+    },
+    {
+      "id": "cp-msq-607",
+      "label": "After Word from On High",
+      "questTitle": "Word from On High",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69143
+      ]
+    },
+    {
+      "id": "cp-msq-608",
+      "label": "After Small Favors",
+      "questTitle": "Small Favors",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69144
+      ]
+    },
+    {
+      "id": "cp-msq-609",
+      "label": "After The Best Way Out",
+      "questTitle": "The Best Way Out",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69145
+      ]
+    },
+    {
+      "id": "cp-msq-610",
+      "label": "After Free Trade",
+      "questTitle": "Free Trade",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69146
+      ]
+    },
+    {
+      "id": "cp-msq-611",
+      "label": "After The Trolley Problem",
+      "questTitle": "The Trolley Problem",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69147
+      ]
+    },
+    {
+      "id": "cp-msq-612",
+      "label": "After Rust and Ruin",
+      "questTitle": "Rust and Ruin",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69148
+      ]
+    },
+    {
+      "id": "cp-msq-613",
+      "label": "After On Track",
+      "questTitle": "On Track",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69149
+      ]
+    },
+    {
+      "id": "cp-msq-614",
+      "label": "After Down for Maintenance",
+      "questTitle": "Down for Maintenance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69150
+      ]
+    },
+    {
+      "id": "cp-msq-615",
+      "label": "After The Truth Hurts",
+      "questTitle": "The Truth Hurts",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69151
+      ]
+    },
+    {
+      "id": "cp-msq-616",
+      "label": "After A Convenient Distraction",
+      "questTitle": "A Convenient Distraction",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69152
+      ]
+    },
+    {
+      "id": "cp-msq-617",
+      "label": "After A Dirty Job",
+      "questTitle": "A Dirty Job",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69153
+      ]
+    },
+    {
+      "id": "cp-msq-618",
+      "label": "After Have a Heart",
+      "questTitle": "Have a Heart",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69154
+      ]
+    },
+    {
+      "id": "cp-msq-619",
+      "label": "After Full Steam Ahead",
+      "questTitle": "Full Steam Ahead",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69155
+      ]
+    },
+    {
+      "id": "cp-msq-620",
+      "label": "After Crossing Paths",
+      "questTitle": "Crossing Paths",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69156
+      ]
+    },
+    {
+      "id": "cp-msq-621",
+      "label": "After A Fresh Start",
+      "questTitle": "A Fresh Start",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69157
+      ]
+    },
+    {
+      "id": "cp-msq-622",
+      "label": "After More than a Hunch",
+      "questTitle": "More than a Hunch",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69158
+      ]
+    },
+    {
+      "id": "cp-msq-623",
+      "label": "After Return to Eulmore",
+      "questTitle": "Return to Eulmore",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69166
+      ]
+    },
+    {
+      "id": "cp-msq-624",
+      "label": "After A Feast of Lies",
+      "questTitle": "A Feast of Lies",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69167
+      ]
+    },
+    {
+      "id": "cp-msq-625",
+      "label": "After Paradise Fallen",
+      "questTitle": "Paradise Fallen",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69168
+      ]
+    },
+    {
+      "id": "cp-msq-626",
+      "label": "After The Ladder",
+      "questTitle": "The Ladder",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69169
+      ]
+    },
+    {
+      "id": "cp-msq-627",
+      "label": "After The View from Above",
+      "questTitle": "The View from Above",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69170
+      ]
+    },
+    {
+      "id": "cp-msq-628",
+      "label": "After In Mt. Gulg's Shadow",
+      "questTitle": "In Mt. Gulg's Shadow",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69171
+      ]
+    },
+    {
+      "id": "cp-msq-629",
+      "label": "After A Gigantic Undertaking",
+      "questTitle": "A Gigantic Undertaking",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69172
+      ]
+    },
+    {
+      "id": "cp-msq-630",
+      "label": "After Meet the Tholls",
+      "questTitle": "Meet the Tholls",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69173
+      ]
+    },
+    {
+      "id": "cp-msq-631",
+      "label": "After A-Digging We Will Go",
+      "questTitle": "A-Digging We Will Go",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69174
+      ]
+    },
+    {
+      "id": "cp-msq-632",
+      "label": "After The Duergar's Tewel",
+      "questTitle": "The Duergar's Tewel",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69175
+      ]
+    },
+    {
+      "id": "cp-msq-633",
+      "label": "After Rich Veins of Hope",
+      "questTitle": "Rich Veins of Hope",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69176
+      ]
+    },
+    {
+      "id": "cp-msq-634",
+      "label": "After That None Shall Ever Again",
+      "questTitle": "That None Shall Ever Again",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69177
+      ]
+    },
+    {
+      "id": "cp-msq-635",
+      "label": "After A Breath of Respite",
+      "questTitle": "A Breath of Respite",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69178
+      ]
+    },
+    {
+      "id": "cp-msq-636",
+      "label": "After Extinguishing the Last Light",
+      "questTitle": "Extinguishing the Last Light",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69179
+      ]
+    },
+    {
+      "id": "cp-msq-637",
+      "label": "After Reassuring the Masses",
+      "questTitle": "Reassuring the Masses",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69180
+      ]
+    },
+    {
+      "id": "cp-msq-638",
+      "label": "After In His Garden",
+      "questTitle": "In His Garden",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69181
+      ]
+    },
+    {
+      "id": "cp-msq-639",
+      "label": "After The Unbroken Thread",
+      "questTitle": "The Unbroken Thread",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69182
+      ]
+    },
+    {
+      "id": "cp-msq-640",
+      "label": "After To Storm-tossed Seas",
+      "questTitle": "To Storm-tossed Seas",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69183
+      ]
+    },
+    {
+      "id": "cp-msq-641",
+      "label": "After Waiting in the Depths",
+      "questTitle": "Waiting in the Depths",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69184
+      ]
+    },
+    {
+      "id": "cp-msq-642",
+      "label": "After City of the Ancients",
+      "questTitle": "City of the Ancients",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69185
+      ]
+    },
+    {
+      "id": "cp-msq-643",
+      "label": "After The Light of Inspiration",
+      "questTitle": "The Light of Inspiration",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69186
+      ]
+    },
+    {
+      "id": "cp-msq-644",
+      "label": "After The Illuminated Land",
+      "questTitle": "The Illuminated Land",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69187
+      ]
+    },
+    {
+      "id": "cp-msq-645",
+      "label": "After The End of a World",
+      "questTitle": "The End of a World",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69188
+      ]
+    },
+    {
+      "id": "cp-msq-646",
+      "label": "After A Greater Purpose",
+      "questTitle": "A Greater Purpose",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69189
+      ]
+    },
+    {
+      "id": "cp-shb-5-0",
+      "label": "Shadowbringers — Patch 5.0 complete",
+      "milestone": true,
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69190
+      ]
+    },
+    {
+      "id": "cp-msq-648",
+      "label": "After Shaken Resolve",
+      "questTitle": "Shaken Resolve",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69209
+      ]
+    },
+    {
+      "id": "cp-msq-649",
+      "label": "After A Grand Adventure",
+      "questTitle": "A Grand Adventure",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69210
+      ]
+    },
+    {
+      "id": "cp-msq-650",
+      "label": "After A Welcome Guest",
+      "questTitle": "A Welcome Guest",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69211
+      ]
+    },
+    {
+      "id": "cp-msq-651",
+      "label": "After Good for the Soul",
+      "questTitle": "Good for the Soul",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69212
+      ]
+    },
+    {
+      "id": "cp-msq-652",
+      "label": "After Nowhere to Turn",
+      "questTitle": "Nowhere to Turn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69213
+      ]
+    },
+    {
+      "id": "cp-msq-653",
+      "label": "After A Notable Absence",
+      "questTitle": "A Notable Absence",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69214
+      ]
+    },
+    {
+      "id": "cp-msq-654",
+      "label": "After For the People",
+      "questTitle": "For the People",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69215
+      ]
+    },
+    {
+      "id": "cp-msq-655",
+      "label": "After Finding Good Help",
+      "questTitle": "Finding Good Help",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69216
+      ]
+    },
+    {
+      "id": "cp-msq-656",
+      "label": "After Moving Forward",
+      "questTitle": "Moving Forward",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69217
+      ]
+    },
+    {
+      "id": "cp-msq-657",
+      "label": "After Vows of Virtue, Deeds of Cruelty",
+      "questTitle": "Vows of Virtue, Deeds of Cruelty",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69218
+      ]
+    },
+    {
+      "id": "cp-msq-658",
+      "label": "After Old Enemies, New Threats",
+      "questTitle": "Old Enemies, New Threats",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69297
+      ]
+    },
+    {
+      "id": "cp-msq-659",
+      "label": "After The Way Home",
+      "questTitle": "The Way Home",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69298
+      ]
+    },
+    {
+      "id": "cp-msq-660",
+      "label": "After Seeking Counsel",
+      "questTitle": "Seeking Counsel",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69299
+      ]
+    },
+    {
+      "id": "cp-msq-661",
+      "label": "After Facing the Truth",
+      "questTitle": "Facing the Truth",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69300
+      ]
+    },
+    {
+      "id": "cp-msq-662",
+      "label": "After A Sleep Disturbed",
+      "questTitle": "A Sleep Disturbed",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69301
+      ]
+    },
+    {
+      "id": "cp-msq-663",
+      "label": "After An Old Friend",
+      "questTitle": "An Old Friend",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69302
+      ]
+    },
+    {
+      "id": "cp-msq-664",
+      "label": "After Deep Designs",
+      "questTitle": "Deep Designs",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69303
+      ]
+    },
+    {
+      "id": "cp-msq-665",
+      "label": "After A Whale's Tale",
+      "questTitle": "A Whale's Tale",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69304
+      ]
+    },
+    {
+      "id": "cp-msq-666",
+      "label": "After Beneath the Surface",
+      "questTitle": "Beneath the Surface",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69305
+      ]
+    },
+    {
+      "id": "cp-msq-667",
+      "label": "After Echoes of a Fallen Star",
+      "questTitle": "Echoes of a Fallen Star",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69306
+      ]
+    },
+    {
+      "id": "cp-msq-668",
+      "label": "After In the Name of the Light",
+      "questTitle": "In the Name of the Light",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69307
+      ]
+    },
+    {
+      "id": "cp-msq-669",
+      "label": "After Heroic Dreams",
+      "questTitle": "Heroic Dreams",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69308
+      ]
+    },
+    {
+      "id": "cp-msq-670",
+      "label": "After Fraying Threads",
+      "questTitle": "Fraying Threads",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69309
+      ]
+    },
+    {
+      "id": "cp-msq-671",
+      "label": "After Food for the Soul",
+      "questTitle": "Food for the Soul",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69310
+      ]
+    },
+    {
+      "id": "cp-msq-672",
+      "label": "After Faded Memories",
+      "questTitle": "Faded Memories",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69311
+      ]
+    },
+    {
+      "id": "cp-msq-673",
+      "label": "After Etched in the Stars",
+      "questTitle": "Etched in the Stars",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69312
+      ]
+    },
+    {
+      "id": "cp-msq-674",
+      "label": "After The Converging Light",
+      "questTitle": "The Converging Light",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69313
+      ]
+    },
+    {
+      "id": "cp-msq-675",
+      "label": "After Hope's Confluence",
+      "questTitle": "Hope's Confluence",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69314
+      ]
+    },
+    {
+      "id": "cp-msq-676",
+      "label": "After Nothing Unsaid",
+      "questTitle": "Nothing Unsaid",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69315
+      ]
+    },
+    {
+      "id": "cp-msq-677",
+      "label": "After The Journey Continues",
+      "questTitle": "The Journey Continues",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69316
+      ]
+    },
+    {
+      "id": "cp-msq-678",
+      "label": "After Unto the Morrow",
+      "questTitle": "Unto the Morrow",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69317
+      ]
+    },
+    {
+      "id": "cp-msq-679",
+      "label": "After Reflections in Crystal",
+      "questTitle": "Reflections in Crystal",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69318
+      ]
+    },
+    {
+      "id": "cp-msq-680",
+      "label": "After Alisaie's Quest",
+      "questTitle": "Alisaie's Quest",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69543
+      ]
+    },
+    {
+      "id": "cp-msq-681",
+      "label": "After The Wisdom of Allag",
+      "questTitle": "The Wisdom of Allag",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69544
+      ]
+    },
+    {
+      "id": "cp-msq-682",
+      "label": "After Reviving the Legacy",
+      "questTitle": "Reviving the Legacy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69545
+      ]
+    },
+    {
+      "id": "cp-msq-683",
+      "label": "After Forget Us Not",
+      "questTitle": "Forget Us Not",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69546
+      ]
+    },
+    {
+      "id": "cp-msq-684",
+      "label": "After Like Master, Like Pupil",
+      "questTitle": "Like Master, Like Pupil",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69547
+      ]
+    },
+    {
+      "id": "cp-msq-685",
+      "label": "After The Admiral's Resolve",
+      "questTitle": "The Admiral's Resolve",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69548
+      ]
+    },
+    {
+      "id": "cp-msq-686",
+      "label": "After The Search for Sicard",
+      "questTitle": "The Search for Sicard",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69549
+      ]
+    },
+    {
+      "id": "cp-msq-687",
+      "label": "After On Rough Seas",
+      "questTitle": "On Rough Seas",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69550
+      ]
+    },
+    {
+      "id": "cp-msq-688",
+      "label": "After The Great Ship Vylbrand",
+      "questTitle": "The Great Ship Vylbrand",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69551
+      ]
+    },
+    {
+      "id": "cp-msq-689",
+      "label": "After Futures Rewritten",
+      "questTitle": "Futures Rewritten",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69552
+      ]
+    },
+    {
+      "id": "cp-msq-690",
+      "label": "After Unto the Breach",
+      "questTitle": "Unto the Breach",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69594
+      ]
+    },
+    {
+      "id": "cp-msq-691",
+      "label": "After Here Be Dragons",
+      "questTitle": "Here Be Dragons",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69595
+      ]
+    },
+    {
+      "id": "cp-msq-692",
+      "label": "After Righteous Indignation",
+      "questTitle": "Righteous Indignation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69596
+      ]
+    },
+    {
+      "id": "cp-msq-693",
+      "label": "After For Vengeance",
+      "questTitle": "For Vengeance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69597
+      ]
+    },
+    {
+      "id": "cp-msq-694",
+      "label": "After The Flames of War",
+      "questTitle": "The Flames of War",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69598
+      ]
+    },
+    {
+      "id": "cp-msq-695",
+      "label": "After When the Dust Settles",
+      "questTitle": "When the Dust Settles",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69599
+      ]
+    },
+    {
+      "id": "cp-msq-696",
+      "label": "After The Company We Keep",
+      "questTitle": "The Company We Keep",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69600
+      ]
+    },
+    {
+      "id": "cp-msq-697",
+      "label": "After On Official Business",
+      "questTitle": "On Official Business",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69601
+      ]
+    },
+    {
+      "id": "cp-shb-5-55",
+      "label": "Shadowbringers — Patch 5.55 complete",
+      "milestone": true,
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69602
+      ]
     }
   ],
   "relationshipTypes": [

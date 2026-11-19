@@ -569,6 +569,163 @@ Visible records at each step, in the main-story view and the main + optional vie
 | #539 After The Face of War | 268 | 268 | 816 | 819 |
 | #540 After A Brief Reprieve | 268 | 268 | 816 | 819 |
 | 4.56 Stormblood — Patch 4.56 complete | 268 | 268 | 816 | 819 |
+| #542 After The Syrcus Trench | 268 | 268 | 816 | 819 |
+| #543 After City of the First | 268 | 268 | 816 | 819 |
+| #544 After Travelers of Norvrandt | 268 | 268 | 816 | 819 |
+| #545 After In Search of Alphinaud | 268 | 268 | 816 | 819 |
+| #546 After A Still Tide | 268 | 268 | 816 | 819 |
+| #547 After Open Arms, Closed Gate | 268 | 268 | 816 | 819 |
+| #548 After A Fickle Existence | 268 | 268 | 816 | 819 |
+| #549 After City of Final Pleasures | 268 | 268 | 816 | 819 |
+| #550 After Free to Sightsee | 268 | 268 | 816 | 819 |
+| #551 After A Taste of Honey | 268 | 268 | 816 | 819 |
+| #552 After A Blessed Instrument | 268 | 268 | 816 | 819 |
+| #553 After Emergent Splendor | 268 | 268 | 816 | 819 |
+| #545b After In Search of Alisaie | 268 | 268 | 816 | 819 |
+| #546b After City of the Mord | 268 | 268 | 816 | 819 |
+| #547b After Working Off the Meal | 268 | 268 | 816 | 819 |
+| #548b After A Desert Crossing | 268 | 268 | 816 | 819 |
+| #549b After Following in Her Footprints | 268 | 268 | 816 | 819 |
+| #550b After Culling Their Ranks | 268 | 268 | 816 | 819 |
+| #551b After A Purchase of Fruit | 268 | 268 | 816 | 819 |
+| #552b After The Time Left to Us | 268 | 268 | 816 | 819 |
+| #553b After Tears on the Sand | 268 | 268 | 816 | 819 |
+| #563 After The Lightwardens | 268 | 268 | 816 | 819 |
+| #564 After Warrior of Darkness | 268 | 268 | 816 | 819 |
+| #565 After An Unwelcome Guest | 268 | 268 | 816 | 819 |
+| #566 After The Crystarium's Resolve | 268 | 268 | 816 | 819 |
+| #567 After Logistics of War | 268 | 268 | 816 | 819 |
+| #568 After The Oracle of Light | 268 | 268 | 816 | 819 |
+| #569 After Il Mheg, the Faerie Kingdom | 268 | 268 | 816 | 819 |
+| #570 After Sul Uin's Request | 268 | 268 | 816 | 819 |
+| #570b After Ys Iala's Errand | 268 | 268 | 816 | 819 |
+| #570c After Oul Sigun's Plea | 268 | 268 | 816 | 819 |
+| #573 After Unto the Truth | 268 | 268 | 816 | 819 |
+| #574 After Courting Cooperation | 268 | 268 | 816 | 819 |
+| #575 After The Key to the Castle | 268 | 268 | 816 | 819 |
+| #576 After A Visit to the Nu Mou | 268 | 268 | 816 | 819 |
+| #577 After A Fitting Payment | 268 | 268 | 816 | 819 |
+| #578 After Spore Sweeper | 268 | 268 | 816 | 819 |
+| #579 After The Lawless Ones | 268 | 268 | 816 | 819 |
+| #580 After The Elder's Answer | 268 | 268 | 816 | 819 |
+| #581 After A Resounding Roar | 268 | 268 | 816 | 819 |
+| #582 After Memento of a Friend | 268 | 268 | 816 | 819 |
+| #583 After Acht-la Ormh Inn | 268 | 268 | 816 | 819 |
+| #584 After The Wheel Turns | 268 | 268 | 816 | 819 |
+| #585 After A Party Soon Divided | 268 | 268 | 816 | 819 |
+| #586 After A Little Faith | 268 | 268 | 816 | 819 |
+| #587 After Into the Dark | 268 | 268 | 816 | 819 |
+| #588 After A Day in the Neighborhood | 268 | 268 | 816 | 819 |
+| #589 After A Helping Hand | 268 | 268 | 816 | 819 |
+| #590 After Lost but Not Forgotten | 268 | 268 | 816 | 819 |
+| #591 After Saying Good-bye | 268 | 268 | 816 | 819 |
+| #592 After Stirring up Trouble | 268 | 268 | 816 | 819 |
+| #593 After A Beeautiful Plan | 268 | 268 | 816 | 819 |
+| #594 After An Unwanted Proposal | 268 | 268 | 816 | 819 |
+| #595 After Put to the Proof | 268 | 268 | 816 | 819 |
+| #596 After Into the Wood | 268 | 268 | 816 | 819 |
+| #597 After Top of the Tree | 268 | 268 | 816 | 819 |
+| #598 After Look to the Stars | 268 | 268 | 816 | 819 |
+| #599 After Mi Casa, Toupasa | 268 | 268 | 816 | 819 |
+| #600 After Legend of the Not-so-hidden Temple | 268 | 268 | 816 | 819 |
+| #601 After The Aftermath | 268 | 268 | 816 | 819 |
+| #602 After In Good Faith | 268 | 268 | 816 | 819 |
+| #603 After The Burden of Knowledge | 268 | 268 | 816 | 819 |
+| #604 After Bearing With It | 268 | 268 | 816 | 819 |
+| #605 After Out of the Wood | 268 | 268 | 816 | 819 |
+| #606 After When It Rains | 268 | 268 | 816 | 819 |
+| #607 After Word from On High | 268 | 268 | 816 | 819 |
+| #608 After Small Favors | 268 | 268 | 816 | 819 |
+| #609 After The Best Way Out | 268 | 268 | 816 | 819 |
+| #610 After Free Trade | 268 | 268 | 816 | 819 |
+| #611 After The Trolley Problem | 268 | 268 | 816 | 819 |
+| #612 After Rust and Ruin | 268 | 268 | 816 | 819 |
+| #613 After On Track | 268 | 268 | 816 | 819 |
+| #614 After Down for Maintenance | 268 | 268 | 816 | 819 |
+| #615 After The Truth Hurts | 268 | 268 | 816 | 819 |
+| #616 After A Convenient Distraction | 268 | 268 | 816 | 819 |
+| #617 After A Dirty Job | 268 | 268 | 816 | 819 |
+| #618 After Have a Heart | 268 | 268 | 816 | 819 |
+| #619 After Full Steam Ahead | 268 | 268 | 816 | 819 |
+| #620 After Crossing Paths | 268 | 268 | 816 | 819 |
+| #621 After A Fresh Start | 268 | 268 | 816 | 819 |
+| #622 After More than a Hunch | 268 | 268 | 816 | 819 |
+| #623 After Return to Eulmore | 268 | 268 | 816 | 819 |
+| #624 After A Feast of Lies | 268 | 268 | 816 | 819 |
+| #625 After Paradise Fallen | 268 | 268 | 816 | 819 |
+| #626 After The Ladder | 268 | 268 | 816 | 819 |
+| #627 After The View from Above | 268 | 268 | 816 | 819 |
+| #628 After In Mt. Gulg's Shadow | 268 | 268 | 816 | 819 |
+| #629 After A Gigantic Undertaking | 268 | 268 | 816 | 819 |
+| #630 After Meet the Tholls | 268 | 268 | 816 | 819 |
+| #631 After A-Digging We Will Go | 268 | 268 | 816 | 819 |
+| #632 After The Duergar's Tewel | 268 | 268 | 816 | 819 |
+| #633 After Rich Veins of Hope | 268 | 268 | 816 | 819 |
+| #634 After That None Shall Ever Again | 268 | 268 | 816 | 819 |
+| #635 After A Breath of Respite | 268 | 268 | 816 | 819 |
+| #636 After Extinguishing the Last Light | 268 | 268 | 816 | 819 |
+| #637 After Reassuring the Masses | 268 | 268 | 816 | 819 |
+| #638 After In His Garden | 268 | 268 | 816 | 819 |
+| #639 After The Unbroken Thread | 268 | 268 | 816 | 819 |
+| #640 After To Storm-tossed Seas | 268 | 268 | 816 | 819 |
+| #641 After Waiting in the Depths | 268 | 268 | 816 | 819 |
+| #642 After City of the Ancients | 268 | 268 | 816 | 819 |
+| #643 After The Light of Inspiration | 268 | 268 | 816 | 819 |
+| #644 After The Illuminated Land | 268 | 268 | 816 | 819 |
+| #645 After The End of a World | 268 | 268 | 816 | 819 |
+| #646 After A Greater Purpose | 268 | 268 | 816 | 819 |
+| 5.0 Shadowbringers — Patch 5.0 complete | 268 | 268 | 816 | 819 |
+| #648 After Shaken Resolve | 268 | 268 | 816 | 819 |
+| #649 After A Grand Adventure | 268 | 268 | 816 | 819 |
+| #650 After A Welcome Guest | 268 | 268 | 816 | 819 |
+| #651 After Good for the Soul | 268 | 268 | 816 | 819 |
+| #652 After Nowhere to Turn | 268 | 268 | 816 | 819 |
+| #653 After A Notable Absence | 268 | 268 | 816 | 819 |
+| #654 After For the People | 268 | 268 | 816 | 819 |
+| #655 After Finding Good Help | 268 | 268 | 816 | 819 |
+| #656 After Moving Forward | 268 | 268 | 816 | 819 |
+| #657 After Vows of Virtue, Deeds of Cruelty | 268 | 268 | 816 | 819 |
+| #658 After Old Enemies, New Threats | 268 | 268 | 816 | 819 |
+| #659 After The Way Home | 268 | 268 | 816 | 819 |
+| #660 After Seeking Counsel | 268 | 268 | 816 | 819 |
+| #661 After Facing the Truth | 268 | 268 | 816 | 819 |
+| #662 After A Sleep Disturbed | 268 | 268 | 816 | 819 |
+| #663 After An Old Friend | 268 | 268 | 816 | 819 |
+| #664 After Deep Designs | 268 | 268 | 816 | 819 |
+| #665 After A Whale's Tale | 268 | 268 | 816 | 819 |
+| #666 After Beneath the Surface | 268 | 268 | 816 | 819 |
+| #667 After Echoes of a Fallen Star | 268 | 268 | 816 | 819 |
+| #668 After In the Name of the Light | 268 | 268 | 816 | 819 |
+| #669 After Heroic Dreams | 268 | 268 | 816 | 819 |
+| #670 After Fraying Threads | 268 | 268 | 816 | 819 |
+| #671 After Food for the Soul | 268 | 268 | 816 | 819 |
+| #672 After Faded Memories | 268 | 268 | 816 | 819 |
+| #673 After Etched in the Stars | 268 | 268 | 816 | 819 |
+| #674 After The Converging Light | 268 | 268 | 816 | 819 |
+| #675 After Hope's Confluence | 268 | 268 | 816 | 819 |
+| #676 After Nothing Unsaid | 268 | 268 | 816 | 819 |
+| #677 After The Journey Continues | 268 | 268 | 816 | 819 |
+| #678 After Unto the Morrow | 268 | 268 | 816 | 819 |
+| #679 After Reflections in Crystal | 268 | 268 | 816 | 819 |
+| #680 After Alisaie's Quest | 268 | 268 | 816 | 819 |
+| #681 After The Wisdom of Allag | 268 | 268 | 816 | 819 |
+| #682 After Reviving the Legacy | 268 | 268 | 816 | 819 |
+| #683 After Forget Us Not | 268 | 268 | 816 | 819 |
+| #684 After Like Master, Like Pupil | 268 | 268 | 816 | 819 |
+| #685 After The Admiral's Resolve | 268 | 268 | 816 | 819 |
+| #686 After The Search for Sicard | 268 | 268 | 816 | 819 |
+| #687 After On Rough Seas | 268 | 268 | 816 | 819 |
+| #688 After The Great Ship Vylbrand | 268 | 268 | 816 | 819 |
+| #689 After Futures Rewritten | 268 | 268 | 816 | 819 |
+| #690 After Unto the Breach | 268 | 268 | 816 | 819 |
+| #691 After Here Be Dragons | 268 | 268 | 816 | 819 |
+| #692 After Righteous Indignation | 268 | 268 | 816 | 819 |
+| #693 After For Vengeance | 268 | 268 | 816 | 819 |
+| #694 After The Flames of War | 268 | 268 | 816 | 819 |
+| #695 After When the Dust Settles | 268 | 268 | 816 | 819 |
+| #696 After The Company We Keep | 268 | 268 | 816 | 819 |
+| #697 After On Official Business | 268 | 268 | 816 | 819 |
+| 5.55 Shadowbringers — Patch 5.55 complete | 268 | 268 | 816 | 819 |
 
 ## Arcs
 
