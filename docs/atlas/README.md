@@ -142,4 +142,6 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 8 | View → "After An Uncertain Future", then **Lens → Changes**. | "There is no comparison for this point" (the step after a milestone). |
 | 9 | View → "Heavensward — Patch 3.56 complete", search "Lyse". | Lyse, also searchable as Yda. |
 | 10 | View → "After Rock the Castrum", search "Raubahn". | Raubahn is there (from #159), with no 2.1+ details. |
+| 11 | View → "After Coming to Ishgard" (Arc lens). | Nearly every node is a round portrait: the arc's picture is Ishgard, and Artoirel, Emmanellain and Edmont show their cards. |
+| 12 | View → "After All Good Things", search "Marques". | Marques is still a shape with no portrait, so Cid's face never shows before #110. |
 

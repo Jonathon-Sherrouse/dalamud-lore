@@ -869,6 +869,10 @@ PORTRAITS = {
     "evt-black-wolfs-challenge": (100163, 0.17, 0.50, 1.00, "Quest illustration, Escape from Castrum Centri (MSQ #155)"),
 }
 
+import portraits_later
+assert not set(portraits_later.PORTRAITS) & set(PORTRAITS), "portrait defined twice"
+PORTRAITS.update(portraits_later.PORTRAITS)
+
 def portrait_record(eid):
     icon, x, y, size, source = PORTRAITS[eid]
     record = {"gameIcon": icon, "crop": {"x": x, "y": y, "size": size}}
@@ -1484,6 +1488,7 @@ if VERIFY:
 if ACCEPT_PENDING:
     keys = [(("presentation", e["id"], pr["validFrom"], pr["scope"])) for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending"]
     keys += [("relationship", r["id"]) for r in doc["relationships"] if r["review"] == "pending"]
+    keys += [("portrait", e["id"]) for e in doc["entities"] if e.get("portrait", {}).get("review") == "pending"]
     later = json.loads(ACCEPTED_LATER_FILE.read_text()) if ACCEPTED_LATER_FILE.exists() else []
     later = [kv for kv in later if tuple(kv[0]) in EMITTED_KEYS] + [[list(k), FINGERPRINTS[k]] for k in keys]
     ACCEPTED_LATER_FILE.write_text(json.dumps(sorted(later), ensure_ascii=False, indent=0) + "\n")
@@ -1640,7 +1645,7 @@ if ARCS:
         w("")
 w("## Portraits\n")
 w("Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. "
-  "The user approved every pick on 2026-11-15 from a page showing each crop beside its source image. Crop: centre x, y and size, as fractions of the image (size of its shorter side).\n")
+  "The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).\n")
 w("| Entity | Source in the game | Icon | Crop (x, y, size) |\n|---|---|---|---|")
 for eid, _, _ in ENT:
     if eid in PORTRAITS:

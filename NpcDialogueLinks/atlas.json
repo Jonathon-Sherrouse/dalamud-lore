@@ -11482,6 +11482,15 @@
     {
       "id": "evt-road-to-titan",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100133,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-103",
@@ -11545,6 +11554,15 @@
     {
       "id": "evt-fall-of-the-waking-sands",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100159,
+        "crop": {
+          "x": 0.42,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-106",
@@ -11660,6 +11678,15 @@
     {
       "id": "evt-search-for-the-enterprise",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100160,
+        "crop": {
+          "x": 0.17,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-110",
@@ -12234,6 +12261,15 @@
     {
       "id": "evt-garudas-barrier",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100144,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-130",
@@ -12558,6 +12594,15 @@
     {
       "id": "evt-road-to-castrum-centri",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100147,
+        "crop": {
+          "x": 0.2,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-142",
@@ -12995,6 +13040,15 @@
     {
       "id": "char-yda",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87048,
+        "crop": {
+          "x": 0.66,
+          "y": 0.28,
+          "size": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-102",
@@ -13334,6 +13388,15 @@
     {
       "id": "char-papalymo",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87048,
+        "crop": {
+          "x": 0.38,
+          "y": 0.48,
+          "size": 0.55
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-102",
@@ -13778,6 +13841,15 @@
     {
       "id": "char-titan",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87041,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-103",
@@ -13868,6 +13940,15 @@
     {
       "id": "char-rhitahtyn",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87032,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-105",
@@ -13937,6 +14018,15 @@
     {
       "id": "char-noraxia",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100159,
+        "crop": {
+          "x": 0.12,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-106",
@@ -14102,6 +14192,15 @@
     {
       "id": "char-garuda",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87042,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-110",
@@ -14225,6 +14324,15 @@
     {
       "id": "char-francel",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100138,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-115",
@@ -14340,6 +14448,15 @@
     {
       "id": "char-haurchefant",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87095,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-116",
@@ -14941,6 +15058,15 @@
     {
       "id": "char-drillemont",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100140,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-121",
@@ -15108,6 +15234,15 @@
     {
       "id": "char-biggs",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87033,
+        "crop": {
+          "x": 0.38,
+          "y": 0.42,
+          "size": 0.55
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-143",
@@ -15223,6 +15358,15 @@
     {
       "id": "char-wedge",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87033,
+        "crop": {
+          "x": 0.72,
+          "y": 0.27,
+          "size": 0.45
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-143",
@@ -15413,6 +15557,15 @@
     {
       "id": "org-company-of-heroes",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100132,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-103",
@@ -15488,6 +15641,15 @@
     {
       "id": "org-garlean-empire",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100147,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-102",
@@ -15730,6 +15892,15 @@
     {
       "id": "org-house-haillenarte",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100137,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-115",
@@ -15921,6 +16092,15 @@
     {
       "id": "org-ixal",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87015,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-110",
@@ -15967,6 +16147,15 @@
     {
       "id": "loc-castrum-centri",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100147,
+        "crop": {
+          "x": 0.82,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-142",
@@ -16065,6 +16254,15 @@
     {
       "id": "evt-a-home-beyond-uldah",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100172,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-162",
@@ -16163,6 +16361,15 @@
     {
       "id": "evt-myths-made-manifest",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100175,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-166",
@@ -16295,6 +16502,15 @@
     {
       "id": "evt-crystals-and-exiles",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100219,
+        "crop": {
+          "x": 0.55,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-172",
@@ -16462,6 +16678,15 @@
     {
       "id": "evt-tide-of-the-sahagin",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100223,
+        "crop": {
+          "x": 0.6,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-178",
@@ -16640,6 +16865,15 @@
     {
       "id": "evt-unrest-in-uldah",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100250,
+        "crop": {
+          "x": 0.37,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-186",
@@ -16778,6 +17012,15 @@
     {
       "id": "evt-judgment-in-the-twelveswood",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100252,
+        "crop": {
+          "x": 0.6,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-191",
@@ -16870,6 +17113,15 @@
     {
       "id": "evt-a-company-for-all-eorzea",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100255,
+        "crop": {
+          "x": 0.78,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-195",
@@ -16973,6 +17225,15 @@
     {
       "id": "char-flhaminn",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87138,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-163",
@@ -17121,6 +17382,15 @@
     {
       "id": "char-kuplo-kopp",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100175,
+        "crop": {
+          "x": 0.42,
+          "y": 0.3,
+          "size": 0.45
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-167",
@@ -17184,6 +17454,15 @@
     {
       "id": "char-good-king-moggle-mog",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87043,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-167",
@@ -17253,6 +17532,15 @@
     {
       "id": "char-kan-e-senna",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87066,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-167",
@@ -17493,6 +17781,15 @@
     {
       "id": "char-elidibus",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87300,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-170",
@@ -17763,6 +18060,15 @@
     {
       "id": "char-yugiri",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87084,
+        "crop": {
+          "x": 0.5,
+          "y": 0.36,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-174",
@@ -17963,6 +18269,15 @@
     {
       "id": "char-lolorito",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87141,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-174",
@@ -18382,6 +18697,15 @@
     {
       "id": "char-nanamo",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87063,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-174",
@@ -18651,6 +18975,15 @@
     {
       "id": "char-raubahn",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87067,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-159",
@@ -19009,6 +19342,15 @@
     {
       "id": "char-merlwyb",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87065,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-178",
@@ -19146,6 +19488,15 @@
     {
       "id": "char-leviathan",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87054,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-178",
@@ -19232,6 +19583,15 @@
     {
       "id": "char-ramuh",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87053,
+        "crop": {
+          "x": 0.5,
+          "y": 0.26,
+          "size": 0.62
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-192",
@@ -19282,6 +19642,15 @@
     {
       "id": "char-iceheart",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87090,
+        "crop": {
+          "x": 0.5,
+          "y": 0.38,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-198",
@@ -19698,6 +20067,15 @@
     {
       "id": "char-ilberd",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100316,
+        "crop": {
+          "x": 0.55,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-199",
@@ -20003,6 +20381,15 @@
     {
       "id": "char-thordan",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87120,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-199",
@@ -20316,6 +20703,15 @@
     {
       "id": "char-krile",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87199,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-199",
@@ -20559,6 +20955,15 @@
     {
       "id": "org-syndicate",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100220,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-162",
@@ -20668,6 +21073,15 @@
     {
       "id": "org-mogglesguard",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87020,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.6
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-167",
@@ -20731,6 +21145,15 @@
     {
       "id": "org-ascians",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87057,
+        "crop": {
+          "x": 0.5,
+          "y": 0.45,
+          "size": 0.6
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-169",
@@ -21117,6 +21540,15 @@
     {
       "id": "org-doman-refugees",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100221,
+        "crop": {
+          "x": 0.55,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-174",
@@ -21273,6 +21705,15 @@
     {
       "id": "org-serpent-reavers",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87018,
+        "crop": {
+          "x": 0.45,
+          "y": 0.35,
+          "size": 0.6
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-178",
@@ -21342,6 +21783,15 @@
     {
       "id": "org-sahagin",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87018,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-178",
@@ -21411,6 +21861,15 @@
     {
       "id": "org-maelstrom",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100084,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-179",
@@ -21486,6 +21945,15 @@
     {
       "id": "org-immortal-flames",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100092,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-175",
@@ -21664,6 +22132,15 @@
     {
       "id": "org-sylphs",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100252,
+        "crop": {
+          "x": 0.12,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-192",
@@ -21710,6 +22187,15 @@
     {
       "id": "org-temple-knights",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100255,
+        "crop": {
+          "x": 0.56,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-198",
@@ -21848,6 +22334,15 @@
     {
       "id": "loc-revenants-toll",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100150,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-148",
@@ -22021,6 +22516,15 @@
     {
       "id": "loc-doma",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100219,
+        "crop": {
+          "x": 0.47,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-172",
@@ -22061,6 +22565,15 @@
     {
       "id": "evt-spies-and-heretics",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100316,
+        "crop": {
+          "x": 0.55,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-200",
@@ -22331,6 +22844,15 @@
     {
       "id": "evt-saint-of-the-heretics",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100321,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-212",
@@ -22463,6 +22985,15 @@
     {
       "id": "evt-blade-for-the-ascians",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100365,
+        "crop": {
+          "x": 0.18,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-218",
@@ -22641,6 +23172,15 @@
     {
       "id": "evt-horde-at-the-gates",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100370,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-226",
@@ -22813,6 +23353,15 @@
     {
       "id": "evt-royal-banquet",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100373,
+        "crop": {
+          "x": 0.48,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-234",
@@ -23009,6 +23558,15 @@
     {
       "id": "char-aymeric",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87096,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-202",
@@ -23685,6 +24243,15 @@
     {
       "id": "char-lucia",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87089,
+        "crop": {
+          "x": 0.5,
+          "y": 0.38,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-214",
@@ -24042,6 +24609,15 @@
     {
       "id": "char-estinien",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87088,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-228",
@@ -24617,6 +25193,15 @@
     {
       "id": "char-shiva",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87055,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-203",
@@ -25066,6 +25651,15 @@
     {
       "id": "char-varis",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87293,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-209",
@@ -25135,6 +25729,15 @@
     {
       "id": "char-moenbryda",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100321,
+        "crop": {
+          "x": 0.42,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-212",
@@ -25250,6 +25853,15 @@
     {
       "id": "char-midgardsormr",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87100,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-202",
@@ -25422,6 +26034,15 @@
     {
       "id": "char-nidhogg",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87099,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-228",
@@ -26213,6 +26834,15 @@
     {
       "id": "char-pipin",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87113,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-240",
@@ -26238,6 +26868,15 @@
     {
       "id": "org-monetarists",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100220,
+        "crop": {
+          "x": 0.14,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-200",
@@ -26307,6 +26946,15 @@
     {
       "id": "org-heretics",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100321,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-202",
@@ -26405,6 +27053,15 @@
     {
       "id": "org-dravanian-horde",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100366,
+        "crop": {
+          "x": 0.47,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-221",
@@ -26622,6 +27279,15 @@
     {
       "id": "org-holy-see",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 112090,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-202",
@@ -26927,6 +27593,15 @@
     {
       "id": "evt-wards-of-house-fortemps",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100393,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-242",
@@ -27269,6 +27944,15 @@
     {
       "id": "evt-the-sea-of-clouds",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100397,
+        "crop": {
+          "x": 0.62,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-245b",
@@ -27496,6 +28180,15 @@
     {
       "id": "evt-friends-in-chains",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100400,
+        "crop": {
+          "x": 0.3,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-259",
@@ -27611,6 +28304,15 @@
     {
       "id": "evt-hunt-for-lady-iceheart",
       "category": "event",
+      "portrait": {
+        "gameIcon": 112066,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-264",
@@ -27802,6 +28504,15 @@
     {
       "id": "evt-road-to-sohm-al",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100406,
+        "crop": {
+          "x": 0.38,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-271",
@@ -28092,6 +28803,15 @@
     {
       "id": "evt-great-wyrms-answer",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100410,
+        "crop": {
+          "x": 0.6,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-281",
@@ -28381,6 +29101,15 @@
     {
       "id": "char-edmont",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87093,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-242",
@@ -28655,6 +29384,15 @@
     {
       "id": "char-artoirel",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87133,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-244",
@@ -28904,6 +29642,15 @@
     {
       "id": "char-emmanellain",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87134,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-244",
@@ -29215,6 +29962,15 @@
     {
       "id": "char-laniaitte",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87143,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-245b",
@@ -29434,6 +30190,15 @@
     {
       "id": "char-ysayle",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87090,
+        "crop": {
+          "x": 0.5,
+          "y": 0.42,
+          "size": 0.68
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-271",
@@ -29742,6 +30507,15 @@
     {
       "id": "char-hraesvelgr",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87153,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-270",
@@ -30012,6 +30786,15 @@
     {
       "id": "char-vidofnir",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87139,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-273",
@@ -30213,6 +30996,15 @@
     {
       "id": "char-ravana",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87097,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-278",
@@ -30239,6 +31031,15 @@
     {
       "id": "char-bismarck",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87098,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-250b",
@@ -30381,6 +31182,15 @@
     {
       "id": "char-moglin",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87115,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-281",
@@ -30427,6 +31237,15 @@
     {
       "id": "org-heavens-ward",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100401,
+        "crop": {
+          "x": 0.15,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-259",
@@ -30582,6 +31401,15 @@
     {
       "id": "org-house-dzemael",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 112013,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-245",
@@ -30628,6 +31456,15 @@
     {
       "id": "org-vanu-vanu",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87082,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-245b",
@@ -30806,6 +31643,15 @@
     {
       "id": "org-gnath",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87083,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-272",
@@ -30921,6 +31767,15 @@
     {
       "id": "org-moogles",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87020,
+        "crop": {
+          "x": 0.5,
+          "y": 0.45,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-281",
@@ -30973,6 +31828,15 @@
     {
       "id": "loc-fortemps-manor",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100393,
+        "crop": {
+          "x": 0.62,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-242",
@@ -30996,6 +31860,15 @@
     {
       "id": "loc-camp-cloudtop",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100397,
+        "crop": {
+          "x": 0.8,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-245b",
@@ -31048,6 +31921,15 @@
     {
       "id": "loc-sohm-al",
       "category": "location",
+      "portrait": {
+        "gameIcon": 112088,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-271",
@@ -31117,6 +31999,15 @@
     {
       "id": "loc-aery",
       "category": "location",
+      "portrait": {
+        "gameIcon": 112089,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-290",
@@ -31163,6 +32054,15 @@
     {
       "id": "evt-uldah-set-right",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100413,
+        "crop": {
+          "x": 0.57,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-292",
@@ -31291,6 +32191,15 @@
     {
       "id": "evt-fall-of-nidhogg",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100415,
+        "crop": {
+          "x": 0.25,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-295",
@@ -31383,6 +32292,15 @@
     {
       "id": "evt-ishgards-founding-lie",
       "category": "event",
+      "portrait": {
+        "gameIcon": 112090,
+        "crop": {
+          "x": 0.3,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-299",
@@ -31632,6 +32550,15 @@
     {
       "id": "evt-key-in-the-clouds",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100420,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-308",
@@ -31846,6 +32773,15 @@
     {
       "id": "evt-the-aetheric-ram",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100425,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-316",
@@ -32223,6 +33159,15 @@
     {
       "id": "evt-the-floating-isle",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100430,
+        "crop": {
+          "x": 0.3,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-329",
@@ -32396,6 +33341,15 @@
     {
       "id": "char-hilda",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87091,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-300",
@@ -32529,6 +33483,15 @@
     {
       "id": "char-regula",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87119,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-314",
@@ -32569,6 +33532,15 @@
     {
       "id": "loc-azys-lla",
       "category": "location",
+      "portrait": {
+        "gameIcon": 112092,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-306",
@@ -32815,6 +33787,15 @@
     {
       "id": "char-ymhitra",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100426,
+        "crop": {
+          "x": 0.35,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-318",
@@ -32838,6 +33819,15 @@
     {
       "id": "char-matoya",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87092,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-319",
@@ -33004,6 +33994,15 @@
     {
       "id": "char-slowfix",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100428,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-321",
@@ -33062,6 +34061,15 @@
     {
       "id": "loc-idyllshire",
       "category": "location",
+      "portrait": {
+        "gameIcon": 100427,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-321",
@@ -33114,6 +34122,15 @@
     {
       "id": "char-tiamat",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87151,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-334",
@@ -33137,6 +34154,15 @@
     {
       "id": "char-honoroit",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87121,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-350",
@@ -33246,6 +34272,15 @@
     {
       "id": "char-griffin",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87177,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-367",
@@ -33361,6 +34396,15 @@
     {
       "id": "char-ga-bu",
       "category": "character",
+      "portrait": {
+        "gameIcon": 100583,
+        "crop": {
+          "x": 0.82,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-364",
@@ -33424,6 +34468,15 @@
     {
       "id": "char-nero",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87047,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-376",
@@ -33476,6 +34529,15 @@
     {
       "id": "char-shinryu",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87197,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-374",
@@ -33570,6 +34632,15 @@
     {
       "id": "char-gosetsu",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87230,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-377",
@@ -33593,6 +34664,15 @@
     {
       "id": "char-lyse",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87200,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-hw-3-56",
@@ -33618,6 +34698,15 @@
     {
       "id": "char-zenos",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87201,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-hw-3-56",
@@ -33641,6 +34730,15 @@
     {
       "id": "org-warriors-of-darkness",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 87272,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-340",
@@ -33859,6 +34957,15 @@
     {
       "id": "org-ala-mhigan-resistance",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100120,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-343",
@@ -33951,6 +35058,15 @@
     {
       "id": "org-house-of-lords",
       "category": "organization",
+      "portrait": {
+        "gameIcon": 100561,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-360",
@@ -33997,6 +35113,15 @@
     {
       "id": "evt-the-lost-scions",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100508,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-336",
@@ -34203,6 +35328,15 @@
     {
       "id": "evt-falcons-nest-conference",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100512,
+        "crop": {
+          "x": 0.5,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-346",
@@ -34410,6 +35544,15 @@
     {
       "id": "evt-the-final-chorus",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100558,
+        "crop": {
+          "x": 0.7,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-355",
@@ -34548,6 +35691,15 @@
     {
       "id": "evt-the-warriors-plot",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100582,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-361",
@@ -34663,6 +35815,15 @@
     {
       "id": "evt-a-trail-of-crystals",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100584,
+        "crop": {
+          "x": 0.45,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-366",
@@ -34772,6 +35933,15 @@
     {
       "id": "evt-the-griffins-gambit",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100611,
+        "crop": {
+          "x": 0.62,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-371",
@@ -34881,6 +36051,15 @@
     {
       "id": "evt-waking-omega",
       "category": "event",
+      "portrait": {
+        "gameIcon": 100615,
+        "crop": {
+          "x": 0.6,
+          "y": 0.5,
+          "size": 1.0
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-376",
@@ -34967,6 +36146,15 @@
     {
       "id": "char-omega",
       "category": "character",
+      "portrait": {
+        "gameIcon": 87240,
+        "crop": {
+          "x": 0.5,
+          "y": 0.4,
+          "size": 0.75
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-190",

@@ -916,7 +916,7 @@ From #376 *After The Obvious Solution* to 3.56 *Heavensward — Patch 3.56 compl
 
 ## Portraits
 
-Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. The user approved every pick on 2026-11-15 from a page showing each crop beside its source image. Crop: centre x, y and size, as fractions of the image (size of its shorter side).
+Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).
 
 | Entity | Source in the game | Icon | Crop (x, y, size) |
 |---|---|---|---|
@@ -939,157 +939,157 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Livia | Triple Triad card #31 | 87031 | 0.45, 0.42, 0.75 |
 | Lahabrea | Triple Triad card #57 (the masked Ascian, as first seen) | 87057 | 0.5, 0.42, 0.75 |
 | The Eorzean Alliance | Quest illustration, The Black Wolf's Ultimatum (MSQ #156) | 100164 | 0.5, 0.5, 1.0 |
-| The Road to Titan | none: keeps its category shape | – | – |
-| The Fall of the Waking Sands | none: keeps its category shape | – | – |
-| The Search for the Enterprise | none: keeps its category shape | – | – |
-| Garuda's Barrier | none: keeps its category shape | – | – |
-| The Road to Castrum Centri | none: keeps its category shape | – | – |
-| Yda | none: keeps its category shape | – | – |
-| Papalymo | none: keeps its category shape | – | – |
-| Titan | none: keeps its category shape | – | – |
-| Rhitahtyn | none: keeps its category shape | – | – |
-| Noraxia | none: keeps its category shape | – | – |
+| The Road to Titan | Quest illustration, Lord of Crags (MSQ #105) | 100133 | 0.5, 0.5, 1.0 |
+| The Fall of the Waking Sands | Quest illustration, All Good Things (MSQ #106) | 100159 | 0.42, 0.5, 1.0 |
+| The Search for the Enterprise | Quest illustration, Eyes on Me (MSQ #110) | 100160 | 0.17, 0.5, 1.0 |
+| Garuda's Barrier | Quest illustration, Into the Eye of the Storm (MSQ #130) | 100144 | 0.45, 0.5, 1.0 |
+| The Road to Castrum Centri | Quest illustration, Casing the Castrum (MSQ #143) | 100147 | 0.2, 0.5, 1.0 |
+| Yda | Triple Triad card #48 (shared with Papalymo, upper right) | 87048 | 0.66, 0.28, 0.5 |
+| Papalymo | Triple Triad card #48 (shared with Yda, lower left) | 87048 | 0.38, 0.48, 0.55 |
+| Titan | Triple Triad card #41 | 87041 | 0.5, 0.4, 0.75 |
+| Rhitahtyn | Triple Triad card #32 | 87032 | 0.5, 0.4, 0.75 |
+| Noraxia | Quest illustration, All Good Things (MSQ #106) | 100159 | 0.12, 0.5, 1.0 |
 | Iliud | none: keeps its category shape | – | – |
 | Marques | none: keeps its category shape | – | – |
-| Garuda | none: keeps its category shape | – | – |
-| Francel | none: keeps its category shape | – | – |
-| Haurchefant | none: keeps its category shape | – | – |
+| Garuda | Triple Triad card #42 | 87042 | 0.5, 0.4, 0.75 |
+| Francel | Quest illustration, The Rose and the Unicorn (MSQ #116) | 100138 | 0.5, 0.5, 1.0 |
+| Haurchefant | Triple Triad card #95 | 87095 | 0.5, 0.4, 0.75 |
 | Guillaime | none: keeps its category shape | – | – |
-| Drillemont | none: keeps its category shape | – | – |
-| Biggs | none: keeps its category shape | – | – |
-| Wedge | none: keeps its category shape | – | – |
+| Drillemont | Quest illustration, Ye of Little Faith (MSQ #122) | 100140 | 0.5, 0.5, 1.0 |
+| Biggs | Triple Triad card #33 (shared with Wedge, left) | 87033 | 0.38, 0.42, 0.55 |
+| Wedge | Triple Triad card #33 (shared with Biggs, upper right) | 87033 | 0.72, 0.27, 0.45 |
 | Glaumunt | none: keeps its category shape | – | – |
-| The Company of Heroes | none: keeps its category shape | – | – |
-| The Garlean Empire | none: keeps its category shape | – | – |
-| House Haillenarte | none: keeps its category shape | – | – |
-| The Ixal | none: keeps its category shape | – | – |
-| Castrum Centri | none: keeps its category shape | – | – |
-| A Home Beyond Ul'dah | none: keeps its category shape | – | – |
-| Myths Made Manifest | none: keeps its category shape | – | – |
-| Crystals and Exiles | none: keeps its category shape | – | – |
-| Tide of the Sahagin | none: keeps its category shape | – | – |
-| Unrest in Ul'dah | none: keeps its category shape | – | – |
-| Judgment in the Twelveswood | none: keeps its category shape | – | – |
-| A Company for All Eorzea | none: keeps its category shape | – | – |
-| F'lhaminn | none: keeps its category shape | – | – |
+| The Company of Heroes | Quest illustration, In the Company of Heroes (MSQ #103) | 100132 | 0.5, 0.5, 1.0 |
+| The Garlean Empire | Quest illustration, Casing the Castrum (MSQ #143) | 100147 | 0.5, 0.5, 1.0 |
+| House Haillenarte | Quest illustration, Three for Three (MSQ #115) | 100137 | 0.5, 0.5, 1.0 |
+| The Ixal | Triple Triad card #15 | 87015 | 0.5, 0.4, 0.75 |
+| Castrum Centri | Quest illustration, Casing the Castrum (MSQ #143) | 100147 | 0.82, 0.5, 1.0 |
+| A Home Beyond Ul'dah | Quest illustration, The Price of Principles (MSQ #162) | 100172 | 0.5, 0.5, 1.0 |
+| Myths Made Manifest | Quest illustration, Hail to the King, Kupo (MSQ #167) | 100175 | 0.5, 0.5, 1.0 |
+| Crystals and Exiles | Quest illustration, Still Waters (MSQ #172) | 100219 | 0.55, 0.5, 1.0 |
+| Tide of the Sahagin | Quest illustration, All Due Respect (MSQ #178) | 100223 | 0.6, 0.5, 1.0 |
+| Unrest in Ul'dah | Quest illustration, The Great Divide (MSQ #186) | 100250 | 0.37, 0.5, 1.0 |
+| Judgment in the Twelveswood | Quest illustration, Lord of Levin (MSQ #192) | 100252 | 0.6, 0.5, 1.0 |
+| A Company for All Eorzea | Quest illustration, Guardian of Eorzea (MSQ #195) | 100255 | 0.78, 0.5, 1.0 |
+| F'lhaminn | Triple Triad card #138 | 87138 | 0.5, 0.4, 0.75 |
 | Slafborn | none: keeps its category shape | – | – |
-| Kuplo Kopp | none: keeps its category shape | – | – |
-| Good King Moggle Mog XII | none: keeps its category shape | – | – |
-| Kan-E-Senna | none: keeps its category shape | – | – |
-| Elidibus | none: keeps its category shape | – | – |
+| Kuplo Kopp | Quest illustration, Hail to the King, Kupo (MSQ #167) | 100175 | 0.42, 0.3, 0.45 |
+| Good King Moggle Mog XII | Triple Triad card #43 | 87043 | 0.5, 0.4, 0.75 |
+| Kan-E-Senna | Triple Triad card #66 | 87066 | 0.5, 0.4, 0.75 |
+| Elidibus | Triple Triad card #300 | 87300 | 0.5, 0.4, 0.75 |
 | Hydaelyn | none: keeps its category shape | – | – |
-| Yugiri | none: keeps its category shape | – | – |
-| Lolorito | none: keeps its category shape | – | – |
+| Yugiri | Triple Triad card #84 | 87084 | 0.5, 0.36, 0.75 |
+| Lolorito | Triple Triad card #141 | 87141 | 0.5, 0.4, 0.75 |
 | Teledji | none: keeps its category shape | – | – |
-| Nanamo | none: keeps its category shape | – | – |
-| Raubahn | none: keeps its category shape | – | – |
-| Merlwyb | none: keeps its category shape | – | – |
-| Leviathan | none: keeps its category shape | – | – |
-| Ramuh | none: keeps its category shape | – | – |
-| Iceheart | none: keeps its category shape | – | – |
-| Ilberd | none: keeps its category shape | – | – |
-| Thordan | none: keeps its category shape | – | – |
-| Krile | none: keeps its category shape | – | – |
-| The Syndicate | none: keeps its category shape | – | – |
-| The Mogglesguard | none: keeps its category shape | – | – |
-| The Ascians | none: keeps its category shape | – | – |
+| Nanamo | Triple Triad card #63 | 87063 | 0.5, 0.4, 0.75 |
+| Raubahn | Triple Triad card #67 | 87067 | 0.5, 0.4, 0.75 |
+| Merlwyb | Triple Triad card #65 | 87065 | 0.5, 0.4, 0.75 |
+| Leviathan | Triple Triad card #54 | 87054 | 0.5, 0.4, 0.75 |
+| Ramuh | Triple Triad card #53 | 87053 | 0.5, 0.26, 0.62 |
+| Iceheart | Triple Triad card #90 (shared with Ysayle) | 87090 | 0.5, 0.38, 0.75 |
+| Ilberd | Quest illustration, Traitor in the Midst (MSQ #200) | 100316 | 0.55, 0.5, 1.0 |
+| Thordan | Triple Triad card #120 | 87120 | 0.5, 0.4, 0.75 |
+| Krile | Triple Triad card #199 | 87199 | 0.5, 0.4, 0.75 |
+| The Syndicate | Quest illustration, The Mother of Exiles (MSQ #174) | 100220 | 0.5, 0.5, 1.0 |
+| The Mogglesguard | Triple Triad card #20 (shared with the moogles) | 87020 | 0.5, 0.4, 0.6 |
+| The Ascians | Triple Triad card #57 (shared with Lahabrea) | 87057 | 0.5, 0.45, 0.6 |
 | The Students of Baldesion | none: keeps its category shape | – | – |
-| The Doman refugees | none: keeps its category shape | – | – |
-| The Serpent Reavers | none: keeps its category shape | – | – |
-| The Sahagin | none: keeps its category shape | – | – |
-| The Maelstrom | none: keeps its category shape | – | – |
-| The Immortal Flames | none: keeps its category shape | – | – |
-| The sylphs | none: keeps its category shape | – | – |
-| The Temple Knights | none: keeps its category shape | – | – |
-| Revenant's Toll | none: keeps its category shape | – | – |
-| Doma | none: keeps its category shape | – | – |
-| Spies and Heretics | none: keeps its category shape | – | – |
-| The Saint of the Heretics | none: keeps its category shape | – | – |
-| A Blade for the Ascians | none: keeps its category shape | – | – |
-| The Horde at the Gates | none: keeps its category shape | – | – |
-| The Royal Banquet | none: keeps its category shape | – | – |
-| Aymeric | none: keeps its category shape | – | – |
-| Lucia | none: keeps its category shape | – | – |
-| Estinien | none: keeps its category shape | – | – |
-| Shiva | none: keeps its category shape | – | – |
+| The Doman refugees | Quest illustration, Yugiri's Game (MSQ #176) | 100221 | 0.55, 0.5, 1.0 |
+| The Serpent Reavers | Triple Triad card #18 (shared with the Sahagin) | 87018 | 0.45, 0.35, 0.6 |
+| The Sahagin | Triple Triad card #18 | 87018 | 0.5, 0.4, 0.75 |
+| The Maelstrom | Quest illustration, The Company You Keep (Maelstrom) (2.0) | 100084 | 0.5, 0.5, 1.0 |
+| The Immortal Flames | Quest illustration, The Company You Keep (Immortal Flames) (2.0) | 100092 | 0.5, 0.5, 1.0 |
+| The sylphs | Quest illustration, Lord of Levin (MSQ #192) | 100252 | 0.12, 0.5, 1.0 |
+| The Temple Knights | Quest illustration, Guardian of Eorzea (MSQ #195) | 100255 | 0.56, 0.5, 1.0 |
+| Revenant's Toll | Quest illustration, Come-Into-My-Castrum (MSQ #148) | 100150 | 0.5, 0.5, 1.0 |
+| Doma | Quest illustration, Still Waters (MSQ #172) | 100219 | 0.47, 0.5, 1.0 |
+| Spies and Heretics | Quest illustration, Traitor in the Midst (MSQ #200) | 100316 | 0.55, 0.5, 1.0 |
+| The Saint of the Heretics | Quest illustration, The Instruments of Our Deliverance (MSQ #213) | 100321 | 0.45, 0.5, 1.0 |
+| A Blade for the Ascians | Quest illustration, Good Intentions (MSQ #218) | 100365 | 0.18, 0.5, 1.0 |
+| The Horde at the Gates | Quest illustration, Mask of Grief (MSQ #226) | 100370 | 0.5, 0.5, 1.0 |
+| The Royal Banquet | Quest illustration, A Time to Every Purpose (MSQ #238) | 100373 | 0.48, 0.5, 1.0 |
+| Aymeric | Triple Triad card #96 | 87096 | 0.5, 0.4, 0.75 |
+| Lucia | Triple Triad card #89 | 87089 | 0.5, 0.38, 0.75 |
+| Estinien | Triple Triad card #88 | 87088 | 0.5, 0.4, 0.75 |
+| Shiva | Triple Triad card #55 | 87055 | 0.5, 0.4, 0.75 |
 | Eline | none: keeps its category shape | – | – |
 | The Ivy | none: keeps its category shape | – | – |
-| Varis | none: keeps its category shape | – | – |
-| Moenbryda | none: keeps its category shape | – | – |
-| Midgardsormr | none: keeps its category shape | – | – |
-| Nidhogg | none: keeps its category shape | – | – |
+| Varis | Triple Triad card #293 | 87293 | 0.5, 0.4, 0.75 |
+| Moenbryda | Quest illustration, The Instruments of Our Deliverance (MSQ #213) | 100321 | 0.42, 0.5, 1.0 |
+| Midgardsormr | Triple Triad card #100 | 87100 | 0.5, 0.4, 0.75 |
+| Nidhogg | Triple Triad card #99 | 87099 | 0.5, 0.4, 0.75 |
 | Nabriales | none: keeps its category shape | – | – |
 | Yuyuhase | none: keeps its category shape | – | – |
 | Alianne | none: keeps its category shape | – | – |
 | Wilred | none: keeps its category shape | – | – |
-| Pipin | none: keeps its category shape | – | – |
-| The Monetarists | none: keeps its category shape | – | – |
-| The heretics | none: keeps its category shape | – | – |
-| The Dravanian Horde | none: keeps its category shape | – | – |
-| The Holy See | none: keeps its category shape | – | – |
-| Wards of House Fortemps | none: keeps its category shape | – | – |
-| The Sea of Clouds | none: keeps its category shape | – | – |
-| Friends in Chains | none: keeps its category shape | – | – |
-| The Hunt for Lady Iceheart | none: keeps its category shape | – | – |
-| The Road to Sohm Al | none: keeps its category shape | – | – |
-| The Great Wyrm's Answer | none: keeps its category shape | – | – |
-| Edmont | none: keeps its category shape | – | – |
-| Artoirel | none: keeps its category shape | – | – |
-| Emmanellain | none: keeps its category shape | – | – |
-| Laniaitte | none: keeps its category shape | – | – |
+| Pipin | Triple Triad card #113 | 87113 | 0.5, 0.4, 0.75 |
+| The Monetarists | Quest illustration, The Mother of Exiles (MSQ #174) | 100220 | 0.14, 0.5, 1.0 |
+| The heretics | Quest illustration, The Instruments of Our Deliverance (MSQ #213) | 100321 | 0.45, 0.5, 1.0 |
+| The Dravanian Horde | Quest illustration, The Rising Chorus (MSQ #221) | 100366 | 0.47, 0.5, 1.0 |
+| The Holy See | Duty art, the Vault | 112090 | 0.5, 0.5, 1.0 |
+| Wards of House Fortemps | Quest illustration, Coming to Ishgard (MSQ #242) | 100393 | 0.45, 0.5, 1.0 |
+| The Sea of Clouds | Quest illustration, Onwards and Upwards (MSQ #245b) | 100397 | 0.62, 0.5, 1.0 |
+| Friends in Chains | Quest illustration, Divine Intervention (MSQ #259) | 100400 | 0.3, 0.5, 1.0 |
+| The Hunt for Lady Iceheart | Duty art, Snowcloak | 112066 | 0.5, 0.5, 1.0 |
+| The Road to Sohm Al | Quest illustration, The Trine Towers (MSQ #273) | 100406 | 0.38, 0.5, 1.0 |
+| The Great Wyrm's Answer | Quest illustration, Mountaintop Diplomacy (MSQ #281) | 100410 | 0.6, 0.5, 1.0 |
+| Edmont | Triple Triad card #93 | 87093 | 0.5, 0.4, 0.75 |
+| Artoirel | Triple Triad card #133 | 87133 | 0.5, 0.4, 0.75 |
+| Emmanellain | Triple Triad card #134 | 87134 | 0.5, 0.4, 0.75 |
+| Laniaitte | Triple Triad card #143 | 87143 | 0.5, 0.4, 0.75 |
 | Grinnaux | none: keeps its category shape | – | – |
 | Zephirin | none: keeps its category shape | – | – |
-| Ysayle | none: keeps its category shape | – | – |
-| Hraesvelgr | none: keeps its category shape | – | – |
-| Vidofnir | none: keeps its category shape | – | – |
-| Ravana | none: keeps its category shape | – | – |
-| Bismarck | none: keeps its category shape | – | – |
+| Ysayle | Triple Triad card #90 (shared with Iceheart) | 87090 | 0.5, 0.42, 0.68 |
+| Hraesvelgr | Triple Triad card #153 | 87153 | 0.5, 0.4, 0.75 |
+| Vidofnir | Triple Triad card #139 | 87139 | 0.5, 0.4, 0.75 |
+| Ravana | Triple Triad card #97 | 87097 | 0.5, 0.4, 0.75 |
+| Bismarck | Triple Triad card #98 | 87098 | 0.5, 0.4, 0.75 |
 | Dewlala | none: keeps its category shape | – | – |
-| Moglin | none: keeps its category shape | – | – |
-| The Heavens' Ward | none: keeps its category shape | – | – |
-| House Dzemael | none: keeps its category shape | – | – |
-| The Vanu Vanu | none: keeps its category shape | – | – |
-| The Gnath | none: keeps its category shape | – | – |
-| The Moogles | none: keeps its category shape | – | – |
-| Fortemps Manor | none: keeps its category shape | – | – |
-| Camp Cloudtop | none: keeps its category shape | – | – |
-| Sohm Al | none: keeps its category shape | – | – |
-| The Aery | none: keeps its category shape | – | – |
-| Ul'dah Set Right | none: keeps its category shape | – | – |
-| The Fall of Nidhogg | none: keeps its category shape | – | – |
-| Ishgard's Founding Lie | none: keeps its category shape | – | – |
-| The Key in the Clouds | none: keeps its category shape | – | – |
-| The Aetheric Ram | none: keeps its category shape | – | – |
-| The Floating Isle | none: keeps its category shape | – | – |
-| The Mongrel | none: keeps its category shape | – | – |
-| Regula | none: keeps its category shape | – | – |
-| Azys Lla | none: keeps its category shape | – | – |
-| Y'mhitra | none: keeps its category shape | – | – |
-| Matoya | none: keeps its category shape | – | – |
-| Slowfix | none: keeps its category shape | – | – |
-| Idyllshire | none: keeps its category shape | – | – |
-| Tiamat | none: keeps its category shape | – | – |
-| Honoroit | none: keeps its category shape | – | – |
+| Moglin | Triple Triad card #115 | 87115 | 0.5, 0.4, 0.75 |
+| The Heavens' Ward | Quest illustration, Disclosure (MSQ #260) | 100401 | 0.15, 0.5, 1.0 |
+| House Dzemael | Duty art, Dzemael Darkhold | 112013 | 0.5, 0.5, 1.0 |
+| The Vanu Vanu | Triple Triad card #82 | 87082 | 0.5, 0.4, 0.75 |
+| The Gnath | Triple Triad card #83 | 87083 | 0.5, 0.4, 0.75 |
+| The Moogles | Triple Triad card #20 | 87020 | 0.5, 0.45, 0.75 |
+| Fortemps Manor | Quest illustration, Coming to Ishgard (MSQ #242) | 100393 | 0.62, 0.5, 1.0 |
+| Camp Cloudtop | Quest illustration, Onwards and Upwards (MSQ #245b) | 100397 | 0.8, 0.5, 1.0 |
+| Sohm Al | Duty art, Sohm Al | 112088 | 0.5, 0.5, 1.0 |
+| The Aery | Duty art, the Aery | 112089 | 0.5, 0.5, 1.0 |
+| Ul'dah Set Right | Quest illustration, A General Summons (MSQ #292) | 100413 | 0.57, 0.5, 1.0 |
+| The Fall of Nidhogg | Quest illustration, Into the Aery (MSQ #296) | 100415 | 0.25, 0.5, 1.0 |
+| Ishgard's Founding Lie | Duty art, the Vault | 112090 | 0.3, 0.5, 1.0 |
+| The Key in the Clouds | Quest illustration, Into the Blue (MSQ #309) | 100420 | 0.45, 0.5, 1.0 |
+| The Aetheric Ram | Quest illustration, An Engineering Enterprise (MSQ #316) | 100425 | 0.5, 0.5, 1.0 |
+| The Floating Isle | Quest illustration, The First Flight of the Excelsior (MSQ #329) | 100430 | 0.3, 0.5, 1.0 |
+| The Mongrel | Triple Triad card #91 | 87091 | 0.5, 0.4, 0.75 |
+| Regula | Triple Triad card #119 | 87119 | 0.5, 0.4, 0.75 |
+| Azys Lla | Duty art, the Aetherochemical Research Facility | 112092 | 0.5, 0.5, 1.0 |
+| Y'mhitra | Quest illustration, Tataru's Surprise (MSQ #319) | 100426 | 0.35, 0.5, 1.0 |
+| Matoya | Triple Triad card #92 | 87092 | 0.5, 0.4, 0.75 |
+| Slowfix | Quest illustration, An Illuminati Incident (MSQ #323) | 100428 | 0.45, 0.5, 1.0 |
+| Idyllshire | Quest illustration, A Great New Nation (MSQ #321) | 100427 | 0.5, 0.5, 1.0 |
+| Tiamat | Triple Triad card #151 | 87151 | 0.5, 0.4, 0.75 |
+| Honoroit | Triple Triad card #121 | 87121 | 0.5, 0.4, 0.75 |
 | The masked man | none: keeps its category shape | – | – |
-| The Griffin | none: keeps its category shape | – | – |
-| Ga Bu | none: keeps its category shape | – | – |
-| Nero | none: keeps its category shape | – | – |
-| Ilberd's primal | none: keeps its category shape | – | – |
-| Gosetsu | none: keeps its category shape | – | – |
-| Lyse | none: keeps its category shape | – | – |
-| The Viceroy | none: keeps its category shape | – | – |
-| The Warriors of Darkness | none: keeps its category shape | – | – |
+| The Griffin | Triple Triad card #177 | 87177 | 0.5, 0.4, 0.75 |
+| Ga Bu | Quest illustration, The Beast That Mourned at the Heart of the Mountain (MSQ #365) | 100583 | 0.82, 0.5, 1.0 |
+| Nero | Triple Triad card #47 | 87047 | 0.5, 0.4, 0.75 |
+| Ilberd's primal | Triple Triad card #197 | 87197 | 0.5, 0.4, 0.75 |
+| Gosetsu | Triple Triad card #230 | 87230 | 0.5, 0.4, 0.75 |
+| Lyse | Triple Triad card #200 | 87200 | 0.5, 0.4, 0.75 |
+| The Viceroy | Triple Triad card #201 | 87201 | 0.5, 0.4, 0.75 |
+| The Warriors of Darkness | Triple Triad card #272 (their leader) | 87272 | 0.5, 0.4, 0.75 |
 | The Masks | none: keeps its category shape | – | – |
-| The Ala Mhigan Resistance | none: keeps its category shape | – | – |
-| The House of Lords | none: keeps its category shape | – | – |
-| The Lost Scions | none: keeps its category shape | – | – |
-| The Conference at Falcon's Nest | none: keeps its category shape | – | – |
-| The Final Chorus | none: keeps its category shape | – | – |
-| The Warriors' Plot | none: keeps its category shape | – | – |
-| A Trail of Crystals | none: keeps its category shape | – | – |
-| The Griffin's Gambit | none: keeps its category shape | – | – |
-| Waking Omega | none: keeps its category shape | – | – |
-| Omega | none: keeps its category shape | – | – |
+| The Ala Mhigan Resistance | Quest illustration, On to Little Ala Mhigo (2.0) | 100120 | 0.5, 0.5, 1.0 |
+| The House of Lords | Quest illustration, Litany of Peace (MSQ #360) | 100561 | 0.5, 0.5, 1.0 |
+| The Lost Scions | Quest illustration, An Uncertain Future (MSQ #336) | 100508 | 0.45, 0.5, 1.0 |
+| The Conference at Falcon's Nest | Quest illustration, As Goes Light, So Goes Darkness (MSQ #343) | 100512 | 0.5, 0.5, 1.0 |
+| The Final Chorus | Quest illustration, The Man Within (MSQ #355) | 100558 | 0.7, 0.5, 1.0 |
+| The Warriors' Plot | Quest illustration, Shadows of the First (MSQ #362) | 100582 | 0.45, 0.5, 1.0 |
+| A Trail of Crystals | Quest illustration, When We Were Free (MSQ #367) | 100584 | 0.45, 0.5, 1.0 |
+| The Griffin's Gambit | Quest illustration, Tidings from Gyr Abania (MSQ #371) | 100611 | 0.62, 0.5, 1.0 |
+| Waking Omega | Quest illustration, The Obvious Solution (MSQ #376) | 100615 | 0.6, 0.5, 1.0 |
+| Omega | Triple Triad card #240 | 87240 | 0.5, 0.4, 0.75 |
 
 ## Entities
 

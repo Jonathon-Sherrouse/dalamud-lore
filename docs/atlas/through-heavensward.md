@@ -95,7 +95,7 @@ The lead's calls:
 
 ## Known gaps
 
-- **No portraits** for the 126 entries added after 2.0; they keep their category shapes (as NDL-012's did).
+- **Portraits** (added 2026-11-19): 151 of 170 entries have one, picked by the lead from Triple Triad cards, quest illustrations and duty art, each checked by eye for spoilers ([portraits_later.py](../../tools/atlas/portraits_later.py)). The other 19 keep their shapes: no faithful image exists, the only card shows a later form (Hydaelyn), or a face would unmask a disguise (the Ivy, the masked man, Marques).
 - **Changes isn't offered** on the first step after a milestone (#162, #242, #336) or on a milestone, as before.
 - **MSQ #1–#101** (the start of ARR) is still not covered.
 - **A few stale-but-safe texts:** an entry keeps its last text until its next record, so some characters' 2.x
