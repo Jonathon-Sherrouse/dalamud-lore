@@ -371,6 +371,168 @@ Visible records at each step, in the main-story view and the main + optional vie
 | #377 After The Greater Obeisance | 168 | 168 | 482 | 485 |
 | #378 After Fly Free, My Pretty | 168 | 168 | 483 | 486 |
 | 3.56 Heavensward — Patch 3.56 complete | 170 | 170 | 487 | 490 |
+| #380 After Beyond the Great Wall | 170 | 170 | 487 | 490 |
+| #381 After Lyse Takes the Lead | 170 | 170 | 487 | 490 |
+| #382 After The Promise of a New Beginning | 170 | 170 | 487 | 490 |
+| #383 After A Haven for the Bold | 170 | 170 | 487 | 490 |
+| #384 After A Bargain Struck | 170 | 170 | 487 | 490 |
+| #385 After A Friend of a Friend in Need | 170 | 170 | 487 | 490 |
+| #386 After Signed, Sealed, to Be Delivered | 170 | 170 | 487 | 490 |
+| #387 After Best Served with Cold Steel | 170 | 170 | 487 | 490 |
+| #388 After Let Fill Your Hearts with Pride | 170 | 170 | 487 | 490 |
+| #385b After A Familiar Face Forgotten | 170 | 170 | 487 | 490 |
+| #386b After The Prodigal Daughter | 170 | 170 | 487 | 490 |
+| #387b After Hard Country | 170 | 170 | 487 | 490 |
+| #387c After Death by a Thousand Rocks | 170 | 170 | 487 | 490 |
+| #389 After A Life More Ordinary | 170 | 170 | 487 | 490 |
+| #390 After The Color of Angry Qiqirn | 170 | 170 | 487 | 490 |
+| #391 After The Black Wolf's Pups | 170 | 170 | 487 | 490 |
+| #392 After Homeward Bound | 170 | 170 | 487 | 490 |
+| #397 After Where Men Go as One | 170 | 170 | 487 | 490 |
+| #398 After Future Rust, Future Dust | 170 | 170 | 487 | 490 |
+| #398b After A Dash of Green | 170 | 170 | 487 | 490 |
+| #398c After Ye Wayward Brothers | 170 | 170 | 487 | 490 |
+| #401 After Token of Faith | 170 | 170 | 487 | 490 |
+| #402 After Crossing the Velodyna | 170 | 170 | 487 | 490 |
+| #403 After In Crimson It Began | 170 | 170 | 487 | 490 |
+| #404 After The Fires Fade | 170 | 170 | 487 | 490 |
+| #405 After Bereft of Hearth and Home | 170 | 170 | 487 | 490 |
+| #406 After Divide and Conquer | 170 | 170 | 487 | 490 |
+| #407 After Lies, Damn Lies, and Pirates | 170 | 170 | 487 | 490 |
+| #408 After Tales from the Far East | 170 | 170 | 487 | 490 |
+| #409 After Not without Incident | 170 | 170 | 487 | 490 |
+| #410 After The Man from Ul'dah | 170 | 170 | 487 | 490 |
+| #411 After Where the Streets Are Paved with Koban | 170 | 170 | 487 | 490 |
+| #412 After By the Grace of Lord Lolorito | 170 | 170 | 487 | 490 |
+| #413 After A Good Samurai Is Hard to Find | 170 | 170 | 487 | 490 |
+| #414 After It's Probably a Trap | 170 | 170 | 487 | 490 |
+| #415 After Making the Catfish Sing | 170 | 170 | 487 | 490 |
+| #416 After Once More, to the Ruby Sea | 170 | 170 | 487 | 490 |
+| #417 After Open Water | 170 | 170 | 487 | 490 |
+| #418 After Boys with Boats | 170 | 170 | 487 | 490 |
+| #419 After To Bend with the Wind | 170 | 170 | 487 | 490 |
+| #420 After Confederate Consternation | 170 | 170 | 487 | 490 |
+| #421 After The Solace of the Sea | 170 | 170 | 487 | 490 |
+| #421b After The Arrows of Misfortune | 170 | 170 | 487 | 490 |
+| #421c After The Last Voyage | 170 | 170 | 487 | 490 |
+| #424 After Alisaie's Stones | 170 | 170 | 487 | 490 |
+| #425 After Under the Sea | 170 | 170 | 487 | 490 |
+| #426 After Of Kojin and Kami | 170 | 170 | 487 | 490 |
+| #427 After In Soroban We Trust | 170 | 170 | 487 | 490 |
+| #428 After Forever and Ever Apart | 170 | 170 | 487 | 490 |
+| #429 After In Darkness the Magatama Dreams | 170 | 170 | 487 | 490 |
+| #430 After The Whims of the Divine | 170 | 170 | 487 | 490 |
+| #431 After Breaking and Delivering | 170 | 170 | 487 | 490 |
+| #432 After The Lord of the Revel | 170 | 170 | 487 | 490 |
+| #433 After Tide Goes in, Imperials Go Out | 170 | 170 | 487 | 490 |
+| #434 After A Silence in Three Parts | 170 | 170 | 487 | 490 |
+| #435 After Life after Doma | 170 | 170 | 487 | 490 |
+| #436 After A Glimpse of Madness | 170 | 170 | 487 | 490 |
+| #437 After The Stubborn Remainder | 170 | 170 | 487 | 490 |
+| #438 After The Ones We Leave Behind | 170 | 170 | 487 | 490 |
+| #439 After A New Ruby Tithe | 170 | 170 | 487 | 490 |
+| #440 After The Will to Live | 170 | 170 | 487 | 490 |
+| #441 After Daughter of the Deep | 170 | 170 | 487 | 490 |
+| #442 After Path of No Return | 170 | 170 | 487 | 490 |
+| #443 After The Time between the Seconds | 170 | 170 | 487 | 490 |
+| #444 After All the Little Angels | 170 | 170 | 487 | 490 |
+| #445 After Here There Be Xaela | 170 | 170 | 487 | 490 |
+| #446 After The Search for Lord Hien | 170 | 170 | 487 | 490 |
+| #447 After A Season for War | 170 | 170 | 487 | 490 |
+| #448 After An Impossible Dream | 170 | 170 | 487 | 490 |
+| #449 After Stars in the Dark | 170 | 170 | 487 | 490 |
+| #450 After A Warrior's Welcome | 170 | 170 | 487 | 490 |
+| #451 After The Heart of Nations | 170 | 170 | 487 | 490 |
+| #452 After A Trial Before the Trial | 170 | 170 | 487 | 490 |
+| #453 After In the Footsteps of Bardam the Brave | 170 | 170 | 487 | 490 |
+| #454 After The Children of Azim | 170 | 170 | 487 | 490 |
+| #455 After The Labors of Magnai | 170 | 170 | 487 | 490 |
+| #456 After For Love of the Moon | 170 | 170 | 487 | 490 |
+| #457 After Sworn Enemies of the Sun | 170 | 170 | 487 | 490 |
+| #458 After The Undying Ones | 170 | 170 | 487 | 490 |
+| #459 After A Final Peace | 170 | 170 | 487 | 490 |
+| #460 After As the Gods Will | 170 | 170 | 487 | 490 |
+| #461 After Naadam | 170 | 170 | 487 | 490 |
+| #462 After Glory to the Khagan | 170 | 170 | 487 | 490 |
+| #463 After In Crimson They Walked | 170 | 170 | 487 | 490 |
+| #464 After The Hour of Reckoning | 170 | 170 | 487 | 490 |
+| #465 After The Room Where It Happened | 170 | 170 | 487 | 490 |
+| #466 After How Tataru Got Her Groove Back | 170 | 170 | 487 | 490 |
+| #467 After Seeds of Despair | 170 | 170 | 487 | 490 |
+| #468 After The Limits of Our Endurance | 170 | 170 | 487 | 490 |
+| #469 After Broken Steel, Broken Men | 170 | 170 | 487 | 490 |
+| #470 After The Doma Within | 170 | 170 | 487 | 490 |
+| #471 After On the Eve of Destiny | 170 | 170 | 487 | 490 |
+| #472 After The Die Is Cast | 170 | 170 | 487 | 490 |
+| #473 After The World Turned Upside Down | 170 | 170 | 487 | 490 |
+| #474 After A Swift and Secret Departure | 170 | 170 | 487 | 490 |
+| #475 After While You Were Away | 170 | 170 | 487 | 490 |
+| #476 After Rhalgr's Beacon | 170 | 170 | 487 | 490 |
+| #477 After The Fortunes of War | 170 | 170 | 487 | 490 |
+| #478 After Rising Fortunes, Rising Spirits | 170 | 170 | 487 | 490 |
+| #479 After The Lure of the Dream | 170 | 170 | 487 | 490 |
+| #480 After The Lady of Bliss | 170 | 170 | 487 | 490 |
+| #481 After The Silence of the Gods | 170 | 170 | 487 | 490 |
+| #482 After The First of Many | 170 | 170 | 487 | 490 |
+| #483 After Strong and Unified | 170 | 170 | 487 | 490 |
+| #484 After Hells Open | 170 | 170 | 487 | 490 |
+| #485 After Heavens Weep | 170 | 170 | 487 | 490 |
+| #486 After The Road Home | 170 | 170 | 487 | 490 |
+| #487 After For the Living and the Dead | 170 | 170 | 487 | 490 |
+| #488 After Above the Churning Waters | 170 | 170 | 487 | 490 |
+| #489 After The Path Forward | 170 | 170 | 487 | 490 |
+| #490 After With Tired Hands We Toil | 170 | 170 | 487 | 490 |
+| #491 After Where Courage Endures | 170 | 170 | 487 | 490 |
+| #492 After The Price of Freedom | 170 | 170 | 487 | 490 |
+| #493 After Raubahn's Invitation | 170 | 170 | 487 | 490 |
+| #494 After Liberty or Death | 170 | 170 | 487 | 490 |
+| #495 After The Lady in Red | 170 | 170 | 487 | 490 |
+| #496 After Upon the Great Loch's Shore | 170 | 170 | 487 | 490 |
+| #497 After The Key to Victory | 170 | 170 | 487 | 490 |
+| #498 After The Resonant | 170 | 170 | 487 | 490 |
+| #499 After The Legacy of Our Fathers | 170 | 170 | 487 | 490 |
+| #500 After The Measure of His Reach | 170 | 170 | 487 | 490 |
+| 4.0 Stormblood — Patch 4.0 complete | 170 | 170 | 487 | 490 |
+| #502 After Arenvald's Adventure | 170 | 170 | 487 | 490 |
+| #503 After The Darkness Below | 170 | 170 | 487 | 490 |
+| #504 After The Mad King's Trove | 170 | 170 | 487 | 490 |
+| #505 After The Butcher's Blood | 170 | 170 | 487 | 490 |
+| #506 After Echoes of an Echo | 170 | 170 | 487 | 490 |
+| #507 After A Sultana's Strings | 170 | 170 | 487 | 490 |
+| #508 After A Sultana's Duty | 170 | 170 | 487 | 490 |
+| #509 After A Sultana's Resolve | 170 | 170 | 487 | 490 |
+| #510 After Securing the Saltery | 170 | 170 | 487 | 490 |
+| #511 After A Blissful Arrival | 170 | 170 | 487 | 490 |
+| #512 After Return of the Bull | 170 | 170 | 487 | 490 |
+| #513 After Tidings from the East | 170 | 170 | 487 | 490 |
+| #514 After The Sword in the Store | 170 | 170 | 487 | 490 |
+| #515 After Hope on the Waves | 170 | 170 | 487 | 490 |
+| #516 After Elation and Trepidation | 170 | 170 | 487 | 490 |
+| #517 After Storm on the Horizon | 170 | 170 | 487 | 490 |
+| #518 After His Forgotten Home | 170 | 170 | 487 | 490 |
+| #519 After A Guilty Conscience | 170 | 170 | 487 | 490 |
+| #520 After Rise of a New Sun | 170 | 170 | 487 | 490 |
+| #521 After Gosetsu and Tsuyu | 170 | 170 | 487 | 490 |
+| #522 After Gone Like the Morning Dew | 170 | 170 | 487 | 490 |
+| #523 After Fruits of Her Labor | 170 | 170 | 487 | 490 |
+| #524 After Conscripts and Contingencies | 170 | 170 | 487 | 490 |
+| #525 After The Primary Agreement | 170 | 170 | 487 | 490 |
+| #526 After Under the Moonlight | 170 | 170 | 487 | 490 |
+| #527 After Emissary of the Dawn | 170 | 170 | 487 | 490 |
+| #528 After Sisterly Act | 170 | 170 | 487 | 490 |
+| #529 After Feel the Burn | 170 | 170 | 487 | 490 |
+| #530 After Shadows in the Empire | 170 | 170 | 487 | 490 |
+| #531 After A Power in Slumber | 170 | 170 | 487 | 490 |
+| #532 After The Will of the Moon | 170 | 170 | 487 | 490 |
+| #533 After The Call | 170 | 170 | 487 | 490 |
+| #534 After Prelude in Violet | 170 | 170 | 487 | 490 |
+| #535 After Soul Searching | 170 | 170 | 487 | 490 |
+| #536 After A Defector's Tidings | 170 | 170 | 487 | 490 |
+| #537 After Seiryu's Wall | 170 | 170 | 487 | 490 |
+| #538 After Parley on the Front Lines | 170 | 170 | 487 | 490 |
+| #539 After The Face of War | 170 | 170 | 487 | 490 |
+| #540 After A Brief Reprieve | 170 | 170 | 487 | 490 |
+| 4.56 Stormblood — Patch 4.56 complete | 170 | 170 | 487 | 490 |
 
 ## Arcs
 

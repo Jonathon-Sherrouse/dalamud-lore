@@ -54,7 +54,7 @@ This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces
 }
 ```
 
-Unknown properties, comments, trailing commas and duplicate keys are rejected. The whole file is limited to 4 MiB (1 MiB until 2026-11-19). An absent `validUntil` or `url` means the same as `null`; absent `aliases` means `[]`.
+Unknown properties, comments, trailing commas and duplicate keys are rejected. The whole file is limited to 8 MiB (1 MiB until 2026-11-19, then 4 MiB until the Stormblood extension). An absent `validUntil` or `url` means the same as `null`; absent `aliases` means `[]`.
 
 ## Field limits
 

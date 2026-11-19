@@ -2496,6 +2496,1458 @@
       "gameQuestIds": [
         67895
       ]
+    },
+    {
+      "id": "cp-msq-380",
+      "label": "After Beyond the Great Wall",
+      "questTitle": "Beyond the Great Wall",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67982
+      ]
+    },
+    {
+      "id": "cp-msq-381",
+      "label": "After Lyse Takes the Lead",
+      "questTitle": "Lyse Takes the Lead",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67983
+      ]
+    },
+    {
+      "id": "cp-msq-382",
+      "label": "After The Promise of a New Beginning",
+      "questTitle": "The Promise of a New Beginning",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67984
+      ]
+    },
+    {
+      "id": "cp-msq-383",
+      "label": "After A Haven for the Bold",
+      "questTitle": "A Haven for the Bold",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67985
+      ]
+    },
+    {
+      "id": "cp-msq-384",
+      "label": "After A Bargain Struck",
+      "questTitle": "A Bargain Struck",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67986
+      ]
+    },
+    {
+      "id": "cp-msq-385",
+      "label": "After A Friend of a Friend in Need",
+      "questTitle": "A Friend of a Friend in Need",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67987
+      ]
+    },
+    {
+      "id": "cp-msq-386",
+      "label": "After Signed, Sealed, to Be Delivered",
+      "questTitle": "Signed, Sealed, to Be Delivered",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67988
+      ]
+    },
+    {
+      "id": "cp-msq-387",
+      "label": "After Best Served with Cold Steel",
+      "questTitle": "Best Served with Cold Steel",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67989
+      ]
+    },
+    {
+      "id": "cp-msq-388",
+      "label": "After Let Fill Your Hearts with Pride",
+      "questTitle": "Let Fill Your Hearts with Pride",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67990
+      ]
+    },
+    {
+      "id": "cp-msq-385b",
+      "label": "After A Familiar Face Forgotten",
+      "questTitle": "A Familiar Face Forgotten",
+      "gameQuestIds": [
+        67991
+      ]
+    },
+    {
+      "id": "cp-msq-386b",
+      "label": "After The Prodigal Daughter",
+      "questTitle": "The Prodigal Daughter",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67992
+      ]
+    },
+    {
+      "id": "cp-msq-387b",
+      "label": "After Hard Country",
+      "questTitle": "Hard Country",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68490
+      ]
+    },
+    {
+      "id": "cp-msq-387c",
+      "label": "After Death by a Thousand Rocks",
+      "questTitle": "Death by a Thousand Rocks",
+      "gameQuestIds": [
+        68491
+      ]
+    },
+    {
+      "id": "cp-msq-389",
+      "label": "After A Life More Ordinary",
+      "questTitle": "A Life More Ordinary",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67993
+      ]
+    },
+    {
+      "id": "cp-msq-390",
+      "label": "After The Color of Angry Qiqirn",
+      "questTitle": "The Color of Angry Qiqirn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67994
+      ]
+    },
+    {
+      "id": "cp-msq-391",
+      "label": "After The Black Wolf's Pups",
+      "questTitle": "The Black Wolf's Pups",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67995
+      ]
+    },
+    {
+      "id": "cp-msq-392",
+      "label": "After Homeward Bound",
+      "questTitle": "Homeward Bound",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67996
+      ]
+    },
+    {
+      "id": "cp-msq-397",
+      "label": "After Where Men Go as One",
+      "questTitle": "Where Men Go as One",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67997
+      ]
+    },
+    {
+      "id": "cp-msq-398",
+      "label": "After Future Rust, Future Dust",
+      "questTitle": "Future Rust, Future Dust",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68171
+      ]
+    },
+    {
+      "id": "cp-msq-398b",
+      "label": "After A Dash of Green",
+      "questTitle": "A Dash of Green",
+      "gameQuestIds": [
+        68172
+      ]
+    },
+    {
+      "id": "cp-msq-398c",
+      "label": "After Ye Wayward Brothers",
+      "questTitle": "Ye Wayward Brothers",
+      "gameQuestIds": [
+        68173
+      ]
+    },
+    {
+      "id": "cp-msq-401",
+      "label": "After Token of Faith",
+      "questTitle": "Token of Faith",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68174
+      ]
+    },
+    {
+      "id": "cp-msq-402",
+      "label": "After Crossing the Velodyna",
+      "questTitle": "Crossing the Velodyna",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67998
+      ]
+    },
+    {
+      "id": "cp-msq-403",
+      "label": "After In Crimson It Began",
+      "questTitle": "In Crimson It Began",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        67999
+      ]
+    },
+    {
+      "id": "cp-msq-404",
+      "label": "After The Fires Fade",
+      "questTitle": "The Fires Fade",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68000
+      ]
+    },
+    {
+      "id": "cp-msq-405",
+      "label": "After Bereft of Hearth and Home",
+      "questTitle": "Bereft of Hearth and Home",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68001
+      ]
+    },
+    {
+      "id": "cp-msq-406",
+      "label": "After Divide and Conquer",
+      "questTitle": "Divide and Conquer",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68002
+      ]
+    },
+    {
+      "id": "cp-msq-407",
+      "label": "After Lies, Damn Lies, and Pirates",
+      "questTitle": "Lies, Damn Lies, and Pirates",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68003
+      ]
+    },
+    {
+      "id": "cp-msq-408",
+      "label": "After Tales from the Far East",
+      "questTitle": "Tales from the Far East",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68004
+      ]
+    },
+    {
+      "id": "cp-msq-409",
+      "label": "After Not without Incident",
+      "questTitle": "Not without Incident",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68005
+      ]
+    },
+    {
+      "id": "cp-msq-410",
+      "label": "After The Man from Ul'dah",
+      "questTitle": "The Man from Ul'dah",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68006
+      ]
+    },
+    {
+      "id": "cp-msq-411",
+      "label": "After Where the Streets Are Paved with Koban",
+      "questTitle": "Where the Streets Are Paved with Koban",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68007
+      ]
+    },
+    {
+      "id": "cp-msq-412",
+      "label": "After By the Grace of Lord Lolorito",
+      "questTitle": "By the Grace of Lord Lolorito",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68008
+      ]
+    },
+    {
+      "id": "cp-msq-413",
+      "label": "After A Good Samurai Is Hard to Find",
+      "questTitle": "A Good Samurai Is Hard to Find",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68009
+      ]
+    },
+    {
+      "id": "cp-msq-414",
+      "label": "After It's Probably a Trap",
+      "questTitle": "It's Probably a Trap",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68010
+      ]
+    },
+    {
+      "id": "cp-msq-415",
+      "label": "After Making the Catfish Sing",
+      "questTitle": "Making the Catfish Sing",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68011
+      ]
+    },
+    {
+      "id": "cp-msq-416",
+      "label": "After Once More, to the Ruby Sea",
+      "questTitle": "Once More, to the Ruby Sea",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68012
+      ]
+    },
+    {
+      "id": "cp-msq-417",
+      "label": "After Open Water",
+      "questTitle": "Open Water",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68013
+      ]
+    },
+    {
+      "id": "cp-msq-418",
+      "label": "After Boys with Boats",
+      "questTitle": "Boys with Boats",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68014
+      ]
+    },
+    {
+      "id": "cp-msq-419",
+      "label": "After To Bend with the Wind",
+      "questTitle": "To Bend with the Wind",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68015
+      ]
+    },
+    {
+      "id": "cp-msq-420",
+      "label": "After Confederate Consternation",
+      "questTitle": "Confederate Consternation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68016
+      ]
+    },
+    {
+      "id": "cp-msq-421",
+      "label": "After The Solace of the Sea",
+      "questTitle": "The Solace of the Sea",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68217
+      ]
+    },
+    {
+      "id": "cp-msq-421b",
+      "label": "After The Arrows of Misfortune",
+      "questTitle": "The Arrows of Misfortune",
+      "gameQuestIds": [
+        68489
+      ]
+    },
+    {
+      "id": "cp-msq-421c",
+      "label": "After The Last Voyage",
+      "questTitle": "The Last Voyage",
+      "gameQuestIds": [
+        68215
+      ]
+    },
+    {
+      "id": "cp-msq-424",
+      "label": "After Alisaie's Stones",
+      "questTitle": "Alisaie's Stones",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68017
+      ]
+    },
+    {
+      "id": "cp-msq-425",
+      "label": "After Under the Sea",
+      "questTitle": "Under the Sea",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68018
+      ]
+    },
+    {
+      "id": "cp-msq-426",
+      "label": "After Of Kojin and Kami",
+      "questTitle": "Of Kojin and Kami",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68019
+      ]
+    },
+    {
+      "id": "cp-msq-427",
+      "label": "After In Soroban We Trust",
+      "questTitle": "In Soroban We Trust",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68020
+      ]
+    },
+    {
+      "id": "cp-msq-428",
+      "label": "After Forever and Ever Apart",
+      "questTitle": "Forever and Ever Apart",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68021
+      ]
+    },
+    {
+      "id": "cp-msq-429",
+      "label": "After In Darkness the Magatama Dreams",
+      "questTitle": "In Darkness the Magatama Dreams",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68022
+      ]
+    },
+    {
+      "id": "cp-msq-430",
+      "label": "After The Whims of the Divine",
+      "questTitle": "The Whims of the Divine",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68023
+      ]
+    },
+    {
+      "id": "cp-msq-431",
+      "label": "After Breaking and Delivering",
+      "questTitle": "Breaking and Delivering",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68024
+      ]
+    },
+    {
+      "id": "cp-msq-432",
+      "label": "After The Lord of the Revel",
+      "questTitle": "The Lord of the Revel",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68025
+      ]
+    },
+    {
+      "id": "cp-msq-433",
+      "label": "After Tide Goes in, Imperials Go Out",
+      "questTitle": "Tide Goes in, Imperials Go Out",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68026
+      ]
+    },
+    {
+      "id": "cp-msq-434",
+      "label": "After A Silence in Three Parts",
+      "questTitle": "A Silence in Three Parts",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68027
+      ]
+    },
+    {
+      "id": "cp-msq-435",
+      "label": "After Life after Doma",
+      "questTitle": "Life after Doma",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68028
+      ]
+    },
+    {
+      "id": "cp-msq-436",
+      "label": "After A Glimpse of Madness",
+      "questTitle": "A Glimpse of Madness",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68470
+      ]
+    },
+    {
+      "id": "cp-msq-437",
+      "label": "After The Stubborn Remainder",
+      "questTitle": "The Stubborn Remainder",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68029
+      ]
+    },
+    {
+      "id": "cp-msq-438",
+      "label": "After The Ones We Leave Behind",
+      "questTitle": "The Ones We Leave Behind",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68030
+      ]
+    },
+    {
+      "id": "cp-msq-439",
+      "label": "After A New Ruby Tithe",
+      "questTitle": "A New Ruby Tithe",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68031
+      ]
+    },
+    {
+      "id": "cp-msq-440",
+      "label": "After The Will to Live",
+      "questTitle": "The Will to Live",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68032
+      ]
+    },
+    {
+      "id": "cp-msq-441",
+      "label": "After Daughter of the Deep",
+      "questTitle": "Daughter of the Deep",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68033
+      ]
+    },
+    {
+      "id": "cp-msq-442",
+      "label": "After Path of No Return",
+      "questTitle": "Path of No Return",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68471
+      ]
+    },
+    {
+      "id": "cp-msq-443",
+      "label": "After The Time between the Seconds",
+      "questTitle": "The Time between the Seconds",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68034
+      ]
+    },
+    {
+      "id": "cp-msq-444",
+      "label": "After All the Little Angels",
+      "questTitle": "All the Little Angels",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68035
+      ]
+    },
+    {
+      "id": "cp-msq-445",
+      "label": "After Here There Be Xaela",
+      "questTitle": "Here There Be Xaela",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68166
+      ]
+    },
+    {
+      "id": "cp-msq-446",
+      "label": "After The Search for Lord Hien",
+      "questTitle": "The Search for Lord Hien",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68036
+      ]
+    },
+    {
+      "id": "cp-msq-447",
+      "label": "After A Season for War",
+      "questTitle": "A Season for War",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68037
+      ]
+    },
+    {
+      "id": "cp-msq-448",
+      "label": "After An Impossible Dream",
+      "questTitle": "An Impossible Dream",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68038
+      ]
+    },
+    {
+      "id": "cp-msq-449",
+      "label": "After Stars in the Dark",
+      "questTitle": "Stars in the Dark",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68039
+      ]
+    },
+    {
+      "id": "cp-msq-450",
+      "label": "After A Warrior's Welcome",
+      "questTitle": "A Warrior's Welcome",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68040
+      ]
+    },
+    {
+      "id": "cp-msq-451",
+      "label": "After The Heart of Nations",
+      "questTitle": "The Heart of Nations",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68041
+      ]
+    },
+    {
+      "id": "cp-msq-452",
+      "label": "After A Trial Before the Trial",
+      "questTitle": "A Trial Before the Trial",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68042
+      ]
+    },
+    {
+      "id": "cp-msq-453",
+      "label": "After In the Footsteps of Bardam the Brave",
+      "questTitle": "In the Footsteps of Bardam the Brave",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68043
+      ]
+    },
+    {
+      "id": "cp-msq-454",
+      "label": "After The Children of Azim",
+      "questTitle": "The Children of Azim",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68044
+      ]
+    },
+    {
+      "id": "cp-msq-455",
+      "label": "After The Labors of Magnai",
+      "questTitle": "The Labors of Magnai",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68045
+      ]
+    },
+    {
+      "id": "cp-msq-456",
+      "label": "After For Love of the Moon",
+      "questTitle": "For Love of the Moon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68046
+      ]
+    },
+    {
+      "id": "cp-msq-457",
+      "label": "After Sworn Enemies of the Sun",
+      "questTitle": "Sworn Enemies of the Sun",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68047
+      ]
+    },
+    {
+      "id": "cp-msq-458",
+      "label": "After The Undying Ones",
+      "questTitle": "The Undying Ones",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68048
+      ]
+    },
+    {
+      "id": "cp-msq-459",
+      "label": "After A Final Peace",
+      "questTitle": "A Final Peace",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68049
+      ]
+    },
+    {
+      "id": "cp-msq-460",
+      "label": "After As the Gods Will",
+      "questTitle": "As the Gods Will",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68050
+      ]
+    },
+    {
+      "id": "cp-msq-461",
+      "label": "After Naadam",
+      "questTitle": "Naadam",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68051
+      ]
+    },
+    {
+      "id": "cp-msq-462",
+      "label": "After Glory to the Khagan",
+      "questTitle": "Glory to the Khagan",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68052
+      ]
+    },
+    {
+      "id": "cp-msq-463",
+      "label": "After In Crimson They Walked",
+      "questTitle": "In Crimson They Walked",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68053
+      ]
+    },
+    {
+      "id": "cp-msq-464",
+      "label": "After The Hour of Reckoning",
+      "questTitle": "The Hour of Reckoning",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68054
+      ]
+    },
+    {
+      "id": "cp-msq-465",
+      "label": "After The Room Where It Happened",
+      "questTitle": "The Room Where It Happened",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68055
+      ]
+    },
+    {
+      "id": "cp-msq-466",
+      "label": "After How Tataru Got Her Groove Back",
+      "questTitle": "How Tataru Got Her Groove Back",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68482
+      ]
+    },
+    {
+      "id": "cp-msq-467",
+      "label": "After Seeds of Despair",
+      "questTitle": "Seeds of Despair",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68056
+      ]
+    },
+    {
+      "id": "cp-msq-468",
+      "label": "After The Limits of Our Endurance",
+      "questTitle": "The Limits of Our Endurance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68057
+      ]
+    },
+    {
+      "id": "cp-msq-469",
+      "label": "After Broken Steel, Broken Men",
+      "questTitle": "Broken Steel, Broken Men",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68483
+      ]
+    },
+    {
+      "id": "cp-msq-470",
+      "label": "After The Doma Within",
+      "questTitle": "The Doma Within",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68058
+      ]
+    },
+    {
+      "id": "cp-msq-471",
+      "label": "After On the Eve of Destiny",
+      "questTitle": "On the Eve of Destiny",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68059
+      ]
+    },
+    {
+      "id": "cp-msq-472",
+      "label": "After The Die Is Cast",
+      "questTitle": "The Die Is Cast",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68060
+      ]
+    },
+    {
+      "id": "cp-msq-473",
+      "label": "After The World Turned Upside Down",
+      "questTitle": "The World Turned Upside Down",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68061
+      ]
+    },
+    {
+      "id": "cp-msq-474",
+      "label": "After A Swift and Secret Departure",
+      "questTitle": "A Swift and Secret Departure",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68062
+      ]
+    },
+    {
+      "id": "cp-msq-475",
+      "label": "After While You Were Away",
+      "questTitle": "While You Were Away",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68063
+      ]
+    },
+    {
+      "id": "cp-msq-476",
+      "label": "After Rhalgr's Beacon",
+      "questTitle": "Rhalgr's Beacon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68064
+      ]
+    },
+    {
+      "id": "cp-msq-477",
+      "label": "After The Fortunes of War",
+      "questTitle": "The Fortunes of War",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68065
+      ]
+    },
+    {
+      "id": "cp-msq-478",
+      "label": "After Rising Fortunes, Rising Spirits",
+      "questTitle": "Rising Fortunes, Rising Spirits",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68066
+      ]
+    },
+    {
+      "id": "cp-msq-479",
+      "label": "After The Lure of the Dream",
+      "questTitle": "The Lure of the Dream",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68067
+      ]
+    },
+    {
+      "id": "cp-msq-480",
+      "label": "After The Lady of Bliss",
+      "questTitle": "The Lady of Bliss",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68068
+      ]
+    },
+    {
+      "id": "cp-msq-481",
+      "label": "After The Silence of the Gods",
+      "questTitle": "The Silence of the Gods",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68069
+      ]
+    },
+    {
+      "id": "cp-msq-482",
+      "label": "After The First of Many",
+      "questTitle": "The First of Many",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68070
+      ]
+    },
+    {
+      "id": "cp-msq-483",
+      "label": "After Strong and Unified",
+      "questTitle": "Strong and Unified",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68071
+      ]
+    },
+    {
+      "id": "cp-msq-484",
+      "label": "After Hells Open",
+      "questTitle": "Hells Open",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68072
+      ]
+    },
+    {
+      "id": "cp-msq-485",
+      "label": "After Heavens Weep",
+      "questTitle": "Heavens Weep",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68073
+      ]
+    },
+    {
+      "id": "cp-msq-486",
+      "label": "After The Road Home",
+      "questTitle": "The Road Home",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68074
+      ]
+    },
+    {
+      "id": "cp-msq-487",
+      "label": "After For the Living and the Dead",
+      "questTitle": "For the Living and the Dead",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68075
+      ]
+    },
+    {
+      "id": "cp-msq-488",
+      "label": "After Above the Churning Waters",
+      "questTitle": "Above the Churning Waters",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68076
+      ]
+    },
+    {
+      "id": "cp-msq-489",
+      "label": "After The Path Forward",
+      "questTitle": "The Path Forward",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68077
+      ]
+    },
+    {
+      "id": "cp-msq-490",
+      "label": "After With Tired Hands We Toil",
+      "questTitle": "With Tired Hands We Toil",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68078
+      ]
+    },
+    {
+      "id": "cp-msq-491",
+      "label": "After Where Courage Endures",
+      "questTitle": "Where Courage Endures",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68079
+      ]
+    },
+    {
+      "id": "cp-msq-492",
+      "label": "After The Price of Freedom",
+      "questTitle": "The Price of Freedom",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68080
+      ]
+    },
+    {
+      "id": "cp-msq-493",
+      "label": "After Raubahn's Invitation",
+      "questTitle": "Raubahn's Invitation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68081
+      ]
+    },
+    {
+      "id": "cp-msq-494",
+      "label": "After Liberty or Death",
+      "questTitle": "Liberty or Death",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68082
+      ]
+    },
+    {
+      "id": "cp-msq-495",
+      "label": "After The Lady in Red",
+      "questTitle": "The Lady in Red",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68083
+      ]
+    },
+    {
+      "id": "cp-msq-496",
+      "label": "After Upon the Great Loch's Shore",
+      "questTitle": "Upon the Great Loch's Shore",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68084
+      ]
+    },
+    {
+      "id": "cp-msq-497",
+      "label": "After The Key to Victory",
+      "questTitle": "The Key to Victory",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68085
+      ]
+    },
+    {
+      "id": "cp-msq-498",
+      "label": "After The Resonant",
+      "questTitle": "The Resonant",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68086
+      ]
+    },
+    {
+      "id": "cp-msq-499",
+      "label": "After The Legacy of Our Fathers",
+      "questTitle": "The Legacy of Our Fathers",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68087
+      ]
+    },
+    {
+      "id": "cp-msq-500",
+      "label": "After The Measure of His Reach",
+      "questTitle": "The Measure of His Reach",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68088
+      ]
+    },
+    {
+      "id": "cp-sb-4-0",
+      "label": "Stormblood — Patch 4.0 complete",
+      "milestone": true,
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68089
+      ]
+    },
+    {
+      "id": "cp-msq-502",
+      "label": "After Arenvald's Adventure",
+      "questTitle": "Arenvald's Adventure",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68498
+      ]
+    },
+    {
+      "id": "cp-msq-503",
+      "label": "After The Darkness Below",
+      "questTitle": "The Darkness Below",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68499
+      ]
+    },
+    {
+      "id": "cp-msq-504",
+      "label": "After The Mad King's Trove",
+      "questTitle": "The Mad King's Trove",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68500
+      ]
+    },
+    {
+      "id": "cp-msq-505",
+      "label": "After The Butcher's Blood",
+      "questTitle": "The Butcher's Blood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68501
+      ]
+    },
+    {
+      "id": "cp-msq-506",
+      "label": "After Echoes of an Echo",
+      "questTitle": "Echoes of an Echo",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68502
+      ]
+    },
+    {
+      "id": "cp-msq-507",
+      "label": "After A Sultana's Strings",
+      "questTitle": "A Sultana's Strings",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68503
+      ]
+    },
+    {
+      "id": "cp-msq-508",
+      "label": "After A Sultana's Duty",
+      "questTitle": "A Sultana's Duty",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68504
+      ]
+    },
+    {
+      "id": "cp-msq-509",
+      "label": "After A Sultana's Resolve",
+      "questTitle": "A Sultana's Resolve",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68505
+      ]
+    },
+    {
+      "id": "cp-msq-510",
+      "label": "After Securing the Saltery",
+      "questTitle": "Securing the Saltery",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68506
+      ]
+    },
+    {
+      "id": "cp-msq-511",
+      "label": "After A Blissful Arrival",
+      "questTitle": "A Blissful Arrival",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68507
+      ]
+    },
+    {
+      "id": "cp-msq-512",
+      "label": "After Return of the Bull",
+      "questTitle": "Return of the Bull",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68508
+      ]
+    },
+    {
+      "id": "cp-msq-513",
+      "label": "After Tidings from the East",
+      "questTitle": "Tidings from the East",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68558
+      ]
+    },
+    {
+      "id": "cp-msq-514",
+      "label": "After The Sword in the Store",
+      "questTitle": "The Sword in the Store",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68559
+      ]
+    },
+    {
+      "id": "cp-msq-515",
+      "label": "After Hope on the Waves",
+      "questTitle": "Hope on the Waves",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68560
+      ]
+    },
+    {
+      "id": "cp-msq-516",
+      "label": "After Elation and Trepidation",
+      "questTitle": "Elation and Trepidation",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68561
+      ]
+    },
+    {
+      "id": "cp-msq-517",
+      "label": "After Storm on the Horizon",
+      "questTitle": "Storm on the Horizon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68562
+      ]
+    },
+    {
+      "id": "cp-msq-518",
+      "label": "After His Forgotten Home",
+      "questTitle": "His Forgotten Home",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68563
+      ]
+    },
+    {
+      "id": "cp-msq-519",
+      "label": "After A Guilty Conscience",
+      "questTitle": "A Guilty Conscience",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68564
+      ]
+    },
+    {
+      "id": "cp-msq-520",
+      "label": "After Rise of a New Sun",
+      "questTitle": "Rise of a New Sun",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68565
+      ]
+    },
+    {
+      "id": "cp-msq-521",
+      "label": "After Gosetsu and Tsuyu",
+      "questTitle": "Gosetsu and Tsuyu",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68606
+      ]
+    },
+    {
+      "id": "cp-msq-522",
+      "label": "After Gone Like the Morning Dew",
+      "questTitle": "Gone Like the Morning Dew",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68607
+      ]
+    },
+    {
+      "id": "cp-msq-523",
+      "label": "After Fruits of Her Labor",
+      "questTitle": "Fruits of Her Labor",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68608
+      ]
+    },
+    {
+      "id": "cp-msq-524",
+      "label": "After Conscripts and Contingencies",
+      "questTitle": "Conscripts and Contingencies",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68609
+      ]
+    },
+    {
+      "id": "cp-msq-525",
+      "label": "After The Primary Agreement",
+      "questTitle": "The Primary Agreement",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68610
+      ]
+    },
+    {
+      "id": "cp-msq-526",
+      "label": "After Under the Moonlight",
+      "questTitle": "Under the Moonlight",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68611
+      ]
+    },
+    {
+      "id": "cp-msq-527",
+      "label": "After Emissary of the Dawn",
+      "questTitle": "Emissary of the Dawn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68612
+      ]
+    },
+    {
+      "id": "cp-msq-528",
+      "label": "After Sisterly Act",
+      "questTitle": "Sisterly Act",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68679
+      ]
+    },
+    {
+      "id": "cp-msq-529",
+      "label": "After Feel the Burn",
+      "questTitle": "Feel the Burn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68680
+      ]
+    },
+    {
+      "id": "cp-msq-530",
+      "label": "After Shadows in the Empire",
+      "questTitle": "Shadows in the Empire",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68681
+      ]
+    },
+    {
+      "id": "cp-msq-531",
+      "label": "After A Power in Slumber",
+      "questTitle": "A Power in Slumber",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68682
+      ]
+    },
+    {
+      "id": "cp-msq-532",
+      "label": "After The Will of the Moon",
+      "questTitle": "The Will of the Moon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68683
+      ]
+    },
+    {
+      "id": "cp-msq-533",
+      "label": "After The Call",
+      "questTitle": "The Call",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68684
+      ]
+    },
+    {
+      "id": "cp-msq-534",
+      "label": "After Prelude in Violet",
+      "questTitle": "Prelude in Violet",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68685
+      ]
+    },
+    {
+      "id": "cp-msq-535",
+      "label": "After Soul Searching",
+      "questTitle": "Soul Searching",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68715
+      ]
+    },
+    {
+      "id": "cp-msq-536",
+      "label": "After A Defector's Tidings",
+      "questTitle": "A Defector's Tidings",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68716
+      ]
+    },
+    {
+      "id": "cp-msq-537",
+      "label": "After Seiryu's Wall",
+      "questTitle": "Seiryu's Wall",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68717
+      ]
+    },
+    {
+      "id": "cp-msq-538",
+      "label": "After Parley on the Front Lines",
+      "questTitle": "Parley on the Front Lines",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68718
+      ]
+    },
+    {
+      "id": "cp-msq-539",
+      "label": "After The Face of War",
+      "questTitle": "The Face of War",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68719
+      ]
+    },
+    {
+      "id": "cp-msq-540",
+      "label": "After A Brief Reprieve",
+      "questTitle": "A Brief Reprieve",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68720
+      ]
+    },
+    {
+      "id": "cp-sb-4-56",
+      "label": "Stormblood — Patch 4.56 complete",
+      "milestone": true,
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        68721
+      ]
     }
   ],
   "relationshipTypes": [
