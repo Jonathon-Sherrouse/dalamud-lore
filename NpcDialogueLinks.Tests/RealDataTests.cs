@@ -189,6 +189,17 @@ public class RealDataTests
     public void Real_SnapshotsMatchTheReviewedContract(string checkpoint, AtlasContentView view, string[] entities, string[] relationships)
     {
         var snapshot = AtlasProjector.Project(LoadDraft(), checkpoint, view);
+        // The lead's earlier entries (2026-11-19): text from #148 names Revenant's Toll, and the #159 recap names Raubahn.
+        var at = OrderOf(checkpoint);
+        entities = [.. entities, .. LeadBackfills.Where(b => at >= OrderOf(b.From)).Select(b => b.Id)];
+        if (checkpoint == Cp255)
+        {
+            // 2.1–2.55 now lead up to this milestone, so it shows everything reviewed here plus that content.
+            Assert.Subset(snapshot.Entities.Select(e => e.Id).ToHashSet(), entities.ToHashSet());
+            Assert.Subset(snapshot.Relationships.Select(r => r.Id).ToHashSet(), relationships.ToHashSet());
+            return;
+        }
+
         Assert.Equal(entities.Order(StringComparer.Ordinal), snapshot.Entities.Select(e => e.Id).Order(StringComparer.Ordinal));
         Assert.Equal(relationships.Order(StringComparer.Ordinal), snapshot.Relationships.Select(r => r.Id).Order(StringComparer.Ordinal));
     }
@@ -215,7 +226,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        Assert.Equal(AllEntities.Length + ArcEntities.Length + ArrEntities.Length, dataset.Entities.Count);
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (170 in all on 2026-11-19).
+        Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
+        Assert.Equal(170, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);
@@ -252,13 +265,22 @@ public class RealDataTests
     /// </summary>
     private static readonly Dictionary<string, string> AllowedFrom = new()
     {
+        ["Nabriales"] = "cp-msq-224", // he names himself in An Uninvited Ascian, and is destroyed there
+        ["Warriors of Darkness"] = "cp-msq-340", // the band names itself in Against the Dying of the Light
+        ["Warrior of Darkness"] = "cp-msq-340",
+        ["Word of the Mother"] = "cp-msq-345", // the voice's own name, and that quest's title
+        ["Nero"] = "cp-msq-376", // he introduces himself to the Alliance in The Obvious Solution
+        ["Lyse"] = "cp-hw-3-56", // Yda is revealed as Lyse in The Far Edge of Fate
+        ["Heavensward"] = "cp-hw-3-0", // the 3.0 finale's own quest title
     };
 
     /// <summary>Terms of the 2.x story that must not surface before the quest that introduces them (case-insensitive).</summary>
     private static readonly (string Term, string From)[] NotBefore =
     [
-        ("Rising Stones", "cp-msq-171"), ("Crystal Braves", "cp-msq-199"), ("regicide", "cp-msq-168"), ("banquet", "cp-msq-233"),
+        ("Rising Stones", "cp-msq-165"), ("Crystal Braves", "cp-msq-199"), ("regicide", "cp-msq-168"), ("banquet", "cp-msq-233"),
     ];
+
+    private static readonly (string Id, string From)[] LeadBackfills = [("loc-revenants-toll", "cp-msq-148"), ("char-raubahn", "cp-msq-159")];
 
     private static readonly HashSet<string> QuestTitles =
         AtlasLoader.LoadFile(RealPath, AtlasValidationMode.Draft).Dataset!.Checkpoints.Select(c => c.QuestTitle).OfType<string>().ToHashSet();
@@ -287,7 +309,11 @@ public class RealDataTests
         var snapshot = AtlasProjector.Project(LoadDraft(), checkpoint, view);
         var at = OrderOf(checkpoint);
         bool Allowed(string term) => AllowedFrom.TryGetValue(term, out var from) && at >= OrderOf(from);
-        foreach (var text in DisplayedText(snapshot))
+        // A citation shows its quest's title, which is public and appears only once that quest is reached (Still
+        // Waters, Shadows of the First), so the name lists apply to everything else.
+        var citationTexts = snapshot.Entities.SelectMany(e => e.Citations).Concat(snapshot.Relationships.SelectMany(r => r.Citations))
+            .SelectMany(c => new[] { c.Title, c.Url is null ? null : Uri.UnescapeDataString(c.Url.ToString()).Replace('_', ' ') }).OfType<string>().ToHashSet();
+        foreach (var text in DisplayedText(snapshot).Where(t => !citationTexts.Contains(t)))
         {
             foreach (var name in BannedNames.Where(n => !Allowed(n)))
             {

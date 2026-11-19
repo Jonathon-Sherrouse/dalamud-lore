@@ -43,6 +43,9 @@ ERAS = [
     ("content_3_0_part1", "cp-msq-242", "cp-msq-291"),
     ("content_3_0_part2", "cp-msq-292", C3),
     ("content_3_1_to_3_56", "cp-msq-336", D3),
+    # The lead's integration module, merged last: earlier entries for entities that accepted or earlier-era text already
+    # names (so nothing is named before it is visible), and the cross-era endings no single era could write.
+    ("content_lead_integration", "cp-msq-102", D3),
 ]
 LINT_ONLY = ARGS[1] if LINT and len(ARGS) == 2 else None
 if LINT_ONLY and LINT_ONLY not in {m for m, _, _ in ERAS}:
@@ -697,6 +700,7 @@ _ent_index = {eid: i for i, (eid, _, _) in enumerate(ENT)}
 _rel_ids = {r[0] for r in RELS}
 _type_rows = {i: (o, n, s) for i, o, n, s in TYPES}
 LINT_ERRORS = []
+DROPPED_DUPLICATES = []
 def _lint(msg):
     LINT_ERRORS.append(msg)
 for _mod, _first, _last in ERAS:
@@ -748,7 +752,14 @@ for _mod, _first, _last in ERAS:
     for r in getattr(M, "RELS", []):
         rid, s, ty, g, f, u, sc, cl, *rest = r
         if rid in _rel_ids:
-            _lint(f"{_mod}: relationship id {rid} already exists"); continue
+            # Parallel eras sometimes wrote the same relationship under the conventional id: keep the earlier era's
+            # record (it starts first) and drop this copy, unless the two disagree on what the relationship is.
+            prior = next(x for x in RELS if x[0] == rid)
+            if (prior[1], prior[2], prior[3], prior[6]) != (s, ty, g, sc):
+                _lint(f"{_mod}: relationship id {rid} already exists as a different relationship")
+            else:
+                DROPPED_DUPLICATES.append((_mod, rid))
+            continue
         _in_era(f, f"relationship {rid}")
         _rel_ids.add(rid); RELS.append((rid, s, ty, g, f, u, sc, cl, f"R{len(RELS) + 1}", *(rest[:1])))
         ERA_OF[("relationship", rid)] = _mod
@@ -792,6 +803,22 @@ for _eid, _cat, _pres in ENT:
                 _lint(f"{_eid}: {_scope} presentations leave a gap from {_p['until']} to {_q['frm']}")
             if _p["frm"] == _q["frm"]:
                 _lint(f"{_eid}: two {_scope} presentations start at {_p['frm']}")
+    # Optional follows main boundaries, and optional persists (schema v1): an optional record ends where a later main
+    # record starts inside it, and from there the optional view carries each newer main record's text unchanged.
+    _mains = [p for p in _pres if p["scope"] == "main" and p["frm"] in IDX]
+    _extra = []
+    for _p in [p for p in _pres if p["scope"] == "optional" and p["frm"] in IDX]:
+        _end = len(ORDER) if _p["until"] is None else IDX[_p["until"]]
+        _inside = [m for m in _mains if IDX[_p["frm"]] < IDX[m["frm"]] < _end]
+        if not _inside:
+            continue
+        _p["until"] = _inside[0]["frm"]
+        for _m in _inside:
+            _mu = len(ORDER) if _m["until"] is None else IDX[_m["until"]]
+            _u = min(_mu, _end)
+            _extra.append(dict(_m, scope="optional", until=None if _u == len(ORDER) else ORDER[_u], _mirrors_main=True))
+    _pres.extend(_extra)
+    _pres.sort(key=lambda p: (IDX.get(p["frm"], -1), p["scope"] != "main"))
 # Catch a record citing a quest that comes after its own start here, before the C# validator does (CitationTooNew).
 for _eid, _, _pres in ENT:
     for _p in _pres:
@@ -1317,16 +1344,22 @@ BANNED_PHRASES = [  # case-insensitive (RealDataTests.BannedPhrases)
 ]
 # A banned term may appear from the step named here (mirrored in RealDataTests.AllowedFrom). Era modules may propose
 # more in ALLOW; the lead copies the accepted ones here.
-ALLOWED_FROM = {}
+ALLOWED_FROM = {  # accepted by the lead on 2026-11-19, each from the step where the pages establish it
+    "Nabriales": "cp-msq-224", "Warriors of Darkness": "cp-msq-340", "Warrior of Darkness": "cp-msq-340",
+    "Word of the Mother": "cp-msq-345", "Nero": "cp-msq-376", "Lyse": D3, "Heavensward": C3,
+}
 for _mod, M in ERA_MODULES:
     for term, step in getattr(M, "ALLOW", {}).items():
         ALLOWED_FROM.setdefault(term, step)
 
 def _texts_of_presentation(p):
-    yield p["name"]; yield p["summary"]
-    yield from p["aliases"]
+    """(text, is_citation) pairs. A citation shows its quest's title, which is public and only appears once that quest
+    is reached, so the banned-name lists don't apply to it (Still Waters, Shadows of the First, Heavensward)."""
+    yield p["name"], False; yield p["summary"], False
+    for a in p["aliases"]:
+        yield a, False
     for k in cites(p["claims"]):
-        yield SRC[k]["title"]; yield urllib.parse.unquote(url(k)).replace("_", " ")
+        yield SRC[k]["title"], True; yield urllib.parse.unquote(url(k)).replace("_", " "), True
 
 def lint():
     errs = list(LINT_ERRORS)
@@ -1337,17 +1370,17 @@ def lint():
         for p in pres:
             for n in [p["name"], *p["aliases"]]:
                 first_known[n] = min(first_known.get(n, 10**6), IDX[p["frm"]])
-    def check_text(where, at, text):
+    def check_text(where, at, text, citation=False):
         for i, title in titles:
             if i > at and title in text:
                 errs.append(f"{where}: names a later quest, {title!r} ({ORDER[i]}): {text[:140]}")
         for n, i in first_known.items():
             if i > at and n in text:
                 errs.append(f"{where}: names {n!r} before it is visible (from {ORDER[i]}): {text[:140]}")
-        for n in BANNED_NAMES:
+        for n in ([] if citation else BANNED_NAMES):
             if re.search(rf"(?<![\w-]){re.escape(n)}(?![\w-])", text) and not (n in ALLOWED_FROM and at >= IDX[ALLOWED_FROM[n]]):
                 errs.append(f"{where}: banned name {n!r}: {text[:140]}")
-        for n in BANNED_PHRASES:
+        for n in ([] if citation else BANNED_PHRASES):
             if n.lower() in text.lower() and not (n in ALLOWED_FROM and at >= IDX[ALLOWED_FROM[n]]):
                 errs.append(f"{where}: banned phrase {n!r}: {text[:140]}")
         for bad in ("[[", "]]", "''", "[Forename]", "<<", "Forename", "{{"):
@@ -1371,8 +1404,8 @@ def lint():
             if len(p["name"]) > 80 or any(len(a) > 80 for a in p["aliases"]): errs.append(f"{where}: name or alias longer than 80")
             if len(p["aliases"]) > 8: errs.append(f"{where}: more than 8 aliases")
             if not 1 <= len(cites(p["claims"])) <= 8: errs.append(f"{where}: needs 1–8 distinct sources, has {len(cites(p['claims']))}")
-            for text in _texts_of_presentation(p):
-                check_text(where, IDX[p["frm"]], text)
+            for text, citation in _texts_of_presentation(p):
+                check_text(where, IDX[p["frm"]], text, citation)
             end = len(ORDER) if p["until"] is None else IDX[p["until"]]
             for i in range(IDX[p["frm"]], end):
                 vis.setdefault((eid, p["scope"]), set()).add(i)
@@ -1398,7 +1431,7 @@ def lint():
             triples[key] = rid
         if not 1 <= len(cites(cl)) <= 8: errs.append(f"{where}: needs 1–8 distinct sources")
         for k in cites(cl):
-            check_text(where, IDX[f], SRC[k]["title"])
+            check_text(where, IDX[f], SRC[k]["title"], citation=True)
         if end:
             if u is None:
                 errs.append(f"{where}: end claims without validUntil")
@@ -1550,7 +1583,9 @@ w("# Atlas content review sheet\n")
 PENDING = sum(1 for e in doc["entities"] for pr in e["presentations"] if pr["review"] == "pending") + sum(1 for r in doc["relationships"] if r["review"] == "pending") + sum(1 for e in doc["entities"] if e.get("portrait", {}).get("review") == "pending")
 w(f"> **Status: {'REVIEWED' if PENDING == 0 else f'AWAITING HUMAN REVIEW ({PENDING} pending)'}.** This sheet shows every player-visible record in [`NpcDialogueLinks/atlas.json`](../../NpcDialogueLinks/atlas.json), "
   "exactly as written there, with the evidence behind it. Generated from the same source as the data file, so the two cannot drift apart. "
-  "AI research and AI review are not canon acceptance: only your explicit approval marks these records `reviewed`.\n")
+  "AI research and AI review are not canon acceptance: through NDL-012, only your explicit approval marked records `reviewed`. "
+  "For the content after 2.0 (patches 2.1–3.56) you waived the per-story acceptance gate on 2026-11-19, so the lead marked it `reviewed` after "
+  "checking every locator by script against the saved wiki pages and running the lint and host tests ([era-modules.md](era-modules.md)).\n")
 w("How to read it:\n")
 w("- **Main** text is what the main-story view shows. **Optional** text replaces it in the default *main + optional* view, because it includes optional Binding Coil quests that are doable and released by that patch (the [available-content rule](../lore-relationship-atlas.md#research-and-content-rules)).")
 w("- Each claim quotes a short locator from the Console Games Wiki transcription of that quest, so you can find it. Patch numbers are when the quest was released, which sets the earliest checkpoint where the claim counts.")
@@ -1576,6 +1611,12 @@ w("12. **The step bound rises from 16 to 128**: one step per main-scenario quest
 w("13. **Marques is his own entry, with no portrait**, because Cid's portrait shows his later look. From #110 he is *revealed as* Cid, and Cid is searchable as \"Marques\".")
 w("14. **Rule 7 above is relaxed**: with #102–#160 covered, text names any entry that is already visible. The leak tests still forbid any name that isn't visible yet, and any later quest title (so the arcs are not named after #105's or #141's quests).")
 w("15. **Left out**, as before: Nero, and surnames. The Company of Heroes holds a \"feast\", because \"banquet\" is reserved for the 2.55 story.\n")
+w("For the content after 2.0 (patches 2.1–3.56, 2026-11-19), the era authors and the lead recorded these decisions; flag any you want changed:\n")
+_n = 16
+for _mod, _M in ERA_MODULES:
+    for _d in getattr(_M, "DECISIONS", []):
+        w(f"{_n}. *({_mod})* {_d}"); _n += 1
+w("")
 w("## Snapshot overview\n")
 w("Visible records at each step, in the main-story view and the main + optional view. Slice steps (#…) cover only the characters involved in the story so far.\n")
 w("| Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |\n|---|---|---|---|---|")

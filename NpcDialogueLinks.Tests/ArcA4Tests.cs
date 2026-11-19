@@ -72,7 +72,7 @@ public class ArcA4Tests
         Assert.Equal("Story so far, as of A Realm Reborn — Patch 2.0 complete", atLast.Arc.RecapLabel);
 
         var after = At("cp-arr-2-55");
-        Assert.Null(after.Arc); // the automatic choice: no arc contains 2.55
+        Assert.Equal("arc-d5-royal-banquet", after.Arc!.ArcId); // the automatic choice: 2.55's own arc (2026-11-19)
         Assert.True(after.PickArc(Arc));
         Assert.True(after.Arc!.PastEnd);
     }

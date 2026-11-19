@@ -2,7 +2,9 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
-> **Coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
+> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #102 through 3.56 (*Fly Free, My Pretty*), plus the 2.0, 2.55, 3.0 and 3.56 milestones: 278 points and 37 arcs. See [through-heavensward.md](through-heavensward.md).
+
+> **Earlier coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
 
 The Lore Atlas is a spoiler-safe relationship browser for the Scions of the Seventh Dawn pilot. You pick a story point, and it shows only what a player knows by then. The contract is [lore-relationship-atlas.md](../lore-relationship-atlas.md).
 
@@ -121,3 +123,23 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 7 | View → "After Acting the Part", then **Lens → Changes**. | The label reads "Changes since …", not "What this quest changed". |
 | 8 | View → "After Escape from Castrum Centri". | Still *The Black Wolf's Challenge*, exactly as before. |
 | 9 | Scroll the **Viewing as of** list at the minimum window size and at 150% font scale. | It scrolls, and nothing overlaps or clips. |
+
+## In-game check (through Heavensward)
+
+> **Status:** not run in game.
+
+Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If later points are locked, use **Raise…** → "Heavensward — Patch 3.56 complete" → **Show**.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | Open **Viewing as of**. | A tall list that opens scrolled to the current point, and runs through "After Fly Free, My Pretty" and the four milestones. |
+| 2 | Open **Raise…**. | At most 16 rows, scrolled to the current limit. |
+| 3 | View → "After Build on the Stone". | Arc lens: *Myths Made Manifest*. The Rising Stones is visible, and the Scions are headquartered there. |
+| 4 | View → "A Realm Reborn — Patch 2.55 complete". | Arc lens: *The Royal Banquet*. The accepted 2.55 text for Minfilia and the Scions is unchanged. |
+| 5 | View → "After Coming to Ishgard". | *Wards of House Fortemps*. Alphinaud and Tataru are wards of House Fortemps. |
+| 6 | View → "After Where the Chocobos Roam", search "Ysayle". | Ysayle (also searchable as Iceheart), with a "revealed as" edge from Iceheart. |
+| 7 | View → "Heavensward — Patch 3.0 complete". | *The Floating Isle*. Estinien is possessed. |
+| 8 | View → "After An Uncertain Future", then **Lens → Changes**. | "There is no comparison for this point" (the step after a milestone). |
+| 9 | View → "Heavensward — Patch 3.56 complete", search "Lyse". | Lyse, also searchable as Yda. |
+| 10 | View → "After Rock the Castrum", search "Raubahn". | Raubahn is there (from #159), with no 2.1+ details. |
+
