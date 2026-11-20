@@ -145,6 +145,15 @@ public class PortraitTests
         "loc-castellum-velodyna", "loc-castrum-oriens", "loc-house-of-the-fierce", "loc-namai", "loc-specula-imperatoris",
         "org-confederacy", "org-doman-liberation-front", "org-dotharl", "org-ferae-domitae", "org-oronir", "org-populares", "org-raen",
         "org-sekiseigumi",
+        // A Realm Reborn #1–#101: minor characters and groups with no faithful image, and the masked mage (a disguise).
+        "char-ahtbyrm", "char-ahtzapfyn", "char-aideen", "char-amandine", "char-baldewyn", "char-brayflox", "char-byrglaent",
+        "char-dadanen", "char-drest", "char-fufulupa", "char-galfrid", "char-gegeruju", "char-ghimthota", "char-haribehrt",
+        "char-hihibaru", "char-isembard", "char-ivaurault", "char-komuxio", "char-landenel", "char-laurentius", "char-leofric",
+        "char-lewin", "char-lilira", "char-masked-mage", "char-medrod", "char-ourcen", "char-owyne", "char-papashan",
+        "char-reyner", "char-sevrin", "char-shamani", "char-swift", "char-trachtoum", "char-ungust", "char-uodh-nunh",
+        "char-ursandel", "char-vorsaile", "char-wystan", "evt-a-feast-at-costa-del-sol", "loc-gridania", "loc-limsa-lominsa",
+        "loc-little-ala-mhigo", "loc-summerford-farms", "loc-uldah", "org-adventurers-guild", "org-brass-blades",
+        "org-lambs-of-dalamud", "org-sultansworn", "org-twin-adder", "org-wood-wailers", "org-yellowjackets",
         // Shadowbringers: no faithful image, a later-expansion card only, or a face that would give away a reveal.
         "char-almet", "char-crystal-exarch", "char-fandaniel", "char-halric", "char-hyllfyr", "char-kai-shirr", "char-korutt",
         "char-sicard", "char-tesleen", "char-tristol", "char-vauthry", "char-venat", "char-white-robed-figure", "char-wrenden",

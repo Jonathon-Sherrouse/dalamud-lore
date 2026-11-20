@@ -60,10 +60,10 @@ public class ArcArr20Tests
         // arc, step, "New at this point" rows (spokes left out), "Ended so far" in order of ending
         { B1, Step(103), [], [] },
         { B1, Step(105), ["rel-lahabrea-allied-empire"], [] },
-        { B2, Step(106), ["rel-iliud-aids-scions", "rel-livia-member-empire", "rel-minfilia-prisoner-livia-arr"], [] },
-        { B2, Step(108), [], [] },
-        { B2, Step(110), ["rel-alphinaud-member-scions-arr", "rel-marques-revealed-cid"], [] },
-        { B3, Step(110), ["rel-garuda-summoned-ixal"], [] },
+        { B2, Step(106), ["rel-iliud-aids-scions", "rel-livia-member-empire", "rel-minfilia-prisoner-livia-arr"], ["rel-noraxia-aids-scions"] }, // Noraxia dies in the raid (ARR #62–#101, 2026-11-19)
+        { B2, Step(108), [], ["rel-noraxia-aids-scions"] },
+        { B2, Step(110), ["rel-alphinaud-member-scions-arr", "rel-marques-revealed-cid"], ["rel-noraxia-aids-scions"] },
+        { B3, Step(110), [], [] }, // the Ixal summoning Garuda is known from #40 (ARR #1–#101, 2026-11-19)
         { B3, Step(115), ["rel-francel-member-haillenarte"], [] },
         { B3, Step(118), ["rel-haurchefant-aids-francel"], [] },
         { B3, Step(122), ["rel-guillaime-opposes-alphinaud"], [] },
@@ -71,7 +71,7 @@ public class ArcArr20Tests
         { B3, Step(128), [], ["rel-guillaime-opposes-alphinaud"] }, // the impostor is defeated
         { B3, Step(129), [], ["rel-guillaime-opposes-alphinaud"] },
         { B4, Step(130), [], [] },
-        { B4, Step(141), ["rel-gaius-member-empire"], [] },
+        { B4, Step(141), [], [] }, // Gaius in the Empire is known from the starting chains (#22)
         { B5, Step(142), ["rel-minfilia-held-castrum-centri"], [] },
         { B5, Step(143), [], [] }, // the other captives are held there too, but they are not in the cast
         { B5, Step(147), ["rel-biggs-serves-cid", "rel-wedge-serves-cid"], [] },

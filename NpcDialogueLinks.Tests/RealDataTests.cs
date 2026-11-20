@@ -221,9 +221,10 @@ public class RealDataTests
         // The lead's earlier entries (2026-11-19): text from #148 names Revenant's Toll, and the #159 recap names Raubahn.
         var at = OrderOf(checkpoint);
         entities = [.. entities, .. LeadBackfills.Where(b => at >= OrderOf(b.From)).Select(b => b.Id)];
-        if (checkpoint == Cp255)
+        if (checkpoint == Cp255 || OrderOf(checkpoint) >= OrderOf("cp-msq-102"))
         {
-            // 2.1–2.55 now lead up to this milestone, so it shows everything reviewed here plus that content.
+            // Every story point now has earlier or later content around it (ARR #1–#101 before the slice, 2.1–2.55 before
+            // this milestone), so each shows everything reviewed here plus that content.
             Assert.Subset(snapshot.Entities.Select(e => e.Id).ToHashSet(), entities.ToHashSet());
             Assert.Subset(snapshot.Relationships.Select(r => r.Id).ToHashSet(), relationships.ToHashSet());
             return;
@@ -263,9 +264,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (358 through Shadowbringers).
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (438 with ARR #1–#101).
         Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
-        Assert.Equal(358, dataset.Entities.Count);
+        Assert.Equal(438, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);

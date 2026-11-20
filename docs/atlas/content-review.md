@@ -159,8 +159,33 @@ For the content after 2.0 (patches 2.1–3.56, 2026-11-19), the era authors and 
 133. *(content_5_4_to_5_55)* **New organizations:** the Bloody Executioners, the kobolds (`org-kobolds`, named "The kobolds" so earlier lowercase mentions don't collide), the Amalj'aa (`org-amaljaa`), the Telophoroi and the Grand Company of Eorzea.
 134. *(content_5_4_to_5_55)* **Left out as entities** (named in text only, or not at all): Owen, Lord Amon, Wedge, Lucia, Moenskaet, Eynzahr, Carvallain, Rhoswen, Marshal Tarupin, Lunar Ifrit, the Restrainment Node, Frixio, Ameliance, the Paragon, the dreamer and the white-haired woman.
 135. *(content_5_4_to_5_55)* **Surnames out:** Estinien's, Lyse's, the twins' and Nanamo's surnames, and "Garlond" in Nero's line, appear only in locators.
-136. *(content_lead_integration)* **Ala Mhigo from #200:** text there already names it, so the lead starts its entry with Raubahn and Ilberd's shared past, then adopts the 4.1–4.56 era's drafted records. Part 3's later records for Castellum Velodyna and Specula Imperatoris, which part 1 creates, are adopted the same way.
-137. *(content_lead_integration)* **Earlier entries from the lead:** Revenant's Toll from #148, Raubahn from #159 and Omega from #190, because text there already names them. Omega's 3.56 records were drafted by the 3.1–3.56 era and adopted here.
+136. *(content_arr_gridania)* Gridania chain: presentations state facts about each entity and never say "you", because they stay visible through the Limsa Lominsa and Ul'dah chains that follow in the timeline; only arc recaps address the player.
+137. *(content_arr_gridania)* Lahabrea is not named at #21: the flashback voice is tagged "Lahabrea@???", so the game never shows his name there. The recap says "a hidden voice".
+138. *(content_arr_gridania)* Bartholomew and Zanthael stay unnamed ("an aide who once traveled with the General"), so a later Ul'dah-chain entry for them is not named before it is visible.
+139. *(content_arr_gridania)* Gaius, Merlwyb, Raubahn, the Maelstrom and the Immortal Flames enter at #22, where the pages first name them; the -arr relationships carry their memberships until the later eras' records begin (#141, #179, #200).
+140. *(content_arr_gridania)* The masked mage is his own entry (no name is given on the pages); from #19 he is a member of the Ascians, as Papalymo names the Paragons he invokes.
+141. *(content_arr_limsa)* The vision voice of #4 is never named in this chain's text until #21, where Merlwyb names Hydaelyn and the Mothercrystal; Hydaelyn becomes visible from cp-msq-21b.
+142. *(content_arr_limsa)* The Carteneau voice (Lahabrea@??? on the page) and the castrum commander of #22 stay unnamed, as the game shows them.
+143. *(content_arr_limsa)* Y'shtola, Baderon, Merlwyb, the Maelstrom, Limsa Lominsa and the Alliance leaders are written as chain-neutral facts, because Ul'dah starters see these entries at their own steps.
+144. *(content_arr_limsa)* Backfills (-arr ids) cover the Reavers aiding the Sahagin and Merlwyb leading the Maelstrom until 2.2 (cp-msq-179), and Gaius in the Empire until #141, since their claims are earlier than the accepted ones.
+145. *(content_arr_uldah)* **Shared entities speak in facts.** Ul'dah, Thancred, Lolorito, the Syndicate, Nanamo, Raubahn, the Immortal Flames, the Alliance, Merlwyb, Kan-E-Senna, Gaius, the Empire, the Ascians and Baderon are described by what the pages say about them, not by the Ul'dah starter's deeds, so they read true for every starting city. Only the arc recaps say "you".
+146. *(content_arr_uldah)* **Backfills, not ADJUSTs, for later eras' relationships.** Lolorito in the Syndicate (from #8), Raubahn serving Nanamo (#20) and leading the Immortal Flames (#23), and Gaius in the Empire (#23) each get an `-arr` record that ends where the later era's record begins (#174, #217, #200, #141), because those records cite later quests.
+147. *(content_arr_uldah)* **Unnamed figures stay unnamed.** The masked mage (#8, #20) is "a masked mage called an Ascian", and the voice in the Carteneau vision (#22, tagged "???") is left out, as is the castrum cutscene's second officer.
+148. *(content_arr_uldah)* **Minor helpers live in recaps only:** Cicidoa, Roger, Warin and the Stone Torches, Drunken Stag, Totoruna, Raffe, Merilda, Garibald and the two self-styled barons have no entries.
+149. *(content_arr_uldah)* **No Scions yet.** Thancred's Echo memory at #8 mentions the Scions, but the chain never introduces them; he stays a Sharlayan scholar of the aether until the later eras.
+150. *(content_arr_25_to_61)* Each Grand Company pair (#41/#42, #41b/#42b, #41c/#42c) has its own Biggs and Wedge presentations and its own arc recaps, citing only that pair's pages, so no company's player sees another company's rescue as their own.
+151. *(content_arr_25_to_61)* The Grand Company organizations are described only from #40 and their own pair, never with the player's oath; the company-specific facts appear at the pair's second step (#42, #42b, #42c).
+152. *(content_arr_25_to_61)* The sylph elder is "The sylph elder" from #52 (Komuxio's confession) and Frixio from #59, where the page first names him. No reveal edge and no alias: it is the same person, newly named, and an alias "the sylph elder" would make the earlier lowercase mentions read as naming him before he is visible.
+153. *(content_arr_25_to_61)* The Ixal–Garuda and sylphs–Ramuh edges are backfills ("-arr") ending where the later era's own edge begins, because the later edges cite later quests. Raubahn, Merlwyb and the Serpent Reavers already have "-arr" backfills from the starting-city modules, so none is repeated here.
+154. *(content_arr_25_to_61)* Lahabrea and the Ascians appear at #59 (Toto-Rak), well before the accepted #105 text, which introduces him as "a figure"; the lead may want to soften #105.
+155. *(content_arr_25_to_61)* Thancred's #34 remark that he has seen Marques's face before is main dialogue and is kept; it reads as a hint, not a reveal (Cid is not named until #110).
+156. *(content_arr_62_to_101)* Lahabrea is an Ascian from #63 (M63a), but `rel-lahabrea-member-ascians` (#169) cites a later quest, so ADJUST frm cannot move it; `rel-lahabrea-member-ascians-arr` backfills #63–#169. Merlwyb's leadership of the Maelstrom is already backfilled by the starting-city eras (`rel-merlwyb-leads-maelstrom-arr`).
+157. *(content_arr_62_to_101)* Noraxia aids the Scions from #62 and the relationship ends at #106, where the accepted content has her dying (end claim E106e).
+158. *(content_arr_62_to_101)* Titan, the Company of Heroes, Y'shtola, Minfilia and the Scions get presentations here that the accepted #102/#103 records close; Wheiskaet, whom the accepted #103 recap names without an entry, becomes an entity from #88.
+159. *(content_arr_62_to_101)* Drest's desertion uses a new relationship type, `deserted` ("deserted" / "deserted by"), rather than `turned-against`: he bears Eorzea no ill will and only wants to go home (M100c).
+160. *(content_arr_62_to_101)* Minor one-quest figures (Hihira, Gisilbehrt, Albreda, Gallien, Charline, Buscarron, Aethelmaer, Bertliana) are named in text without entries.
+161. *(content_lead_integration)* **Ala Mhigo from #200:** text there already names it, so the lead starts its entry with Raubahn and Ilberd's shared past, then adopts the 4.1–4.56 era's drafted records. Part 3's later records for Castellum Velodyna and Specula Imperatoris, which part 1 creates, are adopted the same way.
+162. *(content_lead_integration)* **Earlier entries from the lead:** Revenant's Toll from #148, Raubahn from #159 and Omega from #190, because text there already names them. Omega's 3.56 records were drafted by the 3.1–3.56 era and adopted here.
 
 ## Snapshot overview
 
@@ -168,753 +193,753 @@ Visible records at each step, in the main-story view and the main + optional vie
 
 | Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |
 |---|---|---|---|---|
-| #1 After Close to Home (Gridania) | 0 | 0 | 0 | 0 |
-| #2 After To the Bannock | 0 | 0 | 0 | 0 |
-| #3 After Passing Muster | 0 | 0 | 0 | 0 |
-| #4 After Chasing Shadows | 0 | 0 | 0 | 0 |
-| #5 After Eggs over Queasy | 0 | 0 | 0 | 0 |
-| #6 After Surveying the Damage | 0 | 0 | 0 | 0 |
-| #7 After A Soldier's Breakfast | 0 | 0 | 0 | 0 |
-| #8 After Spirithold Broken | 0 | 0 | 0 | 0 |
-| #9 After On to Bentbranch | 0 | 0 | 0 | 0 |
-| #10 After You Shall Not Trespass | 0 | 0 | 0 | 0 |
-| #11 After Don't Look Down | 0 | 0 | 0 | 0 |
-| #12 After In the Grim Darkness of the Forest | 0 | 0 | 0 | 0 |
-| #13 After Threat Level Elevated | 0 | 0 | 0 | 0 |
-| #14 After Migrant Marauders | 0 | 0 | 0 | 0 |
-| #15 After A Hearer Is Often Late | 0 | 0 | 0 | 0 |
-| #16 After Salvaging the Scene | 0 | 0 | 0 | 0 |
-| #17 After Leia's Legacy | 0 | 0 | 0 | 0 |
-| #18 After Dread Is in the Air | 0 | 0 | 0 | 0 |
-| #19 After To Guard a Guardian | 0 | 0 | 0 | 0 |
-| #20 After Festive Endeavors | 0 | 0 | 0 | 0 |
-| #21 After Renewing the Covenant | 0 | 0 | 0 | 0 |
-| #22 After The Gridanian Envoy | 0 | 0 | 0 | 0 |
-| #23 After Call of the Sea (Gridania) | 0 | 0 | 0 | 0 |
-| #1b After Close to Home (Limsa Lominsa) | 0 | 0 | 0 | 0 |
-| #2b After On to Summerford | 0 | 0 | 0 | 0 |
-| #3b After Dressed to Call | 0 | 0 | 0 | 0 |
-| #4b After Lurkers in the Grotto | 0 | 0 | 0 | 0 |
-| #5b After Washed Up | 0 | 0 | 0 | 0 |
-| #6b After Double Dealing | 0 | 0 | 0 | 0 |
-| #7b After Loam Maintenance | 0 | 0 | 0 | 0 |
-| #8b After Plowshares to Swords | 0 | 0 | 0 | 0 |
-| #9b After Just Deserts | 0 | 0 | 0 | 0 |
-| #10b After Sky-high | 0 | 0 | 0 | 0 |
-| #11b After Thanks a Million | 0 | 0 | 0 | 0 |
-| #12b After Relighting the Torch | 0 | 0 | 0 | 0 |
-| #13b After On to the Drydocks | 0 | 0 | 0 | 0 |
-| #14b After Without a Doubt | 0 | 0 | 0 | 0 |
-| #15b After Righting the Shipwright | 0 | 0 | 0 | 0 |
-| #16b After Do Angry Pirates Dream | 0 | 0 | 0 | 0 |
-| #17b After Victory in Peril | 0 | 0 | 0 | 0 |
-| #18b After Men of the Blue Tattoos | 0 | 0 | 0 | 0 |
-| #19b After Feint and Strike | 0 | 0 | 0 | 0 |
-| #20b After High Society | 0 | 0 | 0 | 0 |
-| #21b After A Mizzenmast Repast | 0 | 0 | 0 | 0 |
-| #22b After The Lominsan Envoy | 0 | 0 | 0 | 0 |
-| #1c After Close to Home (Ul'dah) | 0 | 0 | 0 | 0 |
-| #2c After We Must Rebuild | 0 | 0 | 0 | 0 |
-| #3c After Nothing to See Here | 0 | 0 | 0 | 0 |
-| #4c After Underneath the Sultantree | 0 | 0 | 0 | 0 |
-| #5c After Step Nine | 0 | 0 | 0 | 0 |
-| #6c After Prudence at This Junction | 0 | 0 | 0 | 0 |
-| #7c After Out of House and Home | 0 | 0 | 0 | 0 |
-| #8c After Way Down in the Hole | 0 | 0 | 0 | 0 |
-| #9c After Takin' What They're Givin' | 0 | 0 | 0 | 0 |
-| #10c After Supply and Demands | 0 | 0 | 0 | 0 |
-| #11c After Give It to Me Raw | 0 | 0 | 0 | 0 |
-| #12c After The Perfect Swarm | 0 | 0 | 0 | 0 |
-| #13c After Last Letter to Lost Hope | 0 | 0 | 0 | 0 |
-| #14c After Heir Today, Gone Tomorrow | 0 | 0 | 0 | 0 |
-| #15c After Passing the Blade | 0 | 0 | 0 | 0 |
-| #16c After Following Footfalls | 0 | 0 | 0 | 0 |
-| #17c After Storms on the Horizon | 0 | 0 | 0 | 0 |
-| #18c After Oh Captain, My Captain | 0 | 0 | 0 | 0 |
-| #19c After Secrets and Lies | 0 | 0 | 0 | 0 |
-| #20c After Duty, Honor, Country | 0 | 0 | 0 | 0 |
-| #21c After A Matter of Tradition | 0 | 0 | 0 | 0 |
-| #22c After A Royal Reception | 0 | 0 | 0 | 0 |
-| #23b After The Ul'dahn Envoy | 0 | 0 | 0 | 0 |
-| #24 After Call of the Sea (Ul'dah) | 0 | 0 | 0 | 0 |
-| #25 After It's Probably Pirates | 0 | 0 | 0 | 0 |
-| #26 After Call of the Forest | 0 | 0 | 0 | 0 |
-| #27 After Fire in the Gloom | 0 | 0 | 0 | 0 |
-| #28 After Call of the Desert | 0 | 0 | 0 | 0 |
-| #29 After Into a Copper Hell | 0 | 0 | 0 | 0 |
-| #30 After The Scions of the Seventh Dawn | 0 | 0 | 0 | 0 |
-| #31 After A Wild Rose by Any Other Name | 0 | 0 | 0 | 0 |
-| #32 After Unsolved Mystery | 0 | 0 | 0 | 0 |
-| #33 After What Poor People Think | 0 | 0 | 0 | 0 |
-| #34 After A Proper Burial | 0 | 0 | 0 | 0 |
-| #35 After For the Children | 0 | 0 | 0 | 0 |
-| #36 After Amalj'aa Wrong Places | 0 | 0 | 0 | 0 |
-| #37 After Dressed to Deceive | 0 | 0 | 0 | 0 |
-| #38 After Life, Materia and Everything | 0 | 0 | 0 | 0 |
-| #39 After Lord of the Inferno | 0 | 0 | 0 | 0 |
-| #40 After A Hero in the Making | 0 | 0 | 0 | 0 |
-| #41 After The Company You Keep (Immortal Flames) | 0 | 0 | 0 | 0 |
-| #42 After For Coin and Country | 0 | 0 | 0 | 0 |
-| #41b After The Company You Keep (Maelstrom) | 0 | 0 | 0 | 0 |
-| #42b After Till Sea Swallows All | 0 | 0 | 0 | 0 |
-| #41c After The Company You Keep (Twin Adder) | 0 | 0 | 0 | 0 |
-| #42c After Wood's Will Be Done | 0 | 0 | 0 | 0 |
-| #43 After Sylph-management | 0 | 0 | 0 | 0 |
-| #44 After We Come in Peace | 0 | 0 | 0 | 0 |
-| #45 After Sylphic Studies | 0 | 0 | 0 | 0 |
-| #46 After First Impressions | 0 | 0 | 0 | 0 |
-| #47 After First Contact | 0 | 0 | 0 | 0 |
-| #48 After Dance Dance Diplomacy | 0 | 0 | 0 | 0 |
-| #49 After Forest Friend | 0 | 0 | 0 | 0 |
-| #50 After Presence of the Enemy | 0 | 0 | 0 | 0 |
-| #51 After Brotherly Love | 0 | 0 | 0 | 0 |
-| #52 After Spirited Away | 0 | 0 | 0 | 0 |
-| #53 After Druthers House Rules | 0 | 0 | 0 | 0 |
-| #54 After Never Forget | 0 | 0 | 0 | 0 |
-| #55 After Microbrewing | 0 | 0 | 0 | 0 |
-| #56 After Like Fine Wine | 0 | 0 | 0 | 0 |
-| #57 After Sylphish Concerns | 0 | 0 | 0 | 0 |
-| #58 After Nouveau Riche | 0 | 0 | 0 | 0 |
-| #59 After Into the Beast's Maw | 0 | 0 | 0 | 0 |
-| #60 After A Simple Gift | 0 | 0 | 0 | 0 |
-| #61 After Believe in Your Sylph | 0 | 0 | 0 | 0 |
-| #62 After Back from the Wood | 0 | 0 | 0 | 0 |
-| #63 After Shadow of Darkness | 0 | 0 | 0 | 0 |
-| #64 After Highbridge Times | 0 | 0 | 0 | 0 |
-| #65 After Where There Is Smoke | 0 | 0 | 0 | 0 |
-| #66 After On to Little Ala Mhigo | 0 | 0 | 0 | 0 |
-| #67 After Tea for Three | 0 | 0 | 0 | 0 |
-| #68 After Foot in the Door | 0 | 0 | 0 | 0 |
-| #69 After Meeting with the Resistance | 0 | 0 | 0 | 0 |
-| #70 After Killing Him Softly | 0 | 0 | 0 | 0 |
-| #71 After Helping Horn | 0 | 0 | 0 | 0 |
-| #72 After He Ain't Heavy | 0 | 0 | 0 | 0 |
-| #73 After Come Highly Recommended | 0 | 0 | 0 | 0 |
-| #74 After The Bear and the Young'uns' Cares | 0 | 0 | 0 | 0 |
-| #75 After Wilred Wants You | 0 | 0 | 0 | 0 |
-| #76 After Big Trouble in Little Ala Mhigo | 0 | 0 | 0 | 0 |
-| #77 After Back to Square One | 0 | 0 | 0 | 0 |
-| #78 After Terror at Fallgourd | 0 | 0 | 0 | 0 |
-| #79 After Ziz Is So Ridiculous | 0 | 0 | 0 | 0 |
-| #80 After Seeing Eye to Winged Eye | 0 | 0 | 0 | 0 |
-| #80b After Rock of Rancor | 0 | 0 | 0 | 0 |
-| #82 After Power of Deduction | 0 | 0 | 0 | 0 |
-| #83 After Secret of the White Lily | 0 | 0 | 0 | 0 |
-| #84 After Skeletons in Her Closet | 0 | 0 | 0 | 0 |
-| #85 After Wrath of the Titan | 0 | 0 | 0 | 0 |
-| #86 After Tales from the Tidus Slayer | 0 | 0 | 0 | 0 |
-| #87 After Hungry Hungry Goobbues | 0 | 0 | 0 | 0 |
-| #88 After The Lominsan Way | 0 | 0 | 0 | 0 |
-| #89 After Nix That | 0 | 0 | 0 | 0 |
-| #90 After A Modest Proposal | 0 | 0 | 0 | 0 |
-| #91 After Trial by Turtle | 0 | 0 | 0 | 0 |
-| #92 After The Perfect Prey | 0 | 0 | 0 | 0 |
-| #93 After When the Worm Turns | 0 | 0 | 0 | 0 |
-| #94 After There and Back Again | 0 | 0 | 0 | 0 |
-| #95 After The Things We Do for Cheese | 0 | 0 | 0 | 0 |
-| #96 After What Do You Mean You Forgot the Wine | 0 | 0 | 0 | 0 |
-| #97 After An Offer You Can Refuse | 0 | 0 | 0 | 0 |
-| #98 After It Won't Work | 0 | 0 | 0 | 0 |
-| #99 After Give a Man a Drink | 0 | 0 | 0 | 0 |
-| #100 After That Weight | 0 | 0 | 0 | 0 |
-| #101 After Battle Scars | 0 | 0 | 0 | 0 |
-| #102 After It Was a Very Good Year | 11 | 11 | 8 | 8 |
-| #103 After In the Company of Heroes | 14 | 14 | 11 | 11 |
-| #104 After As You Wish | 14 | 14 | 11 | 11 |
-| #105 After Lord of Crags | 16 | 16 | 15 | 15 |
-| #106 After All Good Things | 21 | 21 | 26 | 26 |
-| #107 After You Can't Take It with You | 21 | 21 | 26 | 26 |
-| #108 After Bringing out the Dead | 21 | 21 | 26 | 26 |
-| #109 After Bury Me Not on the Lone Prairie | 21 | 21 | 26 | 26 |
-| #110 After Eyes on Me | 25 | 25 | 35 | 35 |
-| #111 After He Who Waited Behind | 25 | 25 | 35 | 35 |
-| #112 After Cold Reception | 25 | 25 | 35 | 35 |
-| #113 After The Unending War | 26 | 26 | 36 | 36 |
-| #114 After Men of Honor | 26 | 26 | 36 | 36 |
-| #115 After Three for Three | 28 | 28 | 39 | 39 |
-| #116 After The Rose and the Unicorn | 29 | 29 | 40 | 40 |
-| #117 After The Talk of Coerthas | 29 | 29 | 40 | 40 |
-| #118 After Road to Redemption | 29 | 29 | 41 | 41 |
-| #119 After Following the Evidence | 29 | 29 | 41 | 41 |
-| #120 After In the Eyes of Gods and Men | 29 | 29 | 41 | 41 |
-| #121 After The Final Flight of the Enterprise | 30 | 30 | 42 | 42 |
-| #122 After Ye of Little Faith | 30 | 30 | 43 | 43 |
-| #123 After Factual Folklore | 30 | 30 | 43 | 43 |
-| #124 After The Best Inventions | 30 | 30 | 43 | 43 |
-| #125 After Influencing Inquisitors | 30 | 30 | 43 | 43 |
-| #126 After By the Lights of Ishgard | 30 | 30 | 43 | 43 |
-| #127 After Blood for Blood | 30 | 30 | 44 | 44 |
-| #128 After The Heretic among Us | 30 | 30 | 43 | 43 |
-| #129 After In Pursuit of the Past | 30 | 30 | 44 | 44 |
-| #130 After Into the Eye of the Storm | 31 | 31 | 47 | 47 |
-| #131 After Sealed with Science | 31 | 31 | 47 | 47 |
-| #132 After With the Utmost Care | 31 | 31 | 47 | 47 |
-| #133 After A Promising Prospect | 31 | 31 | 47 | 47 |
-| #134 After It's Probably Not Pirates | 31 | 31 | 47 | 47 |
-| #135 After Representing the Representative | 31 | 31 | 47 | 47 |
-| #136 After The Reluctant Researcher | 31 | 31 | 47 | 47 |
-| #137 After Sweet Somethings | 31 | 31 | 47 | 47 |
-| #138 After History Repeating | 31 | 31 | 47 | 47 |
-| #139 After The Curious Case of Giggity | 31 | 31 | 47 | 47 |
-| #140 After Better Late than Never | 31 | 31 | 47 | 47 |
-| #141 After Lady of the Vortex | 32 | 32 | 53 | 53 |
-| #142 After Reclamation | 34 | 34 | 61 | 61 |
-| #143 After Casing the Castrum | 36 | 36 | 67 | 67 |
-| #144 After Eyes on the Empire | 36 | 36 | 67 | 67 |
-| #145 After Footprints in the Snow | 36 | 36 | 67 | 67 |
-| #146 After Monumental Hopes | 36 | 36 | 67 | 67 |
-| #147 After Notorious Biggs | 36 | 36 | 69 | 69 |
-| #148 After Come-Into-My-Castrum | 38 | 38 | 71 | 71 |
-| #149 After Getting Even with Garlemald | 38 | 38 | 71 | 71 |
-| #150 After Drowning Out the Voices | 38 | 38 | 71 | 71 |
-| #150b After Acting the Part | 38 | 38 | 71 | 71 |
-| #151 After Dressed for Conquest | 38 | 38 | 71 | 71 |
-| #153 After Fool Me Twice | 38 | 38 | 71 | 71 |
-| #154 After Every Little Thing She Does Is Magitek | 38 | 38 | 71 | 71 |
-| #155 After Escape from Castrum Centri | 40 | 40 | 76 | 76 |
-| #156 After The Black Wolf's Ultimatum | 40 | 40 | 76 | 76 |
-| #157 After Operation Archon | 41 | 41 | 80 | 80 |
-| #158 After A Hero in Need | 41 | 41 | 80 | 80 |
-| #159 After Hearts on Fire | 42 | 42 | 80 | 80 |
-| #160 After Rock the Castrum | 42 | 42 | 78 | 78 |
-| 2.0 A Realm Reborn — Patch 2.0 complete | 44 | 44 | 77 | 79 |
-| #162 After The Price of Principles | 46 | 46 | 83 | 85 |
-| #163 After Moving On | 47 | 47 | 85 | 87 |
-| #164 After All Things in Time | 47 | 47 | 85 | 87 |
-| #165 After Laying the Foundation | 49 | 49 | 88 | 90 |
-| #166 After It's Possibly a Primal | 50 | 50 | 90 | 92 |
-| #167 After Hail to the King, Kupo | 54 | 54 | 96 | 98 |
-| #168 After You Have Selected Regicide | 54 | 54 | 96 | 98 |
-| #169 After On the Properties of Primals | 55 | 55 | 101 | 103 |
-| #170 After The Gifted | 58 | 58 | 104 | 106 |
-| #171 After Build on the Stone | 58 | 58 | 105 | 107 |
-| #172 After Still Waters | 60 | 60 | 106 | 108 |
-| #173 After A Final Temptation | 60 | 60 | 107 | 109 |
-| #174 After The Mother of Exiles | 65 | 65 | 115 | 117 |
-| #175 After Promises to Keep | 66 | 66 | 121 | 123 |
-| #176 After Yugiri's Game | 66 | 66 | 121 | 123 |
-| #177 After Why We Adventure | 66 | 66 | 121 | 123 |
-| #178 After All Due Respect | 71 | 71 | 132 | 134 |
-| #179 After The Sea Rises | 72 | 72 | 137 | 139 |
-| #180 After Scouts in Distress | 72 | 72 | 137 | 139 |
-| #181 After The Gift of Eternity | 72 | 72 | 138 | 140 |
-| #182 After Into the Heart of the Whorl | 72 | 72 | 138 | 140 |
-| #183 After Lord of the Whorl | 72 | 72 | 139 | 141 |
-| #184 After When Yugiri Met the Fraternity | 72 | 72 | 139 | 141 |
-| #185 After Through the Maelstrom | 72 | 72 | 139 | 141 |
-| #186 After The Great Divide | 73 | 73 | 142 | 144 |
-| #187 After Desperate Times | 73 | 73 | 143 | 145 |
-| #188 After Shock and Awe | 73 | 73 | 143 | 145 |
-| #189 After Reap the Whirlwind | 73 | 73 | 143 | 145 |
-| #190 After Revolution | 74 | 74 | 146 | 148 |
-| #191 After Stories We Tell | 75 | 75 | 147 | 149 |
-| #192 After Lord of Levin | 77 | 77 | 153 | 155 |
-| #193 After Levin an Impression | 77 | 77 | 154 | 156 |
-| #194 After What Little Gods Are Made Of | 77 | 77 | 157 | 159 |
-| #195 After Guardian of Eorzea | 78 | 78 | 160 | 162 |
-| #196 After Recruiting the Realm | 79 | 79 | 165 | 167 |
-| #197 After Heretical Harassment | 79 | 79 | 166 | 168 |
-| #198 After When the Cold Sets In | 81 | 81 | 170 | 172 |
-| #199 After Brave New Companions | 84 | 84 | 174 | 176 |
-| #200 After Traitor in the Midst | 88 | 88 | 183 | 185 |
-| #201 After Back and Fourth | 89 | 89 | 184 | 186 |
-| #202 After Coming to Terms | 93 | 93 | 189 | 191 |
-| #203 After The Intercession of Saints | 94 | 94 | 190 | 192 |
-| #204 After Strength in Unity | 94 | 94 | 191 | 193 |
-| #205 After Dark Words, Dark Deeds | 94 | 94 | 192 | 194 |
-| #206 After First Blood | 94 | 94 | 192 | 194 |
-| #207 After The Path of the Righteous | 94 | 94 | 192 | 194 |
-| #208 After For the Greater Good | 95 | 95 | 194 | 196 |
-| #209 After Tendrils of Intrigue | 96 | 96 | 195 | 197 |
-| #210 After Chasing Ivy | 97 | 97 | 199 | 201 |
-| #211 After In Flagrante Delicto | 97 | 97 | 199 | 201 |
-| #212 After A Simple Plan | 99 | 99 | 204 | 206 |
-| #213 After The Instruments of Our Deliverance | 99 | 99 | 205 | 207 |
-| #214 After The Road Less Traveled | 100 | 100 | 208 | 210 |
-| #215 After Eyes Unclouded | 100 | 100 | 208 | 210 |
-| #216 After The Reason Roaille | 100 | 100 | 211 | 213 |
-| #217 After Let Us Cling Together | 100 | 100 | 215 | 217 |
-| #218 After Good Intentions | 101 | 101 | 222 | 224 |
-| #219 After Bait and Switch | 101 | 101 | 222 | 224 |
-| #220 After Best-laid Schemes | 101 | 101 | 222 | 224 |
-| #221 After The Rising Chorus | 102 | 102 | 224 | 226 |
-| #222 After Aether on Demand | 102 | 102 | 224 | 226 |
-| #223 After On the Counteroffensive | 102 | 102 | 224 | 226 |
-| #224 After An Uninvited Ascian | 103 | 103 | 225 | 227 |
-| #225 After In Memory of Moenbryda | 103 | 103 | 225 | 227 |
-| #226 After Mask of Grief | 104 | 104 | 226 | 228 |
-| #227 After Defenders for Ishgard | 104 | 104 | 231 | 233 |
-| #228 After The Wyrm's Roar | 106 | 106 | 237 | 239 |
-| #229 After Committed to the Cause | 106 | 106 | 239 | 241 |
-| #230 After Volunteer Dragonslayers | 107 | 107 | 240 | 242 |
-| #231 After An Allied Perspective | 107 | 107 | 241 | 243 |
-| #232 After The Steps of Faith | 107 | 107 | 241 | 243 |
-| #233 After Administrative Decision | 107 | 107 | 241 | 243 |
-| #234 After An Unexpected Ambition | 108 | 108 | 242 | 244 |
-| #235 After Ancient Ways, Timeless Wants | 108 | 108 | 242 | 244 |
-| #234b After Where We Are Needed | 108 | 108 | 242 | 244 |
-| #235b After The Least among Us | 108 | 108 | 242 | 244 |
-| #238 After A Time to Every Purpose | 108 | 108 | 244 | 246 |
-| #239 After Come, but Not Gone | 108 | 108 | 245 | 247 |
-| #240 After The Parting Glass | 109 | 109 | 249 | 251 |
-| 2.55 A Realm Reborn — Patch 2.55 complete | 109 | 109 | 254 | 257 |
-| #242 After Coming to Ishgard | 112 | 112 | 262 | 265 |
-| #243 After Taking in the Sights | 112 | 112 | 262 | 265 |
-| #244 After The Better Half | 114 | 114 | 267 | 270 |
-| #245 After Over the Wall | 115 | 115 | 271 | 274 |
-| #246 After Work in Progress | 115 | 115 | 271 | 274 |
-| #247 After The First and Foremost | 115 | 115 | 271 | 274 |
-| #248 After From on High | 115 | 115 | 271 | 274 |
-| #249 After Reconnaissance Lost | 115 | 115 | 271 | 274 |
-| #250 After At the End of Our Hope | 115 | 115 | 271 | 274 |
-| #251 After Knights Be Not Proud | 115 | 115 | 271 | 274 |
-| #245b After Onwards and Upwards | 119 | 119 | 280 | 283 |
-| #246b After An Indispensable Ally | 119 | 119 | 280 | 283 |
-| #247b After Meeting the Neighbors | 119 | 119 | 281 | 284 |
-| #248b After Sense of Urgency | 119 | 119 | 281 | 284 |
-| #249b After Hope Springs Eternal | 119 | 119 | 281 | 284 |
-| #250b After A Series of Unfortunate Events | 120 | 120 | 286 | 289 |
-| #251b After A Reward Long in Coming | 120 | 120 | 286 | 289 |
-| #259 After Divine Intervention | 123 | 123 | 296 | 299 |
-| #260 After Disclosure | 124 | 124 | 298 | 301 |
-| #261 After Flame General Affairs | 124 | 124 | 304 | 307 |
-| #262 After In Search of Raubahn | 124 | 124 | 304 | 307 |
-| #263 After Keeping the Flame Alive | 125 | 125 | 306 | 309 |
-| #264 After To Siege or Not to Siege | 126 | 126 | 310 | 313 |
-| #265 After Alphinaud's Way | 126 | 126 | 317 | 320 |
-| #266 After In Search of Iceheart | 126 | 126 | 317 | 320 |
-| #267 After From One Heretic to Another | 126 | 126 | 317 | 320 |
-| #268 After Sounding Out the Amphitheatre | 126 | 126 | 317 | 320 |
-| #269 After Camp of the Convictors | 126 | 126 | 317 | 320 |
-| #270 After Purple Flame, Purple Flame | 127 | 127 | 318 | 321 |
-| #271 After Where the Chocobos Roam | 130 | 130 | 325 | 328 |
-| #272 After Worse than Dragons | 131 | 131 | 326 | 329 |
-| #273 After The Trine Towers | 132 | 132 | 328 | 331 |
-| #274 After Gifts for the Outcasts | 132 | 132 | 329 | 332 |
-| #275 After The Nonmind | 132 | 132 | 329 | 332 |
-| #276 After A Gnathic Deity | 132 | 132 | 329 | 332 |
-| #277 After Breaking into Hives | 132 | 132 | 329 | 332 |
-| #278 After Lord of the Hive | 133 | 133 | 330 | 333 |
-| #279 After Mourn in Passing | 133 | 133 | 332 | 335 |
-| #280 After Beyond the Clouds | 133 | 133 | 332 | 335 |
-| #281 After Mountaintop Diplomacy | 136 | 136 | 342 | 345 |
-| #282 After Moghan's Trial | 136 | 136 | 342 | 345 |
-| #282b After Mogmug's Trial | 136 | 136 | 342 | 345 |
-| #282c After Mogwin's Trial | 136 | 136 | 342 | 345 |
-| #285 After Moglin's Judgment | 136 | 136 | 343 | 346 |
-| #286 After Leaving Moghome | 136 | 136 | 343 | 346 |
-| #287 After The Road to Zenith | 136 | 136 | 343 | 346 |
-| #288 After Waiting for the Wind to Change | 136 | 136 | 344 | 347 |
-| #289 After Heart of Ice | 136 | 136 | 344 | 347 |
-| #290 After The Wyrm's Lair | 137 | 137 | 346 | 349 |
-| #291 After New Winds, Old Friends | 137 | 137 | 348 | 351 |
-| #292 After A General Summons | 138 | 138 | 355 | 358 |
-| #293 After Awakening in Ul'dah | 138 | 138 | 357 | 360 |
-| #294 After A Brave Resolution | 138 | 138 | 353 | 356 |
-| #295 After Ready to Fly | 139 | 139 | 359 | 362 |
-| #296 After Into the Aery | 139 | 139 | 358 | 361 |
-| #297 After The Song Begins | 139 | 139 | 359 | 362 |
-| #298 After Unrest in Ishgard | 139 | 139 | 361 | 364 |
-| #299 After He Who Would Not Be Denied | 140 | 140 | 369 | 372 |
-| #300 After Ill-weather Friends | 141 | 141 | 371 | 374 |
-| #301 After The Spice of Life | 141 | 141 | 371 | 374 |
-| #302 After Noble Indiscretions | 141 | 141 | 371 | 374 |
-| #303 After A Child Apart | 141 | 141 | 371 | 374 |
-| #304 After Bloodlines | 141 | 141 | 371 | 374 |
-| #305 After Fire and Blood | 141 | 141 | 375 | 378 |
-| #306 After A Knight's Calling | 142 | 142 | 372 | 375 |
-| #307 After The Sins of Antiquity | 142 | 142 | 374 | 377 |
-| #308 After In Search of the Soleil | 143 | 143 | 378 | 381 |
-| #309 After Into the Blue | 143 | 143 | 379 | 382 |
-| #310 After Familiar Faces | 143 | 143 | 380 | 383 |
-| #311 After Devourer of Worlds | 143 | 143 | 381 | 384 |
-| #312 After Black and the White | 143 | 143 | 381 | 384 |
-| #313 After Bolt, Chain, and Island | 143 | 143 | 383 | 386 |
-| #314 After A Difference of Opinion | 144 | 144 | 388 | 391 |
-| #315 After One Good Turn | 144 | 144 | 390 | 393 |
-| #316 After An Engineering Enterprise | 145 | 145 | 393 | 396 |
-| #317 After Aetherial Trail | 145 | 145 | 395 | 398 |
-| #318 After Lost in the Lifestream | 146 | 146 | 398 | 401 |
-| #319 After Tataru's Surprise | 147 | 147 | 400 | 403 |
-| #320 After Onward to Sharlayan | 147 | 147 | 400 | 403 |
-| #321 After A Great New Nation | 149 | 149 | 402 | 405 |
-| #322 After Golems Begone | 149 | 149 | 402 | 405 |
-| #323 After An Illuminati Incident | 149 | 149 | 402 | 405 |
-| #324 After Leaving Idyllshire | 149 | 149 | 402 | 405 |
-| #325 After Matoya's Cave | 149 | 149 | 403 | 406 |
-| #326 After Forbidden Knowledge | 149 | 149 | 403 | 406 |
-| #327 After An Eye for Aether | 149 | 149 | 404 | 407 |
-| #328 After Hour of Departure | 149 | 149 | 405 | 408 |
-| #329 After The First Flight of the Excelsior | 150 | 150 | 406 | 409 |
-| #330 After Systematic Exploration | 150 | 150 | 406 | 409 |
-| #331 After In Node We Trust | 150 | 150 | 406 | 409 |
-| #332 After Chimerical Maintenance | 150 | 150 | 406 | 409 |
-| #333 After Close Encounters of the VIth Kind | 150 | 150 | 409 | 412 |
-| #334 After Fetters of Lament | 151 | 151 | 414 | 417 |
-| 3.0 Heavensward — Patch 3.0 complete | 151 | 151 | 407 | 410 |
-| #336 After An Uncertain Future | 152 | 152 | 413 | 416 |
-| #337 After Breaking the Cycle | 152 | 152 | 415 | 418 |
-| #338 After Another Time, Another Place | 152 | 152 | 418 | 421 |
-| #339 After In the Eye of the Beholder | 152 | 152 | 419 | 422 |
-| #340 After A Little Slow, a Little Late | 153 | 153 | 420 | 423 |
-| #341 After Dreams of the Lost | 153 | 153 | 421 | 424 |
-| #342 After Against the Dying of the Light | 153 | 153 | 421 | 424 |
-| #343 After As Goes Light, So Goes Darkness | 155 | 155 | 422 | 425 |
-| #344 After As It Once Was | 155 | 155 | 422 | 425 |
-| #345 After The Word of the Mother | 155 | 155 | 421 | 424 |
-| #346 After This War of Ours | 156 | 156 | 426 | 429 |
-| #347 After Staunch Conviction | 156 | 156 | 428 | 431 |
-| #348 After Once More, a Favor | 156 | 156 | 429 | 432 |
-| #349 After For Those We Have Lost | 156 | 156 | 429 | 432 |
-| #350 After Consequences | 157 | 157 | 430 | 433 |
-| #351 After Choices | 157 | 157 | 430 | 433 |
-| #352 After A Spectacle for the Ages | 157 | 157 | 430 | 433 |
-| #353 After For Those We Can Yet Save | 157 | 157 | 433 | 436 |
-| #354 After Causes and Costs | 157 | 157 | 434 | 437 |
-| #355 After The Man Within | 158 | 158 | 439 | 442 |
-| #356 After An Ally for Ishgard | 158 | 158 | 442 | 445 |
-| #357 After Winning Over the Wyrm | 158 | 158 | 445 | 448 |
-| #358 After An End to the Song | 158 | 158 | 440 | 443 |
-| #359 After Heroes of the Hour | 158 | 158 | 440 | 443 |
-| #360 After Litany of Peace | 159 | 159 | 442 | 445 |
-| #361 After Promises Kept | 160 | 160 | 449 | 452 |
-| #362 After Shadows of the First | 160 | 160 | 450 | 453 |
-| #363 After Two Sides of a Coin | 160 | 160 | 453 | 456 |
-| #364 After Unlikely Allies | 161 | 161 | 455 | 458 |
-| #365 After The Beast That Mourned at the Heart of the Mountain | 161 | 161 | 455 | 458 |
-| #366 After Beneath a Star-filled Sky | 163 | 163 | 460 | 463 |
-| #367 After When We Were Free | 164 | 164 | 467 | 470 |
-| #368 After Honorable Heroes | 164 | 164 | 467 | 470 |
-| #369 After One Life for One World | 164 | 164 | 466 | 469 |
-| #370 After An Ending to Mark a New Beginning | 164 | 164 | 464 | 467 |
-| #371 After Tidings from Gyr Abania | 165 | 165 | 470 | 473 |
-| #372 After An Envoy for Ishgard | 165 | 165 | 470 | 473 |
-| #373 After An Allied Decision | 165 | 165 | 471 | 474 |
-| #374 After Griffin, Griffin on the Wall | 166 | 166 | 473 | 476 |
-| #375 After Louisoix's Finest Student | 166 | 166 | 473 | 476 |
-| #376 After The Obvious Solution | 168 | 168 | 480 | 483 |
-| #377 After The Greater Obeisance | 169 | 169 | 482 | 485 |
-| #378 After Fly Free, My Pretty | 169 | 169 | 483 | 486 |
-| 3.56 Heavensward — Patch 3.56 complete | 171 | 171 | 487 | 490 |
-| #380 After Beyond the Great Wall | 173 | 173 | 495 | 498 |
-| #381 After Lyse Takes the Lead | 175 | 175 | 496 | 499 |
-| #382 After The Promise of a New Beginning | 176 | 176 | 498 | 501 |
-| #383 After A Haven for the Bold | 176 | 176 | 498 | 501 |
-| #384 After A Bargain Struck | 178 | 178 | 504 | 507 |
-| #385 After A Friend of a Friend in Need | 179 | 179 | 508 | 511 |
-| #386 After Signed, Sealed, to Be Delivered | 179 | 179 | 510 | 513 |
-| #387 After Best Served with Cold Steel | 180 | 180 | 515 | 518 |
-| #388 After Let Fill Your Hearts with Pride | 180 | 180 | 515 | 518 |
-| #385b After A Familiar Face Forgotten | 182 | 182 | 520 | 523 |
-| #386b After The Prodigal Daughter | 183 | 183 | 522 | 525 |
-| #387b After Hard Country | 183 | 183 | 522 | 525 |
-| #387c After Death by a Thousand Rocks | 183 | 183 | 522 | 525 |
-| #389 After A Life More Ordinary | 183 | 183 | 522 | 525 |
-| #390 After The Color of Angry Qiqirn | 183 | 183 | 522 | 525 |
-| #391 After The Black Wolf's Pups | 185 | 185 | 528 | 531 |
-| #392 After Homeward Bound | 185 | 185 | 528 | 531 |
-| #397 After Where Men Go as One | 187 | 187 | 538 | 541 |
-| #398 After Future Rust, Future Dust | 187 | 187 | 538 | 541 |
-| #398b After A Dash of Green | 187 | 187 | 538 | 541 |
-| #398c After Ye Wayward Brothers | 187 | 187 | 538 | 541 |
-| #401 After Token of Faith | 187 | 187 | 538 | 541 |
-| #402 After Crossing the Velodyna | 187 | 187 | 540 | 543 |
-| #403 After In Crimson It Began | 187 | 187 | 543 | 546 |
-| #404 After The Fires Fade | 187 | 187 | 543 | 546 |
-| #405 After Bereft of Hearth and Home | 187 | 187 | 543 | 546 |
-| #406 After Divide and Conquer | 188 | 188 | 546 | 549 |
-| #407 After Lies, Damn Lies, and Pirates | 191 | 191 | 552 | 555 |
-| #408 After Tales from the Far East | 192 | 192 | 553 | 556 |
-| #409 After Not without Incident | 192 | 192 | 554 | 557 |
-| #410 After The Man from Ul'dah | 194 | 194 | 558 | 561 |
-| #411 After Where the Streets Are Paved with Koban | 195 | 195 | 558 | 561 |
-| #412 After By the Grace of Lord Lolorito | 199 | 199 | 563 | 566 |
-| #413 After A Good Samurai Is Hard to Find | 200 | 200 | 565 | 568 |
-| #414 After It's Probably a Trap | 202 | 202 | 573 | 576 |
-| #415 After Making the Catfish Sing | 202 | 202 | 573 | 576 |
-| #416 After Once More, to the Ruby Sea | 203 | 203 | 582 | 585 |
-| #417 After Open Water | 204 | 204 | 584 | 587 |
-| #418 After Boys with Boats | 204 | 204 | 585 | 588 |
-| #419 After To Bend with the Wind | 207 | 207 | 595 | 598 |
-| #420 After Confederate Consternation | 208 | 208 | 597 | 600 |
-| #421 After The Solace of the Sea | 208 | 208 | 597 | 600 |
-| #421b After The Arrows of Misfortune | 208 | 208 | 597 | 600 |
-| #421c After The Last Voyage | 208 | 208 | 597 | 600 |
-| #424 After Alisaie's Stones | 209 | 209 | 599 | 602 |
-| #425 After Under the Sea | 209 | 209 | 601 | 604 |
-| #426 After Of Kojin and Kami | 210 | 210 | 602 | 605 |
-| #427 After In Soroban We Trust | 211 | 211 | 602 | 605 |
-| #428 After Forever and Ever Apart | 213 | 213 | 604 | 607 |
-| #429 After In Darkness the Magatama Dreams | 214 | 214 | 606 | 609 |
-| #430 After The Whims of the Divine | 214 | 214 | 609 | 612 |
-| #431 After Breaking and Delivering | 215 | 215 | 611 | 614 |
-| #432 After The Lord of the Revel | 215 | 215 | 616 | 619 |
-| #433 After Tide Goes in, Imperials Go Out | 216 | 216 | 613 | 616 |
-| #434 After A Silence in Three Parts | 218 | 218 | 616 | 619 |
-| #435 After Life after Doma | 220 | 220 | 619 | 622 |
-| #436 After A Glimpse of Madness | 221 | 221 | 623 | 626 |
-| #437 After The Stubborn Remainder | 221 | 221 | 624 | 627 |
-| #438 After The Ones We Leave Behind | 221 | 221 | 624 | 627 |
-| #439 After A New Ruby Tithe | 221 | 221 | 625 | 628 |
-| #440 After The Will to Live | 221 | 221 | 624 | 627 |
-| #441 After Daughter of the Deep | 221 | 221 | 625 | 628 |
-| #442 After Path of No Return | 221 | 221 | 625 | 628 |
-| #443 After The Time between the Seconds | 221 | 221 | 627 | 630 |
-| #444 After All the Little Angels | 221 | 221 | 628 | 631 |
-| #445 After Here There Be Xaela | 222 | 222 | 632 | 635 |
-| #446 After The Search for Lord Hien | 224 | 224 | 635 | 638 |
-| #447 After A Season for War | 226 | 226 | 637 | 640 |
-| #448 After An Impossible Dream | 226 | 226 | 638 | 641 |
-| #449 After Stars in the Dark | 227 | 227 | 640 | 643 |
-| #450 After A Warrior's Welcome | 227 | 227 | 640 | 643 |
-| #451 After The Heart of Nations | 227 | 227 | 640 | 643 |
-| #452 After A Trial Before the Trial | 227 | 227 | 640 | 643 |
-| #453 After In the Footsteps of Bardam the Brave | 227 | 227 | 640 | 643 |
-| #454 After The Children of Azim | 230 | 230 | 650 | 653 |
-| #455 After The Labors of Magnai | 230 | 230 | 650 | 653 |
-| #456 After For Love of the Moon | 230 | 230 | 650 | 653 |
-| #457 After Sworn Enemies of the Sun | 231 | 231 | 654 | 657 |
-| #458 After The Undying Ones | 231 | 231 | 654 | 657 |
-| #459 After A Final Peace | 231 | 231 | 654 | 657 |
-| #460 After As the Gods Will | 231 | 231 | 653 | 656 |
-| #461 After Naadam | 232 | 232 | 664 | 667 |
-| #462 After Glory to the Khagan | 232 | 232 | 665 | 668 |
-| #463 After In Crimson They Walked | 232 | 232 | 665 | 668 |
-| #464 After The Hour of Reckoning | 232 | 232 | 670 | 673 |
-| #465 After The Room Where It Happened | 233 | 233 | 675 | 678 |
-| #466 After How Tataru Got Her Groove Back | 233 | 233 | 675 | 678 |
-| #467 After Seeds of Despair | 233 | 233 | 676 | 679 |
-| #468 After The Limits of Our Endurance | 234 | 234 | 677 | 680 |
-| #469 After Broken Steel, Broken Men | 234 | 234 | 678 | 681 |
-| #470 After The Doma Within | 234 | 234 | 680 | 683 |
-| #471 After On the Eve of Destiny | 234 | 234 | 681 | 684 |
-| #472 After The Die Is Cast | 234 | 234 | 679 | 682 |
-| #473 After The World Turned Upside Down | 234 | 234 | 677 | 680 |
-| #474 After A Swift and Secret Departure | 235 | 235 | 683 | 686 |
-| #475 After While You Were Away | 235 | 235 | 687 | 690 |
-| #476 After Rhalgr's Beacon | 235 | 235 | 692 | 695 |
-| #477 After The Fortunes of War | 235 | 235 | 692 | 695 |
-| #478 After Rising Fortunes, Rising Spirits | 239 | 239 | 702 | 705 |
-| #479 After The Lure of the Dream | 240 | 240 | 705 | 708 |
-| #480 After The Lady of Bliss | 241 | 241 | 708 | 711 |
-| #481 After The Silence of the Gods | 241 | 241 | 708 | 711 |
-| #482 After The First of Many | 243 | 243 | 712 | 715 |
-| #483 After Strong and Unified | 245 | 245 | 718 | 721 |
-| #484 After Hells Open | 245 | 245 | 719 | 722 |
-| #485 After Heavens Weep | 246 | 246 | 722 | 725 |
-| #486 After The Road Home | 246 | 246 | 722 | 725 |
-| #487 After For the Living and the Dead | 247 | 247 | 726 | 729 |
-| #488 After Above the Churning Waters | 247 | 247 | 726 | 729 |
-| #489 After The Path Forward | 247 | 247 | 728 | 731 |
-| #490 After With Tired Hands We Toil | 247 | 247 | 728 | 731 |
-| #491 After Where Courage Endures | 248 | 248 | 730 | 733 |
-| #492 After The Price of Freedom | 248 | 248 | 734 | 737 |
-| #493 After Raubahn's Invitation | 249 | 249 | 736 | 739 |
-| #494 After Liberty or Death | 250 | 250 | 738 | 741 |
-| #495 After The Lady in Red | 250 | 250 | 738 | 741 |
-| #496 After Upon the Great Loch's Shore | 250 | 250 | 738 | 741 |
-| #497 After The Key to Victory | 251 | 251 | 740 | 743 |
-| #498 After The Resonant | 251 | 251 | 741 | 744 |
-| #499 After The Legacy of Our Fathers | 251 | 251 | 741 | 744 |
-| #500 After The Measure of His Reach | 253 | 253 | 745 | 748 |
-| 4.0 Stormblood — Patch 4.0 complete | 253 | 253 | 739 | 742 |
-| #502 After Arenvald's Adventure | 254 | 254 | 742 | 745 |
-| #503 After The Darkness Below | 254 | 254 | 742 | 745 |
-| #504 After The Mad King's Trove | 254 | 254 | 742 | 745 |
-| #505 After The Butcher's Blood | 254 | 254 | 744 | 747 |
-| #506 After Echoes of an Echo | 254 | 254 | 746 | 749 |
-| #507 After A Sultana's Strings | 255 | 255 | 750 | 753 |
-| #508 After A Sultana's Duty | 255 | 255 | 750 | 753 |
-| #509 After A Sultana's Resolve | 255 | 255 | 754 | 757 |
-| #510 After Securing the Saltery | 255 | 255 | 755 | 758 |
-| #511 After A Blissful Arrival | 255 | 255 | 757 | 760 |
-| #512 After Return of the Bull | 255 | 255 | 756 | 759 |
-| #513 After Tidings from the East | 256 | 256 | 762 | 765 |
-| #514 After The Sword in the Store | 256 | 256 | 763 | 766 |
-| #515 After Hope on the Waves | 256 | 256 | 764 | 767 |
-| #516 After Elation and Trepidation | 256 | 256 | 766 | 769 |
-| #517 After Storm on the Horizon | 258 | 258 | 772 | 775 |
-| #518 After His Forgotten Home | 258 | 258 | 772 | 775 |
-| #519 After A Guilty Conscience | 258 | 258 | 772 | 775 |
-| #520 After Rise of a New Sun | 258 | 258 | 773 | 776 |
-| #521 After Gosetsu and Tsuyu | 259 | 259 | 776 | 779 |
-| #522 After Gone Like the Morning Dew | 259 | 259 | 776 | 779 |
-| #523 After Fruits of Her Labor | 259 | 259 | 778 | 781 |
-| #524 After Conscripts and Contingencies | 259 | 259 | 779 | 782 |
-| #525 After The Primary Agreement | 261 | 261 | 779 | 782 |
-| #526 After Under the Moonlight | 262 | 262 | 786 | 789 |
-| #527 After Emissary of the Dawn | 265 | 265 | 790 | 793 |
-| #528 After Sisterly Act | 265 | 265 | 790 | 793 |
-| #529 After Feel the Burn | 265 | 265 | 791 | 794 |
-| #530 After Shadows in the Empire | 265 | 265 | 792 | 795 |
-| #531 After A Power in Slumber | 266 | 266 | 796 | 799 |
-| #532 After The Will of the Moon | 266 | 266 | 796 | 799 |
-| #533 After The Call | 267 | 267 | 799 | 802 |
-| #534 After Prelude in Violet | 267 | 267 | 802 | 805 |
-| #535 After Soul Searching | 267 | 267 | 803 | 806 |
-| #536 After A Defector's Tidings | 267 | 267 | 803 | 806 |
-| #537 After Seiryu's Wall | 268 | 268 | 810 | 813 |
-| #538 After Parley on the Front Lines | 268 | 268 | 813 | 816 |
-| #539 After The Face of War | 268 | 268 | 816 | 819 |
-| #540 After A Brief Reprieve | 268 | 268 | 816 | 819 |
-| 4.56 Stormblood — Patch 4.56 complete | 268 | 268 | 816 | 819 |
-| #542 After The Syrcus Trench | 274 | 274 | 826 | 829 |
-| #543 After City of the First | 274 | 274 | 826 | 829 |
-| #544 After Travelers of Norvrandt | 276 | 276 | 830 | 833 |
-| #545 After In Search of Alphinaud | 278 | 278 | 834 | 837 |
-| #546 After A Still Tide | 278 | 278 | 834 | 837 |
-| #547 After Open Arms, Closed Gate | 278 | 278 | 834 | 837 |
-| #548 After A Fickle Existence | 280 | 280 | 837 | 840 |
-| #549 After City of Final Pleasures | 280 | 280 | 837 | 840 |
-| #550 After Free to Sightsee | 280 | 280 | 837 | 840 |
-| #551 After A Taste of Honey | 280 | 280 | 838 | 841 |
-| #552 After A Blessed Instrument | 280 | 280 | 838 | 841 |
-| #553 After Emergent Splendor | 280 | 280 | 841 | 844 |
-| #545b After In Search of Alisaie | 281 | 281 | 843 | 846 |
-| #546b After City of the Mord | 281 | 281 | 843 | 846 |
-| #547b After Working Off the Meal | 282 | 282 | 844 | 847 |
-| #548b After A Desert Crossing | 282 | 282 | 844 | 847 |
-| #549b After Following in Her Footprints | 282 | 282 | 846 | 849 |
-| #550b After Culling Their Ranks | 282 | 282 | 846 | 849 |
-| #551b After A Purchase of Fruit | 283 | 283 | 846 | 849 |
-| #552b After The Time Left to Us | 283 | 283 | 847 | 850 |
-| #553b After Tears on the Sand | 283 | 283 | 847 | 850 |
-| #563 After The Lightwardens | 285 | 285 | 853 | 856 |
-| #564 After Warrior of Darkness | 285 | 285 | 855 | 858 |
-| #565 After An Unwelcome Guest | 288 | 288 | 864 | 867 |
-| #566 After The Crystarium's Resolve | 288 | 288 | 867 | 870 |
-| #567 After Logistics of War | 288 | 288 | 867 | 870 |
-| #568 After The Oracle of Light | 288 | 288 | 868 | 871 |
-| #569 After Il Mheg, the Faerie Kingdom | 290 | 290 | 872 | 875 |
-| #570 After Sul Uin's Request | 290 | 290 | 872 | 875 |
-| #570b After Ys Iala's Errand | 290 | 290 | 872 | 875 |
-| #570c After Oul Sigun's Plea | 290 | 290 | 872 | 875 |
-| #573 After Unto the Truth | 291 | 291 | 875 | 878 |
-| #574 After Courting Cooperation | 291 | 291 | 878 | 881 |
-| #575 After The Key to the Castle | 293 | 293 | 884 | 887 |
-| #576 After A Visit to the Nu Mou | 294 | 294 | 886 | 889 |
-| #577 After A Fitting Payment | 294 | 294 | 886 | 889 |
-| #578 After Spore Sweeper | 294 | 294 | 887 | 890 |
-| #579 After The Lawless Ones | 294 | 294 | 887 | 890 |
-| #580 After The Elder's Answer | 296 | 296 | 890 | 893 |
-| #581 After A Resounding Roar | 296 | 296 | 890 | 893 |
-| #582 After Memento of a Friend | 296 | 296 | 893 | 896 |
-| #583 After Acht-la Ormh Inn | 296 | 296 | 896 | 899 |
-| #584 After The Wheel Turns | 298 | 298 | 902 | 905 |
-| #585 After A Party Soon Divided | 298 | 298 | 904 | 907 |
-| #586 After A Little Faith | 299 | 299 | 906 | 909 |
-| #587 After Into the Dark | 299 | 299 | 909 | 912 |
-| #588 After A Day in the Neighborhood | 301 | 301 | 914 | 917 |
-| #589 After A Helping Hand | 301 | 301 | 914 | 917 |
-| #590 After Lost but Not Forgotten | 301 | 301 | 914 | 917 |
-| #591 After Saying Good-bye | 301 | 301 | 916 | 919 |
-| #592 After Stirring up Trouble | 302 | 302 | 917 | 920 |
-| #593 After A Beeautiful Plan | 302 | 302 | 917 | 920 |
-| #594 After An Unwanted Proposal | 302 | 302 | 923 | 926 |
-| #595 After Put to the Proof | 303 | 303 | 926 | 929 |
-| #596 After Into the Wood | 304 | 304 | 927 | 930 |
-| #597 After Top of the Tree | 305 | 305 | 930 | 933 |
-| #598 After Look to the Stars | 305 | 305 | 931 | 934 |
-| #599 After Mi Casa, Toupasa | 305 | 305 | 931 | 934 |
-| #600 After Legend of the Not-so-hidden Temple | 305 | 305 | 932 | 935 |
-| #601 After The Aftermath | 306 | 306 | 936 | 939 |
-| #602 After In Good Faith | 306 | 306 | 937 | 940 |
-| #603 After The Burden of Knowledge | 307 | 307 | 939 | 942 |
-| #604 After Bearing With It | 307 | 307 | 940 | 943 |
-| #605 After Out of the Wood | 307 | 307 | 942 | 945 |
-| #606 After When It Rains | 308 | 308 | 948 | 951 |
-| #607 After Word from On High | 308 | 308 | 949 | 952 |
-| #608 After Small Favors | 308 | 308 | 950 | 953 |
-| #609 After The Best Way Out | 308 | 308 | 952 | 955 |
-| #610 After Free Trade | 309 | 309 | 954 | 957 |
-| #611 After The Trolley Problem | 310 | 310 | 955 | 958 |
-| #612 After Rust and Ruin | 310 | 310 | 955 | 958 |
-| #613 After On Track | 310 | 310 | 955 | 958 |
-| #614 After Down for Maintenance | 310 | 310 | 956 | 959 |
-| #615 After The Truth Hurts | 310 | 310 | 956 | 959 |
-| #616 After A Convenient Distraction | 311 | 311 | 957 | 960 |
-| #617 After A Dirty Job | 311 | 311 | 958 | 961 |
-| #618 After Have a Heart | 311 | 311 | 963 | 966 |
-| #619 After Full Steam Ahead | 311 | 311 | 965 | 968 |
-| #620 After Crossing Paths | 311 | 311 | 967 | 970 |
-| #621 After A Fresh Start | 312 | 312 | 971 | 974 |
-| #622 After More than a Hunch | 312 | 312 | 973 | 976 |
-| #623 After Return to Eulmore | 312 | 312 | 976 | 979 |
-| #624 After A Feast of Lies | 312 | 312 | 976 | 979 |
-| #625 After Paradise Fallen | 314 | 314 | 977 | 980 |
-| #626 After The Ladder | 314 | 314 | 978 | 981 |
-| #627 After The View from Above | 316 | 316 | 983 | 986 |
-| #628 After In Mt. Gulg's Shadow | 316 | 316 | 985 | 988 |
-| #629 After A Gigantic Undertaking | 316 | 316 | 988 | 991 |
-| #630 After Meet the Tholls | 317 | 317 | 990 | 993 |
-| #631 After A-Digging We Will Go | 318 | 318 | 992 | 995 |
-| #632 After The Duergar's Tewel | 318 | 318 | 992 | 995 |
-| #633 After Rich Veins of Hope | 318 | 318 | 991 | 994 |
-| #634 After That None Shall Ever Again | 319 | 319 | 994 | 997 |
-| #635 After A Breath of Respite | 320 | 320 | 996 | 999 |
-| #636 After Extinguishing the Last Light | 321 | 321 | 998 | 1001 |
-| #637 After Reassuring the Masses | 322 | 322 | 998 | 1001 |
-| #638 After In His Garden | 322 | 322 | 1000 | 1003 |
-| #639 After The Unbroken Thread | 324 | 324 | 1007 | 1010 |
-| #640 After To Storm-tossed Seas | 324 | 324 | 1009 | 1012 |
-| #641 After Waiting in the Depths | 325 | 325 | 1011 | 1014 |
-| #642 After City of the Ancients | 325 | 325 | 1012 | 1015 |
-| #643 After The Light of Inspiration | 325 | 325 | 1013 | 1016 |
-| #644 After The Illuminated Land | 325 | 325 | 1015 | 1018 |
-| #645 After The End of a World | 328 | 328 | 1022 | 1025 |
-| #646 After A Greater Purpose | 329 | 329 | 1027 | 1030 |
-| 5.0 Shadowbringers — Patch 5.0 complete | 330 | 330 | 1027 | 1030 |
-| #648 After Shaken Resolve | 331 | 331 | 1030 | 1033 |
-| #649 After A Grand Adventure | 332 | 332 | 1032 | 1035 |
-| #650 After A Welcome Guest | 332 | 332 | 1037 | 1040 |
-| #651 After Good for the Soul | 332 | 332 | 1039 | 1042 |
-| #652 After Nowhere to Turn | 333 | 333 | 1044 | 1047 |
-| #653 After A Notable Absence | 333 | 333 | 1044 | 1047 |
-| #654 After For the People | 334 | 334 | 1046 | 1049 |
-| #655 After Finding Good Help | 334 | 334 | 1047 | 1050 |
-| #656 After Moving Forward | 334 | 334 | 1048 | 1051 |
-| #657 After Vows of Virtue, Deeds of Cruelty | 336 | 336 | 1051 | 1054 |
-| #658 After Old Enemies, New Threats | 336 | 336 | 1053 | 1056 |
-| #659 After The Way Home | 336 | 336 | 1055 | 1058 |
-| #660 After Seeking Counsel | 337 | 337 | 1059 | 1062 |
-| #661 After Facing the Truth | 337 | 337 | 1062 | 1065 |
-| #662 After A Sleep Disturbed | 337 | 337 | 1063 | 1066 |
-| #663 After An Old Friend | 337 | 337 | 1065 | 1068 |
-| #664 After Deep Designs | 337 | 337 | 1065 | 1068 |
-| #665 After A Whale's Tale | 338 | 338 | 1066 | 1069 |
-| #666 After Beneath the Surface | 339 | 339 | 1070 | 1073 |
-| #667 After Echoes of a Fallen Star | 339 | 339 | 1074 | 1077 |
-| #668 After In the Name of the Light | 339 | 339 | 1075 | 1078 |
-| #669 After Heroic Dreams | 340 | 340 | 1079 | 1082 |
-| #670 After Fraying Threads | 340 | 340 | 1082 | 1085 |
-| #671 After Food for the Soul | 340 | 340 | 1082 | 1085 |
-| #672 After Faded Memories | 340 | 340 | 1083 | 1086 |
-| #673 After Etched in the Stars | 340 | 340 | 1085 | 1088 |
-| #674 After The Converging Light | 341 | 341 | 1090 | 1093 |
-| #675 After Hope's Confluence | 341 | 341 | 1090 | 1093 |
-| #676 After Nothing Unsaid | 341 | 341 | 1091 | 1094 |
-| #677 After The Journey Continues | 341 | 341 | 1093 | 1096 |
-| #678 After Unto the Morrow | 342 | 342 | 1097 | 1100 |
-| #679 After Reflections in Crystal | 343 | 343 | 1105 | 1108 |
-| #680 After Alisaie's Quest | 343 | 343 | 1107 | 1110 |
-| #681 After The Wisdom of Allag | 343 | 343 | 1107 | 1110 |
-| #682 After Reviving the Legacy | 344 | 344 | 1113 | 1116 |
-| #683 After Forget Us Not | 344 | 344 | 1116 | 1119 |
-| #684 After Like Master, Like Pupil | 344 | 344 | 1117 | 1120 |
-| #685 After The Admiral's Resolve | 348 | 348 | 1127 | 1130 |
-| #686 After The Search for Sicard | 348 | 348 | 1128 | 1131 |
-| #687 After On Rough Seas | 348 | 348 | 1127 | 1130 |
-| #688 After The Great Ship Vylbrand | 350 | 350 | 1132 | 1135 |
-| #689 After Futures Rewritten | 354 | 354 | 1139 | 1142 |
-| #690 After Unto the Breach | 354 | 354 | 1145 | 1148 |
-| #691 After Here Be Dragons | 354 | 354 | 1148 | 1151 |
-| #692 After Righteous Indignation | 355 | 355 | 1151 | 1154 |
-| #693 After For Vengeance | 355 | 355 | 1153 | 1156 |
-| #694 After The Flames of War | 355 | 355 | 1158 | 1161 |
-| #695 After When the Dust Settles | 355 | 355 | 1160 | 1163 |
-| #696 After The Company We Keep | 357 | 357 | 1172 | 1175 |
-| #697 After On Official Business | 358 | 358 | 1177 | 1180 |
-| 5.55 Shadowbringers — Patch 5.55 complete | 358 | 358 | 1179 | 1182 |
+| #1 After Close to Home (Gridania) | 2 | 2 | 0 | 0 |
+| #2 After To the Bannock | 4 | 4 | 1 | 1 |
+| #3 After Passing Muster | 4 | 4 | 1 | 1 |
+| #4 After Chasing Shadows | 9 | 9 | 8 | 8 |
+| #5 After Eggs over Queasy | 9 | 9 | 8 | 8 |
+| #6 After Surveying the Damage | 9 | 9 | 8 | 8 |
+| #7 After A Soldier's Breakfast | 9 | 9 | 8 | 8 |
+| #8 After Spirithold Broken | 10 | 10 | 10 | 10 |
+| #9 After On to Bentbranch | 10 | 10 | 10 | 10 |
+| #10 After You Shall Not Trespass | 10 | 10 | 10 | 10 |
+| #11 After Don't Look Down | 10 | 10 | 10 | 10 |
+| #12 After In the Grim Darkness of the Forest | 10 | 10 | 10 | 10 |
+| #13 After Threat Level Elevated | 10 | 10 | 10 | 10 |
+| #14 After Migrant Marauders | 10 | 10 | 10 | 10 |
+| #15 After A Hearer Is Often Late | 10 | 10 | 10 | 10 |
+| #16 After Salvaging the Scene | 10 | 10 | 10 | 10 |
+| #17 After Leia's Legacy | 10 | 10 | 10 | 10 |
+| #18 After Dread Is in the Air | 10 | 10 | 10 | 10 |
+| #19 After To Guard a Guardian | 15 | 15 | 18 | 18 |
+| #20 After Festive Endeavors | 15 | 15 | 20 | 20 |
+| #21 After Renewing the Covenant | 15 | 15 | 20 | 20 |
+| #22 After The Gridanian Envoy | 25 | 25 | 32 | 32 |
+| #23 After Call of the Sea (Gridania) | 26 | 26 | 33 | 33 |
+| #1b After Close to Home (Limsa Lominsa) | 27 | 27 | 33 | 33 |
+| #2b After On to Summerford | 30 | 30 | 37 | 37 |
+| #3b After Dressed to Call | 30 | 30 | 37 | 37 |
+| #4b After Lurkers in the Grotto | 31 | 31 | 38 | 38 |
+| #5b After Washed Up | 32 | 32 | 39 | 39 |
+| #6b After Double Dealing | 32 | 32 | 39 | 39 |
+| #7b After Loam Maintenance | 32 | 32 | 39 | 39 |
+| #8b After Plowshares to Swords | 33 | 33 | 40 | 40 |
+| #9b After Just Deserts | 34 | 34 | 43 | 43 |
+| #10b After Sky-high | 35 | 35 | 44 | 44 |
+| #11b After Thanks a Million | 35 | 35 | 44 | 44 |
+| #12b After Relighting the Torch | 35 | 35 | 45 | 45 |
+| #13b After On to the Drydocks | 36 | 36 | 47 | 47 |
+| #14b After Without a Doubt | 36 | 36 | 47 | 47 |
+| #15b After Righting the Shipwright | 36 | 36 | 48 | 48 |
+| #16b After Do Angry Pirates Dream | 38 | 38 | 50 | 50 |
+| #17b After Victory in Peril | 39 | 39 | 54 | 54 |
+| #18b After Men of the Blue Tattoos | 39 | 39 | 55 | 55 |
+| #19b After Feint and Strike | 40 | 40 | 64 | 64 |
+| #20b After High Society | 41 | 41 | 67 | 67 |
+| #21b After A Mizzenmast Repast | 42 | 42 | 70 | 70 |
+| #22b After The Lominsan Envoy | 42 | 42 | 75 | 75 |
+| #1c After Close to Home (Ul'dah) | 44 | 44 | 77 | 77 |
+| #2c After We Must Rebuild | 45 | 45 | 78 | 78 |
+| #3c After Nothing to See Here | 46 | 46 | 79 | 79 |
+| #4c After Underneath the Sultantree | 48 | 48 | 82 | 82 |
+| #5c After Step Nine | 48 | 48 | 82 | 82 |
+| #6c After Prudence at This Junction | 48 | 48 | 82 | 82 |
+| #7c After Out of House and Home | 48 | 48 | 82 | 82 |
+| #8c After Way Down in the Hole | 53 | 53 | 90 | 90 |
+| #9c After Takin' What They're Givin' | 54 | 54 | 91 | 91 |
+| #10c After Supply and Demands | 54 | 54 | 91 | 91 |
+| #11c After Give It to Me Raw | 54 | 54 | 91 | 91 |
+| #12c After The Perfect Swarm | 56 | 56 | 93 | 93 |
+| #13c After Last Letter to Lost Hope | 56 | 56 | 94 | 94 |
+| #14c After Heir Today, Gone Tomorrow | 56 | 56 | 94 | 94 |
+| #15c After Passing the Blade | 56 | 56 | 94 | 94 |
+| #16c After Following Footfalls | 57 | 57 | 97 | 97 |
+| #17c After Storms on the Horizon | 57 | 57 | 97 | 97 |
+| #18c After Oh Captain, My Captain | 57 | 57 | 96 | 96 |
+| #19c After Secrets and Lies | 58 | 58 | 98 | 98 |
+| #20c After Duty, Honor, Country | 60 | 60 | 109 | 109 |
+| #21c After A Matter of Tradition | 60 | 60 | 109 | 109 |
+| #22c After A Royal Reception | 60 | 60 | 110 | 110 |
+| #23b After The Ul'dahn Envoy | 61 | 61 | 117 | 117 |
+| #24 After Call of the Sea (Ul'dah) | 61 | 61 | 118 | 118 |
+| #25 After It's Probably Pirates | 63 | 63 | 122 | 122 |
+| #26 After Call of the Forest | 63 | 63 | 123 | 123 |
+| #27 After Fire in the Gloom | 64 | 64 | 124 | 124 |
+| #28 After Call of the Desert | 64 | 64 | 125 | 125 |
+| #29 After Into a Copper Hell | 64 | 64 | 125 | 125 |
+| #30 After The Scions of the Seventh Dawn | 68 | 68 | 129 | 129 |
+| #31 After A Wild Rose by Any Other Name | 73 | 73 | 141 | 141 |
+| #32 After Unsolved Mystery | 73 | 73 | 141 | 141 |
+| #33 After What Poor People Think | 74 | 74 | 142 | 142 |
+| #34 After A Proper Burial | 76 | 76 | 144 | 144 |
+| #35 After For the Children | 76 | 76 | 144 | 144 |
+| #36 After Amalj'aa Wrong Places | 76 | 76 | 144 | 144 |
+| #37 After Dressed to Deceive | 76 | 76 | 145 | 145 |
+| #38 After Life, Materia and Everything | 76 | 76 | 145 | 145 |
+| #39 After Lord of the Inferno | 76 | 76 | 146 | 146 |
+| #40 After A Hero in the Making | 79 | 79 | 158 | 158 |
+| #41 After The Company You Keep (Immortal Flames) | 81 | 81 | 160 | 160 |
+| #42 After For Coin and Country | 81 | 81 | 160 | 160 |
+| #41b After The Company You Keep (Maelstrom) | 81 | 81 | 160 | 160 |
+| #42b After Till Sea Swallows All | 81 | 81 | 160 | 160 |
+| #41c After The Company You Keep (Twin Adder) | 81 | 81 | 160 | 160 |
+| #42c After Wood's Will Be Done | 81 | 81 | 160 | 160 |
+| #43 After Sylph-management | 85 | 85 | 168 | 168 |
+| #44 After We Come in Peace | 85 | 85 | 168 | 168 |
+| #45 After Sylphic Studies | 85 | 85 | 168 | 168 |
+| #46 After First Impressions | 85 | 85 | 168 | 168 |
+| #47 After First Contact | 86 | 86 | 170 | 170 |
+| #48 After Dance Dance Diplomacy | 86 | 86 | 170 | 170 |
+| #49 After Forest Friend | 86 | 86 | 170 | 170 |
+| #50 After Presence of the Enemy | 86 | 86 | 171 | 171 |
+| #51 After Brotherly Love | 86 | 86 | 171 | 171 |
+| #52 After Spirited Away | 90 | 90 | 180 | 180 |
+| #53 After Druthers House Rules | 90 | 90 | 180 | 180 |
+| #54 After Never Forget | 90 | 90 | 180 | 180 |
+| #55 After Microbrewing | 90 | 90 | 180 | 180 |
+| #56 After Like Fine Wine | 90 | 90 | 180 | 180 |
+| #57 After Sylphish Concerns | 90 | 90 | 181 | 181 |
+| #58 After Nouveau Riche | 91 | 91 | 184 | 184 |
+| #59 After Into the Beast's Maw | 93 | 93 | 187 | 187 |
+| #60 After A Simple Gift | 93 | 93 | 187 | 187 |
+| #61 After Believe in Your Sylph | 93 | 93 | 187 | 187 |
+| #62 After Back from the Wood | 94 | 94 | 191 | 191 |
+| #63 After Shadow of Darkness | 96 | 96 | 196 | 196 |
+| #64 After Highbridge Times | 96 | 96 | 196 | 196 |
+| #65 After Where There Is Smoke | 97 | 97 | 197 | 197 |
+| #66 After On to Little Ala Mhigo | 100 | 100 | 202 | 202 |
+| #67 After Tea for Three | 100 | 100 | 202 | 202 |
+| #68 After Foot in the Door | 101 | 101 | 205 | 205 |
+| #69 After Meeting with the Resistance | 103 | 103 | 209 | 209 |
+| #70 After Killing Him Softly | 103 | 103 | 209 | 209 |
+| #71 After Helping Horn | 103 | 103 | 209 | 209 |
+| #72 After He Ain't Heavy | 103 | 103 | 209 | 209 |
+| #73 After Come Highly Recommended | 103 | 103 | 209 | 209 |
+| #74 After The Bear and the Young'uns' Cares | 104 | 104 | 213 | 213 |
+| #75 After Wilred Wants You | 105 | 105 | 215 | 215 |
+| #76 After Big Trouble in Little Ala Mhigo | 105 | 105 | 215 | 215 |
+| #77 After Back to Square One | 105 | 105 | 217 | 217 |
+| #78 After Terror at Fallgourd | 109 | 109 | 223 | 223 |
+| #79 After Ziz Is So Ridiculous | 109 | 109 | 223 | 223 |
+| #80 After Seeing Eye to Winged Eye | 109 | 109 | 223 | 223 |
+| #80b After Rock of Rancor | 109 | 109 | 223 | 223 |
+| #82 After Power of Deduction | 109 | 109 | 223 | 223 |
+| #83 After Secret of the White Lily | 110 | 110 | 224 | 224 |
+| #84 After Skeletons in Her Closet | 111 | 111 | 226 | 226 |
+| #85 After Wrath of the Titan | 116 | 116 | 235 | 235 |
+| #86 After Tales from the Tidus Slayer | 116 | 116 | 235 | 235 |
+| #87 After Hungry Hungry Goobbues | 116 | 116 | 235 | 235 |
+| #88 After The Lominsan Way | 118 | 118 | 237 | 237 |
+| #89 After Nix That | 118 | 118 | 237 | 237 |
+| #90 After A Modest Proposal | 120 | 120 | 242 | 242 |
+| #91 After Trial by Turtle | 121 | 121 | 243 | 243 |
+| #92 After The Perfect Prey | 121 | 121 | 243 | 243 |
+| #93 After When the Worm Turns | 121 | 121 | 243 | 243 |
+| #94 After There and Back Again | 121 | 121 | 243 | 243 |
+| #95 After The Things We Do for Cheese | 122 | 122 | 244 | 244 |
+| #96 After What Do You Mean You Forgot the Wine | 123 | 123 | 245 | 245 |
+| #97 After An Offer You Can Refuse | 124 | 124 | 246 | 246 |
+| #98 After It Won't Work | 124 | 124 | 246 | 246 |
+| #99 After Give a Man a Drink | 125 | 125 | 247 | 247 |
+| #100 After That Weight | 125 | 125 | 248 | 248 |
+| #101 After Battle Scars | 125 | 125 | 248 | 248 |
+| #102 After It Was a Very Good Year | 125 | 125 | 248 | 248 |
+| #103 After In the Company of Heroes | 126 | 126 | 251 | 251 |
+| #104 After As You Wish | 126 | 126 | 251 | 251 |
+| #105 After Lord of Crags | 127 | 127 | 255 | 255 |
+| #106 After All Good Things | 130 | 130 | 265 | 265 |
+| #107 After You Can't Take It with You | 130 | 130 | 265 | 265 |
+| #108 After Bringing out the Dead | 130 | 130 | 265 | 265 |
+| #109 After Bury Me Not on the Lone Prairie | 130 | 130 | 265 | 265 |
+| #110 After Eyes on Me | 132 | 132 | 273 | 273 |
+| #111 After He Who Waited Behind | 132 | 132 | 273 | 273 |
+| #112 After Cold Reception | 132 | 132 | 273 | 273 |
+| #113 After The Unending War | 133 | 133 | 274 | 274 |
+| #114 After Men of Honor | 133 | 133 | 274 | 274 |
+| #115 After Three for Three | 135 | 135 | 277 | 277 |
+| #116 After The Rose and the Unicorn | 136 | 136 | 278 | 278 |
+| #117 After The Talk of Coerthas | 136 | 136 | 278 | 278 |
+| #118 After Road to Redemption | 136 | 136 | 279 | 279 |
+| #119 After Following the Evidence | 136 | 136 | 279 | 279 |
+| #120 After In the Eyes of Gods and Men | 136 | 136 | 279 | 279 |
+| #121 After The Final Flight of the Enterprise | 137 | 137 | 280 | 280 |
+| #122 After Ye of Little Faith | 137 | 137 | 281 | 281 |
+| #123 After Factual Folklore | 137 | 137 | 281 | 281 |
+| #124 After The Best Inventions | 137 | 137 | 281 | 281 |
+| #125 After Influencing Inquisitors | 137 | 137 | 281 | 281 |
+| #126 After By the Lights of Ishgard | 137 | 137 | 281 | 281 |
+| #127 After Blood for Blood | 137 | 137 | 282 | 282 |
+| #128 After The Heretic among Us | 137 | 137 | 281 | 281 |
+| #129 After In Pursuit of the Past | 137 | 137 | 282 | 282 |
+| #130 After Into the Eye of the Storm | 138 | 138 | 285 | 285 |
+| #131 After Sealed with Science | 138 | 138 | 285 | 285 |
+| #132 After With the Utmost Care | 138 | 138 | 285 | 285 |
+| #133 After A Promising Prospect | 138 | 138 | 285 | 285 |
+| #134 After It's Probably Not Pirates | 138 | 138 | 285 | 285 |
+| #135 After Representing the Representative | 138 | 138 | 285 | 285 |
+| #136 After The Reluctant Researcher | 138 | 138 | 285 | 285 |
+| #137 After Sweet Somethings | 138 | 138 | 285 | 285 |
+| #138 After History Repeating | 138 | 138 | 285 | 285 |
+| #139 After The Curious Case of Giggity | 138 | 138 | 285 | 285 |
+| #140 After Better Late than Never | 138 | 138 | 285 | 285 |
+| #141 After Lady of the Vortex | 138 | 138 | 290 | 290 |
+| #142 After Reclamation | 140 | 140 | 298 | 298 |
+| #143 After Casing the Castrum | 140 | 140 | 304 | 304 |
+| #144 After Eyes on the Empire | 140 | 140 | 304 | 304 |
+| #145 After Footprints in the Snow | 140 | 140 | 304 | 304 |
+| #146 After Monumental Hopes | 140 | 140 | 304 | 304 |
+| #147 After Notorious Biggs | 140 | 140 | 306 | 306 |
+| #148 After Come-Into-My-Castrum | 142 | 142 | 308 | 308 |
+| #149 After Getting Even with Garlemald | 142 | 142 | 308 | 308 |
+| #150 After Drowning Out the Voices | 142 | 142 | 308 | 308 |
+| #150b After Acting the Part | 142 | 142 | 308 | 308 |
+| #151 After Dressed for Conquest | 142 | 142 | 308 | 308 |
+| #153 After Fool Me Twice | 142 | 142 | 308 | 308 |
+| #154 After Every Little Thing She Does Is Magitek | 142 | 142 | 308 | 308 |
+| #155 After Escape from Castrum Centri | 143 | 143 | 313 | 313 |
+| #156 After The Black Wolf's Ultimatum | 143 | 143 | 313 | 313 |
+| #157 After Operation Archon | 144 | 144 | 317 | 317 |
+| #158 After A Hero in Need | 144 | 144 | 317 | 317 |
+| #159 After Hearts on Fire | 144 | 144 | 317 | 317 |
+| #160 After Rock the Castrum | 144 | 144 | 315 | 315 |
+| 2.0 A Realm Reborn — Patch 2.0 complete | 144 | 144 | 313 | 315 |
+| #162 After The Price of Principles | 145 | 145 | 319 | 321 |
+| #163 After Moving On | 146 | 146 | 321 | 323 |
+| #164 After All Things in Time | 146 | 146 | 321 | 323 |
+| #165 After Laying the Foundation | 148 | 148 | 324 | 326 |
+| #166 After It's Possibly a Primal | 149 | 149 | 326 | 328 |
+| #167 After Hail to the King, Kupo | 152 | 152 | 332 | 334 |
+| #168 After You Have Selected Regicide | 152 | 152 | 332 | 334 |
+| #169 After On the Properties of Primals | 152 | 152 | 336 | 338 |
+| #170 After The Gifted | 154 | 154 | 339 | 341 |
+| #171 After Build on the Stone | 154 | 154 | 340 | 342 |
+| #172 After Still Waters | 156 | 156 | 341 | 343 |
+| #173 After A Final Temptation | 156 | 156 | 342 | 344 |
+| #174 After The Mother of Exiles | 159 | 159 | 349 | 351 |
+| #175 After Promises to Keep | 159 | 159 | 355 | 357 |
+| #176 After Yugiri's Game | 159 | 159 | 355 | 357 |
+| #177 After Why We Adventure | 159 | 159 | 355 | 357 |
+| #178 After All Due Respect | 160 | 160 | 366 | 368 |
+| #179 After The Sea Rises | 160 | 160 | 369 | 371 |
+| #180 After Scouts in Distress | 160 | 160 | 369 | 371 |
+| #181 After The Gift of Eternity | 160 | 160 | 370 | 372 |
+| #182 After Into the Heart of the Whorl | 160 | 160 | 370 | 372 |
+| #183 After Lord of the Whorl | 160 | 160 | 371 | 373 |
+| #184 After When Yugiri Met the Fraternity | 160 | 160 | 371 | 373 |
+| #185 After Through the Maelstrom | 160 | 160 | 371 | 373 |
+| #186 After The Great Divide | 161 | 161 | 374 | 376 |
+| #187 After Desperate Times | 161 | 161 | 375 | 377 |
+| #188 After Shock and Awe | 161 | 161 | 375 | 377 |
+| #189 After Reap the Whirlwind | 161 | 161 | 375 | 377 |
+| #190 After Revolution | 162 | 162 | 378 | 380 |
+| #191 After Stories We Tell | 163 | 163 | 379 | 381 |
+| #192 After Lord of Levin | 163 | 163 | 384 | 386 |
+| #193 After Levin an Impression | 163 | 163 | 385 | 387 |
+| #194 After What Little Gods Are Made Of | 163 | 163 | 388 | 390 |
+| #195 After Guardian of Eorzea | 164 | 164 | 391 | 393 |
+| #196 After Recruiting the Realm | 165 | 165 | 396 | 398 |
+| #197 After Heretical Harassment | 165 | 165 | 397 | 399 |
+| #198 After When the Cold Sets In | 167 | 167 | 401 | 403 |
+| #199 After Brave New Companions | 170 | 170 | 405 | 407 |
+| #200 After Traitor in the Midst | 173 | 173 | 413 | 415 |
+| #201 After Back and Fourth | 174 | 174 | 414 | 416 |
+| #202 After Coming to Terms | 178 | 178 | 419 | 421 |
+| #203 After The Intercession of Saints | 179 | 179 | 420 | 422 |
+| #204 After Strength in Unity | 179 | 179 | 421 | 423 |
+| #205 After Dark Words, Dark Deeds | 179 | 179 | 422 | 424 |
+| #206 After First Blood | 179 | 179 | 422 | 424 |
+| #207 After The Path of the Righteous | 179 | 179 | 422 | 424 |
+| #208 After For the Greater Good | 180 | 180 | 424 | 426 |
+| #209 After Tendrils of Intrigue | 181 | 181 | 425 | 427 |
+| #210 After Chasing Ivy | 182 | 182 | 429 | 431 |
+| #211 After In Flagrante Delicto | 182 | 182 | 429 | 431 |
+| #212 After A Simple Plan | 184 | 184 | 434 | 436 |
+| #213 After The Instruments of Our Deliverance | 184 | 184 | 435 | 437 |
+| #214 After The Road Less Traveled | 185 | 185 | 438 | 440 |
+| #215 After Eyes Unclouded | 185 | 185 | 438 | 440 |
+| #216 After The Reason Roaille | 185 | 185 | 441 | 443 |
+| #217 After Let Us Cling Together | 185 | 185 | 444 | 446 |
+| #218 After Good Intentions | 186 | 186 | 451 | 453 |
+| #219 After Bait and Switch | 186 | 186 | 451 | 453 |
+| #220 After Best-laid Schemes | 186 | 186 | 451 | 453 |
+| #221 After The Rising Chorus | 187 | 187 | 453 | 455 |
+| #222 After Aether on Demand | 187 | 187 | 453 | 455 |
+| #223 After On the Counteroffensive | 187 | 187 | 453 | 455 |
+| #224 After An Uninvited Ascian | 188 | 188 | 454 | 456 |
+| #225 After In Memory of Moenbryda | 188 | 188 | 454 | 456 |
+| #226 After Mask of Grief | 189 | 189 | 455 | 457 |
+| #227 After Defenders for Ishgard | 189 | 189 | 460 | 462 |
+| #228 After The Wyrm's Roar | 191 | 191 | 466 | 468 |
+| #229 After Committed to the Cause | 191 | 191 | 468 | 470 |
+| #230 After Volunteer Dragonslayers | 191 | 191 | 469 | 471 |
+| #231 After An Allied Perspective | 191 | 191 | 470 | 472 |
+| #232 After The Steps of Faith | 191 | 191 | 470 | 472 |
+| #233 After Administrative Decision | 191 | 191 | 470 | 472 |
+| #234 After An Unexpected Ambition | 192 | 192 | 471 | 473 |
+| #235 After Ancient Ways, Timeless Wants | 192 | 192 | 471 | 473 |
+| #234b After Where We Are Needed | 192 | 192 | 471 | 473 |
+| #235b After The Least among Us | 192 | 192 | 471 | 473 |
+| #238 After A Time to Every Purpose | 192 | 192 | 473 | 475 |
+| #239 After Come, but Not Gone | 192 | 192 | 474 | 476 |
+| #240 After The Parting Glass | 193 | 193 | 478 | 480 |
+| 2.55 A Realm Reborn — Patch 2.55 complete | 193 | 193 | 483 | 486 |
+| #242 After Coming to Ishgard | 196 | 196 | 491 | 494 |
+| #243 After Taking in the Sights | 196 | 196 | 491 | 494 |
+| #244 After The Better Half | 198 | 198 | 496 | 499 |
+| #245 After Over the Wall | 199 | 199 | 500 | 503 |
+| #246 After Work in Progress | 199 | 199 | 500 | 503 |
+| #247 After The First and Foremost | 199 | 199 | 500 | 503 |
+| #248 After From on High | 199 | 199 | 500 | 503 |
+| #249 After Reconnaissance Lost | 199 | 199 | 500 | 503 |
+| #250 After At the End of Our Hope | 199 | 199 | 500 | 503 |
+| #251 After Knights Be Not Proud | 199 | 199 | 500 | 503 |
+| #245b After Onwards and Upwards | 203 | 203 | 509 | 512 |
+| #246b After An Indispensable Ally | 203 | 203 | 509 | 512 |
+| #247b After Meeting the Neighbors | 203 | 203 | 510 | 513 |
+| #248b After Sense of Urgency | 203 | 203 | 510 | 513 |
+| #249b After Hope Springs Eternal | 203 | 203 | 510 | 513 |
+| #250b After A Series of Unfortunate Events | 204 | 204 | 515 | 518 |
+| #251b After A Reward Long in Coming | 204 | 204 | 515 | 518 |
+| #259 After Divine Intervention | 207 | 207 | 525 | 528 |
+| #260 After Disclosure | 208 | 208 | 527 | 530 |
+| #261 After Flame General Affairs | 208 | 208 | 533 | 536 |
+| #262 After In Search of Raubahn | 208 | 208 | 533 | 536 |
+| #263 After Keeping the Flame Alive | 209 | 209 | 535 | 538 |
+| #264 After To Siege or Not to Siege | 210 | 210 | 539 | 542 |
+| #265 After Alphinaud's Way | 210 | 210 | 546 | 549 |
+| #266 After In Search of Iceheart | 210 | 210 | 546 | 549 |
+| #267 After From One Heretic to Another | 210 | 210 | 546 | 549 |
+| #268 After Sounding Out the Amphitheatre | 210 | 210 | 546 | 549 |
+| #269 After Camp of the Convictors | 210 | 210 | 546 | 549 |
+| #270 After Purple Flame, Purple Flame | 211 | 211 | 547 | 550 |
+| #271 After Where the Chocobos Roam | 214 | 214 | 554 | 557 |
+| #272 After Worse than Dragons | 215 | 215 | 555 | 558 |
+| #273 After The Trine Towers | 216 | 216 | 557 | 560 |
+| #274 After Gifts for the Outcasts | 216 | 216 | 558 | 561 |
+| #275 After The Nonmind | 216 | 216 | 558 | 561 |
+| #276 After A Gnathic Deity | 216 | 216 | 558 | 561 |
+| #277 After Breaking into Hives | 216 | 216 | 558 | 561 |
+| #278 After Lord of the Hive | 217 | 217 | 559 | 562 |
+| #279 After Mourn in Passing | 217 | 217 | 561 | 564 |
+| #280 After Beyond the Clouds | 217 | 217 | 561 | 564 |
+| #281 After Mountaintop Diplomacy | 220 | 220 | 571 | 574 |
+| #282 After Moghan's Trial | 220 | 220 | 571 | 574 |
+| #282b After Mogmug's Trial | 220 | 220 | 571 | 574 |
+| #282c After Mogwin's Trial | 220 | 220 | 571 | 574 |
+| #285 After Moglin's Judgment | 220 | 220 | 572 | 575 |
+| #286 After Leaving Moghome | 220 | 220 | 572 | 575 |
+| #287 After The Road to Zenith | 220 | 220 | 572 | 575 |
+| #288 After Waiting for the Wind to Change | 220 | 220 | 573 | 576 |
+| #289 After Heart of Ice | 220 | 220 | 573 | 576 |
+| #290 After The Wyrm's Lair | 221 | 221 | 575 | 578 |
+| #291 After New Winds, Old Friends | 221 | 221 | 577 | 580 |
+| #292 After A General Summons | 222 | 222 | 584 | 587 |
+| #293 After Awakening in Ul'dah | 222 | 222 | 586 | 589 |
+| #294 After A Brave Resolution | 222 | 222 | 582 | 585 |
+| #295 After Ready to Fly | 223 | 223 | 588 | 591 |
+| #296 After Into the Aery | 223 | 223 | 587 | 590 |
+| #297 After The Song Begins | 223 | 223 | 588 | 591 |
+| #298 After Unrest in Ishgard | 223 | 223 | 590 | 593 |
+| #299 After He Who Would Not Be Denied | 224 | 224 | 598 | 601 |
+| #300 After Ill-weather Friends | 225 | 225 | 600 | 603 |
+| #301 After The Spice of Life | 225 | 225 | 600 | 603 |
+| #302 After Noble Indiscretions | 225 | 225 | 600 | 603 |
+| #303 After A Child Apart | 225 | 225 | 600 | 603 |
+| #304 After Bloodlines | 225 | 225 | 600 | 603 |
+| #305 After Fire and Blood | 225 | 225 | 604 | 607 |
+| #306 After A Knight's Calling | 226 | 226 | 601 | 604 |
+| #307 After The Sins of Antiquity | 226 | 226 | 603 | 606 |
+| #308 After In Search of the Soleil | 227 | 227 | 607 | 610 |
+| #309 After Into the Blue | 227 | 227 | 608 | 611 |
+| #310 After Familiar Faces | 227 | 227 | 609 | 612 |
+| #311 After Devourer of Worlds | 227 | 227 | 610 | 613 |
+| #312 After Black and the White | 227 | 227 | 610 | 613 |
+| #313 After Bolt, Chain, and Island | 227 | 227 | 612 | 615 |
+| #314 After A Difference of Opinion | 228 | 228 | 617 | 620 |
+| #315 After One Good Turn | 228 | 228 | 619 | 622 |
+| #316 After An Engineering Enterprise | 229 | 229 | 622 | 625 |
+| #317 After Aetherial Trail | 229 | 229 | 624 | 627 |
+| #318 After Lost in the Lifestream | 230 | 230 | 627 | 630 |
+| #319 After Tataru's Surprise | 231 | 231 | 629 | 632 |
+| #320 After Onward to Sharlayan | 231 | 231 | 629 | 632 |
+| #321 After A Great New Nation | 233 | 233 | 631 | 634 |
+| #322 After Golems Begone | 233 | 233 | 631 | 634 |
+| #323 After An Illuminati Incident | 233 | 233 | 631 | 634 |
+| #324 After Leaving Idyllshire | 233 | 233 | 631 | 634 |
+| #325 After Matoya's Cave | 233 | 233 | 632 | 635 |
+| #326 After Forbidden Knowledge | 233 | 233 | 632 | 635 |
+| #327 After An Eye for Aether | 233 | 233 | 633 | 636 |
+| #328 After Hour of Departure | 233 | 233 | 634 | 637 |
+| #329 After The First Flight of the Excelsior | 234 | 234 | 635 | 638 |
+| #330 After Systematic Exploration | 234 | 234 | 635 | 638 |
+| #331 After In Node We Trust | 234 | 234 | 635 | 638 |
+| #332 After Chimerical Maintenance | 234 | 234 | 635 | 638 |
+| #333 After Close Encounters of the VIth Kind | 234 | 234 | 638 | 641 |
+| #334 After Fetters of Lament | 235 | 235 | 643 | 646 |
+| 3.0 Heavensward — Patch 3.0 complete | 235 | 235 | 636 | 639 |
+| #336 After An Uncertain Future | 236 | 236 | 642 | 645 |
+| #337 After Breaking the Cycle | 236 | 236 | 644 | 647 |
+| #338 After Another Time, Another Place | 236 | 236 | 647 | 650 |
+| #339 After In the Eye of the Beholder | 236 | 236 | 648 | 651 |
+| #340 After A Little Slow, a Little Late | 237 | 237 | 649 | 652 |
+| #341 After Dreams of the Lost | 237 | 237 | 650 | 653 |
+| #342 After Against the Dying of the Light | 237 | 237 | 650 | 653 |
+| #343 After As Goes Light, So Goes Darkness | 238 | 238 | 651 | 654 |
+| #344 After As It Once Was | 238 | 238 | 651 | 654 |
+| #345 After The Word of the Mother | 238 | 238 | 650 | 653 |
+| #346 After This War of Ours | 239 | 239 | 655 | 658 |
+| #347 After Staunch Conviction | 239 | 239 | 657 | 660 |
+| #348 After Once More, a Favor | 239 | 239 | 658 | 661 |
+| #349 After For Those We Have Lost | 239 | 239 | 658 | 661 |
+| #350 After Consequences | 240 | 240 | 659 | 662 |
+| #351 After Choices | 240 | 240 | 659 | 662 |
+| #352 After A Spectacle for the Ages | 240 | 240 | 659 | 662 |
+| #353 After For Those We Can Yet Save | 240 | 240 | 662 | 665 |
+| #354 After Causes and Costs | 240 | 240 | 663 | 666 |
+| #355 After The Man Within | 241 | 241 | 668 | 671 |
+| #356 After An Ally for Ishgard | 241 | 241 | 671 | 674 |
+| #357 After Winning Over the Wyrm | 241 | 241 | 674 | 677 |
+| #358 After An End to the Song | 241 | 241 | 669 | 672 |
+| #359 After Heroes of the Hour | 241 | 241 | 669 | 672 |
+| #360 After Litany of Peace | 242 | 242 | 671 | 674 |
+| #361 After Promises Kept | 243 | 243 | 678 | 681 |
+| #362 After Shadows of the First | 243 | 243 | 679 | 682 |
+| #363 After Two Sides of a Coin | 243 | 243 | 682 | 685 |
+| #364 After Unlikely Allies | 244 | 244 | 684 | 687 |
+| #365 After The Beast That Mourned at the Heart of the Mountain | 244 | 244 | 684 | 687 |
+| #366 After Beneath a Star-filled Sky | 246 | 246 | 689 | 692 |
+| #367 After When We Were Free | 247 | 247 | 696 | 699 |
+| #368 After Honorable Heroes | 247 | 247 | 696 | 699 |
+| #369 After One Life for One World | 247 | 247 | 695 | 698 |
+| #370 After An Ending to Mark a New Beginning | 247 | 247 | 693 | 696 |
+| #371 After Tidings from Gyr Abania | 248 | 248 | 699 | 702 |
+| #372 After An Envoy for Ishgard | 248 | 248 | 699 | 702 |
+| #373 After An Allied Decision | 248 | 248 | 700 | 703 |
+| #374 After Griffin, Griffin on the Wall | 249 | 249 | 702 | 705 |
+| #375 After Louisoix's Finest Student | 249 | 249 | 702 | 705 |
+| #376 After The Obvious Solution | 251 | 251 | 709 | 712 |
+| #377 After The Greater Obeisance | 252 | 252 | 711 | 714 |
+| #378 After Fly Free, My Pretty | 252 | 252 | 712 | 715 |
+| 3.56 Heavensward — Patch 3.56 complete | 254 | 254 | 716 | 719 |
+| #380 After Beyond the Great Wall | 256 | 256 | 724 | 727 |
+| #381 After Lyse Takes the Lead | 258 | 258 | 725 | 728 |
+| #382 After The Promise of a New Beginning | 259 | 259 | 727 | 730 |
+| #383 After A Haven for the Bold | 259 | 259 | 727 | 730 |
+| #384 After A Bargain Struck | 260 | 260 | 732 | 735 |
+| #385 After A Friend of a Friend in Need | 261 | 261 | 736 | 739 |
+| #386 After Signed, Sealed, to Be Delivered | 261 | 261 | 738 | 741 |
+| #387 After Best Served with Cold Steel | 262 | 262 | 743 | 746 |
+| #388 After Let Fill Your Hearts with Pride | 262 | 262 | 743 | 746 |
+| #385b After A Familiar Face Forgotten | 264 | 264 | 748 | 751 |
+| #386b After The Prodigal Daughter | 265 | 265 | 750 | 753 |
+| #387b After Hard Country | 265 | 265 | 750 | 753 |
+| #387c After Death by a Thousand Rocks | 265 | 265 | 750 | 753 |
+| #389 After A Life More Ordinary | 265 | 265 | 750 | 753 |
+| #390 After The Color of Angry Qiqirn | 265 | 265 | 750 | 753 |
+| #391 After The Black Wolf's Pups | 267 | 267 | 756 | 759 |
+| #392 After Homeward Bound | 267 | 267 | 756 | 759 |
+| #397 After Where Men Go as One | 269 | 269 | 766 | 769 |
+| #398 After Future Rust, Future Dust | 269 | 269 | 766 | 769 |
+| #398b After A Dash of Green | 269 | 269 | 766 | 769 |
+| #398c After Ye Wayward Brothers | 269 | 269 | 766 | 769 |
+| #401 After Token of Faith | 269 | 269 | 766 | 769 |
+| #402 After Crossing the Velodyna | 269 | 269 | 768 | 771 |
+| #403 After In Crimson It Began | 269 | 269 | 771 | 774 |
+| #404 After The Fires Fade | 269 | 269 | 771 | 774 |
+| #405 After Bereft of Hearth and Home | 269 | 269 | 771 | 774 |
+| #406 After Divide and Conquer | 270 | 270 | 774 | 777 |
+| #407 After Lies, Damn Lies, and Pirates | 273 | 273 | 780 | 783 |
+| #408 After Tales from the Far East | 274 | 274 | 781 | 784 |
+| #409 After Not without Incident | 274 | 274 | 782 | 785 |
+| #410 After The Man from Ul'dah | 276 | 276 | 786 | 789 |
+| #411 After Where the Streets Are Paved with Koban | 277 | 277 | 786 | 789 |
+| #412 After By the Grace of Lord Lolorito | 281 | 281 | 791 | 794 |
+| #413 After A Good Samurai Is Hard to Find | 282 | 282 | 793 | 796 |
+| #414 After It's Probably a Trap | 284 | 284 | 801 | 804 |
+| #415 After Making the Catfish Sing | 284 | 284 | 801 | 804 |
+| #416 After Once More, to the Ruby Sea | 285 | 285 | 810 | 813 |
+| #417 After Open Water | 286 | 286 | 812 | 815 |
+| #418 After Boys with Boats | 286 | 286 | 813 | 816 |
+| #419 After To Bend with the Wind | 289 | 289 | 823 | 826 |
+| #420 After Confederate Consternation | 290 | 290 | 825 | 828 |
+| #421 After The Solace of the Sea | 290 | 290 | 825 | 828 |
+| #421b After The Arrows of Misfortune | 290 | 290 | 825 | 828 |
+| #421c After The Last Voyage | 290 | 290 | 825 | 828 |
+| #424 After Alisaie's Stones | 291 | 291 | 827 | 830 |
+| #425 After Under the Sea | 291 | 291 | 829 | 832 |
+| #426 After Of Kojin and Kami | 292 | 292 | 830 | 833 |
+| #427 After In Soroban We Trust | 293 | 293 | 830 | 833 |
+| #428 After Forever and Ever Apart | 295 | 295 | 832 | 835 |
+| #429 After In Darkness the Magatama Dreams | 296 | 296 | 834 | 837 |
+| #430 After The Whims of the Divine | 296 | 296 | 837 | 840 |
+| #431 After Breaking and Delivering | 297 | 297 | 839 | 842 |
+| #432 After The Lord of the Revel | 297 | 297 | 844 | 847 |
+| #433 After Tide Goes in, Imperials Go Out | 298 | 298 | 841 | 844 |
+| #434 After A Silence in Three Parts | 300 | 300 | 844 | 847 |
+| #435 After Life after Doma | 302 | 302 | 847 | 850 |
+| #436 After A Glimpse of Madness | 303 | 303 | 851 | 854 |
+| #437 After The Stubborn Remainder | 303 | 303 | 852 | 855 |
+| #438 After The Ones We Leave Behind | 303 | 303 | 852 | 855 |
+| #439 After A New Ruby Tithe | 303 | 303 | 853 | 856 |
+| #440 After The Will to Live | 303 | 303 | 852 | 855 |
+| #441 After Daughter of the Deep | 303 | 303 | 853 | 856 |
+| #442 After Path of No Return | 303 | 303 | 853 | 856 |
+| #443 After The Time between the Seconds | 303 | 303 | 855 | 858 |
+| #444 After All the Little Angels | 303 | 303 | 856 | 859 |
+| #445 After Here There Be Xaela | 304 | 304 | 860 | 863 |
+| #446 After The Search for Lord Hien | 306 | 306 | 863 | 866 |
+| #447 After A Season for War | 308 | 308 | 865 | 868 |
+| #448 After An Impossible Dream | 308 | 308 | 866 | 869 |
+| #449 After Stars in the Dark | 309 | 309 | 868 | 871 |
+| #450 After A Warrior's Welcome | 309 | 309 | 868 | 871 |
+| #451 After The Heart of Nations | 309 | 309 | 868 | 871 |
+| #452 After A Trial Before the Trial | 309 | 309 | 868 | 871 |
+| #453 After In the Footsteps of Bardam the Brave | 309 | 309 | 868 | 871 |
+| #454 After The Children of Azim | 312 | 312 | 878 | 881 |
+| #455 After The Labors of Magnai | 312 | 312 | 878 | 881 |
+| #456 After For Love of the Moon | 312 | 312 | 878 | 881 |
+| #457 After Sworn Enemies of the Sun | 313 | 313 | 882 | 885 |
+| #458 After The Undying Ones | 313 | 313 | 882 | 885 |
+| #459 After A Final Peace | 313 | 313 | 882 | 885 |
+| #460 After As the Gods Will | 313 | 313 | 881 | 884 |
+| #461 After Naadam | 314 | 314 | 892 | 895 |
+| #462 After Glory to the Khagan | 314 | 314 | 893 | 896 |
+| #463 After In Crimson They Walked | 314 | 314 | 893 | 896 |
+| #464 After The Hour of Reckoning | 314 | 314 | 898 | 901 |
+| #465 After The Room Where It Happened | 315 | 315 | 903 | 906 |
+| #466 After How Tataru Got Her Groove Back | 315 | 315 | 903 | 906 |
+| #467 After Seeds of Despair | 315 | 315 | 904 | 907 |
+| #468 After The Limits of Our Endurance | 316 | 316 | 905 | 908 |
+| #469 After Broken Steel, Broken Men | 316 | 316 | 906 | 909 |
+| #470 After The Doma Within | 316 | 316 | 908 | 911 |
+| #471 After On the Eve of Destiny | 316 | 316 | 909 | 912 |
+| #472 After The Die Is Cast | 316 | 316 | 907 | 910 |
+| #473 After The World Turned Upside Down | 316 | 316 | 905 | 908 |
+| #474 After A Swift and Secret Departure | 317 | 317 | 911 | 914 |
+| #475 After While You Were Away | 317 | 317 | 915 | 918 |
+| #476 After Rhalgr's Beacon | 317 | 317 | 920 | 923 |
+| #477 After The Fortunes of War | 317 | 317 | 920 | 923 |
+| #478 After Rising Fortunes, Rising Spirits | 321 | 321 | 930 | 933 |
+| #479 After The Lure of the Dream | 322 | 322 | 933 | 936 |
+| #480 After The Lady of Bliss | 323 | 323 | 936 | 939 |
+| #481 After The Silence of the Gods | 323 | 323 | 936 | 939 |
+| #482 After The First of Many | 325 | 325 | 940 | 943 |
+| #483 After Strong and Unified | 327 | 327 | 946 | 949 |
+| #484 After Hells Open | 327 | 327 | 947 | 950 |
+| #485 After Heavens Weep | 328 | 328 | 950 | 953 |
+| #486 After The Road Home | 328 | 328 | 950 | 953 |
+| #487 After For the Living and the Dead | 329 | 329 | 954 | 957 |
+| #488 After Above the Churning Waters | 329 | 329 | 954 | 957 |
+| #489 After The Path Forward | 329 | 329 | 956 | 959 |
+| #490 After With Tired Hands We Toil | 329 | 329 | 956 | 959 |
+| #491 After Where Courage Endures | 330 | 330 | 958 | 961 |
+| #492 After The Price of Freedom | 330 | 330 | 962 | 965 |
+| #493 After Raubahn's Invitation | 331 | 331 | 964 | 967 |
+| #494 After Liberty or Death | 332 | 332 | 966 | 969 |
+| #495 After The Lady in Red | 332 | 332 | 966 | 969 |
+| #496 After Upon the Great Loch's Shore | 332 | 332 | 966 | 969 |
+| #497 After The Key to Victory | 333 | 333 | 968 | 971 |
+| #498 After The Resonant | 333 | 333 | 969 | 972 |
+| #499 After The Legacy of Our Fathers | 333 | 333 | 969 | 972 |
+| #500 After The Measure of His Reach | 335 | 335 | 973 | 976 |
+| 4.0 Stormblood — Patch 4.0 complete | 335 | 335 | 967 | 970 |
+| #502 After Arenvald's Adventure | 336 | 336 | 970 | 973 |
+| #503 After The Darkness Below | 336 | 336 | 970 | 973 |
+| #504 After The Mad King's Trove | 336 | 336 | 970 | 973 |
+| #505 After The Butcher's Blood | 336 | 336 | 972 | 975 |
+| #506 After Echoes of an Echo | 336 | 336 | 974 | 977 |
+| #507 After A Sultana's Strings | 337 | 337 | 978 | 981 |
+| #508 After A Sultana's Duty | 337 | 337 | 978 | 981 |
+| #509 After A Sultana's Resolve | 337 | 337 | 982 | 985 |
+| #510 After Securing the Saltery | 337 | 337 | 983 | 986 |
+| #511 After A Blissful Arrival | 337 | 337 | 985 | 988 |
+| #512 After Return of the Bull | 337 | 337 | 984 | 987 |
+| #513 After Tidings from the East | 338 | 338 | 990 | 993 |
+| #514 After The Sword in the Store | 338 | 338 | 991 | 994 |
+| #515 After Hope on the Waves | 338 | 338 | 992 | 995 |
+| #516 After Elation and Trepidation | 338 | 338 | 994 | 997 |
+| #517 After Storm on the Horizon | 340 | 340 | 1000 | 1003 |
+| #518 After His Forgotten Home | 340 | 340 | 1000 | 1003 |
+| #519 After A Guilty Conscience | 340 | 340 | 1000 | 1003 |
+| #520 After Rise of a New Sun | 340 | 340 | 1001 | 1004 |
+| #521 After Gosetsu and Tsuyu | 341 | 341 | 1004 | 1007 |
+| #522 After Gone Like the Morning Dew | 341 | 341 | 1004 | 1007 |
+| #523 After Fruits of Her Labor | 341 | 341 | 1006 | 1009 |
+| #524 After Conscripts and Contingencies | 341 | 341 | 1007 | 1010 |
+| #525 After The Primary Agreement | 343 | 343 | 1007 | 1010 |
+| #526 After Under the Moonlight | 344 | 344 | 1014 | 1017 |
+| #527 After Emissary of the Dawn | 347 | 347 | 1018 | 1021 |
+| #528 After Sisterly Act | 347 | 347 | 1018 | 1021 |
+| #529 After Feel the Burn | 347 | 347 | 1019 | 1022 |
+| #530 After Shadows in the Empire | 347 | 347 | 1020 | 1023 |
+| #531 After A Power in Slumber | 348 | 348 | 1024 | 1027 |
+| #532 After The Will of the Moon | 348 | 348 | 1024 | 1027 |
+| #533 After The Call | 349 | 349 | 1027 | 1030 |
+| #534 After Prelude in Violet | 349 | 349 | 1030 | 1033 |
+| #535 After Soul Searching | 349 | 349 | 1031 | 1034 |
+| #536 After A Defector's Tidings | 349 | 349 | 1031 | 1034 |
+| #537 After Seiryu's Wall | 350 | 350 | 1038 | 1041 |
+| #538 After Parley on the Front Lines | 350 | 350 | 1041 | 1044 |
+| #539 After The Face of War | 350 | 350 | 1044 | 1047 |
+| #540 After A Brief Reprieve | 350 | 350 | 1044 | 1047 |
+| 4.56 Stormblood — Patch 4.56 complete | 350 | 350 | 1044 | 1047 |
+| #542 After The Syrcus Trench | 356 | 356 | 1054 | 1057 |
+| #543 After City of the First | 356 | 356 | 1054 | 1057 |
+| #544 After Travelers of Norvrandt | 358 | 358 | 1058 | 1061 |
+| #545 After In Search of Alphinaud | 360 | 360 | 1062 | 1065 |
+| #546 After A Still Tide | 360 | 360 | 1062 | 1065 |
+| #547 After Open Arms, Closed Gate | 360 | 360 | 1062 | 1065 |
+| #548 After A Fickle Existence | 362 | 362 | 1065 | 1068 |
+| #549 After City of Final Pleasures | 362 | 362 | 1065 | 1068 |
+| #550 After Free to Sightsee | 362 | 362 | 1065 | 1068 |
+| #551 After A Taste of Honey | 362 | 362 | 1066 | 1069 |
+| #552 After A Blessed Instrument | 362 | 362 | 1066 | 1069 |
+| #553 After Emergent Splendor | 362 | 362 | 1069 | 1072 |
+| #545b After In Search of Alisaie | 363 | 363 | 1071 | 1074 |
+| #546b After City of the Mord | 363 | 363 | 1071 | 1074 |
+| #547b After Working Off the Meal | 364 | 364 | 1072 | 1075 |
+| #548b After A Desert Crossing | 364 | 364 | 1072 | 1075 |
+| #549b After Following in Her Footprints | 364 | 364 | 1074 | 1077 |
+| #550b After Culling Their Ranks | 364 | 364 | 1074 | 1077 |
+| #551b After A Purchase of Fruit | 365 | 365 | 1074 | 1077 |
+| #552b After The Time Left to Us | 365 | 365 | 1075 | 1078 |
+| #553b After Tears on the Sand | 365 | 365 | 1075 | 1078 |
+| #563 After The Lightwardens | 367 | 367 | 1081 | 1084 |
+| #564 After Warrior of Darkness | 367 | 367 | 1083 | 1086 |
+| #565 After An Unwelcome Guest | 370 | 370 | 1092 | 1095 |
+| #566 After The Crystarium's Resolve | 370 | 370 | 1095 | 1098 |
+| #567 After Logistics of War | 370 | 370 | 1095 | 1098 |
+| #568 After The Oracle of Light | 370 | 370 | 1096 | 1099 |
+| #569 After Il Mheg, the Faerie Kingdom | 372 | 372 | 1100 | 1103 |
+| #570 After Sul Uin's Request | 372 | 372 | 1100 | 1103 |
+| #570b After Ys Iala's Errand | 372 | 372 | 1100 | 1103 |
+| #570c After Oul Sigun's Plea | 372 | 372 | 1100 | 1103 |
+| #573 After Unto the Truth | 373 | 373 | 1103 | 1106 |
+| #574 After Courting Cooperation | 373 | 373 | 1106 | 1109 |
+| #575 After The Key to the Castle | 375 | 375 | 1112 | 1115 |
+| #576 After A Visit to the Nu Mou | 376 | 376 | 1114 | 1117 |
+| #577 After A Fitting Payment | 376 | 376 | 1114 | 1117 |
+| #578 After Spore Sweeper | 376 | 376 | 1115 | 1118 |
+| #579 After The Lawless Ones | 376 | 376 | 1115 | 1118 |
+| #580 After The Elder's Answer | 378 | 378 | 1118 | 1121 |
+| #581 After A Resounding Roar | 378 | 378 | 1118 | 1121 |
+| #582 After Memento of a Friend | 378 | 378 | 1121 | 1124 |
+| #583 After Acht-la Ormh Inn | 378 | 378 | 1124 | 1127 |
+| #584 After The Wheel Turns | 380 | 380 | 1130 | 1133 |
+| #585 After A Party Soon Divided | 380 | 380 | 1132 | 1135 |
+| #586 After A Little Faith | 381 | 381 | 1134 | 1137 |
+| #587 After Into the Dark | 381 | 381 | 1137 | 1140 |
+| #588 After A Day in the Neighborhood | 383 | 383 | 1142 | 1145 |
+| #589 After A Helping Hand | 383 | 383 | 1142 | 1145 |
+| #590 After Lost but Not Forgotten | 383 | 383 | 1142 | 1145 |
+| #591 After Saying Good-bye | 383 | 383 | 1144 | 1147 |
+| #592 After Stirring up Trouble | 384 | 384 | 1145 | 1148 |
+| #593 After A Beeautiful Plan | 384 | 384 | 1145 | 1148 |
+| #594 After An Unwanted Proposal | 384 | 384 | 1151 | 1154 |
+| #595 After Put to the Proof | 385 | 385 | 1154 | 1157 |
+| #596 After Into the Wood | 386 | 386 | 1155 | 1158 |
+| #597 After Top of the Tree | 387 | 387 | 1158 | 1161 |
+| #598 After Look to the Stars | 387 | 387 | 1159 | 1162 |
+| #599 After Mi Casa, Toupasa | 387 | 387 | 1159 | 1162 |
+| #600 After Legend of the Not-so-hidden Temple | 387 | 387 | 1160 | 1163 |
+| #601 After The Aftermath | 388 | 388 | 1164 | 1167 |
+| #602 After In Good Faith | 388 | 388 | 1165 | 1168 |
+| #603 After The Burden of Knowledge | 389 | 389 | 1167 | 1170 |
+| #604 After Bearing With It | 389 | 389 | 1168 | 1171 |
+| #605 After Out of the Wood | 389 | 389 | 1170 | 1173 |
+| #606 After When It Rains | 390 | 390 | 1176 | 1179 |
+| #607 After Word from On High | 390 | 390 | 1177 | 1180 |
+| #608 After Small Favors | 390 | 390 | 1178 | 1181 |
+| #609 After The Best Way Out | 390 | 390 | 1180 | 1183 |
+| #610 After Free Trade | 391 | 391 | 1182 | 1185 |
+| #611 After The Trolley Problem | 392 | 392 | 1183 | 1186 |
+| #612 After Rust and Ruin | 392 | 392 | 1183 | 1186 |
+| #613 After On Track | 392 | 392 | 1183 | 1186 |
+| #614 After Down for Maintenance | 392 | 392 | 1184 | 1187 |
+| #615 After The Truth Hurts | 392 | 392 | 1184 | 1187 |
+| #616 After A Convenient Distraction | 393 | 393 | 1185 | 1188 |
+| #617 After A Dirty Job | 393 | 393 | 1186 | 1189 |
+| #618 After Have a Heart | 393 | 393 | 1191 | 1194 |
+| #619 After Full Steam Ahead | 393 | 393 | 1193 | 1196 |
+| #620 After Crossing Paths | 393 | 393 | 1195 | 1198 |
+| #621 After A Fresh Start | 394 | 394 | 1199 | 1202 |
+| #622 After More than a Hunch | 394 | 394 | 1201 | 1204 |
+| #623 After Return to Eulmore | 394 | 394 | 1204 | 1207 |
+| #624 After A Feast of Lies | 394 | 394 | 1204 | 1207 |
+| #625 After Paradise Fallen | 396 | 396 | 1205 | 1208 |
+| #626 After The Ladder | 396 | 396 | 1206 | 1209 |
+| #627 After The View from Above | 398 | 398 | 1211 | 1214 |
+| #628 After In Mt. Gulg's Shadow | 398 | 398 | 1213 | 1216 |
+| #629 After A Gigantic Undertaking | 398 | 398 | 1216 | 1219 |
+| #630 After Meet the Tholls | 399 | 399 | 1218 | 1221 |
+| #631 After A-Digging We Will Go | 400 | 400 | 1220 | 1223 |
+| #632 After The Duergar's Tewel | 400 | 400 | 1220 | 1223 |
+| #633 After Rich Veins of Hope | 400 | 400 | 1219 | 1222 |
+| #634 After That None Shall Ever Again | 401 | 401 | 1222 | 1225 |
+| #635 After A Breath of Respite | 402 | 402 | 1224 | 1227 |
+| #636 After Extinguishing the Last Light | 403 | 403 | 1226 | 1229 |
+| #637 After Reassuring the Masses | 404 | 404 | 1226 | 1229 |
+| #638 After In His Garden | 404 | 404 | 1228 | 1231 |
+| #639 After The Unbroken Thread | 406 | 406 | 1235 | 1238 |
+| #640 After To Storm-tossed Seas | 406 | 406 | 1237 | 1240 |
+| #641 After Waiting in the Depths | 407 | 407 | 1239 | 1242 |
+| #642 After City of the Ancients | 407 | 407 | 1240 | 1243 |
+| #643 After The Light of Inspiration | 407 | 407 | 1241 | 1244 |
+| #644 After The Illuminated Land | 407 | 407 | 1243 | 1246 |
+| #645 After The End of a World | 410 | 410 | 1250 | 1253 |
+| #646 After A Greater Purpose | 411 | 411 | 1255 | 1258 |
+| 5.0 Shadowbringers — Patch 5.0 complete | 412 | 412 | 1255 | 1258 |
+| #648 After Shaken Resolve | 413 | 413 | 1258 | 1261 |
+| #649 After A Grand Adventure | 414 | 414 | 1260 | 1263 |
+| #650 After A Welcome Guest | 414 | 414 | 1265 | 1268 |
+| #651 After Good for the Soul | 414 | 414 | 1267 | 1270 |
+| #652 After Nowhere to Turn | 415 | 415 | 1272 | 1275 |
+| #653 After A Notable Absence | 415 | 415 | 1272 | 1275 |
+| #654 After For the People | 416 | 416 | 1274 | 1277 |
+| #655 After Finding Good Help | 416 | 416 | 1275 | 1278 |
+| #656 After Moving Forward | 416 | 416 | 1276 | 1279 |
+| #657 After Vows of Virtue, Deeds of Cruelty | 418 | 418 | 1279 | 1282 |
+| #658 After Old Enemies, New Threats | 418 | 418 | 1281 | 1284 |
+| #659 After The Way Home | 418 | 418 | 1283 | 1286 |
+| #660 After Seeking Counsel | 419 | 419 | 1287 | 1290 |
+| #661 After Facing the Truth | 419 | 419 | 1290 | 1293 |
+| #662 After A Sleep Disturbed | 419 | 419 | 1291 | 1294 |
+| #663 After An Old Friend | 419 | 419 | 1293 | 1296 |
+| #664 After Deep Designs | 419 | 419 | 1293 | 1296 |
+| #665 After A Whale's Tale | 420 | 420 | 1294 | 1297 |
+| #666 After Beneath the Surface | 421 | 421 | 1298 | 1301 |
+| #667 After Echoes of a Fallen Star | 421 | 421 | 1302 | 1305 |
+| #668 After In the Name of the Light | 421 | 421 | 1303 | 1306 |
+| #669 After Heroic Dreams | 422 | 422 | 1307 | 1310 |
+| #670 After Fraying Threads | 422 | 422 | 1310 | 1313 |
+| #671 After Food for the Soul | 422 | 422 | 1310 | 1313 |
+| #672 After Faded Memories | 422 | 422 | 1311 | 1314 |
+| #673 After Etched in the Stars | 422 | 422 | 1313 | 1316 |
+| #674 After The Converging Light | 423 | 423 | 1318 | 1321 |
+| #675 After Hope's Confluence | 423 | 423 | 1318 | 1321 |
+| #676 After Nothing Unsaid | 423 | 423 | 1319 | 1322 |
+| #677 After The Journey Continues | 423 | 423 | 1321 | 1324 |
+| #678 After Unto the Morrow | 424 | 424 | 1325 | 1328 |
+| #679 After Reflections in Crystal | 425 | 425 | 1333 | 1336 |
+| #680 After Alisaie's Quest | 425 | 425 | 1335 | 1338 |
+| #681 After The Wisdom of Allag | 425 | 425 | 1335 | 1338 |
+| #682 After Reviving the Legacy | 426 | 426 | 1341 | 1344 |
+| #683 After Forget Us Not | 426 | 426 | 1344 | 1347 |
+| #684 After Like Master, Like Pupil | 426 | 426 | 1345 | 1348 |
+| #685 After The Admiral's Resolve | 430 | 430 | 1355 | 1358 |
+| #686 After The Search for Sicard | 430 | 430 | 1356 | 1359 |
+| #687 After On Rough Seas | 430 | 430 | 1355 | 1358 |
+| #688 After The Great Ship Vylbrand | 431 | 431 | 1360 | 1363 |
+| #689 After Futures Rewritten | 434 | 434 | 1367 | 1370 |
+| #690 After Unto the Breach | 434 | 434 | 1373 | 1376 |
+| #691 After Here Be Dragons | 434 | 434 | 1376 | 1379 |
+| #692 After Righteous Indignation | 435 | 435 | 1379 | 1382 |
+| #693 After For Vengeance | 435 | 435 | 1381 | 1384 |
+| #694 After The Flames of War | 435 | 435 | 1386 | 1389 |
+| #695 After When the Dust Settles | 435 | 435 | 1388 | 1391 |
+| #696 After The Company We Keep | 437 | 437 | 1400 | 1403 |
+| #697 After On Official Business | 438 | 438 | 1405 | 1408 |
+| 5.55 Shadowbringers — Patch 5.55 complete | 438 | 438 | 1407 | 1410 |
 
 ## Arcs
 
@@ -2183,6 +2208,300 @@ From #696 *After The Company We Keep* to 5.55 *Shadowbringers — Patch 5.55 com
 | #697 | One Banner for Eorzea | The Forum's envoy to Gridania was Fourchenault, father of Alphinaud and Alisaie, who said Sharlayan will not intervene against the Empire. When the twins defied him, he stripped them of the family name, so the Grand Company of Eorzea faces the Telophoroi alone. Krile found the Forum closed to her, and suspects it hides its concern. | new recap | The Grand Company of Eorzea, Alphinaud, Alisaie, G'raha Tia, Za Da, Kan-E-Senna, Fourchenault, Krile (8) |
 | 5.55 | One Banner for Eorzea | At the Carteneau Flats the Telophoroi, with tempered beastmen and lunar primals, sought an aetherial confluence, but the Grand Company of Eorzea held and drove them off. Fandaniel called it a stay of execution. Arenvald, now in a wheelchair, asked Alphinaud to be the hero he cannot. The towers drain the land itself, and the Scions wait on Krile to seek an answer in Sharlayan. | new recap | The Grand Company of Eorzea, Alphinaud, Alisaie, G'raha Tia, Za Da, Kan-E-Senna, Fourchenault, Krile, Arenvald, Fandaniel (10) |
 
+### Shadows over the Twelveswood (`arc-q1-shadows-over-the-twelveswood`)
+
+From #4 *After Chasing Shadows* to #19 *After To Guard a Guardian*. MSQ #4 *Chasing Shadows* to #19 *To Guard a Guardian*: from the first word of the unknown individual tied to rising Ixali activity (M4a) to the masked mage's fall at the Guardian Tree, where Papalymo names the Ascians (M19h, M19k). #1–#3 are onboarding (cp-msq-1 is the timeline's first step, so no arc may start there). The errands of #5–#7, #9–#11 and #13–#17 sit inside it, each recap keeping the open threads in its first sentence. 16 steps.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #4 | Shadows over the Twelveswood | Ixali activity in the Twelveswood rose sharply with the first sightings of an unknown individual, so Galfrid sent you to Lifemend Stump. There a ritual blade was thrust into the stump beside a dead Ixali chieftain, and in a vision Hydaelyn bade you claim the Crystals of Light. Two scholars you met there, Yda and Papalymo, turned out to be friends of Gridania. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn (5) |
+| #5 | Shadows over the Twelveswood | Ixali activity in the Twelveswood rose with sightings of an unknown individual, and a dead Ixali chieftain lay beside a ritual blade at Lifemend Stump. Standing in for Galfrid's injured men, you gathered chigoe egg sacs: chigoes carry the Creeping Death, and one outbreak once killed a third of Gridania's Hyur. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn (5) |
+| #6 | Shadows over the Twelveswood | Ixali activity in the Twelveswood rose with sightings of an unknown individual, and a dead Ixali chieftain lay beside a ritual blade at Lifemend Stump. You recovered survey gear a startled Twin Adder recruit left in a cave. The Calamity has reshaped the forest, and the conjurer Pauline says its old maps can no longer be trusted. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn (5) |
+| #7 | Shadows over the Twelveswood | Ixali activity in the Twelveswood rose with sightings of an unknown individual, and a dead Ixali chieftain lay beside a ritual blade at Lifemend Stump. Anoles driven down from the mountains have been disturbing the conjurers' communion with the elementals, so you thinned them at Naked Rock and brought an egg back for a soldier's breakfast. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn (5) |
+| #8 | Shadows over the Twelveswood | A towering shadow broke a Hearer's sacred rite at Spirithold, and inside you met a masked mage who loosed a clay golem on you. Yda and Papalymo arrived as you destroyed it, but the mage had eluded them again. Miounne asks that the tale be kept quiet until the Hearers decide, as Ixali activity rises with sightings of a stranger. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #9 | Shadows over the Twelveswood | A masked mage broke a Hearer's rite at Spirithold and eluded Yda and Papalymo, while Ixali activity rises with sightings of a stranger in the Twelveswood. Miounne has sent you on to Bentbranch Meadows, whose farmhands need help with chores around the chocobo ranch. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #10 | Shadows over the Twelveswood | A masked mage broke a Hearer's rite at Spirithold and eluded Yda and Papalymo, while Ixali activity rises with sightings of a stranger in the Twelveswood. At Bentbranch a Qiqirn thief broke a chocobo egg, and on the soldier Roseline's orders you made an example of exactly four Qiqirn scramblers. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #11 | Shadows over the Twelveswood | A masked mage broke a Hearer's rite at Spirithold and eluded Yda and Papalymo, while Ixali activity rises with sightings of a stranger in the Twelveswood. Near the Matron's Lethe you cleared spreading mushrooms from the heavenspillar root, one of the few ways across the Central Shroud since the Calamity all but split it. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #12 | Shadows over the Twelveswood | Ixali activity in the Twelveswood rises with sightings of an unknown individual, and a masked mage broke a Hearer's rite at Spirithold. Now Theodore has spotted a shadowy figure north of the Matron's Lethe, and by a still-warm campfire you found a bag that Roseline believes belongs to a stranger meddling with the chocobos. She has sworn to find this shadow. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #13 | Shadows over the Twelveswood | A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. Carrying Roseline's letter about the stranger, you warned the sentries from the Bannock to the Bentbranch stables, where the guard Bernard is sure the stranger has designs on the ranch. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #14 | Shadows over the Twelveswood | A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. Checking a peddler's tale of winged beasts on the road south of Bentbranch, you found a vulture nest hidden less than twenty yalms from the guard Lothaire's post. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #15 | Shadows over the Twelveswood | A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. The Hearer Leonnie has put off her voyage to stay at the Hedgetree, for the elementals murmur of a malevolent presence near the Tam-Tara Deepcroft. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #16 | Shadows over the Twelveswood | A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. You salvaged the cargo of a wagon a forest beast attacked, and Keitha of Bentbranch, uneasy about bandits in the woods, asks you to stand ready should the ranch need you. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #17 | Shadows over the Twelveswood | A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. When a thief stole a prized egg from Luquelot's stables, you followed him into the Tam-Tara Deepcroft, where a moogle had snatched it back, and returned it. Luquelot has since seen something alarming. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #18 | Shadows over the Twelveswood | A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. Luquelot reports Ixali dirigibles crossing the forest's borders at will and flying over the sacred Guardian Tree, and wonders whether the stranger has done something to the elementals. His letter turned Miounne pale. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne (7) |
+| #19 | Shadows over the Twelveswood | Ixali activity in the Twelveswood rose with sightings of a stranger, and Luquelot's sightings warned that the Ixal had designs on Gridania's sacred Guardian Tree. When they massed there to take its great crystal as an offering to Garuda, you helped repel them and, with Yda and Papalymo, brought down the masked mage commanding them. Papalymo named his kind the Ascians, who have been manipulating the beast tribes. | new recap | Galfrid, The Ixal, Yda, Papalymo, Hydaelyn, The masked mage, Miounne, Lewin, Garuda, The Ascians (10) |
+
+### The Seedseer's Envoy (`arc-q2-seedseers-envoy`)
+
+From #19 *After To Guard a Guardian* to #23 *After Call of the Sea (Gridania)*. MSQ #19 *To Guard a Guardian* to #23 *Call of the Sea (Gridania)*: Kan-E-Senna's invitation to be Emissary (M19t), Greenbliss and the Carteneau vision, the envoy's journey to the Admiral and the General, and the hand-off to Baderon in Limsa Lominsa (M23b). It shares #19 with the first arc, as b2/b3 share #110: at #19 the default is the earlier arc, and the picker offers both.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #19 | The Seedseer's Envoy | After you helped defend Gridania's Guardian Tree from the Ixal and the masked mage who commanded them, the Elder Seedseer Kan-E-Senna came to the Seat of the First Bow to give thanks. She watches over all who call Gridania home, and she has invited you to serve as Emissary in the coming Greenbliss ceremony. | new recap | Kan-E-Senna, Gridania (2) |
+| #20 | The Seedseer's Envoy | Kan-E-Senna, Gridania's Elder Seedseer, chose you as Emissary for the Greenbliss ceremony, a role seldom given to anyone not forestborn. Miounne explained that the Emissary is a bridge between the people and the Twelveswood's guardians, and the timbermaster handed over the Monoa mask, carved from the Guardian Tree's consecrated lumber, with a sinister warning. | new recap | Kan-E-Senna, Gridania, Miounne, Lewin (4) |
+| #21 | The Seedseer's Envoy | As Emissary at Greenbliss, you heard Kan-E-Senna tell of the Warriors of Light, adventurers who fought for Eorzea five years ago and whose names no one can recall. She believes the Crystal has chosen you, and that the Echo resides within you. A vision showed you their last stand at Carteneau, where a hidden voice exulted over Bahamut, before you woke at the Carline Canopy. | new recap | Kan-E-Senna, Gridania, Miounne, Lewin (4) |
+| #22 | The Seedseer's Envoy | After the vision at Greenbliss, Kan-E-Senna made you her envoy, to carry word of a memorial for the fallen of Carteneau to the Alliance's other leaders. Admiral Merlwyb of Limsa Lominsa and General Raubahn of Ul'dah agreed, though both warn that the XIVth Imperial Legion, under Legatus Gaius, waits within Eorzea's borders. Raubahn calls the realm an alliance in name only. | new recap | Kan-E-Senna, Gridania, Miounne, Lewin, The Eorzean Alliance, Merlwyb, Raubahn, Gaius, The Garlean Empire (9) |
+| #23 | The Seedseer's Envoy | As Kan-E-Senna's envoy you carried word of a memorial for the fallen of Carteneau to Admiral Merlwyb and General Raubahn, who both agreed, and learned of the imperial legion entrenched on Eorzea's borders. In Ul'dah, an aide who once traveled with the General told you that Baderon of the Drowning Wench, in Limsa Lominsa, has a dangerous job for a capable adventurer. | new recap | Kan-E-Senna, Gridania, Miounne, Lewin, The Eorzean Alliance, Merlwyb, Raubahn, Gaius, The Garlean Empire, Baderon (10) |
+
+### Trouble at Summerford (`arc-r1-trouble-at-summerford`)
+
+From #2b *After On to Summerford* to #9b *After Just Deserts*. Limsa MSQ #2 *On to Summerford* to #9 *Just Deserts*, with #1 *Close to Home (Limsa Lominsa)* as the chain's baseline. Staelwyrn's farm of ex-pirates, the kidnappings and Sevrin's double life, ending when Sevrin confesses his Serpent Reaver past and Y'shtola ties the Reavers to the Sahagin (M9be, M9bj).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #2b | Trouble at Summerford | Baderon of the Drowning Wench sent you to Summerford Farms, run by his old friend Staelwyrn. A former pirate captain whose ship was lost in the Calamity, Staelwyrn is trying to revive soil the Calamity ruined with farmhands who once sailed as pirates. His botanists despair of training them, and he has asked you to step in. | new recap | Baderon, Staelwyrn, Summerford Farms (3) |
+| #3b | Trouble at Summerford | At Summerford Farms, Baderon's old friend Staelwyrn, a former pirate captain, is reviving fields the Calamity ruined with a crew of ex-pirates. Those ornery buccaneers love the sea and care little for the laws of the land, so he wouldn't hand you work until you were properly kitted out. Now he has work for you. | new recap | Baderon, Staelwyrn, Summerford Farms (3) |
+| #4b | Trouble at Summerford | Citizens are vanishing all over Limsa Lominsa, and Staelwyrn's farmhands blame azure-tattooed men spying on the fields. At Seasong Grotto you met Y'shtola, who found the aetheric disturbance there unnatural, and a vision told you to claim the Crystals of Light. She now believes the kidnappers are pirates, and Staelwyrn suspects they mean to lure his farmhands back to plunder. | new recap | Baderon, Staelwyrn, Summerford Farms, Y'shtola (4) |
+| #5b | Trouble at Summerford | Citizens are vanishing across Limsa Lominsa, and Staelwyrn suspects pirates of luring his ex-pirate farmhands back to plunder. When his yeomen wandered off you rounded up all five, but Sevrin, whom Staelwyrn blames for the idleness, slipped away again, as he has many times before. | new recap | Baderon, Staelwyrn, Summerford Farms, Y'shtola, Sevrin (5) |
+| #6b | Trouble at Summerford | Staelwyrn fears pirates are luring his farmhands back to plunder. Sevrin, the yeoman who keeps slipping away, stole a sack of oranges to sell to goblins, and when the deal went wrong he left his mates in trouble. You saved them, and Staelwyrn warns that a man who would leave his own mates for dead might do anything. | new recap | Baderon, Staelwyrn, Summerford Farms, Y'shtola, Sevrin (5) |
+| #7b | Trouble at Summerford | Staelwyrn fears pirates are luring his farmhands back to plunder, and Sevrin, who abandoned his mates over a goblin deal, is not to be trusted. Meanwhile you fetched blackloam from an aurochs' lair, the Cookpot, for the barren fields of Tiller's Rest, where Pfrewahl now expects a bountiful harvest. | new recap | Baderon, Staelwyrn, Summerford Farms, Y'shtola, Sevrin (5) |
+| #8b | Trouble at Summerford | Pirates of the Serpent Reavers stole farm tools from Tiller's Rest to melt into axes, and you took them back. Pfrewahl says he saw Sevrin, the Summerford yeoman who abandoned his mates, meeting the thieves in secret. Summerford Farms is safe for now, but Staelwyrn swears Sevrin's treachery won't go unpunished. | new recap | Baderon, Staelwyrn, Summerford Farms, Y'shtola, Sevrin, The Serpent Reavers (6) |
+| #9b | Trouble at Summerford | Sevrin led his mates into a trap, where you saved them and fought a masked mage's clay golem. He confessed that he deserted the Serpent Reavers and meant to trade his mates for his freedom, but couldn't. Y'shtola says the tattooed Reavers serve the Sahagin, and wonders whether the tribes mean to summon their primals. Sevrin will give himself up to the Yellowjackets. | new recap | Baderon, Staelwyrn, Summerford Farms, Y'shtola, Sevrin, The Serpent Reavers, The Sahagin, The Yellowjackets (8) |
+
+### Rebuilding La Noscea (`arc-r2-rebuilding-la-noscea`)
+
+From #10b *After Sky-high* to #15b *After Righting the Shipwright*. Limsa MSQ #10 *Sky-high* to #15 *Righting the Shipwright*: the post-Calamity restoration jobs (the Skylift, Swiftperch, the Brewer's Beacon) that lead to the Victory at the Moraby Drydocks, ending when Fyrilsmyd is found and Ahtbyrm first suspects the Sahagin (M15bd).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #10b | Rebuilding La Noscea | La Noscea is rebuilding after the Calamity. Baderon sent you to the Skylift, scaffolding on the Descent where a huge dragon's blast once split the ground in half. It is swamped with cargo for the restoration, and its head, Wyrkrhit, has odd jobs for you. | new recap | Baderon (1) |
+| #11b | Rebuilding La Noscea | La Noscea is rebuilding after the Calamity. When a creature burst from a millioncorn seedling bound from the Skylift and its driver fled, you recovered the seedling for Lyulf at Swiftperch, who has gambled his whole fortune on corn to bring hope back to the desolate settlement. | new recap | Baderon (1) |
+| #12b | Rebuilding La Noscea | La Noscea is rebuilding after the Calamity. At Swiftperch, the Yellowjacket Fraeloef sent you to the Brewer's Beacon, whose light was failing because the bomb fueling its furnace had escaped. The keeper made a makeshift repair, but Forgemaster H'naanza wonders whether something else made the furnace fail. | new recap | Baderon, The Yellowjackets (2) |
+| #13b | Rebuilding La Noscea | La Noscea is rebuilding after the Calamity. Forgemaster H'naanza sent you to the Moraby Drydocks, where the head shipwright, Ahtbyrm, is building the Victory: the first new ship there since the Calamity and the start of restoring the Maelstrom's fleet. Delayed materials infuriate him, but he has work for you. | new recap | Baderon, The Yellowjackets, Ahtbyrm, The Maelstrom (4) |
+| #14b | Rebuilding La Noscea | At the Moraby Drydocks, the head shipwright Ahtbyrm is building the Victory to restore the Maelstrom's fleet, but materials keep running late. His shipwright Fyrilsmyd vanished on a supply run, and Ahtbyrm sent you to press Haldbroda at Candlekeep Quay. Haldbroda swears he knows nothing, and the young man may have been caught in a wreck off the Salt Strand. | new recap | Baderon, The Yellowjackets, Ahtbyrm, The Maelstrom (4) |
+| #15b | Rebuilding La Noscea | Ahtbyrm is building the Victory at the Moraby Drydocks to restore the Maelstrom's fleet. You found his missing shipwright, Fyrilsmyd, alive on the Salt Strand after his boat was flung into a Lominsan galley, and won back the ship's lost cargo from Qiqirn beachcombers. Ahtbyrm suspects the Sahagin conjured the trouble. | new recap | Baderon, The Yellowjackets, Ahtbyrm, The Maelstrom, The Sahagin (5) |
+
+### The Drydocks Plot (`arc-r3-the-drydocks-plot`)
+
+From #16b *After Do Angry Pirates Dream* to #19b *After Feint and Strike*. Limsa MSQ #16 *Do Angry Pirates Dream* to #19 *Feint and Strike*: the pirate plot against the Victory, Ahtzapfyn, Baderon's decoding and the Reavers' assault on Swiftperch, ending with the first named Ascian and Merlwyb's invitation (M19bh, M19bn). Its cast is exactly 10; Merlwyb enters the next arc instead.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #16b | The Drydocks Plot | Ghimthota, head of the Moraby Drydocks watch, believes pirates camped on the Gods' Grip mean to sabotage the Victory, the warship Ahtbyrm is building. Posing as a lost adventurer, you learned they truly are pirates, perhaps plotting a kidnapping: one wants his boy back. Ghimthota wonders whether the Victory was ever their target, and has stepped up patrols. | new recap | Ghimthota, Ahtbyrm (2) |
+| #17b | The Drydocks Plot | Pirates with explosives struck the Moraby Drydocks to destroy the Victory, and you fought them off. Their leader, Ahtzapfyn, is the shipwright Ahtbyrm's father, and calls the ship a symbol of everything that went wrong with the world; Mamool Ja mercenaries fought beside him. The captured pirates went to the Yellowjackets. | new recap | Ghimthota, Ahtbyrm, Ahtzapfyn, The Yellowjackets (4) |
+| #18b | The Drydocks Plot | Pirates led by Ahtzapfyn, the shipwright Ahtbyrm's own father, tried to destroy the Victory at the Moraby Drydocks. Among Ahtzapfyn's belongings was a missive in code, so Ghimthota sent you to Baderon, whose connections the Yellowjackets rely on. Having read it, a worried Baderon says trouble is brewing. | new recap | Ghimthota, Ahtbyrm, Ahtzapfyn, The Yellowjackets, Baderon (5) |
+| #19b | The Drydocks Plot | Baderon decoded the pirates' missive: the attack on the Victory was a distraction, and the Serpent Reavers, in league with the Sahagin, were after Swiftperch. While the Sahagin assaulted South Tidegate, you helped the Yellowjackets drive the Reavers off, and Y'shtola named the masked mage behind them an Ascian. Admiral Merlwyb has thanked you and invited you to a feast. | new recap | Ghimthota, Ahtbyrm, Ahtzapfyn, The Yellowjackets, Baderon, The Serpent Reavers, The Sahagin, Y'shtola, The Ascians, Reyner (10) |
+
+### The Admiral's Honor (`arc-r4-the-admirals-honor`)
+
+From #20b *After High Society* to #22b *After The Lominsan Envoy*. Limsa MSQ #20 *High Society* to #22 *The Lominsan Envoy*: the Admiral's feast, the Crystal of Light and the Carteneau vision, and the envoy run to Gridania and Ul'dah. The chain ends here: Limsa starters go on to the shared Call of the Sea at cp-msq-23.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #20b | The Admiral's Honor | After you saved Swiftperch from the Serpent Reavers, Admiral Merlwyb invited you to a feast, an honor Commodore Reyner says even her own officers rarely receive. To look the part, you collected a box from J'nasshym at the Octant, and Baderon presented the dress shoes inside, a gift from him and everyone you have helped. | new recap | Merlwyb, Reyner, Baderon (3) |
+| #21b | The Admiral's Honor | At Admiral Merlwyb's feast, Y'shtola recognized your crystal as one of the Crystals of Light, and Merlwyb named you the vessel of the Mothercrystal, Hydaelyn. Her tale of the lost Warriors of Light brought on a vision of the Battle of Carteneau, where a voice proclaimed that the planet would regain its true form. You woke at the Drowning Wench, and Merlwyb has a task for you. | new recap | Merlwyb, Reyner, Baderon, Y'shtola, Hydaelyn (5) |
+| #22b | The Admiral's Honor | Admiral Merlwyb made you her envoy, carrying letters that propose memorials on the fifth anniversary of Carteneau. In Gridania, Kan-E-Senna told how Bahamut rose from Dalamud and burned Eorzea, and approved; in Ul'dah, Raubahn warned that the XIVth Imperial Legion is entrenched in a divided realm, and agreed. Meanwhile, in an imperial castrum, a commander vowed Garlean rule over Eorzea. | new recap | Merlwyb, Reyner, Baderon, Y'shtola, Hydaelyn, Kan-E-Senna, Raubahn, Gaius, The Eorzean Alliance, The Garlean Empire (10) |
+
+### A Newcomer in Ul'dah (`arc-s1-a-newcomer-in-uldah`)
+
+From #1c *After Close to Home (Ul'dah)* to #7c *After Out of House and Home*. Ul'dah MSQ #1 *Close to Home (Ul'dah)* to #7 *Out of House and Home*: Momodi's first tasks, Papashan's Dispatch Yard, the runaway Lady Lilira at the Sultantree (where Thancred and the Crystal vision first appear) and the Stone Torches' ore route (M7cb). It stops before #8, where Lolorito's trap opens the chain's first real conflict.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #1c | A Newcomer in Ul'dah | You have arrived in Ul'dah, where countless companies and consortia keep their base. Momodi, proprietress of the Quicksand, set you three tasks to learn the basics of adventuring, among them a visit to the Sapphire Avenue Exchange, Ul'dah's busiest and most profitable market. Her parting advice: explore with a purpose. | new recap | Ul'dah, Momodi (2) |
+| #2c | A Newcomer in Ul'dah | Momodi of the Quicksand sent you beyond Ul'dah's wall, warning of the dangers there, to Papashan, stationmaster of the Ul'dah Dispatch Yard. Five years after the Calamity, he says, places beyond the lines of supply still want for relief, and he has work suited to your ability. | new recap | Ul'dah, Momodi, Papashan (3) |
+| #3c | A Newcomer in Ul'dah | Papashan, stationmaster of the Ul'dah Dispatch Yard, sent you with twilight pretzels for the Sultansworn sentries posted to guard the area. Each had nothing to report, and that news alarmed him. Something else is plainly on his mind, and he has asked you to stay, for there is more he would ask of you. | new recap | Ul'dah, Momodi, Papashan, The Sultansworn (4) |
+| #4c | A Newcomer in Ul'dah | Papashan's errand was a cover: he and the Sultansworn were quietly searching for Lady Lilira, a young noblewoman who ran away from home. You found her at the Sultantree, where voidsent attacked and a stranger helped you protect her. A vision followed, bidding you claim the Crystals of Light. Papashan named the stranger as Thancred, a scholar of the aether. | new recap | Ul'dah, Momodi, Papashan, The Sultansworn, Lilira, Thancred (6) |
+| #5c | A Newcomer in Ul'dah | Thancred, a scholar of the aether, helped you protect the runaway Lady Lilira from voidsent at the Sultantree, and a vision bade you claim the Crystals of Light. Back at work in Thanalan, you carried a pumpkin from Cicidoa, who is waiting on a late shipment from the Nanawa Mines, to Roger of the Coffer & Coffin, settling an old debt of gratitude. | new recap | Ul'dah, Momodi, Papashan, The Sultansworn, Lilira, Thancred (6) |
+| #6c | A Newcomer in Ul'dah | Taking work around Thanalan, you carried a pumpkin to Roger of the Coffer & Coffin, repaying an old debt of gratitude, and Roger sent you on to Warin of the Stone Torches. They are sellswords hired by Amajina & Sons Mineral Concern, and their main duty is to keep its tracks clear of pests. | new recap | Ul'dah, Momodi, Papashan, The Sultansworn, Lilira, Thancred (6) |
+| #7c | A Newcomer in Ul'dah | For Warin of the Stone Torches, sellswords who guard Amajina & Sons Mineral Concern, you purged a tunnel of the coblyns that were attacking ore wagons. Disrupted shipments, he says, threaten Ul'dah itself: he likens the tracks to veins that bear the nation's lifeblood. | new recap | Ul'dah, Momodi, Papashan, The Sultansworn, Lilira, Thancred (6) |
+
+### Ore and Gil (`arc-s2-ore-and-gil`)
+
+From #8c *After Way Down in the Hole* to #19c *After Secrets and Lies*. Ul'dah MSQ #8 *Way Down in the Hole* to #19 *Secrets and Lies*: Lolorito's trap for Wystan, Dadanen's lost Nashachite, Lost Hope and the Brass Blades of the Rose, ending when Baldewyn's papers yield the letter to Owyne (M19ca). Ore and gems run through it, from the Sil'dih vein to the stolen Nashachite. #19 belongs here rather than to the crown arc, whose name would reveal #20's theft a step early.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #8c | Ore and Gil | Wystan, a self-made merchant from Stonesthrow, took Brass Blades along to claim a rumored ore vein under the ruins of Sil'dih, but the vein was a trap set by Lord Lolorito of the Syndicate. The Brass Blades turned on him, a masked mage loosed a clay golem, and you slew it just before Thancred arrived. Wystan is finished in Ul'dah, but Momodi says no one knows your part. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi (5) |
+| #9c | Ore and Gil | Lord Lolorito, who owns the Brass Blades and sits on the Syndicate, set a deadly trap for Wystan, a rival merchant, and Wystan is finished in Ul'dah. Momodi, who keeps your part in it quiet, has sent you to Dadanen, a merchant in Horizon, a trading settlement that takes in goods from Vesper Bay. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen (6) |
+| #10c | Ore and Gil | In Horizon, a trading settlement in Thanalan, the merchant Dadanen is out of premium stock, and his man Drunken Stag went silent after leaving for Copperbell Mines. You found him there: the mines are closed after an incident in the depths, and he can do nothing. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen (6) |
+| #11c | Ore and Gil | In Horizon, a trading settlement in Thanalan, the merchant Dadanen faces ruin for want of stock, because Copperbell Mines closed after an incident in the depths. Strange coblyns, hungry only for good stone, drove his man Drunken Stag off his haul of Nashachite, and you won back what little they had not eaten. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen (6) |
+| #12c | Ore and Gil | In Horizon, a trading settlement in Thanalan, the Brass Blades pay for help keeping the roads clear, and you thinned the sun midge swarms for them. Fufulupa, a Brass Blade there, thanked you and asked you to trace his letter to Captain Leofric at Lost Hope: never before has a reply taken so long. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric (8) |
+| #13c | Ore and Gil | Carrying Fufulupa's letter from Horizon in place of a courier whose chocobo was hurt, you reached Lost Hope. There Leofric, a Brass Blade demoted though Fufulupa still calls him Captain, says everyone at Lost Hope has been forsaken, and warned you not to linger with Ul'dah's unwanted. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric (8) |
+| #14c | Ore and Gil | At Lost Hope, which suffers despite Ul'dah's growing prosperity, the demoted Brass Blade Leofric sent you against outlaws in the Quiveron Manse. Their leader styled himself heir to Eolande Quiveron, a Syndicate member who died in the Calamity, and he is now dead. Leofric says the Brass Blades of the Rose must look to others. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric (8) |
+| #15c | Ore and Gil | Leofric of Lost Hope, too hurt to travel, sent an antique dagger to Fufulupa in Horizon by your hand, after saying the Brass Blades of the Rose must look to others. Only a captain may carry it, and Fufulupa, thinking himself unworthy, keeps it safe until Leofric reclaims it. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric (8) |
+| #16c | Ore and Gil | Fufulupa, the Horizon Brass Blade who keeps Leofric's captain's dagger, worries for thaumaturges from the Ossuary surveying the Footfalls for relics: Captain Baldewyn sent only a handful of guards. At the ruins Totoruna turned your help away, saying Baldewyn wants trusted men only, and that the work has nothing to do with Fufulupa. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric, Baldewyn (9) |
+| #17c | Ore and Gil | Captain Baldewyn of Horizon keeps his Footfalls survey to trusted men, and turned away Fufulupa's offer of help. Now he is planning festivities for the visiting thaumaturges, but Raffe, the fisherman you asked for their fish, was oddly nervous about the captain's request. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric, Baldewyn (9) |
+| #18c | Ore and Gil | Bandits from the Quiveron Manse came to the Footfalls for Nashachite stolen from Copperbell Mines, and their partner was Captain Baldewyn, who claimed Lord Lolorito's authority. You defeated him and the new self-styled baron, who vowed revenge for his brother. Leofric says Baldewyn acted alone, and Fufulupa is now acting captain. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric, Baldewyn (9) |
+| #19c | Ore and Gil | Captain Baldewyn of Horizon, caught dealing with bandits in stolen Nashachite, has been stripped of his rank, and Fufulupa is acting captain. Among Baldewyn's papers Fufulupa found a sealed letter to Owyne of the Sultansworn. Momodi swears Owyne is loyal, yet she has her own suspicions, and asked you to swear secrecy. | new recap | Wystan, Lolorito, The Brass Blades, The Syndicate, Momodi, Dadanen, Fufulupa, Leofric, Baldewyn, Owyne (10) |
+
+### The Sultana's Crown (`arc-s3-the-sultanas-crown`)
+
+From #20c *After Duty, Honor, Country* to #22c *After A Royal Reception*. Ul'dah MSQ #20 *Duty, Honor, Country* to #22 *A Royal Reception*: the stolen crown, the Ascian mage, Nanamo's invitation and the feast, ending when Raubahn says he has work for you (M22ci). The page's "banquet" is called a feast (reserved term).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #20c | The Sultana's Crown | Ul'dah's royal crown was stolen, and Owyne, the Sultansworn who guarded it, paid the thieves' ransom. It was the Traders' Spurn, which the thieves called the power to raise an army of undying soldiers. With Papashan and the Sultansworn you beat them, and Thancred helped you defeat their master, a masked mage called an Ascian. Sultana Nanamo thanked you in person and invited you to her feast as her guest of honor. | new recap | Owyne, Momodi, Papashan, The Sultansworn, The Ascians, Thancred, Nanamo, Raubahn (8) |
+| #21c | The Sultana's Crown | With Papashan, Thancred and the Sultansworn, you recovered Ul'dah's stolen crown and defeated the masked mage behind the theft, called an Ascian. Owyne calls Sultana Nanamo's invitation to her feast unprecedented for an adventurer, and Momodi has entrusted you with the ceremonial earrings that guests must wear to enter. | new recap | Owyne, Momodi, Papashan, The Sultansworn, The Ascians, Thancred, Nanamo, Raubahn (8) |
+| #22c | The Sultana's Crown | At her feast, Sultana Nanamo named you Ul'dah's champion. Raubahn spoke of children starving under the Syndicate's grip, and of the Warriors of Light, lost at Carteneau five years ago, whom you resemble. His tale brought on a vision of that battle's last moments. You woke at the Hourglass, and the Flame General has work for you. | new recap | Owyne, Momodi, Papashan, The Sultansworn, The Ascians, Thancred, Nanamo, Raubahn, The Syndicate (9) |
+
+### The Flame General's Envoy (`arc-s4-the-flame-generals-envoy`)
+
+From #23b *After The Ul'dahn Envoy* to #24 *After Call of the Sea (Ul'dah)*. Ul'dah MSQ #23 *The Ul'dahn Envoy* and #24 *Call of the Sea (Ul'dah)*: Raubahn's envoy to Merlwyb and Kan-E-Senna, and the handoff to Baderon (M24a), where the three chains converge on *It's Probably Pirates*. Named so as not to reuse #23's title.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #23b | The Flame General's Envoy | Raubahn made you his envoy to the other leaders of the Eorzean Alliance, proposing a memorial for the fifth anniversary of Carteneau. Admiral Merlwyb of Limsa Lominsa and Elder Seedseer Kan-E-Senna of Gridania agreed. Both warn that the Empire's XIVth Legion under Gaius is entrenched at Eorzea's borders, and that the beast tribes still summon primals. | new recap | Raubahn, The Eorzean Alliance, Merlwyb, Kan-E-Senna, Gaius, The Garlean Empire, The Immortal Flames (7) |
+| #24 | The Flame General's Envoy | As the Flame General's envoy you carried his proposal of a Carteneau memorial to Limsa Lominsa and Gridania, and both leaders agreed. Now a Serpent officer has sent you on to Baderon, proprietor of the Drowning Wench in Limsa Lominsa, who needs a capable adventurer and warns the job is dangerous. | new recap | Raubahn, The Eorzean Alliance, Merlwyb, Kan-E-Senna, Gaius, The Garlean Empire, The Immortal Flames, Baderon (8) |
+
+### The Adventurer of the Moment (`arc-t1-adventurer-of-the-moment`)
+
+From #25 *After It's Probably Pirates* to #30 *After The Scions of the Seventh Dawn*. MSQ #25 *It's Probably Pirates* to #30 *The Scions of the Seventh Dawn*: the converged Adventurers' Guild jobs in all three city-states (Sastasha, the Tam-Tara Deepcroft, Copperbell Mines), ending when the Scions take you in (M30b). The name is Momodi's word for you via Miounne (M28c).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #25 | The Adventurer of the Moment | Baderon of the Drowning Wench in Limsa Lominsa sent you to the Sastasha Seagrot, where the Yellowjackets feared pirates were gathering. You found the Serpent Reavers and their Sahagin masters using its caves as a base. Baderon then passed you a job from the Adventurers' Guild in Gridania. | new recap | Baderon, The Serpent Reavers, The Sahagin, The Adventurers' Guild (4) |
+| #26 | The Adventurer of the Moment | After you uncovered the Serpent Reavers' base in the Sastasha Seagrot, Baderon sent you on to Gridania. There Miounne, proprietress of the Carline Canopy, speaks for the Adventurers' Guild, and she has a task for you with a fair bit to tell. | new recap | Baderon, The Serpent Reavers, The Sahagin, The Adventurers' Guild, Miounne (5) |
+| #27 | The Adventurer of the Moment | Work for the Adventurers' Guild has taken you from Limsa Lominsa to Gridania. For Miounne you broke up the Lambs of Dalamud, a doomsday cult that blames Eorzeans for the lesser moon's destruction, in the Tam-Tara Deepcroft. She worries that adventurers are dying as the unprepared take on jobs beyond them, and has passed you on to Ul'dah. | new recap | Baderon, The Serpent Reavers, The Sahagin, The Adventurers' Guild, Miounne, The Lambs of Dalamud (6) |
+| #28 | The Adventurer of the Moment | For the Adventurers' Guild you have cleared pirates from Sastasha in La Noscea and a doomsday cult from the Tam-Tara Deepcroft in the Twelveswood. Now Miounne has sent you to Ul'dah, praising you to Momodi of the Quicksand as the adventurer of the moment, and warning that Momodi's task will likely be dangerous. | new recap | Baderon, The Serpent Reavers, The Sahagin, The Adventurers' Guild, Miounne, The Lambs of Dalamud, Momodi (7) |
+| #29 | The Adventurer of the Moment | Momodi of the Quicksand sent you into Copperbell Mines, reopened to supply Ul'dah's rebuilding, where giants that miners of old had sealed in its depths were wreaking havoc. You subdued them, so mining can resume and Ul'dah will have the materials it needs to rebuild. Miounne's adventurer of the moment has now proved useful in all three city-states. | new recap | Baderon, The Serpent Reavers, The Sahagin, The Adventurers' Guild, Miounne, The Lambs of Dalamud, Momodi (7) |
+| #30 | The Adventurer of the Moment | Your deeds for the Adventurers' Guild drew the notice of the Scions of the Seventh Dawn, who are headquartered at the Waking Sands in Vesper Bay and stand above politics. Their leader, Minfilia, shares your gift, the Echo, which lets you hear the past within another's soul. She believes it is the key to the primal threat, and has given you the order's password. | new recap | Baderon, The Serpent Reavers, The Sahagin, The Adventurers' Guild, Miounne, The Lambs of Dalamud, Momodi, Minfilia, The Scions of the Seventh Dawn (9) |
+
+### The Drybone Vanishings (`arc-t2-drybone-vanishings`)
+
+From #31 *After A Wild Rose by Any Other Name* to #39 *After Lord of the Inferno*. MSQ #31 *A Wild Rose by Any Other Name* to #39 *Lord of the Inferno*: the Scions' first mission, from the caravan robbery and disappearances to Ifrit's fall (M39d). Its name avoids #39's title, which may not appear before #39.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #31 | The Drybone Vanishings | You pledged yourself to the Scions of the Seventh Dawn and met their leading members. Your first task is a crystal caravan robbery and a wave of disappearances near Ul'dah; the evidence points to the Amalj'aa, worshipers of the primal Ifrit. Thancred sent you to Isembard, the de facto leader of Camp Drybone, who has offered his full cooperation. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia (5) |
+| #32 | The Drybone Vanishings | The Scions suspect a primal behind a crystal robbery and a wave of disappearances near Ul'dah. At Camp Drybone you recovered the bodies of churchgoers the Amalj'aa butchered, so Isembard could bury them. He doubts the Amalj'aa act alone in the vanishings, and wonders who else has a hand in them. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia (5) |
+| #33 | The Drybone Vanishings | Isembard of Camp Drybone doubts the Amalj'aa alone are behind the vanishings around the camp. He sent you to Ungust, a Drybone-born merchant who recognized you as the adventurer who once threatened him in Ul'dah. Ungust waves the disappearances away, and the frightened commonfolk say little; Isembard thinks they trust only their gods. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust (6) |
+| #34 | The Drybone Vanishings | The search for whoever is helping the Amalj'aa with the Drybone vanishings led you to the Church of Saint Adama Landama. Its lichkeeper, Marques, knew little, and Sister Ourcen, the commonfolk's confidante, had heard nothing useful. Thancred has joined the hunt: he suspects Ourcen, to Isembard's dismay, and swears he has seen Marques's face before. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust, Ourcen, Marques (8) |
+| #35 | The Drybone Vanishings | Thancred suspects Sister Ourcen, who hears the commonfolk's confessions, of a hand in the Drybone vanishings, but Isembard refuses to believe it. When she went out alone to find an orphan's lost ring, you saved her from undead soldiers. Isembard is now more certain than ever of her innocence. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust, Ourcen, Marques (8) |
+| #36 | The Drybone Vanishings | Searching an Amalj'aa camp near Drybone for Thancred, you found a leaflet offering the poor work. Sister Ourcen said it was not of her Order's making, and that garments had gone missing from the church. Thancred reasons that whoever is behind the vanishings is posing as a priest, and has withdrawn to plan. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust, Ourcen, Marques (8) |
+| #37 | The Drybone Vanishings | Posing as vagrants, you and Thancred drew out the false priest behind the Drybone vanishings at a commune of the poor north of Sandgate. He was Ungust, who confessed to luring people to the Amalj'aa and selling them crystal shipment schedules. Only the Amalj'aa know where the abductees were taken, and Minfilia says a clash with them is inevitable. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust, Ourcen, Marques (8) |
+| #38 | The Drybone Vanishings | Ungust, the false priest of Drybone, confessed to handing the poor he lured to the Amalj'aa, and only the Amalj'aa know where they were taken. While a clash with them looms, Minfilia, who seeks a peaceful answer to the primals but wants you ready to fight, sent you to a goblin scholar to learn how materia can strengthen your gear. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust, Ourcen, Marques (8) |
+| #39 | The Drybone Vanishings | To find the abductees, the Immortal Flames set an ambush for the Amalj'aa with Ungust as bait, and Minfilia sent you as the Scions' representative. A traitor in the Flames' ranks gave you away, and you woke as an offering to the primal Ifrit. Immune to him through the Echo, you struck him down, but his tempered victims must be put to death. | new recap | Thancred, Isembard, The Amalj'aa, Ifrit, Minfilia, Ungust, Ourcen, Marques, The Immortal Flames (9) |
+
+### Choosing a Grand Company (`arc-t3-choosing-a-grand-company`)
+
+From #40 *After A Hero in the Making* to #42c *After Wood's Will Be Done*. MSQ #40 *A Hero in the Making* to #42c *Wood's Will Be Done*: the remembrance services and the three mutually exclusive Grand Company pairs, which run one after another. Each pair's recap names only its own company and cites only its own pages.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #40 | Choosing a Grand Company | Word of how you bested Ifrit has brought officers of all three Grand Companies to the Waking Sands to court you. At the remembrance services, Kan-E-Senna, Raubahn and Merlwyb each spoke of their city-state's troubles, while the twins Alphinaud and Alisaie looked on. Now you must choose a company and give your answer to its officer. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder (8) |
+| #41 | Choosing a Grand Company | Officers of all three Grand Companies came to the Waking Sands to court Ifrit's bane, and you heard each company's leader at the remembrance services. You chose the Immortal Flames of Ul'dah. Your induction at the Hall of Flames was cut short by an imperial attack on an airship near Horizon's Edge, and you helped drive off the soldiers trying to seize it, saving its crew, Biggs and Wedge, engineers of the Ironworks. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder, Biggs, Wedge (10) |
+| #42 | Choosing a Grand Company | You chose the Immortal Flames, Ul'dah's Grand Company, and after rescuing two Ironworks engineers from imperial soldiers you swore its oath, forsaking all other nations. Back at the Waking Sands, Minfilia announced that the engineers, Biggs and Wedge, are now under the Scions' protection: as a neutral party, the Scions will keep their airship technology. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder, Biggs, Wedge (10) |
+| #41b | Choosing a Grand Company | Officers of all three Grand Companies came to the Waking Sands to court Ifrit's bane, and you heard each company's leader at the remembrance services. You chose the Maelstrom of Limsa Lominsa. Your induction at Maelstrom Command was cut short by an imperial attack on an airship in Cedarwood, and you helped drive off the soldiers trying to seize it, saving its crew, Biggs and Wedge, engineers of the Ironworks. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder, Biggs, Wedge (10) |
+| #42b | Choosing a Grand Company | You chose the Maelstrom, Limsa Lominsa's Grand Company, and after rescuing two Ironworks engineers from imperial soldiers you were sworn in as a storm private third class. Back at the Waking Sands, Minfilia announced that the engineers, Biggs and Wedge, are now under the Scions' protection: as a neutral party, the Scions will keep their airship technology. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder, Biggs, Wedge (10) |
+| #41c | Choosing a Grand Company | Officers of all three Grand Companies came to the Waking Sands to court Ifrit's bane, and you heard each company's leader at the remembrance services. You chose the Order of the Twin Adder of Gridania. Your induction at the Adders' Nest was cut short by an imperial attack on an airship southeast of Nine Ivies, and you helped drive off the soldiers trying to seize it, saving its crew, Biggs and Wedge, engineers of the Ironworks. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder, Biggs, Wedge (10) |
+| #42c | Choosing a Grand Company | You chose the Order of the Twin Adder, Gridania's Grand Company, and after rescuing two Ironworks engineers from imperial soldiers you were sworn into its ranks. Back at the Waking Sands, Minfilia announced that the engineers, Biggs and Wedge, are now under the Scions' protection: as a neutral party, the Scions will keep their airship technology. | new recap | Alphinaud, Alisaie, Kan-E-Senna, Raubahn, Merlwyb, The Immortal Flames, The Maelstrom, The Order of the Twin Adder, Biggs, Wedge (10) |
+
+### Envoys to the Sylphs (`arc-t4-envoys-to-the-sylphs`)
+
+From #43 *After Sylph-management* to #51 *After Brotherly Love*. MSQ #43 *Sylph-management* to #51 *Brotherly Love*: the Scions' liaison to the sylphs of Little Solace, ending when Komuxio trusts you and the elder is still out of reach (M51f).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #43 | Envoys to the Sylphs | Minfilia has asked you to learn the intentions of the sylphs, a beast tribe of the Twelveswood that worships the primal Ramuh. Yda and Papalymo, who studied them for the Order of the Twin Adder, will help you. The sylphs seem no longer to summon Ramuh, and winning their favor could ease the primal threat while Gridania fends off Garuda. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder (7) |
+| #44 | Envoys to the Sylphs | The Scions hope to win the favor of the sylphs, who worship the primal Ramuh. Commander Vorsaile of the Twin Adder cannot decide whether to strike at Ramuh or leave the sylphs in peace, so he has asked the Scions to act as an impartial liaison. In the East Shroud, you were told the sylphs have been wary since the Empire came to the Shroud. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder (7) |
+| #45 | Envoys to the Sylphs | Commander Vorsaile of the Twin Adder has asked the Scions to serve as an impartial liaison to the sylphs, whose ties to the primal Ramuh worry Gridania. At the Hawthorne Hut, the old beekeeper Rolfe struggled to recall the sylphs' customs, but with help from those he had told his stories, he remembered their traditional greeting: a dance. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder (7) |
+| #46 | Envoys to the Sylphs | As Gridania's impartial liaison to the sylphs, you are learning their customs from Rolfe, a beekeeper at the Hawthorne Hut. Dancing is their traditional greeting, and they dislike guests who arrive empty-handed. His wife Rosa named the gift they love, milkroot from an ochu, and you have fetched some. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder (7) |
+| #47 | Envoys to the Sylphs | Carrying milkroot and a letter from the Elder Seedseer vouching for Gridania's envoy, you reached the sylphs of Little Solace and danced their greeting. Komuxio accepted the gifts but called them a trick and refused you an audience with the elder, and Papalymo thinks recent events have left the sylphs wary. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder, Komuxio (8) |
+| #48 | Envoys to the Sylphs | As envoys for Gridania and the Scions, you are trying to win the trust of the wary sylphs of Little Solace. Komuxio refused you an audience with their elder, so at Yda's urging you danced for the villagers instead. Your dancing brought smiles to all of Little Solace, though whether it won their hearts remains to be seen. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder, Komuxio (8) |
+| #49 | Envoys to the Sylphs | Komuxio of Little Solace refused you, Gridania's envoy, an audience with the sylph elder. Papalymo urged you to help the sylphs, who were driven from their woodland home and live in a settlement without defenses. You cleared the beasts that troubled them, and Komuxio admits he may have been wrong not to trust you. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder, Komuxio (8) |
+| #50 | Envoys to the Sylphs | The sylphs of Little Solace are slowly warming to you, Gridania's envoy. Komuxio sent you to look into strangers seen in the forest, and you fought off imperial soldiers guarding a cache of supplies. Their log was written by someone who knows the forest, which suggests a traitor; Komuxio made you promise to stay a friend to the sylphs. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder, Komuxio, The Garlean Empire (9) |
+| #51 | Envoys to the Sylphs | Komuxio of Little Solace now trusts you without reserve. His friend Claxio had wandered off, fearing the sylphs of Little Solace were forgetting who they are, and you, Yda and Papalymo saved him from sylphs tempered by Ramuh, who exist only to serve the primal. Whether the sylph elder will be as accepting remains to be seen. | new recap | Minfilia, Yda, Papalymo, Vorsaile, The sylphs, Ramuh, The Order of the Twin Adder, Komuxio, The Garlean Empire (9) |
+
+### The Missing Elder (`arc-t5-the-missing-elder`)
+
+From #52 *After Spirited Away* to #61 *After Believe in Your Sylph*. MSQ #52 *Spirited Away* to #61 *Believe in Your Sylph*: the search for the elder, Buscarron's errands, the Wood Wailer traitor, Toto-Rak and the peace with Gridania (M61h). Buscarron's Teteroon errands (#54–#56) stay inside the arc with a shared opening.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #52 | The Missing Elder | Komuxio confessed that the elder of the sylphs of Little Solace went into the forest and has not come back. Commander Vorsaile, fearing a crisis if the tempered sylphs take him, has his Serpents watching, and the Wood Wailers have pledged their help. Buscarron, whose tavern in the South Shroud stands near where the elder vanished, will listen for news. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs (6) |
+| #53 | The Missing Elder | The elder of the sylphs of Little Solace is missing, and the Twin Adder and the Wood Wailers are searching. Buscarron, whose tavern in the South Shroud stands near where the elder vanished, has no news yet. Meanwhile you cooled a brawl at his door, for he serves any who pay and behave. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs (6) |
+| #54 | The Missing Elder | The elder of the sylphs of Little Solace has gone missing, and Commander Vorsaile fears a crisis if the tempered sylphs take him. Buscarron of the South Shroud is listening for news. Meanwhile he had you return an earring to Teteroon, a Qiqirn he found fallen in the Shroud after the Calamity and nursed back to health, who now trades on Bronze Lake. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs (6) |
+| #55 | The Missing Elder | The elder of the sylphs of Little Solace has gone missing, and Commander Vorsaile fears a crisis if the tempered sylphs take him. Buscarron of the South Shroud is listening for news. You found Teteroon, a Qiqirn Buscarron nursed back to health after the Calamity, and he is brewing firewater to thank the man without whom he would be dead. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs (6) |
+| #56 | The Missing Elder | The elder of the sylphs of Little Solace has gone missing, and Commander Vorsaile fears a crisis if the tempered sylphs take him. Buscarron of the South Shroud is listening for news. You brought him firewater from Teteroon, the Qiqirn he once nursed back to health. He is delighted, though the gift should age a full year. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs (6) |
+| #57 | The Missing Elder | Sylphs have been seen in a part of the Twelveswood beyond their lands, and Buscarron thinks the missing elder of Little Solace is likely among them. Surveying the area for him, you found Garlean soldiers, who had never before reached the forest depths. Buscarron reasons that a Gridanian traitor who knows the Wood Wailers' spires must be guiding them. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs, The Garlean Empire (7) |
+| #58 | The Missing Elder | Searching for the missing sylph elder, you found Garlean soldiers deep in the Twelveswood, guided by a traitor. Buscarron suspected Laurentius, a newly rich Wood Wailer; after you beat the imperials, Laurentius confessed to selling maps and rations to the Empire and went to give himself up to the Twin Adder. Then Buscarron brought news: the elder has been found. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs, The Garlean Empire, Laurentius (8) |
+| #59 | The Missing Elder | Fleeing Garlean soldiers, Frixio, the elder of the sylphs of Little Solace, went into the Thousand Maws of Toto-Rak; had he come to harm, the hope of peace between man and sylph would have died. Inside you met the Ascian Lahabrea, who loosed a gigantic banemite on you. You found Frixio shaken but unharmed, and he has agreed to speak with you about Ramuh. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs, The Garlean Empire, Laurentius, Lahabrea, Ramuh (10) |
+| #60 | The Missing Elder | You rescued Frixio, elder of the sylphs of Little Solace, from the Thousand Maws of Toto-Rak, and peace between man and sylph is within reach. Buscarron, who believes the two peoples must stand together now that the Calamity has weakened the elementals, sent the sylphs a peace offering, and it moved them. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs, The Garlean Empire, Laurentius, Lahabrea, Ramuh (10) |
+| #61 | The Missing Elder | Frixio told you that some sylphs summoned Ramuh to protect the wood from imperial soldiers, against his wishes, and that all who took part were tempered; he fled to Little Solace with those who refused. You watched the tempered sylphs without incident and carried his letter to Commander Vorsaile, who is relieved that the sylphs want no conflict. | new recap | The sylph elder, Komuxio, Vorsaile, The Wood Wailers, Buscarron, The sylphs, The Garlean Empire, Laurentius, Lahabrea, Ramuh (10) |
+
+### The Masked Man (`arc-u1-the-masked-man`)
+
+From #62 *After Back from the Wood* to #65 *After Where There Is Smoke*. MSQ #62 *Back from the Wood* to #65 *Where There Is Smoke*. Minfilia first hears of Lahabrea (M62d) and sets you on him; the trail runs through Swift and Hihibaru to a bandit's Rhalgr scroll, which ties the masked stranger to the Ala Mhigans (M65d). The next arc starts where that lead sends you.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #62 | The Masked Man | With the sylph dispute settled, Gridania credits the Scions' mediation, and the sylph Noraxia has come to the Waking Sands as a friend. Then Minfilia heard of a man named Lahabrea, red-masked and robed in black. The Ascians hid before the Calamity, and fearing that they now act openly, she has set you to learn all you can of him. | new recap | Minfilia, Lahabrea, The Ascians (3) |
+| #63 | The Masked Man | Minfilia has set you to uncover the motives of Lahabrea, a masked Ascian, fearing his kind are behind the chaos racking the realm. The Immortal Flames answered her call: Flame Commander Swift told you a Brass Blade at Highbridge saw the masked stranger before Qiqirn killed him, and sent you to Hihibaru, a merchant there. | new recap | Minfilia, Lahabrea, The Ascians, The Immortal Flames, Flame Commander Swift, Hihibaru (6) |
+| #64 | The Masked Man | You are hunting Lahabrea, the masked Ascian whom Minfilia fears is behind the realm's troubles. At Highbridge, where beastman raids keep travelers away, the merchants offered only rumors that he has been seen across Thanalan. Hihibaru suspects someone is orchestrating the Qiqirn raids, and has promised to watch for your quarry. | new recap | Minfilia, Lahabrea, The Ascians, The Immortal Flames, Flame Commander Swift, Hihibaru (6) |
+| #65 | The Masked Man | You are hunting Lahabrea, the masked Ascian whom Minfilia fears is behind the realm's troubles. Hihibaru saw a masked man meeting beastmen in secret, so you lit a fire of your own, and it drew an armed bandit. His scroll bears the mark of Rhalgr, guardian of Ala Mhigo, a land the Empire rules: Lahabrea seems tied to the Ala Mhigans. | new recap | Minfilia, Lahabrea, The Ascians, The Immortal Flames, Flame Commander Swift, Hihibaru, The Garlean Empire (7) |
+
+### The Refugees' Trust (`arc-u2-the-refugees-trust`)
+
+From #66 *After On to Little Ala Mhigo* to #73 *After Come Highly Recommended*. MSQ #66 *On to Little Ala Mhigo* to #73 *Come Highly Recommended*: Gundobald turns you away (M66c), and the Quarrymill detour with Haribehrt, Meffrid and Gallien earns the letter that wins him over (M73c). Gallien, Albreda, Charline and Buscarron are named without entries (one-quest roles).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #66 | The Refugees' Trust | The trail of Lahabrea, the masked Ascian, points to the Ala Mhigans. Hihibaru sent you to Little Ala Mhigo, a lawless refugee settlement where his daughter Hihira lives. She knew nothing of the masked stranger, and the settlement's leader, Gundobald, turned you away. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo (4) |
+| #67 | The Refugees' Trust | Seeking Lahabrea among the Ala Mhigans, you were turned away by Gundobald, leader of Little Ala Mhigo. Gisilbehrt of the Immortal Flames, head of security there, sent you to his lookouts, and one saw a masked figure talking with Ala Mhigans. The refugees trust no one but themselves, and you will need their cooperation. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo (4) |
+| #68 | The Refugees' Trust | Lahabrea seems tied to Little Ala Mhigo, but its refugees trust only their own. Their leader, Gundobald, belongs to the Ala Mhigan Resistance, and only a respected compatriot's word will win you a hearing. At the Waking Sands, Minfilia offered to introduce you to an Ala Mhigan among the Scions. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo, The Ala Mhigan Resistance, Minfilia (6) |
+| #69 | The Refugees' Trust | To win the trust of Little Ala Mhigo, whose leader Gundobald belongs to the Ala Mhigan Resistance, you need a compatriot to vouch for you. The Scion Haribehrt left the Resistance and is shunned by his old comrades, but sent you to Albreda at Quarrymill. Angry at his name, she pointed you to Meffrid, a captain of the Resistance. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo, The Ala Mhigan Resistance, Minfilia, Haribehrt, Meffrid (8) |
+| #70 | The Refugees' Trust | You are seeking the trust of the Ala Mhigan Resistance, whose member Gundobald leads Little Ala Mhigo. At Quarrymill, Meffrid's comrade Gallien has a festering wound, and the villagers refused to help even when Meffrid begged. Their Hearer, Charline, denied the petition, saying the right belongs only to the elementals. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo, The Ala Mhigan Resistance, Minfilia, Haribehrt, Meffrid (8) |
+| #71 | The Refugees' Trust | You are seeking the trust of the Ala Mhigan Resistance, whose member Gundobald leads Little Ala Mhigo. With Quarrymill refusing aid, Meffrid tried an old Ala Mhigan remedy of antelope horn, and the tavern keeper Buscarron made the medicine. Gallien's chances have improved, and Meffrid's brothers are starting to trust you. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo, The Ala Mhigan Resistance, Minfilia, Haribehrt, Meffrid (8) |
+| #72 | The Refugees' Trust | You are seeking the trust of the Ala Mhigan Resistance, whose member Gundobald leads Little Ala Mhigo. The wounded Gallien slipped away from Quarrymill so as not to burden his comrades, and you tracked him down. Meffrid reminded him of their oath to set foot on Ala Mhigan soil again together or not at all, and Gallien is expected to recover. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo, The Ala Mhigan Resistance, Minfilia, Haribehrt, Meffrid (8) |
+| #73 | The Refugees' Trust | For your help with his wounded comrade, Meffrid gave you a letter of introduction to Gundobald, the leader of Little Ala Mhigo, who mentored him in the Resistance. Gundobald has cast aside his mistrust and offered you his friendship. He knows of the masked stranger you seek, and will tell you what he can. | new recap | Lahabrea, Hihibaru, Gundobald, Little Ala Mhigo, The Ala Mhigan Resistance, Minfilia, Haribehrt, Meffrid (8) |
+
+### The Youngbloods of Little Ala Mhigo (`arc-u3-youngbloods-of-little-ala-mhigo`)
+
+From #74 *After The Bear and the Young'uns' Cares* to #77 *After Back to Square One*. MSQ #74 to #77 *Back to Square One*: Wilred's band and the failed attempt to summon Rhalgr, ending when the lead is exhausted and Minfilia reads it as Ascian deception (M77a, M77b). Its name avoids the plot's reveal at #76.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #74 | The Youngbloods of Little Ala Mhigo | Gundobald, leader of Little Ala Mhigo, now trusts you, and says some of the settlement's youngbloods are meeting the masked stranger in secret. The youths' reactions suggest something is afoot, and Lahabrea may be involved. Gundobald, who once rose with his brothers against Ala Mhigo's despot only to see it fall to the Empire, fears they will commit some great folly. | new recap | Gundobald, Little Ala Mhigo, Lahabrea, Ala Mhigo (4) |
+| #75 | The Youngbloods of Little Ala Mhigo | Some of Little Ala Mhigo's youths have been meeting the masked stranger in secret. Their leader, Wilred, lured you into an ambush, and when you overpowered his band he boasted that they will obtain the power to bring down the Empire and reclaim their homeland. He slipped away, and Gundobald fears the young fools will harm others, if not themselves. | new recap | Gundobald, Little Ala Mhigo, Lahabrea, Wilred, The Garlean Empire, Ala Mhigo (6) |
+| #76 | The Youngbloods of Little Ala Mhigo | Wilred and his friends, youths of Little Ala Mhigo, set out to steal crystals from an Amalj'aa stronghold and summon Rhalgr, guardian of their lost homeland, but you stopped them. Wilred admitted that the masked stranger gave them the idea, promising it would let them defeat the Empire. Gundobald told him he owes his life to you. | new recap | Gundobald, Little Ala Mhigo, Lahabrea, Wilred, The Garlean Empire, Ala Mhigo (6) |
+| #77 | The Youngbloods of Little Ala Mhigo | A masked stranger, perhaps Lahabrea, set youths of Little Ala Mhigo on summoning Rhalgr, and you thwarted their plot. Gundobald has nothing more to tell you. Back at the Waking Sands, Minfilia sees in it the kind of deception the Ascians would use, believes a malign will is behind some of the land's ills, and has promised to look further. | new recap | Gundobald, Little Ala Mhigo, Lahabrea, Wilred, The Garlean Empire, Ala Mhigo, Minfilia, The Ascians (8) |
+
+### Murders in the Shroud (`arc-u4-murders-in-the-shroud`)
+
+From #78 *After Terror at Fallgourd* to #84 *After Skeletons in Her Closet*. MSQ #78 *Terror at Fallgourd* to #84 *Skeletons in Her Closet*, including both #80 paths (*Seeing Eye to Winged Eye* and *Rock of Rancor*, both needed for #82). Each #80 recap uses only its own quest and earlier ones, so it reads true in either order. It ends with the two Ascians in Haukke Manor (M84d).
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #78 | Murders in the Shroud | Someone fitting Lahabrea's description has been seen in the North Shroud, in the wake of a series of mysterious deaths. The sylph Noraxia sent you to Medrod, a miner at Fallgourd Float, who saw a masked man with a winged creature that was all eyeball and teeth. His friends Aideen and Ivaurault have offered to help. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault (6) |
+| #79 | Murders in the Shroud | A masked man, perhaps Lahabrea, was seen in the North Shroud with a winged eyeball, amid a spate of mysterious deaths. At Fallgourd Float, Aideen told you the victims' faces were torn to shreds, which folk blame on the ziz. You culled three and found nothing, so she has turned back to the masked stranger and his winged eyeball. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault (6) |
+| #80 | Murders in the Shroud | A masked man, perhaps Lahabrea, was seen in the North Shroud with a winged eyeball, amid deaths that left the victims' faces torn to shreds. Ivaurault confessed that he too saw the eyeball, at the same moment as Medrod. Where he saw it, a monstrous banemite attacked you instead, and he now wonders whether he imagined it. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault (6) |
+| #80b | Murders in the Shroud | A masked man, perhaps Lahabrea, was seen in the North Shroud with a winged eyeball, amid deaths that left the victims' faces torn to shreds. Aideen learned that every victim has been a comely maiden, and a rumor said their rancor went into a rock. You blasted it apart, but its flashes came from ordinary crystals, nothing to do with the masked stranger. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault (6) |
+| #82 | Murders in the Shroud | Mysterious deaths in the North Shroud follow sightings of a masked man and a winged eyeball, and every victim has been a comely maiden. Ivaurault is sure of what he saw, and the friends at Fallgourd Float have left the case to you. You found another body, and Aethelmaer found on it a button engraved with a lily, like one from an earlier victim. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault (6) |
+| #83 | Murders in the Shroud | Mysterious deaths in the North Shroud follow sightings of a masked man and a winged eyeball. Aethelmaer gave you a lily button found on two victims, the best lead yet. In Gridania, Ursandel knew the sigil as the Dartancours family's, and will tell the truth of the murders if you promise to end his lady's madness. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault, Ursandel (7) |
+| #84 | Murders in the Shroud | Ursandel told you how Lady Amandine of the Dartancours, disfigured in the Calamity, held rites of rejuvenation that spilled maiden blood, urged on by masked men. You defeated her in Haukke Manor. Then two masked Ascians appeared, said they had come to measure your strength for Master Lahabrea, and vanished; Minfilia is sure the Ascians have begun to move in earnest. | new recap | Lahabrea, Minfilia, Noraxia, Medrod, Aideen, Ivaurault, Ursandel, Amandine, The Ascians (9) |
+
+### Titan Reawakened (`arc-u5-titan-reawakened`)
+
+From #85 *After Wrath of the Titan* to #89 *After Nix That*. MSQ #85 *Wrath of the Titan* to #89 *Nix That*: the Maelstrom's request (M85a), Trachtoum's false claim and Wheiskaet's first test. It stops before #90 so that the feast, which runs straight into the accepted Road to Titan (#103), is one arc.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #85 | Titan Reawakened | A tribe of kobolds near Limsa Lominsa has summoned Titan again, and the Maelstrom has asked the Scions to slay the primal. Admiral Merlwyb pledged her full support, though she owned that the Lominsans broke their pact with the beastmen. The only force known to have bested Titan, the Company of Heroes, has disbanded, so Y'shtola sent you to find a former member, Trachtoum. | new recap | Titan, The kobolds, The Maelstrom, Merlwyb, Minfilia, Y'shtola, The Company of Heroes, Trachtoum (8) |
+| #86 | Titan Reawakened | The kobolds have summoned Titan, and the Scions have agreed to slay him with the Maelstrom's support. To learn how the Company of Heroes once beat him, you found Trachtoum, a marauder at the Grey Fleet mills who boasts of serving with it. He would share the Company's secret strategy only if you cleared a rats' nest, which turned out to be his own chore. | new recap | Titan, The kobolds, The Maelstrom, Merlwyb, Minfilia, Y'shtola, The Company of Heroes, Trachtoum (8) |
+| #87 | Titan Reawakened | The kobolds have summoned Titan, and the Scions have agreed to slay him with the Maelstrom's support. Trachtoum, who boasts of serving with the Company of Heroes, the band that once beat Titan, doubts you can face a primal. You slew a goobbue that was harassing the millers, but even that did not earn his confidence. | new recap | Titan, The kobolds, The Maelstrom, Merlwyb, Minfilia, Y'shtola, The Company of Heroes, Trachtoum (8) |
+| #88 | Titan Reawakened | The kobolds have summoned Titan, and the Scions mean to slay him. Trachtoum confessed he was never in the Company of Heroes, and sent you to Wheiskaet, one of its former captains, at Costa del Sol. Wheiskaet says Titan took some of the Company's best, and won't send you into O'Ghomoro on a whim; Y'shtola has left you to meet his conditions alone. | new recap | Titan, The kobolds, The Maelstrom, Merlwyb, Minfilia, Y'shtola, The Company of Heroes, Trachtoum, Wheiskaet (9) |
+| #89 | Titan Reawakened | The Scions mean to slay Titan, whom the kobolds have summoned, but they lack the knowledge of how to enter his lair, and Wheiskaet, a former captain of the Company of Heroes, holds it. A former employee who lied about serving in the Company has made him wary of strangers. You passed his simple test by slaying a nix, and he is ready to set you a real challenge. | new recap | Titan, The kobolds, The Maelstrom, Merlwyb, Minfilia, Y'shtola, The Company of Heroes, Trachtoum, Wheiskaet (9) |
+
+### A Feast at Costa del Sol (`arc-u6-a-feast-at-costa-del-sol`)
+
+From #90 *After A Modest Proposal* to #101 *After Battle Scars*. MSQ #90 *A Modest Proposal* to #101 *Battle Scars*: the ingredient hunt through the Company's veterans and Shamani's search for wine, with Drest's story (#99–#101). #102 stays the baseline of the accepted content, whose first arc (#103) opens on the same feast. 10 cast members, the cap.
+
+| Step | Arc name | Recap | Recap status | Cast at this step |
+|---|---|---|---|---|
+| #90 | A Feast at Costa del Sol | Wheiskaet, a former captain of the Company of Heroes, knows how to reach Titan's lair, but first wants proof of your worth. Master Gegeruju, whose estates he guards, will welcome two distinguished visitors to Costa del Sol with an elaborate feast, and you are to gather its ingredients, guided by the Company's old mercenaries. Landenel, at Camp Tranquil, told you how to take a giant adamantoise's egg. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel (5) |
+| #91 | A Feast at Costa del Sol | To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol. Landenel, who keeps his time with the Company of Heroes a secret, was sure you would die taking a giant adamantoise's egg, but you claimed it. He sent you on to U'odh Nunh at Forgotten Springs, who refuses to help. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh (6) |
+| #92 | A Feast at Costa del Sol | To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol, and Landenel has the first. U'odh Nunh, who joined the Company of Heroes to hone his skills, would not aid a stranger. You lured out and slew an Amalj'aa veteran, and he will now tell you the second ingredient. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh (6) |
+| #93 | A Feast at Costa del Sol | To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol. You have the adamantoise egg, and at U'odh Nunh's suggestion you baited and slew a Wellwick worm for its meat, which he will send to Wheiskaet. He does not know where the third ingredient is. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh (6) |
+| #94 | A Feast at Costa del Sol | To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol, and two are on their way. You carried a bottle of brandewine from U'odh Nunh, once a reckless young recruit in the Company of Heroes, to his old captain. Wheiskaet was surprised and touched, and one ingredient remains. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh (6) |
+| #95 | A Feast at Costa del Sol | To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol. The last was to come from Brayflox, Wheiskaet's former quartermaster, but a dragon had driven her goblins from their lands. You slew it and brought Wheiskaet her goblin cheese, though he won't say how it is made. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox (7) |
+| #96 | A Feast at Costa del Sol | You have gathered an egg, worm meat and goblin cheese for Master Gegeruju's feast at Costa del Sol, but Wheiskaet still keeps Titan's secrets. Now he wants the finest wine, and sent you to Shamani, a former member of the Company of Heroes and a vintner at Wineport. Shamani, who has lost his sight, read the order by its smell. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox, Shamani (8) |
+| #97 | A Feast at Costa del Sol | Wheiskaet still keeps Titan's secrets until you bring the finest wine for Master Gegeruju's feast at Costa del Sol. Shamani, a blind former mercenary of the Company of Heroes turned vintner, says only Byrglaent, who owns the largest winery in Vylbrand, has wine good enough. Byrglaent refused, offering goobbue urine instead. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox, Shamani, Byrglaent (9) |
+| #98 | A Feast at Costa del Sol | Wheiskaet still keeps Titan's secrets until you bring the finest wine for Master Gegeruju's feast. Shamani sent you looking for Bacchus wine, but the Calamity destroyed most of it and Wineport's vignerons have none. Shamani told you Titan blinded him beneath O'Ghomoro, and that Bacchus wine pulled him from despair and made him a vintner. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox, Shamani, Byrglaent (9) |
+| #99 | A Feast at Costa del Sol | Wheiskaet still keeps Titan's secrets until you bring the finest wine for Master Gegeruju's feast. Shamani, who cannot bear to disappoint his former captain, swore to find one, and sent his own wine to Drest, the man who once nursed him back to health. You found Drest living alone at the Severed String, nervous and plainly unwell. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox, Shamani, Byrglaent, Drest (10) |
+| #100 | A Feast at Costa del Sol | While Shamani seeks a wine fit for Master Gegeruju's feast, you took his gift to Drest, the hermit who once nursed him back to health. After you cleared the midges that kept him from sleep, Drest confessed that he is an imperial deserter, though not Garlean, and the only survivor of his unit. He toils in secret, hoping one day to go home. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox, Shamani, Byrglaent, Drest (10) |
+| #101 | A Feast at Costa del Sol | Shamani is still seeking a wine fit for Master Gegeruju's feast, which Wheiskaet demands before he will tell you how to reach Titan. Drest, the imperial deserter who once nursed Shamani back to health, is calmer now, and sent him palm wine in thanks. Shamani sees in Drest a man who, like himself, struggles not to let his scars define him. | new recap | Wheiskaet, Gegeruju, Titan, The Company of Heroes, Landenel, U'odh Nunh, Brayflox, Shamani, Byrglaent, Drest (10) |
+
 ## Portraits
 
 Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).
@@ -2546,11 +2865,204 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Towers Rise | Quest illustration, Futures Rewritten (MSQ #689) | 101040 | 0.8, 0.5, 1.0 |
 | Tiamat's Atonement | Quest illustration, For Vengeance (MSQ #693) | 101057 | 0.25, 0.5, 1.0 |
 | One Banner for Eorzea | Quest illustration, The Company We Keep (MSQ #696) | 101059 | 0.55, 0.5, 1.0 |
+| Shadows over the Twelveswood | Quest illustration, Chasing Shadows (MSQ #4) | 100064 | 0.42, 0.5, 1.0 |
+| The Seedseer's Envoy | Quest illustration, Renewing the Covenant (MSQ #21) | 100066 | 0.52, 0.5, 1.0 |
+| Miounne | Triple Triad card #30 | 87030 | 0.5, 0.4, 0.75 |
+| Galfrid | none: keeps its category shape | – | – |
+| Lewin | none: keeps its category shape | – | – |
+| The masked mage | none: keeps its category shape | – | – |
+| Baderon | Quest illustration, Close to Home (Limsa Lominsa) (MSQ #1b) | 100079 | 0.38, 0.5, 1.0 |
+| The Order of the Twin Adder | none: keeps its category shape | – | – |
+| Gridania | none: keeps its category shape | – | – |
+| Limsa Lominsa | none: keeps its category shape | – | – |
+| Ul'dah | none: keeps its category shape | – | – |
+| Trouble at Summerford | Quest illustration, Lurkers in the Grotto (MSQ #4b) | 100080 | 0.62, 0.5, 1.0 |
+| Rebuilding La Noscea | Quest illustration, Just Deserts (MSQ #9b) | 100094 | 0.45, 0.5, 1.0 |
+| The Drydocks Plot | Quest illustration, Victory in Peril (MSQ #17b) | 100096 | 0.5, 0.5, 1.0 |
+| The Admiral's Honor | Quest illustration, A Mizzenmast Repast (MSQ #21b) | 100082 | 0.48, 0.5, 1.0 |
+| Staelwyrn | Quest illustration, Lurkers in the Grotto (MSQ #4b) | 100080 | 0.8, 0.5, 1.0 |
+| Sevrin | none: keeps its category shape | – | – |
+| Ahtbyrm | none: keeps its category shape | – | – |
+| Ahtzapfyn | none: keeps its category shape | – | – |
+| Ghimthota | none: keeps its category shape | – | – |
+| Reyner | none: keeps its category shape | – | – |
+| The Yellowjackets | none: keeps its category shape | – | – |
+| Summerford Farms | none: keeps its category shape | – | – |
+| A Newcomer in Ul'dah | Quest illustration, Close to Home (Ul'dah) (MSQ #1c) | 100087 | 0.5, 0.5, 1.0 |
+| Ore and Gil | Quest illustration, Way Down in the Hole (MSQ #8c) | 100046 | 0.42, 0.5, 1.0 |
+| The Sultana's Crown | Quest illustration, A Royal Reception (MSQ #22c) | 100090 | 0.48, 0.5, 1.0 |
+| The Flame General's Envoy | Quest illustration, The Ul'dahn Envoy (MSQ #23c) | 100091 | 0.45, 0.5, 1.0 |
+| Momodi | Triple Triad card #28 | 87028 | 0.5, 0.4, 0.75 |
+| Papashan | none: keeps its category shape | – | – |
+| Lilira | none: keeps its category shape | – | – |
+| The Sultansworn | none: keeps its category shape | – | – |
+| Wystan | none: keeps its category shape | – | – |
+| The Brass Blades | none: keeps its category shape | – | – |
+| Dadanen | none: keeps its category shape | – | – |
+| Fufulupa | none: keeps its category shape | – | – |
+| Leofric | none: keeps its category shape | – | – |
+| Baldewyn | none: keeps its category shape | – | – |
+| Owyne | none: keeps its category shape | – | – |
+| The Adventurer of the Moment | Quest illustration, It's Probably Pirates (MSQ #25) | 100070 | 0.62, 0.5, 1.0 |
+| The Drybone Vanishings | Quest illustration, A Wild Rose by Any Other Name (MSQ #31) | 100074 | 0.38, 0.5, 1.0 |
+| Choosing a Grand Company | Quest illustration, For Coin and Country (MSQ #42) | 100093 | 0.48, 0.5, 1.0 |
+| Envoys to the Sylphs | Quest illustration, Sylph-management (MSQ #43) | 100157 | 0.3, 0.5, 1.0 |
+| The Missing Elder | Quest illustration, Brotherly Love (MSQ #51) | 100113 | 0.25, 0.5, 1.0 |
+| The Adventurers' Guild | none: keeps its category shape | – | – |
+| The Lambs of Dalamud | none: keeps its category shape | – | – |
+| Isembard | none: keeps its category shape | – | – |
+| Ungust | none: keeps its category shape | – | – |
+| Ourcen | none: keeps its category shape | – | – |
+| Ifrit | Triple Triad card #40 | 87040 | 0.5, 0.4, 0.75 |
+| Vorsaile | none: keeps its category shape | – | – |
+| Komuxio | none: keeps its category shape | – | – |
+| The sylph elder | Triple Triad card #35 | 87035 | 0.5, 0.4, 0.75 |
+| Buscarron | Quest illustration, Spirited Away (MSQ #52) | 100114 | 0.62, 0.5, 1.0 |
+| Laurentius | none: keeps its category shape | – | – |
+| The Wood Wailers | none: keeps its category shape | – | – |
+| The Masked Man | Quest illustration, Shadow of Darkness (MSQ #63) | 100118 | 0.5, 0.5, 1.0 |
+| The Refugees' Trust | Quest illustration, On to Little Ala Mhigo (MSQ #66) | 100120 | 0.52, 0.5, 1.0 |
+| The Youngbloods of Little Ala Mhigo | Quest illustration, Big Trouble in Little Ala Mhigo (MSQ #76) | 100123 | 0.45, 0.5, 1.0 |
+| Murders in the Shroud | Quest illustration, Terror at Fallgourd (MSQ #78) | 100125 | 0.5, 0.5, 1.0 |
+| Titan Reawakened | Quest illustration, Wrath of the Titan (MSQ #85) | 100158 | 0.5, 0.5, 1.0 |
+| A Feast at Costa del Sol | none: keeps its category shape | – | – |
+| Flame Commander Swift | none: keeps its category shape | – | – |
+| Hihibaru | none: keeps its category shape | – | – |
+| Gundobald | Quest illustration, On to Little Ala Mhigo (MSQ #66) | 100120 | 0.52, 0.5, 1.0 |
+| Haribehrt | none: keeps its category shape | – | – |
+| Medrod | none: keeps its category shape | – | – |
+| Aideen | none: keeps its category shape | – | – |
+| Ivaurault | none: keeps its category shape | – | – |
+| Ursandel | none: keeps its category shape | – | – |
+| Amandine | none: keeps its category shape | – | – |
+| Trachtoum | none: keeps its category shape | – | – |
+| Wheiskaet | Quest illustration, The Lominsan Way (MSQ #88) | 100128 | 0.5, 0.5, 1.0 |
+| Gegeruju | none: keeps its category shape | – | – |
+| Landenel | none: keeps its category shape | – | – |
+| U'odh Nunh | none: keeps its category shape | – | – |
+| Brayflox | none: keeps its category shape | – | – |
+| Shamani | none: keeps its category shape | – | – |
+| Byrglaent | none: keeps its category shape | – | – |
+| Drest | none: keeps its category shape | – | – |
+| Little Ala Mhigo | none: keeps its category shape | – | – |
 | Ala Mhigo | Duty art, Ala Mhigo | 112231 | 0.5, 0.5, 1.0 |
 
 ## Entities
 
 ### Minfilia (`char-minfilia`, character)
+
+**#30–#38 · main**
+
+> Leader of the Scions of the Seventh Dawn, who welcomed you at the Waking Sands. Like you, she has the Echo, and she believes it is the key to dealing with the primals, a bane upon Eorzea.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M30b** Minfilia believes your Echo is the key to the primal problem facing Eorzea. *The Scions of the Seventh Dawn* (2.0, main): "who expresses her belief that your power─[[the Echo]]─is the key to solving the [[primal]] problem facing Eorzea."
+  - **M30d** Minfilia calls the primals a bane upon Eorzea and the world. *The Scions of the Seventh Dawn* (2.0, main): "Their existence is a bane upon Eorzea─nay, the world at large, and we have striven to find a lasting solution to the threat they pose."
+
+</details>
+
+**#39–#42c · main**
+
+> Leader of the Scions of the Seventh Dawn, who has the Echo. She sent you to an Immortal Flames ambush as the Scions' representative, and after you struck down Ifrit she told you that those with the Echo are immune to a primal's influence. She seeks a peaceful answer to the primals, but wants the Scions ready to fight.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Lord of the Inferno — main scenario quest (2.0); Life, Materia and Everything — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M39a** The Immortal Flames plan to capture Amalj'aa with Ungust as bait, and you go as the Scions' representative. *Lord of the Inferno* (2.0, main): "the Immortal Flames have devised a plan to capture [[Amalj'aa]], using the false priest [[Ungust]] as bait. Minfilia bids you take part in the operation as [[The Scions of the Seventh Dawn|the Scions]]' representative."
+  - **M39g** Those with the Echo are immune to primal influence. *Lord of the Inferno* (2.0, main): "We know not the why of it, but those blessed with the Echo are immune to primal influence."
+  - **M38a** Minfilia seeks a peaceful solution to the primal problem, but wants the Scions ready to fight. *Life, Materia and Everything* (2.0, main): "Though we seek a peaceful solution to the primal problem, we must needs be ready to fight for our cause."
+
+</details>
+
+**#43–#61 · main**
+
+> Leader of the Scions of the Seventh Dawn, who has the Echo. She has asked you to learn the sylphs' intentions with the Echo, hoping their favor will bring the Scions closer to mitigating the primal threat.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M43a** Minfilia asks you to learn the sylphs' intentions with the Echo, reporting first to Commander Vorsaile at the Adders' Nest. *Sylph-management* (2.0, main): "Minfilia would have you ascertain the [[Sylph Daily Quests|sylph tribe]]'s intentions, aided by the power of [[the Echo]]. Before making contact with the diminutive [[beastmen]], report to Commander [[Vorsaile Heuloix]] at [[the Adders' Nest]] in [[Gridania]]."
+  - **M43f** Winning the sylphs' favor may bring the Scions closer to mitigating the primal threat. *Sylph-management* (2.0, main): "Winning the sylphs' favor may well bring us a step closer to mitigating the threat of the primals."
+
+</details>
+
+**#62–#76 · main**
+
+> Leader of the Scions of the Seventh Dawn, who has the Echo. She is glad to see the Scions' family keep growing, but alarmed that the Ascians, who stayed hidden before the Calamity, now seem to act openly. She has set you to learn all you can of a red-masked man named Lahabrea.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M62h** Minfilia is glad to see the Scions' family keep growing. *Back from the Wood* (2.0, main): "But it takes all kinds to make a family, and it pleases me to no end to see ours continue to grow."
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M62d** Minfilia hears of a man named Lahabrea, in a red mask and black robes. *Back from the Wood* (2.0, main): "A man named Lahabrea, sporting a red mask and robed in black...?"
+  - **M62f** Minfilia means to use the lull in primal hostilities to learn all she can of Lahabrea and his designs. *Back from the Wood* (2.0, main): "We must take advantage of the present lull in primal hostilities and investigate this Lahabrea─learn all we can of him and his designs."
+
+</details>
+
+**#77–#83 · main**
+
+> Leader of the Scions of the Seventh Dawn, who has the Echo. She has set you to investigate the Ascian Lahabrea, and in the plot at Little Ala Mhigo she sees the kind of deception the Ascians would use. She believes some of the land's ills are brought about by a malign will, and has promised to look further.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Shadow of Darkness — main scenario quest (2.0); Back to Square One — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M77b** Minfilia sees Ascian deception in the plot. *Back to Square One* (2.0, main): "Precisely the kind of deception the Ascians would employ..."
+  - **M77c** Minfilia believes some of the land's ills come from a malign will. *Back to Square One* (2.0, main): "While many of the ills that ail the land can be attributed to the Calamity, some are being brought about by a malign will."
+  - **M77d** Minfilia promises to look further into the matter. *Back to Square One* (2.0, main): "Thanking you for your efforts, she promises to look further into the matter."
+
+</details>
+
+**#84 only · main**
+
+> Leader of the Scions of the Seventh Dawn, who has the Echo. After two of Lahabrea's minions took your measure in Haukke Manor, she is sure the Ascians have begun to move in earnest, and means to urge the three nations to heighten their vigil.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Skeletons in Her Closet — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M84d** The two Ascians came to take your measure for Master Lahabrea, and then leave. *Skeletons in Her Closet* (2.0, main): "we came here not to play, but to take the measure of your strength for Master Lahabrea."
+  - **M84g** Minfilia is sure the Ascians have begun to move in earnest, to what end she cannot say. *Skeletons in Her Closet* (2.0, main): "It is beyond doubt, then─the Ascians have begun to move in earnest. Would that we knew to what end."
+  - **M84h** Minfilia will urge the three nations to heighten their vigil. *Skeletons in Her Closet* (2.0, main): "We must needs alert the three nations to the presence of this elusive enemy, and recommend that they heighten their vigil."
+
+</details>
+
+**#85–#101 · main**
+
+> Leader of the Scions of the Seventh Dawn, who has the Echo. When the Maelstrom asked the Scions to slay Titan, she pledged the order's full support and sent Y'shtola with you to Limsa Lominsa. She has also warned the three nations to heighten their vigil against the Ascians.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Wrath of the Titan — main scenario quest (2.0); Skeletons in Her Closet — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85j** Minfilia pledges the Scions' full support. *Wrath of the Titan* (2.0, main): "You may count on the full support of the Scions of the Seventh Dawn."
+  - **M85g** Minfilia sends Y'shtola with you. *Wrath of the Titan* (2.0, main): "May I ask that of you, Y'shtola? … I never thought it in question."
+  - **M84h** Minfilia will urge the three nations to heighten their vigil. *Skeletons in Her Closet* (2.0, main): "We must needs alert the three nations to the presence of this elusive enemy, and recommend that they heighten their vigil."
+
+</details>
 
 **#102–#105 · main**
 
@@ -3146,6 +3658,107 @@ Sources shown: Crossing Paths — main scenario quest (5.0)
 </details>
 
 ### Thancred (`char-thancred`, character)
+
+**#4c–#7c · main**
+
+> A scholar who researches the aether, and who helped protect Lady Lilira when voidsent attacked at the Sultantree. He blames an aetheric disturbance.
+
+Sources shown: Underneath the Sultantree — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4cg** Papashan names the stranger as Thancred, a scholar researching the aether. *Underneath the Sultantree* (2.0, main): "Papashan explains that the young man was most likely [[Thancred]], a scholar conducting research on aether-related subjects."
+  - **M4cd** At the Sultantree voidsent attack, and you and a stranger protect Lilira together. *Underneath the Sultantree* (2.0, main): "Moments later, voidsent attack, forcing you to work together to protect Lady Lilira."
+  - **M4cf** The stranger blames an aetheric disturbance, as though the dead were watching. *Underneath the Sultantree* (2.0, main): "It isn't safe for anyone─not with this aetheric disturbance... It's as though the dead are watching us..."
+
+</details>
+
+**#8c–#19c · main**
+
+> A scholar surveying the flow of aether in Thanalan, whose colleagues gave him the means to detect aetheric disturbances. He warns that Lord Lolorito, who sanctioned a deadly trap for the merchant Wystan, is not a man to be trifled with.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8ch** Thancred calls himself a scholar surveying the flow of aether in Thanalan. *Way Down in the Hole* (2.0, main): "I am Thancred, a humble scholar surveying the flow of aether in Thanalan."
+  - **M8ck** Thancred's detectors find aetheric disturbances, and you are always in the middle of them. *Way Down in the Hole* (2.0, main): "My colleagues went to great lengths to provide me with the means to detect aetheric disturbances, but every time I find one, you seem to be in the middle of it."
+  - **M8ci** Thancred warns that Lolorito sanctioned the trap and is not to be trifled with. *Way Down in the Hole* (2.0, main): "The carefully laid trap you dismantled was clearly sanctioned by Lord Lolorito. … Believe me when I tell you that he is not a man to be trifled with."
+
+</details>
+
+**#20c–#30 · main**
+
+> A Sharlayan scholar surveying the flow of aether in Thanalan. He helped defeat the masked mage behind the theft of Ul'dah's royal crown, and says he and his fellows had long suspected the Bringers of Chaos, the Ascians.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0); Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8ch** Thancred calls himself a scholar surveying the flow of aether in Thanalan. *Way Down in the Hole* (2.0, main): "I am Thancred, a humble scholar surveying the flow of aether in Thanalan."
+  - **M20ck** Thancred is a Sharlayan. *Duty, Honor, Country* (2.0, main): "Have we Sharlayans crossed paths with Ascians before? Well, we've certainly─ Wait. I don't recall telling you about my homeland."
+  - **M20ci** With Thancred's help you defeat the masked mage behind the theft, whom the Journal calls an Ascian. *Duty, Honor, Country* (2.0, main): "Soon after, you find yourself alone with the masked mage who orchestrated the theft, and another battle ensues. Fortunately, [[Thancred]] comes to your aid, and together you emerge triumphant. Though the motives of this “[[Ascian]]” remain a mystery, his schemes now lie in ruin."
+  - **M20cj** Thancred says they long suspected the Bringers of Chaos, whose true name is Ascians. *Duty, Honor, Country* (2.0, main): "We had long suspected the involvement of the Bringers of Chaos─''Ascians'', to give them their true name."
+
+</details>
+
+**#31–#33 · main**
+
+> A Scion who serves as the order's man in Ul'dah, and who briefed your first investigation.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C31** Minfilia introduces Yda, Papalymo, Thancred, Y'shtola and Urianger as the player's friends in the order: Sharlayans who stayed in Eorzea when their countrymen fled. *A Wild Rose by Any Other Name* (2.0, main): "I would introduce you to your friends in the order. … Those same brave souls stand before you now."
+  - **C39** Thancred is the Scions' man in Ul'dah and briefs the player's first investigation. *A Wild Rose by Any Other Name* (2.0, main): "He is our man here in Ul'dah, jewel of the desert. … Thancred, would you do the honors?"
+
+</details>
+
+**#34–#36 · main**
+
+> A Scion who serves as the order's man in Ul'dah. He has joined your hunt for the missing at Camp Drybone, and suspects Sister Ourcen, who hears the commonfolk's confessions. He swears he has seen the face of the lichkeeper Marques somewhere before.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); A Proper Burial — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C39** Thancred is the Scions' man in Ul'dah and briefs the player's first investigation. *A Wild Rose by Any Other Name* (2.0, main): "He is our man here in Ul'dah, jewel of the desert. … Thancred, would you do the honors?"
+  - **M34g** Thancred has joined the search for the missing. *A Proper Burial* (2.0, main): "The name is Thancred, and I share a passion with you and our mutual friend here for learning what has become of these missing persons and why."
+  - **M34e** Thancred suspects Ourcen, who takes the commonfolk's confession; Isembard is not convinced. *A Proper Burial* (2.0, main): "he suspects that the only person who could take the vigilant commonfolk by surprise is the very Sister Ourcen who takes their confession. Isembard, however, is not so easily convinced."
+  - **M34f** Thancred swears he has seen the lichkeeper Marques's face before. *A Proper Burial* (2.0, main): "Still, the lichkeeper Marques... I'd swear to the Twelve I've seen that face elsewhere before..."
+
+</details>
+
+**#37–#38 · main**
+
+> A Scion who serves as the order's man in Ul'dah. After a leaflet led him to suspect the culprit behind the Drybone vanishings was posing as a priest, he and you disguised yourselves as vagrants and exposed the false priest Ungust. He suspects someone also leaked the Immortal Flames' patrol routes.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Amalj'aa Wrong Places — main scenario quest (2.0); Dressed to Deceive — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C39** Thancred is the Scions' man in Ul'dah and briefs the player's first investigation. *A Wild Rose by Any Other Name* (2.0, main): "He is our man here in Ul'dah, jewel of the desert. … Thancred, would you do the honors?"
+  - **M36d** Thancred thinks the culprit is posing as a priest of the Order. *Amalj'aa Wrong Places* (2.0, main): "Thancred believes it likely that the culprit behind the vanishings is posing as a priest of the Order."
+  - **M37a** You and Thancred pose as impoverished souls to catch the false priest. *Dressed to Deceive* (2.0, main): "[[Thancred]] suggests that the two of you pose as impoverished souls in order to ensnare the false priest."
+  - **M37c** The false priest is Ungust, whom you first found preying on a refugee woman in Ul'dah. *Dressed to Deceive* (2.0, main): "The false priest turns out to be none other than [[Ungust]], the obnoxious merchant whom you first found preying upon a refugee woman in [[Ul'dah]]."
+  - **M37i** Thancred asks whether Ungust also leaked the Immortal Flames' patrol routes. *Dressed to Deceive* (2.0, main): "Were you the one leaking the Immortal Flames' patrol routes to the enemy as well?"
+
+</details>
+
+**#39–#101 · main**
+
+> A Scion who serves as the order's man in Ul'dah, and who led your investigation of the Drybone vanishings. After you struck down Ifrit, he revealed that to keep the primal from gaining strength, its tempered victims must be put to death.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Dressed to Deceive — main scenario quest (2.0); Lord of the Inferno — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C39** Thancred is the Scions' man in Ul'dah and briefs the player's first investigation. *A Wild Rose by Any Other Name* (2.0, main): "He is our man here in Ul'dah, jewel of the desert. … Thancred, would you do the honors?"
+  - **M37c** The false priest is Ungust, whom you first found preying on a refugee woman in Ul'dah. *Dressed to Deceive* (2.0, main): "The false priest turns out to be none other than [[Ungust]], the obnoxious merchant whom you first found preying upon a refugee woman in [[Ul'dah]]."
+  - **M39f** To keep the primal from gaining strength, his tempered victims must be put to death. *Lord of the Inferno* (2.0, main): "in order to prevent the primal from gaining strength, his “tempered” victims must be put to death."
+
+</details>
 
 **#102–#153 · main**
 
@@ -3929,6 +4542,95 @@ Sources shown: Unto the Breach — main scenario quest (5.5); When the Dust Sett
 </details>
 
 ### Y'shtola (`char-yshtola`, character)
+
+**#4b–#8b · main**
+
+> A conjurer who has been looking into an aetheric disturbance in Seasong Grotto, which she judged no natural occurrence. Staelwyrn vouches that she is not one to consort with kidnappers, and she believes the kidnappers plaguing Limsa Lominsa are pirates.
+
+Sources shown: Lurkers in the Grotto — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4bg** Staelwyrn names the woman as Y'shtola. *Lurkers in the Grotto* (2.0, main): "A woman with a strange contraption...? Ah... [[Y'shtola]]!"
+  - **M4bf** The woman at the grotto judges the aetheric disturbance there unnatural. *Lurkers in the Grotto* (2.0, main): "As I suspected, the aetheric disturbance here is no natural occurrence."
+  - **M4bh** Staelwyrn vouches that Y'shtola is not one to consort with kidnappers. *Lurkers in the Grotto* (2.0, main): "but she's not the kind to associate with kidnappers. You may take my word for that."
+  - **M4bd** A woman you meet at the grotto becomes convinced the kidnappers are pirates. *Lurkers in the Grotto* (2.0, main): "the woman seems convinced that the perpetrators of the kidnappings are pirates."
+  - **M4ba** Citizens have been vanishing from all over Limsa Lominsa. *Lurkers in the Grotto* (2.0, main): "citizens have been disappearin' from every corner of [[Limsa Lominsa]], as if plucked from the face of Hydaelyn, boots and all, by an unseen hand."
+
+</details>
+
+**#9b–#18b · main**
+
+> A conjurer looking into the kidnappings around Limsa Lominsa. She says the tattooed men behind them are no common pirates but minions of the Sahagin, and wonders whether the tribes are planning to summon their primals.
+
+Sources shown: Lurkers in the Grotto — main scenario quest (2.0); Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4bd** A woman you meet at the grotto becomes convinced the kidnappers are pirates. *Lurkers in the Grotto* (2.0, main): "the woman seems convinced that the perpetrators of the kidnappings are pirates."
+  - **M9bj** Y'shtola says the tattooed men are no common pirates but minions of the Sahagin. *Just Deserts* (2.0, main): "But then these tattooed wretches are no common pirates─they are the minions of the Sahagin."
+  - **M9bk** Y'shtola wonders whether the tribes are planning to summon their primals. *Just Deserts* (2.0, main): "Could it be that the tribes are planning to summon their primals?"
+
+</details>
+
+**#19b–#30 · main**
+
+> A Sharlayan conjurer who has long worked with the Yellowjackets, helping their investigation of the kidnappings in Limsa Lominsa. She named the masked mage who was manipulating the Sahagin and their pirate allies an Ascian, one of the Bringers of Chaos who work through the beast tribes.
+
+Sources shown: Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+  - **M19bl** Y'shtola has worked with the Yellowjackets for some time. *Feint and Strike* (2.0, main): "Y'shtola has been working with us for quite some time, you see."
+  - **M19bm** Y'shtola assisted the Yellowjackets' kidnapping investigation, a stalwart ally of Limsa Lominsa. *Feint and Strike* (2.0, main): "And she was only too willing to assist the Yellowjackets in the kidnapping investigation, proving herself a stalwart ally of Limsa Lominsa yet again."
+  - **M19bj** The Ascians are known as the Bringers of Chaos. *Feint and Strike* (2.0, main): "They are known as the Bringers of Chaos...or ''Ascians'', to give them their proper name."
+  - **M19bk** Y'shtola says the Ascians have been manipulating the beast tribes. *Feint and Strike* (2.0, main): "it is they who have been manipulating the beast tribes."
+
+</details>
+
+**#31–#84 · main**
+
+> A Scion who looks after Limsa Lominsa for the order, and who told you how the Scions were founded.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C31** Minfilia introduces Yda, Papalymo, Thancred, Y'shtola and Urianger as the player's friends in the order: Sharlayans who stayed in Eorzea when their countrymen fled. *A Wild Rose by Any Other Name* (2.0, main): "I would introduce you to your friends in the order. … Those same brave souls stand before you now."
+  - **C40** Y'shtola looks after Limsa Lominsa for the order and tells how the Scions were founded. *A Wild Rose by Any Other Name* (2.0, main): "Limsa Lominsa has the pleasure of being under her care. … together established the Scions of the Seventh Dawn."
+
+</details>
+
+**#85–#87 · main**
+
+> A Scion who looks after Limsa Lominsa for the order. Minfilia has sent her with you to face Titan. She reminded Admiral Merlwyb that the Lominsans broke their pact with the beastmen, and proposes learning how the Company of Heroes once bested the primal.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C40** Y'shtola looks after Limsa Lominsa for the order and tells how the Scions were founded. *A Wild Rose by Any Other Name* (2.0, main): "Limsa Lominsa has the pleasure of being under her care. … together established the Scions of the Seventh Dawn."
+  - **M85g** Minfilia sends Y'shtola with you. *Wrath of the Titan* (2.0, main): "May I ask that of you, Y'shtola? … I never thought it in question."
+  - **M85d** Y'shtola recalls the pact that kept each to its own lands; Merlwyb owns that the Lominsans broke it. *Wrath of the Titan* (2.0, main): "Did not the thalassocracy make a pact with the beastmen that each would keep to their own lands, and that no blood would be shed? … And the wrong is mine. Freely do I claim it."
+  - **M85f** Y'shtola proposes learning about Titan from former members of the Company of Heroes. *Wrath of the Titan* (2.0, main): "[[Y'shtola]] proposes that you learn more about your foe by speaking to former members of the [[Company of Heroes]]─the famous band of mercenaries who defeated the dread primal once before."
+
+</details>
+
+**#88–#101 · main**
+
+> A Scion who looks after Limsa Lominsa for the order. The Scions lack only the knowledge of how to enter Titan's lair, and she found Wheiskaet, a former captain of the Company of Heroes who holds it, but left you to meet his conditions alone while she sees to the other preparations.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C40** Y'shtola looks after Limsa Lominsa for the order and tells how the Scions were founded. *A Wild Rose by Any Other Name* (2.0, main): "Limsa Lominsa has the pleasure of being under her care. … together established the Scions of the Seventh Dawn."
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88e** Y'shtola asks you to undertake his task alone while she sees to other preparations. *The Lominsan Way* (2.0, main): "Forgive me, but I must ask you to undertake this task alone. I will use the time to see to the remaining preparations."
+
+</details>
 
 **#102 only · main**
 
@@ -4811,6 +5513,19 @@ Sources shown: When the Dust Settles — main scenario quest (5.5)
 
 ### Urianger (`char-urianger`, character)
 
+**#31–#101 · main**
+
+> A Scion who presides over the affairs of the Waking Sands.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C31** Minfilia introduces Yda, Papalymo, Thancred, Y'shtola and Urianger as the player's friends in the order: Sharlayans who stayed in Eorzea when their countrymen fled. *A Wild Rose by Any Other Name* (2.0, main): "I would introduce you to your friends in the order. … Those same brave souls stand before you now."
+  - **C41** Urianger presides over the affairs of the Waking Sands. *A Wild Rose by Any Other Name* (2.0, main): "Last but not least is Urianger, who presides over all affairs within these halls."
+
+</details>
+
 **#102–#142 · main**
 
 > A Scion who presides over the affairs of the Waking Sands.
@@ -5530,6 +6245,35 @@ Sources shown: When the Dust Settles — main scenario quest (5.5)
 </details>
 
 ### Alphinaud (`char-alphinaud`, character)
+
+**#40–#61 · main**
+
+> A young traveler who, with his twin sister, calls himself a student of history. At the remembrance services he weighed each city-state's troubles, and he believes the task of healing Eorzea's wounds falls to the Scions of the Seventh Dawn, with help from the Grand Companies.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C10** Alphinaud and Alisaie are twins. *A Hero in the Making* (2.0, main): "the traveling twins, Alphinaud and Alisaie … And my sister, Alisaie, at your service."
+  - **C42** The twins call themselves students of history; Alisaie means to find another way to heal the realm. *A Hero in the Making* (2.0, main): "You might call us students of history … There must be another way to cure what ails this world─and I mean to find it!"
+  - **M40q** Alphinaud believes the task of healing Eorzea falls to the Scions, helped by the Grand Companies. *A Hero in the Making* (2.0, main): "So the task of salving Eorzea's wounds falls to the Scions of the Seventh Dawn—with a little help from our friends the Grand Companies."
+
+</details>
+
+**#62–#101 · main**
+
+> A young traveler who, with his twin sister, calls himself a student of history. Calling on Minfilia at the Waking Sands, he told her that Alisaie has chosen to walk her own path, though the twins' destination remains the same.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C10** Alphinaud and Alisaie are twins. *A Hero in the Making* (2.0, main): "the traveling twins, Alphinaud and Alisaie … And my sister, Alisaie, at your service."
+  - **C42** The twins call themselves students of history; Alisaie means to find another way to heal the realm. *A Hero in the Making* (2.0, main): "You might call us students of history … There must be another way to cure what ails this world─and I mean to find it!"
+  - **M62j** Minfilia has scarcely seen Alisaie of late. *Back from the Wood* (2.0, main): "I feel as if I have scarcely seen her in recent days."
+  - **C11** Alisaie walks her own path, but shares her brother's goal. *Back from the Wood* (2.0, main): "Alisaie has chosen to walk her own path─stubborn girl─but you may be assured that our destination remains the same."
+
+</details>
 
 **#102–#109 · main**
 
@@ -7072,6 +7816,36 @@ Sources shown: On Official Business — main scenario quest (5.55); Death Unto D
 </details>
 
 ### Alisaie (`char-alisaie`, character)
+
+**#40–#61 · main**
+
+> Alphinaud's twin sister, who with him calls herself a student of history. She scorned the remembrance services as standard-waving rallies, and means to find another way to heal the realm, though her brother says their destination is the same.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C10** Alphinaud and Alisaie are twins. *A Hero in the Making* (2.0, main): "the traveling twins, Alphinaud and Alisaie … And my sister, Alisaie, at your service."
+  - **C42** The twins call themselves students of history; Alisaie means to find another way to heal the realm. *A Hero in the Making* (2.0, main): "You might call us students of history … There must be another way to cure what ails this world─and I mean to find it!"
+  - **M40r** Alisaie calls the remembrance services little more than standard-waving rallies. *A Hero in the Making* (2.0, main): "The so-called “remembrance” ceremonies were little more than standard-waving rallies."
+  - **M40s** Alphinaud says the twins' paths may differ, but their destination is the same. *A Hero in the Making* (2.0, main): "Our paths may differ, but our destination is the same."
+
+</details>
+
+**#62–#160 · main**
+
+> Alphinaud's twin sister, who means to find another way to heal the realm's troubles. Minfilia has scarcely seen her of late: Alphinaud says she has chosen to walk her own path, though the twins share the same destination.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C10** Alphinaud and Alisaie are twins. *A Hero in the Making* (2.0, main): "the traveling twins, Alphinaud and Alisaie … And my sister, Alisaie, at your service."
+  - **C42** The twins call themselves students of history; Alisaie means to find another way to heal the realm. *A Hero in the Making* (2.0, main): "You might call us students of history … There must be another way to cure what ails this world─and I mean to find it!"
+  - **M62j** Minfilia has scarcely seen Alisaie of late. *Back from the Wood* (2.0, main): "I feel as if I have scarcely seen her in recent days."
+  - **C11** Alisaie walks her own path, but shares her brother's goal. *Back from the Wood* (2.0, main): "Alisaie has chosen to walk her own path─stubborn girl─but you may be assured that our destination remains the same."
+
+</details>
 
 **2.0–#240 · main**
 
@@ -8735,6 +9509,32 @@ Sources shown: On Official Business — main scenario quest (5.55)
 
 ### Louisoix (`char-louisoix`, character)
 
+**#22–#21b · main** · Also searchable as: Archon Louisoix
+
+> An Archon who stood at the Battle of Carteneau: as the battle was lost, Eorzea's leaders went to take their place beside him. He is no longer with them, and the Admiral fears they will want for his wisdom.
+
+Sources shown: Renewing the Covenant — main scenario quest (2.0); The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21e** Eorzea's leaders went to take their place beside Archon Louisoix. *Renewing the Covenant* (2.0, main): "We go to take our place beside Archon Louisoix! To your positions!"
+  - **C44b** The Admiral wishes Archon Louisoix were still with them. *The Gridanian Envoy* (2.0, main): "Were Archon Louisoix still with us, he would doubtless shed some light on these unfathomable happenings. Alas, he is not"
+
+</details>
+
+**#22b–#160 · main** · Also searchable as: Archon Louisoix
+
+> A revered Archon who never returned from the Battle of Carteneau. Kan-E-Senna believes he might have explained the changes the land underwent in the Calamity.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C44** Archon Louisoix never returned from Carteneau, and the realm's leaders miss his wisdom. *The Lominsan Envoy* (2.0, main): "Archon Louisoix may well have been able to shed light upon these mysteries, but he, like so many, never returned from Carteneau."
+  - **M22bg** The devastation is called the Calamity, and the nations still struggle to rebuild. *The Lominsan Envoy* (2.0, main): "The Calamity, as the devastation wrought by Bahamut has come to be known, laid our nations nigh to waste, and to this day we struggle to rebuild our lives and homes."
+
+</details>
+
 **2.0–#223 · main** · Also searchable as: Archon Louisoix, Master Louisoix
 
 > A revered Archon and man of learning. He never returned from the Battle of Carteneau, and the realm's leaders lament the loss of his wisdom. The Scions still speak of his guidance.
@@ -8851,6 +9651,31 @@ Sources shown: On Official Business — main scenario quest (5.55)
 </details>
 
 ### Tataru (`char-tataru`, character)
+
+**#30 only · main**
+
+> A Lalafell who welcomed you to the Waking Sands, headquarters of the Scions of the Seventh Dawn, and looks forward to assisting you.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M30f** Tataru welcomes you to the Waking Sands, the Scions' headquarters. *The Scions of the Seventh Dawn* (2.0, main): "Ahem! I bid you welcome to the Waking Sands, headquarters of the Scions of the Seventh Dawn!"
+  - **M30g** Tataru looks forward to assisting you. *The Scions of the Seventh Dawn* (2.0, main): "My name is Tataru, and I look forward to assisting you during your time with us."
+
+</details>
+
+**#31–#101 · main**
+
+> The Scions' clerk, who makes sure everything runs smoothly.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C32** Tataru is the Scions' clerk. *A Wild Rose by Any Other Name* (2.0, main): "Oh, I should also introduce you to Tataru, our clerk. She ensures that everything runs smoothly."
+
+</details>
 
 **#102–#142 · main**
 
@@ -9328,6 +10153,85 @@ Sources shown: Futures Rewritten — main scenario quest (5.4); Unto the Breach 
 </details>
 
 ### The Scions of the Seventh Dawn (`org-scions`, organization)
+
+**#30 only · main**
+
+> An order devoted to preserving Eorzea's future, led by Minfilia. It stands above politics, and its headquarters is the Waking Sands in Vesper Bay, western Thanalan.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C34** The Scions stand above politics; their aim is preserving Eorzea's future. *The Scions of the Seventh Dawn* (2.0, main): "an order that transcends political boundaries. Our single objective is the preservation of the future of Eorzea."
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C02** The Scions are headquartered at the Waking Sands in Vesper Bay, western Thanalan. *The Scions of the Seventh Dawn* (2.0, main): "the Waking Sands, located in Vesper Bay, out in western Thanalan"
+
+</details>
+
+**#31–#42c · main**
+
+> An order devoted to preserving Eorzea's future, led by Minfilia from the Waking Sands in Vesper Bay. Its leading members are Sharlayans who stayed in Eorzea when their countrymen fled; their own leader was taken from them at the Battle of Carteneau. It is investigating crimes near Ul'dah that it suspects involve a primal.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C34** The Scions stand above politics; their aim is preserving Eorzea's future. *The Scions of the Seventh Dawn* (2.0, main): "an order that transcends political boundaries. Our single objective is the preservation of the future of Eorzea."
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C31** Minfilia introduces Yda, Papalymo, Thancred, Y'shtola and Urianger as the player's friends in the order: Sharlayans who stayed in Eorzea when their countrymen fled. *A Wild Rose by Any Other Name* (2.0, main): "I would introduce you to your friends in the order. … Those same brave souls stand before you now."
+  - **M31h** Y'shtola says the Scions' leader was taken at the Battle of Carteneau, but they kept their purpose. *A Wild Rose by Any Other Name* (2.0, main): "At the Battle of Carteneau, our leader was taken from us. But we did not stray from our purpose."
+  - **M31b** Your first task is to investigate crimes in Ul'dah that the Scions suspect involve a primal. *A Wild Rose by Any Other Name* (2.0, main): "you are assigned your first task─to investigate a series of crimes committed in [[Ul'dah]], which the Scions suspect to be [[primal]]-related."
+
+</details>
+
+**#43–#61 · main**
+
+> An order devoted to preserving the future of all Eorzea, where the Grand Companies protect their own nations, led by Minfilia from the Waking Sands. It studied the sylphs for the Order of the Twin Adder, and now hopes to win their favor to ease the primal threat.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); A Hero in the Making — main scenario quest (2.0); Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C34** The Scions stand above politics; their aim is preserving Eorzea's future. *The Scions of the Seventh Dawn* (2.0, main): "an order that transcends political boundaries. Our single objective is the preservation of the future of Eorzea."
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **M40d** The Grand Companies protect their own nations, while the Scions seek to preserve all Eorzea's future. *A Hero in the Making* (2.0, main): "The Grand Companies seek to protect their own nations. We Scions, on the other hand, seek to preserve the future of Eorzea as a whole."
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43f** Winning the sylphs' favor may bring the Scions closer to mitigating the primal threat. *Sylph-management* (2.0, main): "Winning the sylphs' favor may well bring us a step closer to mitigating the threat of the primals."
+
+</details>
+
+**#62–#84 · main**
+
+> An order devoted to preserving Eorzea's future, led by Minfilia from the Waking Sands. Gridania credits its mediation with averting a needless conflict with the sylphs, and its family keeps growing: the sylph Noraxia has come to offer her aid.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C34** The Scions stand above politics; their aim is preserving Eorzea's future. *The Scions of the Seventh Dawn* (2.0, main): "an order that transcends political boundaries. Our single objective is the preservation of the future of Eorzea."
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C02** The Scions are headquartered at the Waking Sands in Vesper Bay, western Thanalan. *The Scions of the Seventh Dawn* (2.0, main): "the Waking Sands, located in Vesper Bay, out in western Thanalan"
+  - **M62b** Gridania credits the Scions' mediation with averting a needless conflict with the sylphs. *Back from the Wood* (2.0, main): "Had the Scions of the Seventh Dawn not offered to mediate between our peoples, suspicion and doubt may well have led us into needless conflict."
+  - **M62h** Minfilia is glad to see the Scions' family keep growing. *Back from the Wood* (2.0, main): "But it takes all kinds to make a family, and it pleases me to no end to see ours continue to grow."
+  - **M62c** The sylph Noraxia comes to the Waking Sands as a friend, sent by the elder Frixio to help the Scions. *Back from the Wood* (2.0, main): "Is sent by elder one Frixio to help walking ones! … This one comes as a friend."
+
+</details>
+
+**#85–#101 · main**
+
+> An order devoted to preserving Eorzea's future, led by Minfilia from the Waking Sands. The Maelstrom has asked it to slay the primal Titan, and Minfilia has pledged the order's full support.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C34** The Scions stand above politics; their aim is preserving Eorzea's future. *The Scions of the Seventh Dawn* (2.0, main): "an order that transcends political boundaries. Our single objective is the preservation of the future of Eorzea."
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C02** The Scions are headquartered at the Waking Sands in Vesper Bay, western Thanalan. *The Scions of the Seventh Dawn* (2.0, main): "the Waking Sands, located in Vesper Bay, out in western Thanalan"
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85j** Minfilia pledges the Scions' full support. *Wrath of the Titan* (2.0, main): "You may count on the full support of the Scions of the Seventh Dawn."
+
+</details>
 
 **#102–#105 · main**
 
@@ -10289,6 +11193,33 @@ Sources shown: The Company We Keep — main scenario quest (5.55)
 
 ### The Waking Sands (`loc-waking-sands`, location)
 
+**#30 only · main**
+
+> The Scions' headquarters in Vesper Bay, western Thanalan, where Tataru welcomes visitors and Minfilia receives them.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C02** The Scions are headquartered at the Waking Sands in Vesper Bay, western Thanalan. *The Scions of the Seventh Dawn* (2.0, main): "the Waking Sands, located in Vesper Bay, out in western Thanalan"
+  - **M30f** Tataru welcomes you to the Waking Sands, the Scions' headquarters. *The Scions of the Seventh Dawn* (2.0, main): "Ahem! I bid you welcome to the Waking Sands, headquarters of the Scions of the Seventh Dawn!"
+  - **M30b** Minfilia believes your Echo is the key to the primal problem facing Eorzea. *The Scions of the Seventh Dawn* (2.0, main): "who expresses her belief that your power─[[the Echo]]─is the key to solving the [[primal]] problem facing Eorzea."
+
+</details>
+
+**#31–#101 · main**
+
+> The Scions' headquarters in Vesper Bay, western Thanalan, where Urianger presides over the order's affairs.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0); A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C02** The Scions are headquartered at the Waking Sands in Vesper Bay, western Thanalan. *The Scions of the Seventh Dawn* (2.0, main): "the Waking Sands, located in Vesper Bay, out in western Thanalan"
+  - **C41** Urianger presides over the affairs of the Waking Sands. *A Wild Rose by Any Other Name* (2.0, main): "Last but not least is Urianger, who presides over all affairs within these halls."
+
+</details>
+
 **#102–#105 · main**
 
 > The Scions' headquarters in Vesper Bay, western Thanalan, where Urianger presides over the order's affairs.
@@ -11074,6 +12005,49 @@ Sources shown: Reviving the Legacy — main scenario quest (5.4)
 
 ### Gaius (`char-gaius`, character)
 
+**#22–#21b · main**
+
+> Legatus of the Empire's XIVth Imperial Legion, which remains entrenched in Eorzea's border regions. Eorzea has twice eluded the Empire, but he holds that only Garlean rule can bring order to it, and his legion is preparing a new campaign.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22k** The Empire still threatens Eorzea, with Legatus Gaius's XIVth Imperial Legion entrenched in the border regions. *The Gridanian Envoy* (2.0, main): "It appears the [[Garlean Empire]] still poses a grave threat to [[Eorzea]], with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M22m** Gaius says Eorzea has twice eluded the Empire, Meteor included. *The Gridanian Envoy* (2.0, main): "Twice now it has eluded the Empire's grasp. … For all the destruction it wrought, even Meteor, the Great Sin, failed to yield us control over it."
+  - **M22n** Gaius holds that only Garlean rule can bring order to Eorzea. *The Gridanian Envoy* (2.0, main): "Only Garlean rule can bring order to Eorzea. It falls to us to deliver the misguided masses from their ignorance."
+  - **M22o** The legion is preparing a large new campaign. *The Gridanian Envoy* (2.0, main): "We're in the midst of preparing for a new campaign, and a huge one at that!"
+
+</details>
+
+**#22b–#22c · main**
+
+> Legatus of the XIVth Imperial Legion, which remains entrenched within Eorzea's borders. General Raubahn says he has long harbored ambitions of conquest.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bp** The XIVth Imperial Legion is led by Legatus Gaius. *The Lominsan Envoy* (2.0, main): "with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M22bk** The XIVth Imperial Legion is still entrenched within Eorzea's borders. *The Lominsan Envoy* (2.0, main): "But the XIVth Imperial Legion is still entrenched within our borders."
+  - **M22bl** Raubahn says the Legion's commander has long harbored ambitions of conquest. *The Lominsan Envoy* (2.0, main): "has long harbored ambitions of conquest."
+
+</details>
+
+**#23b–#140 · main**
+
+> Legatus of the XIVth Imperial Legion, entrenched in Eorzea's border regions. He holds that only Garlean rule can bring order to Eorzea, and the Elder Seedseer says none may sleep easy while he breathes its air.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23bg** The XIVth Imperial Legion under Legatus Gaius is entrenched in the border regions. *The Ul'dahn Envoy* (2.0, main): "with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M23bf** In an imperial castrum, the Empire's legatus declares that only Garlean rule can bring order to Eorzea. *The Ul'dahn Envoy* (2.0, main): "Only Garlean rule can bring order to Eorzea. It falls to us to deliver the misguided masses from their ignorance."
+  - **M23bm** Kan-E-Senna says none may sleep easy while Gaius breathes Eorzean air. *The Ul'dahn Envoy* (2.0, main): "a man whose ambitions are well known to us. So long as he breathes Eorzean air, none of us may sleep easy."
+
+</details>
+
 **#141–#142 · main** · Also searchable as: the Black Wolf
 
 > The Black Wolf: legatus of the XIVth Imperial Legion and supreme commander of the Garlean invasion of Eorzea. At the Howling Eye he called forth an imperial weapon that overpowered and seemingly absorbed three primals. He knows Cid, and scorned him for forsaking kin and country.
@@ -11354,6 +12328,127 @@ Sources shown: All Good Things — main scenario quest (2.0); Rock the Castrum �
 
 ### Lahabrea (`char-lahabrea`, character)
 
+**#59–#61 · main**
+
+> An Ascian. In the Thousand Maws of Toto-Rak he set a gigantic banemite upon you, saying that all that stands between this world and Darkness is an irksome anomaly in the aether: the Echo.
+
+Sources shown: Into the Beast's Maw — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M59e** In Toto-Rak you meet Lahabrea of the Ascians, who sets a gigantic banemite on you. *Into the Beast's Maw* (2.0, main): "Within the bowels of Toto–Rak, you encounter [[Lahabrea]] of the [[Ascians]], who unleashes a gigantic banemite upon you."
+  - **M59f** Lahabrea says all that stands between the world and Darkness is the Echo, an irksome anomaly in the aether. *Into the Beast's Maw* (2.0, main): "All that stands between this world and Darkness is an irksome anomaly in the aether─the Echo."
+
+</details>
+
+**#62 only · main**
+
+> An Ascian in a red mask and black robes. When you told Minfilia of him, she was alarmed that the Ascians, who hid before the Calamity, now act openly, and she has set you to learn all you can of him and his designs.
+
+Sources shown: Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62d** Minfilia hears of a man named Lahabrea, in a red mask and black robes. *Back from the Wood* (2.0, main): "A man named Lahabrea, sporting a red mask and robed in black...?"
+  - **M62k** Minfilia wonders what the appearance of the Ascians portends. *Back from the Wood* (2.0, main): "she cannot help but wonder at the appearance of the [[Ascians]]. What might their presence portend?"
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M62f** Minfilia means to use the lull in primal hostilities to learn all she can of Lahabrea and his designs. *Back from the Wood* (2.0, main): "We must take advantage of the present lull in primal hostilities and investigate this Lahabrea─learn all we can of him and his designs."
+
+</details>
+
+**#63–#64 · main**
+
+> An Ascian in a red mask and black robes, whose motives Minfilia has set you to uncover. The Immortal Flames reported that a Brass Blade saw the masked stranger near Highbridge.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M62d** Minfilia hears of a man named Lahabrea, in a red mask and black robes. *Back from the Wood* (2.0, main): "A man named Lahabrea, sporting a red mask and robed in black...?"
+  - **M63c** Minfilia asked each Grand Company for help, and the Immortal Flames answered with word of a possible sighting. *Shadow of Darkness* (2.0, main): "Earlier, I sent word to each Grand Company to solicit cooperation. The Immortal Flames responded to the effect that they have information on a potential sighting."
+  - **M63e** A Brass Blade at Highbridge reported the masked man, then was killed by Qiqirn. *Shadow of Darkness* (2.0, main): "According to Commander Swift, a [[The Brass Blades|Brass Blade]] stationed at [[Highbridge]] has reported seeing a suspicious masked man, but the sentry has since died in the line of duty. … I'm afraid he died not two days ago, slain by a marauding horde of Qiqirn."
+
+</details>
+
+**#65–#66 · main**
+
+> An Ascian in a red mask and black robes, whose motives you are investigating. He has been seen about Thanalan and meeting beastmen in secret, and the trail points to clandestine ties with the Qiqirn and the Ala Mhigans.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Back from the Wood — main scenario quest (2.0); Highbridge Times — main scenario quest (2.0); Where There Is Smoke — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M62d** Minfilia hears of a man named Lahabrea, in a red mask and black robes. *Back from the Wood* (2.0, main): "A man named Lahabrea, sporting a red mask and robed in black...?"
+  - **M64b** The masked man has been seen elsewhere about Thanalan too. *Highbridge Times* (2.0, main): "Seems he's been appearing not only around Highbridge, but elsewhere about Thanalan, too."
+  - **M65a** Hihibaru saw a masked man meeting beastman accomplices in secret. *Where There Is Smoke* (2.0, main): "Hihibaru claims to have witnessed a masked man meeting his [[beastman]] accomplices in secret."
+  - **M65d** Lahabrea seems to have secret ties to the Qiqirn and the Ala Mhigans. *Where There Is Smoke* (2.0, main): "It would seem that Lahabrea has clandestine connections not only with the [[Qiqirn]], but also the [[Ala Mhigo|Ala Mhigans]]."
+
+</details>
+
+**#67–#75 · main**
+
+> An Ascian in a red mask and black robes, whose motives you are investigating. He seems tied to the Ala Mhigans and to Little Ala Mhigo, where a lookout saw a masked figure talking with refugees.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Where There Is Smoke — main scenario quest (2.0); Tea for Three — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M65d** Lahabrea seems to have secret ties to the Qiqirn and the Ala Mhigans. *Where There Is Smoke* (2.0, main): "It would seem that Lahabrea has clandestine connections not only with the [[Qiqirn]], but also the [[Ala Mhigo|Ala Mhigans]]."
+  - **M67b** A lookout saw a masked figure talking with Ala Mhigans. *Tea for Three* (2.0, main): "he was talking with some Ala Mhigans. I assumed he was one of them."
+  - **M67c** Lahabrea seems connected to Little Ala Mhigo. *Tea for Three* (2.0, main): "it would seem that [[Lahabrea]] is in some way connected to [[Little Ala Mhigo]]."
+
+</details>
+
+**#76–#77 · main**
+
+> An Ascian whose motives you are investigating. At Little Ala Mhigo a masked stranger, who may have been him, taught a band of youths to summon Rhalgr with stolen crystals, promising they could defeat the Empire.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M74b** Something is afoot among the youths, and Lahabrea may be involved. *The Bear and the Young'uns' Cares* (2.0, main): "Judging by the youths' reactions, it would seem that something is indeed in the offing, and [[Lahabrea]] may be involved."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M76d** The masked man told them they could defeat the Empire by summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "The masked man told us we could defeat the Empire if we summoned Rhalgr!"
+
+</details>
+
+**#78–#83 · main**
+
+> An Ascian whose motives you are investigating. A masked stranger, perhaps him, set youths of Little Ala Mhigo on summoning Rhalgr. Someone fitting his description has now been seen in the North Shroud, in the wake of a series of mysterious deaths.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0); Terror at Fallgourd — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M74b** Something is afoot among the youths, and Lahabrea may be involved. *The Bear and the Young'uns' Cares* (2.0, main): "Judging by the youths' reactions, it would seem that something is indeed in the offing, and [[Lahabrea]] may be involved."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M78a** Someone fitting Lahabrea's description has been sighted in the North Shroud. *Terror at Fallgourd* (2.0, main): "An individual fitting Lahabrea's description has been sighted in the North Shroud."
+  - **M78b** The sighting follows a series of mysterious deaths there. *Terror at Fallgourd* (2.0, main): "This sighting comes in the wake of a series of mysterious deaths in the selfsame area."
+
+</details>
+
+**#84–#104 · main**
+
+> An Ascian whom Minfilia has set you to investigate. A masked stranger, perhaps him, set youths of Little Ala Mhigo on summoning Rhalgr. In Haukke Manor two other masked Ascians, calling him their master, came to measure your strength for him, and Minfilia is now sure the Ascians are moving in earnest.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0); Skeletons in Her Closet — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M84c** You defeat Amandine, and two masked men appear who seem to have masterminded the atrocities. *Skeletons in Her Closet* (2.0, main): "No sooner have you defeated Lady Amandine than two masked men appear, their ominous exchange suggesting that it was they who masterminded the atrocities committed within the manor."
+  - **M84d** The two Ascians came to take your measure for Master Lahabrea, and then leave. *Skeletons in Her Closet* (2.0, main): "we came here not to play, but to take the measure of your strength for Master Lahabrea."
+  - **M84g** Minfilia is sure the Ascians have begun to move in earnest, to what end she cannot say. *Skeletons in Her Closet* (2.0, main): "It is beyond doubt, then─the Ascians have begun to move in earnest. Would that we knew to what end."
+
+</details>
+
 **#105–#128 · main**
 
 > A figure who appeared with imperial officers at the Navel after Titan fell, and urged you on, saying your work is far from done. Y'shtola is troubled that the elusive Ascians would consort with the Empire.
@@ -11580,6 +12675,55 @@ Sources shown: The End of a World — main scenario quest (5.0); Shadowbringers 
 </details>
 
 ### The Eorzean Alliance (`org-eorzean-alliance`, organization)
+
+**#22–#21b · main**
+
+> The alliance of Eorzea's three city-states, Gridania, Limsa Lominsa and Ul'dah, forged anew against the imperial threat. Five years after the Battle of Carteneau, General Raubahn calls it an alliance in name only, and its leaders have agreed to a memorial for the battle's fallen.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22b** The Eorzean Alliance is Gridania, Limsa Lominsa and Ul'dah. *The Gridanian Envoy* (2.0, main): "In addition to [[Gridania]], the Eorzean Alliance encompasses the city–states of [[Limsa Lominsa]] and [[Ul'dah]]."
+  - **M22f** Against the imperial threat, the city-states formed the Grand Companies and forged the Alliance anew. *The Gridanian Envoy* (2.0, main): "It was in answer to the imperial threat that the city-states formed the Grand Companies, and forged the Eorzean Alliance anew."
+  - **M22r** Raubahn calls Eorzea a realm divided, an alliance in name only. *The Gridanian Envoy* (2.0, main): "We are a realm divided, adventurer. An alliance in name only."
+  - **M22c** The missive proposes a memorial service on the anniversary of the Battle of Carteneau. *The Gridanian Envoy* (2.0, main): "In remembrance of them, a memorial service will soon be held upon the anniversary of the Battle of Carteneau."
+  - **M22j** Merlwyb accepts Kan-E-Senna's proposal. *The Gridanian Envoy* (2.0, main): "Aye, Kan-E-Senna has the right of it. I accept her proposal."
+  - **M22s** Raubahn agrees to the memorial. *The Gridanian Envoy* (2.0, main): "Kan-E will have her memorial."
+
+</details>
+
+**#22b–#22c · main**
+
+> The alliance of Limsa Lominsa, Gridania and Ul'dah, whose city-states formed the Grand Companies to resist the Garlean Empire. Weakened since the Calamity, it is, in General Raubahn's words, an alliance in name only, and its leaders hope remembrance services for Carteneau will rekindle its unity.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bc** The Eorzean Alliance is Limsa Lominsa, Gridania and Ul'dah. *The Lominsan Envoy* (2.0, main): "In addition to [[Limsa Lominsa]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Ul'dah]]."
+  - **M22bs** Eorzea's city-states formed the Grand Companies and allied against the Empire. *The Lominsan Envoy* (2.0, main): "Rising in resistance, the city–states of Eorzea formed the Grand Companies, and joined hands in alliance."
+  - **M22bg** The devastation is called the Calamity, and the nations still struggle to rebuild. *The Lominsan Envoy* (2.0, main): "The Calamity, as the devastation wrought by Bahamut has come to be known, laid our nations nigh to waste, and to this day we struggle to rebuild our lives and homes."
+  - **M22bm** Raubahn calls the realm an alliance in name only. *The Lominsan Envoy* (2.0, main): "We are a realm divided, adventurer. An alliance in name only."
+  - **M22bi** Kan-E-Senna hopes a remembrance service will rekindle the Alliance's spirit of unity. *The Lominsan Envoy* (2.0, main): "A remembrance service may well present an opportunity to rekindle the spirit of unity which first gave rise to the Alliance."
+
+</details>
+
+**#23b–#154 · main**
+
+> The alliance of Ul'dah, Gridania and Limsa Lominsa, forged anew in answer to the Empire. Raubahn proposed that its nations mark the fifth anniversary of the Battle of Carteneau with a memorial, and the Admiral and the Elder Seedseer agreed.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23bc** The Eorzean Alliance joins Ul'dah, Gridania and Limsa Lominsa. *The Ul'dahn Envoy* (2.0, main): "In addition to [[Ul'dah]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Limsa Lominsa]]."
+  - **M23bi** The city-states formed the Grand Companies and remade the Alliance to answer the Empire. *The Ul'dahn Envoy* (2.0, main): "It was in answer to the imperial threat that the city–states formed the Grand Companies, and forged the Eorzean Alliance anew."
+  - **M23bb** Raubahn means to mark the fifth anniversary of Carteneau with a memorial service. *The Ul'dahn Envoy* (2.0, main): "And so I mean to mark the fifth anniversary of the Battle of Carteneau with a memorial service honoring the fallen."
+  - **M23bk** Merlwyb accepts Raubahn's proposal. *The Ul'dahn Envoy* (2.0, main): "Aye, Raubahn has the right of it. I accept his proposal."
+  - **M23bo** Kan-E-Senna approves the memorial and will hold a service in Gridania. *The Ul'dahn Envoy* (2.0, main): "The Flame General was wise to make his proposal, and I wholeheartedly approve of it. The necessary provisions shall be made for a service here in Gridania."
+
+</details>
 
 **#155 only · main**
 
@@ -12959,6 +14103,77 @@ Sources shown: Reclamation — main scenario quest (2.0); Casing the Castrum —
 
 ### Yda (`char-yda`, character)
 
+**#4–#7 · main**
+
+> A Hyuran scholar from a distant land who, with Papalymo, has been with Gridania since before the Calamity. Gridania counts the pair among its staunchest allies, and they often assist the Gods' Quiver and the Wood Wailers.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4i** The Hyuran Yda and the Lalafellin Papalymo are scholars, friends of Gridania who assist the Gods' Quiver and the Wood Wailers. *Chasing Shadows* (2.0, main): "It turns out that the [[Hyur]]an lass and [[Lalafell]]in lad you encountered are friends of [[Gridania]]. Named [[Yda]] and [[Papalymo]], respectively, the pair are scholars who are assisting [[the Gods' Quiver]] and [[the Wood Wailers]]."
+  - **M4j** Gridania counts Yda and Papalymo among its staunchest allies: scholars from a distant land, there since before the Calamity. *Chasing Shadows* (2.0, main): "Gridania counts them among her staunchest allies. Both are scholars hailing from a distant land, and have been with us since before the Calamity."
+
+</details>
+
+**#8–#18 · main**
+
+> A Hyuran scholar who, with Papalymo, has helped Gridania since before the Calamity and is surveying the Twelveswood. The pair are pursuing a masked mage, who loosed a clay golem in Spirithold and eluded them again.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4j** Gridania counts Yda and Papalymo among its staunchest allies: scholars from a distant land, there since before the Calamity. *Chasing Shadows* (2.0, main): "Gridania counts them among her staunchest allies. Both are scholars hailing from a distant land, and have been with us since before the Calamity."
+  - **M8f** Yda and Papalymo are surveying the Twelveswood together. *Spirithold Broken* (2.0, main): "Papalymo and I are surveying the Twelveswood together!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+
+</details>
+
+**#19–#30 · main**
+
+> A Sharlayan scholar who, with Papalymo, has spent years helping the Gridanians. The pair joined the fight against the masked mage at the Guardian Tree, and Papalymo named his kind the Ascians, who have been manipulating the beast tribes.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19p** Yda confirms they are Sharlayans. *To Guard a Guardian* (2.0, main): "Why, yes, we ''are'' Sharlayans!"
+  - **M19o** Yda says she and Papalymo have been helping the Gridanians for years. *To Guard a Guardian* (2.0, main): "Despite what it looks like, Papalymo and I are actually ''helping'' the Gridanians. And we've been doing so for a good few years, too."
+  - **M19i** Yda and Papalymo join the fight against the masked mage. *To Guard a Guardian* (2.0, main): "I trust you won't object to our assistance!"
+  - **M19k** Papalymo names them the Bringers of Chaos, or Ascians. *To Guard a Guardian* (2.0, main): "The Bringers of Chaos...or ''Ascians'', to give them their proper name."
+  - **M19l** Papalymo says the Ascians have been manipulating the beast tribes. *To Guard a Guardian* (2.0, main): "It would seem our suspicions were correct─it is they who have been manipulating the beast tribes."
+
+</details>
+
+**#31–#42c · main**
+
+> A masked Scion who, with Papalymo, surveys the Twelveswood for the order.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C31** Minfilia introduces Yda, Papalymo, Thancred, Y'shtola and Urianger as the player's friends in the order: Sharlayans who stayed in Eorzea when their countrymen fled. *A Wild Rose by Any Other Name* (2.0, main): "I would introduce you to your friends in the order. … Those same brave souls stand before you now."
+  - **M31g** Yda and Papalymo survey the Twelveswood for the Scions. *A Wild Rose by Any Other Name* (2.0, main): "The masked woman is Yda, and beside her is Papalymo. The two are charged with surveying the Twelveswood."
+
+</details>
+
+**#43–#101 · main**
+
+> A masked Scion who, with Papalymo, surveys the Twelveswood for the order. The two studied the sylphs for the Order of the Twin Adder, and are helping you win the sylphs' trust.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31g** Yda and Papalymo survey the Twelveswood for the Scions. *A Wild Rose by Any Other Name* (2.0, main): "The masked woman is Yda, and beside her is Papalymo. The two are charged with surveying the Twelveswood."
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43h** Yda and Papalymo will help you with the sylphs. *Sylph-management* (2.0, main): "Yda and Papalymo, however, should be able to see the forest for the trees."
+
+</details>
+
 **#102–#141 · main**
 
 > A Scion, one of the friends Minfilia introduced you to in the order.
@@ -13168,6 +14383,108 @@ Sources shown: The Far Edge of Fate — main scenario quest (3.56)
 </details>
 
 ### Papalymo (`char-papalymo`, character)
+
+**#4–#7 · main**
+
+> A Lalafellin scholar from a distant land who, with Yda, has been with Gridania since before the Calamity. Gridania counts the pair among its staunchest allies. Finding a dead Ixali chieftain deep in Gridanian territory, he judged that the beastmen may be acting under orders.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4i** The Hyuran Yda and the Lalafellin Papalymo are scholars, friends of Gridania who assist the Gods' Quiver and the Wood Wailers. *Chasing Shadows* (2.0, main): "It turns out that the [[Hyur]]an lass and [[Lalafell]]in lad you encountered are friends of [[Gridania]]. Named [[Yda]] and [[Papalymo]], respectively, the pair are scholars who are assisting [[the Gods' Quiver]] and [[the Wood Wailers]]."
+  - **M4j** Gridania counts Yda and Papalymo among its staunchest allies: scholars from a distant land, there since before the Calamity. *Chasing Shadows* (2.0, main): "Gridania counts them among her staunchest allies. Both are scholars hailing from a distant land, and have been with us since before the Calamity."
+  - **M4e** The dead Ixal was a chieftain, far inside enemy territory; the beastmen may be acting under orders. *Chasing Shadows* (2.0, main): "An Ixal. And no ordinary Ixal, either—a chieftain. … That they would venture this deep into enemy territory... The [[beastmen]] may indeed be acting under orders."
+
+</details>
+
+**#8–#18 · main**
+
+> A Lalafellin scholar who, with Yda, has helped Gridania since before the Calamity. At Spirithold, where a Hearer's rite was broken, the masked mage they pursue eluded them again; Papalymo saw the Hearer to safety and sent for his peers to finish the rite.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4j** Gridania counts Yda and Papalymo among its staunchest allies: scholars from a distant land, there since before the Calamity. *Chasing Shadows* (2.0, main): "Gridania counts them among her staunchest allies. Both are scholars hailing from a distant land, and have been with us since before the Calamity."
+  - **M8a** Conjurers and their Wood Wailer escort were attacked by a towering shadow during a sacred rite in Spirithold. *Spirithold Broken* (2.0, main): "a party of [[conjurer]]s and their [[The Wood Wailers|Wood Wailer]] escort were attacked by a towering shadow while performing a sacred rite inside Spirithold."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+  - **M8e** The rite failed; Papalymo will see the Hearer to safety and send for his peers to finish it. *Spirithold Broken* (2.0, main): "We shall see the Hearer to safety, and send for his peers to finish the rite."
+
+</details>
+
+**#19–#30 · main**
+
+> A Sharlayan scholar who, with Yda, has spent years helping the Gridanians. When the masked mage fell at the Guardian Tree lamenting the wisdom of the Paragons, Papalymo named his kind the Bringers of Chaos, or Ascians, who have been manipulating the beast tribes. He keeps some private suspicion to himself.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19p** Yda confirms they are Sharlayans. *To Guard a Guardian* (2.0, main): "Why, yes, we ''are'' Sharlayans!"
+  - **M19o** Yda says she and Papalymo have been helping the Gridanians for years. *To Guard a Guardian* (2.0, main): "Despite what it looks like, Papalymo and I are actually ''helping'' the Gridanians. And we've been doing so for a good few years, too."
+  - **M19j** The masked mage falls, lamenting that the wisdom of the Paragons was brought low by mortals. *To Guard a Guardian* (2.0, main): "That the wisdom of the Paragons should be brought low...by mere mortals..."
+  - **M19k** Papalymo names them the Bringers of Chaos, or Ascians. *To Guard a Guardian* (2.0, main): "The Bringers of Chaos...or ''Ascians'', to give them their proper name."
+  - **M19l** Papalymo says the Ascians have been manipulating the beast tribes. *To Guard a Guardian* (2.0, main): "It would seem our suspicions were correct─it is they who have been manipulating the beast tribes."
+  - **M19q** Papalymo keeps some private suspicion to himself. *To Guard a Guardian* (2.0, main): "So I ''wasn't'' mistaken... … Nothing. Nothing at all."
+
+</details>
+
+**#31–#42c · main**
+
+> A Scion who, with Yda, surveys the Twelveswood for the order.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **C31** Minfilia introduces Yda, Papalymo, Thancred, Y'shtola and Urianger as the player's friends in the order: Sharlayans who stayed in Eorzea when their countrymen fled. *A Wild Rose by Any Other Name* (2.0, main): "I would introduce you to your friends in the order. … Those same brave souls stand before you now."
+  - **M31g** Yda and Papalymo survey the Twelveswood for the Scions. *A Wild Rose by Any Other Name* (2.0, main): "The masked woman is Yda, and beside her is Papalymo. The two are charged with surveying the Twelveswood."
+
+</details>
+
+**#43–#50 · main**
+
+> A Scion who, with Yda, surveys the Twelveswood for the order. The two studied the sylphs for the Order of the Twin Adder, and are helping you win the sylphs' trust.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31g** Yda and Papalymo survey the Twelveswood for the Scions. *A Wild Rose by Any Other Name* (2.0, main): "The masked woman is Yda, and beside her is Papalymo. The two are charged with surveying the Twelveswood."
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43h** Yda and Papalymo will help you with the sylphs. *Sylph-management* (2.0, main): "Yda and Papalymo, however, should be able to see the forest for the trees."
+
+</details>
+
+**#51–#60 · main**
+
+> A Scion who, with Yda, surveys the Twelveswood and is helping you win the sylphs' trust. He explained that sylphs in the forest have been tempered by Ramuh, and like the Amalj'aa tempered by Ifrit, exist only to serve their primal.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Sylph-management — main scenario quest (2.0); Brotherly Love — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31g** Yda and Papalymo survey the Twelveswood for the Scions. *A Wild Rose by Any Other Name* (2.0, main): "The masked woman is Yda, and beside her is Papalymo. The two are charged with surveying the Twelveswood."
+  - **M43h** Yda and Papalymo will help you with the sylphs. *Sylph-management* (2.0, main): "Yda and Papalymo, however, should be able to see the forest for the trees."
+  - **M51b** The sylphs in the forest have been tempered by the primal Ramuh. *Brotherly Love* (2.0, main): "These sylphs have been tempered―brought under the thrall of the primal Ramuh."
+  - **M51c** Like the Amalj'aa tempered by Ifrit, tempered sylphs exist only to serve their primal. *Brotherly Love* (2.0, main): "Akin to the Amalj'aa tempered by Ifrit, these sylphs exist only to serve their deity."
+
+</details>
+
+**#61–#101 · main**
+
+> A Scion who, with Yda, surveys the Twelveswood and helped you make peace with the sylphs. He explained that tempered followers take on their primal's nature: Ramuh's influence has made his tempered sylphs fiercely protective of their homeland.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Brotherly Love — main scenario quest (2.0); Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31g** Yda and Papalymo survey the Twelveswood for the Scions. *A Wild Rose by Any Other Name* (2.0, main): "The masked woman is Yda, and beside her is Papalymo. The two are charged with surveying the Twelveswood."
+  - **M51b** The sylphs in the forest have been tempered by the primal Ramuh. *Brotherly Love* (2.0, main): "These sylphs have been tempered―brought under the thrall of the primal Ramuh."
+  - **M61e** Papalymo says Ramuh's influence has made the tempered sylphs fiercely protective of their homeland. *Believe in Your Sylph* (2.0, main): "In the case of the sylphs, Ramuh's influence has made them ''fiercely'' protective of their homeland."
+
+</details>
 
 **#102–#141 · main**
 
@@ -13418,6 +14735,50 @@ Sources shown: Griffin, Griffin on the Wall — main scenario quest (3.5); The F
 
 ### Titan (`char-titan`, character)
 
+**#85–#87 · main**
+
+> A primal, summoned once more by a tribe of kobolds near Limsa Lominsa, who gather crystals as fodder for him. The Maelstrom has asked the Scions to slay him. The only force known to have bested him, the Company of Heroes, disbanded five years ago.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85e** The kobolds gather crystals as fodder for their primal. *Wrath of the Titan* (2.0, main): "Crystals. Fodder for their fell primal."
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+
+</details>
+
+**#88–#97 · main**
+
+> A primal summoned once more by a tribe of kobolds near Limsa Lominsa, whom the Scions have been asked to slay. Wheiskaet, a former captain of the Company of Heroes, says Titan took some of the Company's very best, and won't send you into O'Ghomoro to face him on a whim.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+  - **M88d** Wheiskaet will not send you into O'Ghomoro on a whim; you must complete his challenges. *The Lominsan Way* (2.0, main): "But I will not send you into O'Ghomoro on a whim. … you must yet again prove yourself by completing Wheiskaet's challenges."
+
+</details>
+
+**#98–#102 · main**
+
+> A primal summoned once more by a tribe of kobolds near Limsa Lominsa, whom the Scions have been asked to slay. The Company of Heroes once beat him, but he took some of its very best, and in battle beneath O'Ghomoro he blinded Shamani, once of the Company.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0); It Won't Work — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+  - **M98b** Titan blinded Shamani beneath O'Ghomoro, and he fell into despair. *It Won't Work* (2.0, main): "After Titan blinded me in our battle beneath O'Ghomoro, I fell into a deep depression."
+
+</details>
+
 **#103–#104 · main**
 
 > A primal. The Company of Heroes has judged you worthy to challenge him.
@@ -13531,6 +14892,44 @@ Sources shown: Casing the Castrum — main scenario quest (2.0); Operation Archo
 
 ### Noraxia (`char-noraxia`, character)
 
+**#59–#61 · main**
+
+> A sylph who told you that the elder of Little Solace had gone into the Thousand Maws of Toto-Rak and had not returned.
+
+Sources shown: Into the Beast's Maw — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M59c** Noraxia reports that the elder went into Toto-Rak and has not returned. *Into the Beast's Maw* (2.0, main): "Elder one went into Toto–Rak, but has not returned!"
+  - **M59d** Frixio is the eldest of the sylphs of Little Solace. *Into the Beast's Maw* (2.0, main): "This one is called Frixio, eldest of these ones of Little Solace."
+
+</details>
+
+**#62–#77 · main**
+
+> A sylph who has come to the Waking Sands as a friend, sent by the elder Frixio to help the Scions.
+
+Sources shown: Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62c** The sylph Noraxia comes to the Waking Sands as a friend, sent by the elder Frixio to help the Scions. *Back from the Wood* (2.0, main): "Is sent by elder one Frixio to help walking ones! … This one comes as a friend."
+
+</details>
+
+**#78–#105 · main**
+
+> A sylph who came to the Waking Sands as a friend, sent by the elder Frixio to help the Scions. She passed on word that a miner in the North Shroud, Medrod, saw a masked man in the wood.
+
+Sources shown: Back from the Wood — main scenario quest (2.0); Terror at Fallgourd — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62c** The sylph Noraxia comes to the Waking Sands as a friend, sent by the elder Frixio to help the Scions. *Back from the Wood* (2.0, main): "Is sent by elder one Frixio to help walking ones! … This one comes as a friend."
+  - **M78c** Noraxia tells you that a miner, Medrod, saw a masked character in the wood. *Terror at Fallgourd* (2.0, main): "Noraxia tells you that a miner named [[Medrod]] witnessed an unsavory masked character in the wood."
+
+</details>
+
 **#106–#108 · main**
 
 > A sylph you found dying at the Waking Sands after the imperial raid. With her last words she sent you to the church in eastern Thanalan.
@@ -13587,6 +14986,20 @@ Sources shown: All Good Things — main scenario quest (2.0); Eyes on Me — mai
 
 ### Marques (`char-marques`, character)
 
+**#34–#105 · main**
+
+> A man who tends the graves of the lichyard at the Church of Saint Adama Landama, near Camp Drybone, and knows little of the commonfolk. Thancred swears he has seen his face somewhere before.
+
+Sources shown: A Proper Burial — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M34a** Marques tends the graves of the church's lichyard. *A Proper Burial* (2.0, main): "Seek out a man named Marques─he tends the graves of the lichyard."
+  - **M34b** Marques knows little of the commonfolk and sends you to Sister Ourcen. *A Proper Burial* (2.0, main): "Marques admits to knowing little of the commonfolk. He suggests you speak to Sister [[Ourcen]] within the church."
+  - **M34f** Thancred swears he has seen the lichkeeper Marques's face before. *A Proper Burial* (2.0, main): "Still, the lichkeeper Marques... I'd swear to the Twelve I've seen that face elsewhere before..."
+
+</details>
+
 **#106 only · main**
 
 > A survivor of the battle of Carteneau whom the church in eastern Thanalan took in. Father Iliud has asked him to look after you.
@@ -13626,6 +15039,43 @@ Sources shown: All Good Things — main scenario quest (2.0); Eyes on Me — mai
 </details>
 
 ### Garuda (`char-garuda`, character)
+
+**#19–#39 · main**
+
+> A power the Ixal revere. When they massed at Gridania's Guardian Tree, their chieftain vowed to take its great crystal as an offering unto Garuda.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19f** The Ixali chieftain means to take a great crystal from the tree as an offering to Garuda. *To Guard a Guardian* (2.0, main): "From this tree, a great crystal we take! Unto Garuda, an offering we shall make!"
+
+</details>
+
+**#40–#42c · main**
+
+> A bloodthirsty primal summoned by the Ixal, a warlike beast tribe.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40h** Alphinaud says the warlike Ixal summon their primal, Garuda. *A Hero in the Making* (2.0, main): "The Ixal are unquestionably the more troublesome, being of a naturally warlike disposition, and wont to summon their bloodthirsty primal, Garuda."
+
+</details>
+
+**#43–#109 · main**
+
+> A bloodthirsty primal summoned by the warlike Ixal. Papalymo counts her among the most savage of all primals, and Gridania has its hands full fending her off.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40h** Alphinaud says the warlike Ixal summon their primal, Garuda. *A Hero in the Making* (2.0, main): "The Ixal are unquestionably the more troublesome, being of a naturally warlike disposition, and wont to summon their bloodthirsty primal, Garuda."
+  - **M43e** Gridania has its hands full fending off Garuda, among the most savage of primals. *Sylph-management* (2.0, main): "What we ''can'' say with absolute certainty is that Gridania has its hands full fending off Garuda. … Who, I need hardly remind you, is among the most savage and terrible of all known primals."
+
+</details>
 
 **#110–#128 · main**
 
@@ -14222,6 +15672,99 @@ Sources shown: The Heretic among Us — main scenario quest (2.0); Dark Words, D
 
 ### Biggs (`char-biggs`, character)
 
+**#41 only · main**
+
+> An engineer of the Ironworks who crewed its first airship since the Calamity with Wedge; the Ironworks' master has been missing since then. Imperial soldiers shot the ship down near Horizon's Edge and tried to seize it, but were driven off, and the two engineers got away.
+
+Sources shown: The Company You Keep (Immortal Flames) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41c** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41e** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M41b** Your induction is interrupted by an imperial attack on an airship near Horizon's Edge. *The Company You Keep (Immortal Flames)* (2.0, main): "Your formal induction into the Immortal Flames is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to Horizon's Edge"
+  - **M41d** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Immortal Flames)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41g** The two engineers are able to continue on their way. *The Company You Keep (Immortal Flames)* (2.0, main): "reassures you that the two engineers you encountered were able to continue on their way."
+
+</details>
+
+**#42 only · main**
+
+> An engineer of the Ironworks, whose first airship since the Calamity he and Wedge crewed until imperial soldiers shot it down. The two are now under the Scions' protection at the Waking Sands: as a neutral party, the Scions keep this airship technology, and the Ironworks sent its engineers to help.
+
+Sources shown: The Company You Keep (Immortal Flames) — main scenario quest (2.0); For Coin and Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41c** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41e** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M42d** Biggs and Wedge are now under the protection of the Scions. *For Coin and Country* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42e** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *For Coin and Country* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+**#41b only · main**
+
+> An engineer of the Ironworks who crewed its first airship since the Calamity with Wedge; the Ironworks' master has been missing since then. Imperial soldiers shot the ship down near Cedarwood and tried to seize it, but were driven off, and the two engineers got away.
+
+Sources shown: The Company You Keep (Maelstrom) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41bc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41be** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M41bb** Your induction is interrupted by an imperial attack on an airship in Cedarwood. *The Company You Keep (Maelstrom)* (2.0, main): "Your formal induction into the Maelstrom is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to Cedarwood"
+  - **M41bd** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Maelstrom)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41bf** The two engineers make it home without further incident. *The Company You Keep (Maelstrom)* (2.0, main): "assures you that the two engineers you encountered made it home without further incident."
+
+</details>
+
+**#42b only · main**
+
+> An engineer of the Ironworks, whose first airship since the Calamity he and Wedge crewed until imperial soldiers shot it down. The two are now under the Scions' protection at the Waking Sands: as a neutral party, the Scions keep this airship technology, and the Ironworks sent its engineers to help.
+
+Sources shown: The Company You Keep (Maelstrom) — main scenario quest (2.0); Till Sea Swallows All — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41bc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41be** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M42bc** Biggs and Wedge are now under the protection of the Scions. *Till Sea Swallows All* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42bd** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *Till Sea Swallows All* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+**#41c only · main**
+
+> An engineer of the Ironworks who crewed its first airship since the Calamity with Wedge; the Ironworks' master has been missing since then. Imperial soldiers shot the ship down near Nine Ivies and tried to seize it, but were driven off, and the two engineers got away.
+
+Sources shown: The Company You Keep (Twin Adder) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41cc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41ce** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M41cb** Your induction is interrupted by an imperial attack on an airship southeast of Nine Ivies. *The Company You Keep (Twin Adder)* (2.0, main): "Your formal induction into the Order of the Twin Adder is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to the area southeast of Nine Ivies"
+  - **M41cd** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Twin Adder)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41cf** The two engineers are able to continue on their way. *The Company You Keep (Twin Adder)* (2.0, main): "reassures you that the two engineers you encountered were able to continue on their way."
+
+</details>
+
+**#42c–#142 · main**
+
+> An engineer of the Ironworks, whose first airship since the Calamity he and Wedge crewed until imperial soldiers shot it down. The two are now under the Scions' protection at the Waking Sands: as a neutral party, the Scions keep this airship technology, and the Ironworks sent its engineers to help.
+
+Sources shown: The Company You Keep (Twin Adder) — main scenario quest (2.0); Wood's Will Be Done — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41cc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41ce** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M42cd** Biggs and Wedge are now under the protection of the Scions. *Wood's Will Be Done* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42ce** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *Wood's Will Be Done* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
 **#143–#144 · main**
 
 > One of two men, likely Biggs and Wedge, who escaped from a downed imperial airship in Coerthas and are being hunted.
@@ -14307,6 +15850,99 @@ Sources shown: The Syrcus Trench — main scenario quest (5.0)
 </details>
 
 ### Wedge (`char-wedge`, character)
+
+**#41 only · main**
+
+> An engineer of the Ironworks who crewed its first airship since the Calamity with Biggs; the Ironworks' master has been missing since then. Imperial soldiers shot the ship down near Horizon's Edge and tried to seize it, but were driven off, and the two engineers got away.
+
+Sources shown: The Company You Keep (Immortal Flames) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41c** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41e** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M41b** Your induction is interrupted by an imperial attack on an airship near Horizon's Edge. *The Company You Keep (Immortal Flames)* (2.0, main): "Your formal induction into the Immortal Flames is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to Horizon's Edge"
+  - **M41d** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Immortal Flames)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41g** The two engineers are able to continue on their way. *The Company You Keep (Immortal Flames)* (2.0, main): "reassures you that the two engineers you encountered were able to continue on their way."
+
+</details>
+
+**#42 only · main**
+
+> An engineer of the Ironworks, whose first airship since the Calamity he and Biggs crewed until imperial soldiers shot it down. The two are now under the Scions' protection at the Waking Sands: as a neutral party, the Scions keep this airship technology, and the Ironworks sent its engineers to help.
+
+Sources shown: The Company You Keep (Immortal Flames) — main scenario quest (2.0); For Coin and Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41c** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41e** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M42d** Biggs and Wedge are now under the protection of the Scions. *For Coin and Country* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42e** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *For Coin and Country* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+**#41b only · main**
+
+> An engineer of the Ironworks who crewed its first airship since the Calamity with Biggs; the Ironworks' master has been missing since then. Imperial soldiers shot the ship down near Cedarwood and tried to seize it, but were driven off, and the two engineers got away.
+
+Sources shown: The Company You Keep (Maelstrom) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41bc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41be** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M41bb** Your induction is interrupted by an imperial attack on an airship in Cedarwood. *The Company You Keep (Maelstrom)* (2.0, main): "Your formal induction into the Maelstrom is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to Cedarwood"
+  - **M41bd** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Maelstrom)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41bf** The two engineers make it home without further incident. *The Company You Keep (Maelstrom)* (2.0, main): "assures you that the two engineers you encountered made it home without further incident."
+
+</details>
+
+**#42b only · main**
+
+> An engineer of the Ironworks, whose first airship since the Calamity he and Biggs crewed until imperial soldiers shot it down. The two are now under the Scions' protection at the Waking Sands: as a neutral party, the Scions keep this airship technology, and the Ironworks sent its engineers to help.
+
+Sources shown: The Company You Keep (Maelstrom) — main scenario quest (2.0); Till Sea Swallows All — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41bc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41be** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M42bc** Biggs and Wedge are now under the protection of the Scions. *Till Sea Swallows All* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42bd** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *Till Sea Swallows All* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+**#41c only · main**
+
+> An engineer of the Ironworks who crewed its first airship since the Calamity with Biggs; the Ironworks' master has been missing since then. Imperial soldiers shot the ship down near Nine Ivies and tried to seize it, but were driven off, and the two engineers got away.
+
+Sources shown: The Company You Keep (Twin Adder) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41cc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41ce** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M41cb** Your induction is interrupted by an imperial attack on an airship southeast of Nine Ivies. *The Company You Keep (Twin Adder)* (2.0, main): "Your formal induction into the Order of the Twin Adder is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to the area southeast of Nine Ivies"
+  - **M41cd** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Twin Adder)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41cf** The two engineers are able to continue on their way. *The Company You Keep (Twin Adder)* (2.0, main): "reassures you that the two engineers you encountered were able to continue on their way."
+
+</details>
+
+**#42c–#142 · main**
+
+> An engineer of the Ironworks, whose first airship since the Calamity he and Biggs crewed until imperial soldiers shot it down. The two are now under the Scions' protection at the Waking Sands: as a neutral party, the Scions keep this airship technology, and the Ironworks sent its engineers to help.
+
+Sources shown: The Company You Keep (Twin Adder) — main scenario quest (2.0); Wood's Will Be Done — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41cc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M41ce** It is the first airship the Ironworks has built since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "It's the first airship we've built since the Calamity"
+  - **M42cd** Biggs and Wedge are now under the protection of the Scions. *Wood's Will Be Done* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42ce** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *Wood's Will Be Done* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
 
 **#143–#144 · main**
 
@@ -14436,6 +16072,68 @@ Sources shown: Come-Into-My-Castrum — main scenario quest (2.0); Acting the Pa
 
 ### The Company of Heroes (`org-company-of-heroes`, organization)
 
+**#85–#87 · main**
+
+> A famous band of mercenaries, the only force known to have bested Titan. Limsa Lominsa turned to it when Titan rose before, but it disbanded five years ago.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85f** Y'shtola proposes learning about Titan from former members of the Company of Heroes. *Wrath of the Titan* (2.0, main): "[[Y'shtola]] proposes that you learn more about your foe by speaking to former members of the [[Company of Heroes]]─the famous band of mercenaries who defeated the dread primal once before."
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+  - **M85h** When Titan rose before, Limsa Lominsa turned to the Company of Heroes. *Wrath of the Titan* (2.0, main): "In the past, when Titan rose to threaten the peace, it was to the Company of Heroes we turned."
+
+</details>
+
+**#88–#89 · main**
+
+> A famous band of mercenaries, the only force known to have bested Titan, disbanded five years ago. One of its former captains, Wheiskaet, works at Costa del Sol. He says its victories over primals were bought with lifeblood, and Titan took some of its very best.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85f** Y'shtola proposes learning about Titan from former members of the Company of Heroes. *Wrath of the Titan* (2.0, main): "[[Y'shtola]] proposes that you learn more about your foe by speaking to former members of the [[Company of Heroes]]─the famous band of mercenaries who defeated the dread primal once before."
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+
+</details>
+
+**#90–#98 · main**
+
+> A disbanded band of mercenaries, the only force known to have bested Titan, though he took some of its very best. Its former captain, Wheiskaet, has set you to gather the ingredients of a feast, and many of his old mercenaries still live to guide you.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M90b** Many of Wheiskaet's old mercenaries still live and will guide you. *A Modest Proposal* (2.0, main): "Many of the mercenaries who once served under my command still live, and they will guide you in your quest."
+
+</details>
+
+**#99–#102 · main**
+
+> A disbanded band of mercenaries, the only force known to have bested Titan, though he took some of its very best. Its former members Landenel, U'odh Nunh and Shamani have helped you gather the ingredients of a feast for Wheiskaet, their old captain. Shamani misses his life with the Company.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0); Trial by Turtle — main scenario quest (2.0); The Perfect Prey — main scenario quest (2.0); What Do You Mean You Forgot the Wine — main scenario quest (2.0); Give a Man a Drink — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+  - **M91a** Landenel served with the Company and keeps that a secret. *Trial by Turtle* (2.0, main): "See, I don't regret my time spent with the Company in the slightest. … this business between you, me, and the captain must remain a secret."
+  - **M92a** U'odh Nunh joined the Company of Heroes to hone his skills. *The Perfect Prey* (2.0, main): "Many years ago, I joined the Company of Heroes to hone my skills, instead of challenging my predecessor before I was ready."
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M99c** Shamani misses his life with the Company. *Give a Man a Drink* (2.0, main): "Indeed, there is much I miss about my life with the Company of Heroes."
+
+</details>
+
 **#103–#104 · main**
 
 > A disbanded company whose five chosen members judged you worthy to challenge Titan, weighing you by deeds rather than reputation.
@@ -14479,6 +16177,166 @@ Sources shown: In the Company of Heroes — main scenario quest (2.0); Into the 
 </details>
 
 ### The Garlean Empire (`org-garlean-empire`, organization)
+
+**#22–#21b · main** · Also searchable as: the Empire
+
+> An empire that has twice failed to take Eorzea: fifteen years ago its fleet met a host of dragons and lost its flagship, and its Meteor project, which meant to cast the lesser moon Dalamud down on the realm, failed to win it control. Its XIVth Imperial Legion is still entrenched in Eorzea's border regions.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22l** Fifteen years ago an imperial fleet bound for Mor Dhona met a host of dragons and lost its flagship. *The Gridanian Envoy* (2.0, main): "Fifteen years since the imperial fleet set course for Mor Dhona, led by the Agrius, mightiest of all vessels. … Our invincible flagship was lost, and all hope of victory with her."
+  - **M22m** Gaius says Eorzea has twice eluded the Empire, Meteor included. *The Gridanian Envoy* (2.0, main): "Twice now it has eluded the Empire's grasp. … For all the destruction it wrought, even Meteor, the Great Sin, failed to yield us control over it."
+  - **M22g** The Empire's Meteor project meant to cast the lesser moon Dalamud down on Eorzea. *The Gridanian Envoy* (2.0, main): "intended to "cleanse" our realm by snatching the lesser moon, Dalamud, from the heavens and casting it down upon our heads."
+  - **M22k** The Empire still threatens Eorzea, with Legatus Gaius's XIVth Imperial Legion entrenched in the border regions. *The Gridanian Envoy* (2.0, main): "It appears the [[Garlean Empire]] still poses a grave threat to [[Eorzea]], with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+
+</details>
+
+**#22b–#22c · main** · Also searchable as: the Empire
+
+> An empire that, once it mastered magitek, seized its neighbors' lands and set its sights on Eorzea. Its plan to bring down the lesser moon, Dalamud, was met at Carteneau five years ago, and its XIVth Imperial Legion remains entrenched within Eorzea's borders.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bo** Once the Garleans mastered magitek, they seized their neighbors' lands, then set their sights on Eorzea. *The Lominsan Envoy* (2.0, main): "No sooner had they learned how to use magitek than they began seizing territory from their neighbors. … An empire which then set its sights upon Eorzea."
+  - **M22be** The Garleans' Meteor project would tear the lesser moon, Dalamud, from the heavens. *The Lominsan Envoy* (2.0, main): "the Meteor project, by which the lesser moon, Dalamud, would be torn down from the heavens to annihilate all life below."
+  - **M22bu** Five years have passed since Carteneau. *The Lominsan Envoy* (2.0, main): "It has been five years since those of us who were spared dragged ourselves from the ashes"
+  - **M22bk** The XIVth Imperial Legion is still entrenched within Eorzea's borders. *The Lominsan Envoy* (2.0, main): "But the XIVth Imperial Legion is still entrenched within our borders."
+
+</details>
+
+**#23b–#39 · main** · Also searchable as: the Empire
+
+> An empire that threatens Eorzea. Its XIVth Imperial Legion, led by Legatus Gaius, is entrenched in Eorzea's border regions, and the threat of imperial attack has forced strict limits on airship travel.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23bg** The XIVth Imperial Legion under Legatus Gaius is entrenched in the border regions. *The Ul'dahn Envoy* (2.0, main): "with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M23bj** Merlwyb warns that the imperials crowd Eorzea's borders. *The Ul'dahn Envoy* (2.0, main): "Do not imagine that the Empire has forsaken its claim on Eorzea. The imperials crowd our borders, waiting to strike."
+  - **M23bd** The threat of imperial attack has forced strict limits on airship travel. *The Ul'dahn Envoy* (2.0, main): "The ever-present threat of imperial attack has forced us to impose drastic restrictions out of concern for public safety."
+
+</details>
+
+**#40–#49 · main** · Also searchable as: the Empire
+
+> An empire that brought a war of conquest to Eorzea, and whose armies the Alliance met at Carteneau five years ago. Kan-E-Senna calls the Garleans the greatest threat as they raise steel fortresses in the Twelveswood, and Merlwyb says their flags fly within Limsa Lominsa's borders.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40x** The Garlean Empire brought a war of conquest to Eorzea, and the Alliance met it at Carteneau five years ago. *A Hero in the Making* (2.0, main): "When the Garlean Empire brought its war of conquest to Eorzea … Five years ago, the Alliance met the armies of the Empire upon the fields of Carteneau."
+  - **M40g** Kan-E-Senna says the Empire is raising steel fortresses in the Twelveswood and remains the greatest threat. *A Hero in the Making* (2.0, main): "the Empire has set about raising steel fortresses here in the Twelveswood. … Let none be mistaken─the Garleans remain the greatest threat to our survival."
+  - **M40o** Merlwyb warns of the Sahagin, the kobolds and the Garleans, whose flags fly within Limsa's borders. *A Hero in the Making* (2.0, main): "The Sahagin creep ashore seeking blood for their accursed god. … Even now, the curs fly their flags within our borders."
+
+</details>
+
+**#50–#57 · main** · Also searchable as: the Empire
+
+> An empire that brought a war of conquest to Eorzea and is raising fortresses in the Twelveswood. The sylphs have been wary since it came to the Shroud, and in the East Shroud you fought imperial soldiers guarding a cache of supplies, logged by someone who knows the forest.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); We Come in Peace — main scenario quest (2.0); Presence of the Enemy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40x** The Garlean Empire brought a war of conquest to Eorzea, and the Alliance met it at Carteneau five years ago. *A Hero in the Making* (2.0, main): "When the Garlean Empire brought its war of conquest to Eorzea … Five years ago, the Alliance met the armies of the Empire upon the fields of Carteneau."
+  - **M40g** Kan-E-Senna says the Empire is raising steel fortresses in the Twelveswood and remains the greatest threat. *A Hero in the Making* (2.0, main): "the Empire has set about raising steel fortresses here in the Twelveswood. … Let none be mistaken─the Garleans remain the greatest threat to our survival."
+  - **M44f** The sylphs have been wary since the Empire came to the Shroud. *We Come in Peace* (2.0, main): "Particularly since the Empire has come to the Shroud."
+  - **M50b** Imperial soldiers guarding boxes attack you, and the boxes hold a log of imperial supplies for delivery. *Presence of the Enemy* (2.0, main): "Stumbling upon a stack of suspicious boxes, you are attacked by a group of imperial soldiers. After fending them off, you search the boxes to uncover a [[Quartermaster's Log|quartermaster's log]] detailing a list of imperial supplies for delivery."
+  - **M50c** Komuxio deduces the log was written by someone who knows the forest: perhaps a traitor. *Presence of the Enemy* (2.0, main): "Komuxio deduces that the log must have been penned by someone with knowledge of the forest. Could there be a traitor in your midst?"
+
+</details>
+
+**#58 only · main** · Also searchable as: the Empire
+
+> An empire that brought a war of conquest to Eorzea and is raising fortresses in the Twelveswood. Its soldiers, never before able to reach the forest depths, got there with the help of a Gridanian traitor, the Wood Wailer Laurentius, who sold them maps and rations.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Sylphish Concerns — main scenario quest (2.0); Nouveau Riche — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40x** The Garlean Empire brought a war of conquest to Eorzea, and the Alliance met it at Carteneau five years ago. *A Hero in the Making* (2.0, main): "When the Garlean Empire brought its war of conquest to Eorzea … Five years ago, the Alliance met the armies of the Empire upon the fields of Carteneau."
+  - **M40g** Kan-E-Senna says the Empire is raising steel fortresses in the Twelveswood and remains the greatest threat. *A Hero in the Making* (2.0, main): "the Empire has set about raising steel fortresses here in the Twelveswood. … Let none be mistaken─the Garleans remain the greatest threat to our survival."
+  - **M57c** Garlean soldiers were never before able to reach the forest depths. *Sylphish Concerns* (2.0, main): "Buscarron tells you that [[Garlean]] soldiers were never before able to penetrate the forest depths."
+  - **M57d** The evidence suggests a traitor in Gridania is aiding the imperial advance. *Sylphish Concerns* (2.0, main): "The mounting evidence seems to suggest that there is a traitor in [[Gridania]] aiding the imperial advance."
+  - **M58c** Laurentius confesses to selling maps and rations to the Empire. *Nouveau Riche* (2.0, main): "Aye, I sold maps and rations to the Empire. It was I."
+
+</details>
+
+**#59–#64 · main** · Also searchable as: the Empire
+
+> An empire that brought a war of conquest to Eorzea and has sent soldiers deep into the Twelveswood, guided by a Gridanian traitor. The sylph elder fled from them into the Thousand Maws of Toto-Rak, and a vision showed imperial officers who had pushed captured sylphs too hard to summon their eikon.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Sylphish Concerns — main scenario quest (2.0); Nouveau Riche — main scenario quest (2.0); Into the Beast's Maw — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40x** The Garlean Empire brought a war of conquest to Eorzea, and the Alliance met it at Carteneau five years ago. *A Hero in the Making* (2.0, main): "When the Garlean Empire brought its war of conquest to Eorzea … Five years ago, the Alliance met the armies of the Empire upon the fields of Carteneau."
+  - **M57d** The evidence suggests a traitor in Gridania is aiding the imperial advance. *Sylphish Concerns* (2.0, main): "The mounting evidence seems to suggest that there is a traitor in [[Gridania]] aiding the imperial advance."
+  - **M58c** Laurentius confesses to selling maps and rations to the Empire. *Nouveau Riche* (2.0, main): "Aye, I sold maps and rations to the Empire. It was I."
+  - **M59a** Fleeing Garlean soldiers, the sylph elder Frixio has gone into the Thousand Maws of Toto-Rak. *Into the Beast's Maw* (2.0, main): "Fleeing from [[Garlean]] soldiers, the sylph elder, [[Frixio]], has ventured into [[The Thousand Maws of Toto-Rak|the Thousand Maws of Toto–Rak]]."
+  - **M59h** An imperial centurion admits they pushed captured sylphs too hard to summon their eikon. *Into the Beast's Maw* (2.0, main): "I fear we may have been...overzealous in our efforts to compel them to summon their eikon."
+
+</details>
+
+**#65–#67 · main** · Also searchable as: the Empire
+
+> An empire that rules Ala Mhigo, the land whose guardian deity is Rhalgr.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+
+</details>
+
+**#68–#73 · main** · Also searchable as: the Empire
+
+> An empire that rules Ala Mhigo. Freeing their home from the Garleans is the shared purpose of the Ala Mhigan refugees.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+
+</details>
+
+**#74–#99 · main** · Also searchable as: the Empire
+
+> An empire that rules Ala Mhigo. Two decades ago the land fell when rebels, blinded by hate, danced to the Empire's tune. Freeing their home from the Garleans is the shared purpose of the Ala Mhigan refugees.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+
+</details>
+
+**#100–#101 · main** · Also searchable as: the Empire
+
+> An empire that conquers other lands, and has tried to conquer Eorzea. It rules Ala Mhigo, and Drest, an imperial deserter who is not Garlean, says it conquered his lands too.
+
+Sources shown: That Weight — main scenario quest (2.0); Where There Is Smoke — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **E100a** The Empire conquered the lands of the deserter Drest, as it tried to conquer Eorzea. *That Weight* (2.0, main): "They conquered my lands just like they tried to conquer yours!"
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M100a** Drest confesses he is an imperial deserter, though not Garlean. *That Weight* (2.0, main): "Drest confesses that he is an imperial deserter, though he himself is not [[Garlean]]."
+
+</details>
 
 **#102–#104 · main** · Also searchable as: the Empire
 
@@ -14916,6 +16774,75 @@ Sources shown: Three for Three — main scenario quest (2.0); In the Eyes of God
 </details>
 
 ### The Ixal (`org-ixal`, organization)
+
+**#4–#17 · main**
+
+> A beast tribe whose activity in the Twelveswood has risen sharply since an unknown individual appeared there. A dead Ixali chieftain lay beside one of their ritual blades at Lifemend Stump, deep in Gridanian territory.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M4c** At Lifemend Stump a sword is thrust into the stump, and a dead Ixal lies nearby. *Chasing Shadows* (2.0, main): "a [[Magicked Blade|sword]] has been thrust into the stump, and an Ixal lies dead nearby."
+  - **M4d** Galfrid identifies the blade as Ixali, of a kind used only in their rituals. *Chasing Shadows* (2.0, main): "I can say with absolute certainty that this blade is of Ixali origin. It is of a kind used exclusively in the beastmen's rituals."
+  - **M4e** The dead Ixal was a chieftain, far inside enemy territory; the beastmen may be acting under orders. *Chasing Shadows* (2.0, main): "An Ixal. And no ordinary Ixal, either—a chieftain. … That they would venture this deep into enemy territory... The [[beastmen]] may indeed be acting under orders."
+
+</details>
+
+**#18 only · main**
+
+> A beast tribe whose activity in the Twelveswood has risen since an unknown individual appeared there. Their dirigibles cross the forest's borders at will, flying over Gridania's sacred Guardian Tree.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); Dread Is in the Air — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M18a** Ixali dirigibles have been crossing the Twelveswood's borders at will, and Luquelot sends his sightings to Miounne. *Dread Is in the Air* (2.0, main): "you learn from Luquelot that [[Ixal]]i dirigibles have been crossing [[The Black Shroud|the Twelveswood]]'s borders seemingly at will."
+  - **M18b** They fly over the sacred Guardian Tree, and the elementals have not objected. *Dread Is in the Air* (2.0, main): "the patch of sky directly above the Guardian Tree. … Yet the birdmen have been coming and going as they please, with nary a sign of protest from the guardians of the Twelveswood."
+
+</details>
+
+**#19–#39 · main**
+
+> A beast tribe that massed at Gridania's Guardian Tree to take its great crystal as an offering to Garuda, acting, the evidence suggests, under the command of a masked mage. They were repelled.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19f** The Ixali chieftain means to take a great crystal from the tree as an offering to Garuda. *To Guard a Guardian* (2.0, main): "From this tree, a great crystal we take! Unto Garuda, an offering we shall make!"
+  - **M19h** The Ixal were repelled, and evidence suggests they acted under the masked mage's command. *To Guard a Guardian* (2.0, main): "You have succeeded in repelling the Ixal, whom evidence suggests were acting under the command of the mysterious masked mage."
+
+</details>
+
+**#40–#46 · main**
+
+> A warlike beast tribe that summons the primal Garuda. Kan-E-Senna says they have returned in force, emboldened by Gridania's suffering.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40h** Alphinaud says the warlike Ixal summon their primal, Garuda. *A Hero in the Making* (2.0, main): "The Ixal are unquestionably the more troublesome, being of a naturally warlike disposition, and wont to summon their bloodthirsty primal, Garuda."
+  - **M40f** Kan-E-Senna says the Ixal have returned in force. *A Hero in the Making* (2.0, main): "To compound our woes, the Ixal have returned in force, emboldened by our suffering."
+
+</details>
+
+**#47–#109 · main**
+
+> A warlike beast tribe that summons the primal Garuda and has returned in force against Gridania. The war with them has taken a toll on Gridania's resources.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); First Contact — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40h** Alphinaud says the warlike Ixal summon their primal, Garuda. *A Hero in the Making* (2.0, main): "The Ixal are unquestionably the more troublesome, being of a naturally warlike disposition, and wont to summon their bloodthirsty primal, Garuda."
+  - **M40f** Kan-E-Senna says the Ixal have returned in force. *A Hero in the Making* (2.0, main): "To compound our woes, the Ixal have returned in force, emboldened by our suffering."
+  - **M47c** The war with the Ixal has taken a toll on Gridania's resources. *First Contact* (2.0, main): "The war with the Ixal has taken a toll on our resources; we can ill afford to get mired in another conflict."
+
+</details>
 
 **#110–#140 · main**
 
@@ -15899,6 +17826,111 @@ Sources shown: On the Properties of Primals — main scenario quest (2.1); You H
 
 ### Kan-E-Senna (`char-kan-e-senna`, character)
 
+**#19–#20 · main** · Also searchable as: the Elder Seedseer
+
+> The Elder Seedseer of Gridania, whose solemn charge is to watch over all who call it home. She gave thanks for the defense of the Guardian Tree, and invited its defender to serve as Emissary in the coming Greenbliss ceremony.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19s** Kan-E-Senna's solemn charge is to watch over all who call Gridania home. *To Guard a Guardian* (2.0, main): "My name is Kan-E-Senna, and it is my solemn charge to watch over all who call Gridania home."
+  - **M19r** Kan-E-Senna comes to give thanks for the defense of the Guardian Tree. *To Guard a Guardian* (2.0, main): "I am come to express my gratitude for your valiant efforts before the Guardian Tree."
+  - **M19t** Kan-E-Senna invites you to serve as Emissary in the coming Greenbliss ceremony. *To Guard a Guardian* (2.0, main): "she invites you to serve as Emissary in the forthcoming Greenbliss ceremony."
+
+</details>
+
+**#21 only · main** · Also searchable as: the Elder Seedseer
+
+> The Elder Seedseer of Gridania. At Greenbliss she told of the Warriors of Light, the adventurers who fought for Eorzea five years ago and whose names no one can recall. At the Battle of Carteneau she urged Eorzea's other commanders to withdraw, saying they could do no more.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0); Renewing the Covenant — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19s** Kan-E-Senna's solemn charge is to watch over all who call Gridania home. *To Guard a Guardian* (2.0, main): "My name is Kan-E-Senna, and it is my solemn charge to watch over all who call Gridania home."
+  - **M21a** At Greenbliss, Kan-E-Senna tells of the Warriors of Light, adventurers who fought for Eorzea five years ago, and you see a vision of their last stand at Carteneau. *Renewing the Covenant* (2.0, main): "At the ceremony, [[Kan-E-Senna|Kan-E-Senna]] tells you of the [[Warrior of Light|Warriors of Light]]─the [[adventurer]]s who fought for the survival of [[Eorzea]] five years ago. The tale of these brave souls triggers inside your mind a vision of their final stand at the [[Battle of Carteneau]]."
+  - **M21b** No one can recall the Warriors of Light's names. *Renewing the Covenant* (2.0, main): "Yet when we try to recall their names, we find the pages of our memories are blank, as if bleached by the sun."
+  - **M21d** At Carteneau, Kan-E-Senna urged the Admiral and the General to withdraw. *Renewing the Covenant* (2.0, main): "Admiral, General—we can do no more. We must give the order to withdraw."
+
+</details>
+
+**#22–#21b · main** · Also searchable as: the Elder Seedseer
+
+> The Elder Seedseer of Gridania, one of the three leaders of the Eorzean Alliance. Five years after the Battle of Carteneau, she has proposed a memorial service for the fallen on its anniversary, and Admiral Merlwyb and General Raubahn have both agreed.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0); The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19s** Kan-E-Senna's solemn charge is to watch over all who call Gridania home. *To Guard a Guardian* (2.0, main): "My name is Kan-E-Senna, and it is my solemn charge to watch over all who call Gridania home."
+  - **M22a** Kan-E-Senna makes you her personal envoy, to carry a missive to the Alliance's other two leaders. *The Gridanian Envoy* (2.0, main): "Appointing you her personal envoy, Kan-E-Senna bids you deliver a missive to the other two leaders of the [[Eorzean Alliance]]."
+  - **M22c** The missive proposes a memorial service on the anniversary of the Battle of Carteneau. *The Gridanian Envoy* (2.0, main): "In remembrance of them, a memorial service will soon be held upon the anniversary of the Battle of Carteneau."
+  - **M22j** Merlwyb accepts Kan-E-Senna's proposal. *The Gridanian Envoy* (2.0, main): "Aye, Kan-E-Senna has the right of it. I accept her proposal."
+  - **M22s** Raubahn agrees to the memorial. *The Gridanian Envoy* (2.0, main): "Kan-E will have her memorial."
+
+</details>
+
+**#22b–#22c · main** · Also searchable as: the Elder Seedseer
+
+> The Elder Seedseer of Gridania and leader of its Grand Company. She survived Carteneau, where the elder primal Bahamut emerged from Dalamud, and laments that Archon Louisoix, who might have explained what followed, never returned. She hopes remembrance services will rekindle the Alliance's unity.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bd** Kan-E-Senna is Elder Seedseer of Gridania and leads its Grand Company. *The Lominsan Envoy* (2.0, main): "I am Kan-E-Senna, Elder Seedseer of Gridania, and leader of the Order of the Twin Adder, our nation's Grand Company."
+  - **M22bf** The elder primal Bahamut emerged from Dalamud and rained fire on Eorzea. *The Lominsan Envoy* (2.0, main): "from it emerged the elder primal Bahamut, who proceeded to rain fire upon Eorzea."
+  - **C44** Archon Louisoix never returned from Carteneau, and the realm's leaders miss his wisdom. *The Lominsan Envoy* (2.0, main): "Archon Louisoix may well have been able to shed light upon these mysteries, but he, like so many, never returned from Carteneau."
+  - **M22bi** Kan-E-Senna hopes a remembrance service will rekindle the Alliance's spirit of unity. *The Lominsan Envoy* (2.0, main): "A remembrance service may well present an opportunity to rekindle the spirit of unity which first gave rise to the Alliance."
+
+</details>
+
+**#23b–#39 · main** · Also searchable as: the Elder Seedseer
+
+> Elder Seedseer of Gridania and leader of its Grand Company. She approved Raubahn's memorial for Carteneau, and says Eorzea must stand united again, for none may sleep easy while Gaius breathes Eorzean air.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23bl** Kan-E-Senna is Elder Seedseer of Gridania and leads its Grand Company. *The Ul'dahn Envoy* (2.0, main): "Elder Seedseer of Gridania, and leader of the Order of the Twin Adder, our nation's Grand Company."
+  - **M23bo** Kan-E-Senna approves the memorial and will hold a service in Gridania. *The Ul'dahn Envoy* (2.0, main): "The Flame General was wise to make his proposal, and I wholeheartedly approve of it. The necessary provisions shall be made for a service here in Gridania."
+  - **M23bp** Kan-E-Senna says Eorzea must stand united again to weather the gathering storm. *The Ul'dahn Envoy* (2.0, main): "A storm gathers upon the horizon. If we are to weather it, we must needs stand united once more."
+  - **M23bm** Kan-E-Senna says none may sleep easy while Gaius breathes Eorzean air. *The Ul'dahn Envoy* (2.0, main): "a man whose ambitions are well known to us. So long as he breathes Eorzean air, none of us may sleep easy."
+
+</details>
+
+**#40–#46 · main** · Also searchable as: the Elder Seedseer
+
+> The Elder Seedseer of Gridania and supreme commander of its Grand Company, the Order of the Twin Adder. At the remembrance service she warned that the Ixal have returned in force, and that the Garleans, raising steel fortresses in the Twelveswood, remain the greatest threat.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40u** Kan-E-Senna, the Elder Seedseer, speaks at Mih Khetto's Amphitheatre. *A Hero in the Making* (2.0, main): "Elder Seedseer Kan-E-Senna will deliver her address at Mih Khetto's Amphitheatre."
+  - **M40e** Kan-E-Senna is supreme commander of the Order of the Twin Adder. *A Hero in the Making* (2.0, main): "As supreme commander of the Order of the Twin Adder, ever shall I bear the weight of our people's sacrifice."
+  - **M40f** Kan-E-Senna says the Ixal have returned in force. *A Hero in the Making* (2.0, main): "To compound our woes, the Ixal have returned in force, emboldened by our suffering."
+  - **M40g** Kan-E-Senna says the Empire is raising steel fortresses in the Twelveswood and remains the greatest threat. *A Hero in the Making* (2.0, main): "the Empire has set about raising steel fortresses here in the Twelveswood. … Let none be mistaken─the Garleans remain the greatest threat to our survival."
+
+</details>
+
+**#47–#166 · main** · Also searchable as: the Elder Seedseer
+
+> The Elder Seedseer of Gridania and supreme commander of the Order of the Twin Adder. She has no wish to see her people in another war, and has sent the sylphs a letter vouching for Gridania's envoy and restating its wish for harmony with them.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); We Come in Peace — main scenario quest (2.0); First Contact — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40e** Kan-E-Senna is supreme commander of the Order of the Twin Adder. *A Hero in the Making* (2.0, main): "As supreme commander of the Order of the Twin Adder, ever shall I bear the weight of our people's sacrifice."
+  - **M44c** The sylphs are mostly peaceable, and the Elder Seedseer wants no new war. *We Come in Peace* (2.0, main): "The sylphs are, for the most part, a peaceable bunch─much to the delight of the Elder Seedseer, who has no desire to see her people embroiled in yet another fruitless war."
+  - **M47a** Amelain gives you a letter from the Elder Seedseer for Komuxio of Little Solace. *First Contact* (2.0, main): "Amelain has entrusted you with [[Letter to the Elder (First Contact)|a missive]] penned by [[Kan-E-Senna|the Elder Seedseer]] herself. Deliver it safely to [[Komuxio]] at [[Little Solace]]."
+  - **M47b** The letter vouches for the envoy and restates Gridania's wish for harmony with the sylphs. *First Contact* (2.0, main): "it vouches for the integrity of our envoy─that would be you─and restates Gridania's desire to maintain a harmonious relationship with our long-standing friends of the forest."
+
+</details>
+
 **#167–#168 · main** · Also searchable as: the Elder Seedseer
 
 > The Elder Seedseer of Gridania. She believes Good King Moggle Mog XII is a myth made manifest, called forth much as the beast tribes summon their gods, and has asked you to drive him from the Twelveswood.
@@ -16435,6 +18467,34 @@ Sources shown: Hope's Confluence — main scenario quest (5.3)
 
 ### Hydaelyn (`char-hydaelyn`, character)
 
+**#4–#20b · main**
+
+> A voice in a vision who names herself Hydaelyn. She says the Light that once shone throughout the realm has grown dim and Darkness has risen in its stead, and bids a crystal bearer lay claim to the Crystals of Light, which hold the power to banish it.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4f** In a vision, a voice names herself Hydaelyn. *Chasing Shadows* (2.0, main): "I am Hydaelyn. All made one."
+  - **M4g** Hydaelyn says the realm's Light has grown dim and Darkness has risen in its stead. *Chasing Shadows* (2.0, main): "A Light there once was that shone throughout this realm... yet it hath since grown dim. … And as it hath faltered, so hath Darkness risen up in its stead, presaging an end to Life."
+  - **M4h** Hydaelyn bids you lay claim to the Crystals of Light, which can banish the Darkness. *Chasing Shadows* (2.0, main): "The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them."
+
+</details>
+
+**#21b–#169 · main** · Also searchable as: the Mothercrystal
+
+> The Mothercrystal: a higher power who speaks through visions. Her voice has told of the Crystals of Light, in which dwells the power to banish the Darkness.
+
+Sources shown: A Mizzenmast Repast — main scenario quest (2.0); Lurkers in the Grotto — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21bf** Merlwyb calls you the vessel of a higher power: the Mothercrystal of your vision. *A Mizzenmast Repast* (2.0, main): "You are the vessel of a higher power. … This...being from your vision was the Mothercrystal."
+  - **M21bg** It is Hydaelyn who speaks. *A Mizzenmast Repast* (2.0, main): "Heed well Her words, adventurer. For it is Hydaelyn Herself who speaks."
+  - **M4be** In a vision, a voice tells you the power to banish the Darkness dwells in the Crystals of Light. *Lurkers in the Grotto* (2.0, main): "The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them."
+
+</details>
+
 **#170–#198 · main**
 
 > The power whose children the Ascian Elidibus says he would make peace with. He claims her influence is waning and her strength will soon be spent.
@@ -16874,6 +18934,21 @@ Sources shown: Feel the Burn — main scenario quest (4.4)
 
 ### Lolorito (`char-lolorito`, character)
 
+**#8c–#173 · main** · Also searchable as: Lord Lolorito
+
+> A lord of Ul'dah and member of the Syndicate, who chairs a trading company, gives generously to the Order of Nald'thal and owns the Brass Blades. Some claim he devises laws to ruin his competitors, and he set a deadly trap for the rival merchant Wystan.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8cg** Lolorito chairs a trading company, gives generously to the Order of Nald'thal, and sits on the Syndicate. *Way Down in the Hole* (2.0, main): "''Lord'' Lolorito: chairman of the East Aldenard Trading Company, generous contributor to the Order of Nald'thal, ''and'' member of the Syndicate."
+  - **M8cf** Lolorito owns the Brass Blades. *Way Down in the Hole* (2.0, main): "Lolorito ''owns'' the godsdamned Brass Blades."
+  - **M8cb** Lolorito has long lavished gil on the thaumaturges, and some claim he devises laws to ruin his competitors. *Way Down in the Hole* (2.0, main): "He has long lavished gil upon the thaumaturges, and some claim that he devises new laws with the express intention of ruining his competitors while protecting his own interests."
+  - **M8ce** Lolorito marked Wystan for death; the vein, the Brass Blades and the golem were all part of the trap. *Way Down in the Hole* (2.0, main): "Wystan now understands that he has been marked for death by Lord [[Lolorito]]. The ore vein, the Brass Blades, and the golem all appear to have been part of the trap."
+
+</details>
+
 **#174–#215 · main**
 
 > The most influential member of Ul'dah's Syndicate. Claiming refugees are prone to violence and crime, he persuaded the others to refuse the Domans asylum.
@@ -17198,6 +19273,47 @@ Sources shown: A General Summons — main scenario quest (3.0)
 
 ### Nanamo (`char-nanamo`, character)
 
+**#20c–#21c · main** · Also searchable as: the sultana, Sultana Nanamo
+
+> The sultana of Ul'dah, seventeenth to ascend its throne. Her crown is her birthright and marks her as custodian of the Ul legacy. She keeps the support of the people, but the six wealthiest citizens, the Syndicate, hold the most sway.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cm** Nanamo, seventeenth to rule Ul'dah, thanks you and makes you her guest of honor at a coming feast. *Duty, Honor, Country* (2.0, main): "seventeenth ascendant to the throne of Ul'dah, Her Royal Majesty Nanamo Ul Namo presides! … See to it that our champion is my personal guest at the banquet."
+  - **M20ce** The crown is the sultana's birthright and marks her as custodian of the Ul legacy. *Duty, Honor, Country* (2.0, main): "The crown symbolizes Her Grace's birthright, and identifies her as the custodian of the Ul legacy."
+  - **M20cc** The sultana keeps the people's support, which the theft could cost her. *Duty, Honor, Country* (2.0, main): "Be that as it may, the sultana's still got the support of the people..."
+  - **M20cb** Outsiders think Ul'dah a sultanate ruled by its sultana, but its six wealthiest citizens, the Syndicate, hold the most sway. *Duty, Honor, Country* (2.0, main): "The outside world believes Ul'dah to be a sultanate, ruled by Sultana Nanamo Ul Namo. Truth is, though, it's the six wealthiest citizens that hold the most sway─the Syndicate."
+
+</details>
+
+**#22c–#39 · main** · Also searchable as: the sultana, Sultana Nanamo
+
+> The sultana of Ul'dah, seventeenth to ascend its throne. Raubahn says she is aghast at her subjects' plight, but the members of the Syndicate who profit from the workers' poverty thwart her at every turn.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0); A Royal Reception — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cm** Nanamo, seventeenth to rule Ul'dah, thanks you and makes you her guest of honor at a coming feast. *Duty, Honor, Country* (2.0, main): "seventeenth ascendant to the throne of Ul'dah, Her Royal Majesty Nanamo Ul Namo presides! … See to it that our champion is my personal guest at the banquet."
+  - **M22cc** Members of the Syndicate who profit from the workers' poverty thwart the sultana at every turn. *A Royal Reception* (2.0, main): "She is thwarted at every turn by those on the Syndicate who derive their wealth from the workers' poverty."
+  - **M22cd** Raubahn says there is no hope for the masses until the crown is restored to power. *A Royal Reception* (2.0, main): "But there will be no hope for the masses until the crown is restored to power."
+
+</details>
+
+**#40–#173 · main** · Also searchable as: the sultana
+
+> The sultana of Ul'dah, seventeenth in the line of Ul. At the remembrance service she told her people that Ul'dah's true wealth lies in their health, happiness and hopes.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40l** Nanamo, seventeenth in the line of Ul, says Ul'dah's true wealth lies in its people's health, happiness and hopes. *A Hero in the Making* (2.0, main): "People of Ul'dah! I, Nanamo, seventeenth in the line of Ul, address you. … For the true wealth of Ul'dah lies in the health, happiness, and hopes of her people."
+
+</details>
+
 **#174–#189 · main** · Also searchable as: the sultana
 
 > The sultana of Ul'dah. She heard Yugiri's plea and sympathized with the Domans, but Lolorito persuaded the Syndicate to refuse them asylum.
@@ -17458,6 +19574,94 @@ Sources shown: When the Dust Settles — main scenario quest (5.5)
 </details>
 
 ### Raubahn (`char-raubahn`, character)
+
+**#22–#21b · main** · Also searchable as: General Raubahn
+
+> General of Ul'dah's Immortal Flames. He warns that the Empire's XIVth Imperial Legion is still entrenched within the Alliance's borders under a legatus long ambitious of conquest, and calls Eorzea a realm divided, an alliance in name only. He has agreed to Kan-E-Senna's memorial.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22p** Raubahn is General of Ul'dah's Immortal Flames. *The Gridanian Envoy* (2.0, main): "Welcome to the sultanate of Ul'dah. I am Raubahn Aldynn, General of the Immortal Flames."
+  - **M22q** Raubahn warns the XIVth Legion is entrenched within their borders, under a legatus long ambitious of conquest. *The Gridanian Envoy* (2.0, main): "But the XIVth Imperial Legion is still entrenched within our borders. … And their commander, Legatus Gaius van Baelsar, has long harbored ambitions of conquest."
+  - **M22r** Raubahn calls Eorzea a realm divided, an alliance in name only. *The Gridanian Envoy* (2.0, main): "We are a realm divided, adventurer. An alliance in name only."
+  - **M22s** Raubahn agrees to the memorial. *The Gridanian Envoy* (2.0, main): "Kan-E will have her memorial."
+
+</details>
+
+**#22b–#19c · main** · Also searchable as: General Raubahn, the Flame General
+
+> The Flame General of Ul'dah. He warns that the XIVth Imperial Legion is still entrenched within Eorzea's borders, under a commander with long ambitions of conquest, and calls the realm an alliance in name only.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bj** Raubahn is the Flame General of Ul'dah. *The Lominsan Envoy* (2.0, main): "Having safely arrived in Ul'dah, you must now seek an audience with [[Raubahn|the Flame General]]."
+  - **M22bk** The XIVth Imperial Legion is still entrenched within Eorzea's borders. *The Lominsan Envoy* (2.0, main): "But the XIVth Imperial Legion is still entrenched within our borders."
+  - **M22bl** Raubahn says the Legion's commander has long harbored ambitions of conquest. *The Lominsan Envoy* (2.0, main): "has long harbored ambitions of conquest."
+  - **M22bm** Raubahn calls the realm an alliance in name only. *The Lominsan Envoy* (2.0, main): "We are a realm divided, adventurer. An alliance in name only."
+
+</details>
+
+**#20c–#21c · main** · Also searchable as: General Raubahn
+
+> A general of Ul'dah who oversees the sultanate's affairs with Sultana Nanamo's consent. He suspected Owyne after seeing him sneak into the vaults, and had him watched.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cn** Raubahn oversees the sultanate's affairs with the sultana's consent. *Duty, Honor, Country* (2.0, main): "With the consent of Her Grace, I oversee the affairs of the sultanate."
+  - **M20ch** Raubahn saw Owyne sneak into the vaults and had him watched. *Duty, Honor, Country* (2.0, main): "The General saw you sneak into the vaults, Owyne. … He suspected something was afoot and ordered us to keep an eye on you."
+
+</details>
+
+**#22c only · main** · Also searchable as: General Raubahn
+
+> The Flame General, who oversees Ul'dah's affairs with Sultana Nanamo's consent. He says there is no hope for the masses until the crown is restored to power, and remembers the Warriors of Light, the forgotten heroes lost at Carteneau five years ago.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0); A Royal Reception — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cn** Raubahn oversees the sultanate's affairs with the sultana's consent. *Duty, Honor, Country* (2.0, main): "With the consent of Her Grace, I oversee the affairs of the sultanate."
+  - **M22ci** The Flame General says there is work to be done, and he would have you do it. *A Royal Reception* (2.0, main): "The Flame General declares that there is work to be done─and that he would have you do it."
+  - **M22cd** Raubahn says there is no hope for the masses until the crown is restored to power. *A Royal Reception* (2.0, main): "But there will be no hope for the masses until the crown is restored to power."
+  - **M22cf** Those heroes were lost at Carteneau five years ago; their names are forgotten, so they are called the Warriors of Light. *A Royal Reception* (2.0, main): "And they stood with us at Carteneau, that fateful day five years ago... … But the names of these heroes come not to our lips. … It is for this reason that we have come to call them the Warriors of Light."
+
+</details>
+
+**#23b–#39 · main** · Also searchable as: General Raubahn
+
+> The Flame General: supreme commander of the Immortal Flames, Ul'dah's Grand Company, who oversees the sultanate's affairs with Sultana Nanamo's consent. He proposed that the Eorzean Alliance mark the fifth anniversary of Carteneau with a memorial, and the Admiral and the Elder Seedseer agreed.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0); Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23be** Raubahn bears the seal of the supreme commander of the Immortal Flames. *The Ul'dahn Envoy* (2.0, main): "Verily, this is the seal of the supreme commander of the Immortal Flames."
+  - **M20cn** Raubahn oversees the sultanate's affairs with the sultana's consent. *Duty, Honor, Country* (2.0, main): "With the consent of Her Grace, I oversee the affairs of the sultanate."
+  - **M23bb** Raubahn means to mark the fifth anniversary of Carteneau with a memorial service. *The Ul'dahn Envoy* (2.0, main): "And so I mean to mark the fifth anniversary of the Battle of Carteneau with a memorial service honoring the fallen."
+  - **M23bk** Merlwyb accepts Raubahn's proposal. *The Ul'dahn Envoy* (2.0, main): "Aye, Raubahn has the right of it. I accept his proposal."
+  - **M23bo** Kan-E-Senna approves the memorial and will hold a service in Gridania. *The Ul'dahn Envoy* (2.0, main): "The Flame General was wise to make his proposal, and I wholeheartedly approve of it. The necessary provisions shall be made for a service here in Gridania."
+
+</details>
+
+**#40–#158 · main** · Also searchable as: General Raubahn
+
+> The Flame General of Ul'dah, at the head of its Grand Company, the Immortal Flames. At the remembrance service he called on a divided people to unite, warning that the Amalj'aa strangle the city's trade while the Garleans make mock of its borders.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40i** Flame General Raubahn addresses Ul'dah at its remembrance service. *A Hero in the Making* (2.0, main): "Next, you'll need to go to Ul'dah, where Flame General Raubahn Aldynn will be addressing the masses at the Royal Promenade."
+  - **M40j** Raubahn warns that the Amalj'aa strangle Ul'dah's trade and the Garleans mock its borders. *A Hero in the Making* (2.0, main): "The savage hordes of the Amalj'aa wait beside our roads, strangling the lifelines of trade. … Meanwhile, the Garleans make mock of our borders, and despoil our land of its natural wealth."
+  - **M40k** Raubahn warns that a divided Ul'dah stands to fall. *A Hero in the Making* (2.0, main): "all must recognize that a divided Ul'dah stands to fall."
+
+</details>
 
 **#159–#173 · main** · Also searchable as: General Raubahn
 
@@ -17996,6 +20200,111 @@ Sources shown: Unto the Breach — main scenario quest (5.5)
 
 ### Merlwyb (`char-merlwyb`, character)
 
+**#22–#18b · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> Admiral of Limsa Lominsa and commander of the Maelstrom. She fought at the Battle of Carteneau, where the elder primal Bahamut burst from Dalamud, and warns that the Empire has not forsaken its claim on Eorzea. She has accepted Kan-E-Senna's proposal of a memorial for the fallen.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22e** Merlwyb is Admiral of Limsa Lominsa and commander of the Maelstrom. *The Gridanian Envoy* (2.0, main): "I am Merlwyb Bloefhiswyn, Admiral of Limsa Lominsa, and commander of the Maelstrom."
+  - **M22h** At Carteneau the elder primal Bahamut emerged from Dalamud. *The Gridanian Envoy* (2.0, main): "From inside the shell of Dalamud came a winged nightmare … 'Twas the elder primal Bahamut, bent on making an eighth hell of Eorzea."
+  - **M22i** Merlwyb warns that the Empire has not forsaken its claim on Eorzea. *The Gridanian Envoy* (2.0, main): "Do not imagine that the Empire has forsaken its claim on Eorzea. The imperials crowd our borders, waiting to strike."
+  - **M22j** Merlwyb accepts Kan-E-Senna's proposal. *The Gridanian Envoy* (2.0, main): "Aye, Kan-E-Senna has the right of it. I accept her proposal."
+
+</details>
+
+**#19b–#20b · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> Admiral of Limsa Lominsa, and a good friend of Baderon. She rewards those who serve the city with the honor of a place at her feasts.
+
+Sources shown: Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bp** Merlwyb is Admiral of Limsa Lominsa. *Feint and Strike* (2.0, main): "Admiral of Limsa Lominsa."
+  - **M19bo** Merlwyb calls Baderon a good friend, and hears of your deeds from him and Reyner. *Feint and Strike* (2.0, main): "my good friend Baderon and Commodore Reyner have taken turns of regaling me with tales of your exploits."
+  - **M19bn** Admiral Merlwyb thanks you for your service to Limsa Lominsa and invites you to a feast. *Feint and Strike* (2.0, main): "Admiral [[Merlwyb]] expresses her heartfelt gratitude for the numerous deeds you have performed in the service of [[Limsa Lominsa]]. As part of your reward, the Admiral insists that you attend an upcoming banquet and be honored before the gathered dignitaries."
+
+</details>
+
+**#21b only · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> Admiral of Limsa Lominsa. At the Battle of Carteneau she commanded the Maelstrom's units and ordered them to fall back. She honors the Warriors of Light, the heroes lost in that battle whose names no one can speak, and says the Serpent Reavers have pledged themselves to the primal Leviathan.
+
+Sources shown: Feint and Strike — main scenario quest (2.0); A Mizzenmast Repast — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bp** Merlwyb is Admiral of Limsa Lominsa. *Feint and Strike* (2.0, main): "Admiral of Limsa Lominsa."
+  - **M21bk** At Carteneau Merlwyb ordered all Maelstrom units to fall back. *A Mizzenmast Repast* (2.0, main): "Belay previous orders! All Maelstrom units are commanded to fall back, effective immediately!"
+  - **M21ba** At the feast Merlwyb recounts the Warriors of Light, and the tale triggers a vision of the Battle of Carteneau. *A Mizzenmast Repast* (2.0, main): "At the banquet, [[Merlwyb]] recounts the deeds of the half-remembered heroes whom [[Eorzea]]ns now call the [[Warrior of Light|Warriors of Light]]. The tale triggers inside your mind a vision of the final moments of the [[Battle of Carteneau]]."
+  - **M21bi** The Warriors of Light were lost at Carteneau. *A Mizzenmast Repast* (2.0, main): "It was on that day, in the midst of that hell...that we lost them."
+  - **M21bj** No one can speak the Warriors of Light's names. *A Mizzenmast Repast* (2.0, main): "Yet, whenever we try to shout their names, the sound dies in our throats."
+  - **M21bb** The Serpent Reavers have pledged themselves to the primal Leviathan. *A Mizzenmast Repast* (2.0, main): "Their ranks are formed of cutthroats and madmen who have pledged themselves body and soul to the primal Leviathan."
+
+</details>
+
+**#22b–#22c · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> Admiral of Limsa Lominsa, who led the Maelstrom at Carteneau. Five years on she backs memorial services in each city-state of the Eorzean Alliance on the battle's fifth anniversary, so that the realm can face its past and press on.
+
+Sources shown: Feint and Strike — main scenario quest (2.0); A Mizzenmast Repast — main scenario quest (2.0); The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bp** Merlwyb is Admiral of Limsa Lominsa. *Feint and Strike* (2.0, main): "Admiral of Limsa Lominsa."
+  - **M21bk** At Carteneau Merlwyb ordered all Maelstrom units to fall back. *A Mizzenmast Repast* (2.0, main): "Belay previous orders! All Maelstrom units are commanded to fall back, effective immediately!"
+  - **M22bu** Five years have passed since Carteneau. *The Lominsan Envoy* (2.0, main): "It has been five years since those of us who were spared dragged ourselves from the ashes"
+  - **M22bb** Merlwyb proposes a memorial service in each city-state on the fifth anniversary of Carteneau. *The Lominsan Envoy* (2.0, main): "To that end, I am proposing that a memorial service be held in each of the city–states on the fifth anniversary of the Battle of Carteneau."
+  - **M22bc** The Eorzean Alliance is Limsa Lominsa, Gridania and Ul'dah. *The Lominsan Envoy* (2.0, main): "In addition to [[Limsa Lominsa]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Ul'dah]]."
+
+</details>
+
+**#23b–#39 · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> Admiral of Limsa Lominsa and commander of its Grand Company. She accepted Raubahn's proposal of a memorial for Carteneau, and warns that the imperials crowd Eorzea's borders.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23bh** Merlwyb is Admiral of Limsa Lominsa and commander of its Grand Company. *The Ul'dahn Envoy* (2.0, main): "Admiral of Limsa Lominsa, and commander of the Maelstrom."
+  - **M23bk** Merlwyb accepts Raubahn's proposal. *The Ul'dahn Envoy* (2.0, main): "Aye, Raubahn has the right of it. I accept his proposal."
+  - **M23bj** Merlwyb warns that the imperials crowd Eorzea's borders. *The Ul'dahn Envoy* (2.0, main): "Do not imagine that the Empire has forsaken its claim on Eorzea. The imperials crowd our borders, waiting to strike."
+
+</details>
+
+**#40–#84 · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> The Admiral of Limsa Lominsa and Chief Admiral of its Grand Company, the Maelstrom. At the remembrance service she warned that beast tribes and the Garleans press on Limsa while mutiny breeds below deck, and called for pirates and the Maelstrom to mend their rift.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40v** A sentry says the Admiral is about to give her address. *A Hero in the Making* (2.0, main): "the Admiral is due to give her address at any moment."
+  - **M40w** Merlwyb is Chief Admiral of the Maelstrom. *A Hero in the Making* (2.0, main): "where Maelstrom Chief Admiral Merlwyb Bloefhiswyn will be giving her address."
+  - **M40o** Merlwyb warns of the Sahagin, the kobolds and the Garleans, whose flags fly within Limsa's borders. *A Hero in the Making* (2.0, main): "The Sahagin creep ashore seeking blood for their accursed god. … Even now, the curs fly their flags within our borders."
+  - **M40p** Merlwyb calls for mending the rift between pirate and Maelstrom. *A Hero in the Making* (2.0, main): "How can we hope to repel our many enemies when mutiny breeds below deck? … We must mend the rift the Calamity has reopened 'twixt pirate and Maelstrom"
+
+</details>
+
+**#85–#177 · main** · Also searchable as: Admiral Merlwyb, the Admiral
+
+> The Admiral, who commands the Maelstrom in Limsa Lominsa. With Titan summoned once more, she turned to the Scions as Limsa's best hope and pledged the Maelstrom's full support, owning that the Lominsans broke their pact with the beastmen.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85c** Admiral Merlwyb pledges the Maelstrom's full support. *Wrath of the Titan* (2.0, main): "you are received by Admiral [[Merlwyb]] Bloefhiswyn herself, who pledges the full support of the Maelstrom in the forthcoming operation."
+  - **M85k** Merlwyb turns to the Scions as Limsa's best hope. *Wrath of the Titan* (2.0, main): "So it is that we turn now to the Scions of the Seventh Dawn, confident in the belief that you are Limsa's best hope."
+  - **M85d** Y'shtola recalls the pact that kept each to its own lands; Merlwyb owns that the Lominsans broke it. *Wrath of the Titan* (2.0, main): "Did not the thalassocracy make a pact with the beastmen that each would keep to their own lands, and that no blood would be shed? … And the wrong is mine. Freely do I claim it."
+
+</details>
+
 **#178 only · main** · Also searchable as: Admiral Merlwyb, the Admiral
 
 > Admiral of Limsa Lominsa. With the Sahagin preparing to summon Leviathan, she has asked the Scions' aid.
@@ -18151,6 +20460,19 @@ Sources shown: Futures Rewritten — main scenario quest (5.4)
 
 ### Leviathan (`char-leviathan`, character)
 
+**#21b–#177 · main**
+
+> A primal, the god of the Sahagin, to whom the Serpent Reavers have pledged themselves body and soul.
+
+Sources shown: A Mizzenmast Repast — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21bb** The Serpent Reavers have pledged themselves to the primal Leviathan. *A Mizzenmast Repast* (2.0, main): "Their ranks are formed of cutthroats and madmen who have pledged themselves body and soul to the primal Leviathan."
+  - **M21bd** Leviathan is the Sahagin's god, and Limsa Lominsa bears the Sahagin deep animosity. *A Mizzenmast Repast* (2.0, main): "I need not tell you the depth of the animosity between us and the Sahagin. How any seaman worth his salt could devote himself to the fishbacks' god"
+
+</details>
+
 **#178–#180 · main**
 
 > A primal, god of the Sahagin, who are preparing to summon him once more.
@@ -18206,6 +20528,48 @@ Sources shown: The Sea Rises — main scenario quest (2.2); Lord of the Whorl �
 </details>
 
 ### Ramuh (`char-ramuh`, character)
+
+**#43–#50 · main**
+
+> A primal worshiped by the sylphs, whose existence is well documented. The sylphs seem no longer to summon him, but the Scions warn it would be unwise to assume the threat has passed.
+
+Sources shown: Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M43d** The sylphs seem no longer to summon Ramuh, but the threat should not be assumed past. *Sylph-management* (2.0, main): "While Ramuh's existence is well documented, the sylphs do not─or perhaps, can not─summon the primal any longer, insofar as can be ascertained. … It would be unwise to assume that the threat posed by the primal has passed."
+
+</details>
+
+**#51–#60 · main**
+
+> A primal worshiped by the sylphs. Sylphs in the forest have been tempered by him, and like the Amalj'aa tempered by Ifrit, exist only to serve him.
+
+Sources shown: Sylph-management — main scenario quest (2.0); Brotherly Love — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M51b** The sylphs in the forest have been tempered by the primal Ramuh. *Brotherly Love* (2.0, main): "These sylphs have been tempered―brought under the thrall of the primal Ramuh."
+  - **M51c** Like the Amalj'aa tempered by Ifrit, tempered sylphs exist only to serve their primal. *Brotherly Love* (2.0, main): "Akin to the Amalj'aa tempered by Ifrit, these sylphs exist only to serve their deity."
+
+</details>
+
+**#61–#191 · main**
+
+> A primal of the sylphs. Against their elder's wishes, some sylphs summoned him to protect the wood from imperial soldiers, and all who took part were tempered, fiercely protective of their homeland. The sylphs do not intend to summon him again.
+
+Sources shown: Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M61b** Frixio says the sylphs summoned Ramuh to protect the wood from imperial soldiers. *Believe in Your Sylph* (2.0, main): "These ones resorted to summoning Lord Ramuh to protect the wood from imperial ones."
+  - **M61c** Ramuh was summoned against Frixio's wishes, and all who took part were tempered. *Believe in Your Sylph* (2.0, main): "Against this one's wishes, Lord Ramuh was summoned...and all those ones who took part became touched ones."
+  - **M61e** Papalymo says Ramuh's influence has made the tempered sylphs fiercely protective of their homeland. *Believe in Your Sylph* (2.0, main): "In the case of the sylphs, Ramuh's influence has made them ''fiercely'' protective of their homeland."
+  - **M61h** Vorsaile is relieved that the sylphs want no conflict and do not intend to summon Ramuh. *Believe in Your Sylph* (2.0, main): "So the sylphs have no desire for conflict, nor do they intend to summon Ramuh."
+
+</details>
 
 **#192 only · main** · Also searchable as: the Lord of Levin
 
@@ -19245,6 +21609,46 @@ Sources shown: On Official Business — main scenario quest (5.55)
 
 ### The Syndicate (`org-syndicate`, organization)
 
+**#8c–#19c · main**
+
+> A powerful body of Ul'dah. Lord Lolorito is a member, and Brass Blades who turned on a rival merchant warned that no one crosses the Syndicate.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8cg** Lolorito chairs a trading company, gives generously to the Order of Nald'thal, and sits on the Syndicate. *Way Down in the Hole* (2.0, main): "''Lord'' Lolorito: chairman of the East Aldenard Trading Company, generous contributor to the Order of Nald'thal, ''and'' member of the Syndicate."
+  - **M8cc** At the ruins the Brass Blades turn on Wystan, saying no one crosses the Syndicate. *Way Down in the Hole* (2.0, main): "''No one'' crosses the Syndicate!"
+
+</details>
+
+**#20c–#21c · main**
+
+> Ul'dah's six wealthiest citizens, who hold more sway in the sultanate than its sultana, Nanamo. Lord Lolorito is a member.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0); Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cb** Outsiders think Ul'dah a sultanate ruled by its sultana, but its six wealthiest citizens, the Syndicate, hold the most sway. *Duty, Honor, Country* (2.0, main): "The outside world believes Ul'dah to be a sultanate, ruled by Sultana Nanamo Ul Namo. Truth is, though, it's the six wealthiest citizens that hold the most sway─the Syndicate."
+  - **M8cg** Lolorito chairs a trading company, gives generously to the Order of Nald'thal, and sits on the Syndicate. *Way Down in the Hole* (2.0, main): "''Lord'' Lolorito: chairman of the East Aldenard Trading Company, generous contributor to the Order of Nald'thal, ''and'' member of the Syndicate."
+
+</details>
+
+**#22c–2.0 · main**
+
+> Ul'dah's six wealthiest citizens, who hold more sway in the sultanate than its sultana, Nanamo. Raubahn says those among them who profit from the workers' poverty thwart her at every turn, while children starve in the streets.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0); A Royal Reception — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cb** Outsiders think Ul'dah a sultanate ruled by its sultana, but its six wealthiest citizens, the Syndicate, hold the most sway. *Duty, Honor, Country* (2.0, main): "The outside world believes Ul'dah to be a sultanate, ruled by Sultana Nanamo Ul Namo. Truth is, though, it's the six wealthiest citizens that hold the most sway─the Syndicate."
+  - **M22cc** Members of the Syndicate who profit from the workers' poverty thwart the sultana at every turn. *A Royal Reception* (2.0, main): "She is thwarted at every turn by those on the Syndicate who derive their wealth from the workers' poverty."
+  - **M22cb** Raubahn says children starve in Ul'dah's streets while the rich feast. *A Royal Reception* (2.0, main): "While we gorge ourselves, children starve in the streets."
+
+</details>
+
 **#162–#173 · main**
 
 > Ul'dah's powerful Syndicate. Alphinaud says it has taken note of the Scions and will not let them stay independent, and that it is why Vesper Bay still lacks an aetheryte.
@@ -19355,6 +21759,110 @@ Sources shown: You Have Selected Regicide — main scenario quest (2.1); On the 
 </details>
 
 ### The Ascians (`org-ascians`, organization)
+
+**#19–#18b · main** · Also searchable as: the Bringers of Chaos
+
+> The Bringers of Chaos, as Papalymo names them, who he judges have been manipulating the beast tribes. The masked mage who commanded the Ixal at Gridania's Guardian Tree fell there lamenting the wisdom of the Paragons.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19k** Papalymo names them the Bringers of Chaos, or Ascians. *To Guard a Guardian* (2.0, main): "The Bringers of Chaos...or ''Ascians'', to give them their proper name."
+  - **M19l** Papalymo says the Ascians have been manipulating the beast tribes. *To Guard a Guardian* (2.0, main): "It would seem our suspicions were correct─it is they who have been manipulating the beast tribes."
+  - **M19j** The masked mage falls, lamenting that the wisdom of the Paragons was brought low by mortals. *To Guard a Guardian* (2.0, main): "That the wisdom of the Paragons should be brought low...by mere mortals..."
+  - **M19h** The Ixal were repelled, and evidence suggests they acted under the masked mage's command. *To Guard a Guardian* (2.0, main): "You have succeeded in repelling the Ixal, whom evidence suggests were acting under the command of the mysterious masked mage."
+
+</details>
+
+**#19b–#19c · main**
+
+> Masked mages known as the Bringers of Chaos. Y'shtola says they have been manipulating the beast tribes, and one was found working through the Sahagin and the Serpent Reavers.
+
+Sources shown: Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bj** The Ascians are known as the Bringers of Chaos. *Feint and Strike* (2.0, main): "They are known as the Bringers of Chaos...or ''Ascians'', to give them their proper name."
+  - **M19bk** Y'shtola says the Ascians have been manipulating the beast tribes. *Feint and Strike* (2.0, main): "it is they who have been manipulating the beast tribes."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+
+</details>
+
+**#20c–#61 · main** · Also searchable as: the Bringers of Chaos
+
+> Also called the Bringers of Chaos. Thancred, a Sharlayan, says his people had long suspected their involvement in recent disturbances, and a masked mage called an Ascian was behind the theft of Ul'dah's royal crown.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cj** Thancred says they long suspected the Bringers of Chaos, whose true name is Ascians. *Duty, Honor, Country* (2.0, main): "We had long suspected the involvement of the Bringers of Chaos─''Ascians'', to give them their true name."
+  - **M20cp** Thancred says they could not be sure the Ascians were behind the recent disturbances until now. *Duty, Honor, Country* (2.0, main): "But we could not be sure they were responsible for the recent disturbances until now."
+  - **M20ck** Thancred is a Sharlayan. *Duty, Honor, Country* (2.0, main): "Have we Sharlayans crossed paths with Ascians before? Well, we've certainly─ Wait. I don't recall telling you about my homeland."
+  - **M20ci** With Thancred's help you defeat the masked mage behind the theft, whom the Journal calls an Ascian. *Duty, Honor, Country* (2.0, main): "Soon after, you find yourself alone with the masked mage who orchestrated the theft, and another battle ensues. Fortunately, [[Thancred]] comes to your aid, and together you emerge triumphant. Though the motives of this “[[Ascian]]” remain a mystery, his schemes now lie in ruin."
+
+</details>
+
+**#62 only · main** · Also searchable as: the Bringers of Chaos
+
+> Beings who took great pains to stay hidden before the Calamity. Minfilia is alarmed that they now seem to be casting off their secrecy, as a red-masked man named Lahabrea appears.
+
+Sources shown: Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M62d** Minfilia hears of a man named Lahabrea, in a red mask and black robes. *Back from the Wood* (2.0, main): "A man named Lahabrea, sporting a red mask and robed in black...?"
+
+</details>
+
+**#63–#76 · main** · Also searchable as: the Bringers of Chaos
+
+> Beings who took great pains to stay hidden before the Calamity. Minfilia names the masked Lahabrea as one of them, and suspects they are behind the chaos racking the realm.
+
+Sources shown: Back from the Wood — main scenario quest (2.0); Shadow of Darkness — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M63b** Minfilia suspects the Ascians are behind the chaos racking the realm. *Shadow of Darkness* (2.0, main): "I should not be surprised if these beings are behind the chaos that racks the realm."
+
+</details>
+
+**#77–#83 · main** · Also searchable as: the Bringers of Chaos
+
+> Beings who hid before the Calamity, Lahabrea among them, whom Minfilia suspects of the chaos racking the realm. She sees their kind of deception in the masked stranger who set Little Ala Mhigo's youths on summoning Rhalgr.
+
+Sources shown: Back from the Wood — main scenario quest (2.0); Shadow of Darkness — main scenario quest (2.0); Back to Square One — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M63b** Minfilia suspects the Ascians are behind the chaos racking the realm. *Shadow of Darkness* (2.0, main): "I should not be surprised if these beings are behind the chaos that racks the realm."
+  - **M77b** Minfilia sees Ascian deception in the plot. *Back to Square One* (2.0, main): "Precisely the kind of deception the Ascians would employ..."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+
+</details>
+
+**#84–#168 · main** · Also searchable as: the Bringers of Chaos
+
+> Masked beings who hid before the Calamity but now act openly, Lahabrea among them. In Haukke Manor two of them, who seem to have masterminded its atrocities, took your measure for their master Lahabrea, called you the Bringer of Light and vanished. Minfilia is sure they have begun to move in earnest.
+
+Sources shown: Back from the Wood — main scenario quest (2.0); Shadow of Darkness — main scenario quest (2.0); Skeletons in Her Closet — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M84c** You defeat Amandine, and two masked men appear who seem to have masterminded the atrocities. *Skeletons in Her Closet* (2.0, main): "No sooner have you defeated Lady Amandine than two masked men appear, their ominous exchange suggesting that it was they who masterminded the atrocities committed within the manor."
+  - **M84d** The two Ascians came to take your measure for Master Lahabrea, and then leave. *Skeletons in Her Closet* (2.0, main): "we came here not to play, but to take the measure of your strength for Master Lahabrea."
+  - **M84i** The Ascians call you the Bringer of Light. *Skeletons in Her Closet* (2.0, main): "Fare you well, Bringer of Light."
+  - **M84g** Minfilia is sure the Ascians have begun to move in earnest, to what end she cannot say. *Skeletons in Her Closet* (2.0, main): "It is beyond doubt, then─the Ascians have begun to move in earnest. Would that we knew to what end."
+
+</details>
 
 **#169 only · main**
 
@@ -19826,6 +22334,80 @@ Sources shown: Tales from the Far East — main scenario quest (4.0)
 
 ### The Serpent Reavers (`org-serpent-reavers`, organization)
 
+**#8b only · main**
+
+> Pirates lingering near Tiller's Rest, who stole the farmers' tools to melt down into axes.
+
+Sources shown: Plowshares to Swords — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8ba** Pirates stole farm tools from Tiller's Rest. *Plowshares to Swords* (2.0, main): "Pirates have stolen farm tools from [[Tiller's Rest]]."
+  - **M8bb** The pirates melt the shovels down into axes. *Plowshares to Swords* (2.0, main): "Stealin' our shovels to melt and forge into axes, of all things."
+  - **M8bc** The thieves are Serpent Reavers lingering in the area. *Plowshares to Swords* (2.0, main): "dispatch [[The Serpent Reavers|the Reavers]] who linger in the area and recover the tools."
+
+</details>
+
+**#9b–#18b · main**
+
+> Pirates who for some years have been seizing law-abiding Lominsans. They look and act like pirates, but serve the Sahagin, and they punish desertion with death.
+
+Sources shown: Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9bi** A few years ago the Reavers began seizing law-abiding Lominsans. *Just Deserts* (2.0, main): "A few years back, they started snatchin' law-abidin' Lominsans."
+  - **M9bh** Staelwyrn says the Reavers act like pirates but are the Sahagin's flunkies. *Just Deserts* (2.0, main): "Reavers may look and sound and act like pirates, but they're naught but the fishbacks' flunkies."
+  - **M9bj** Y'shtola says the tattooed men are no common pirates but minions of the Sahagin. *Just Deserts* (2.0, main): "But then these tattooed wretches are no common pirates─they are the minions of the Sahagin."
+  - **M9bo** Desertion from the Reavers is punished by death, but they offered Sevrin his freedom in exchange for his mates. *Just Deserts* (2.0, main): "The penalty for desertion is death, but the Reavers offered me a way out instead─my freedom in exchange for my mates'."
+
+</details>
+
+**#19b–#20b · main**
+
+> Pirates in league with the Sahagin, who have been seizing Lominsans for years. A masked Ascian was manipulating them. Their attack on the warship Victory was a distraction for an assault on Swiftperch, which the Yellowjackets drove back.
+
+Sources shown: Just Deserts — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9bi** A few years ago the Reavers began seizing law-abiding Lominsans. *Just Deserts* (2.0, main): "A few years back, they started snatchin' law-abidin' Lominsans."
+  - **M19bg** Reyner says the Serpent Reavers are in league with the Sahagin. *Feint and Strike* (2.0, main): "Aye, the Serpent Reavers are in league with the Sahagin."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+  - **M19bb** Baderon says the attack on the Victory was meant as a distraction. *Feint and Strike* (2.0, main): "That mess at the ''Victory''─that was meant to be the bloody distraction!"
+  - **M19ba** The missive ordered the Victory destroyed and named Swiftperch as a feint, but Baderon believes the Serpent Reavers will strike it in full force. *Feint and Strike* (2.0, main): "The missive Baderon deciphered contains orders for the destruction of the ''Victory''. While the message meant for [[Ahtzapfyn]] also mentioned that [[Swiftperch]] would be the site of a simple feint operation, the [[Drowning Wench|Wench]]'s proprietor seems convinced that the [[The Serpent Reavers|Serpent Reavers]] intend to commit their full forces to the attack on the struggling settlement."
+
+</details>
+
+**#21b–#24 · main**
+
+> Cutthroats and madmen who look like pirates but have pledged themselves body and soul to the primal Leviathan, the Sahagin's god. They swelled their numbers by spiriting people away, until their assault on Swiftperch was driven back.
+
+Sources shown: A Mizzenmast Repast — main scenario quest (2.0); Just Deserts — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21bb** The Serpent Reavers have pledged themselves to the primal Leviathan. *A Mizzenmast Repast* (2.0, main): "Their ranks are formed of cutthroats and madmen who have pledged themselves body and soul to the primal Leviathan."
+  - **M21bd** Leviathan is the Sahagin's god, and Limsa Lominsa bears the Sahagin deep animosity. *A Mizzenmast Repast* (2.0, main): "I need not tell you the depth of the animosity between us and the Sahagin. How any seaman worth his salt could devote himself to the fishbacks' god"
+  - **M9bh** Staelwyrn says the Reavers act like pirates but are the Sahagin's flunkies. *Just Deserts* (2.0, main): "Reavers may look and sound and act like pirates, but they're naught but the fishbacks' flunkies."
+  - **M21bc** The Reavers swelled their numbers by spiriting people away. *A Mizzenmast Repast* (2.0, main): "they sought to swell their numbers by spiriting away any soul unfortunate enough to cross their path."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+
+</details>
+
+**#25–#177 · main**
+
+> Pirates allied with the Sahagin, who are their masters. The Yellowjackets feared Reavers were gathering in the Sastasha Seagrot, and you found them and the Sahagin using its caves as a base.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25b** The Yellowjackets fear that men seen entering Sastasha belong to the Serpent Reavers, pirate allies of the Sahagin. *It's Probably Pirates* (2.0, main): "The Yellowjackets are concerned that the unsavory-looking men seen entering Sastasha may belong to [[the Serpent Reavers]], the pirate allies of the [[Sahagin]]."
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+
+</details>
+
 **#178 only · main**
 
 > Pirates who, Y'shtola has confirmed, were behind the crystal thefts in Thanalan. The Sahagin are preparing to summon Leviathan.
@@ -19867,6 +22449,75 @@ Sources shown: The Sea Rises — main scenario quest (2.2); Scouts in Distress �
 </details>
 
 ### The Sahagin (`org-sahagin`, organization)
+
+**#9b–#18b · main**
+
+> A beast tribe whose minions include the tattooed pirates of the Serpent Reavers. Y'shtola wonders whether the tribes are planning to summon their primals.
+
+Sources shown: Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9bj** Y'shtola says the tattooed men are no common pirates but minions of the Sahagin. *Just Deserts* (2.0, main): "But then these tattooed wretches are no common pirates─they are the minions of the Sahagin."
+  - **M9bh** Staelwyrn says the Reavers act like pirates but are the Sahagin's flunkies. *Just Deserts* (2.0, main): "Reavers may look and sound and act like pirates, but they're naught but the fishbacks' flunkies."
+  - **M9bk** Y'shtola wonders whether the tribes are planning to summon their primals. *Just Deserts* (2.0, main): "Could it be that the tribes are planning to summon their primals?"
+
+</details>
+
+**#19b–#20b · main**
+
+> A beast tribe in league with the Serpent Reavers, and manipulated, Y'shtola says, by a masked Ascian. They assaulted South Tidegate while the Reavers struck Swiftperch.
+
+Sources shown: Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bg** Reyner says the Serpent Reavers are in league with the Sahagin. *Feint and Strike* (2.0, main): "Aye, the Serpent Reavers are in league with the Sahagin."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+  - **M19bf** Sahagin forces assault South Tidegate. *Feint and Strike* (2.0, main): "Reyner receives word that the [[South Tidegate]] is under assault by [[Sahagin]] forces."
+
+</details>
+
+**#21b–#24 · main**
+
+> A beast tribe, long at odds with Limsa Lominsa, whose god is the primal Leviathan. Their allies the Serpent Reavers have pledged themselves to him, and a masked Ascian was found manipulating them both.
+
+Sources shown: A Mizzenmast Repast — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21bd** Leviathan is the Sahagin's god, and Limsa Lominsa bears the Sahagin deep animosity. *A Mizzenmast Repast* (2.0, main): "I need not tell you the depth of the animosity between us and the Sahagin. How any seaman worth his salt could devote himself to the fishbacks' god"
+  - **M21bb** The Serpent Reavers have pledged themselves to the primal Leviathan. *A Mizzenmast Repast* (2.0, main): "Their ranks are formed of cutthroats and madmen who have pledged themselves body and soul to the primal Leviathan."
+  - **M19bg** Reyner says the Serpent Reavers are in league with the Sahagin. *Feint and Strike* (2.0, main): "Aye, the Serpent Reavers are in league with the Sahagin."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+
+</details>
+
+**#25–#39 · main**
+
+> A beast tribe, masters of the pirate Serpent Reavers. Baderon recalls their pirates raiding Limsa Lominsa not long ago, and you found the two using the Sastasha Seagrot as a base.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+  - **M25d** Baderon recalls that the Sahagin's pet pirates raided Limsa not long ago. *It's Probably Pirates* (2.0, main): "But it weren't so long ago as the [[Sahagin|fishbacks]]' pet pirates paid us an unwelcome visit"
+
+</details>
+
+**#40–#177 · main**
+
+> A beast tribe, masters of the pirate Serpent Reavers, who used the Sastasha Seagrot as a base. At Limsa Lominsa's remembrance service, Admiral Merlwyb warned that the Sahagin creep ashore seeking blood for their god.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0); A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+  - **M40o** Merlwyb warns of the Sahagin, the kobolds and the Garleans, whose flags fly within Limsa's borders. *A Hero in the Making* (2.0, main): "The Sahagin creep ashore seeking blood for their accursed god. … Even now, the curs fly their flags within our borders."
+
+</details>
 
 **#178 only · main**
 
@@ -19911,6 +22562,92 @@ Sources shown: The Sea Rises — main scenario quest (2.2); The Gift of Eternity
 
 ### The Maelstrom (`org-maelstrom`, organization)
 
+**#22–#12b · main**
+
+> Limsa Lominsa's Grand Company, commanded by Admiral Merlwyb: one of the Grand Companies the city-states formed in answer to the imperial threat.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22e** Merlwyb is Admiral of Limsa Lominsa and commander of the Maelstrom. *The Gridanian Envoy* (2.0, main): "I am Merlwyb Bloefhiswyn, Admiral of Limsa Lominsa, and commander of the Maelstrom."
+  - **M22f** Against the imperial threat, the city-states formed the Grand Companies and forged the Alliance anew. *The Gridanian Envoy* (2.0, main): "It was in answer to the imperial threat that the city-states formed the Grand Companies, and forged the Eorzean Alliance anew."
+
+</details>
+
+**#13b–#20b · main**
+
+> A force that lost most of its ships in the Calamity. The Victory, the first new vessel built at the Moraby Drydocks since then, is to begin restoring its fleet.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M13bc** The Victory is the first new vessel at the docks since the Calamity. *On to the Drydocks* (2.0, main): "this proud maiden you see taking shape before you is the Victory, the first new vessel to grace the docks since the Calamity."
+
+</details>
+
+**#21b–#39 · main**
+
+> A force that fought at the Battle of Carteneau under Admiral Merlwyb, who ordered its units to fall back. It lost most of its ships in the Calamity, and the Victory, its new flagship, is to begin restoring its fleet.
+
+Sources shown: A Mizzenmast Repast — main scenario quest (2.0); On to the Drydocks — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21bk** At Carteneau Merlwyb ordered all Maelstrom units to fall back. *A Mizzenmast Repast* (2.0, main): "Belay previous orders! All Maelstrom units are commanded to fall back, effective immediately!"
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M19bc** The Victory is the Maelstrom's new flagship. *Feint and Strike* (2.0, main): "then 'it the Maelstrom's new flagship in the confusion."
+
+</details>
+
+**#40–#41b · main**
+
+> Limsa Lominsa's Grand Company, under Admiral Merlwyb, reborn when the Garlean Empire marched on Eorzea. It has sent an officer to the Waking Sands to recruit you, and Merlwyb calls for mending the rift between pirates and the Maelstrom.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M40w** Merlwyb is Chief Admiral of the Maelstrom. *A Hero in the Making* (2.0, main): "where Maelstrom Chief Admiral Merlwyb Bloefhiswyn will be giving her address."
+  - **M40n** The Maelstrom was reborn under its standard when the Garlean Empire marched on Eorzea. *A Hero in the Making* (2.0, main): "When the Garlean Empire marched upon Eorzea, we assembled beneath the Maelstrom's standard, and our Grand Company was reborn."
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M40p** Merlwyb calls for mending the rift between pirate and Maelstrom. *A Hero in the Making* (2.0, main): "How can we hope to repel our many enemies when mutiny breeds below deck? … We must mend the rift the Calamity has reopened 'twixt pirate and Maelstrom"
+
+</details>
+
+**#42b–#84 · main**
+
+> Limsa Lominsa's Grand Company, under Admiral Merlwyb, reborn when the Garlean Empire marched on Eorzea. Its soldiers are charged with meeting the threats of the primals and the Empire, and with solving the many problems the Calamity caused.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Till Sea Swallows All — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M40w** Merlwyb is Chief Admiral of the Maelstrom. *A Hero in the Making* (2.0, main): "where Maelstrom Chief Admiral Merlwyb Bloefhiswyn will be giving her address."
+  - **M40n** The Maelstrom was reborn under its standard when the Garlean Empire marched on Eorzea. *A Hero in the Making* (2.0, main): "When the Garlean Empire marched upon Eorzea, we assembled beneath the Maelstrom's standard, and our Grand Company was reborn."
+  - **M42bb** The Maelstrom is charged with meeting the threats of the primals and the Empire, and with the Calamity's many problems. *Till Sea Swallows All* (2.0, main): "We of the Maelstrom are charged with meeting the threats posed by the primals and the Garlean Empire, and solving the many problems caused by the Calamity."
+
+</details>
+
+**#85–#178 · main**
+
+> Limsa Lominsa's Grand Company, under Admiral Merlwyb, which has kept watch on the kobolds since before its reformation. It has asked the Scions to slay Titan, and pledged its full support.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85m** Y'shtola speaks of the Grand Company's reformation, years after Titan last struck. *Wrath of the Titan* (2.0, main): "Years before the Grand Company's reformation, two primals, Leviathan and Titan, chanced to converge upon the seawall"
+  - **M85l** The Maelstrom has long kept watch on the beast tribes, the kobolds above all. *Wrath of the Titan* (2.0, main): "The Maelstrom has kept a watchful eye upon the beast tribes─and the kobolds in particular─ever since."
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85c** Admiral Merlwyb pledges the Maelstrom's full support. *Wrath of the Titan* (2.0, main): "you are received by Admiral [[Merlwyb]] Bloefhiswyn herself, who pledges the full support of the Maelstrom in the forthcoming operation."
+
+</details>
+
 **#179–#180 · main**
 
 > Limsa Lominsa's Grand Company, under Admiral Merlwyb. It is readying an operation to stop the Sahagin summoning Leviathan, with the Scions' support.
@@ -19954,6 +22691,103 @@ Sources shown: The Sea Rises — main scenario quest (2.2); Into the Heart of th
 </details>
 
 ### The Immortal Flames (`org-immortal-flames`, organization)
+
+**#22–#22c · main**
+
+> Ul'dah's Grand Company, under General Raubahn: one of the Grand Companies the city-states formed in answer to the imperial threat.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22p** Raubahn is General of Ul'dah's Immortal Flames. *The Gridanian Envoy* (2.0, main): "Welcome to the sultanate of Ul'dah. I am Raubahn Aldynn, General of the Immortal Flames."
+  - **M22f** Against the imperial threat, the city-states formed the Grand Companies and forged the Alliance anew. *The Gridanian Envoy* (2.0, main): "It was in answer to the imperial threat that the city-states formed the Grand Companies, and forged the Eorzean Alliance anew."
+
+</details>
+
+**#23b–#38 · main**
+
+> Ul'dah's Grand Company, whose supreme commander is Raubahn, the Flame General. The city-states formed their Grand Companies in answer to the Empire.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23be** Raubahn bears the seal of the supreme commander of the Immortal Flames. *The Ul'dahn Envoy* (2.0, main): "Verily, this is the seal of the supreme commander of the Immortal Flames."
+  - **M23bi** The city-states formed the Grand Companies and remade the Alliance to answer the Empire. *The Ul'dahn Envoy* (2.0, main): "It was in answer to the imperial threat that the city–states formed the Grand Companies, and forged the Eorzean Alliance anew."
+
+</details>
+
+**#39 only · main**
+
+> A force that, with you as the Scions' representative, set an ambush to capture Amalj'aa using the false priest Ungust as bait. A traitor in its ranks gave the plan away, and its soldiers were taken captive to be offered to Ifrit.
+
+Sources shown: Lord of the Inferno — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M39a** The Immortal Flames plan to capture Amalj'aa with Ungust as bait, and you go as the Scions' representative. *Lord of the Inferno* (2.0, main): "the Immortal Flames have devised a plan to capture [[Amalj'aa]], using the false priest [[Ungust]] as bait. Minfilia bids you take part in the operation as [[The Scions of the Seventh Dawn|the Scions]]' representative."
+  - **M39b** A traitor in the ranks gives you away, and you are captured with the Flames. *Lord of the Inferno* (2.0, main): "you learn that there is a traitor in the ranks, and are swiftly subdued. After an indeterminate amount of time, you awake to find yourself imprisoned within an Amalj'aa stronghold, along with the Flames."
+  - **M39c** The Amalj'aa mean to offer you and your companions to their primal, Ifrit. *Lord of the Inferno* (2.0, main): "It appears the Amalj'aa mean to make an offering of you and your companions to their [[primal]], [[Ifrit]]."
+
+</details>
+
+**#40–#41 · main**
+
+> Ul'dah's Grand Company, led by Flame General Raubahn, which has sent an officer to the Waking Sands to recruit you. Its forces always smite Ifrit when the Amalj'aa summon him, but each victory costs blood, a war of attrition Ul'dah cannot well sustain.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M40i** Flame General Raubahn addresses Ul'dah at its remembrance service. *A Hero in the Making* (2.0, main): "Next, you'll need to go to Ul'dah, where Flame General Raubahn Aldynn will be addressing the masses at the Royal Promenade."
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M40z** Each victory over Ifrit costs Ul'dah blood, a war of attrition it cannot sustain. *A Hero in the Making* (2.0, main): "Every time they do so, the Ul'dahns send their forces to smite the primal, and though they invariably succeed, each victory is bought with blood."
+
+</details>
+
+**#42–#62 · main**
+
+> Ul'dah's Grand Company, whose soldiers would lay down their lives at a word from Flame General Raubahn to keep Ul'dah at peace. Recruits must forsake all other nations. It is fighting a large operation against the Amalj'aa in western Thanalan.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); For Coin and Country — main scenario quest (2.0); The Company You Keep (Immortal Flames) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M42c** The Flames would lay down their lives at a word from Raubahn to keep Ul'dah at peace. *For Coin and Country* (2.0, main): "And at a word from Flame General Raubahn Aldynn, we would gladly lay down our lives to maintain the peace and prosperity of Ul'dah."
+  - **M42b** Flame recruits must forsake all other nations. *For Coin and Country* (2.0, main): "To join our ranks, you must forsake all other nations."
+  - **M41f** The Flames are in the midst of a large operation against the Amalj'aa. *The Company You Keep (Immortal Flames)* (2.0, main): "We're in the midst of a large-scale operation against the Amalj'aa, and we have no one to spare in western Thanalan."
+
+</details>
+
+**#63–#66 · main**
+
+> A Grand Company whose Flame Commander, Swift, serves at the Hall of Flames in Ul'dah. When Minfilia asked each Grand Company for help, it answered with word of a possible sighting of the masked Lahabrea.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63c** Minfilia asked each Grand Company for help, and the Immortal Flames answered with word of a possible sighting. *Shadow of Darkness* (2.0, main): "Earlier, I sent word to each Grand Company to solicit cooperation. The Immortal Flames responded to the effect that they have information on a potential sighting."
+  - **M63d** Flame Commander Swift receives you at the Hall of Flames in Ul'dah. *Shadow of Darkness* (2.0, main): "Go speak with Flame Commander Swift at the Hall of Flames in Ul'dah to inquire further."
+
+</details>
+
+**#67–#174 · main**
+
+> A Grand Company whose Flame Commander, Swift, serves at the Hall of Flames in Ul'dah. It answered Minfilia's call for help with word of a sighting of Lahabrea, and its Gisilbehrt heads security at Little Ala Mhigo.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Tea for Three — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63c** Minfilia asked each Grand Company for help, and the Immortal Flames answered with word of a possible sighting. *Shadow of Darkness* (2.0, main): "Earlier, I sent word to each Grand Company to solicit cooperation. The Immortal Flames responded to the effect that they have information on a potential sighting."
+  - **M63d** Flame Commander Swift receives you at the Hall of Flames in Ul'dah. *Shadow of Darkness* (2.0, main): "Go speak with Flame Commander Swift at the Hall of Flames in Ul'dah to inquire further."
+  - **M67a** Gisilbehrt of the Immortal Flames heads security at Little Ala Mhigo. *Tea for Three* (2.0, main): "I'm Gisilbehrt, head of security here at Little Ala Mhigo. … Gisilbehrt of [[the Immortal Flames]] believes that one of his lookouts may have seen the man you seek."
+
+</details>
 
 **#175–#185 · main**
 
@@ -20102,6 +22936,86 @@ Sources shown: The Flames of War — main scenario quest (5.5); Futures Rewritte
 </details>
 
 ### The sylphs (`org-sylphs`, organization)
+
+**#43–#46 · main**
+
+> A beast tribe of the Twelveswood that worships the primal Ramuh. As far as anyone can tell, they no longer summon him. The Scions studied them for the Twin Adder and hope to win their favor.
+
+Sources shown: Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M43d** The sylphs seem no longer to summon Ramuh, but the threat should not be assumed past. *Sylph-management* (2.0, main): "While Ramuh's existence is well documented, the sylphs do not─or perhaps, can not─summon the primal any longer, insofar as can be ascertained. … It would be unwise to assume that the threat posed by the primal has passed."
+  - **M43f** Winning the sylphs' favor may bring the Scions closer to mitigating the primal threat. *Sylph-management* (2.0, main): "Winning the sylphs' favor may well bring us a step closer to mitigating the threat of the primals."
+
+</details>
+
+**#47–#48 · main**
+
+> A beast tribe of the Twelveswood that worships the primal Ramuh. Those of Little Solace accepted Gridania's gifts and your dance, but Komuxio refused you an audience with their elder; they have grown wary since the Empire came to the Shroud.
+
+Sources shown: Sylph-management — main scenario quest (2.0); First Contact — main scenario quest (2.0); We Come in Peace — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M47d** Komuxio accepts your gifts but remains unconvinced, and you are denied an audience with the elder of Little Solace. *First Contact* (2.0, main): "Despite accepting your gifts, Komuxio remains unconvinced as to your intentions. Is there no way to gain the [[sylph]]'s trust and secure an audience with the elder of Little Solace?"
+  - **M47f** Papalymo thinks recent events have left the sylphs uncommonly wary. *First Contact* (2.0, main): "something tells me recent events have our erstwhile fluttery friends feeling uncommonly wary."
+  - **M44f** The sylphs have been wary since the Empire came to the Shroud. *We Come in Peace* (2.0, main): "Particularly since the Empire has come to the Shroud."
+
+</details>
+
+**#49–#50 · main**
+
+> A beast tribe of the Twelveswood that worships the primal Ramuh. Those of Little Solace were driven from their woodland home and live in a temporary settlement without defenses. Wary of Gridania's envoys at first, they are slowly warming to you.
+
+Sources shown: Sylph-management — main scenario quest (2.0); Forest Friend — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M49a** The sylphs of Little Solace were driven from their woodland home. *Forest Friend* (2.0, main): "The sylphs who make their home in Little Solace do so having been driven from their woodland home."
+  - **M49b** Little Solace is a temporary settlement without defenses. *Forest Friend* (2.0, main): "Being a temporary settlement, Little Solace wants for amenities, not least a stout set of defenses."
+  - **M49c** The sylphs have begun to warm to you, gradually. *Forest Friend* (2.0, main): "It would seem the sylphs have begun to warm to your presence, albeit gradually."
+
+</details>
+
+**#51–#60 · main**
+
+> A beast tribe of the Twelveswood that worships the primal Ramuh. Those of Little Solace were driven from their home and are warming to you. In the forest, sylphs tempered by Ramuh exist only to serve him, and one of Little Solace's own fled in fear that his people were forgetting who they are.
+
+Sources shown: Sylph-management — main scenario quest (2.0); Forest Friend — main scenario quest (2.0); Brotherly Love — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M49a** The sylphs of Little Solace were driven from their woodland home. *Forest Friend* (2.0, main): "The sylphs who make their home in Little Solace do so having been driven from their woodland home."
+  - **M49c** The sylphs have begun to warm to you, gradually. *Forest Friend* (2.0, main): "It would seem the sylphs have begun to warm to your presence, albeit gradually."
+  - **M51b** The sylphs in the forest have been tempered by the primal Ramuh. *Brotherly Love* (2.0, main): "These sylphs have been tempered―brought under the thrall of the primal Ramuh."
+  - **M51c** Like the Amalj'aa tempered by Ifrit, tempered sylphs exist only to serve their primal. *Brotherly Love* (2.0, main): "Akin to the Amalj'aa tempered by Ifrit, these sylphs exist only to serve their deity."
+  - **M51e** Claxio feared the sylphs of Little Solace were forgetting who they are. *Brotherly Love* (2.0, main): "This one feared that these ones were forgetting who these ones are"
+
+</details>
+
+**#61–#191 · main**
+
+> A beast tribe of the Twelveswood. Against their elder Frixio's wishes, some summoned Ramuh to protect the wood from imperial soldiers, and all who took part were tempered; Frixio fled to Little Solace with those who refused. The sylphs want no conflict with Gridania and do not intend to summon Ramuh.
+
+Sources shown: Sylph-management — main scenario quest (2.0); Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M61b** Frixio says the sylphs summoned Ramuh to protect the wood from imperial soldiers. *Believe in Your Sylph* (2.0, main): "These ones resorted to summoning Lord Ramuh to protect the wood from imperial ones."
+  - **M61c** Ramuh was summoned against Frixio's wishes, and all who took part were tempered. *Believe in Your Sylph* (2.0, main): "Against this one's wishes, Lord Ramuh was summoned...and all those ones who took part became touched ones."
+  - **M61d** Frixio fled to Little Solace with all who did not wish to be bound to Ramuh. *Believe in Your Sylph* (2.0, main): "So this one fled to Little Solace with all those ones who did not wish to be bound to Lord Ramuh."
+  - **M61h** Vorsaile is relieved that the sylphs want no conflict and do not intend to summon Ramuh. *Believe in Your Sylph* (2.0, main): "So the sylphs have no desire for conflict, nor do they intend to summon Ramuh."
+
+</details>
 
 **#192 only · main**
 
@@ -23574,6 +26488,37 @@ Sources shown: The Company We Keep — main scenario quest (5.55)
 </details>
 
 ### Wilred (`char-wilred`, character)
+
+**#75 only · main**
+
+> A youth of Little Ala Mhigo, something of a leader among its young people. He lured you into a trap, then slipped away after boasting that his band will obtain the power to bring down the Empire and reclaim their homeland.
+
+Sources shown: Wilred Wants You — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M75a** Wilred is something of a leader among the young people. *Wilred Wants You* (2.0, main): "Lad's something of a leader among the young ones here."
+  - **M75b** Wilred's invitation is a trap, and you overpower him and his cronies. *Wilred Wants You* (2.0, main): "the rendezvous turns out to be a trap. Wilred and his cronies fall upon you, but you succeed in overpowering them."
+  - **M75c** Wilred's group means to obtain the power to bring down the Empire and reclaim their homeland. *Wilred Wants You* (2.0, main): "We're going to obtain the power to bring down the Empire, and with it we'll reclaim our homeland!"
+
+</details>
+
+**#76–#229 · main**
+
+> A youth of Little Ala Mhigo, something of a leader among its young people. At the masked stranger's urging, he and his friends plotted to summon Rhalgr with crystals stolen from an Amalj'aa stronghold, believing it would let them defeat the Empire. The plot failed, and Gundobald told him he owes his life to you.
+
+Sources shown: Wilred Wants You — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M75a** Wilred is something of a leader among the young people. *Wilred Wants You* (2.0, main): "Lad's something of a leader among the young ones here."
+  - **M76b** Wilred's friends plotted to summon Rhalgr with crystals stolen from an Amalj'aa stronghold. *Big Trouble in Little Ala Mhigo* (2.0, main): "It seems that Wilred and his friends have been plotting to summon [[Rhalgr]]. … they seek to infiltrate an [[Amalj'aa]] stronghold and steal the [[beastmen]]'s cache of [[crystals]]."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M76d** The masked man told them they could defeat the Empire by summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "The masked man told us we could defeat the Empire if we summoned Rhalgr!"
+  - **M76e** Wilred's plan fails, and with it his hope of reclaiming his homeland. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred's plan has come to naught, as have his hopes of reclaiming his homeland."
+  - **M76f** Gundobald tells Wilred he owes his life to you, an outsider. *Big Trouble in Little Ala Mhigo* (2.0, main): "never forget that you owe it to this adventurer─an ''outsider''."
+
+</details>
 
 **#230–#234b · main**
 
@@ -30303,6 +33248,50 @@ Sources shown: Honorable Heroes — main scenario quest (3.4); Griffin, Griffin 
 
 ### The Ala Mhigan Resistance (`org-ala-mhigan-resistance`, organization)
 
+**#68 only · main**
+
+> Ala Mhigans whose shared purpose is freeing their homeland from the Garleans. Gundobald, leader of Little Ala Mhigo, belongs to it.
+
+Sources shown: Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+
+</details>
+
+**#69–#71 · main**
+
+> Ala Mhigans whose shared purpose is freeing their homeland from the Garleans. Gundobald, leader of Little Ala Mhigo, belongs to it, and its captain Meffrid is at Quarrymill in the South Shroud. Haribehrt left it to join the Scions, and his old comrades shun him.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); Meeting with the Resistance — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M69b** Haribehrt left the Ala Mhigan Resistance for the Scions, and his old comrades shun him. *Meeting with the Resistance* (2.0, main): "I used to be a member of the [[Ala Mhigan Resistance]], you see, but I left in favor of joining the Scions. … I abandoned my comrades, and they'll have nothing to do with me."
+
+</details>
+
+**#72–#342 · main**
+
+> Ala Mhigans whose shared purpose is freeing their homeland from the Garleans. Gundobald, leader of Little Ala Mhigo, belongs to it, and so does Meffrid, a captain at Quarrymill. Meffrid's men have sworn to set foot on Ala Mhigan soil again together or not at all, and since you helped save his wounded comrade, they have begun to trust you.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); Meeting with the Resistance — main scenario quest (2.0); He Ain't Heavy — main scenario quest (2.0); Helping Horn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M72b** Meffrid reminds Gallien of their oath to return to Ala Mhigo together or not at all. *He Ain't Heavy* (2.0, main): "We'll set foot on Ala Mhigan soil again─''together''─or not at all!"
+  - **M71c** Gallien's chances improve, and Meffrid's brothers in the Resistance begin to trust you. *Helping Horn* (2.0, main): "Thanks to your aid, [[Gallien]] now has a much improved chance of survival. Slowly but surely, you are winning the trust of Meffrid and his brothers in the [[Ala Mhigan Resistance]]."
+
+</details>
+
 **#343–#366 · main**
 
 > The Ala Mhigan Resistance, fighting the imperials. Yda and Papalymo are at one of its camps.
@@ -31648,6 +34637,78 @@ Sources shown: Rising Fortunes, Rising Spirits — main scenario quest (4.0); Fo
 </details>
 
 ### Meffrid (`char-meffrid`, character)
+
+**#69 only · main**
+
+> A captain of the Ala Mhigan Resistance at Quarrymill in the South Shroud.
+
+Sources shown: Meeting with the Resistance — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+
+</details>
+
+**#70 only · main**
+
+> A captain of the Ala Mhigan Resistance at Quarrymill in the South Shroud. One of his men, Gallien, has a festering wound, and the villagers refused to help even when Meffrid begged; their Hearer denied the Ala Mhigans' petition.
+
+Sources shown: Meeting with the Resistance — main scenario quest (2.0); Killing Him Softly — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M70a** Gallien, one of Meffrid's men, has a festering wound. *Killing Him Softly* (2.0, main): "His wound's gone an' festered, an' he's burnin' up!"
+  - **M70b** Quarrymill's villagers refused help even when Meffrid begged. *Killing Him Softly* (2.0, main): "I asked the villagers for aid─got on my knees and ''begged''─but they refused to lift a finger!"
+  - **M70c** The Hearer Charline denies the Ala Mhigans' petition, saying only the elementals may grant it. *Killing Him Softly* (2.0, main): "This authority belongs only to the elementals, eternal guardians of the Twelveswood. … Alas, the Ala Mhigans' petition has been denied."
+
+</details>
+
+**#71 only · main**
+
+> A captain of the Ala Mhigan Resistance at Quarrymill in the South Shroud. With an old Ala Mhigan remedy of antelope horn, made into medicine by Buscarron, his wounded comrade Gallien's chances improved, and his men are starting to trust you.
+
+Sources shown: Meeting with the Resistance — main scenario quest (2.0); Helping Horn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M71a** Meffrid tries an old Ala Mhigan remedy of long antelope horn. *Helping Horn* (2.0, main): "In my homeland, long antelope horn is a traditional remedy with poison-purging properties."
+  - **M71b** Buscarron, once saved by the same remedy from an Ala Mhigan friend, makes the medicine. *Helping Horn* (2.0, main): "An Ala Mhigan friend once used it to treat my festering wound, years and years ago. Safe to say he saved my life."
+  - **M71c** Gallien's chances improve, and Meffrid's brothers in the Resistance begin to trust you. *Helping Horn* (2.0, main): "Thanks to your aid, [[Gallien]] now has a much improved chance of survival. Slowly but surely, you are winning the trust of Meffrid and his brothers in the [[Ala Mhigan Resistance]]."
+
+</details>
+
+**#72 only · main**
+
+> A captain of the Ala Mhigan Resistance at Quarrymill in the South Shroud. When his wounded comrade Gallien left alone to spare them the burden, he had you track him down, and reminded him of their oath to return to Ala Mhigo together or not at all.
+
+Sources shown: Meeting with the Resistance — main scenario quest (2.0); He Ain't Heavy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M72a** Gallien leaves Quarrymill alone so as not to burden his fellows. *He Ain't Heavy* (2.0, main): "decided to leave Quarrymill of his own volition, in an attempt to not burden his fellows any longer."
+  - **M72b** Meffrid reminds Gallien of their oath to return to Ala Mhigo together or not at all. *He Ain't Heavy* (2.0, main): "We'll set foot on Ala Mhigan soil again─''together''─or not at all!"
+  - **M72c** Gallien is expected to make a full recovery. *He Ain't Heavy* (2.0, main): "Gallien's expected to make a full recovery."
+
+</details>
+
+**#73–#383 · main**
+
+> A captain of the Ala Mhigan Resistance at Quarrymill in the South Shroud, sworn to return to Ala Mhigo with his comrades or not at all. Grateful for your help, he gave you a letter of introduction to his old mentor, Gundobald of Little Ala Mhigo.
+
+Sources shown: Meeting with the Resistance — main scenario quest (2.0); He Ain't Heavy — main scenario quest (2.0); Come Highly Recommended — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M72b** Meffrid reminds Gallien of their oath to return to Ala Mhigo together or not at all. *He Ain't Heavy* (2.0, main): "We'll set foot on Ala Mhigan soil again─''together''─or not at all!"
+  - **M73a** Meffrid gives you a letter of introduction to Gundobald. *Come Highly Recommended* (2.0, main): "He provides you with a [[Meffrid's Recommendation|letter of introduction]], and instructs you to show it to [[Gundobald]] at [[Little Ala Mhigo]]."
+  - **M73b** Gundobald mentored Meffrid when he joined the Resistance. *Come Highly Recommended* (2.0, main): "The old bear was my mentor when I first joined the Resistance."
+
+</details>
 
 **#384–#388 · main**
 
@@ -47299,6 +50360,20 @@ Sources shown: The Great Ship Vylbrand — main scenario quest (5.4); The Compan
 
 ### The kobolds (`org-kobolds`, organization)
 
+**#85–#687 · main**
+
+> A tribe living near Limsa Lominsa, which has summoned the primal Titan once more and gathers crystals as fodder for him. Y'shtola recalls a pact that kept each people to its own lands, and Admiral Merlwyb owns that the Lominsans broke it.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85e** The kobolds gather crystals as fodder for their primal. *Wrath of the Titan* (2.0, main): "Crystals. Fodder for their fell primal."
+  - **M85d** Y'shtola recalls the pact that kept each to its own lands; Merlwyb owns that the Lominsans broke it. *Wrath of the Titan* (2.0, main): "Did not the thalassocracy make a pact with the beastmen that each would keep to their own lands, and that no blood would be shed? … And the wrong is mine. Freely do I claim it."
+
+</details>
+
 **#688–#695 · main**
 
 > A beast tribe of La Noscea, whose land Limsa Lominsa took by twisting an old covenant. Their Second Order, freed of Titan's influence, has made a fledgling peace with Limsa, and the Admiral means to bring every kobold in.
@@ -47328,6 +50403,76 @@ Sources shown: The Company We Keep — main scenario quest (5.55)
 </details>
 
 ### The Amalj'aa (`org-amaljaa`, organization)
+
+**#31 only · main**
+
+> A beast tribe known to worship the primal Ifrit. Evidence left at a robbed crystal caravan near Ul'dah implicates them, and the Scions suspect a primal is involved.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31d** The evidence implicates the Amalj'aa, known worshipers of Ifrit. *A Wild Rose by Any Other Name* (2.0, main): "the evidence left behind implicates the Amalj'aa, who are known worshipers of Ifrit."
+  - **M31c** A crystal caravan of Amajina & Sons was robbed of its cargo. *A Wild Rose by Any Other Name* (2.0, main): "Some days ago, a crystal caravan registered to Amajina & Sons Mineral Concern was waylaid and divested of its cargo."
+  - **M31b** Your first task is to investigate crimes in Ul'dah that the Scions suspect involve a primal. *A Wild Rose by Any Other Name* (2.0, main): "you are assigned your first task─to investigate a series of crimes committed in [[Ul'dah]], which the Scions suspect to be [[primal]]-related."
+
+</details>
+
+**#32–#36 · main**
+
+> A beast tribe that worships the primal Ifrit, implicated in a crystal robbery near Ul'dah. They have butchered churchgoers near Camp Drybone, but Isembard doubts they act alone in the disappearances there.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Unsolved Mystery — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31d** The evidence implicates the Amalj'aa, known worshipers of Ifrit. *A Wild Rose by Any Other Name* (2.0, main): "the evidence left behind implicates the Amalj'aa, who are known worshipers of Ifrit."
+  - **M32a** The Amalj'aa have butchered commonfolk, whose bodies Isembard wants buried. *Unsolved Mystery* (2.0, main): "Isembard informs you that the [[Amalj'aa]] have butchered a number of commonfolk, and asks that you retrieve the [[Ripe Corpse|ripe corpses]] so that he may see them properly interred."
+  - **M32c** The Amalj'aa cannot be acting alone; Isembard suspects another conspirator. *Unsolved Mystery* (2.0, main): "it is impossible that the Amalj'aa have been acting alone in the recent wave of disappearances. Isembard cannot help but wonder if another conspirator has had a hand in these troubling incidents."
+
+</details>
+
+**#37–#38 · main**
+
+> A beast tribe that worships the primal Ifrit. The false priest Ungust confessed that he lured the poor of Drybone to them, after selling them the schedule of crystal shipments from the Nanawa Mines; only they know where the abductees were taken.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Dressed to Deceive — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31d** The evidence implicates the Amalj'aa, known worshipers of Ifrit. *A Wild Rose by Any Other Name* (2.0, main): "the evidence left behind implicates the Amalj'aa, who are known worshipers of Ifrit."
+  - **M37d** Ungust has been abducting people at the behest of the Amalj'aa. *Dressed to Deceive* (2.0, main): "The man reveals that he has been abducting people at the behest of the [[Amalj'aa]]."
+  - **M37e** The Amalj'aa first wanted the schedule of crystal shipments from the Nanawa Mines. *Dressed to Deceive* (2.0, main): "First of all, they wanted the schedule for crystal shipments from the Nanawa Mines."
+  - **M37g** Only the Amalj'aa know where the abducted were taken. *Dressed to Deceive* (2.0, main): "we must ascertain where the abducted were taken...and none but the Amalj'aa know the answer."
+
+</details>
+
+**#39 only · main**
+
+> A beast tribe that worships the primal Ifrit. The crystal robbery and abductions they carried out near Ul'dah served his cause, and they meant to offer you and the Immortal Flames they captured to him.
+
+Sources shown: Lord of the Inferno — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M39e** The crystal robbery and the abductions served to advance Ifrit's cause. *Lord of the Inferno* (2.0, main): "explaining to you how the crystal robbery and the abductions served to advance Ifrit's cause."
+  - **M39b** A traitor in the ranks gives you away, and you are captured with the Flames. *Lord of the Inferno* (2.0, main): "you learn that there is a traitor in the ranks, and are swiftly subdued. After an indeterminate amount of time, you awake to find yourself imprisoned within an Amalj'aa stronghold, along with the Flames."
+  - **M39c** The Amalj'aa mean to offer you and your companions to their primal, Ifrit. *Lord of the Inferno* (2.0, main): "It appears the Amalj'aa mean to make an offering of you and your companions to their [[primal]], [[Ifrit]]."
+
+</details>
+
+**#40–#688 · main**
+
+> A beast tribe that summons the primal Ifrit, and does so more and more often. At Ul'dah's remembrance service, Raubahn warned that their hordes wait beside the roads, strangling the city's trade.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40m** The Amalj'aa summon Ifrit more and more often. *A Hero in the Making* (2.0, main): "It has been observed that the Amalj'aa are summoning him with ever-increasing frequency."
+  - **M40j** Raubahn warns that the Amalj'aa strangle Ul'dah's trade and the Garleans mock its borders. *A Hero in the Making* (2.0, main): "The savage hordes of the Amalj'aa wait beside our roads, strangling the lifelines of trade. … Meanwhile, the Garleans make mock of our borders, and despoil our land of its natural wealth."
+
+</details>
 
 **#689–#693 · main**
 
@@ -47834,7 +50979,5158 @@ Sources shown: Death Unto Dawn — main scenario quest (5.55)
 
 </details>
 
+### Shadows over the Twelveswood (`evt-shadows-over-the-twelveswood`, event)
+
+**#4 only · main**
+
+> Ixali activity in the Twelveswood rose sharply with the first sightings of an unknown individual, so Galfrid sent you to Lifemend Stump. There a ritual blade was thrust into the stump beside a dead Ixali chieftain, and in a vision Hydaelyn bade you claim the Crystals of Light. Two scholars you met there, Yda and Papalymo, turned out to be friends of Gridania.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M4c** At Lifemend Stump a sword is thrust into the stump, and a dead Ixal lies nearby. *Chasing Shadows* (2.0, main): "a [[Magicked Blade|sword]] has been thrust into the stump, and an Ixal lies dead nearby."
+  - **M4e** The dead Ixal was a chieftain, far inside enemy territory; the beastmen may be acting under orders. *Chasing Shadows* (2.0, main): "An Ixal. And no ordinary Ixal, either—a chieftain. … That they would venture this deep into enemy territory... The [[beastmen]] may indeed be acting under orders."
+  - **M4h** Hydaelyn bids you lay claim to the Crystals of Light, which can banish the Darkness. *Chasing Shadows* (2.0, main): "The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them."
+  - **M4i** The Hyuran Yda and the Lalafellin Papalymo are scholars, friends of Gridania who assist the Gods' Quiver and the Wood Wailers. *Chasing Shadows* (2.0, main): "It turns out that the [[Hyur]]an lass and [[Lalafell]]in lad you encountered are friends of [[Gridania]]. Named [[Yda]] and [[Papalymo]], respectively, the pair are scholars who are assisting [[the Gods' Quiver]] and [[the Wood Wailers]]."
+
+</details>
+
+**#5 only · main**
+
+> Ixali activity in the Twelveswood rose with sightings of an unknown individual, and a dead Ixali chieftain lay beside a ritual blade at Lifemend Stump. Standing in for Galfrid's injured men, you gathered chigoe egg sacs: chigoes carry the Creeping Death, and one outbreak once killed a third of Gridania's Hyur.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); Eggs over Queasy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M4c** At Lifemend Stump a sword is thrust into the stump, and a dead Ixal lies nearby. *Chasing Shadows* (2.0, main): "a [[Magicked Blade|sword]] has been thrust into the stump, and an Ixal lies dead nearby."
+  - **M5a** Galfrid needs an extra hand after his subordinates were injured. *Eggs over Queasy* (2.0, main): "Galfrid requires an extra hand after his subordinates were injured."
+  - **M5b** Chigoes carry the Creeping Death, and Gridanian researchers check them to prevent outbreaks. *Eggs over Queasy* (2.0, main): "Chigoes are known carriers of the Creeping Death"
+  - **M5c** One outbreak of the Creeping Death once killed a third of Gridania's Hyur. *Eggs over Queasy* (2.0, main): "Indeed, a single outbreak once claimed the lives of a third of the Hyuran population here in [[Gridania]]."
+
+</details>
+
+**#6 only · main**
+
+> Ixali activity in the Twelveswood rose with sightings of an unknown individual, and a dead Ixali chieftain lay beside a ritual blade at Lifemend Stump. You recovered survey gear a startled Twin Adder recruit left in a cave. The Calamity has reshaped the forest, and the conjurer Pauline says its old maps can no longer be trusted.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); Surveying the Damage — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M4c** At Lifemend Stump a sword is thrust into the stump, and a dead Ixal lies nearby. *Chasing Shadows* (2.0, main): "a [[Magicked Blade|sword]] has been thrust into the stump, and an Ixal lies dead nearby."
+  - **M6a** A startled recruit left surveying equipment behind in a cave. *Surveying the Damage* (2.0, main): "needs you to recover the surveying equipment left behind in a cave by a startled recruit."
+  - **M6b** The Calamity reshaped the forest, so the conjurer Pauline asked the Twin Adder to survey it. *Surveying the Damage* (2.0, main): "[[The Calamity]] has dramatically altered the forest's geography, prompting a [[conjurer]] named Pauline to request that [[the Order of the Twin Adder]] carry out topographical surveys."
+  - **M6c** Pauline says old knowledge of the Twelveswood can no longer be relied on. *Surveying the Damage* (2.0, main): "We can no longer rely on our past knowledge of the [[The Black Shroud|Twelveswood]]."
+
+</details>
+
+**#7 only · main**
+
+> Ixali activity in the Twelveswood rose with sightings of an unknown individual, and a dead Ixali chieftain lay beside a ritual blade at Lifemend Stump. Anoles driven down from the mountains have been disturbing the conjurers' communion with the elementals, so you thinned them at Naked Rock and brought an egg back for a soldier's breakfast.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); A Soldier's Breakfast — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M4c** At Lifemend Stump a sword is thrust into the stump, and a dead Ixal lies nearby. *Chasing Shadows* (2.0, main): "a [[Magicked Blade|sword]] has been thrust into the stump, and an Ixal lies dead nearby."
+  - **M7a** Anoles coming down from the mountains are disrupting the conjurers' communion with the elementals. *A Soldier's Breakfast* (2.0, main): "A growing number of anoles are venturing down from the mountains and disrupting the conjurers' communion with the elementals."
+  - **M7b** You thinned the anoles and took an egg for a soldier's breakfast at the Bannock. *A Soldier's Breakfast* (2.0, main): "Large and rich in nutrients, anole eggs make a perfect breakfast for a soldier. Deliver it to Tsubh Khamazom at the Bannock."
+
+</details>
+
+**#8 only · main**
+
+> A towering shadow broke a Hearer's sacred rite at Spirithold, and inside you met a masked mage who loosed a clay golem on you. Yda and Papalymo arrived as you destroyed it, but the mage had eluded them again. Miounne asks that the tale be kept quiet until the Hearers decide, as Ixali activity rises with sightings of a stranger.
+
+Sources shown: Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8a** Conjurers and their Wood Wailer escort were attacked by a towering shadow during a sacred rite in Spirithold. *Spirithold Broken* (2.0, main): "a party of [[conjurer]]s and their [[The Wood Wailers|Wood Wailer]] escort were attacked by a towering shadow while performing a sacred rite inside Spirithold."
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+  - **M8h** Miounne asks that the tale of walking statues be kept quiet until the Hearers make their will known. *Spirithold Broken* (2.0, main): "Until the Hearers have made their will on the matter known, it would be best to avoid unsettling people with stories of walking statues."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+
+</details>
+
+**#9 only · main**
+
+> A masked mage broke a Hearer's rite at Spirithold and eluded Yda and Papalymo, while Ixali activity rises with sightings of a stranger in the Twelveswood. Miounne has sent you on to Bentbranch Meadows, whose farmhands need help with chores around the chocobo ranch.
+
+Sources shown: Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); On to Bentbranch — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M9a** Miounne sends you on to Bentbranch Meadows, whose farmhands need help with chores around the ranch. *On to Bentbranch* (2.0, main): "the farmhands at Bentbranch Meadows are looking for someone to help out with various chores around the ranch. Make your way to [[Bentbranch]] and speak with [[Keitha]], the head wrangler."
+
+</details>
+
+**#10 only · main**
+
+> A masked mage broke a Hearer's rite at Spirithold and eluded Yda and Papalymo, while Ixali activity rises with sightings of a stranger in the Twelveswood. At Bentbranch a Qiqirn thief broke a chocobo egg, and on the soldier Roseline's orders you made an example of exactly four Qiqirn scramblers.
+
+Sources shown: Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); You Shall Not Trespass — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M10a** A Qiqirn broke a chocobo egg during a robbery at Bentbranch. *You Shall Not Trespass* (2.0, main): "It would seem that a Qiqirn broke a chocobo egg during a robbery at Bentbranch Meadows."
+  - **M10b** Roseline orders an example made of exactly four Qiqirn scramblers. *You Shall Not Trespass* (2.0, main): "Find the lair to the west of here and make an example of exactly ''four'' Qiqirn scramblers."
+
+</details>
+
+**#11 only · main**
+
+> A masked mage broke a Hearer's rite at Spirithold and eluded Yda and Papalymo, while Ixali activity rises with sightings of a stranger in the Twelveswood. Near the Matron's Lethe you cleared spreading mushrooms from the heavenspillar root, one of the few ways across the Central Shroud since the Calamity all but split it.
+
+Sources shown: Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); Don't Look Down — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M11a** Osha Jaab, a Wood Wailer, asks for blue trumpets to be plucked from the heavenspillar root. *Don't Look Down* (2.0, main): "[[Osha Jaab]], a [[The Wood Wailers|Wood Wailer]] at [[the Matron's Lethe]], is looking for a sure-footed [[adventurer]] to pluck blue trumpets from the root of the nearby heavenspillar."
+  - **M11b** The root is one of the few ways across the Central Shroud since the Calamity all but split it. *Don't Look Down* (2.0, main): "It's one of the few ways folk can traverse the Central Shroud since the Calamity all but split the area in twain."
+  - **M11c** Clearing the mushrooms saved the root from rot. *Don't Look Down* (2.0, main): "Your simple act of mushroom picking has saved the root of the heavenspillar from a rotten fate."
+
+</details>
+
+**#12 only · main**
+
+> Ixali activity in the Twelveswood rises with sightings of an unknown individual, and a masked mage broke a Hearer's rite at Spirithold. Now Theodore has spotted a shadowy figure north of the Matron's Lethe, and by a still-warm campfire you found a bag that Roseline believes belongs to a stranger meddling with the chocobos. She has sworn to find this shadow.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); In the Grim Darkness of the Forest — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M12a** Theodore noticed a shadowy figure in the woods north of the Matron's Lethe. *In the Grim Darkness of the Forest* (2.0, main): "Theodore noticed a shadowy figure in the woods north of [[the Matron's Lethe]]."
+  - **M12b** Beside a still-warm campfire lies a worn leather bag. *In the Grim Darkness of the Forest* (2.0, main): "Next to the still-warm remnants of an old campfire, you discover a worn leather bag."
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M12d** Roseline swears to find the shadow. *In the Grim Darkness of the Forest* (2.0, main): "I swear we will find this shadow."
+
+</details>
+
+**#13 only · main**
+
+> A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. Carrying Roseline's letter about the stranger, you warned the sentries from the Bannock to the Bentbranch stables, where the guard Bernard is sure the stranger has designs on the ranch.
+
+Sources shown: In the Grim Darkness of the Forest — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); Threat Level Elevated — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M13a** Roseline entrusts you with a letter on everything she has learned about the stranger. *Threat Level Elevated* (2.0, main): "Roseline entrusts you with a letter detailing everything she has learned about the suspicious stranger."
+  - **M13b** The sentry Bernard is sure the stranger has designs on Bentbranch. *Threat Level Elevated* (2.0, main): "They clearly have designs on Bentbranch."
+  - **M13c** Eylgar is pleased that you warned the other sentries. *Threat Level Elevated* (2.0, main): "Eylgar is pleased by your efforts to warn the other sentries."
+
+</details>
+
+**#14 only · main**
+
+> A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. Checking a peddler's tale of winged beasts on the road south of Bentbranch, you found a vulture nest hidden less than twenty yalms from the guard Lothaire's post.
+
+Sources shown: In the Grim Darkness of the Forest — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); Migrant Marauders — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M14a** A peddler swears winged beasts attacked him on the road south of Bentbranch. *Migrant Marauders* (2.0, main): "who swears that winged beasts attacked him on the road south of [[Bentbranch]]."
+  - **M14b** Two northern vultures defend a nest beside a large egg. *Migrant Marauders* (2.0, main): "After stumbling upon a large vulture egg, two [[Northern Vulture|northern vultures]] descend to defend their nest."
+  - **M14c** The nest was hidden less than twenty yalms from Lothaire's post. *Migrant Marauders* (2.0, main): "Lothaire is shocked to learn of the nest hidden less than twenty yalms from his post."
+
+</details>
+
+**#15 only · main**
+
+> A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. The Hearer Leonnie has put off her voyage to stay at the Hedgetree, for the elementals murmur of a malevolent presence near the Tam-Tara Deepcroft.
+
+Sources shown: In the Grim Darkness of the Forest — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); A Hearer Is Often Late — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M15a** Hearer Leonnie must remain at the Hedgetree to commune with the elementals. *A Hearer Is Often Late* (2.0, main): "Hearer Leonnie must remain at the Hedgetree to commune with the [[elementals]]."
+  - **M15b** The elementals murmur of a malevolent presence near the Tam-Tara Deepcroft. *A Hearer Is Often Late* (2.0, main): "the elementals murmur of a malevolent presence in the vicinity of the Tam-Tara Deepcroft."
+  - **M15c** Leonnie's passage is rebooked on a later vessel. *A Hearer Is Often Late* (2.0, main): "who resigns herself to booking the conjurer passage on a later vessel."
+
+</details>
+
+**#16 only · main**
+
+> A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. You salvaged the cargo of a wagon a forest beast attacked, and Keitha of Bentbranch, uneasy about bandits in the woods, asks you to stand ready should the ranch need you.
+
+Sources shown: In the Grim Darkness of the Forest — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); Salvaging the Scene — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M16a** Armelle asks you to retrieve the cargo of a wagon attacked by a forest beast. *Salvaging the Scene* (2.0, main): "Armelle has asked that you retrieve the cargo from a wagon that was attacked by some vicious denizen of the forest."
+  - **M16b** Keitha frets over bandits prowling the woods. *Salvaging the Scene* (2.0, main): "or bandit cutthroats prowlin' the woods hereabouts."
+  - **M16c** Keitha asks you to stand ready should Bentbranch need you. *Salvaging the Scene* (2.0, main): "She asks that you stand ready should Bentbranch Meadows have need of your skills."
+
+</details>
+
+**#17 only · main**
+
+> A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. When a thief stole a prized egg from Luquelot's stables, you followed him into the Tam-Tara Deepcroft, where a moogle had snatched it back, and returned it. Luquelot has since seen something alarming.
+
+Sources shown: In the Grim Darkness of the Forest — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); Leia's Legacy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M17a** An egg has been stolen from Luquelot's stables. *Leia's Legacy* (2.0, main): "Luquelot informs you that [[Leia's Egg|an egg]] has been stolen from the stables."
+  - **M17b** The thief seems to be a man from Luquelot's homeland of Ishgard, and fled to the Tam-Tara Deepcroft. *Leia's Legacy* (2.0, main): "The egg thief appears to be a man from Luquelot's homeland of [[Ishgard]]. Follow the thief's trail to [[The Tam-Tara Deepcroft|the Tam–Tara Deepcroft]], and retrieve Leia's egg."
+  - **M17c** A moogle snatched the egg from the thief and ran with it. *Leia's Legacy* (2.0, main): "So I snatched it up as quickly as I could and made a run for it."
+  - **M17d** You returned the egg to Bentbranch, to the ranch's relief. *Leia's Legacy* (2.0, main): "You have retrieved Leia's egg and returned it to Bentbranch Meadows, much to the relief of everyone at the ranch."
+  - **M17e** Luquelot saw something alarming while you were away. *Leia's Legacy* (2.0, main): "Luquelot reveals that he bore witness to a most alarming sight while you were away."
+
+</details>
+
+**#18 only · main**
+
+> A shadowy stranger meddling with chocobos has been seen near the Matron's Lethe, and a masked mage broke a Hearer's rite at Spirithold, as Ixali activity rises. Luquelot reports Ixali dirigibles crossing the forest's borders at will and flying over the sacred Guardian Tree, and wonders whether the stranger has done something to the elementals. His letter turned Miounne pale.
+
+Sources shown: In the Grim Darkness of the Forest — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0); Dread Is in the Air — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12c** Roseline believes the bag belongs to a stranger said to be meddling with the chocobos. *In the Grim Darkness of the Forest* (2.0, main): "Bugger me, I think this belongs to that stranger said to be meddling with the chocobos!"
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M18a** Ixali dirigibles have been crossing the Twelveswood's borders at will, and Luquelot sends his sightings to Miounne. *Dread Is in the Air* (2.0, main): "you learn from Luquelot that [[Ixal]]i dirigibles have been crossing [[The Black Shroud|the Twelveswood]]'s borders seemingly at will."
+  - **M18b** They fly over the sacred Guardian Tree, and the elementals have not objected. *Dread Is in the Air* (2.0, main): "the patch of sky directly above the Guardian Tree. … Yet the birdmen have been coming and going as they please, with nary a sign of protest from the guardians of the Twelveswood."
+  - **M18c** Luquelot wonders whether the much-talked-about suspicious individual did something to the elementals. *Dread Is in the Air* (2.0, main): "many and more strange things have been occurring in the forest. Could it be that he did something to the elementals?"
+  - **M18d** Miounne turns pale reading Luquelot's letter. *Dread Is in the Air* (2.0, main): "Miounne's face turns deathly pale as she reads"
+
+</details>
+
+**#19 onward · main**
+
+> Ixali activity in the Twelveswood rose with sightings of a stranger, and Luquelot's sightings warned that the Ixal had designs on Gridania's sacred Guardian Tree. When they massed there to take its great crystal as an offering to Garuda, you helped repel them and, with Yda and Papalymo, brought down the masked mage commanding them. Papalymo named his kind the Ascians, who have been manipulating the beast tribes.
+
+Sources shown: Chasing Shadows — main scenario quest (2.0); To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M19b** Miounne bases her warning on Luquelot's observations. *To Guard a Guardian* (2.0, main): "Based on Luquelot's observations, the Ixal have designs on the Guardian Tree, and they mean to act soon."
+  - **M19f** The Ixali chieftain means to take a great crystal from the tree as an offering to Garuda. *To Guard a Guardian* (2.0, main): "From this tree, a great crystal we take! Unto Garuda, an offering we shall make!"
+  - **M19h** The Ixal were repelled, and evidence suggests they acted under the masked mage's command. *To Guard a Guardian* (2.0, main): "You have succeeded in repelling the Ixal, whom evidence suggests were acting under the command of the mysterious masked mage."
+  - **M19i** Yda and Papalymo join the fight against the masked mage. *To Guard a Guardian* (2.0, main): "I trust you won't object to our assistance!"
+  - **M19k** Papalymo names them the Bringers of Chaos, or Ascians. *To Guard a Guardian* (2.0, main): "The Bringers of Chaos...or ''Ascians'', to give them their proper name."
+  - **M19l** Papalymo says the Ascians have been manipulating the beast tribes. *To Guard a Guardian* (2.0, main): "It would seem our suspicions were correct─it is they who have been manipulating the beast tribes."
+
+</details>
+
+### The Seedseer's Envoy (`evt-seedseers-envoy`, event)
+
+**#19 only · main**
+
+> After you helped defend Gridania's Guardian Tree from the Ixal and the masked mage who commanded them, the Elder Seedseer Kan-E-Senna came to the Seat of the First Bow to give thanks. She watches over all who call Gridania home, and she has invited you to serve as Emissary in the coming Greenbliss ceremony.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19h** The Ixal were repelled, and evidence suggests they acted under the masked mage's command. *To Guard a Guardian* (2.0, main): "You have succeeded in repelling the Ixal, whom evidence suggests were acting under the command of the mysterious masked mage."
+  - **M19r** Kan-E-Senna comes to give thanks for the defense of the Guardian Tree. *To Guard a Guardian* (2.0, main): "I am come to express my gratitude for your valiant efforts before the Guardian Tree."
+  - **M19s** Kan-E-Senna's solemn charge is to watch over all who call Gridania home. *To Guard a Guardian* (2.0, main): "My name is Kan-E-Senna, and it is my solemn charge to watch over all who call Gridania home."
+  - **M19t** Kan-E-Senna invites you to serve as Emissary in the coming Greenbliss ceremony. *To Guard a Guardian* (2.0, main): "she invites you to serve as Emissary in the forthcoming Greenbliss ceremony."
+
+</details>
+
+**#20 only · main**
+
+> Kan-E-Senna, Gridania's Elder Seedseer, chose you as Emissary for the Greenbliss ceremony, a role seldom given to anyone not forestborn. Miounne explained that the Emissary is a bridge between the people and the Twelveswood's guardians, and the timbermaster handed over the Monoa mask, carved from the Guardian Tree's consecrated lumber, with a sinister warning.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0); Festive Endeavors — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19t** Kan-E-Senna invites you to serve as Emissary in the coming Greenbliss ceremony. *To Guard a Guardian* (2.0, main): "she invites you to serve as Emissary in the forthcoming Greenbliss ceremony."
+  - **M20a** Lewin marvels that the Elder Seedseer chose you as Emissary. *Festive Endeavors* (2.0, main): "She chose you to play the role of Emissary, for gods' sakes!"
+  - **M20c** Seldom have the non-forestborn been chosen as Emissary. *Festive Endeavors* (2.0, main): "Seldom in history have non-forestborn been chosen for the role"
+  - **M20b** The Emissary is a bridge between the people and the guardians of the Twelveswood. *Festive Endeavors* (2.0, main): "In the ceremony, the Emissary serves as a conduit—a bridge between the people and the guardians of the Twelveswood."
+  - **M20d** The timbermaster hands over a wooden lockbox with a sinister warning. *Festive Endeavors* (2.0, main): "The timbermaster has given you a [[Wooden Lockbox|wooden lockbox]], along with a sinister warning."
+  - **M20e** The Monoa mask is carved from consecrated lumber of the Guardian Tree. *Festive Endeavors* (2.0, main): "is carved from consecrated lumber rendered up by [[the Guardian Tree]]."
+
+</details>
+
+**#21 only · main**
+
+> As Emissary at Greenbliss, you heard Kan-E-Senna tell of the Warriors of Light, adventurers who fought for Eorzea five years ago and whose names no one can recall. She believes the Crystal has chosen you, and that the Echo resides within you. A vision showed you their last stand at Carteneau, where a hidden voice exulted over Bahamut, before you woke at the Carline Canopy.
+
+Sources shown: Renewing the Covenant — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21a** At Greenbliss, Kan-E-Senna tells of the Warriors of Light, adventurers who fought for Eorzea five years ago, and you see a vision of their last stand at Carteneau. *Renewing the Covenant* (2.0, main): "At the ceremony, [[Kan-E-Senna|Kan-E-Senna]] tells you of the [[Warrior of Light|Warriors of Light]]─the [[adventurer]]s who fought for the survival of [[Eorzea]] five years ago. The tale of these brave souls triggers inside your mind a vision of their final stand at the [[Battle of Carteneau]]."
+  - **M21b** No one can recall the Warriors of Light's names. *Renewing the Covenant* (2.0, main): "Yet when we try to recall their names, we find the pages of our memories are blank, as if bleached by the sun."
+  - **M21c** Kan-E-Senna believes the Crystal has chosen you, and that the Echo resides within you. *Renewing the Covenant* (2.0, main): "The Crystal has chosen you for a purpose. … For the power of the Echo resides within you."
+  - **M21f** A hidden voice exults at beholding Bahamut once more. *Renewing the Covenant* (2.0, main): "That I should live to behold Bahamut once more..."
+  - **M21g** You collapsed mid-ceremony and woke at the Carline Canopy. *Renewing the Covenant* (2.0, main): "You collapsed in the middle of the ceremony—gave us all a good fright."
+
+</details>
+
+**#22 only · main**
+
+> After the vision at Greenbliss, Kan-E-Senna made you her envoy, to carry word of a memorial for the fallen of Carteneau to the Alliance's other leaders. Admiral Merlwyb of Limsa Lominsa and General Raubahn of Ul'dah agreed, though both warn that the XIVth Imperial Legion, under Legatus Gaius, waits within Eorzea's borders. Raubahn calls the realm an alliance in name only.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22a** Kan-E-Senna makes you her personal envoy, to carry a missive to the Alliance's other two leaders. *The Gridanian Envoy* (2.0, main): "Appointing you her personal envoy, Kan-E-Senna bids you deliver a missive to the other two leaders of the [[Eorzean Alliance]]."
+  - **M22c** The missive proposes a memorial service on the anniversary of the Battle of Carteneau. *The Gridanian Envoy* (2.0, main): "In remembrance of them, a memorial service will soon be held upon the anniversary of the Battle of Carteneau."
+  - **M22j** Merlwyb accepts Kan-E-Senna's proposal. *The Gridanian Envoy* (2.0, main): "Aye, Kan-E-Senna has the right of it. I accept her proposal."
+  - **M22s** Raubahn agrees to the memorial. *The Gridanian Envoy* (2.0, main): "Kan-E will have her memorial."
+  - **M22k** The Empire still threatens Eorzea, with Legatus Gaius's XIVth Imperial Legion entrenched in the border regions. *The Gridanian Envoy* (2.0, main): "It appears the [[Garlean Empire]] still poses a grave threat to [[Eorzea]], with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M22q** Raubahn warns the XIVth Legion is entrenched within their borders, under a legatus long ambitious of conquest. *The Gridanian Envoy* (2.0, main): "But the XIVth Imperial Legion is still entrenched within our borders. … And their commander, Legatus Gaius van Baelsar, has long harbored ambitions of conquest."
+  - **M22r** Raubahn calls Eorzea a realm divided, an alliance in name only. *The Gridanian Envoy* (2.0, main): "We are a realm divided, adventurer. An alliance in name only."
+
+</details>
+
+**#23 onward · main**
+
+> As Kan-E-Senna's envoy you carried word of a memorial for the fallen of Carteneau to Admiral Merlwyb and General Raubahn, who both agreed, and learned of the imperial legion entrenched on Eorzea's borders. In Ul'dah, an aide who once traveled with the General told you that Baderon of the Drowning Wench, in Limsa Lominsa, has a dangerous job for a capable adventurer.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0); Call of the Sea (Gridania) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22a** Kan-E-Senna makes you her personal envoy, to carry a missive to the Alliance's other two leaders. *The Gridanian Envoy* (2.0, main): "Appointing you her personal envoy, Kan-E-Senna bids you deliver a missive to the other two leaders of the [[Eorzean Alliance]]."
+  - **M22j** Merlwyb accepts Kan-E-Senna's proposal. *The Gridanian Envoy* (2.0, main): "Aye, Kan-E-Senna has the right of it. I accept her proposal."
+  - **M22s** Raubahn agrees to the memorial. *The Gridanian Envoy* (2.0, main): "Kan-E will have her memorial."
+  - **M22k** The Empire still threatens Eorzea, with Legatus Gaius's XIVth Imperial Legion entrenched in the border regions. *The Gridanian Envoy* (2.0, main): "It appears the [[Garlean Empire]] still poses a grave threat to [[Eorzea]], with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M23a** An aide who once traveled with the Flame General to Limsa Lominsa knows Baderon, proprietor of the Drowning Wench. *Call of the Sea (Gridania)* (2.0, main): "I once accompanied the Flame General on an official visit to the seaside city-state, during which time I became acquainted with Baderon, the proprietor of the Drowning Wench."
+  - **M23b** Baderon has need of a capable adventurer. *Call of the Sea (Gridania)* (2.0, main): "[[Baderon]], the proprietor of the [[Drowning Wench]] in [[Limsa Lominsa]], has need of a capable [[adventurer]]."
+  - **M23c** Baderon warns that the job will be dangerous. *Call of the Sea (Gridania)* (2.0, main): "Baderon warns you that the job will entail considerable danger."
+
+</details>
+
+### Miounne (`char-miounne`, character)
+
+**#1–#7 · main** · Also searchable as: Mother Miounne
+
+> Proprietress of the Carline Canopy. She sets new members of the Adventurers' Guild three tasks to learn the fundamentals of adventuring, and urges them to build a reputation by helping citizens in need.
+
+Sources shown: Close to Home (Gridania) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1a** Miounne, proprietress of the Carline Canopy, sets a new adventurer three tasks to learn the fundamentals of adventuring. *Close to Home (Gridania)* (2.0, main): "[[Miounne]], proprietress of [[the Carline Canopy]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M1b** Miounne's newcomers are formal members of the Adventurers' Guild. *Close to Home (Gridania)* (2.0, main): "Now that you are a formal member of the Adventurers' Guild, we must be sure you have a firm grasp of the fundamentals of adventuring."
+  - **M1c** Miounne advises building a reputation by helping citizens in need. *Close to Home (Gridania)* (2.0, main): "prove your worth and build a reputation, and in time folk will be more inclined to entrust you with matters of moment."
+
+</details>
+
+**#8–#18 · main** · Also searchable as: Mother Miounne
+
+> Proprietress of the Carline Canopy, who looks after the adventurers of the guild there. After a towering shadow broke a Hearer's rite at Spirithold, she asked that the tale of walking statues be kept quiet until the Hearers make their will known.
+
+Sources shown: Close to Home (Gridania) — main scenario quest (2.0); Spirithold Broken — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1a** Miounne, proprietress of the Carline Canopy, sets a new adventurer three tasks to learn the fundamentals of adventuring. *Close to Home (Gridania)* (2.0, main): "[[Miounne]], proprietress of [[the Carline Canopy]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M8a** Conjurers and their Wood Wailer escort were attacked by a towering shadow during a sacred rite in Spirithold. *Spirithold Broken* (2.0, main): "a party of [[conjurer]]s and their [[The Wood Wailers|Wood Wailer]] escort were attacked by a towering shadow while performing a sacred rite inside Spirithold."
+  - **M8h** Miounne asks that the tale of walking statues be kept quiet until the Hearers make their will known. *Spirithold Broken* (2.0, main): "Until the Hearers have made their will on the matter known, it would be best to avoid unsettling people with stories of walking statues."
+
+</details>
+
+**#19–#25 · main** · Also searchable as: Mother Miounne
+
+> Proprietress of the Carline Canopy. Reading a Bentbranch rancher's report of Ixali airships over the Guardian Tree, she judged that the Ixal meant to attack the tree soon, and sent a warning to Bowlord Lewin at the Seat of the First Bow.
+
+Sources shown: Close to Home (Gridania) — main scenario quest (2.0); Dread Is in the Air — main scenario quest (2.0); To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1a** Miounne, proprietress of the Carline Canopy, sets a new adventurer three tasks to learn the fundamentals of adventuring. *Close to Home (Gridania)* (2.0, main): "[[Miounne]], proprietress of [[the Carline Canopy]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M18a** Ixali dirigibles have been crossing the Twelveswood's borders at will, and Luquelot sends his sightings to Miounne. *Dread Is in the Air* (2.0, main): "you learn from Luquelot that [[Ixal]]i dirigibles have been crossing [[The Black Shroud|the Twelveswood]]'s borders seemingly at will."
+  - **M18b** They fly over the sacred Guardian Tree, and the elementals have not objected. *Dread Is in the Air* (2.0, main): "the patch of sky directly above the Guardian Tree. … Yet the birdmen have been coming and going as they please, with nary a sign of protest from the guardians of the Twelveswood."
+  - **M19b** Miounne bases her warning on Luquelot's observations. *To Guard a Guardian* (2.0, main): "Based on Luquelot's observations, the Ixal have designs on the Guardian Tree, and they mean to act soon."
+  - **M19a** Miounne warns that the Guardian Tree, sacred to Gridanians, may fall under Ixali attack, and sends a letter to Bowlord Lewin at the Seat of the First Bow. *To Guard a Guardian* (2.0, main): "Miounne tells you that [[the Guardian Tree]], held sacred by the [[Gridania]]ns, may fall under [[Ixal]]i attack. She gives you a letter and bids you deliver it to Bowlord [[Lewin]] at the [[Seat of the First Bow]]."
+
+</details>
+
+**#26 only · main** · Also searchable as: Mother Miounne
+
+> Proprietress of the Carline Canopy in Gridania, through whom the Adventurers' Guild there hires adventurers. Baderon of Limsa Lominsa calls her his counterpart.
+
+Sources shown: Call of the Forest — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M26a** Miounne, proprietress of the Carline Canopy, has a task from the Adventurers' Guild in Gridania. *Call of the Forest* (2.0, main): "According to Baderon, the [[Adventurers' Guild]] in [[Gridania]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking with [[Miounne]], the proprietress of [[the Carline Canopy]]."
+  - **M26b** Baderon calls Mother Miounne his counterpart in Gridania. *Call of the Forest* (2.0, main): "Mother Miounne, me counterpart in Gridania"
+
+</details>
+
+**#27 onward · main** · Also searchable as: Mother Miounne
+
+> Proprietress of the Carline Canopy in Gridania, through whom the Adventurers' Guild there hires adventurers. She sent you to break up the Lambs of Dalamud in the Tam-Tara Deepcroft, and worries that adventurers are dying more often as the unprepared take on jobs beyond them.
+
+Sources shown: Call of the Forest — main scenario quest (2.0); Fire in the Gloom — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M26a** Miounne, proprietress of the Carline Canopy, has a task from the Adventurers' Guild in Gridania. *Call of the Forest* (2.0, main): "According to Baderon, the [[Adventurers' Guild]] in [[Gridania]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking with [[Miounne]], the proprietress of [[the Carline Canopy]]."
+  - **M27a** A cult called the Lambs of Dalamud has been active in the Tam-Tara Deepcroft. *Fire in the Gloom* (2.0, main): "It would seem that a cult known as [[the Lambs of Dalamud]] has been engaging in suspicious activity in [[The Tam-Tara Deepcroft|the Tam–Tara Deepcroft]]."
+  - **M27c** A vengeful spirit woken in Galvanth's corpse attacks you; you send it back to the abyss and foil the cult's plot. *Fire in the Gloom* (2.0, main): "you are assailed by a vengeful spirit who had been awakened in the corse of [[Galvanth the Dominator]]. After a titanic struggle, you succeed in sending this dark being back to the abyss, thus foiling the cultists' plot."
+  - **M27d** Miounne says adventurers are dying more often as unprepared people take on tasks beyond them. *Fire in the Gloom* (2.0, main): "Miounne reveals that death is becoming an ever more common occurrence within the adventuring fraternity. She attributes this unfortunate trend to the burgeoning demand for [[adventurer]]s' services, which has allowed unprepared individuals to take on tasks which are beyond them."
+
+</details>
+
+### Galfrid (`char-galfrid`, character)
+
+**#2–#3 · main**
+
+> An instructor at the Bannock, a training ground just outside Gridania where the soldiers of the Order of the Twin Adder are drilled. He trains the order's recruits, and holds that restoring the Calamity-scarred Twelveswood is a sacred duty for Gridanians.
+
+Sources shown: To the Bannock — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2a** The Bannock, just outside the city, is where the Order of the Twin Adder drills its soldiers. *To the Bannock* (2.0, main): "It is a training ground found just outside the city where the soldiers of the [[The Order of the Twin Adder|Order of the Twin Adder]] are drilled in swordplay and other martial matters."
+  - **M2b** Galfrid trains the Twin Adder's recruits. *To the Bannock* (2.0, main): "My name is Galfrid, and I am responsible for training our Twin Adder recruits."
+  - **M2c** The Calamity of five years past left deep scars on the Twelveswood. *To the Bannock* (2.0, main): "[[the Calamity]] of five years past has left deep scars on [[The Black Shroud|the Twelveswood]]"
+  - **M2e** For Gridanians, restoring the forest is a sacred duty. *To the Bannock* (2.0, main): "For the citizens of [[Gridania]], the restoration of the forest is a sacred duty."
+
+</details>
+
+**#4 onward · main**
+
+> Chief instructor at the Bannock, who trains the Order of the Twin Adder's recruits. He suspects that rising Ixali activity in the Twelveswood is tied to an unknown individual seen there, and judged the blade found beside a dead Ixal at Lifemend Stump to be an Ixali ritual weapon.
+
+Sources shown: Passing Muster — main scenario quest (2.0); To the Bannock — main scenario quest (2.0); Chasing Shadows — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M3a** Galfrid is the Bannock's chief instructor, and now gives you missions. *Passing Muster* (2.0, main): "Galfrid has determined that your equipment passes muster. You are now eligible to undertake missions from the chief instructor."
+  - **M2b** Galfrid trains the Twin Adder's recruits. *To the Bannock* (2.0, main): "My name is Galfrid, and I am responsible for training our Twin Adder recruits."
+  - **M4a** Ixali activity has been rising since an unknown individual appeared in the Twelveswood, and Galfrid suspects a connection. *Chasing Shadows* (2.0, main): "you learn that [[Ixal]]i activity has been steadily increasing since the appearance of an as-yet-unknown individual in the Twelveswood. Suspecting a connection, Galfrid bids you investigate [[Lifemend Stump]] to the northeast."
+  - **M4c** At Lifemend Stump a sword is thrust into the stump, and a dead Ixal lies nearby. *Chasing Shadows* (2.0, main): "a [[Magicked Blade|sword]] has been thrust into the stump, and an Ixal lies dead nearby."
+  - **M4d** Galfrid identifies the blade as Ixali, of a kind used only in their rituals. *Chasing Shadows* (2.0, main): "I can say with absolute certainty that this blade is of Ixali origin. It is of a kind used exclusively in the beastmen's rituals."
+
+</details>
+
+### Lewin (`char-lewin`, character)
+
+**#19 onward · main** · Also searchable as: Bowlord Lewin
+
+> Bowlord at the Seat of the First Bow in Quiver's Hold, who led his Quivermen in defense of the Guardian Tree when the Ixal massed there. He had long hunted the masked mage who commanded them, and saw him fall.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19d** Lewin is Bowlord at the Seat of the First Bow in Quiver's Hold. *To Guard a Guardian* (2.0, main): "please see this letter to the hands of Bowlord Lewin, at the Seat of the First Bow in Quiver's Hold."
+  - **M19g** Lewin leads his Quivermen in the tree's defense. *To Guard a Guardian* (2.0, main): "It is high time we reminded our Ixal guests why we Quivermen are to be feared!"
+  - **M19h** The Ixal were repelled, and evidence suggests they acted under the masked mage's command. *To Guard a Guardian* (2.0, main): "You have succeeded in repelling the Ixal, whom evidence suggests were acting under the command of the mysterious masked mage."
+  - **M19e** Lewin suspects the masked devil who has long eluded them. *To Guard a Guardian* (2.0, main): "I cannot help but think this plot bears the mark of the masked devil who has eluded us for so long."
+  - **M19m** Lewin confirms the fallen mage is the man who eluded them so long. *To Guard a Guardian* (2.0, main): "So ''this'' is the man who has eluded us for so long?"
+
+</details>
+
+### The masked mage (`char-masked-mage`, character)
+
+**#8–#18 · main**
+
+> A mysterious masked mage who loosed a clay golem in Spirithold, where a towering shadow had broken a Hearer's sacred rite. Yda and Papalymo are pursuing him, and he eluded them again; the Wood Wailers have promised to investigate.
+
+Sources shown: Spirithold Broken — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8a** Conjurers and their Wood Wailer escort were attacked by a towering shadow during a sacred rite in Spirithold. *Spirithold Broken* (2.0, main): "a party of [[conjurer]]s and their [[The Wood Wailers|Wood Wailer]] escort were attacked by a towering shadow while performing a sacred rite inside Spirithold."
+  - **M8c** A masked mage loosed a clay golem on you; Yda and Papalymo arrived as you destroyed it. *Spirithold Broken* (2.0, main): "You encounter a mysterious masked mage who unleashes a [[Clay Golem|clay golem]] upon you. After a desperate struggle, you manage to dispatch the automaton just as [[Yda]] and [[Papalymo]] arrive."
+  - **M8d** Papalymo says the masked mage has eluded them yet again. *Spirithold Broken* (2.0, main): "Damnation! He has eluded us yet again!"
+  - **M8g** The Wood Wailer Alestan promises to investigate the masked mage. *Spirithold Broken* (2.0, main): "the Wood Wailer promises to investigate the masked mage"
+
+</details>
+
+**#19 onward · main**
+
+> A mysterious masked mage who, the evidence suggests, commanded the Ixal when they massed at the Guardian Tree, and whom Bowlord Lewin had long hunted. He fell there lamenting that the wisdom of the Paragons had been brought low, a black crystal was left at the scene, and Papalymo named his kind the Ascians.
+
+Sources shown: To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19h** The Ixal were repelled, and evidence suggests they acted under the masked mage's command. *To Guard a Guardian* (2.0, main): "You have succeeded in repelling the Ixal, whom evidence suggests were acting under the command of the mysterious masked mage."
+  - **M19m** Lewin confirms the fallen mage is the man who eluded them so long. *To Guard a Guardian* (2.0, main): "So ''this'' is the man who has eluded us for so long?"
+  - **M19j** The masked mage falls, lamenting that the wisdom of the Paragons was brought low by mortals. *To Guard a Guardian* (2.0, main): "That the wisdom of the Paragons should be brought low...by mere mortals..."
+  - **M19n** A black crystal was left at the scene, and the two scholars are from Sharlayan. *To Guard a Guardian* (2.0, main): "What is the significance of the black crystal that was left at the scene, and who exactly are the two scholars from [[Sharlayan]]?"
+  - **M19k** Papalymo names them the Bringers of Chaos, or Ascians. *To Guard a Guardian* (2.0, main): "The Bringers of Chaos...or ''Ascians'', to give them their proper name."
+
+</details>
+
+### Baderon (`char-baderon`, character)
+
+**#23 only · main**
+
+> Proprietor of the Drowning Wench in Limsa Lominsa. He has sent word that he needs a capable adventurer, and warns that the job will be dangerous.
+
+Sources shown: Call of the Sea (Gridania) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23a** An aide who once traveled with the Flame General to Limsa Lominsa knows Baderon, proprietor of the Drowning Wench. *Call of the Sea (Gridania)* (2.0, main): "I once accompanied the Flame General on an official visit to the seaside city-state, during which time I became acquainted with Baderon, the proprietor of the Drowning Wench."
+  - **M23b** Baderon has need of a capable adventurer. *Call of the Sea (Gridania)* (2.0, main): "[[Baderon]], the proprietor of the [[Drowning Wench]] in [[Limsa Lominsa]], has need of a capable [[adventurer]]."
+  - **M23c** Baderon warns that the job will be dangerous. *Call of the Sea (Gridania)* (2.0, main): "Baderon warns you that the job will entail considerable danger."
+
+</details>
+
+**#1b–#8b · main**
+
+> Proprietor of the Drowning Wench in Limsa Lominsa, who sets newly arrived adventurers simple tasks to learn the basics, and urges them to help anyone in need. He blames the Calamity for his poor memory.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1ba** Baderon, proprietor of the Drowning Wench, sets you three tasks to learn the basics of adventuring. *Close to Home (Limsa Lominsa)* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M1bd** Baderon has sent many novice adventurers to the city's aetheryte. *Close to Home (Limsa Lominsa)* (2.0, main): "Ah, another novice adventurer. Aye, Baderon has sent more than a few of your kind this way of late."
+  - **M1be** Baderon urges newcomers to listen to anyone who needs help. *Close to Home (Limsa Lominsa)* (2.0, main): "if ye 'appen to pass any poor sods what look like they might need yer 'elp, consider givin' their tale o' woe a listen, eh?"
+  - **M1bc** Baderon blames the Calamity for his poor memory. *Close to Home (Limsa Lominsa)* (2.0, main): "That bloody Calamity's made a right mess o' me memory, I swear."
+
+</details>
+
+**#9b–#18b · main**
+
+> Proprietor of the Drowning Wench in Limsa Lominsa, who finds work for adventurers around La Noscea. His voice carries weight with the Yellowjackets, and the one who hands out their punishments is a good friend of his.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0); On to Summerford — main scenario quest (2.0); Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1ba** Baderon, proprietor of the Drowning Wench, sets you three tasks to learn the basics of adventuring. *Close to Home (Limsa Lominsa)* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M2ba** Baderon sends you to lend a hand at Summerford Farms. *On to Summerford* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to lend a hand at [[Summerford Farms]]."
+  - **M9bm** Baderon's voice carries weight with the Yellowjackets. *Just Deserts* (2.0, main): "Aware that [[Baderon]]'s voice carries weight with [[the Yellowjackets]]"
+  - **M9bn** The Yellowjacket who hands out punishments is a good friend of Baderon. *Just Deserts* (2.0, main): "The Yellowjacket as 'ands out the punishments is a good mate o' mine."
+
+</details>
+
+**#19b–#23b · main**
+
+> Proprietor of the Drowning Wench in Limsa Lominsa and a good friend of Admiral Merlwyb. The Yellowjackets turn to him and his connections in unusual cases: he decoded a pirate missive revealing that an attack on the warship Victory was a distraction, and that the Serpent Reavers meant to strike Swiftperch.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0); Men of the Blue Tattoos — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1ba** Baderon, proprietor of the Drowning Wench, sets you three tasks to learn the basics of adventuring. *Close to Home (Limsa Lominsa)* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M19bo** Merlwyb calls Baderon a good friend, and hears of your deeds from him and Reyner. *Feint and Strike* (2.0, main): "my good friend Baderon and Commodore Reyner have taken turns of regaling me with tales of your exploits."
+  - **M18bb** The Yellowjackets turn to Baderon and his connections in such cases. *Men of the Blue Tattoos* (2.0, main): "In cases such as this, I am told the Yellowjackets are wont to turn to Baderon and his convenient...connections."
+  - **M19bb** Baderon says the attack on the Victory was meant as a distraction. *Feint and Strike* (2.0, main): "That mess at the ''Victory''─that was meant to be the bloody distraction!"
+  - **M19ba** The missive ordered the Victory destroyed and named Swiftperch as a feint, but Baderon believes the Serpent Reavers will strike it in full force. *Feint and Strike* (2.0, main): "The missive Baderon deciphered contains orders for the destruction of the ''Victory''. While the message meant for [[Ahtzapfyn]] also mentioned that [[Swiftperch]] would be the site of a simple feint operation, the [[Drowning Wench|Wench]]'s proprietor seems convinced that the [[The Serpent Reavers|Serpent Reavers]] intend to commit their full forces to the attack on the struggling settlement."
+
+</details>
+
+**#24 only · main**
+
+> Proprietor of the Drowning Wench in Limsa Lominsa, who needs a capable adventurer for a dangerous job.
+
+Sources shown: Call of the Sea (Ul'dah) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M24a** Baderon, proprietor of the Drowning Wench in Limsa Lominsa, needs a capable adventurer. *Call of the Sea (Ul'dah)* (2.0, main): "[[Baderon]], the proprietor of [[the Drowning Wench]] in [[Limsa Lominsa]], has need of a capable [[adventurer]]."
+  - **M24c** Baderon warns that the job will be dangerous. *Call of the Sea (Ul'dah)* (2.0, main): "Baderon warns you that the job will entail considerable danger."
+
+</details>
+
+**#25 onward · main**
+
+> Proprietor of the Drowning Wench in Limsa Lominsa, who finds work for capable adventurers. He sent you to the Sastasha Seagrot, where the Serpent Reavers and their Sahagin masters had made a base, and then passed on a job from the Adventurers' Guild in Gridania.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25a** Baderon, proprietor of the Drowning Wench, needs a capable adventurer. *It's Probably Pirates* (2.0, main): "[[Baderon]], the proprietor of [[the Drowning Wench]], has need of a capable [[adventurer]]."
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+  - **M25e** Baderon passes on a job from the Adventurers' Guild in Gridania. *It's Probably Pirates* (2.0, main): "It seems the Adventurers' Guild in [[Gridania]] wishes to employ the services of a seasoned adventurer."
+
+</details>
+
+### The Order of the Twin Adder (`org-twin-adder`, organization)
+
+**#2–#5 · main** · Also searchable as: the Twin Adder
+
+> An order of Gridanian soldiers, drilled at the Bannock, a training ground just outside the city. Galfrid trains its recruits.
+
+Sources shown: To the Bannock — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2a** The Bannock, just outside the city, is where the Order of the Twin Adder drills its soldiers. *To the Bannock* (2.0, main): "It is a training ground found just outside the city where the soldiers of the [[The Order of the Twin Adder|Order of the Twin Adder]] are drilled in swordplay and other martial matters."
+  - **M2b** Galfrid trains the Twin Adder's recruits. *To the Bannock* (2.0, main): "My name is Galfrid, and I am responsible for training our Twin Adder recruits."
+
+</details>
+
+**#6–#39 · main** · Also searchable as: the Twin Adder
+
+> An order of Gridanian soldiers, drilled at the Bannock under Galfrid. It makes no distinction between newcome adventurers and forestborn Gridanians, collects samples with the Wood Wailers so the Creeping Death can be tracked, and surveys the forest, whose geography the Calamity has dramatically altered.
+
+Sources shown: To the Bannock — main scenario quest (2.0); Eggs over Queasy — main scenario quest (2.0); Surveying the Damage — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2a** The Bannock, just outside the city, is where the Order of the Twin Adder drills its soldiers. *To the Bannock* (2.0, main): "It is a training ground found just outside the city where the soldiers of the [[The Order of the Twin Adder|Order of the Twin Adder]] are drilled in swordplay and other martial matters."
+  - **M2b** Galfrid trains the Twin Adder's recruits. *To the Bannock* (2.0, main): "My name is Galfrid, and I am responsible for training our Twin Adder recruits."
+  - **M5e** The Twin Adder treats newcome adventurers and forestborn Gridanians alike. *Eggs over Queasy* (2.0, main): "The Order of the Twin Adder makes no distinction between newcome adventurers and forestborn Gridanians."
+  - **M5d** The Twin Adder and the Wood Wailers collect samples for the Trappers' League. *Eggs over Queasy* (2.0, main): "Members of [[The Order of the Twin Adder|the Twin Adder]] and [[the Wood Wailers]] are assisting the league by collecting the samples they need to check for signs of sickness."
+  - **M6b** The Calamity reshaped the forest, so the conjurer Pauline asked the Twin Adder to survey it. *Surveying the Damage* (2.0, main): "[[The Calamity]] has dramatically altered the forest's geography, prompting a [[conjurer]] named Pauline to request that [[the Order of the Twin Adder]] carry out topographical surveys."
+
+</details>
+
+**#40–#41c · main** · Also searchable as: the Twin Adder
+
+> Gridania's Grand Company, under the supreme command of Elder Seedseer Kan-E-Senna. It has sent an officer to the Waking Sands to recruit you. Kan-E-Senna says the Ixal have returned in force and the Empire is raising steel fortresses in the Twelveswood.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M40e** Kan-E-Senna is supreme commander of the Order of the Twin Adder. *A Hero in the Making* (2.0, main): "As supreme commander of the Order of the Twin Adder, ever shall I bear the weight of our people's sacrifice."
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M40f** Kan-E-Senna says the Ixal have returned in force. *A Hero in the Making* (2.0, main): "To compound our woes, the Ixal have returned in force, emboldened by our suffering."
+  - **M40g** Kan-E-Senna says the Empire is raising steel fortresses in the Twelveswood and remains the greatest threat. *A Hero in the Making* (2.0, main): "the Empire has set about raising steel fortresses here in the Twelveswood. … Let none be mistaken─the Garleans remain the greatest threat to our survival."
+
+</details>
+
+**#42c–#43 · main** · Also searchable as: the Twin Adder
+
+> Gridania's Grand Company, under the supreme command of Elder Seedseer Kan-E-Senna. It was formed before the Calamity to fight the Garlean Empire and the beast tribes and their primals, and draws together the nation's martial, economic and technological resources.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Wood's Will Be Done — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M42cc** Kan-E-Senna is the supreme commander of the Order's forces. *Wood's Will Be Done* (2.0, main): "Elder Seedseer Kan-E-Senna is the supreme commander of our forces."
+  - **M42cb** The Order was formed before the Calamity to fight the Garlean Empire and the beast tribes and their primals. *Wood's Will Be Done* (2.0, main): "Our order was formed in the days before the Calamity, in readiness to fight the Garlean Empire, and to combat the beast tribes and their primals."
+  - **M42cf** The Order draws together Gridania's martial, economic and technological resources. *Wood's Will Be Done* (2.0, main): "It brings together the martial, economic, and technological resources of our nation"
+
+</details>
+
+**#44 onward · main** · Also searchable as: the Twin Adder
+
+> Gridania's Grand Company, under the supreme command of Elder Seedseer Kan-E-Senna, which asked the Scions to study the sylphs. The sylphs' ties to the primal Ramuh have raised a warning in its ranks, and Commander Vorsaile has asked the Scions to serve as an impartial liaison to them.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); Sylph-management — main scenario quest (2.0); We Come in Peace — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40c** The three Grand Companies are the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania and the Immortal Flames of Ul'dah. *A Hero in the Making* (2.0, main): "There are presently three such organizations in Eorzea: the Maelstrom of Limsa Lominsa, the Order of the Twin Adder of Gridania, and the Immortal Flames of Ul'dah."
+  - **M40e** Kan-E-Senna is supreme commander of the Order of the Twin Adder. *A Hero in the Making* (2.0, main): "As supreme commander of the Order of the Twin Adder, ever shall I bear the weight of our people's sacrifice."
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M44d** The sylphs' ties to Ramuh have raised a warning in the Twin Adder's ranks. *We Come in Peace* (2.0, main): "the sylphs' relation to the primal Ramuh has raised a flag of warning amongst our ranks."
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+
+</details>
+
+### Gridania (`loc-gridania`, location)
+
+**#1 only · main**
+
+> A city whose Carline Canopy sets new members of the Adventurers' Guild their first tasks, and whose citizens often need an adventurer's help. Its markets lie at the heart of Old Gridania's commercial district.
+
+Sources shown: Close to Home (Gridania) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1a** Miounne, proprietress of the Carline Canopy, sets a new adventurer three tasks to learn the fundamentals of adventuring. *Close to Home (Gridania)* (2.0, main): "[[Miounne]], proprietress of [[the Carline Canopy]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+  - **M1d** New adventurers are sent around Gridania to help citizens in need. *Close to Home (Gridania)* (2.0, main): "As you make your way around [[Gridania]], try approaching citizens who appear to be in need of help."
+  - **M1e** The city's markets lie at the heart of Old Gridania's commercial district. *Close to Home (Gridania)* (2.0, main): "I would have you visit the markets at the heart of [[Old Gridania]]'s commercial district."
+
+</details>
+
+**#2–#18 · main**
+
+> A nation of the Twelveswood, a forest the Calamity of five years past left deeply scarred. Its people hold restoring the forest to be a sacred duty, and the Order of the Twin Adder drills its soldiers just outside the city.
+
+Sources shown: To the Bannock — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2c** The Calamity of five years past left deep scars on the Twelveswood. *To the Bannock* (2.0, main): "[[the Calamity]] of five years past has left deep scars on [[The Black Shroud|the Twelveswood]]"
+  - **M2d** The elementals' power is waning, and the forest's harmony gives way to chaos. *To the Bannock* (2.0, main): "The power of the elementals wanes, and the harmony of the forest gives way to chaos."
+  - **M2e** For Gridanians, restoring the forest is a sacred duty. *To the Bannock* (2.0, main): "For the citizens of [[Gridania]], the restoration of the forest is a sacred duty."
+  - **M2a** The Bannock, just outside the city, is where the Order of the Twin Adder drills its soldiers. *To the Bannock* (2.0, main): "It is a training ground found just outside the city where the soldiers of the [[The Order of the Twin Adder|Order of the Twin Adder]] are drilled in swordplay and other martial matters."
+
+</details>
+
+**#19–#21 · main**
+
+> A nation of the Twelveswood, whose people hold restoring the Calamity-scarred forest to be a sacred duty. Its Guardian Tree, the oldest living thing in the forest, is held sacred by every forestborn Gridanian, and the Elder Seedseer, Kan-E-Senna, is charged with watching over all who call Gridania home.
+
+Sources shown: To the Bannock — main scenario quest (2.0); To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2e** For Gridanians, restoring the forest is a sacred duty. *To the Bannock* (2.0, main): "For the citizens of [[Gridania]], the restoration of the forest is a sacred duty."
+  - **M19c** The Guardian Tree is the oldest living thing in the forest, held sacred by every forestborn Gridanian. *To Guard a Guardian* (2.0, main): "The tree is the oldest living thing in this ancient forest, and it is held sacred by every forestborn Gridanian."
+  - **M19s** Kan-E-Senna's solemn charge is to watch over all who call Gridania home. *To Guard a Guardian* (2.0, main): "My name is Kan-E-Senna, and it is my solemn charge to watch over all who call Gridania home."
+
+</details>
+
+**#22–#21b · main**
+
+> A nation of the Twelveswood and one of the three city-states of the Eorzean Alliance, with Limsa Lominsa and Ul'dah. Its Elder Seedseer, Kan-E-Senna, watches over its people, and its Guardian Tree is held sacred by every forestborn Gridanian.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0); To Guard a Guardian — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22b** The Eorzean Alliance is Gridania, Limsa Lominsa and Ul'dah. *The Gridanian Envoy* (2.0, main): "In addition to [[Gridania]], the Eorzean Alliance encompasses the city–states of [[Limsa Lominsa]] and [[Ul'dah]]."
+  - **M19s** Kan-E-Senna's solemn charge is to watch over all who call Gridania home. *To Guard a Guardian* (2.0, main): "My name is Kan-E-Senna, and it is my solemn charge to watch over all who call Gridania home."
+  - **M19c** The Guardian Tree is the oldest living thing in the forest, held sacred by every forestborn Gridanian. *To Guard a Guardian* (2.0, main): "The tree is the oldest living thing in this ancient forest, and it is held sacred by every forestborn Gridanian."
+
+</details>
+
+**#22b onward · main**
+
+> A city-state of the Eorzean Alliance, whose Elder Seedseer is Kan-E-Senna.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bc** The Eorzean Alliance is Limsa Lominsa, Gridania and Ul'dah. *The Lominsan Envoy* (2.0, main): "In addition to [[Limsa Lominsa]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Ul'dah]]."
+  - **M22bd** Kan-E-Senna is Elder Seedseer of Gridania and leads its Grand Company. *The Lominsan Envoy* (2.0, main): "I am Kan-E-Senna, Elder Seedseer of Gridania, and leader of the Order of the Twin Adder, our nation's Grand Company."
+
+</details>
+
+### Limsa Lominsa (`loc-limsa-lominsa`, location)
+
+**#22–#23 · main**
+
+> A city-state of the Eorzean Alliance, known as the city of pirates. Its Admiral, Merlwyb, commands the Maelstrom.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22b** The Eorzean Alliance is Gridania, Limsa Lominsa and Ul'dah. *The Gridanian Envoy* (2.0, main): "In addition to [[Gridania]], the Eorzean Alliance encompasses the city–states of [[Limsa Lominsa]] and [[Ul'dah]]."
+  - **M22d** Miounne calls Limsa Lominsa the city of pirates and Ul'dah the jewel of the desert. *The Gridanian Envoy* (2.0, main): "They are, of course, Limsa Lominsa, city of pirates, and Ul'dah, jewel of the desert."
+  - **M22e** Merlwyb is Admiral of Limsa Lominsa and commander of the Maelstrom. *The Gridanian Envoy* (2.0, main): "I am Merlwyb Bloefhiswyn, Admiral of Limsa Lominsa, and commander of the Maelstrom."
+
+</details>
+
+**#1b–#18b · main**
+
+> A city whose peace is kept by the Yellowjackets, and where Baderon, proprietor of the Drowning Wench, finds work for newly arrived adventurers.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+  - **M1bf** Your first tasks take you around Limsa Lominsa. *Close to Home (Limsa Lominsa)* (2.0, main): "As you make your way around [[Limsa Lominsa]], try approaching citizens who appear to be in need of help."
+  - **M1ba** Baderon, proprietor of the Drowning Wench, sets you three tasks to learn the basics of adventuring. *Close to Home (Limsa Lominsa)* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to perform three tasks that will help you learn the fundamentals of [[Adventurer|adventuring]]."
+
+</details>
+
+**#19b–#21b · main**
+
+> A city under Admiral Merlwyb, its peace kept by the Yellowjackets. For years the Serpent Reavers seized its people, until the truth behind the kidnappings came to light.
+
+Sources shown: Feint and Strike — main scenario quest (2.0); Close to Home (Limsa Lominsa) — main scenario quest (2.0); Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bp** Merlwyb is Admiral of Limsa Lominsa. *Feint and Strike* (2.0, main): "Admiral of Limsa Lominsa."
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+  - **M9bi** A few years ago the Reavers began seizing law-abiding Lominsans. *Just Deserts* (2.0, main): "A few years back, they started snatchin' law-abidin' Lominsans."
+  - **M19bi** A strange black crystal lay near the mage's remains, and the truth behind the kidnappings has come to light. *Feint and Strike* (2.0, main): "not the least of which is a strange black crystal you discovered near the mage's remains, the truth behind the kidnappings has finally come to light."
+
+</details>
+
+**#22b onward · main**
+
+> A city-state of the Eorzean Alliance, with Gridania and Ul'dah, under Admiral Merlwyb. Its peace is kept by the Yellowjackets.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0); Close to Home (Limsa Lominsa) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bc** The Eorzean Alliance is Limsa Lominsa, Gridania and Ul'dah. *The Lominsan Envoy* (2.0, main): "In addition to [[Limsa Lominsa]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Ul'dah]]."
+  - **M19bp** Merlwyb is Admiral of Limsa Lominsa. *Feint and Strike* (2.0, main): "Admiral of Limsa Lominsa."
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+
+</details>
+
+### Ul'dah (`loc-uldah`, location)
+
+**#22–#21b · main**
+
+> A city-state of the Eorzean Alliance: a sultanate known as the jewel of the desert, whose Immortal Flames are led by General Raubahn.
+
+Sources shown: The Gridanian Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22b** The Eorzean Alliance is Gridania, Limsa Lominsa and Ul'dah. *The Gridanian Envoy* (2.0, main): "In addition to [[Gridania]], the Eorzean Alliance encompasses the city–states of [[Limsa Lominsa]] and [[Ul'dah]]."
+  - **M22d** Miounne calls Limsa Lominsa the city of pirates and Ul'dah the jewel of the desert. *The Gridanian Envoy* (2.0, main): "They are, of course, Limsa Lominsa, city of pirates, and Ul'dah, jewel of the desert."
+  - **M22p** Raubahn is General of Ul'dah's Immortal Flames. *The Gridanian Envoy* (2.0, main): "Welcome to the sultanate of Ul'dah. I am Raubahn Aldynn, General of the Immortal Flames."
+
+</details>
+
+**#22b only · main**
+
+> A sultanate, and a city-state of the Eorzean Alliance, whose Flame General is Raubahn.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22bc** The Eorzean Alliance is Limsa Lominsa, Gridania and Ul'dah. *The Lominsan Envoy* (2.0, main): "In addition to [[Limsa Lominsa]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Ul'dah]]."
+  - **M22bt** Ul'dah is a sultanate. *The Lominsan Envoy* (2.0, main): "Welcome to the sultanate of Ul'dah."
+  - **M22bj** Raubahn is the Flame General of Ul'dah. *The Lominsan Envoy* (2.0, main): "Having safely arrived in Ul'dah, you must now seek an audience with [[Raubahn|the Flame General]]."
+
+</details>
+
+**#1c–#19c · main**
+
+> A city where countless companies and consortia keep their base. Its Sapphire Avenue Exchange is its busiest and most profitable marketplace.
+
+Sources shown: Close to Home (Ul'dah) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1cc** Countless companies and consortia have made Ul'dah their base. *Close to Home (Ul'dah)* (2.0, main): "Because of this, countless companies and consortia have chosen Ul'dah as their base of operations."
+  - **M1cb** The Sapphire Avenue Exchange is the sultanate's busiest and most profitable market. *Close to Home (Ul'dah)* (2.0, main): "You stand in the Sapphire Avenue Exchange, the busiest and most profitable marketplace in the sultanate."
+
+</details>
+
+**#20c–#22c · main**
+
+> A sultanate in Thanalan whose markets draw countless companies and consortia. The outside world believes it ruled by its sultana, Nanamo, but its six wealthiest citizens, the Syndicate, hold the most sway.
+
+Sources shown: Close to Home (Ul'dah) — main scenario quest (2.0); Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1cc** Countless companies and consortia have made Ul'dah their base. *Close to Home (Ul'dah)* (2.0, main): "Because of this, countless companies and consortia have chosen Ul'dah as their base of operations."
+  - **M20cb** Outsiders think Ul'dah a sultanate ruled by its sultana, but its six wealthiest citizens, the Syndicate, hold the most sway. *Duty, Honor, Country* (2.0, main): "The outside world believes Ul'dah to be a sultanate, ruled by Sultana Nanamo Ul Namo. Truth is, though, it's the six wealthiest citizens that hold the most sway─the Syndicate."
+
+</details>
+
+**#23b onward · main**
+
+> A sultanate whose six wealthiest citizens, the Syndicate, hold more sway than its sultana, Nanamo. With Gridania and Limsa Lominsa it makes up the Eorzean Alliance.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0); The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cb** Outsiders think Ul'dah a sultanate ruled by its sultana, but its six wealthiest citizens, the Syndicate, hold the most sway. *Duty, Honor, Country* (2.0, main): "The outside world believes Ul'dah to be a sultanate, ruled by Sultana Nanamo Ul Namo. Truth is, though, it's the six wealthiest citizens that hold the most sway─the Syndicate."
+  - **M23bc** The Eorzean Alliance joins Ul'dah, Gridania and Limsa Lominsa. *The Ul'dahn Envoy* (2.0, main): "In addition to [[Ul'dah]], the Eorzean Alliance encompasses the city–states of [[Gridania]] and [[Limsa Lominsa]]."
+
+</details>
+
+### Trouble at Summerford (`evt-trouble-at-summerford`, event)
+
+**#2b only · main**
+
+> Baderon of the Drowning Wench sent you to Summerford Farms, run by his old friend Staelwyrn. A former pirate captain whose ship was lost in the Calamity, Staelwyrn is trying to revive soil the Calamity ruined with farmhands who once sailed as pirates. His botanists despair of training them, and he has asked you to step in.
+
+Sources shown: On to Summerford — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2ba** Baderon sends you to lend a hand at Summerford Farms. *On to Summerford* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to lend a hand at [[Summerford Farms]]."
+  - **M2bb** Staelwyrn, the farm's owner, is an old friend of Baderon. *On to Summerford* (2.0, main): "The owner, Staelwyrn, is an old mate o' mine."
+  - **M2bd** Staelwyrn's ship was lost in the Calamity. *On to Summerford* (2.0, main): "a vessel lost in the destruction of [[the Calamity]]."
+  - **M2be** The Calamity ruined the soil, and Staelwyrn is trying to revive the fields. *On to Summerford* (2.0, main): "'as been tryin' to bring a bit o' life back to the fields after the Calamity ruined the soil."
+  - **M2bc** Many of the farmhands were once pirates. *On to Summerford* (2.0, main): "A good number of the lads and lasses workin' here once terrorized the high seas."
+  - **M2bh** The botanists hired to train the ex-pirates despair. *On to Summerford* (2.0, main): "the botanists I called in to train 'em have been wringin' their hands in black despair."
+  - **M2bg** Staelwyrn needs a tougher hand to help. *On to Summerford* (2.0, main): "I need a tougher soul like you to step in and help where it's needed."
+
+</details>
+
+**#3b only · main**
+
+> At Summerford Farms, Baderon's old friend Staelwyrn, a former pirate captain, is reviving fields the Calamity ruined with a crew of ex-pirates. Those ornery buccaneers love the sea and care little for the laws of the land, so he wouldn't hand you work until you were properly kitted out. Now he has work for you.
+
+Sources shown: On to Summerford — main scenario quest (2.0); Dressed to Call — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2bb** Staelwyrn, the farm's owner, is an old friend of Baderon. *On to Summerford* (2.0, main): "The owner, Staelwyrn, is an old mate o' mine."
+  - **M2be** The Calamity ruined the soil, and Staelwyrn is trying to revive the fields. *On to Summerford* (2.0, main): "'as been tryin' to bring a bit o' life back to the fields after the Calamity ruined the soil."
+  - **M2bc** Many of the farmhands were once pirates. *On to Summerford* (2.0, main): "A good number of the lads and lasses workin' here once terrorized the high seas."
+  - **M3bb** Former buccaneers love the sea and care little for the laws of the land. *Dressed to Call* (2.0, main): "Erstwhile buccaneers are an ornery lot. They rage in love for the sea, and care little for the laws of the land."
+  - **M3ba** Staelwyrn inspects your gear before giving you work. *Dressed to Call* (2.0, main): "Equip your [[head]], [[body]], [[hands]], [[legs]], and [[feet]] with gear of [[Item Level|item level]] 5 or above and present yourself to Staelwyrn for inspection."
+  - **M3bc** Staelwyrn has work for you once you are ready. *Dressed to Call* (2.0, main): "has work for you whenever you are ready."
+
+</details>
+
+**#4b only · main**
+
+> Citizens are vanishing all over Limsa Lominsa, and Staelwyrn's farmhands blame azure-tattooed men spying on the fields. At Seasong Grotto you met Y'shtola, who found the aetheric disturbance there unnatural, and a vision told you to claim the Crystals of Light. She now believes the kidnappers are pirates, and Staelwyrn suspects they mean to lure his farmhands back to plunder.
+
+Sources shown: Lurkers in the Grotto — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4ba** Citizens have been vanishing from all over Limsa Lominsa. *Lurkers in the Grotto* (2.0, main): "citizens have been disappearin' from every corner of [[Limsa Lominsa]], as if plucked from the face of Hydaelyn, boots and all, by an unseen hand."
+  - **M4bb** The farmhands believe the unwelcome visitors are the kidnappers. *Lurkers in the Grotto* (2.0, main): "The farmhands believe the unwelcome visitors to be the rumored kidnappers"
+  - **M4bc** Men with azure-tattooed faces have been spying on Staelwyrn's yeomen. *Lurkers in the Grotto* (2.0, main): "a collection of right unsavory fellows with azure-tattooed faces has been creepin' up to the edges of the fields and spyin' on my yeomen."
+  - **M4bg** Staelwyrn names the woman as Y'shtola. *Lurkers in the Grotto* (2.0, main): "A woman with a strange contraption...? Ah... [[Y'shtola]]!"
+  - **M4bf** The woman at the grotto judges the aetheric disturbance there unnatural. *Lurkers in the Grotto* (2.0, main): "As I suspected, the aetheric disturbance here is no natural occurrence."
+  - **M4be** In a vision, a voice tells you the power to banish the Darkness dwells in the Crystals of Light. *Lurkers in the Grotto* (2.0, main): "The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth and lay claim to them."
+  - **M4bd** A woman you meet at the grotto becomes convinced the kidnappers are pirates. *Lurkers in the Grotto* (2.0, main): "the woman seems convinced that the perpetrators of the kidnappings are pirates."
+  - **M4bi** Staelwyrn suspects pirates have come to lure his farmhands back to plunder. *Lurkers in the Grotto* (2.0, main): "I'm startin' to think that these ruffians are pirates, come to lure my farmhands back to a life of plunder."
+
+</details>
+
+**#5b only · main**
+
+> Citizens are vanishing across Limsa Lominsa, and Staelwyrn suspects pirates of luring his ex-pirate farmhands back to plunder. When his yeomen wandered off you rounded up all five, but Sevrin, whom Staelwyrn blames for the idleness, slipped away again, as he has many times before.
+
+Sources shown: Lurkers in the Grotto — main scenario quest (2.0); Washed Up — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4ba** Citizens have been vanishing from all over Limsa Lominsa. *Lurkers in the Grotto* (2.0, main): "citizens have been disappearin' from every corner of [[Limsa Lominsa]], as if plucked from the face of Hydaelyn, boots and all, by an unseen hand."
+  - **M4bi** Staelwyrn suspects pirates have come to lure his farmhands back to plunder. *Lurkers in the Grotto* (2.0, main): "I'm startin' to think that these ruffians are pirates, come to lure my farmhands back to a life of plunder."
+  - **M5ba** Staelwyrn asks you to round up his delinquent yeomen. *Washed Up* (2.0, main): "The old pirate captain requests that you round up the delinquent yeomen and send them back to him."
+  - **M5bb** Staelwyrn blames Sevrin for the idleness. *Washed Up* (2.0, main): "That sea-sloth Sevrin and his lot"
+  - **M5bc** Every yeoman returns to work except Sevrin. *Washed Up* (2.0, main): "Staelwyrn informs you that all the yeomen have returned to work except [[Sevrin]]."
+  - **M5bd** Staelwyrn has let Sevrin slip away many times. *Washed Up* (2.0, main): "I've let that worm wriggle through my fingers more times than I can count."
+
+</details>
+
+**#6b only · main**
+
+> Staelwyrn fears pirates are luring his farmhands back to plunder. Sevrin, the yeoman who keeps slipping away, stole a sack of oranges to sell to goblins, and when the deal went wrong he left his mates in trouble. You saved them, and Staelwyrn warns that a man who would leave his own mates for dead might do anything.
+
+Sources shown: Lurkers in the Grotto — main scenario quest (2.0); Washed Up — main scenario quest (2.0); Double Dealing — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4bi** Staelwyrn suspects pirates have come to lure his farmhands back to plunder. *Lurkers in the Grotto* (2.0, main): "I'm startin' to think that these ruffians are pirates, come to lure my farmhands back to a life of plunder."
+  - **M5bc** Every yeoman returns to work except Sevrin. *Washed Up* (2.0, main): "Staelwyrn informs you that all the yeomen have returned to work except [[Sevrin]]."
+  - **M6ba** Sevrin made off with a sack of oranges to sell to goblins. *Double Dealing* (2.0, main): "[[Sevrin]] has made off with a sack of oranges with the intention of fencing it to [[goblin]]s."
+  - **M6bb** Sevrin's goblin deal went wrong, leaving his partners in trouble. *Double Dealing* (2.0, main): "His deal with the goblins has gone awry, and his partners in crime are in trouble."
+  - **M6bc** You save Sevrin's mates from goblin muggers. *Double Dealing* (2.0, main): "You have saved Sevrin's mates from an unfortunate fate at the hands of the [[Goblin Mugger|goblin muggers]]."
+  - **M6bd** Staelwyrn warns that a man who would leave his mates for dead might do anything. *Double Dealing* (2.0, main): "If he'd leave his own mates for dead, there's no tellin' what he'd do to ''you''."
+
+</details>
+
+**#7b only · main**
+
+> Staelwyrn fears pirates are luring his farmhands back to plunder, and Sevrin, who abandoned his mates over a goblin deal, is not to be trusted. Meanwhile you fetched blackloam from an aurochs' lair, the Cookpot, for the barren fields of Tiller's Rest, where Pfrewahl now expects a bountiful harvest.
+
+Sources shown: Lurkers in the Grotto — main scenario quest (2.0); Double Dealing — main scenario quest (2.0); Loam Maintenance — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4bi** Staelwyrn suspects pirates have come to lure his farmhands back to plunder. *Lurkers in the Grotto* (2.0, main): "I'm startin' to think that these ruffians are pirates, come to lure my farmhands back to a life of plunder."
+  - **M6bb** Sevrin's goblin deal went wrong, leaving his partners in trouble. *Double Dealing* (2.0, main): "His deal with the goblins has gone awry, and his partners in crime are in trouble."
+  - **M6bd** Staelwyrn warns that a man who would leave his mates for dead might do anything. *Double Dealing* (2.0, main): "If he'd leave his own mates for dead, there's no tellin' what he'd do to ''you''."
+  - **M7ba** You gather blackloam from the aurochs' lair called the Cookpot. *Loam Maintenance* (2.0, main): "gather three bushels of blackloam from the lair of [[aurochs]] known as [[the Cookpot]]."
+  - **M7bb** The soil at Tiller's Rest is barren. *Loam Maintenance* (2.0, main): "Argh, even the weeds wither and die in this desolate dirt."
+  - **M7bc** Pfrewahl expects a bountiful harvest from the blackloam. *Loam Maintenance* (2.0, main): "we can expect a bountiful harvest as a result."
+
+</details>
+
+**#8b only · main**
+
+> Pirates of the Serpent Reavers stole farm tools from Tiller's Rest to melt into axes, and you took them back. Pfrewahl says he saw Sevrin, the Summerford yeoman who abandoned his mates, meeting the thieves in secret. Summerford Farms is safe for now, but Staelwyrn swears Sevrin's treachery won't go unpunished.
+
+Sources shown: Plowshares to Swords — main scenario quest (2.0); Double Dealing — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8ba** Pirates stole farm tools from Tiller's Rest. *Plowshares to Swords* (2.0, main): "Pirates have stolen farm tools from [[Tiller's Rest]]."
+  - **M8bb** The pirates melt the shovels down into axes. *Plowshares to Swords* (2.0, main): "Stealin' our shovels to melt and forge into axes, of all things."
+  - **M8bc** The thieves are Serpent Reavers lingering in the area. *Plowshares to Swords* (2.0, main): "dispatch [[The Serpent Reavers|the Reavers]] who linger in the area and recover the tools."
+  - **M8bd** Pfrewahl saw Sevrin meeting the thieving pirates in secret. *Plowshares to Swords* (2.0, main): "Pfrewahl tells you that he spied [[Sevrin]] consorting surreptitiously with the thieving pirates."
+  - **M6bb** Sevrin's goblin deal went wrong, leaving his partners in trouble. *Double Dealing* (2.0, main): "His deal with the goblins has gone awry, and his partners in crime are in trouble."
+  - **M8be** Summerford Farms is safe for now, but not while Sevrin remains. *Plowshares to Swords* (2.0, main): "[[Summerford Farms]] is safe for the time being, but none can rest easy so long as Sevrin remains."
+  - **M8bf** Staelwyrn vows that Sevrin's treachery will not go unpunished. *Plowshares to Swords* (2.0, main): "His treachery won't go unpunished."
+
+</details>
+
+**#9b onward · main**
+
+> Sevrin led his mates into a trap, where you saved them and fought a masked mage's clay golem. He confessed that he deserted the Serpent Reavers and meant to trade his mates for his freedom, but couldn't. Y'shtola says the tattooed Reavers serve the Sahagin, and wonders whether the tribes mean to summon their primals. Sevrin will give himself up to the Yellowjackets.
+
+Sources shown: Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9bb** Sevrin lured his lackeys into a trap with the promise of drink. *Just Deserts* (2.0, main): "According to [[Aylmer]], Sevrin lured his lackeys into a trap with the promise of drink."
+  - **M9bc** A masked mage unleashes a clay golem on you. *Just Deserts* (2.0, main): "you encounter a masked mage who unleashes a towering [[Clay Golem|clay golem]] upon you."
+  - **M9be** Sevrin was once a Serpent Reaver, who deserted and found a new home at Summerford Farms under a new name. *Just Deserts* (2.0, main): "I was once a Serpent Reaver. … So I crept off one night, got myself a new name, an' found myself a new home─Summerford Farms."
+  - **M9bo** Desertion from the Reavers is punished by death, but they offered Sevrin his freedom in exchange for his mates. *Just Deserts* (2.0, main): "The penalty for desertion is death, but the Reavers offered me a way out instead─my freedom in exchange for my mates'."
+  - **M9bf** Sevrin meant to hand his crewmen to the Serpent Reavers, but could not go through with it. *Just Deserts* (2.0, main): "Sevrin explains that he had planned to serve up his crewmen to [[the Serpent Reavers]] as recompense for deserting them, but that in the end he could not bear to sell his soul to save his own skin."
+  - **M9bj** Y'shtola says the tattooed men are no common pirates but minions of the Sahagin. *Just Deserts* (2.0, main): "But then these tattooed wretches are no common pirates─they are the minions of the Sahagin."
+  - **M9bk** Y'shtola wonders whether the tribes are planning to summon their primals. *Just Deserts* (2.0, main): "Could it be that the tribes are planning to summon their primals?"
+  - **M9bl** Sevrin decides to hand himself over to the Yellowjackets. *Just Deserts* (2.0, main): "That's why I'm going to hand myself over to the Yellowjackets."
+
+</details>
+
+### Rebuilding La Noscea (`evt-rebuilding-la-noscea`, event)
+
+**#10b only · main**
+
+> La Noscea is rebuilding after the Calamity. Baderon sent you to the Skylift, scaffolding on the Descent where a huge dragon's blast once split the ground in half. It is swamped with cargo for the restoration, and its head, Wyrkrhit, has odd jobs for you.
+
+Sources shown: Sky-high — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M10ba** Baderon sends you to Wyrkrhit, head of the Skylift. *Sky-high* (2.0, main): "Track down the 'ead o' the operation─bloke by the name o' Wyrkrhit─and 'e'll be sure to put ye to work on a task or two."
+  - **M10bb** The Skylift is scaffolding attached to the Descent. *Sky-high* (2.0, main): "It's that big bleedin' scaffoldin' attached to the Descent."
+  - **M10bc** A huge dragon's blast split the ground in half. *Sky-high* (2.0, main): "One blast o' fiery hell from that huge dragon was all it took to split the ground in half."
+  - **M10bd** The Skylift is overwhelmed with cargo for the restoration. *Sky-high* (2.0, main): "The Skylift is being overwhelmed with the constant flood of cargo needed for the restoration efforts."
+
+</details>
+
+**#11b only · main**
+
+> La Noscea is rebuilding after the Calamity. When a creature burst from a millioncorn seedling bound from the Skylift and its driver fled, you recovered the seedling for Lyulf at Swiftperch, who has gambled his whole fortune on corn to bring hope back to the desolate settlement.
+
+Sources shown: Sky-high — main scenario quest (2.0); Thanks a Million — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M10bd** The Skylift is overwhelmed with cargo for the restoration. *Sky-high* (2.0, main): "The Skylift is being overwhelmed with the constant flood of cargo needed for the restoration efforts."
+  - **M11ba** A wagon driver dropped his load and fled when a creature appeared in his cargo. *Thanks a Million* (2.0, main): "A wagon driver was so startled by the appearance of some nightmarish creature from the midst of his cargo that he dropped the load over the side before fleeing back to the Skylift."
+  - **M11bb** Wyrkrhit sends you to deliver the seedling to Lyulf at Swiftperch. *Thanks a Million* (2.0, main): "I need ye to head down the road, recover that seedling, an' deliver it to Lyulf over at Swiftperch in western La Noscea."
+  - **M11bc** Lyulf has gambled his fortune on millioncorn. *Thanks a Million* (2.0, main): "Though I understood there were risks in gambling my entire fortune on a crop of millioncorn"
+  - **M11bd** Lyulf means to restore hope to Swiftperch with a vast crop of corn. *Thanks a Million* (2.0, main): "Thus I mean to restore a modicum of hope to its residents by growing a veritable ocean of corn!"
+  - **M11be** The locals of Swiftperch are as desolate as its fields. *Thanks a Million* (2.0, main): "You arrive in Swiftperch to find the locals as desolate of life as the surrounding fields."
+
+</details>
+
+**#12b only · main**
+
+> La Noscea is rebuilding after the Calamity. At Swiftperch, the Yellowjacket Fraeloef sent you to the Brewer's Beacon, whose light was failing because the bomb fueling its furnace had escaped. The keeper made a makeshift repair, but Forgemaster H'naanza wonders whether something else made the furnace fail.
+
+Sources shown: Relighting the Torch — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12ba** Fraeloef, a Yellowjacket at Swiftperch, sends you to find out why the Brewer's Beacon is dimming. *Relighting the Torch* (2.0, main): "[[Fraeloef]], a [[The Yellowjackets|Yellowjacket]] on guard duty in [[Swiftperch]], wants you to visit [[the Brewer's Beacon]] and investigate the reason behind the waning light."
+  - **M12bb** The bomb that fuels the beacon's furnace has escaped. *Relighting the Torch* (2.0, main): "The bomb what fuels me furnace has up an' buggered off, ye see."
+  - **M12bc** The keeper doubts her makeshift repairs. *Relighting the Torch* (2.0, main): "Khanswys is dubious about the quality of her makeshift repairs."
+  - **M12bd** You are to ask Forgemaster H'naanza to oversee the repairs. *Relighting the Torch* (2.0, main): "ask Forgemaster [[H'naanza]] to oversee the necessary repairs"
+  - **M12be** Something else may have caused the furnace to fail. *Relighting the Torch* (2.0, main): "but could there be another reason for the device's failure...?"
+
+</details>
+
+**#13b only · main**
+
+> La Noscea is rebuilding after the Calamity. Forgemaster H'naanza sent you to the Moraby Drydocks, where the head shipwright, Ahtbyrm, is building the Victory: the first new ship there since the Calamity and the start of restoring the Maelstrom's fleet. Delayed materials infuriate him, but he has work for you.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13ba** H'naanza sends you to help at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "Forgemaster [[H'naanza]], head of [[Naldiq & Vymelli's]], wants you to assist with the workload over at the [[Moraby Drydocks]]."
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M13bc** The Victory is the first new vessel at the docks since the Calamity. *On to the Drydocks* (2.0, main): "this proud maiden you see taking shape before you is the Victory, the first new vessel to grace the docks since the Calamity."
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M13be** Another delay in materials infuriates Ahtbyrm. *On to the Drydocks* (2.0, main): "Blast and botheration! Another delay? I am well aware of the shortage of skilled artisans, but this is insufferable!"
+
+</details>
+
+**#14b only · main**
+
+> At the Moraby Drydocks, the head shipwright Ahtbyrm is building the Victory to restore the Maelstrom's fleet, but materials keep running late. His shipwright Fyrilsmyd vanished on a supply run, and Ahtbyrm sent you to press Haldbroda at Candlekeep Quay. Haldbroda swears he knows nothing, and the young man may have been caught in a wreck off the Salt Strand.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0); Without a Doubt — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M13be** Another delay in materials infuriates Ahtbyrm. *On to the Drydocks* (2.0, main): "Blast and botheration! Another delay? I am well aware of the shortage of skilled artisans, but this is insufferable!"
+  - **M14ba** Ahtbyrm's young shipwright Fyrilsmyd went for supplies and has not returned. *Without a Doubt* (2.0, main): "A shipwright of mine─a young man named Fyrilsmyd─recently left Candlekeep Quay to retrieve several crates of supplies ordered from Limsa Lominsa"
+  - **M14bb** Ahtbyrm doubts that Haldbroda is telling the whole truth. *Without a Doubt* (2.0, main): "That man knows something, and I severely doubt he is telling me the whole truth."
+  - **M14bc** Haldbroda swears he knows nothing of Fyrilsmyd. *Without a Doubt* (2.0, main): "I swear on my poor nana's grave, Navigator rest her soul, I know naught of this Fyrilsmyd, nor his precious supplies."
+  - **M14bd** Fyrilsmyd may have been caught in a wreck off the Salt Strand. *Without a Doubt* (2.0, main): "Could it be that the young shipwright was somehow caught up in the tragedy that claimed a ship off of [[the Salt Strand]]?"
+
+</details>
+
+**#15b onward · main**
+
+> Ahtbyrm is building the Victory at the Moraby Drydocks to restore the Maelstrom's fleet. You found his missing shipwright, Fyrilsmyd, alive on the Salt Strand after his boat was flung into a Lominsan galley, and won back the ship's lost cargo from Qiqirn beachcombers. Ahtbyrm suspects the Sahagin conjured the trouble.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0); Without a Doubt — main scenario quest (2.0); Righting the Shipwright — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M14ba** Ahtbyrm's young shipwright Fyrilsmyd went for supplies and has not returned. *Without a Doubt* (2.0, main): "A shipwright of mine─a young man named Fyrilsmyd─recently left Candlekeep Quay to retrieve several crates of supplies ordered from Limsa Lominsa"
+  - **M15ba** Fyrilsmyd's boat was flung into a Lominsan galley. *Righting the Shipwright* (2.0, main): "and we was flung headlong into the Lominsan galley."
+  - **M15bb** The lost cargo is guarded by Qiqirn beachcombers. *Righting the Shipwright* (2.0, main): "the cargo that is now guarded by deadly [[Qiqirn Beachcomber|Qiqirn beachcombers]]."
+  - **M15bc** You salvage all three missing pieces of cargo. *Righting the Shipwright* (2.0, main): "You have salvaged all three missing pieces of cargo."
+  - **M15bd** Ahtbyrm suspects the Sahagin conjured the trouble off Candlekeep Quay. *Righting the Shipwright* (2.0, main): "This leads me to believe that the trouble the ships encountered off Candlekeep Quay was of a less natural sort─the sort which the Sahagin have been known to conjure."
+
+</details>
+
+### The Drydocks Plot (`evt-the-drydocks-plot`, event)
+
+**#16b only · main**
+
+> Ghimthota, head of the Moraby Drydocks watch, believes pirates camped on the Gods' Grip mean to sabotage the Victory, the warship Ahtbyrm is building. Posing as a lost adventurer, you learned they truly are pirates, perhaps plotting a kidnapping: one wants his boy back. Ghimthota wonders whether the Victory was ever their target, and has stepped up patrols.
+
+Sources shown: Do Angry Pirates Dream — main scenario quest (2.0); On to the Drydocks — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M16ba** Ghimthota heads the Moraby Drydocks watch and seeks help with suspicious campers on the Gods' Grip. *Do Angry Pirates Dream* (2.0, main): "Head of the [[Moraby Drydocks]] watch, [[Ghimthota]] has asked ''Victory'' foreman Ahtbyrm to recommend an [[adventurer]] to assist the watch in learning more about a band of suspicious individuals who have recently made camp on [[the Gods' Grip]]."
+  - **M16bb** Ghimthota believes they are pirates planning to sabotage the Victory. *Do Angry Pirates Dream* (2.0, main): "Ghimthota believes the suspicious individuals in question to be pirates who are planning to sabotage the ''Victory''."
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M16bc** Ghimthota asks you to pose as a lost adventurer. *Do Angry Pirates Dream* (2.0, main): "I would have you approach the men, posing as a lost adventurer, and see if you cannot somehow learn of their intentions."
+  - **M16bd** They truly are pirates, and may be plotting a kidnapping. *Do Angry Pirates Dream* (2.0, main): "they truly are pirates, and that they could be plotting a kidnapping."
+  - **M16be** One pirate wants "me boy" back. *Do Angry Pirates Dream* (2.0, main): "Once we 'ave me boy back, I'm puttin' this godsforsaken piss'ole of an island so far behind me"
+  - **M16bf** Ghimthota wonders whether the Victory was ever their target. *Do Angry Pirates Dream* (2.0, main): "Could it be that their target never was the Victory?"
+  - **M16bg** Ghimthota increases patrols. *Do Angry Pirates Dream* (2.0, main): "Upon learning of the pirates' plot, Ghimthota resolves to increase patrols of the area."
+
+</details>
+
+**#17b only · main**
+
+> Pirates with explosives struck the Moraby Drydocks to destroy the Victory, and you fought them off. Their leader, Ahtzapfyn, is the shipwright Ahtbyrm's father, and calls the ship a symbol of everything that went wrong with the world; Mamool Ja mercenaries fought beside him. The captured pirates went to the Yellowjackets.
+
+Sources shown: Victory in Peril — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M17ba** Ghimthota is convinced the pirates mean to sabotage the Victory. *Victory in Peril* (2.0, main): "Ghimthota is convinced that a gang of treacherous pirates aims to sabotage the construction of the ''Victory''."
+  - **M17bb** The pirates at the shipyard carry explosives. *Victory in Peril* (2.0, main): "Seemed to be carrying...explosives..."
+  - **M17bc** The pirates' leader, Ahtzapfyn, is Ahtbyrm's father. *Victory in Peril* (2.0, main): "the leader of the pirates, [[Ahtzapfyn]], is actually [[Ahtbyrm]]'s father."
+  - **M17bd** Ahtzapfyn calls the Victory a symbol of all that went wrong with the world, and means to shatter it. *Victory in Peril* (2.0, main): "This ship's a symbol alright─of everythin' what went wrong with the world. An' I mean to shatter it into a hunnerd thousand pieces!"
+  - **M17be** Mamool Ja mercenaries fight alongside Ahtzapfyn by agreement. *Victory in Peril* (2.0, main): "As we agreed, Ahtzapfyn! … I'll take the Mamool Ja. You focus on Ahtzapfyn."
+  - **M17bf** Ahtzapfyn is defeated. *Victory in Peril* (2.0, main): "I...I must be gettin' old, lettin' some green 'venturer get the best o' me."
+  - **M17bh** The defeated pirates are handed to the Yellowjackets, and Reyner's men take over the investigation. *Victory in Peril* (2.0, main): "the pirates we defeated have been handed over to the Yellowjackets. Reyner's men will be taking over the investigation."
+
+</details>
+
+**#18b only · main**
+
+> Pirates led by Ahtzapfyn, the shipwright Ahtbyrm's own father, tried to destroy the Victory at the Moraby Drydocks. Among Ahtzapfyn's belongings was a missive in code, so Ghimthota sent you to Baderon, whose connections the Yellowjackets rely on. Having read it, a worried Baderon says trouble is brewing.
+
+Sources shown: Victory in Peril — main scenario quest (2.0); Men of the Blue Tattoos — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M17bc** The pirates' leader, Ahtzapfyn, is Ahtbyrm's father. *Victory in Peril* (2.0, main): "the leader of the pirates, [[Ahtzapfyn]], is actually [[Ahtbyrm]]'s father."
+  - **M17bd** Ahtzapfyn calls the Victory a symbol of all that went wrong with the world, and means to shatter it. *Victory in Peril* (2.0, main): "This ship's a symbol alright─of everythin' what went wrong with the world. An' I mean to shatter it into a hunnerd thousand pieces!"
+  - **M18ba** A coded missive is found among the belongings of Ahtzapfyn, the pirate behind the plot. *Men of the Blue Tattoos* (2.0, main): "Among the possessions of [[Ahtzapfyn]], the pirate behind the plot to sabotage the ''Victory'', a [[Arcane Epistle|missive]] written in some manner of code has been discovered."
+  - **M18bb** The Yellowjackets turn to Baderon and his connections in such cases. *Men of the Blue Tattoos* (2.0, main): "In cases such as this, I am told the Yellowjackets are wont to turn to Baderon and his convenient...connections."
+  - **M18bd** Having read the missive, Baderon is visibly worried. *Men of the Blue Tattoos* (2.0, main): "a visibly worried Baderon bids you prepare for the worst."
+  - **M18be** Baderon says trouble is brewing. *Men of the Blue Tattoos* (2.0, main): "We've got us some trouble brewin', 'ere, an' no mistake."
+
+</details>
+
+**#19b onward · main**
+
+> Baderon decoded the pirates' missive: the attack on the Victory was a distraction, and the Serpent Reavers, in league with the Sahagin, were after Swiftperch. While the Sahagin assaulted South Tidegate, you helped the Yellowjackets drive the Reavers off, and Y'shtola named the masked mage behind them an Ascian. Admiral Merlwyb has thanked you and invited you to a feast.
+
+Sources shown: Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19ba** The missive ordered the Victory destroyed and named Swiftperch as a feint, but Baderon believes the Serpent Reavers will strike it in full force. *Feint and Strike* (2.0, main): "The missive Baderon deciphered contains orders for the destruction of the ''Victory''. While the message meant for [[Ahtzapfyn]] also mentioned that [[Swiftperch]] would be the site of a simple feint operation, the [[Drowning Wench|Wench]]'s proprietor seems convinced that the [[The Serpent Reavers|Serpent Reavers]] intend to commit their full forces to the attack on the struggling settlement."
+  - **M19bb** Baderon says the attack on the Victory was meant as a distraction. *Feint and Strike* (2.0, main): "That mess at the ''Victory''─that was meant to be the bloody distraction!"
+  - **M19bg** Reyner says the Serpent Reavers are in league with the Sahagin. *Feint and Strike* (2.0, main): "Aye, the Serpent Reavers are in league with the Sahagin."
+  - **M19bf** Sahagin forces assault South Tidegate. *Feint and Strike* (2.0, main): "Reyner receives word that the [[South Tidegate]] is under assault by [[Sahagin]] forces."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+  - **M19bn** Admiral Merlwyb thanks you for your service to Limsa Lominsa and invites you to a feast. *Feint and Strike* (2.0, main): "Admiral [[Merlwyb]] expresses her heartfelt gratitude for the numerous deeds you have performed in the service of [[Limsa Lominsa]]. As part of your reward, the Admiral insists that you attend an upcoming banquet and be honored before the gathered dignitaries."
+
+</details>
+
+### The Admiral's Honor (`evt-the-admirals-honor`, event)
+
+**#20b only · main**
+
+> After you saved Swiftperch from the Serpent Reavers, Admiral Merlwyb invited you to a feast, an honor Commodore Reyner says even her own officers rarely receive. To look the part, you collected a box from J'nasshym at the Octant, and Baderon presented the dress shoes inside, a gift from him and everyone you have helped.
+
+Sources shown: Feint and Strike — main scenario quest (2.0); High Society — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+  - **M19bn** Admiral Merlwyb thanks you for your service to Limsa Lominsa and invites you to a feast. *Feint and Strike* (2.0, main): "Admiral [[Merlwyb]] expresses her heartfelt gratitude for the numerous deeds you have performed in the service of [[Limsa Lominsa]]. As part of your reward, the Admiral insists that you attend an upcoming banquet and be honored before the gathered dignitaries."
+  - **M20ba** Reyner says the Admiral's invitation is an honor even her own officers rarely receive. *High Society* (2.0, main): "It is a highly coveted honor. Why, even the officers under her direct command are rarely afforded such recognition!"
+  - **M20bb** Baderon sends you to J'nasshym of the Brugaire Consortium at the Octant. *High Society* (2.0, main): "Take yerself over to the Octant an' speak to J'nasshym o' the Brugaire Consortium."
+  - **M20bc** The dress shoes are a gift from Baderon and the people you have helped. *High Society* (2.0, main): "the footwear is a gift from him, and from all the people you have aided on your travels."
+
+</details>
+
+**#21b only · main**
+
+> At Admiral Merlwyb's feast, Y'shtola recognized your crystal as one of the Crystals of Light, and Merlwyb named you the vessel of the Mothercrystal, Hydaelyn. Her tale of the lost Warriors of Light brought on a vision of the Battle of Carteneau, where a voice proclaimed that the planet would regain its true form. You woke at the Drowning Wench, and Merlwyb has a task for you.
+
+Sources shown: A Mizzenmast Repast — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M21be** Y'shtola identifies your crystal as one of the Crystals of Light. *A Mizzenmast Repast* (2.0, main): "This...is one of the Crystals of Light."
+  - **M21bf** Merlwyb calls you the vessel of a higher power: the Mothercrystal of your vision. *A Mizzenmast Repast* (2.0, main): "You are the vessel of a higher power. … This...being from your vision was the Mothercrystal."
+  - **M21bg** It is Hydaelyn who speaks. *A Mizzenmast Repast* (2.0, main): "Heed well Her words, adventurer. For it is Hydaelyn Herself who speaks."
+  - **M21ba** At the feast Merlwyb recounts the Warriors of Light, and the tale triggers a vision of the Battle of Carteneau. *A Mizzenmast Repast* (2.0, main): "At the banquet, [[Merlwyb]] recounts the deeds of the half-remembered heroes whom [[Eorzea]]ns now call the [[Warrior of Light|Warriors of Light]]. The tale triggers inside your mind a vision of the final moments of the [[Battle of Carteneau]]."
+  - **M21bi** The Warriors of Light were lost at Carteneau. *A Mizzenmast Repast* (2.0, main): "It was on that day, in the midst of that hell...that we lost them."
+  - **M21bl** A voice in the vision says the planet will soon regain its true form. *A Mizzenmast Repast* (2.0, main): "It has begun. Soon the planet will regain its true form."
+  - **M21bm** You wake in the Drowning Wench with no idea how you got there. *A Mizzenmast Repast* (2.0, main): "you are surprised to find yourself in a room at [[the Drowning Wench]], with no idea how you got there."
+  - **M21bn** Merlwyb has a task she would entrust to no one else. *A Mizzenmast Repast* (2.0, main): "Merlwyb has a task for you─one which she would entrust to no other."
+
+</details>
+
+**#22b onward · main**
+
+> Admiral Merlwyb made you her envoy, carrying letters that propose memorials on the fifth anniversary of Carteneau. In Gridania, Kan-E-Senna told how Bahamut rose from Dalamud and burned Eorzea, and approved; in Ul'dah, Raubahn warned that the XIVth Imperial Legion is entrenched in a divided realm, and agreed. Meanwhile, in an imperial castrum, a commander vowed Garlean rule over Eorzea.
+
+Sources shown: The Lominsan Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22ba** Merlwyb makes you her personal envoy to the other two Alliance leaders. *The Lominsan Envoy* (2.0, main): "Appointing you her personal envoy, Merlwyb bids you deliver a missive to the other two leaders of the [[Eorzean Alliance]]."
+  - **M22bb** Merlwyb proposes a memorial service in each city-state on the fifth anniversary of Carteneau. *The Lominsan Envoy* (2.0, main): "To that end, I am proposing that a memorial service be held in each of the city–states on the fifth anniversary of the Battle of Carteneau."
+  - **M22bf** The elder primal Bahamut emerged from Dalamud and rained fire on Eorzea. *The Lominsan Envoy* (2.0, main): "from it emerged the elder primal Bahamut, who proceeded to rain fire upon Eorzea."
+  - **M22bh** Kan-E-Senna approves the memorial. *The Lominsan Envoy* (2.0, main): "I wholeheartedly approve of the Admiral's proposal."
+  - **M22bk** The XIVth Imperial Legion is still entrenched within Eorzea's borders. *The Lominsan Envoy* (2.0, main): "But the XIVth Imperial Legion is still entrenched within our borders."
+  - **M22bm** Raubahn calls the realm an alliance in name only. *The Lominsan Envoy* (2.0, main): "We are a realm divided, adventurer. An alliance in name only."
+  - **M22bn** Raubahn agrees to the memorial. *The Lominsan Envoy* (2.0, main): "Merlwyb will have her memorial."
+  - **M22br** He declares that only Garlean rule can bring order to Eorzea. *The Lominsan Envoy* (2.0, main): "Only Garlean rule can bring order to Eorzea."
+
+</details>
+
+### Staelwyrn (`char-staelwyrn`, character)
+
+**#2b–#3b · main**
+
+> Owner of Summerford Farms and an old friend of Baderon. A former pirate captain whose ship was lost in the Calamity, he took up an offer to put landlocked buccaneers to work in the fields, and is trying to revive the ruined soil with farmhands who once sailed as pirates.
+
+Sources shown: On to Summerford — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2bb** Staelwyrn, the farm's owner, is an old friend of Baderon. *On to Summerford* (2.0, main): "The owner, Staelwyrn, is an old mate o' mine."
+  - **M2bd** Staelwyrn's ship was lost in the Calamity. *On to Summerford* (2.0, main): "a vessel lost in the destruction of [[the Calamity]]."
+  - **M2bf** Staelwyrn accepted an initiative to put landlocked pirates to work in the fields. *On to Summerford* (2.0, main): "Admiral Merlwyb's initiative to get us landlocked buccaneers workin' the fields seemed too fine an offer to refuse."
+  - **M2be** The Calamity ruined the soil, and Staelwyrn is trying to revive the fields. *On to Summerford* (2.0, main): "'as been tryin' to bring a bit o' life back to the fields after the Calamity ruined the soil."
+  - **M2bc** Many of the farmhands were once pirates. *On to Summerford* (2.0, main): "A good number of the lads and lasses workin' here once terrorized the high seas."
+
+</details>
+
+**#4b–#8b · main**
+
+> Owner of Summerford Farms, a former pirate captain who now works the land with ex-pirates. His farmhands fear azure-tattooed men spying on the fields, and he suspects pirates have come to lure his crew back to plunder.
+
+Sources shown: On to Summerford — main scenario quest (2.0); Lurkers in the Grotto — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2bb** Staelwyrn, the farm's owner, is an old friend of Baderon. *On to Summerford* (2.0, main): "The owner, Staelwyrn, is an old mate o' mine."
+  - **M2bc** Many of the farmhands were once pirates. *On to Summerford* (2.0, main): "A good number of the lads and lasses workin' here once terrorized the high seas."
+  - **M4bc** Men with azure-tattooed faces have been spying on Staelwyrn's yeomen. *Lurkers in the Grotto* (2.0, main): "a collection of right unsavory fellows with azure-tattooed faces has been creepin' up to the edges of the fields and spyin' on my yeomen."
+  - **M4bb** The farmhands believe the unwelcome visitors are the kidnappers. *Lurkers in the Grotto* (2.0, main): "The farmhands believe the unwelcome visitors to be the rumored kidnappers"
+  - **M4bi** Staelwyrn suspects pirates have come to lure his farmhands back to plunder. *Lurkers in the Grotto* (2.0, main): "I'm startin' to think that these ruffians are pirates, come to lure my farmhands back to a life of plunder."
+
+</details>
+
+**#9b onward · main**
+
+> Owner of Summerford Farms, a former pirate captain who now works the land with ex-pirates. He took back Sevrin, the yeoman who nearly betrayed his mates to the Serpent Reavers, and says the Reavers may act like pirates but are the Sahagin's flunkies.
+
+Sources shown: On to Summerford — main scenario quest (2.0); Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2bb** Staelwyrn, the farm's owner, is an old friend of Baderon. *On to Summerford* (2.0, main): "The owner, Staelwyrn, is an old mate o' mine."
+  - **M2bc** Many of the farmhands were once pirates. *On to Summerford* (2.0, main): "A good number of the lads and lasses workin' here once terrorized the high seas."
+  - **M9bg** Staelwyrn takes Sevrin back, but Sevrin means to pay for his crimes. *Just Deserts* (2.0, main): "Though Staelwyrn has taken the penitent pirate back, Sevrin seems determined to pay for his crimes."
+  - **M9bf** Sevrin meant to hand his crewmen to the Serpent Reavers, but could not go through with it. *Just Deserts* (2.0, main): "Sevrin explains that he had planned to serve up his crewmen to [[the Serpent Reavers]] as recompense for deserting them, but that in the end he could not bear to sell his soul to save his own skin."
+  - **M9bh** Staelwyrn says the Reavers act like pirates but are the Sahagin's flunkies. *Just Deserts* (2.0, main): "Reavers may look and sound and act like pirates, but they're naught but the fishbacks' flunkies."
+
+</details>
+
+### Sevrin (`char-sevrin`, character)
+
+**#5b only · main**
+
+> A yeoman at Summerford Farms whom Staelwyrn blames for his crew's idleness. He keeps slipping away from work.
+
+Sources shown: Washed Up — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M5bb** Staelwyrn blames Sevrin for the idleness. *Washed Up* (2.0, main): "That sea-sloth Sevrin and his lot"
+  - **M5bc** Every yeoman returns to work except Sevrin. *Washed Up* (2.0, main): "Staelwyrn informs you that all the yeomen have returned to work except [[Sevrin]]."
+  - **M5bd** Staelwyrn has let Sevrin slip away many times. *Washed Up* (2.0, main): "I've let that worm wriggle through my fingers more times than I can count."
+
+</details>
+
+**#6b–#7b · main**
+
+> A yeoman at Summerford Farms who keeps slipping away from work. He stole a sack of oranges to sell to goblins, and when the deal went wrong he left his mates in trouble.
+
+Sources shown: Washed Up — main scenario quest (2.0); Double Dealing — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M5bc** Every yeoman returns to work except Sevrin. *Washed Up* (2.0, main): "Staelwyrn informs you that all the yeomen have returned to work except [[Sevrin]]."
+  - **M6ba** Sevrin made off with a sack of oranges to sell to goblins. *Double Dealing* (2.0, main): "[[Sevrin]] has made off with a sack of oranges with the intention of fencing it to [[goblin]]s."
+  - **M6bb** Sevrin's goblin deal went wrong, leaving his partners in trouble. *Double Dealing* (2.0, main): "His deal with the goblins has gone awry, and his partners in crime are in trouble."
+  - **M6bd** Staelwyrn warns that a man who would leave his mates for dead might do anything. *Double Dealing* (2.0, main): "If he'd leave his own mates for dead, there's no tellin' what he'd do to ''you''."
+
+</details>
+
+**#8b only · main**
+
+> A yeoman at Summerford Farms who stole from the farm and left his mates in trouble over a goblin deal. He was seen meeting in secret with the pirates who stole tools from Tiller's Rest, and Staelwyrn vows his treachery won't go unpunished.
+
+Sources shown: Double Dealing — main scenario quest (2.0); Plowshares to Swords — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M6ba** Sevrin made off with a sack of oranges to sell to goblins. *Double Dealing* (2.0, main): "[[Sevrin]] has made off with a sack of oranges with the intention of fencing it to [[goblin]]s."
+  - **M6bb** Sevrin's goblin deal went wrong, leaving his partners in trouble. *Double Dealing* (2.0, main): "His deal with the goblins has gone awry, and his partners in crime are in trouble."
+  - **M8bd** Pfrewahl saw Sevrin meeting the thieving pirates in secret. *Plowshares to Swords* (2.0, main): "Pfrewahl tells you that he spied [[Sevrin]] consorting surreptitiously with the thieving pirates."
+  - **M8ba** Pirates stole farm tools from Tiller's Rest. *Plowshares to Swords* (2.0, main): "Pirates have stolen farm tools from [[Tiller's Rest]]."
+  - **M8bf** Staelwyrn vows that Sevrin's treachery will not go unpunished. *Plowshares to Swords* (2.0, main): "His treachery won't go unpunished."
+
+</details>
+
+**#9b onward · main**
+
+> A former Serpent Reaver who deserted, took a new name and found a home at Summerford Farms. The Reavers offered him his freedom in exchange for his mates, and he led them into a trap, but couldn't go through with it. Staelwyrn has taken him back, and he means to hand himself over to the Yellowjackets.
+
+Sources shown: Just Deserts — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9be** Sevrin was once a Serpent Reaver, who deserted and found a new home at Summerford Farms under a new name. *Just Deserts* (2.0, main): "I was once a Serpent Reaver. … So I crept off one night, got myself a new name, an' found myself a new home─Summerford Farms."
+  - **M9bo** Desertion from the Reavers is punished by death, but they offered Sevrin his freedom in exchange for his mates. *Just Deserts* (2.0, main): "The penalty for desertion is death, but the Reavers offered me a way out instead─my freedom in exchange for my mates'."
+  - **M9bb** Sevrin lured his lackeys into a trap with the promise of drink. *Just Deserts* (2.0, main): "According to [[Aylmer]], Sevrin lured his lackeys into a trap with the promise of drink."
+  - **M9bf** Sevrin meant to hand his crewmen to the Serpent Reavers, but could not go through with it. *Just Deserts* (2.0, main): "Sevrin explains that he had planned to serve up his crewmen to [[the Serpent Reavers]] as recompense for deserting them, but that in the end he could not bear to sell his soul to save his own skin."
+  - **M9bg** Staelwyrn takes Sevrin back, but Sevrin means to pay for his crimes. *Just Deserts* (2.0, main): "Though Staelwyrn has taken the penitent pirate back, Sevrin seems determined to pay for his crimes."
+  - **M9bl** Sevrin decides to hand himself over to the Yellowjackets. *Just Deserts* (2.0, main): "That's why I'm going to hand myself over to the Yellowjackets."
+
+</details>
+
+### Ahtbyrm (`char-ahtbyrm`, character)
+
+**#13b–#14b · main**
+
+> Head shipwright at the Moraby Drydocks, building the Victory: the first new vessel there since the Calamity, and the start of rebuilding the Maelstrom's fleet. He is hiring veteran shipwrights from abroad, and delays in materials infuriate him.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M13bc** The Victory is the first new vessel at the docks since the Calamity. *On to the Drydocks* (2.0, main): "this proud maiden you see taking shape before you is the Victory, the first new vessel to grace the docks since the Calamity."
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M13bf** Ahtbyrm is hiring veteran shipwrights from abroad. *On to the Drydocks* (2.0, main): "even going so far as to hire veteran shipwrights from outside the thalassocracy."
+  - **M13be** Another delay in materials infuriates Ahtbyrm. *On to the Drydocks* (2.0, main): "Blast and botheration! Another delay? I am well aware of the shortage of skilled artisans, but this is insufferable!"
+
+</details>
+
+**#15b–#16b · main**
+
+> Head shipwright at the Moraby Drydocks, building the Victory to restore the Maelstrom's fleet. After a wreck off Candlekeep Quay delayed his supplies, he suspects the Sahagin conjured the trouble.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0); Without a Doubt — main scenario quest (2.0); Righting the Shipwright — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M14ba** Ahtbyrm's young shipwright Fyrilsmyd went for supplies and has not returned. *Without a Doubt* (2.0, main): "A shipwright of mine─a young man named Fyrilsmyd─recently left Candlekeep Quay to retrieve several crates of supplies ordered from Limsa Lominsa"
+  - **M15bd** Ahtbyrm suspects the Sahagin conjured the trouble off Candlekeep Quay. *Righting the Shipwright* (2.0, main): "This leads me to believe that the trouble the ships encountered off Candlekeep Quay was of a less natural sort─the sort which the Sahagin have been known to conjure."
+
+</details>
+
+**#17b onward · main**
+
+> Head shipwright at the Moraby Drydocks, building the Victory to restore the Maelstrom's fleet. The pirates who tried to blow up the ship were led by his own father, Ahtzapfyn, who he says has always turned his life upside down.
+
+Sources shown: On to the Drydocks — main scenario quest (2.0); Victory in Peril — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13bb** Ahtbyrm is the head shipwright at the Moraby Drydocks. *On to the Drydocks* (2.0, main): "deliver a [[Naldiq & Vymelli Missive|missive]] to [[Ahtbyrm]], the head shipwright at the Moraby Drydocks."
+  - **M13bd** The Maelstrom lost most of its ships in the Calamity, and the Victory is the start of restoring its fleet. *On to the Drydocks* (2.0, main): "We may have lost the bulk of our ships that fateful day, but starting with this beauty, we will restore the Maelstrom's fleet to its former glory."
+  - **M17bc** The pirates' leader, Ahtzapfyn, is Ahtbyrm's father. *Victory in Peril* (2.0, main): "the leader of the pirates, [[Ahtzapfyn]], is actually [[Ahtbyrm]]'s father."
+  - **M17bb** The pirates at the shipyard carry explosives. *Victory in Peril* (2.0, main): "Seemed to be carrying...explosives..."
+  - **M17bg** Ahtbyrm says his father has always turned his life upside down. *Victory in Peril* (2.0, main): "Ever did my father have a way of turning my life upside down."
+
+</details>
+
+### Ahtzapfyn (`char-ahtzapfyn`, character)
+
+**#17b–#18b · main**
+
+> A pirate leader, and the father of Ahtbyrm, the shipwright building the Victory. Calling the ship a symbol of everything that went wrong with the world, he led an attack with explosives and Mamool Ja mercenaries to destroy it, and was defeated. His men were handed over to the Yellowjackets.
+
+Sources shown: Victory in Peril — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M17bc** The pirates' leader, Ahtzapfyn, is Ahtbyrm's father. *Victory in Peril* (2.0, main): "the leader of the pirates, [[Ahtzapfyn]], is actually [[Ahtbyrm]]'s father."
+  - **M17bd** Ahtzapfyn calls the Victory a symbol of all that went wrong with the world, and means to shatter it. *Victory in Peril* (2.0, main): "This ship's a symbol alright─of everythin' what went wrong with the world. An' I mean to shatter it into a hunnerd thousand pieces!"
+  - **M17bb** The pirates at the shipyard carry explosives. *Victory in Peril* (2.0, main): "Seemed to be carrying...explosives..."
+  - **M17be** Mamool Ja mercenaries fight alongside Ahtzapfyn by agreement. *Victory in Peril* (2.0, main): "As we agreed, Ahtzapfyn! … I'll take the Mamool Ja. You focus on Ahtzapfyn."
+  - **M17bf** Ahtzapfyn is defeated. *Victory in Peril* (2.0, main): "I...I must be gettin' old, lettin' some green 'venturer get the best o' me."
+  - **M17bh** The defeated pirates are handed to the Yellowjackets, and Reyner's men take over the investigation. *Victory in Peril* (2.0, main): "the pirates we defeated have been handed over to the Yellowjackets. Reyner's men will be taking over the investigation."
+
+</details>
+
+**#19b onward · main**
+
+> A pirate leader, and the father of Ahtbyrm, the shipwright building the Victory. He led the attack that tried to destroy the ship and was defeated. A coded missive meant for him held orders for the ship's destruction, and named Swiftperch as the site of a feint.
+
+Sources shown: Victory in Peril — main scenario quest (2.0); Men of the Blue Tattoos — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M17bc** The pirates' leader, Ahtzapfyn, is Ahtbyrm's father. *Victory in Peril* (2.0, main): "the leader of the pirates, [[Ahtzapfyn]], is actually [[Ahtbyrm]]'s father."
+  - **M17bd** Ahtzapfyn calls the Victory a symbol of all that went wrong with the world, and means to shatter it. *Victory in Peril* (2.0, main): "This ship's a symbol alright─of everythin' what went wrong with the world. An' I mean to shatter it into a hunnerd thousand pieces!"
+  - **M17bf** Ahtzapfyn is defeated. *Victory in Peril* (2.0, main): "I...I must be gettin' old, lettin' some green 'venturer get the best o' me."
+  - **M18ba** A coded missive is found among the belongings of Ahtzapfyn, the pirate behind the plot. *Men of the Blue Tattoos* (2.0, main): "Among the possessions of [[Ahtzapfyn]], the pirate behind the plot to sabotage the ''Victory'', a [[Arcane Epistle|missive]] written in some manner of code has been discovered."
+  - **M19ba** The missive ordered the Victory destroyed and named Swiftperch as a feint, but Baderon believes the Serpent Reavers will strike it in full force. *Feint and Strike* (2.0, main): "The missive Baderon deciphered contains orders for the destruction of the ''Victory''. While the message meant for [[Ahtzapfyn]] also mentioned that [[Swiftperch]] would be the site of a simple feint operation, the [[Drowning Wench|Wench]]'s proprietor seems convinced that the [[The Serpent Reavers|Serpent Reavers]] intend to commit their full forces to the attack on the struggling settlement."
+
+</details>
+
+### Ghimthota (`char-ghimthota`, character)
+
+**#16b–#17b · main**
+
+> Head of the watch at the Moraby Drydocks, where the Victory is being built. She suspects pirates camped on the Gods' Grip of planning to sabotage the ship, wonders whether it was ever their target, and has stepped up patrols.
+
+Sources shown: Do Angry Pirates Dream — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M16ba** Ghimthota heads the Moraby Drydocks watch and seeks help with suspicious campers on the Gods' Grip. *Do Angry Pirates Dream* (2.0, main): "Head of the [[Moraby Drydocks]] watch, [[Ghimthota]] has asked ''Victory'' foreman Ahtbyrm to recommend an [[adventurer]] to assist the watch in learning more about a band of suspicious individuals who have recently made camp on [[the Gods' Grip]]."
+  - **M16bb** Ghimthota believes they are pirates planning to sabotage the Victory. *Do Angry Pirates Dream* (2.0, main): "Ghimthota believes the suspicious individuals in question to be pirates who are planning to sabotage the ''Victory''."
+  - **M16bf** Ghimthota wonders whether the Victory was ever their target. *Do Angry Pirates Dream* (2.0, main): "Could it be that their target never was the Victory?"
+  - **M16bg** Ghimthota increases patrols. *Do Angry Pirates Dream* (2.0, main): "Upon learning of the pirates' plot, Ghimthota resolves to increase patrols of the area."
+
+</details>
+
+**#18b onward · main**
+
+> Head of the watch at the Moraby Drydocks, where the Victory is being built. After pirates attacked the ship, a coded missive was found among their leader Ahtzapfyn's belongings, and she sent it to Baderon, to whom the Yellowjackets turn in such cases.
+
+Sources shown: Do Angry Pirates Dream — main scenario quest (2.0); Victory in Peril — main scenario quest (2.0); Men of the Blue Tattoos — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M16ba** Ghimthota heads the Moraby Drydocks watch and seeks help with suspicious campers on the Gods' Grip. *Do Angry Pirates Dream* (2.0, main): "Head of the [[Moraby Drydocks]] watch, [[Ghimthota]] has asked ''Victory'' foreman Ahtbyrm to recommend an [[adventurer]] to assist the watch in learning more about a band of suspicious individuals who have recently made camp on [[the Gods' Grip]]."
+  - **M17ba** Ghimthota is convinced the pirates mean to sabotage the Victory. *Victory in Peril* (2.0, main): "Ghimthota is convinced that a gang of treacherous pirates aims to sabotage the construction of the ''Victory''."
+  - **M18ba** A coded missive is found among the belongings of Ahtzapfyn, the pirate behind the plot. *Men of the Blue Tattoos* (2.0, main): "Among the possessions of [[Ahtzapfyn]], the pirate behind the plot to sabotage the ''Victory'', a [[Arcane Epistle|missive]] written in some manner of code has been discovered."
+  - **M18bb** The Yellowjackets turn to Baderon and his connections in such cases. *Men of the Blue Tattoos* (2.0, main): "In cases such as this, I am told the Yellowjackets are wont to turn to Baderon and his convenient...connections."
+
+</details>
+
+### Reyner (`char-reyner`, character)
+
+**#19b onward · main** · Also searchable as: Commodore Reyner
+
+> A commodore of the Yellowjackets, Limsa Lominsa's peacekeepers, based at the Coral Tower. He marshaled them when the Sahagin assaulted South Tidegate, and says the Serpent Reavers are in league with the Sahagin. Y'shtola has worked with him for some time.
+
+Sources shown: Feint and Strike — main scenario quest (2.0); Close to Home (Limsa Lominsa) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19bd** Commodore Reyner is at the Coral Tower. *Feint and Strike* (2.0, main): "deliver it to Commodore [[Reyner]] at the [[Coral Tower]]."
+  - **M19be** Reyner marshals the Yellowjackets for battle. *Feint and Strike* (2.0, main): "I will marshal the Yellowjackets for battle immediately."
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+  - **M19bf** Sahagin forces assault South Tidegate. *Feint and Strike* (2.0, main): "Reyner receives word that the [[South Tidegate]] is under assault by [[Sahagin]] forces."
+  - **M19bg** Reyner says the Serpent Reavers are in league with the Sahagin. *Feint and Strike* (2.0, main): "Aye, the Serpent Reavers are in league with the Sahagin."
+  - **M19bl** Y'shtola has worked with the Yellowjackets for some time. *Feint and Strike* (2.0, main): "Y'shtola has been working with us for quite some time, you see."
+
+</details>
+
+### The Yellowjackets (`org-yellowjackets`, organization)
+
+**#1b–#16b · main** · Also searchable as: Yellowjackets
+
+> The guards who keep the peace in Limsa Lominsa.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+  - **M1bf** Your first tasks take you around Limsa Lominsa. *Close to Home (Limsa Lominsa)* (2.0, main): "As you make your way around [[Limsa Lominsa]], try approaching citizens who appear to be in need of help."
+
+</details>
+
+**#17b–#18b · main** · Also searchable as: Yellowjackets
+
+> The guards who keep the peace in Limsa Lominsa. They took custody of the pirates who attacked the Moraby Drydocks, and are investigating the plot.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0); Victory in Peril — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+  - **M17bh** The defeated pirates are handed to the Yellowjackets, and Reyner's men take over the investigation. *Victory in Peril* (2.0, main): "the pirates we defeated have been handed over to the Yellowjackets. Reyner's men will be taking over the investigation."
+
+</details>
+
+**#19b onward · main** · Also searchable as: Yellowjackets
+
+> The guards who keep the peace in Limsa Lominsa, under Commodore Reyner at the Coral Tower. In unusual cases they turn to Baderon and his connections, and Y'shtola has long assisted their investigation of the kidnappings. Their soldiers drove the Serpent Reavers out of Swiftperch.
+
+Sources shown: Close to Home (Limsa Lominsa) — main scenario quest (2.0); Feint and Strike — main scenario quest (2.0); Men of the Blue Tattoos — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1bb** The Yellowjackets keep the peace in the city. *Close to Home (Limsa Lominsa)* (2.0, main): "I am Sundhimal, one of the Yellowjackets tasked with keeping the peace in the city."
+  - **M19bd** Commodore Reyner is at the Coral Tower. *Feint and Strike* (2.0, main): "deliver it to Commodore [[Reyner]] at the [[Coral Tower]]."
+  - **M19be** Reyner marshals the Yellowjackets for battle. *Feint and Strike* (2.0, main): "I will marshal the Yellowjackets for battle immediately."
+  - **M18bb** The Yellowjackets turn to Baderon and his connections in such cases. *Men of the Blue Tattoos* (2.0, main): "In cases such as this, I am told the Yellowjackets are wont to turn to Baderon and his convenient...connections."
+  - **M19bm** Y'shtola assisted the Yellowjackets' kidnapping investigation, a stalwart ally of Limsa Lominsa. *Feint and Strike* (2.0, main): "And she was only too willing to assist the Yellowjackets in the kidnapping investigation, proving herself a stalwart ally of Limsa Lominsa yet again."
+  - **M19bh** You and the Yellowjackets defeat the Reavers at Swiftperch; Y'shtola, a Sharlayan, says a masked Ascian was manipulating the Sahagin and their pirate allies. *Feint and Strike* (2.0, main): "you have defeated the marauding Serpent Reavers and protected the residents of Swiftperch. According to the [[Sharlayan]] native, [[Y'shtola]], it seems that the Sahagin and their pirate allies were being manipulated by a masked mage she called an “[[Ascian]].”"
+
+</details>
+
+### Summerford Farms (`loc-summerford-farms`, location)
+
+**#2b onward · main**
+
+> A farm owned by Staelwyrn, a former pirate captain, and worked largely by ex-pirates who are trying to bring fields ruined by the Calamity back to life.
+
+Sources shown: On to Summerford — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2ba** Baderon sends you to lend a hand at Summerford Farms. *On to Summerford* (2.0, main): "[[Baderon]], proprietor of [[the Drowning Wench]], wants you to lend a hand at [[Summerford Farms]]."
+  - **M2bb** Staelwyrn, the farm's owner, is an old friend of Baderon. *On to Summerford* (2.0, main): "The owner, Staelwyrn, is an old mate o' mine."
+  - **M2bc** Many of the farmhands were once pirates. *On to Summerford* (2.0, main): "A good number of the lads and lasses workin' here once terrorized the high seas."
+  - **M2be** The Calamity ruined the soil, and Staelwyrn is trying to revive the fields. *On to Summerford* (2.0, main): "'as been tryin' to bring a bit o' life back to the fields after the Calamity ruined the soil."
+
+</details>
+
+### A Newcomer in Ul'dah (`evt-a-newcomer-in-uldah`, event)
+
+**#1c only · main**
+
+> You have arrived in Ul'dah, where countless companies and consortia keep their base. Momodi, proprietress of the Quicksand, set you three tasks to learn the basics of adventuring, among them a visit to the Sapphire Avenue Exchange, Ul'dah's busiest and most profitable market. Her parting advice: explore with a purpose.
+
+Sources shown: Close to Home (Ul'dah) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1cc** Countless companies and consortia have made Ul'dah their base. *Close to Home (Ul'dah)* (2.0, main): "Because of this, countless companies and consortia have chosen Ul'dah as their base of operations."
+  - **M1ca** Momodi, proprietress of the Quicksand, sets you three tasks to learn the basics of adventuring. *Close to Home (Ul'dah)* (2.0, main): "[[Momodi]], the proprietress of [[the Quicksand]], wants you to perform three tasks that will help you learn the fundamentals of [[adventurer|adventuring]]."
+  - **M1cb** The Sapphire Avenue Exchange is the sultanate's busiest and most profitable market. *Close to Home (Ul'dah)* (2.0, main): "You stand in the Sapphire Avenue Exchange, the busiest and most profitable marketplace in the sultanate."
+  - **M1cd** Momodi tells you to explore with a purpose. *Close to Home (Ul'dah)* (2.0, main): "So when you go explorin', explore like you've got a purpose, eh?"
+
+</details>
+
+**#2c only · main**
+
+> Momodi of the Quicksand sent you beyond Ul'dah's wall, warning of the dangers there, to Papashan, stationmaster of the Ul'dah Dispatch Yard. Five years after the Calamity, he says, places beyond the lines of supply still want for relief, and he has work suited to your ability.
+
+Sources shown: We Must Rebuild — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2ca** Momodi sends you to Papashan, who may have work for a new adventurer. *We Must Rebuild* (2.0, main): "According to Momodi, a [[Lalafell]] named [[Papashan]] may have some work for a burgeoning [[adventurer]]."
+  - **M2cf** Momodi warns of the dangers beyond the city wall. *We Must Rebuild* (2.0, main): "There's dangers beyond the wall, though. More than I'd care to count."
+  - **M2cb** Papashan is stationmaster of the Ul'dah Dispatch Yard. *We Must Rebuild* (2.0, main): "I am Papashan, stationmaster of this humble Dispatch Yard."
+  - **M2cc** Five years after the Calamity, its devastation was vast. *We Must Rebuild* (2.0, main): "Twelve know there have been plenty of both these last five years since the Calamity struck. The devastation...was vast."
+  - **M2cd** Isolated places beyond the lines of supply still want for relief. *We Must Rebuild* (2.0, main): "Isolated areas beyond our lines of supply remain, and there are places yet wanting for relief and restoration."
+  - **M2ce** Papashan has work suited to your ability. *We Must Rebuild* (2.0, main): "I do believe I may have some work suited to one of your ability."
+
+</details>
+
+**#3c only · main**
+
+> Papashan, stationmaster of the Ul'dah Dispatch Yard, sent you with twilight pretzels for the Sultansworn sentries posted to guard the area. Each had nothing to report, and that news alarmed him. Something else is plainly on his mind, and he has asked you to stay, for there is more he would ask of you.
+
+Sources shown: We Must Rebuild — main scenario quest (2.0); Nothing to See Here — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2cb** Papashan is stationmaster of the Ul'dah Dispatch Yard. *We Must Rebuild* (2.0, main): "I am Papashan, stationmaster of this humble Dispatch Yard."
+  - **M3ca** Papashan sends you with twilight pretzels to the Sultansworn sentries posted to guard the area. *Nothing to See Here* (2.0, main): "It isn't much, but go and give them these twilight pretzels, would you?"
+  - **M3cb** Sentries have been sent to guard the Dispatch Yard's area. *Nothing to See Here* (2.0, main): "It just so happens a number of sentries have been sent to guard the area."
+  - **M3cd** The sentries' empty report alarms Papashan. *Nothing to See Here* (2.0, main): "What? Nothing? Are you sure? I...oh, oh dear."
+  - **M3cc** Papashan seems to have something else on his mind. *Nothing to See Here* (2.0, main): "While Papashan is grateful for your assistance, there appears to be something else on his mind."
+  - **M3ce** Papashan asks you to stay, for he has more to ask of you. *Nothing to See Here* (2.0, main): "And stay a moment─there is more I would ask of you."
+
+</details>
+
+**#4c only · main**
+
+> Papashan's errand was a cover: he and the Sultansworn were quietly searching for Lady Lilira, a young noblewoman who ran away from home. You found her at the Sultantree, where voidsent attacked and a stranger helped you protect her. A vision followed, bidding you claim the Crystals of Light. Papashan named the stranger as Thancred, a scholar of the aether.
+
+Sources shown: Underneath the Sultantree — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4cb** Papashan's errand to the sentries was a cover for the search. *Underneath the Sultantree* (2.0, main): "Which is the ''real'' reason I sent you to meet those Sultansworn."
+  - **M4ca** Papashan and the Sultansworn are searching for Lady Lilira, a young noblewoman who ran away from home. *Underneath the Sultantree* (2.0, main): "The stationmaster explains that he and the [[Sultansworn]] are in fact searching for Lady [[Lilira]], a young noblewoman who has run away from home."
+  - **M4cd** At the Sultantree voidsent attack, and you and a stranger protect Lilira together. *Underneath the Sultantree* (2.0, main): "Moments later, voidsent attack, forcing you to work together to protect Lady Lilira."
+  - **M4ce** A vision says the power to banish the Darkness lies in the Crystals of Light, and bids you claim them. *Underneath the Sultantree* (2.0, main): "The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth, and lay claim to them."
+  - **M4cg** Papashan names the stranger as Thancred, a scholar researching the aether. *Underneath the Sultantree* (2.0, main): "Papashan explains that the young man was most likely [[Thancred]], a scholar conducting research on aether-related subjects."
+
+</details>
+
+**#5c only · main**
+
+> Thancred, a scholar of the aether, helped you protect the runaway Lady Lilira from voidsent at the Sultantree, and a vision bade you claim the Crystals of Light. Back at work in Thanalan, you carried a pumpkin from Cicidoa, who is waiting on a late shipment from the Nanawa Mines, to Roger of the Coffer & Coffin, settling an old debt of gratitude.
+
+Sources shown: Underneath the Sultantree — main scenario quest (2.0); Step Nine — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4cd** At the Sultantree voidsent attack, and you and a stranger protect Lilira together. *Underneath the Sultantree* (2.0, main): "Moments later, voidsent attack, forcing you to work together to protect Lady Lilira."
+  - **M4cg** Papashan names the stranger as Thancred, a scholar researching the aether. *Underneath the Sultantree* (2.0, main): "Papashan explains that the young man was most likely [[Thancred]], a scholar conducting research on aether-related subjects."
+  - **M4ce** A vision says the power to banish the Darkness lies in the Crystals of Light, and bids you claim them. *Underneath the Sultantree* (2.0, main): "The power to banish the Darkness dwelleth in the Crystals of Light. Journey forth, and lay claim to them."
+  - **M5ca** Cicidoa sends a pumpkin to Roger at the Coffer & Coffin to repay a debt of gratitude. *Step Nine* (2.0, main): "To repay a debt of gratitude, Cicidoa wishes to give [[Roger]] a [[Plantation Pumpkin|pumpkin]], which he has purchased from [[the Royal Plantations]]."
+  - **M5cb** Cicidoa is waiting on a late shipment from the Nanawa Mines. *Step Nine* (2.0, main): "the scheduled shipment from the Nanawa Mines, for which I wait, is late."
+
+</details>
+
+**#6c only · main**
+
+> Taking work around Thanalan, you carried a pumpkin to Roger of the Coffer & Coffin, repaying an old debt of gratitude, and Roger sent you on to Warin of the Stone Torches. They are sellswords hired by Amajina & Sons Mineral Concern, and their main duty is to keep its tracks clear of pests.
+
+Sources shown: Step Nine — main scenario quest (2.0); Prudence at This Junction — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M5ca** Cicidoa sends a pumpkin to Roger at the Coffer & Coffin to repay a debt of gratitude. *Step Nine* (2.0, main): "To repay a debt of gratitude, Cicidoa wishes to give [[Roger]] a [[Plantation Pumpkin|pumpkin]], which he has purchased from [[the Royal Plantations]]."
+  - **M6ca** Roger sends you to Warin of the Stone Torches, who needs help. *Prudence at This Junction* (2.0, main): "He suggests that you speak with [[Warin]] of the [[Stone Torches]], who is in need of assistance of some description."
+  - **M6cb** The Stone Torches are sellswords hired by Amajina & Sons Mineral Concern. *Prudence at This Junction* (2.0, main): "We Stone Torches are sellswords hired by Amajina & Sons Mineral Concern to protect its interests."
+  - **M6cc** The Stone Torches keep the tracks clear of pests. *Prudence at This Junction* (2.0, main): "Our primary duty here is to keep the tracks clear of pests, and it is for this purpose that we require your aid."
+
+</details>
+
+**#7c onward · main**
+
+> For Warin of the Stone Torches, sellswords who guard Amajina & Sons Mineral Concern, you purged a tunnel of the coblyns that were attacking ore wagons. Disrupted shipments, he says, threaten Ul'dah itself: he likens the tracks to veins that bear the nation's lifeblood.
+
+Sources shown: Prudence at This Junction — main scenario quest (2.0); Out of House and Home — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M6cb** The Stone Torches are sellswords hired by Amajina & Sons Mineral Concern. *Prudence at This Junction* (2.0, main): "We Stone Torches are sellswords hired by Amajina & Sons Mineral Concern to protect its interests."
+  - **M7ca** Warin wants the coblyns that attack ore wagons exterminated. *Out of House and Home* (2.0, main): "[[Warin]] has work for an [[adventurer]] willing to exterminate the [[Silver Coblyn|coblyns]] attacking ore wagons."
+  - **M7cb** You purge the tunnel of coblyns, securing future shipments. *Out of House and Home* (2.0, main): "You have purged the tunnel of coblyn presence, thus ensuring the security of future shipments."
+  - **M7cc** Disrupted ore shipments threaten Ul'dah itself. *Out of House and Home* (2.0, main): "Disruptions to ore shipments threaten not only the interests of Amajina & Sons Mineral Concern, but of Ul'dah herself."
+  - **M7cd** Warin likens the tracks to veins bearing the nation's lifeblood. *Out of House and Home* (2.0, main): "One might liken these train tracks to veins that bear our nation's lifeblood."
+
+</details>
+
+### Ore and Gil (`evt-ore-and-gil`, event)
+
+**#8c only · main**
+
+> Wystan, a self-made merchant from Stonesthrow, took Brass Blades along to claim a rumored ore vein under the ruins of Sil'dih, but the vein was a trap set by Lord Lolorito of the Syndicate. The Brass Blades turned on him, a masked mage loosed a clay golem, and you slew it just before Thancred arrived. Wystan is finished in Ul'dah, but Momodi says no one knows your part.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8ca** Wystan, a self-made merchant from Stonesthrow, is moving to claim an ore vein. *Way Down in the Hole* (2.0, main): "And even as we speak, a young upstart─a self-made merchant from ''Stonesthrow'' of all places─is moving to claim it!"
+  - **M8cl** Rumor says a vast, untapped vein of ore lies beneath the ruins of Sil'dih. *Way Down in the Hole* (2.0, main): "Rumor has it that there is a vast, untapped vein of ore beneath the ruins of Sil'dih."
+  - **M8ce** Lolorito marked Wystan for death; the vein, the Brass Blades and the golem were all part of the trap. *Way Down in the Hole* (2.0, main): "Wystan now understands that he has been marked for death by Lord [[Lolorito]]. The ore vein, the Brass Blades, and the golem all appear to have been part of the trap."
+  - **M8cc** At the ruins the Brass Blades turn on Wystan, saying no one crosses the Syndicate. *Way Down in the Hole* (2.0, main): "''No one'' crosses the Syndicate!"
+  - **M8cd** A masked mage looses a clay golem on you, and you slay it just before Thancred arrives. *Way Down in the Hole* (2.0, main): "Your confrontation with the Brass Blades is interrupted by a mysterious masked mage, who unleashes a [[Clay Golem|clay golem]] upon you. In the chaotic battle that ensues, you somehow slay the rampaging construct moments before [[Thancred]] arrives."
+  - **M8cj** Momodi confirms Wystan is finished in Ul'dah, but no one knows your part. *Way Down in the Hole* (2.0, main): "Momodi confirms that Wystan is finished in [[Ul'dah]], but assures you that no one knows of your deeds."
+
+</details>
+
+**#9c only · main**
+
+> Lord Lolorito, who owns the Brass Blades and sits on the Syndicate, set a deadly trap for Wystan, a rival merchant, and Wystan is finished in Ul'dah. Momodi, who keeps your part in it quiet, has sent you to Dadanen, a merchant in Horizon, a trading settlement that takes in goods from Vesper Bay.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0); Takin' What They're Givin' — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8cf** Lolorito owns the Brass Blades. *Way Down in the Hole* (2.0, main): "Lolorito ''owns'' the godsdamned Brass Blades."
+  - **M8cg** Lolorito chairs a trading company, gives generously to the Order of Nald'thal, and sits on the Syndicate. *Way Down in the Hole* (2.0, main): "''Lord'' Lolorito: chairman of the East Aldenard Trading Company, generous contributor to the Order of Nald'thal, ''and'' member of the Syndicate."
+  - **M8ce** Lolorito marked Wystan for death; the vein, the Brass Blades and the golem were all part of the trap. *Way Down in the Hole* (2.0, main): "Wystan now understands that he has been marked for death by Lord [[Lolorito]]. The ore vein, the Brass Blades, and the golem all appear to have been part of the trap."
+  - **M8cj** Momodi confirms Wystan is finished in Ul'dah, but no one knows your part. *Way Down in the Hole* (2.0, main): "Momodi confirms that Wystan is finished in [[Ul'dah]], but assures you that no one knows of your deeds."
+  - **M9ca** Momodi sends you to Dadanen, a merchant who needs a hand. *Takin' What They're Givin'* (2.0, main): "So happens I know a fella by the name of [[Dadanen]] who needs a hand."
+  - **M9cb** Horizon is a trading settlement that takes in goods from the port of Vesper Bay. *Takin' What They're Givin'* (2.0, main): "Ours is a trading settlement that sees goods in from the port of Vesper Bay to the west─and trade we do."
+
+</details>
+
+**#10c only · main**
+
+> In Horizon, a trading settlement in Thanalan, the merchant Dadanen is out of premium stock, and his man Drunken Stag went silent after leaving for Copperbell Mines. You found him there: the mines are closed after an incident in the depths, and he can do nothing.
+
+Sources shown: Takin' What They're Givin' — main scenario quest (2.0); Supply and Demands — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9cb** Horizon is a trading settlement that takes in goods from the port of Vesper Bay. *Takin' What They're Givin'* (2.0, main): "Ours is a trading settlement that sees goods in from the port of Vesper Bay to the west─and trade we do."
+  - **M10ca** Dadanen is out of premium product and his latest order is late. *Supply and Demands* (2.0, main): "I'm plumb out of premium product, and my latest order has yet to arrive!"
+  - **M10cb** Dadanen has heard nothing from his man since he left for Copperbell Mines. *Supply and Demands* (2.0, main): "I've heard nothing since he departed for Copperbell Mines days ago."
+  - **M10cc** The mines have been closed after an incident in the depths, so Drunken Stag can do nothing. *Supply and Demands* (2.0, main): "Drunken Stag is powerless to act, as the mines have been closed due to an incident in the depths."
+
+</details>
+
+**#11c only · main**
+
+> In Horizon, a trading settlement in Thanalan, the merchant Dadanen faces ruin for want of stock, because Copperbell Mines closed after an incident in the depths. Strange coblyns, hungry only for good stone, drove his man Drunken Stag off his haul of Nashachite, and you won back what little they had not eaten.
+
+Sources shown: Takin' What They're Givin' — main scenario quest (2.0); Give It to Me Raw — main scenario quest (2.0); Supply and Demands — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9cb** Horizon is a trading settlement that takes in goods from the port of Vesper Bay. *Takin' What They're Givin'* (2.0, main): "Ours is a trading settlement that sees goods in from the port of Vesper Bay to the west─and trade we do."
+  - **M11cc** A timely delivery may keep Dadanen from destitution. *Give It to Me Raw* (2.0, main): "a timely delivery to [[Dadanen]] may prevent his impending fall into destitution."
+  - **M10cc** The mines have been closed after an incident in the depths, so Drunken Stag can do nothing. *Supply and Demands* (2.0, main): "Drunken Stag is powerless to act, as the mines have been closed due to an incident in the depths."
+  - **M11ca** Strange coblyns, hungry only for good stone, drove Drunken Stag off his haul. *Give It to Me Raw* (2.0, main): "Not like any coblyns I'd seen before, and hungry only for the good rocks."
+  - **M11cb** The coblyns ate most of the haul. *Give It to Me Raw* (2.0, main): "I reckon those coblyns made a meal of the stuff."
+
+</details>
+
+**#12c only · main**
+
+> In Horizon, a trading settlement in Thanalan, the Brass Blades pay for help keeping the roads clear, and you thinned the sun midge swarms for them. Fufulupa, a Brass Blade there, thanked you and asked you to trace his letter to Captain Leofric at Lost Hope: never before has a reply taken so long.
+
+Sources shown: Takin' What They're Givin' — main scenario quest (2.0); The Perfect Swarm — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9cb** Horizon is a trading settlement that takes in goods from the port of Vesper Bay. *Takin' What They're Givin'* (2.0, main): "Ours is a trading settlement that sees goods in from the port of Vesper Bay to the west─and trade we do."
+  - **M12ca** The Brass Blades pay people to keep the roads clear of sun midges. *The Perfect Swarm* (2.0, main): "It's gotten so bad that the Brass Blades have started paying folks to keep the roads clear."
+  - **M12cb** Fufulupa thanks you, as the Brass Blades have struggled with the swarms. *The Perfect Swarm* (2.0, main): "The Brass Blades have been struggling to keep them in check, so your assistance is greatly appreciated."
+  - **M12cc** Fufulupa's letters to Captain Leofric at Lost Hope have gone unanswered. *The Perfect Swarm* (2.0, main): "Captain Leofric is stationed there. Ever since he was transferred, we've exchanged letters, but never before has it taken this long to receive a reply."
+
+</details>
+
+**#13c only · main**
+
+> Carrying Fufulupa's letter from Horizon in place of a courier whose chocobo was hurt, you reached Lost Hope. There Leofric, a Brass Blade demoted though Fufulupa still calls him Captain, says everyone at Lost Hope has been forsaken, and warned you not to linger with Ul'dah's unwanted.
+
+Sources shown: The Perfect Swarm — main scenario quest (2.0); Last Letter to Lost Hope — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12cc** Fufulupa's letters to Captain Leofric at Lost Hope have gone unanswered. *The Perfect Swarm* (2.0, main): "Captain Leofric is stationed there. Ever since he was transferred, we've exchanged letters, but never before has it taken this long to receive a reply."
+  - **M13ca** The courier is unharmed, but her chocobo is hurt. *Last Letter to Lost Hope* (2.0, main): "You find the courier unharmed, but her [[chocobo]] did not fare as well."
+  - **M13cb** Leofric has been demoted, though Fufulupa still calls him Captain. *Last Letter to Lost Hope* (2.0, main): "Despite my demotion, he continues to call me Captain."
+  - **M13cc** Leofric says everyone at Lost Hope has been forsaken. *Last Letter to Lost Hope* (2.0, main): "All here have been forsaken, adventurer."
+  - **M13cd** Leofric, a crestfallen Brass Blade, warns you not to linger with Ul'dah's unwanted. *Last Letter to Lost Hope* (2.0, main): "Leofric thanks you for the letter and suggests that you do not linger in Lost Hope, lest you become associated with [[Ul'dah]]'s unwanted. Despite what the crestfallen [[The Brass Blades|Brass Blade]] says"
+
+</details>
+
+**#14c only · main**
+
+> At Lost Hope, which suffers despite Ul'dah's growing prosperity, the demoted Brass Blade Leofric sent you against outlaws in the Quiveron Manse. Their leader styled himself heir to Eolande Quiveron, a Syndicate member who died in the Calamity, and he is now dead. Leofric says the Brass Blades of the Rose must look to others.
+
+Sources shown: Last Letter to Lost Hope — main scenario quest (2.0); Heir Today, Gone Tomorrow — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13cb** Leofric has been demoted, though Fufulupa still calls him Captain. *Last Letter to Lost Hope* (2.0, main): "Despite my demotion, he continues to call me Captain."
+  - **M14cd** Lost Hope suffers despite Ul'dah's prosperity, and Leofric says the Brass Blades of the Rose must look to others. *Heir Today, Gone Tomorrow* (2.0, main): "Leofric thanks you for aiding the people of [[Lost Hope]], who continue to suffer in spite of [[Ul'dah]]'s growing prosperity. Reflecting on his downfall, the captain concludes that [[the Brass Blades of the Rose]] must look to others for guidance."
+  - **M14ca** Outlaws have taken over the Quiveron Manse. *Heir Today, Gone Tomorrow* (2.0, main): "A band of outlaws has taken up residence at the Quiveron Manse on the ridge to the south."
+  - **M14cb** Their leader styles himself heir to Eolande Quiveron, a Syndicate member who died in the Calamity. *Heir Today, Gone Tomorrow* (2.0, main): "Their leader has styled himself heir to Eolande Quiveron, the Syndicate member who died in the Calamity."
+  - **M14cc** The self-styled baron is dead. *Heir Today, Gone Tomorrow* (2.0, main): "[[Baron von Quiveron III Esquire]] is no more."
+
+</details>
+
+**#15c only · main**
+
+> Leofric of Lost Hope, too hurt to travel, sent an antique dagger to Fufulupa in Horizon by your hand, after saying the Brass Blades of the Rose must look to others. Only a captain may carry it, and Fufulupa, thinking himself unworthy, keeps it safe until Leofric reclaims it.
+
+Sources shown: Passing the Blade — main scenario quest (2.0); Heir Today, Gone Tomorrow — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M15ca** Leofric, too hurt to travel, sends an antique dagger to Fufulupa. *Passing the Blade* (2.0, main): "Leofric wishes to give an antique dagger to [[Fufulupa]], but is in no shape to travel due to his injuries."
+  - **M14cd** Lost Hope suffers despite Ul'dah's prosperity, and Leofric says the Brass Blades of the Rose must look to others. *Heir Today, Gone Tomorrow* (2.0, main): "Leofric thanks you for aiding the people of [[Lost Hope]], who continue to suffer in spite of [[Ul'dah]]'s growing prosperity. Reflecting on his downfall, the captain concludes that [[the Brass Blades of the Rose]] must look to others for guidance."
+  - **M15cb** Only a captain of the Brass Blades of the Rose may carry the dagger; Fufulupa keeps it until Leofric reclaims it. *Passing the Blade* (2.0, main): "explaining that only captains of [[the Brass Blades of the Rose]] are permitted to carry it. Nevertheless, he takes it into safekeeping until Leofric comes to reclaim it."
+  - **M15cc** Fufulupa thinks himself unworthy of the dagger. *Passing the Blade* (2.0, main): "I am not worthy to wield it."
+
+</details>
+
+**#16c only · main**
+
+> Fufulupa, the Horizon Brass Blade who keeps Leofric's captain's dagger, worries for thaumaturges from the Ossuary surveying the Footfalls for relics: Captain Baldewyn sent only a handful of guards. At the ruins Totoruna turned your help away, saying Baldewyn wants trusted men only, and that the work has nothing to do with Fufulupa.
+
+Sources shown: Passing the Blade — main scenario quest (2.0); Following Footfalls — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M15cb** Only a captain of the Brass Blades of the Rose may carry the dagger; Fufulupa keeps it until Leofric reclaims it. *Passing the Blade* (2.0, main): "explaining that only captains of [[the Brass Blades of the Rose]] are permitted to carry it. Nevertheless, he takes it into safekeeping until Leofric comes to reclaim it."
+  - **M16ca** Fufulupa's fellow Brass Blades guard thaumaturges surveying the Footfalls. *Following Footfalls* (2.0, main): "[[Fufulupa]] needs you to assist his fellow [[The Brass Blades|Brass Blades]]."
+  - **M16cb** Thaumaturges from the Ossuary are surveying the Footfalls for ancient relics. *Following Footfalls* (2.0, main): "Thaumaturges from the Ossuary are presently surveying the Footfalls for ancient relics."
+  - **M16cc** Captain Baldewyn sent only a handful of Brass Blades to guard them. *Following Footfalls* (2.0, main): "But Captain Baldewyn sent only a handful of Brass Blades!"
+  - **M16cd** Baldewyn said only trusted men would be on the operation. *Following Footfalls* (2.0, main): "I ain't heard nothin' from Cap'n Baldewyn 'bout this. He said trusted men only..."
+  - **M16ce** Totoruna refuses help: the operation has nothing to do with Fufulupa. *Following Footfalls* (2.0, main): "we've got this under control─an' besides, this operation ain't got nothin' to do with Fufulupa."
+
+</details>
+
+**#17c only · main**
+
+> Captain Baldewyn of Horizon keeps his Footfalls survey to trusted men, and turned away Fufulupa's offer of help. Now he is planning festivities for the visiting thaumaturges, but Raffe, the fisherman you asked for their fish, was oddly nervous about the captain's request.
+
+Sources shown: Following Footfalls — main scenario quest (2.0); Storms on the Horizon — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M16cc** Captain Baldewyn sent only a handful of Brass Blades to guard them. *Following Footfalls* (2.0, main): "But Captain Baldewyn sent only a handful of Brass Blades!"
+  - **M16cd** Baldewyn said only trusted men would be on the operation. *Following Footfalls* (2.0, main): "I ain't heard nothin' from Cap'n Baldewyn 'bout this. He said trusted men only..."
+  - **M17ca** Captain Baldewyn is planning festivities for the thaumaturges. *Storms on the Horizon* (2.0, main): "Captain Baldewyn's plannin' some festivities for the thaumaturges, see, and he wants 'em treated to the finest food and drink."
+  - **M17cb** The fisherman Raffe reacts nervously to Baldewyn's request. *Storms on the Horizon* (2.0, main): "Raffe's nervous reaction to Captain Baldewyn's request lingers in your mind."
+
+</details>
+
+**#18c only · main**
+
+> Bandits from the Quiveron Manse came to the Footfalls for Nashachite stolen from Copperbell Mines, and their partner was Captain Baldewyn, who claimed Lord Lolorito's authority. You defeated him and the new self-styled baron, who vowed revenge for his brother. Leofric says Baldewyn acted alone, and Fufulupa is now acting captain.
+
+Sources shown: Oh Captain, My Captain — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M18ca** Bandits plan to collect Nashachite stolen from Copperbell Mines. *Oh Captain, My Captain* (2.0, main): "[[Fufulupa]] has accidentally overheard Merilda's tale regarding the bandits and their plans to obtain [[Raw Nashachite|Nashachite]] stolen from [[Copperbell Mines]]."
+  - **M18cb** Fufulupa's supervising officer is secretly cooperating with the bandits. *Oh Captain, My Captain* (2.0, main): "runs to tell his supervising officer─who, unbeknownst to Fufulupa, is cooperating with the bandits."
+  - **M18cc** Baldewyn claims to act under Lolorito's authority. *Oh Captain, My Captain* (2.0, main): "I am acting under the authority of Lord Lolorito himself!"
+  - **M18cd** Quiveron IV says you killed his brother and vows revenge. *Oh Captain, My Captain* (2.0, main): "You killed my brother, and now I'm going to return the favor!"
+  - **M18ce** Leofric reveals Baldewyn acted without Lolorito's knowledge. *Oh Captain, My Captain* (2.0, main): "Baldewyn was in fact operating without Lord [[Lolorito]]'s knowledge"
+  - **M18cf** Baldewyn is stripped of rank, and Fufulupa is acting captain of the Horizon garrison. *Oh Captain, My Captain* (2.0, main): "Baldewyn has been stripped of his rank, leaving [[the Brass Blades of the Rose]] without a captain. For now, Fufulupa will serve as acting captain of the Horizon garrison."
+
+</details>
+
+**#19c onward · main**
+
+> Captain Baldewyn of Horizon, caught dealing with bandits in stolen Nashachite, has been stripped of his rank, and Fufulupa is acting captain. Among Baldewyn's papers Fufulupa found a sealed letter to Owyne of the Sultansworn. Momodi swears Owyne is loyal, yet she has her own suspicions, and asked you to swear secrecy.
+
+Sources shown: Oh Captain, My Captain — main scenario quest (2.0); Secrets and Lies — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M18cf** Baldewyn is stripped of rank, and Fufulupa is acting captain of the Horizon garrison. *Oh Captain, My Captain* (2.0, main): "Baldewyn has been stripped of his rank, leaving [[the Brass Blades of the Rose]] without a captain. For now, Fufulupa will serve as acting captain of the Horizon garrison."
+  - **M18ca** Bandits plan to collect Nashachite stolen from Copperbell Mines. *Oh Captain, My Captain* (2.0, main): "[[Fufulupa]] has accidentally overheard Merilda's tale regarding the bandits and their plans to obtain [[Raw Nashachite|Nashachite]] stolen from [[Copperbell Mines]]."
+  - **M19ca** Fufulupa finds a sealed letter to Sultansworn Owyne among his predecessor's belongings. *Secrets and Lies* (2.0, main): "Fufulupa reveals that he has found a [[Letter to Owyne|sealed letter]] addressed to [[Sultansworn]] [[Owyne]] among his disgraced predecessor's belongings."
+  - **M19cc** Momodi insists Owyne is loyal, but has suspicions about the letter. *Secrets and Lies* (2.0, main): "However, she has her own suspicions regarding the letter..."
+  - **M19cd** Momodi asks you to swear secrecy before she explains. *Secrets and Lies* (2.0, main): "Listen, [Forename]─I think I know what this is all about, but I need you to swear to keep it quiet."
+
+</details>
+
+### The Sultana's Crown (`evt-the-sultanas-crown`, event)
+
+**#20c only · main**
+
+> Ul'dah's royal crown was stolen, and Owyne, the Sultansworn who guarded it, paid the thieves' ransom. It was the Traders' Spurn, which the thieves called the power to raise an army of undying soldiers. With Papashan and the Sultansworn you beat them, and Thancred helped you defeat their master, a masked mage called an Ascian. Sultana Nanamo thanked you in person and invited you to her feast as her guest of honor.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20ca** Momodi reveals that the royal crown has been stolen. *Duty, Honor, Country* (2.0, main): "Having sworn you to secrecy, Momodi reveals that the royal crown has been stolen."
+  - **M20cd** Owyne, the Sultansworn who was guarding the crown, decides to pay the thieves' ransom. *Duty, Honor, Country* (2.0, main): "And Owyne...Owyne's the Sultansworn who was charged with guardin' it that night. … Believing there to be no other way, the guilt-ridden Sultansworn decides to give the criminals what they want."
+  - **M20cf** The ransom was the Traders' Spurn, which the thieves call the power to raise an army of undying soldiers. *Duty, Honor, Country* (2.0, main): "The power to create an army of undying soldiers─''The Traders' Spurn''!"
+  - **M20cg** With Papashan and a band of Sultansworn, you defeat the thieves. *Duty, Honor, Country* (2.0, main): "with the aid of [[Papashan]] and a band of Sultansworn, you defeat them."
+  - **M20ci** With Thancred's help you defeat the masked mage behind the theft, whom the Journal calls an Ascian. *Duty, Honor, Country* (2.0, main): "Soon after, you find yourself alone with the masked mage who orchestrated the theft, and another battle ensues. Fortunately, [[Thancred]] comes to your aid, and together you emerge triumphant. Though the motives of this “[[Ascian]]” remain a mystery, his schemes now lie in ruin."
+  - **M20cm** Nanamo, seventeenth to rule Ul'dah, thanks you and makes you her guest of honor at a coming feast. *Duty, Honor, Country* (2.0, main): "seventeenth ascendant to the throne of Ul'dah, Her Royal Majesty Nanamo Ul Namo presides! … See to it that our champion is my personal guest at the banquet."
+
+</details>
+
+**#21c only · main**
+
+> With Papashan, Thancred and the Sultansworn, you recovered Ul'dah's stolen crown and defeated the masked mage behind the theft, called an Ascian. Owyne calls Sultana Nanamo's invitation to her feast unprecedented for an adventurer, and Momodi has entrusted you with the ceremonial earrings that guests must wear to enter.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0); A Matter of Tradition — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cg** With Papashan and a band of Sultansworn, you defeat the thieves. *Duty, Honor, Country* (2.0, main): "with the aid of [[Papashan]] and a band of Sultansworn, you defeat them."
+  - **M20ci** With Thancred's help you defeat the masked mage behind the theft, whom the Journal calls an Ascian. *Duty, Honor, Country* (2.0, main): "Soon after, you find yourself alone with the masked mage who orchestrated the theft, and another battle ensues. Fortunately, [[Thancred]] comes to your aid, and together you emerge triumphant. Though the motives of this “[[Ascian]]” remain a mystery, his schemes now lie in ruin."
+  - **M20cm** Nanamo, seventeenth to rule Ul'dah, thanks you and makes you her guest of honor at a coming feast. *Duty, Honor, Country* (2.0, main): "seventeenth ascendant to the throne of Ul'dah, Her Royal Majesty Nanamo Ul Namo presides! … See to it that our champion is my personal guest at the banquet."
+  - **M21ca** Owyne calls the sultana's personal invitation to an adventurer unprecedented. *A Matter of Tradition* (2.0, main): "For an adventurer to receive a personal invitation from Her Grace is unprecedented!"
+  - **M21cb** The ceremonial earrings, unique to the occasion, serve as a security measure. *A Matter of Tradition* (2.0, main): "Bein' of a design unique to the occasion, the earrin's serve as a security measure."
+  - **M21cd** You now have the earrings needed to enter the feast. *A Matter of Tradition* (2.0, main): "You now have the ceremonial earrings needed to gain entry to the banquet."
+
+</details>
+
+**#22c onward · main**
+
+> At her feast, Sultana Nanamo named you Ul'dah's champion. Raubahn spoke of children starving under the Syndicate's grip, and of the Warriors of Light, lost at Carteneau five years ago, whom you resemble. His tale brought on a vision of that battle's last moments. You woke at the Hourglass, and the Flame General has work for you.
+
+Sources shown: A Royal Reception — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M22ca** Nanamo presents you to her guests as Ul'dah's champion. *A Royal Reception* (2.0, main): "Honored guests, I give you our champion!"
+  - **M22cb** Raubahn says children starve in Ul'dah's streets while the rich feast. *A Royal Reception* (2.0, main): "While we gorge ourselves, children starve in the streets."
+  - **M22cc** Members of the Syndicate who profit from the workers' poverty thwart the sultana at every turn. *A Royal Reception* (2.0, main): "She is thwarted at every turn by those on the Syndicate who derive their wealth from the workers' poverty."
+  - **M22cf** Those heroes were lost at Carteneau five years ago; their names are forgotten, so they are called the Warriors of Light. *A Royal Reception* (2.0, main): "And they stood with us at Carteneau, that fateful day five years ago... … But the names of these heroes come not to our lips. … It is for this reason that we have come to call them the Warriors of Light."
+  - **M22ch** The tale brings a vision of the last moments of the Battle of Carteneau, and you wake at the Hourglass. *A Royal Reception* (2.0, main): "The tale triggers inside your mind a vision of the final moments of the [[Battle of Carteneau]]. When you subsequently come to your senses, you are surprised to find yourself in a room at [[the Hourglass]], with no idea how you got there."
+  - **M22ci** The Flame General says there is work to be done, and he would have you do it. *A Royal Reception* (2.0, main): "The Flame General declares that there is work to be done─and that he would have you do it."
+
+</details>
+
+### The Flame General's Envoy (`evt-the-flame-generals-envoy`, event)
+
+**#23b only · main**
+
+> Raubahn made you his envoy to the other leaders of the Eorzean Alliance, proposing a memorial for the fifth anniversary of Carteneau. Admiral Merlwyb of Limsa Lominsa and Elder Seedseer Kan-E-Senna of Gridania agreed. Both warn that the Empire's XIVth Legion under Gaius is entrenched at Eorzea's borders, and that the beast tribes still summon primals.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23ba** Raubahn makes you his personal envoy to the other two leaders of the Eorzean Alliance. *The Ul'dahn Envoy* (2.0, main): "Appointing you his personal envoy, Raubahn bids you deliver a missive to the other two leaders of the [[Eorzean Alliance]]."
+  - **M23bb** Raubahn means to mark the fifth anniversary of Carteneau with a memorial service. *The Ul'dahn Envoy* (2.0, main): "And so I mean to mark the fifth anniversary of the Battle of Carteneau with a memorial service honoring the fallen."
+  - **M23bk** Merlwyb accepts Raubahn's proposal. *The Ul'dahn Envoy* (2.0, main): "Aye, Raubahn has the right of it. I accept his proposal."
+  - **M23bo** Kan-E-Senna approves the memorial and will hold a service in Gridania. *The Ul'dahn Envoy* (2.0, main): "The Flame General was wise to make his proposal, and I wholeheartedly approve of it. The necessary provisions shall be made for a service here in Gridania."
+  - **M23bg** The XIVth Imperial Legion under Legatus Gaius is entrenched in the border regions. *The Ul'dahn Envoy* (2.0, main): "with the [[XIVth Imperial Legion]], led by Legatus [[Gaius van Baelsar]], deeply entrenched in the border regions."
+  - **M23bj** Merlwyb warns that the imperials crowd Eorzea's borders. *The Ul'dahn Envoy* (2.0, main): "Do not imagine that the Empire has forsaken its claim on Eorzea. The imperials crowd our borders, waiting to strike."
+  - **M23bn** The beast tribes still summon their primals. *The Ul'dahn Envoy* (2.0, main): "To add to our woes, the beast tribes continue to summon their primals, whose very existence is a bane upon the land."
+
+</details>
+
+**#24 onward · main**
+
+> As the Flame General's envoy you carried his proposal of a Carteneau memorial to Limsa Lominsa and Gridania, and both leaders agreed. Now a Serpent officer has sent you on to Baderon, proprietor of the Drowning Wench in Limsa Lominsa, who needs a capable adventurer and warns the job is dangerous.
+
+Sources shown: The Ul'dahn Envoy — main scenario quest (2.0); Call of the Sea (Ul'dah) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M23ba** Raubahn makes you his personal envoy to the other two leaders of the Eorzean Alliance. *The Ul'dahn Envoy* (2.0, main): "Appointing you his personal envoy, Raubahn bids you deliver a missive to the other two leaders of the [[Eorzean Alliance]]."
+  - **M23bk** Merlwyb accepts Raubahn's proposal. *The Ul'dahn Envoy* (2.0, main): "Aye, Raubahn has the right of it. I accept his proposal."
+  - **M23bo** Kan-E-Senna approves the memorial and will hold a service in Gridania. *The Ul'dahn Envoy* (2.0, main): "The Flame General was wise to make his proposal, and I wholeheartedly approve of it. The necessary provisions shall be made for a service here in Gridania."
+  - **M24b** A Serpent officer thinks the Flame General's envoy would make a fine candidate. *Call of the Sea (Ul'dah)* (2.0, main): "I know not what the task entails, but I daresay the Flame General's personal envoy would make a fine candidate."
+  - **M24a** Baderon, proprietor of the Drowning Wench in Limsa Lominsa, needs a capable adventurer. *Call of the Sea (Ul'dah)* (2.0, main): "[[Baderon]], the proprietor of [[the Drowning Wench]] in [[Limsa Lominsa]], has need of a capable [[adventurer]]."
+  - **M24c** Baderon warns that the job will be dangerous. *Call of the Sea (Ul'dah)* (2.0, main): "Baderon warns you that the job will entail considerable danger."
+
+</details>
+
+### Momodi (`char-momodi`, character)
+
+**#1c–#7c · main**
+
+> Proprietress of the Quicksand in Ul'dah, who sets new adventurers their first tasks.
+
+Sources shown: Close to Home (Ul'dah) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1ca** Momodi, proprietress of the Quicksand, sets you three tasks to learn the basics of adventuring. *Close to Home (Ul'dah)* (2.0, main): "[[Momodi]], the proprietress of [[the Quicksand]], wants you to perform three tasks that will help you learn the fundamentals of [[adventurer|adventuring]]."
+
+</details>
+
+**#8c–#18c · main**
+
+> Proprietress of the Quicksand in Ul'dah, who finds work for adventurers. She keeps quiet the part an adventurer played in surviving Lord Lolorito's trap for the merchant Wystan.
+
+Sources shown: Close to Home (Ul'dah) — main scenario quest (2.0); Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1ca** Momodi, proprietress of the Quicksand, sets you three tasks to learn the basics of adventuring. *Close to Home (Ul'dah)* (2.0, main): "[[Momodi]], the proprietress of [[the Quicksand]], wants you to perform three tasks that will help you learn the fundamentals of [[adventurer|adventuring]]."
+  - **M8cj** Momodi confirms Wystan is finished in Ul'dah, but no one knows your part. *Way Down in the Hole* (2.0, main): "Momodi confirms that Wystan is finished in [[Ul'dah]], but assures you that no one knows of your deeds."
+  - **M8ce** Lolorito marked Wystan for death; the vein, the Brass Blades and the golem were all part of the trap. *Way Down in the Hole* (2.0, main): "Wystan now understands that he has been marked for death by Lord [[Lolorito]]. The ore vein, the Brass Blades, and the golem all appear to have been part of the trap."
+
+</details>
+
+**#19c–#27 · main**
+
+> Proprietress of the Quicksand in Ul'dah, who finds work for adventurers, and a steadfast supporter of the royal family. She swears that Owyne of the Sultansworn is loyal, but suspects what his letter means.
+
+Sources shown: Close to Home (Ul'dah) — main scenario quest (2.0); Secrets and Lies — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M1ca** Momodi, proprietress of the Quicksand, sets you three tasks to learn the basics of adventuring. *Close to Home (Ul'dah)* (2.0, main): "[[Momodi]], the proprietress of [[the Quicksand]], wants you to perform three tasks that will help you learn the fundamentals of [[adventurer|adventuring]]."
+  - **M19cb** Momodi is a steadfast supporter of the royal family. *Secrets and Lies* (2.0, main): "he bids you deliver the letter to [[Momodi]] of [[the Quicksand]], a steadfast supporter of the royal family."
+  - **M19cc** Momodi insists Owyne is loyal, but has suspicions about the letter. *Secrets and Lies* (2.0, main): "However, she has her own suspicions regarding the letter..."
+
+</details>
+
+**#28–#29 · main**
+
+> Proprietress of the Quicksand in Ul'dah, through whom the Adventurers' Guild there hires adventurers. Miounne calls her Ul'dah's version of herself.
+
+Sources shown: Call of the Desert — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M28a** Momodi, proprietress of the Quicksand, has a task from the Adventurers' Guild in Ul'dah. *Call of the Desert* (2.0, main): "the [[Adventurers' Guild]] in [[Ul'dah]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking to [[Momodi]], the proprietress of [[the Quicksand]]."
+  - **M28b** Miounne calls Momodi the sultanate's version of herself. *Call of the Desert* (2.0, main): "Think of her as the sultanate's version of myself."
+
+</details>
+
+**#30 onward · main**
+
+> Proprietress of the Quicksand in Ul'dah, through whom the Adventurers' Guild there hires adventurers. She sent you into Copperbell Mines, and she speaks well of the Scions of the Seventh Dawn, warning that their work is no ordinary work; she told you where to find them.
+
+Sources shown: Call of the Desert — main scenario quest (2.0); Into a Copper Hell — main scenario quest (2.0); The Scions of the Seventh Dawn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M28a** Momodi, proprietress of the Quicksand, has a task from the Adventurers' Guild in Ul'dah. *Call of the Desert* (2.0, main): "the [[Adventurers' Guild]] in [[Ul'dah]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking to [[Momodi]], the proprietress of [[the Quicksand]]."
+  - **M29a** Giants, hecatoncheires, have been wreaking havoc in Copperbell Mines. *Into a Copper Hell* (2.0, main): "It would seem that a horde of [[hecatoncheir]]es has been wreaking havoc in the depths of [[Copperbell Mines]]."
+  - **M29f** Momodi warns that the Scions are no ordinary folk and do no ordinary work. *Into a Copper Hell* (2.0, main): "the Scions ain't no ordinary folk, and the work they do ain't no ordinary work."
+  - **M30a** Momodi says the Scions seek capable people for their cause, and your exploits have drawn their attention. *The Scions of the Seventh Dawn* (2.0, main): "Given the multitude of problems facing the realm, they are always looking for capable individuals to join their cause, and it appears your recent exploits have drawn their attention."
+
+</details>
+
+### Papashan (`char-papashan`, character)
+
+**#2c–#3c · main**
+
+> Stationmaster of the Ul'dah Dispatch Yard, who has work for adventurers in the Calamity's long aftermath.
+
+Sources shown: We Must Rebuild — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2cb** Papashan is stationmaster of the Ul'dah Dispatch Yard. *We Must Rebuild* (2.0, main): "I am Papashan, stationmaster of this humble Dispatch Yard."
+  - **M2cd** Isolated places beyond the lines of supply still want for relief. *We Must Rebuild* (2.0, main): "Isolated areas beyond our lines of supply remain, and there are places yet wanting for relief and restoration."
+  - **M2ce** Papashan has work suited to your ability. *We Must Rebuild* (2.0, main): "I do believe I may have some work suited to one of your ability."
+
+</details>
+
+**#4c–#19c · main**
+
+> Stationmaster of the Ul'dah Dispatch Yard. With the Sultansworn he quietly searched for the runaway Lady Lilira, fearing that others with less honorable motives would join the hunt.
+
+Sources shown: We Must Rebuild — main scenario quest (2.0); Underneath the Sultantree — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2cb** Papashan is stationmaster of the Ul'dah Dispatch Yard. *We Must Rebuild* (2.0, main): "I am Papashan, stationmaster of this humble Dispatch Yard."
+  - **M4ca** Papashan and the Sultansworn are searching for Lady Lilira, a young noblewoman who ran away from home. *Underneath the Sultantree* (2.0, main): "The stationmaster explains that he and the [[Sultansworn]] are in fact searching for Lady [[Lilira]], a young noblewoman who has run away from home."
+  - **M4cc** Papashan keeps the search quiet, fearing others with less honorable motives would join the hunt. *Underneath the Sultantree* (2.0, main): "should word of her disappearance spread, I fear others with less honorable motives may join the hunt."
+
+</details>
+
+**#20c onward · main**
+
+> Stationmaster of the Ul'dah Dispatch Yard, and a Sultansworn until fifteen years ago; he still protects the sultana outside the gates. On Raubahn's orders he watched over Owyne, and led the Sultansworn who beat the crown thieves.
+
+Sources shown: We Must Rebuild — main scenario quest (2.0); Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M2cb** Papashan is stationmaster of the Ul'dah Dispatch Yard. *We Must Rebuild* (2.0, main): "I am Papashan, stationmaster of this humble Dispatch Yard."
+  - **M20cl** Papashan was a Sultansworn until fifteen years ago, and still protects the sultana outside the gates. *Duty, Honor, Country* (2.0, main): "I was once a Sultansworn, you know, though it's been fifteen years since I put down my sword, and took up the role of stationmaster. … Whenever Her Grace ventures outside the gates, I have the honor of protecting her person."
+  - **M20ch** Raubahn saw Owyne sneak into the vaults and had him watched. *Duty, Honor, Country* (2.0, main): "The General saw you sneak into the vaults, Owyne. … He suspected something was afoot and ordered us to keep an eye on you."
+  - **M20cg** With Papashan and a band of Sultansworn, you defeat the thieves. *Duty, Honor, Country* (2.0, main): "with the aid of [[Papashan]] and a band of Sultansworn, you defeat them."
+
+</details>
+
+### Lilira (`char-lilira`, character)
+
+**#4c onward · main** · Also searchable as: Lady Lilira
+
+> A young noblewoman of Ul'dah who ran away from home. Found at the Sultantree and kept safe from voidsent, she has promised not to travel unescorted again.
+
+Sources shown: Underneath the Sultantree — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M4ca** Papashan and the Sultansworn are searching for Lady Lilira, a young noblewoman who ran away from home. *Underneath the Sultantree* (2.0, main): "The stationmaster explains that he and the [[Sultansworn]] are in fact searching for Lady [[Lilira]], a young noblewoman who has run away from home."
+  - **M4cd** At the Sultantree voidsent attack, and you and a stranger protect Lilira together. *Underneath the Sultantree* (2.0, main): "Moments later, voidsent attack, forcing you to work together to protect Lady Lilira."
+  - **M4ch** Lilira promises not to travel unescorted again. *Underneath the Sultantree* (2.0, main): "I shall refrain from traveling unescorted in future."
+
+</details>
+
+### The Sultansworn (`org-sultansworn`, organization)
+
+**#3c–#19c · main**
+
+> Ul'dah's guards, whose sentries watch over the Ul'dah Dispatch Yard.
+
+Sources shown: Nothing to See Here — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M3ca** Papashan sends you with twilight pretzels to the Sultansworn sentries posted to guard the area. *Nothing to See Here* (2.0, main): "It isn't much, but go and give them these twilight pretzels, would you?"
+  - **M3cb** Sentries have been sent to guard the Dispatch Yard's area. *Nothing to See Here* (2.0, main): "It just so happens a number of sentries have been sent to guard the area."
+
+</details>
+
+**#20c onward · main**
+
+> The guards sworn to serve Ul'dah's sultana. One of their number, Owyne, lost the royal crown to thieves, and with the former Sultansworn Papashan at their head they won it back.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20co** The Sultansworn's duty is to serve the sultana. *Duty, Honor, Country* (2.0, main): "It's your duty to serve the sultana, lad─and you'll be doing it for a good while yet!"
+  - **M20cd** Owyne, the Sultansworn who was guarding the crown, decides to pay the thieves' ransom. *Duty, Honor, Country* (2.0, main): "And Owyne...Owyne's the Sultansworn who was charged with guardin' it that night. … Believing there to be no other way, the guilt-ridden Sultansworn decides to give the criminals what they want."
+  - **M20cg** With Papashan and a band of Sultansworn, you defeat the thieves. *Duty, Honor, Country* (2.0, main): "with the aid of [[Papashan]] and a band of Sultansworn, you defeat them."
+  - **M20cl** Papashan was a Sultansworn until fifteen years ago, and still protects the sultana outside the gates. *Duty, Honor, Country* (2.0, main): "I was once a Sultansworn, you know, though it's been fifteen years since I put down my sword, and took up the role of stationmaster. … Whenever Her Grace ventures outside the gates, I have the honor of protecting her person."
+
+</details>
+
+### Wystan (`char-wystan`, character)
+
+**#8c onward · main**
+
+> A self-made merchant from Stonesthrow who tried to claim an ore vein under Sil'dih. The vein was a trap: Lord Lolorito marked him for death, and he is finished in Ul'dah.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8ca** Wystan, a self-made merchant from Stonesthrow, is moving to claim an ore vein. *Way Down in the Hole* (2.0, main): "And even as we speak, a young upstart─a self-made merchant from ''Stonesthrow'' of all places─is moving to claim it!"
+  - **M8ce** Lolorito marked Wystan for death; the vein, the Brass Blades and the golem were all part of the trap. *Way Down in the Hole* (2.0, main): "Wystan now understands that he has been marked for death by Lord [[Lolorito]]. The ore vein, the Brass Blades, and the golem all appear to have been part of the trap."
+  - **M8cj** Momodi confirms Wystan is finished in Ul'dah, but no one knows your part. *Way Down in the Hole* (2.0, main): "Momodi confirms that Wystan is finished in [[Ul'dah]], but assures you that no one knows of your deeds."
+
+</details>
+
+### The Brass Blades (`org-brass-blades`, organization)
+
+**#8c–#11c · main**
+
+> An armed company of Ul'dah, owned by Lord Lolorito. Brass Blades who joined the merchant Wystan's expedition turned on him at the ruins of Sil'dih, as part of a trap Lolorito had set.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8cf** Lolorito owns the Brass Blades. *Way Down in the Hole* (2.0, main): "Lolorito ''owns'' the godsdamned Brass Blades."
+  - **M8ce** Lolorito marked Wystan for death; the vein, the Brass Blades and the golem were all part of the trap. *Way Down in the Hole* (2.0, main): "Wystan now understands that he has been marked for death by Lord [[Lolorito]]. The ore vein, the Brass Blades, and the golem all appear to have been part of the trap."
+  - **M8cc** At the ruins the Brass Blades turn on Wystan, saying no one crosses the Syndicate. *Way Down in the Hole* (2.0, main): "''No one'' crosses the Syndicate!"
+
+</details>
+
+**#12c–#17c · main**
+
+> An armed company of Ul'dah, owned by Lord Lolorito, that also keeps Thanalan's roads: in Horizon it pays others to help clear them of pests.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0); The Perfect Swarm — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8cf** Lolorito owns the Brass Blades. *Way Down in the Hole* (2.0, main): "Lolorito ''owns'' the godsdamned Brass Blades."
+  - **M12ca** The Brass Blades pay people to keep the roads clear of sun midges. *The Perfect Swarm* (2.0, main): "It's gotten so bad that the Brass Blades have started paying folks to keep the roads clear."
+  - **M12cb** Fufulupa thanks you, as the Brass Blades have struggled with the swarms. *The Perfect Swarm* (2.0, main): "The Brass Blades have been struggling to keep them in check, so your assistance is greatly appreciated."
+
+</details>
+
+**#18c onward · main**
+
+> An armed company of Ul'dah, owned by Lord Lolorito, that keeps Thanalan's roads. Its Horizon garrison, the Brass Blades of the Rose, lost its captain, Baldewyn, after he was caught dealing with bandits, and Fufulupa is acting captain.
+
+Sources shown: Way Down in the Hole — main scenario quest (2.0); The Perfect Swarm — main scenario quest (2.0); Oh Captain, My Captain — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M8cf** Lolorito owns the Brass Blades. *Way Down in the Hole* (2.0, main): "Lolorito ''owns'' the godsdamned Brass Blades."
+  - **M12ca** The Brass Blades pay people to keep the roads clear of sun midges. *The Perfect Swarm* (2.0, main): "It's gotten so bad that the Brass Blades have started paying folks to keep the roads clear."
+  - **M18cb** Fufulupa's supervising officer is secretly cooperating with the bandits. *Oh Captain, My Captain* (2.0, main): "runs to tell his supervising officer─who, unbeknownst to Fufulupa, is cooperating with the bandits."
+  - **M18cf** Baldewyn is stripped of rank, and Fufulupa is acting captain of the Horizon garrison. *Oh Captain, My Captain* (2.0, main): "Baldewyn has been stripped of his rank, leaving [[the Brass Blades of the Rose]] without a captain. For now, Fufulupa will serve as acting captain of the Horizon garrison."
+
+</details>
+
+### Dadanen (`char-dadanen`, character)
+
+**#9c–#10c · main**
+
+> A merchant in Horizon, a trading settlement in Thanalan, who asked Momodi to send him anyone looking for work.
+
+Sources shown: Takin' What They're Givin' — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M9ca** Momodi sends you to Dadanen, a merchant who needs a hand. *Takin' What They're Givin'* (2.0, main): "So happens I know a fella by the name of [[Dadanen]] who needs a hand."
+  - **M9cb** Horizon is a trading settlement that takes in goods from the port of Vesper Bay. *Takin' What They're Givin'* (2.0, main): "Ours is a trading settlement that sees goods in from the port of Vesper Bay to the west─and trade we do."
+  - **M9cc** Dadanen has asked Momodi to send him anyone looking for work. *Takin' What They're Givin'* (2.0, main): "And that's why I've asked Momodi to send me any souls looking for work."
+
+</details>
+
+**#11c onward · main**
+
+> A merchant in Horizon who ran out of stock when Copperbell Mines closed. A small delivery of Nashachite, most of it eaten by coblyns, may keep him from destitution.
+
+Sources shown: Supply and Demands — main scenario quest (2.0); Give It to Me Raw — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M10ca** Dadanen is out of premium product and his latest order is late. *Supply and Demands* (2.0, main): "I'm plumb out of premium product, and my latest order has yet to arrive!"
+  - **M10cc** The mines have been closed after an incident in the depths, so Drunken Stag can do nothing. *Supply and Demands* (2.0, main): "Drunken Stag is powerless to act, as the mines have been closed due to an incident in the depths."
+  - **M11cb** The coblyns ate most of the haul. *Give It to Me Raw* (2.0, main): "I reckon those coblyns made a meal of the stuff."
+  - **M11cc** A timely delivery may keep Dadanen from destitution. *Give It to Me Raw* (2.0, main): "a timely delivery to [[Dadanen]] may prevent his impending fall into destitution."
+
+</details>
+
+### Fufulupa (`char-fufulupa`, character)
+
+**#12c–#14c · main**
+
+> A man of Horizon who thanks those who help the Brass Blades keep its roads clear, and who writes to Captain Leofric at Lost Hope.
+
+Sources shown: The Perfect Swarm — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12cb** Fufulupa thanks you, as the Brass Blades have struggled with the swarms. *The Perfect Swarm* (2.0, main): "The Brass Blades have been struggling to keep them in check, so your assistance is greatly appreciated."
+  - **M12cc** Fufulupa's letters to Captain Leofric at Lost Hope have gone unanswered. *The Perfect Swarm* (2.0, main): "Captain Leofric is stationed there. Ever since he was transferred, we've exchanged letters, but never before has it taken this long to receive a reply."
+
+</details>
+
+**#15c–#17c · main**
+
+> A man of Horizon, and a friend of Captain Leofric. Leofric sent him the dagger that only a captain of the Brass Blades of the Rose may carry; thinking himself unworthy, he keeps it safe until Leofric reclaims it.
+
+Sources shown: The Perfect Swarm — main scenario quest (2.0); Passing the Blade — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12cb** Fufulupa thanks you, as the Brass Blades have struggled with the swarms. *The Perfect Swarm* (2.0, main): "The Brass Blades have been struggling to keep them in check, so your assistance is greatly appreciated."
+  - **M15ca** Leofric, too hurt to travel, sends an antique dagger to Fufulupa. *Passing the Blade* (2.0, main): "Leofric wishes to give an antique dagger to [[Fufulupa]], but is in no shape to travel due to his injuries."
+  - **M15cb** Only a captain of the Brass Blades of the Rose may carry the dagger; Fufulupa keeps it until Leofric reclaims it. *Passing the Blade* (2.0, main): "explaining that only captains of [[the Brass Blades of the Rose]] are permitted to carry it. Nevertheless, he takes it into safekeeping until Leofric comes to reclaim it."
+  - **M15cc** Fufulupa thinks himself unworthy of the dagger. *Passing the Blade* (2.0, main): "I am not worthy to wield it."
+
+</details>
+
+**#18c onward · main**
+
+> Acting captain of the Brass Blades of the Rose, the Horizon garrison, after his captain, Baldewyn, was caught dealing with bandits. Leofric calls him the most honorable man he knows.
+
+Sources shown: Oh Captain, My Captain — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M18cf** Baldewyn is stripped of rank, and Fufulupa is acting captain of the Horizon garrison. *Oh Captain, My Captain* (2.0, main): "Baldewyn has been stripped of his rank, leaving [[the Brass Blades of the Rose]] without a captain. For now, Fufulupa will serve as acting captain of the Horizon garrison."
+  - **M18cb** Fufulupa's supervising officer is secretly cooperating with the bandits. *Oh Captain, My Captain* (2.0, main): "runs to tell his supervising officer─who, unbeknownst to Fufulupa, is cooperating with the bandits."
+  - **M18cg** Leofric calls Fufulupa the most honorable man he knows. *Oh Captain, My Captain* (2.0, main): "The Brass Blades of the Rose need a leader with honor, and you're the most honorable man I know."
+
+</details>
+
+### Leofric (`char-leofric`, character)
+
+**#12c only · main**
+
+> A captain stationed at Lost Hope since his transfer, who exchanges letters with Fufulupa in Horizon.
+
+Sources shown: The Perfect Swarm — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M12cc** Fufulupa's letters to Captain Leofric at Lost Hope have gone unanswered. *The Perfect Swarm* (2.0, main): "Captain Leofric is stationed there. Ever since he was transferred, we've exchanged letters, but never before has it taken this long to receive a reply."
+
+</details>
+
+**#13c only · main**
+
+> A demoted Brass Blade at Lost Hope, though Fufulupa still calls him Captain. He says everyone there has been forsaken.
+
+Sources shown: Last Letter to Lost Hope — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13cb** Leofric has been demoted, though Fufulupa still calls him Captain. *Last Letter to Lost Hope* (2.0, main): "Despite my demotion, he continues to call me Captain."
+  - **M13cc** Leofric says everyone at Lost Hope has been forsaken. *Last Letter to Lost Hope* (2.0, main): "All here have been forsaken, adventurer."
+  - **M13cd** Leofric, a crestfallen Brass Blade, warns you not to linger with Ul'dah's unwanted. *Last Letter to Lost Hope* (2.0, main): "Leofric thanks you for the letter and suggests that you do not linger in Lost Hope, lest you become associated with [[Ul'dah]]'s unwanted. Despite what the crestfallen [[The Brass Blades|Brass Blade]] says"
+
+</details>
+
+**#14c–#17c · main**
+
+> A demoted Brass Blade at Lost Hope, which suffers despite Ul'dah's growing prosperity. He had the outlaws of the Quiveron Manse dealt with, and says the Brass Blades of the Rose must look to others.
+
+Sources shown: Last Letter to Lost Hope — main scenario quest (2.0); Heir Today, Gone Tomorrow — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13cb** Leofric has been demoted, though Fufulupa still calls him Captain. *Last Letter to Lost Hope* (2.0, main): "Despite my demotion, he continues to call me Captain."
+  - **M14cd** Lost Hope suffers despite Ul'dah's prosperity, and Leofric says the Brass Blades of the Rose must look to others. *Heir Today, Gone Tomorrow* (2.0, main): "Leofric thanks you for aiding the people of [[Lost Hope]], who continue to suffer in spite of [[Ul'dah]]'s growing prosperity. Reflecting on his downfall, the captain concludes that [[the Brass Blades of the Rose]] must look to others for guidance."
+  - **M14cc** The self-styled baron is dead. *Heir Today, Gone Tomorrow* (2.0, main): "[[Baron von Quiveron III Esquire]] is no more."
+
+</details>
+
+**#18c onward · main**
+
+> A demoted Brass Blade at Lost Hope, who passed his captain's dagger to Fufulupa as the most honorable man he knows. He revealed that Captain Baldewyn's dealings with bandits were made without Lord Lolorito's knowledge.
+
+Sources shown: Last Letter to Lost Hope — main scenario quest (2.0); Oh Captain, My Captain — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M13cb** Leofric has been demoted, though Fufulupa still calls him Captain. *Last Letter to Lost Hope* (2.0, main): "Despite my demotion, he continues to call me Captain."
+  - **M18cg** Leofric calls Fufulupa the most honorable man he knows. *Oh Captain, My Captain* (2.0, main): "The Brass Blades of the Rose need a leader with honor, and you're the most honorable man I know."
+  - **M18ce** Leofric reveals Baldewyn acted without Lolorito's knowledge. *Oh Captain, My Captain* (2.0, main): "Baldewyn was in fact operating without Lord [[Lolorito]]'s knowledge"
+
+</details>
+
+### Baldewyn (`char-baldewyn`, character)
+
+**#16c–#17c · main** · Also searchable as: Captain Baldewyn
+
+> Captain of the Brass Blades in Horizon. He sent only a handful of guards with the thaumaturges surveying the Footfalls, and wants trusted men only on the work.
+
+Sources shown: Following Footfalls — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M16cc** Captain Baldewyn sent only a handful of Brass Blades to guard them. *Following Footfalls* (2.0, main): "But Captain Baldewyn sent only a handful of Brass Blades!"
+  - **M16cd** Baldewyn said only trusted men would be on the operation. *Following Footfalls* (2.0, main): "I ain't heard nothin' from Cap'n Baldewyn 'bout this. He said trusted men only..."
+
+</details>
+
+**#18c onward · main**
+
+> The former captain of the Brass Blades of the Rose in Horizon. He partnered with bandits dealing in Nashachite stolen from Copperbell Mines, claiming Lord Lolorito's authority, but acted without Lolorito's knowledge, and has been stripped of his rank.
+
+Sources shown: Oh Captain, My Captain — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M18cb** Fufulupa's supervising officer is secretly cooperating with the bandits. *Oh Captain, My Captain* (2.0, main): "runs to tell his supervising officer─who, unbeknownst to Fufulupa, is cooperating with the bandits."
+  - **M18ca** Bandits plan to collect Nashachite stolen from Copperbell Mines. *Oh Captain, My Captain* (2.0, main): "[[Fufulupa]] has accidentally overheard Merilda's tale regarding the bandits and their plans to obtain [[Raw Nashachite|Nashachite]] stolen from [[Copperbell Mines]]."
+  - **M18cc** Baldewyn claims to act under Lolorito's authority. *Oh Captain, My Captain* (2.0, main): "I am acting under the authority of Lord Lolorito himself!"
+  - **M18ce** Leofric reveals Baldewyn acted without Lolorito's knowledge. *Oh Captain, My Captain* (2.0, main): "Baldewyn was in fact operating without Lord [[Lolorito]]'s knowledge"
+  - **M18cf** Baldewyn is stripped of rank, and Fufulupa is acting captain of the Horizon garrison. *Oh Captain, My Captain* (2.0, main): "Baldewyn has been stripped of his rank, leaving [[the Brass Blades of the Rose]] without a captain. For now, Fufulupa will serve as acting captain of the Horizon garrison."
+
+</details>
+
+### Owyne (`char-owyne`, character)
+
+**#19c only · main**
+
+> A Sultansworn of Ul'dah. A sealed letter to him turned up among the papers of a captain caught dealing with bandits; Momodi swears he is loyal.
+
+Sources shown: Secrets and Lies — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M19ca** Fufulupa finds a sealed letter to Sultansworn Owyne among his predecessor's belongings. *Secrets and Lies* (2.0, main): "Fufulupa reveals that he has found a [[Letter to Owyne|sealed letter]] addressed to [[Sultansworn]] [[Owyne]] among his disgraced predecessor's belongings."
+  - **M19cc** Momodi insists Owyne is loyal, but has suspicions about the letter. *Secrets and Lies* (2.0, main): "However, she has her own suspicions regarding the letter..."
+
+</details>
+
+**#20c onward · main**
+
+> The Sultansworn who was guarding Ul'dah's royal crown when it was stolen. Guilt-ridden, he paid the thieves' ransom, the Traders' Spurn, before the crown was won back.
+
+Sources shown: Duty, Honor, Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M20cd** Owyne, the Sultansworn who was guarding the crown, decides to pay the thieves' ransom. *Duty, Honor, Country* (2.0, main): "And Owyne...Owyne's the Sultansworn who was charged with guardin' it that night. … Believing there to be no other way, the guilt-ridden Sultansworn decides to give the criminals what they want."
+  - **M20cf** The ransom was the Traders' Spurn, which the thieves call the power to raise an army of undying soldiers. *Duty, Honor, Country* (2.0, main): "The power to create an army of undying soldiers─''The Traders' Spurn''!"
+  - **M20cg** With Papashan and a band of Sultansworn, you defeat the thieves. *Duty, Honor, Country* (2.0, main): "with the aid of [[Papashan]] and a band of Sultansworn, you defeat them."
+
+</details>
+
+### The Adventurer of the Moment (`evt-adventurer-of-the-moment`, event)
+
+**#25 only · main**
+
+> Baderon of the Drowning Wench in Limsa Lominsa sent you to the Sastasha Seagrot, where the Yellowjackets feared pirates were gathering. You found the Serpent Reavers and their Sahagin masters using its caves as a base. Baderon then passed you a job from the Adventurers' Guild in Gridania.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25a** Baderon, proprietor of the Drowning Wench, needs a capable adventurer. *It's Probably Pirates* (2.0, main): "[[Baderon]], the proprietor of [[the Drowning Wench]], has need of a capable [[adventurer]]."
+  - **M25b** The Yellowjackets fear that men seen entering Sastasha belong to the Serpent Reavers, pirate allies of the Sahagin. *It's Probably Pirates* (2.0, main): "The Yellowjackets are concerned that the unsavory-looking men seen entering Sastasha may belong to [[the Serpent Reavers]], the pirate allies of the [[Sahagin]]."
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+  - **M25e** Baderon passes on a job from the Adventurers' Guild in Gridania. *It's Probably Pirates* (2.0, main): "It seems the Adventurers' Guild in [[Gridania]] wishes to employ the services of a seasoned adventurer."
+
+</details>
+
+**#26 only · main**
+
+> After you uncovered the Serpent Reavers' base in the Sastasha Seagrot, Baderon sent you on to Gridania. There Miounne, proprietress of the Carline Canopy, speaks for the Adventurers' Guild, and she has a task for you with a fair bit to tell.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0); Call of the Forest — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+  - **M26a** Miounne, proprietress of the Carline Canopy, has a task from the Adventurers' Guild in Gridania. *Call of the Forest* (2.0, main): "According to Baderon, the [[Adventurers' Guild]] in [[Gridania]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking with [[Miounne]], the proprietress of [[the Carline Canopy]]."
+  - **M26b** Baderon calls Mother Miounne his counterpart in Gridania. *Call of the Forest* (2.0, main): "Mother Miounne, me counterpart in Gridania"
+  - **M26c** Miounne says there is a fair bit to tell about the task. *Call of the Forest* (2.0, main): "With regard to the task in question, there is a fair bit to tell."
+
+</details>
+
+**#27 only · main**
+
+> Work for the Adventurers' Guild has taken you from Limsa Lominsa to Gridania. For Miounne you broke up the Lambs of Dalamud, a doomsday cult that blames Eorzeans for the lesser moon's destruction, in the Tam-Tara Deepcroft. She worries that adventurers are dying as the unprepared take on jobs beyond them, and has passed you on to Ul'dah.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0); Fire in the Gloom — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25e** Baderon passes on a job from the Adventurers' Guild in Gridania. *It's Probably Pirates* (2.0, main): "It seems the Adventurers' Guild in [[Gridania]] wishes to employ the services of a seasoned adventurer."
+  - **M27a** A cult called the Lambs of Dalamud has been active in the Tam-Tara Deepcroft. *Fire in the Gloom* (2.0, main): "It would seem that a cult known as [[the Lambs of Dalamud]] has been engaging in suspicious activity in [[The Tam-Tara Deepcroft|the Tam–Tara Deepcroft]]."
+  - **M27b** The cult blames Eorzeans for the destruction of Dalamud, its god, and seeks to avenge it. *Fire in the Gloom* (2.0, main): "Since [[Dalamud]]'s apparent destruction─for which they blame the people of [[Eorzea]]─it seems they have been seeking a means to avenge their god."
+  - **M27c** A vengeful spirit woken in Galvanth's corpse attacks you; you send it back to the abyss and foil the cult's plot. *Fire in the Gloom* (2.0, main): "you are assailed by a vengeful spirit who had been awakened in the corse of [[Galvanth the Dominator]]. After a titanic struggle, you succeed in sending this dark being back to the abyss, thus foiling the cultists' plot."
+  - **M27d** Miounne says adventurers are dying more often as unprepared people take on tasks beyond them. *Fire in the Gloom* (2.0, main): "Miounne reveals that death is becoming an ever more common occurrence within the adventuring fraternity. She attributes this unfortunate trend to the burgeoning demand for [[adventurer]]s' services, which has allowed unprepared individuals to take on tasks which are beyond them."
+  - **M27e** Miounne passes you on to the Adventurers' Guild in Ul'dah. *Fire in the Gloom* (2.0, main): "Miounne informs you that the [[Adventurers' Guild]] in [[Ul'dah]] is recruiting."
+
+</details>
+
+**#28 only · main**
+
+> For the Adventurers' Guild you have cleared pirates from Sastasha in La Noscea and a doomsday cult from the Tam-Tara Deepcroft in the Twelveswood. Now Miounne has sent you to Ul'dah, praising you to Momodi of the Quicksand as the adventurer of the moment, and warning that Momodi's task will likely be dangerous.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0); Fire in the Gloom — main scenario quest (2.0); Call of the Desert — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25c** The Serpent Reavers and their Sahagin masters are using the Sastasha caves as a base. *It's Probably Pirates* (2.0, main): "it would appear the Serpent Reavers and their Sahagin masters are using the caves as a base for their nefarious operations."
+  - **M27c** A vengeful spirit woken in Galvanth's corpse attacks you; you send it back to the abyss and foil the cult's plot. *Fire in the Gloom* (2.0, main): "you are assailed by a vengeful spirit who had been awakened in the corse of [[Galvanth the Dominator]]. After a titanic struggle, you succeed in sending this dark being back to the abyss, thus foiling the cultists' plot."
+  - **M28a** Momodi, proprietress of the Quicksand, has a task from the Adventurers' Guild in Ul'dah. *Call of the Desert* (2.0, main): "the [[Adventurers' Guild]] in [[Ul'dah]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking to [[Momodi]], the proprietress of [[the Quicksand]]."
+  - **M28c** Miounne called you the adventurer of the moment. *Call of the Desert* (2.0, main): "She also made a point of callin' you the adventurer of the moment."
+  - **M28d** Miounne expects Momodi's task to be dangerous. *Call of the Desert* (2.0, main): "Chances are she'll send you into the midst of danger"
+
+</details>
+
+**#29 only · main**
+
+> Momodi of the Quicksand sent you into Copperbell Mines, reopened to supply Ul'dah's rebuilding, where giants that miners of old had sealed in its depths were wreaking havoc. You subdued them, so mining can resume and Ul'dah will have the materials it needs to rebuild. Miounne's adventurer of the moment has now proved useful in all three city-states.
+
+Sources shown: Into a Copper Hell — main scenario quest (2.0); Call of the Desert — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M29a** Giants, hecatoncheires, have been wreaking havoc in Copperbell Mines. *Into a Copper Hell* (2.0, main): "It would seem that a horde of [[hecatoncheir]]es has been wreaking havoc in the depths of [[Copperbell Mines]]."
+  - **M29b** The mines were reopened to meet the demand for building materials after the Calamity, which Ul'dah's recovery needs. *Into a Copper Hell* (2.0, main): "Copperbell Mines were reopened in order to meet the pressing demand for building materials created in the wake of [[the Calamity]]. Without a steady supply, [[Ul'dah]]'s nascent recovery may slow to a standstill."
+  - **M29c** Miners of old collapsed the lowest levels of the mines to contain the hecatoncheires. *Into a Copper Hell* (2.0, main): "In a desperate bid to contain the unbridled fury of the hecatoncheires, our ancestors induced the collapse of the mines' lowermost levels."
+  - **M29d** You subdue the hecatoncheires. *Into a Copper Hell* (2.0, main): "You have succeeded in subduing the hecatoncheires."
+  - **M29e** Mining can resume, and Ul'dah will have materials to rebuild. *Into a Copper Hell* (2.0, main): "Thanks to you, our minin' operations can resume, and Ul'dah will have the materials she needs to rebuild."
+  - **M28c** Miounne called you the adventurer of the moment. *Call of the Desert* (2.0, main): "She also made a point of callin' you the adventurer of the moment."
+
+</details>
+
+**#30 onward · main**
+
+> Your deeds for the Adventurers' Guild drew the notice of the Scions of the Seventh Dawn, who are headquartered at the Waking Sands in Vesper Bay and stand above politics. Their leader, Minfilia, shares your gift, the Echo, which lets you hear the past within another's soul. She believes it is the key to the primal threat, and has given you the order's password.
+
+Sources shown: The Scions of the Seventh Dawn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M30a** Momodi says the Scions seek capable people for their cause, and your exploits have drawn their attention. *The Scions of the Seventh Dawn* (2.0, main): "Given the multitude of problems facing the realm, they are always looking for capable individuals to join their cause, and it appears your recent exploits have drawn their attention."
+  - **C34** The Scions stand above politics; their aim is preserving Eorzea's future. *The Scions of the Seventh Dawn* (2.0, main): "an order that transcends political boundaries. Our single objective is the preservation of the future of Eorzea."
+  - **C01** Minfilia leads the Scions. *The Scions of the Seventh Dawn* (2.0, main): "My name is Minfilia, and I lead the Scions of the Seventh Dawn."
+  - **C02** The Scions are headquartered at the Waking Sands in Vesper Bay, western Thanalan. *The Scions of the Seventh Dawn* (2.0, main): "the Waking Sands, located in Vesper Bay, out in western Thanalan"
+  - **C33** Minfilia has the Echo. *The Scions of the Seventh Dawn* (2.0, main): "That's right. I too possess the Echo."
+  - **M30c** The Echo lets one pass through the walls of a soul and hear its past. *The Scions of the Seventh Dawn* (2.0, main): "The Echo allows you to pass through the walls of a man's soul, and hear the resonations of his past."
+  - **M30b** Minfilia believes your Echo is the key to the primal problem facing Eorzea. *The Scions of the Seventh Dawn* (2.0, main): "who expresses her belief that your power─[[the Echo]]─is the key to solving the [[primal]] problem facing Eorzea."
+  - **M30e** Minfilia asks you to lend your strength to the Scions and gives you the order's password. *The Scions of the Seventh Dawn* (2.0, main): "she implores you to lend your strength to the Scions' cause, and entrusts you with the order's password"
+
+</details>
+
+### The Drybone Vanishings (`evt-drybone-vanishings`, event)
+
+**#31 only · main**
+
+> You pledged yourself to the Scions of the Seventh Dawn and met their leading members. Your first task is a crystal caravan robbery and a wave of disappearances near Ul'dah; the evidence points to the Amalj'aa, worshipers of the primal Ifrit. Thancred sent you to Isembard, the de facto leader of Camp Drybone, who has offered his full cooperation.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31a** Minfilia accepts your pledge and welcomes you to the Scions. *A Wild Rose by Any Other Name* (2.0, main): "Minfilia accepts your whimsical utterance in the spirit it was intended, and welcomes you to the Scions."
+  - **M31b** Your first task is to investigate crimes in Ul'dah that the Scions suspect involve a primal. *A Wild Rose by Any Other Name* (2.0, main): "you are assigned your first task─to investigate a series of crimes committed in [[Ul'dah]], which the Scions suspect to be [[primal]]-related."
+  - **M31c** A crystal caravan of Amajina & Sons was robbed of its cargo. *A Wild Rose by Any Other Name* (2.0, main): "Some days ago, a crystal caravan registered to Amajina & Sons Mineral Concern was waylaid and divested of its cargo."
+  - **M31d** The evidence implicates the Amalj'aa, known worshipers of Ifrit. *A Wild Rose by Any Other Name* (2.0, main): "the evidence left behind implicates the Amalj'aa, who are known worshipers of Ifrit."
+  - **M31e** Thancred believes the robbery and the disappearances are connected. *A Wild Rose by Any Other Name* (2.0, main): "Thancred believes that the caravan robbery and the recent spate of disappearances are connected."
+  - **M31f** Isembard is the de facto leader of Camp Drybone. *A Wild Rose by Any Other Name* (2.0, main): "A fellow by the name of Isembard serves as the camp's de facto leader."
+  - **M31j** Isembard offers you his full cooperation. *A Wild Rose by Any Other Name* (2.0, main): "Arriving at Camp Drybone, you speak with Isembard, who offers you his full cooperation in the investigation."
+
+</details>
+
+**#32 only · main**
+
+> The Scions suspect a primal behind a crystal robbery and a wave of disappearances near Ul'dah. At Camp Drybone you recovered the bodies of churchgoers the Amalj'aa butchered, so Isembard could bury them. He doubts the Amalj'aa act alone in the vanishings, and wonders who else has a hand in them.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Unsolved Mystery — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31b** Your first task is to investigate crimes in Ul'dah that the Scions suspect involve a primal. *A Wild Rose by Any Other Name* (2.0, main): "you are assigned your first task─to investigate a series of crimes committed in [[Ul'dah]], which the Scions suspect to be [[primal]]-related."
+  - **M31e** Thancred believes the robbery and the disappearances are connected. *A Wild Rose by Any Other Name* (2.0, main): "Thancred believes that the caravan robbery and the recent spate of disappearances are connected."
+  - **M32a** The Amalj'aa have butchered commonfolk, whose bodies Isembard wants buried. *Unsolved Mystery* (2.0, main): "Isembard informs you that the [[Amalj'aa]] have butchered a number of commonfolk, and asks that you retrieve the [[Ripe Corpse|ripe corpses]] so that he may see them properly interred."
+  - **M32b** Callers at the Church of Saint Adama Landama were murdered. *Unsolved Mystery* (2.0, main): "There have been brutal murders of callers at the Church of Saint Adama Landama"
+  - **M32c** The Amalj'aa cannot be acting alone; Isembard suspects another conspirator. *Unsolved Mystery* (2.0, main): "it is impossible that the Amalj'aa have been acting alone in the recent wave of disappearances. Isembard cannot help but wonder if another conspirator has had a hand in these troubling incidents."
+
+</details>
+
+**#33 only · main**
+
+> Isembard of Camp Drybone doubts the Amalj'aa alone are behind the vanishings around the camp. He sent you to Ungust, a Drybone-born merchant who recognized you as the adventurer who once threatened him in Ul'dah. Ungust waves the disappearances away, and the frightened commonfolk say little; Isembard thinks they trust only their gods.
+
+Sources shown: Unsolved Mystery — main scenario quest (2.0); What Poor People Think — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M32c** The Amalj'aa cannot be acting alone; Isembard suspects another conspirator. *Unsolved Mystery* (2.0, main): "it is impossible that the Amalj'aa have been acting alone in the recent wave of disappearances. Isembard cannot help but wonder if another conspirator has had a hand in these troubling incidents."
+  - **M33a** Ungust is a merchant born in Drybone and raised in the Golden Bazaar. *What Poor People Think* (2.0, main): "There is a merchant by the name of Ungust who was born here in Drybone and grew up in the Golden Bazaar."
+  - **M33b** Ungust recognizes you as the adventurer who threatened him in Ul'dah. *What Poor People Think* (2.0, main): "You're that bloody adventurer who threatened me back in Ul'dah!"
+  - **M33c** Ungust seems unconcerned about the growing number of missing people. *What Poor People Think* (2.0, main): "Ungust seems unconcerned about the growing list of missing people around [[Camp Drybone|Drybone]]."
+  - **M33d** The frightened commonfolk tell you little. *What Poor People Think* (2.0, main): "In their terror, the commonfolk tell you little of use."
+  - **M33e** Isembard thinks the people hold their tongues because they trust only their gods. *What Poor People Think* (2.0, main): "Isembard believes that perhaps the people are holding their tongues because they have come to trust only in their gods."
+
+</details>
+
+**#34 only · main**
+
+> The search for whoever is helping the Amalj'aa with the Drybone vanishings led you to the Church of Saint Adama Landama. Its lichkeeper, Marques, knew little, and Sister Ourcen, the commonfolk's confidante, had heard nothing useful. Thancred has joined the hunt: he suspects Ourcen, to Isembard's dismay, and swears he has seen Marques's face before.
+
+Sources shown: Unsolved Mystery — main scenario quest (2.0); A Proper Burial — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M32c** The Amalj'aa cannot be acting alone; Isembard suspects another conspirator. *Unsolved Mystery* (2.0, main): "it is impossible that the Amalj'aa have been acting alone in the recent wave of disappearances. Isembard cannot help but wonder if another conspirator has had a hand in these troubling incidents."
+  - **M34a** Marques tends the graves of the church's lichyard. *A Proper Burial* (2.0, main): "Seek out a man named Marques─he tends the graves of the lichyard."
+  - **M34b** Marques knows little of the commonfolk and sends you to Sister Ourcen. *A Proper Burial* (2.0, main): "Marques admits to knowing little of the commonfolk. He suggests you speak to Sister [[Ourcen]] within the church."
+  - **M34c** Ourcen is the medium through whom the commonfolk speak to Thal. *A Proper Burial* (2.0, main): "When they wish to speak to their keeper, Thal, I am the medium through which they do."
+  - **M34d** Ourcen has heard nothing that helps the investigation. *A Proper Burial* (2.0, main): "she has not heard anything that might help your investigation"
+  - **M34e** Thancred suspects Ourcen, who takes the commonfolk's confession; Isembard is not convinced. *A Proper Burial* (2.0, main): "he suspects that the only person who could take the vigilant commonfolk by surprise is the very Sister Ourcen who takes their confession. Isembard, however, is not so easily convinced."
+  - **M34f** Thancred swears he has seen the lichkeeper Marques's face before. *A Proper Burial* (2.0, main): "Still, the lichkeeper Marques... I'd swear to the Twelve I've seen that face elsewhere before..."
+
+</details>
+
+**#35 only · main**
+
+> Thancred suspects Sister Ourcen, who hears the commonfolk's confessions, of a hand in the Drybone vanishings, but Isembard refuses to believe it. When she went out alone to find an orphan's lost ring, you saved her from undead soldiers. Isembard is now more certain than ever of her innocence.
+
+Sources shown: A Proper Burial — main scenario quest (2.0); For the Children — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M34e** Thancred suspects Ourcen, who takes the commonfolk's confession; Isembard is not convinced. *A Proper Burial* (2.0, main): "he suspects that the only person who could take the vigilant commonfolk by surprise is the very Sister Ourcen who takes their confession. Isembard, however, is not so easily convinced."
+  - **M35a** Isembard refuses to believe Ourcen is behind the disappearances. *For the Children* (2.0, main): "Isembard refuses to believe that Sister Ourcen is behind the mysterious disappearances"
+  - **M35c** Ourcen went out to recover an orphan's ring, a gift from his late mother. *For the Children* (2.0, main): "It is a ring given him by his mother before she passed."
+  - **M35b** You rescue Ourcen from undead soldiers. *For the Children* (2.0, main): "You have rescued Ourcen from a grisly fate at the hands of undead soldiers."
+  - **M35d** Isembard is more convinced than ever that Ourcen is innocent. *For the Children* (2.0, main): "Isembard is more convinced than ever that Sister Ourcen is not in any way responsible for the vanishings."
+
+</details>
+
+**#36 only · main**
+
+> Searching an Amalj'aa camp near Drybone for Thancred, you found a leaflet offering the poor work. Sister Ourcen said it was not of her Order's making, and that garments had gone missing from the church. Thancred reasons that whoever is behind the vanishings is posing as a priest, and has withdrawn to plan.
+
+Sources shown: Amalj'aa Wrong Places — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M36a** Thancred asks you to search an Amalj'aa encampment for evidence of the vanishings. *Amalj'aa Wrong Places* (2.0, main): "He asks that you enter and search for evidence of their involvement in the vanishings at Camp Drybone."
+  - **M36b** The leaflet you find offers the poor work. *Amalj'aa Wrong Places* (2.0, main): "It looks to be some sort of assembly to provide the poor with work."
+  - **M36c** Ourcen confirms the leaflet is not of the Order's making, and garments have gone missing from the church. *Amalj'aa Wrong Places* (2.0, main): "Sister Ourcen confirms that the leaflet is not of the Order's making, and goes on to tell you that the church was recently plagued by a rash of missing garments."
+  - **M36d** Thancred thinks the culprit is posing as a priest of the Order. *Amalj'aa Wrong Places* (2.0, main): "Thancred believes it likely that the culprit behind the vanishings is posing as a priest of the Order."
+  - **M36e** Thancred withdraws to consider his next move. *Amalj'aa Wrong Places* (2.0, main): "Thancred, meanwhile, has withdrawn to consider the situation more carefully."
+
+</details>
+
+**#37 only · main**
+
+> Posing as vagrants, you and Thancred drew out the false priest behind the Drybone vanishings at a commune of the poor north of Sandgate. He was Ungust, who confessed to luring people to the Amalj'aa and selling them crystal shipment schedules. Only the Amalj'aa know where the abductees were taken, and Minfilia says a clash with them is inevitable.
+
+Sources shown: Dressed to Deceive — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M37a** You and Thancred pose as impoverished souls to catch the false priest. *Dressed to Deceive* (2.0, main): "[[Thancred]] suggests that the two of you pose as impoverished souls in order to ensnare the false priest."
+  - **M37b** The poor have a commune by a pond north of Sandgate. *Dressed to Deceive* (2.0, main): "the poor have established a commune by a pond north of [[Sandgate]], to the east of Camp Drybone."
+  - **M37c** The false priest is Ungust, whom you first found preying on a refugee woman in Ul'dah. *Dressed to Deceive* (2.0, main): "The false priest turns out to be none other than [[Ungust]], the obnoxious merchant whom you first found preying upon a refugee woman in [[Ul'dah]]."
+  - **M37d** Ungust has been abducting people at the behest of the Amalj'aa. *Dressed to Deceive* (2.0, main): "The man reveals that he has been abducting people at the behest of the [[Amalj'aa]]."
+  - **M37e** The Amalj'aa first wanted the schedule of crystal shipments from the Nanawa Mines. *Dressed to Deceive* (2.0, main): "First of all, they wanted the schedule for crystal shipments from the Nanawa Mines."
+  - **M37g** Only the Amalj'aa know where the abducted were taken. *Dressed to Deceive* (2.0, main): "we must ascertain where the abducted were taken...and none but the Amalj'aa know the answer."
+  - **M37h** Minfilia says an encounter with the Amalj'aa is inevitable. *Dressed to Deceive* (2.0, main): "Minfilia tells you that an encounter with the Amalj'aa is inevitable."
+
+</details>
+
+**#38 only · main**
+
+> Ungust, the false priest of Drybone, confessed to handing the poor he lured to the Amalj'aa, and only the Amalj'aa know where they were taken. While a clash with them looms, Minfilia, who seeks a peaceful answer to the primals but wants you ready to fight, sent you to a goblin scholar to learn how materia can strengthen your gear.
+
+Sources shown: Dressed to Deceive — main scenario quest (2.0); Life, Materia and Everything — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M37c** The false priest is Ungust, whom you first found preying on a refugee woman in Ul'dah. *Dressed to Deceive* (2.0, main): "The false priest turns out to be none other than [[Ungust]], the obnoxious merchant whom you first found preying upon a refugee woman in [[Ul'dah]]."
+  - **M37f** Ungust posed as a priest to lure the vulnerable to the Amalj'aa. *Dressed to Deceive* (2.0, main): "So, I posed as a priest to lure in the vulnerable and give them over to the Amalj'aa."
+  - **M37g** Only the Amalj'aa know where the abducted were taken. *Dressed to Deceive* (2.0, main): "we must ascertain where the abducted were taken...and none but the Amalj'aa know the answer."
+  - **M37h** Minfilia says an encounter with the Amalj'aa is inevitable. *Dressed to Deceive* (2.0, main): "Minfilia tells you that an encounter with the Amalj'aa is inevitable."
+  - **M38a** Minfilia seeks a peaceful solution to the primal problem, but wants the Scions ready to fight. *Life, Materia and Everything* (2.0, main): "Though we seek a peaceful solution to the primal problem, we must needs be ready to fight for our cause."
+  - **M38b** Minfilia sends you to a goblin scholar who brought a new method of enhancing gear to Eorzea. *Life, Materia and Everything* (2.0, main): "Minfilia would like you to meet a goblin scholar named Mutamix, who she claims is responsible for introducing a revolutionary method of enhancing gear to Eorzea."
+  - **M38c** Materia is a crystal melded to items to enhance them. *Life, Materia and Everything* (2.0, main): "materia, a type of crystal which can be melded to items to enhance their properties."
+
+</details>
+
+**#39 onward · main**
+
+> To find the abductees, the Immortal Flames set an ambush for the Amalj'aa with Ungust as bait, and Minfilia sent you as the Scions' representative. A traitor in the Flames' ranks gave you away, and you woke as an offering to the primal Ifrit. Immune to him through the Echo, you struck him down, but his tempered victims must be put to death.
+
+Sources shown: Lord of the Inferno — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M39a** The Immortal Flames plan to capture Amalj'aa with Ungust as bait, and you go as the Scions' representative. *Lord of the Inferno* (2.0, main): "the Immortal Flames have devised a plan to capture [[Amalj'aa]], using the false priest [[Ungust]] as bait. Minfilia bids you take part in the operation as [[The Scions of the Seventh Dawn|the Scions]]' representative."
+  - **M39b** A traitor in the ranks gives you away, and you are captured with the Flames. *Lord of the Inferno* (2.0, main): "you learn that there is a traitor in the ranks, and are swiftly subdued. After an indeterminate amount of time, you awake to find yourself imprisoned within an Amalj'aa stronghold, along with the Flames."
+  - **M39c** The Amalj'aa mean to offer you and your companions to their primal, Ifrit. *Lord of the Inferno* (2.0, main): "It appears the Amalj'aa mean to make an offering of you and your companions to their [[primal]], [[Ifrit]]."
+  - **M39d** Ifrit can bind mortals to his will, but you are immune; he tries to kill you and is outmatched. *Lord of the Inferno* (2.0, main): "It would appear that Ifrit has the power to bind mortals to his will, but for reasons yet unknown you are immune to his influence. Having failed to make you his minion, Ifrit elects to exterminate you instead, only to find himself outmatched."
+  - **M39g** Those with the Echo are immune to primal influence. *Lord of the Inferno* (2.0, main): "We know not the why of it, but those blessed with the Echo are immune to primal influence."
+  - **M39f** To keep the primal from gaining strength, his tempered victims must be put to death. *Lord of the Inferno* (2.0, main): "in order to prevent the primal from gaining strength, his “tempered” victims must be put to death."
+
+</details>
+
+### Choosing a Grand Company (`evt-choosing-a-grand-company`, event)
+
+**#40 only · main**
+
+> Word of how you bested Ifrit has brought officers of all three Grand Companies to the Waking Sands to court you. At the remembrance services, Kan-E-Senna, Raubahn and Merlwyb each spoke of their city-state's troubles, while the twins Alphinaud and Alisaie looked on. Now you must choose a company and give your answer to its officer.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40a** All three Grand Companies of Eorzea want you in their ranks. *A Hero in the Making* (2.0, main): "It would seem your recent exploits have garnered the attention of all three of the Grand Companies of Eorzea."
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M40u** Kan-E-Senna, the Elder Seedseer, speaks at Mih Khetto's Amphitheatre. *A Hero in the Making* (2.0, main): "Elder Seedseer Kan-E-Senna will deliver her address at Mih Khetto's Amphitheatre."
+  - **M40i** Flame General Raubahn addresses Ul'dah at its remembrance service. *A Hero in the Making* (2.0, main): "Next, you'll need to go to Ul'dah, where Flame General Raubahn Aldynn will be addressing the masses at the Royal Promenade."
+  - **M40w** Merlwyb is Chief Admiral of the Maelstrom. *A Hero in the Making* (2.0, main): "where Maelstrom Chief Admiral Merlwyb Bloefhiswyn will be giving her address."
+  - **C10** Alphinaud and Alisaie are twins. *A Hero in the Making* (2.0, main): "the traveling twins, Alphinaud and Alisaie … And my sister, Alisaie, at your service."
+  - **M40t** You must choose and give your answer to the officer of the company you would join. *A Hero in the Making* (2.0, main): "Weigh your decision well, and give your answer to the officer of the Grand Company you would join."
+
+</details>
+
+**#41 only · main**
+
+> Officers of all three Grand Companies came to the Waking Sands to court Ifrit's bane, and you heard each company's leader at the remembrance services. You chose the Immortal Flames of Ul'dah. Your induction at the Hall of Flames was cut short by an imperial attack on an airship near Horizon's Edge, and you helped drive off the soldiers trying to seize it, saving its crew, Biggs and Wedge, engineers of the Ironworks.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); The Company You Keep (Immortal Flames) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M41a** You confirm that you will join the Immortal Flames. *The Company You Keep (Immortal Flames)* (2.0, main): "You have confirmed your intention to join the ranks of the Immortal Flames."
+  - **M41b** Your induction is interrupted by an imperial attack on an airship near Horizon's Edge. *The Company You Keep (Immortal Flames)* (2.0, main): "Your formal induction into the Immortal Flames is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to Horizon's Edge"
+  - **M41d** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Immortal Flames)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41c** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+
+</details>
+
+**#42 only · main**
+
+> You chose the Immortal Flames, Ul'dah's Grand Company, and after rescuing two Ironworks engineers from imperial soldiers you swore its oath, forsaking all other nations. Back at the Waking Sands, Minfilia announced that the engineers, Biggs and Wedge, are now under the Scions' protection: as a neutral party, the Scions will keep their airship technology.
+
+Sources shown: The Company You Keep (Immortal Flames) — main scenario quest (2.0); For Coin and Country — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41a** You confirm that you will join the Immortal Flames. *The Company You Keep (Immortal Flames)* (2.0, main): "You have confirmed your intention to join the ranks of the Immortal Flames."
+  - **M41c** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Immortal Flames)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M42a** You are sworn into the Immortal Flames, Ul'dah's Grand Company. *For Coin and Country* (2.0, main): "You have been sworn into the service of Ul'dah's Grand Company, the Immortal Flames."
+  - **M42b** Flame recruits must forsake all other nations. *For Coin and Country* (2.0, main): "To join our ranks, you must forsake all other nations."
+  - **M42d** Biggs and Wedge are now under the protection of the Scions. *For Coin and Country* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42e** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *For Coin and Country* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+**#41b only · main**
+
+> Officers of all three Grand Companies came to the Waking Sands to court Ifrit's bane, and you heard each company's leader at the remembrance services. You chose the Maelstrom of Limsa Lominsa. Your induction at Maelstrom Command was cut short by an imperial attack on an airship in Cedarwood, and you helped drive off the soldiers trying to seize it, saving its crew, Biggs and Wedge, engineers of the Ironworks.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); The Company You Keep (Maelstrom) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M41ba** You confirm that you will join the Maelstrom. *The Company You Keep (Maelstrom)* (2.0, main): "You have confirmed your intention to join the ranks of the Maelstrom."
+  - **M41bb** Your induction is interrupted by an imperial attack on an airship in Cedarwood. *The Company You Keep (Maelstrom)* (2.0, main): "Your formal induction into the Maelstrom is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to Cedarwood"
+  - **M41bd** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Maelstrom)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41bc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+
+</details>
+
+**#42b only · main**
+
+> You chose the Maelstrom, Limsa Lominsa's Grand Company, and after rescuing two Ironworks engineers from imperial soldiers you were sworn in as a storm private third class. Back at the Waking Sands, Minfilia announced that the engineers, Biggs and Wedge, are now under the Scions' protection: as a neutral party, the Scions will keep their airship technology.
+
+Sources shown: The Company You Keep (Maelstrom) — main scenario quest (2.0); Till Sea Swallows All — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41ba** You confirm that you will join the Maelstrom. *The Company You Keep (Maelstrom)* (2.0, main): "You have confirmed your intention to join the ranks of the Maelstrom."
+  - **M41bc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Maelstrom)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M42ba** You are sworn into the Maelstrom, Limsa Lominsa's Grand Company. *Till Sea Swallows All* (2.0, main): "You have been sworn into the service of Limsa Lominsa's Grand Company, the Maelstrom."
+  - **M42be** You are a storm private third class, a soldier of the Maelstrom. *Till Sea Swallows All* (2.0, main): "I hereby assign you the rank of storm private third class. You are now officially a soldier of the Maelstrom."
+  - **M42bc** Biggs and Wedge are now under the protection of the Scions. *Till Sea Swallows All* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42bd** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *Till Sea Swallows All* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+**#41c only · main**
+
+> Officers of all three Grand Companies came to the Waking Sands to court Ifrit's bane, and you heard each company's leader at the remembrance services. You chose the Order of the Twin Adder of Gridania. Your induction at the Adders' Nest was cut short by an imperial attack on an airship southeast of Nine Ivies, and you helped drive off the soldiers trying to seize it, saving its crew, Biggs and Wedge, engineers of the Ironworks.
+
+Sources shown: A Hero in the Making — main scenario quest (2.0); The Company You Keep (Twin Adder) — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M41ca** You confirm that you will join the Order of the Twin Adder. *The Company You Keep (Twin Adder)* (2.0, main): "You have confirmed your intention to join the ranks of the Order of the Twin Adder."
+  - **M41cb** Your induction is interrupted by an imperial attack on an airship southeast of Nine Ivies. *The Company You Keep (Twin Adder)* (2.0, main): "Your formal induction into the Order of the Twin Adder is interrupted by an urgent report concerning an imperial attack on a Highwind Skyways airship. Head to the area southeast of Nine Ivies"
+  - **M41cd** You defeat the imperial soldiers trying to requisition the downed airship. *The Company You Keep (Twin Adder)* (2.0, main): "You have defeated the imperial soldiers intent on requisitioning the downed airship."
+  - **M41cc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+
+</details>
+
+**#42c onward · main**
+
+> You chose the Order of the Twin Adder, Gridania's Grand Company, and after rescuing two Ironworks engineers from imperial soldiers you were sworn into its ranks. Back at the Waking Sands, Minfilia announced that the engineers, Biggs and Wedge, are now under the Scions' protection: as a neutral party, the Scions will keep their airship technology.
+
+Sources shown: The Company You Keep (Twin Adder) — main scenario quest (2.0); Wood's Will Be Done — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M41ca** You confirm that you will join the Order of the Twin Adder. *The Company You Keep (Twin Adder)* (2.0, main): "You have confirmed your intention to join the ranks of the Order of the Twin Adder."
+  - **M41cc** The crew, Biggs and Wedge, are Ironworks engineers, and the Ironworks' master has been missing since the Calamity. *The Company You Keep (Twin Adder)* (2.0, main): "You learn that the vessel's crew, Biggs and Wedge, are engineers from Garlond Ironworks, and that Master Garlond himself has been missing since the Calamity."
+  - **M42ca** You are sworn into the Order of the Twin Adder, Gridania's Grand Company. *Wood's Will Be Done* (2.0, main): "You have been sworn into the service of Gridania's Grand Company, the Order of the Twin Adder."
+  - **M42cd** Biggs and Wedge are now under the protection of the Scions. *Wood's Will Be Done* (2.0, main): "Minfilia announces that Biggs and Wedge, the Garlond Ironworks engineers, are now under the protection of the Scions of the Seventh Dawn."
+  - **M42ce** As a neutral party, the Scions keep airship technology, and the Ironworks sent two engineers to help. *Wood's Will Be Done* (2.0, main): "As a neutral party, it was judged that we Scions should serve as the keepers of this technology. … we requested the assistance of Garlond Ironworks, who very kindly sent us two of their finest engineers."
+
+</details>
+
+### Envoys to the Sylphs (`evt-envoys-to-the-sylphs`, event)
+
+**#43 only · main**
+
+> Minfilia has asked you to learn the intentions of the sylphs, a beast tribe of the Twelveswood that worships the primal Ramuh. Yda and Papalymo, who studied them for the Order of the Twin Adder, will help you. The sylphs seem no longer to summon Ramuh, and winning their favor could ease the primal threat while Gridania fends off Garuda.
+
+Sources shown: Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43a** Minfilia asks you to learn the sylphs' intentions with the Echo, reporting first to Commander Vorsaile at the Adders' Nest. *Sylph-management* (2.0, main): "Minfilia would have you ascertain the [[Sylph Daily Quests|sylph tribe]]'s intentions, aided by the power of [[the Echo]]. Before making contact with the diminutive [[beastmen]], report to Commander [[Vorsaile Heuloix]] at [[the Adders' Nest]] in [[Gridania]]."
+  - **M43b** The Scions studied the sylphs, a beast tribe of the Twelveswood, for the Order of the Twin Adder. *Sylph-management* (2.0, main): "We have conducted a study at the behest of the Order of the Twin Adder. … Our task was to survey the behavior of the sylphs, a beast tribe indigenous to the Twelveswood."
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M43h** Yda and Papalymo will help you with the sylphs. *Sylph-management* (2.0, main): "Yda and Papalymo, however, should be able to see the forest for the trees."
+  - **M43d** The sylphs seem no longer to summon Ramuh, but the threat should not be assumed past. *Sylph-management* (2.0, main): "While Ramuh's existence is well documented, the sylphs do not─or perhaps, can not─summon the primal any longer, insofar as can be ascertained. … It would be unwise to assume that the threat posed by the primal has passed."
+  - **M43f** Winning the sylphs' favor may bring the Scions closer to mitigating the primal threat. *Sylph-management* (2.0, main): "Winning the sylphs' favor may well bring us a step closer to mitigating the threat of the primals."
+  - **M43e** Gridania has its hands full fending off Garuda, among the most savage of primals. *Sylph-management* (2.0, main): "What we ''can'' say with absolute certainty is that Gridania has its hands full fending off Garuda. … Who, I need hardly remind you, is among the most savage and terrible of all known primals."
+
+</details>
+
+**#44 only · main**
+
+> The Scions hope to win the favor of the sylphs, who worship the primal Ramuh. Commander Vorsaile of the Twin Adder cannot decide whether to strike at Ramuh or leave the sylphs in peace, so he has asked the Scions to act as an impartial liaison. In the East Shroud, you were told the sylphs have been wary since the Empire came to the Shroud.
+
+Sources shown: Sylph-management — main scenario quest (2.0); We Come in Peace — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43f** Winning the sylphs' favor may bring the Scions closer to mitigating the primal threat. *Sylph-management* (2.0, main): "Winning the sylphs' favor may well bring us a step closer to mitigating the threat of the primals."
+  - **M43c** Yda says the sylphs worship the primal Ramuh. *Sylph-management* (2.0, main): "That worship the primal Ramuh."
+  - **M44b** Gridania cannot decide whether to strike at Ramuh or leave the sylphs alone. *We Come in Peace* (2.0, main): "Do we strike at Ramuh, or leave the sylphs to their own ways? That is the question"
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+  - **M44f** The sylphs have been wary since the Empire came to the Shroud. *We Come in Peace* (2.0, main): "Particularly since the Empire has come to the Shroud."
+
+</details>
+
+**#45 only · main**
+
+> Commander Vorsaile of the Twin Adder has asked the Scions to serve as an impartial liaison to the sylphs, whose ties to the primal Ramuh worry Gridania. At the Hawthorne Hut, the old beekeeper Rolfe struggled to recall the sylphs' customs, but with help from those he had told his stories, he remembered their traditional greeting: a dance.
+
+Sources shown: We Come in Peace — main scenario quest (2.0); Sylphic Studies — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+  - **M44d** The sylphs' ties to Ramuh have raised a warning in the Twin Adder's ranks. *We Come in Peace* (2.0, main): "the sylphs' relation to the primal Ramuh has raised a flag of warning amongst our ranks."
+  - **M45a** Rolfe, patriarch of a beekeeping family, is said to know sylphic customs. *Sylphic Studies* (2.0, main): "[[Rolfe Hawthorne]], patriarch of the beekeeping Hawthorne family, is said to be well versed in sylphic customs."
+  - **M45b** Rolfe's memory is failing, but he has shared his stories with those around the hut. *Sylphic Studies* (2.0, main): "Rolfe's memory is not what it used to be, but it turns out that he has previously shared his stories with those around the hut."
+  - **M45c** Rolfe recalls that dancing is the sylphs' traditional greeting. *Sylphic Studies* (2.0, main): "he recalls that dancing is the traditional greeting among the sylphs."
+
+</details>
+
+**#46 only · main**
+
+> As Gridania's impartial liaison to the sylphs, you are learning their customs from Rolfe, a beekeeper at the Hawthorne Hut. Dancing is their traditional greeting, and they dislike guests who arrive empty-handed. His wife Rosa named the gift they love, milkroot from an ochu, and you have fetched some.
+
+Sources shown: We Come in Peace — main scenario quest (2.0); Sylphic Studies — main scenario quest (2.0); First Impressions — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+  - **M45a** Rolfe, patriarch of a beekeeping family, is said to know sylphic customs. *Sylphic Studies* (2.0, main): "[[Rolfe Hawthorne]], patriarch of the beekeeping Hawthorne family, is said to be well versed in sylphic customs."
+  - **M45c** Rolfe recalls that dancing is the sylphs' traditional greeting. *Sylphic Studies* (2.0, main): "he recalls that dancing is the traditional greeting among the sylphs."
+  - **M46a** Sylphs dislike guests who arrive empty-handed. *First Impressions* (2.0, main): "They don't take kindly to guests who show up empty-handed."
+  - **M46b** Rosa says the sylphs are fond of milkroot, which comes from ochus. *First Impressions* (2.0, main): "Rosa informs you that the sylphs are said to be quite fond of [[milkroot]], which can be obtained from [[Ochu (Enemy)|ochu]]s."
+  - **M46c** Rolfe says a gift of milkroot will make the sylphs call you friend. *First Impressions* (2.0, main): "a gift of milkroot will have the sylphs calling you friend"
+
+</details>
+
+**#47 only · main**
+
+> Carrying milkroot and a letter from the Elder Seedseer vouching for Gridania's envoy, you reached the sylphs of Little Solace and danced their greeting. Komuxio accepted the gifts but called them a trick and refused you an audience with the elder, and Papalymo thinks recent events have left the sylphs wary.
+
+Sources shown: First Impressions — main scenario quest (2.0); First Contact — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M46c** Rolfe says a gift of milkroot will make the sylphs call you friend. *First Impressions* (2.0, main): "a gift of milkroot will have the sylphs calling you friend"
+  - **M47a** Amelain gives you a letter from the Elder Seedseer for Komuxio of Little Solace. *First Contact* (2.0, main): "Amelain has entrusted you with [[Letter to the Elder (First Contact)|a missive]] penned by [[Kan-E-Senna|the Elder Seedseer]] herself. Deliver it safely to [[Komuxio]] at [[Little Solace]]."
+  - **M47b** The letter vouches for the envoy and restates Gridania's wish for harmony with the sylphs. *First Contact* (2.0, main): "it vouches for the integrity of our envoy─that would be you─and restates Gridania's desire to maintain a harmonious relationship with our long-standing friends of the forest."
+  - **M47d** Komuxio accepts your gifts but remains unconvinced, and you are denied an audience with the elder of Little Solace. *First Contact* (2.0, main): "Despite accepting your gifts, Komuxio remains unconvinced as to your intentions. Is there no way to gain the [[sylph]]'s trust and secure an audience with the elder of Little Solace?"
+  - **M47e** Komuxio says the elder has no words for Gridania. *First Contact* (2.0, main): "Elder one has no words for Gridania. Walking ones waste every one's time."
+  - **M47f** Papalymo thinks recent events have left the sylphs uncommonly wary. *First Contact* (2.0, main): "something tells me recent events have our erstwhile fluttery friends feeling uncommonly wary."
+
+</details>
+
+**#48 only · main**
+
+> As envoys for Gridania and the Scions, you are trying to win the trust of the wary sylphs of Little Solace. Komuxio refused you an audience with their elder, so at Yda's urging you danced for the villagers instead. Your dancing brought smiles to all of Little Solace, though whether it won their hearts remains to be seen.
+
+Sources shown: First Contact — main scenario quest (2.0); Dance Dance Diplomacy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M47b** The letter vouches for the envoy and restates Gridania's wish for harmony with the sylphs. *First Contact* (2.0, main): "it vouches for the integrity of our envoy─that would be you─and restates Gridania's desire to maintain a harmonious relationship with our long-standing friends of the forest."
+  - **M47d** Komuxio accepts your gifts but remains unconvinced, and you are denied an audience with the elder of Little Solace. *First Contact* (2.0, main): "Despite accepting your gifts, Komuxio remains unconvinced as to your intentions. Is there no way to gain the [[sylph]]'s trust and secure an audience with the elder of Little Solace?"
+  - **M48a** Yda thinks dancing for the sylphs of Little Solace is the best way to earn their trust. *Dance Dance Diplomacy* (2.0, main): "Yda believes that the best way to earn the sylphs' trust is to [[Dance|/dance]] for those who reside in [[Little Solace]]."
+  - **M48c** Yda says the dancing brought smiles and high spirits to Little Solace. *Dance Dance Diplomacy* (2.0, main): "your lovely dancing has brought smiles and high spirits to all of Little Solace!"
+  - **M48b** Your dancing won smiles, but whether it won the sylphs' hearts remains to be seen. *Dance Dance Diplomacy* (2.0, main): "Your dancing has won many a smile, but have you truly succeeded in winning the hearts of the sylphs of Little Solace? This remains to be seen."
+
+</details>
+
+**#49 only · main**
+
+> Komuxio of Little Solace refused you, Gridania's envoy, an audience with the sylph elder. Papalymo urged you to help the sylphs, who were driven from their woodland home and live in a settlement without defenses. You cleared the beasts that troubled them, and Komuxio admits he may have been wrong not to trust you.
+
+Sources shown: First Contact — main scenario quest (2.0); Forest Friend — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M47d** Komuxio accepts your gifts but remains unconvinced, and you are denied an audience with the elder of Little Solace. *First Contact* (2.0, main): "Despite accepting your gifts, Komuxio remains unconvinced as to your intentions. Is there no way to gain the [[sylph]]'s trust and secure an audience with the elder of Little Solace?"
+  - **M49a** The sylphs of Little Solace were driven from their woodland home. *Forest Friend* (2.0, main): "The sylphs who make their home in Little Solace do so having been driven from their woodland home."
+  - **M49b** Little Solace is a temporary settlement without defenses. *Forest Friend* (2.0, main): "Being a temporary settlement, Little Solace wants for amenities, not least a stout set of defenses."
+  - **M49c** The sylphs have begun to warm to you, gradually. *Forest Friend* (2.0, main): "It would seem the sylphs have begun to warm to your presence, albeit gradually."
+  - **M49d** Komuxio thinks he may have been wrong not to trust you. *Forest Friend* (2.0, main): "Perhaps this one was wrong not to trust dancing one, after all."
+
+</details>
+
+**#50 only · main**
+
+> The sylphs of Little Solace are slowly warming to you, Gridania's envoy. Komuxio sent you to look into strangers seen in the forest, and you fought off imperial soldiers guarding a cache of supplies. Their log was written by someone who knows the forest, which suggests a traitor; Komuxio made you promise to stay a friend to the sylphs.
+
+Sources shown: Forest Friend — main scenario quest (2.0); Presence of the Enemy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M49c** The sylphs have begun to warm to you, gradually. *Forest Friend* (2.0, main): "It would seem the sylphs have begun to warm to your presence, albeit gradually."
+  - **M50a** Komuxio is troubled by strangers seen in the forest. *Presence of the Enemy* (2.0, main): "Komuxio is troubled by sightings of unfamiliar walking ones in the forest."
+  - **M50b** Imperial soldiers guarding boxes attack you, and the boxes hold a log of imperial supplies for delivery. *Presence of the Enemy* (2.0, main): "Stumbling upon a stack of suspicious boxes, you are attacked by a group of imperial soldiers. After fending them off, you search the boxes to uncover a [[Quartermaster's Log|quartermaster's log]] detailing a list of imperial supplies for delivery."
+  - **M50c** Komuxio deduces the log was written by someone who knows the forest: perhaps a traitor. *Presence of the Enemy* (2.0, main): "Komuxio deduces that the log must have been penned by someone with knowledge of the forest. Could there be a traitor in your midst?"
+  - **M50d** Komuxio makes you promise always to be a friend to the sylphs. *Presence of the Enemy* (2.0, main): "Dancing one must promise to always be friend to these ones."
+
+</details>
+
+**#51 onward · main**
+
+> Komuxio of Little Solace now trusts you without reserve. His friend Claxio had wandered off, fearing the sylphs of Little Solace were forgetting who they are, and you, Yda and Papalymo saved him from sylphs tempered by Ramuh, who exist only to serve the primal. Whether the sylph elder will be as accepting remains to be seen.
+
+Sources shown: Brotherly Love — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M51f** You have earned Komuxio's unreserved trust; whether the sylph elder will accept you is uncertain. *Brotherly Love* (2.0, main): "Your efforts on his friend's behalf have earned you Komuxio's unreserved trust. Will the sylph elder be as accepting?"
+  - **M51a** Komuxio fears for his friend Claxio, who wandered off alone. *Brotherly Love* (2.0, main): "Komuxio fears for the safety of his friend [[Claxio]], who has wandered off unaccompanied."
+  - **M51e** Claxio feared the sylphs of Little Solace were forgetting who they are. *Brotherly Love* (2.0, main): "This one feared that these ones were forgetting who these ones are"
+  - **M51d** You save Claxio from tempered sylphs, and he returns to Little Solace. *Brotherly Love* (2.0, main): "You find Claxio just in time to prevent tempered sylphs from spiriting him away. Following an emotional reunion with Komuxio, Claxio agrees to return to Little Solace."
+  - **M51b** The sylphs in the forest have been tempered by the primal Ramuh. *Brotherly Love* (2.0, main): "These sylphs have been tempered―brought under the thrall of the primal Ramuh."
+  - **M51c** Like the Amalj'aa tempered by Ifrit, tempered sylphs exist only to serve their primal. *Brotherly Love* (2.0, main): "Akin to the Amalj'aa tempered by Ifrit, these sylphs exist only to serve their deity."
+
+</details>
+
+### The Missing Elder (`evt-the-missing-elder`, event)
+
+**#52 only · main**
+
+> Komuxio confessed that the elder of the sylphs of Little Solace went into the forest and has not come back. Commander Vorsaile, fearing a crisis if the tempered sylphs take him, has his Serpents watching, and the Wood Wailers have pledged their help. Buscarron, whose tavern in the South Shroud stands near where the elder vanished, will listen for news.
+
+Sources shown: Spirited Away — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52b** The elder went into the forest and has not come back. *Spirited Away* (2.0, main): "Elder one went into forest yesterday, but has not come back..."
+  - **M52c** Vorsaile fears a crisis if the elder ends up with the tempered sylphs. *Spirited Away* (2.0, main): "Why, if he were to end up in the hands of the tempered ones, we'd have a crisis on our hands."
+  - **M52d** Vorsaile agrees to help search for the sylph elder, with his Serpents watching night and day. *Spirited Away* (2.0, main): "Commander Vorsaile Heuloix consents to assist in the search for the sylph elder. … You can assure the sylphs that my sharpest-eyed Serpents will be on the lookout night and day."
+  - **M52e** The Wood Wailers pledge their cooperation in the search. *Spirited Away* (2.0, main): "Giah Molkoh has pledged [[the Wood Wailers]]' cooperation in the search effort."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+  - **M52g** Buscarron's home is near where the elder disappeared. *Spirited Away* (2.0, main): "Near where elder one disappeared is the home of a walking one named Buscarron."
+
+</details>
+
+**#53 only · main**
+
+> The elder of the sylphs of Little Solace is missing, and the Twin Adder and the Wood Wailers are searching. Buscarron, whose tavern in the South Shroud stands near where the elder vanished, has no news yet. Meanwhile you cooled a brawl at his door, for he serves any who pay and behave.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Druthers House Rules — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52d** Vorsaile agrees to help search for the sylph elder, with his Serpents watching night and day. *Spirited Away* (2.0, main): "Commander Vorsaile Heuloix consents to assist in the search for the sylph elder. … You can assure the sylphs that my sharpest-eyed Serpents will be on the lookout night and day."
+  - **M52e** The Wood Wailers pledge their cooperation in the search. *Spirited Away* (2.0, main): "Giah Molkoh has pledged [[the Wood Wailers]]' cooperation in the search effort."
+  - **M52g** Buscarron's home is near where the elder disappeared. *Spirited Away* (2.0, main): "Near where elder one disappeared is the home of a walking one named Buscarron."
+  - **M53a** Buscarron has no word of the sylph elder yet. *Druthers House Rules* (2.0, main): "No word on the sylph elder yet, but I'm sure it's only a matter of time."
+  - **M53c** Buscarron opens his doors to all who pay and stay out of trouble. *Druthers House Rules* (2.0, main): "Buscarron prides himself on opening his doors to all customers─even those with unsavory reputations─so long as they pay good coin and stay out of trouble."
+
+</details>
+
+**#54 only · main**
+
+> The elder of the sylphs of Little Solace has gone missing, and Commander Vorsaile fears a crisis if the tempered sylphs take him. Buscarron of the South Shroud is listening for news. Meanwhile he had you return an earring to Teteroon, a Qiqirn he found fallen in the Shroud after the Calamity and nursed back to health, who now trades on Bronze Lake.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Never Forget — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52c** Vorsaile fears a crisis if the elder ends up with the tempered sylphs. *Spirited Away* (2.0, main): "Why, if he were to end up in the hands of the tempered ones, we'd have a crisis on our hands."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+  - **M54a** After the Calamity Buscarron found the Qiqirn Teteroon fallen in the Shroud and nursed him back to health. *Never Forget* (2.0, main): "It was right after the [[Calamity]] that I came across him fallen in the [[The Black Shroud|Shroud]]. … So, I took him in and nursed him back to health best I could."
+  - **M54b** Teteroon went north to Memeroon's Trading Post on Bronze Lake. *Never Forget* (2.0, main): "I reckon he meant the one right on the shore of [[Bronze Lake]]─[[Memeroon's Trading Post]]."
+  - **M54c** You deliver Teteroon's forgotten earring, and he remembers Buscarron fondly. *Never Forget* (2.0, main): "You have delivered the scarlet earring to Teteroon. Reminded of [[Buscarron]], he promptly lapses into nostalgic reminiscences of former days."
+
+</details>
+
+**#55 only · main**
+
+> The elder of the sylphs of Little Solace has gone missing, and Commander Vorsaile fears a crisis if the tempered sylphs take him. Buscarron of the South Shroud is listening for news. You found Teteroon, a Qiqirn Buscarron nursed back to health after the Calamity, and he is brewing firewater to thank the man without whom he would be dead.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Never Forget — main scenario quest (2.0); Microbrewing — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52c** Vorsaile fears a crisis if the elder ends up with the tempered sylphs. *Spirited Away* (2.0, main): "Why, if he were to end up in the hands of the tempered ones, we'd have a crisis on our hands."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+  - **M54a** After the Calamity Buscarron found the Qiqirn Teteroon fallen in the Shroud and nursed him back to health. *Never Forget* (2.0, main): "It was right after the [[Calamity]] that I came across him fallen in the [[The Black Shroud|Shroud]]. … So, I took him in and nursed him back to health best I could."
+  - **M55a** Teteroon says he would be dead without Buscarron. *Microbrewing* (2.0, main): "Good Buscaroon help Teteroon. Teteroon dead without good Buscaroon."
+  - **M55b** Teteroon is brewing Qiqirn firewater. *Microbrewing* (2.0, main): "Teteroon has set about brewing his Qiqirn firewater from the ingredients you have provided."
+
+</details>
+
+**#56 only · main**
+
+> The elder of the sylphs of Little Solace has gone missing, and Commander Vorsaile fears a crisis if the tempered sylphs take him. Buscarron of the South Shroud is listening for news. You brought him firewater from Teteroon, the Qiqirn he once nursed back to health. He is delighted, though the gift should age a full year.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Never Forget — main scenario quest (2.0); Like Fine Wine — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52c** Vorsaile fears a crisis if the elder ends up with the tempered sylphs. *Spirited Away* (2.0, main): "Why, if he were to end up in the hands of the tempered ones, we'd have a crisis on our hands."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+  - **M54a** After the Calamity Buscarron found the Qiqirn Teteroon fallen in the Shroud and nursed him back to health. *Never Forget* (2.0, main): "It was right after the [[Calamity]] that I came across him fallen in the [[The Black Shroud|Shroud]]. … So, I took him in and nursed him back to health best I could."
+  - **M56a** Teteroon has finished his gift for Buscarron. *Like Fine Wine* (2.0, main): "Teteroon has finally finished his gift for Buscarron."
+  - **M56b** Buscarron is delighted with his old friend's liquor, though it should age a year. *Like Fine Wine* (2.0, main): "Buscarron is delighted to receive the hard liquor brewed by his old friend. However, he is less delighted when he realizes it would be best to age it a year before finally cracking it open."
+
+</details>
+
+**#57 only · main**
+
+> Sylphs have been seen in a part of the Twelveswood beyond their lands, and Buscarron thinks the missing elder of Little Solace is likely among them. Surveying the area for him, you found Garlean soldiers, who had never before reached the forest depths. Buscarron reasons that a Gridanian traitor who knows the Wood Wailers' spires must be guiding them.
+
+Sources shown: Sylphish Concerns — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M57a** Sylphs have been seen in a part of the wood beyond their domain. *Sylphish Concerns* (2.0, main): "Sightings of sylphs in a region of the wood beyond their domain have given cause for concern."
+  - **M57b** Buscarron thinks the missing sylph elder is likely among them. *Sylphish Concerns* (2.0, main): "More than like, the missing sylph elder's among them."
+  - **M57c** Garlean soldiers were never before able to reach the forest depths. *Sylphish Concerns* (2.0, main): "Buscarron tells you that [[Garlean]] soldiers were never before able to penetrate the forest depths."
+  - **M57e** Buscarron reasons that only someone who knew the Wailers' spires and watches could have guided them: a Gridanian traitor. *Sylphish Concerns* (2.0, main): "Unless someone guided them through. Someone who knew where the spires stand, and when the Wailers watch. A Gridanian traitor."
+  - **M57d** The evidence suggests a traitor in Gridania is aiding the imperial advance. *Sylphish Concerns* (2.0, main): "The mounting evidence seems to suggest that there is a traitor in [[Gridania]] aiding the imperial advance."
+
+</details>
+
+**#58 only · main**
+
+> Searching for the missing sylph elder, you found Garlean soldiers deep in the Twelveswood, guided by a traitor. Buscarron suspected Laurentius, a newly rich Wood Wailer; after you beat the imperials, Laurentius confessed to selling maps and rations to the Empire and went to give himself up to the Twin Adder. Then Buscarron brought news: the elder has been found.
+
+Sources shown: Sylphish Concerns — main scenario quest (2.0); Nouveau Riche — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M57c** Garlean soldiers were never before able to reach the forest depths. *Sylphish Concerns* (2.0, main): "Buscarron tells you that [[Garlean]] soldiers were never before able to penetrate the forest depths."
+  - **M57d** The evidence suggests a traitor in Gridania is aiding the imperial advance. *Sylphish Concerns* (2.0, main): "The mounting evidence seems to suggest that there is a traitor in [[Gridania]] aiding the imperial advance."
+  - **M58a** Suspicion surrounds the sudden good fortune of Laurentius. *Nouveau Riche* (2.0, main): "Suspicion surrounds the recent good fortune of a man named [[Laurentius]]."
+  - **M58b** Laurentius is a Wood Wailer. *Nouveau Riche* (2.0, main): "Were he a merchant, I'd prob'ly think nothing of it, but this lad's a Wood Wailer."
+  - **M58f** You defeat a squad of imperial troops. *Nouveau Riche* (2.0, main): "You vanquish a squad of imperial troops, prompting Laurentius to admit defeat at long last."
+  - **M58c** Laurentius confesses to selling maps and rations to the Empire. *Nouveau Riche* (2.0, main): "Aye, I sold maps and rations to the Empire. It was I."
+  - **M58d** Laurentius repents and resolves to give himself up to the Order of the Twin Adder. *Nouveau Riche* (2.0, main): "he repents his decision to sell information and supplies to the Garleans, and resolves to give himself up to [[the Order of the Twin Adder]]."
+  - **M58e** Buscarron brings news that the missing sylph elder has been found. *Nouveau Riche* (2.0, main): "He then shares some exciting news: the missing sylph elder has been found."
+
+</details>
+
+**#59 only · main**
+
+> Fleeing Garlean soldiers, Frixio, the elder of the sylphs of Little Solace, went into the Thousand Maws of Toto-Rak; had he come to harm, the hope of peace between man and sylph would have died. Inside you met the Ascian Lahabrea, who loosed a gigantic banemite on you. You found Frixio shaken but unharmed, and he has agreed to speak with you about Ramuh.
+
+Sources shown: Into the Beast's Maw — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M59a** Fleeing Garlean soldiers, the sylph elder Frixio has gone into the Thousand Maws of Toto-Rak. *Into the Beast's Maw* (2.0, main): "Fleeing from [[Garlean]] soldiers, the sylph elder, [[Frixio]], has ventured into [[The Thousand Maws of Toto-Rak|the Thousand Maws of Toto–Rak]]."
+  - **M59d** Frixio is the eldest of the sylphs of Little Solace. *Into the Beast's Maw* (2.0, main): "This one is called Frixio, eldest of these ones of Little Solace."
+  - **M59b** Were harm to befall him, the effort to make peace between man and sylph would be undone. *Into the Beast's Maw* (2.0, main): "Were any misfortune to befall him, the effort to secure peace between man and [[sylph]] would surely be undone."
+  - **M59e** In Toto-Rak you meet Lahabrea of the Ascians, who sets a gigantic banemite on you. *Into the Beast's Maw* (2.0, main): "Within the bowels of Toto–Rak, you encounter [[Lahabrea]] of the [[Ascians]], who unleashes a gigantic banemite upon you."
+  - **M59i** You find Frixio shaken but unharmed; he agrees to speak with you about Ramuh at Little Solace. *Into the Beast's Maw* (2.0, main): "you find Frixio, shaken but unharmed. Grateful for your timely intervention, he agrees to speak with you regarding [[Ramuh]], and bids you meet him later at [[Little Solace]]."
+
+</details>
+
+**#60 only · main**
+
+> You rescued Frixio, elder of the sylphs of Little Solace, from the Thousand Maws of Toto-Rak, and peace between man and sylph is within reach. Buscarron, who believes the two peoples must stand together now that the Calamity has weakened the elementals, sent the sylphs a peace offering, and it moved them.
+
+Sources shown: Into the Beast's Maw — main scenario quest (2.0); A Simple Gift — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M59a** Fleeing Garlean soldiers, the sylph elder Frixio has gone into the Thousand Maws of Toto-Rak. *Into the Beast's Maw* (2.0, main): "Fleeing from [[Garlean]] soldiers, the sylph elder, [[Frixio]], has ventured into [[The Thousand Maws of Toto-Rak|the Thousand Maws of Toto–Rak]]."
+  - **M59i** You find Frixio shaken but unharmed; he agrees to speak with you about Ramuh at Little Solace. *Into the Beast's Maw* (2.0, main): "you find Frixio, shaken but unharmed. Grateful for your timely intervention, he agrees to speak with you regarding [[Ramuh]], and bids you meet him later at [[Little Solace]]."
+  - **M59j** Peace between man and sylph is now within reach. *Into the Beast's Maw* (2.0, main): "Owing to your efforts, peace between man and sylph is now within reach."
+  - **M60a** Buscarron sends a peace offering of rose oil to Knolexia in Little Solace. *A Simple Gift* (2.0, main): "Buscarron would like to send a peace offering to the sylphs of [[Little Solace]] in hopes of reinforcing the current spirit of cooperation."
+  - **M60b** Buscarron says the Calamity weakened the elementals. *A Simple Gift* (2.0, main): "The wood is not what it once was. The Calamity changed the elementals─weakened them."
+  - **M60c** Buscarron believes Gridanians and sylphs survive only by working together. *A Simple Gift* (2.0, main): "Only by working together and fighting together will we survive together─and the Twelveswood with us."
+  - **M60d** The gift moves Knolexia, and may strengthen relations between Gridanians and sylphs. *A Simple Gift* (2.0, main): "Buscarron's thoughtful gift has moved Knolexia. With any luck, this act and similar future gestures will serve to further strengthen relations between [[Gridania]]ns and sylphs."
+
+</details>
+
+**#61 onward · main**
+
+> Frixio told you that some sylphs summoned Ramuh to protect the wood from imperial soldiers, against his wishes, and that all who took part were tempered; he fled to Little Solace with those who refused. You watched the tempered sylphs without incident and carried his letter to Commander Vorsaile, who is relieved that the sylphs want no conflict.
+
+Sources shown: Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M61b** Frixio says the sylphs summoned Ramuh to protect the wood from imperial soldiers. *Believe in Your Sylph* (2.0, main): "These ones resorted to summoning Lord Ramuh to protect the wood from imperial ones."
+  - **M61c** Ramuh was summoned against Frixio's wishes, and all who took part were tempered. *Believe in Your Sylph* (2.0, main): "Against this one's wishes, Lord Ramuh was summoned...and all those ones who took part became touched ones."
+  - **M61d** Frixio fled to Little Solace with all who did not wish to be bound to Ramuh. *Believe in Your Sylph* (2.0, main): "So this one fled to Little Solace with all those ones who did not wish to be bound to Lord Ramuh."
+  - **M61a** Komuxio asks you to observe his tempered kindred so your word can reassure the Gridanians. *Believe in Your Sylph* (2.0, main): "Komuxio has asked you to observe his tempered kindred in the [[sylph]] homeland, hoping that your testimony might serve to reassure the [[Gridania]]ns that they have nothing to fear from his people."
+  - **M61h** Vorsaile is relieved that the sylphs want no conflict and do not intend to summon Ramuh. *Believe in Your Sylph* (2.0, main): "So the sylphs have no desire for conflict, nor do they intend to summon Ramuh."
+
+</details>
+
+### The Adventurers' Guild (`org-adventurers-guild`, organization)
+
+**#25–#26 · main**
+
+> A guild that hires out adventurers. It keeps a building north of Aleport in La Noscea, and its branch in Gridania has asked for a seasoned adventurer.
+
+Sources shown: It's Probably Pirates — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M25f** The Hall of the Novice is the Adventurers' Guild building north of Aleport. *It's Probably Pirates* (2.0, main): "Make your way to the [[Adventurers' Guild]] building located north of Aleport"
+  - **M25e** Baderon passes on a job from the Adventurers' Guild in Gridania. *It's Probably Pirates* (2.0, main): "It seems the Adventurers' Guild in [[Gridania]] wishes to employ the services of a seasoned adventurer."
+
+</details>
+
+**#27 onward · main**
+
+> A guild that hires out adventurers, with branches in Gridania, where Miounne speaks for it, and in Ul'dah. Demand for adventurers has grown so much that the unprepared take on tasks beyond them, and deaths are becoming more common.
+
+Sources shown: Call of the Forest — main scenario quest (2.0); Fire in the Gloom — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M26a** Miounne, proprietress of the Carline Canopy, has a task from the Adventurers' Guild in Gridania. *Call of the Forest* (2.0, main): "According to Baderon, the [[Adventurers' Guild]] in [[Gridania]] is recruiting people for an as-yet-undisclosed task. You can learn more by speaking with [[Miounne]], the proprietress of [[the Carline Canopy]]."
+  - **M27d** Miounne says adventurers are dying more often as unprepared people take on tasks beyond them. *Fire in the Gloom* (2.0, main): "Miounne reveals that death is becoming an ever more common occurrence within the adventuring fraternity. She attributes this unfortunate trend to the burgeoning demand for [[adventurer]]s' services, which has allowed unprepared individuals to take on tasks which are beyond them."
+  - **M27e** Miounne passes you on to the Adventurers' Guild in Ul'dah. *Fire in the Gloom* (2.0, main): "Miounne informs you that the [[Adventurers' Guild]] in [[Ul'dah]] is recruiting."
+
+</details>
+
+### The Lambs of Dalamud (`org-lambs-of-dalamud`, organization)
+
+**#27 onward · main**
+
+> A doomsday cult that arose before the Calamity and holds the lesser moon Dalamud divine. Blaming Eorzeans for its apparent destruction, the cult seeks to avenge its god. You broke up its rite in the Tam-Tara Deepcroft and sent the spirit it woke back to the abyss.
+
+Sources shown: Fire in the Gloom — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M27f** Lewin says the Lambs of Dalamud are a doomsday cult that arose before the Calamity. *Fire in the Gloom* (2.0, main): "the Lambs of Dalamud, a doomsday cult which sprung up prior to the Calamity."
+  - **M27b** The cult blames Eorzeans for the destruction of Dalamud, its god, and seeks to avenge it. *Fire in the Gloom* (2.0, main): "Since [[Dalamud]]'s apparent destruction─for which they blame the people of [[Eorzea]]─it seems they have been seeking a means to avenge their god."
+  - **M27c** A vengeful spirit woken in Galvanth's corpse attacks you; you send it back to the abyss and foil the cult's plot. *Fire in the Gloom* (2.0, main): "you are assailed by a vengeful spirit who had been awakened in the corse of [[Galvanth the Dominator]]. After a titanic struggle, you succeed in sending this dark being back to the abyss, thus foiling the cultists' plot."
+
+</details>
+
+### Isembard (`char-isembard`, character)
+
+**#31 only · main**
+
+> The de facto leader of Camp Drybone in eastern Thanalan, who has offered you his full cooperation in the Scions' investigation of the disappearances.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31f** Isembard is the de facto leader of Camp Drybone. *A Wild Rose by Any Other Name* (2.0, main): "A fellow by the name of Isembard serves as the camp's de facto leader."
+  - **M31j** Isembard offers you his full cooperation. *A Wild Rose by Any Other Name* (2.0, main): "Arriving at Camp Drybone, you speak with Isembard, who offers you his full cooperation in the investigation."
+
+</details>
+
+**#32–#34 · main**
+
+> The de facto leader of Camp Drybone, who is helping you look into the disappearances there. He buried the churchgoers the Amalj'aa butchered, and believes the Amalj'aa cannot be acting alone: someone else must have a hand in the vanishings.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Unsolved Mystery — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31f** Isembard is the de facto leader of Camp Drybone. *A Wild Rose by Any Other Name* (2.0, main): "A fellow by the name of Isembard serves as the camp's de facto leader."
+  - **M32a** The Amalj'aa have butchered commonfolk, whose bodies Isembard wants buried. *Unsolved Mystery* (2.0, main): "Isembard informs you that the [[Amalj'aa]] have butchered a number of commonfolk, and asks that you retrieve the [[Ripe Corpse|ripe corpses]] so that he may see them properly interred."
+  - **M32c** The Amalj'aa cannot be acting alone; Isembard suspects another conspirator. *Unsolved Mystery* (2.0, main): "it is impossible that the Amalj'aa have been acting alone in the recent wave of disappearances. Isembard cannot help but wonder if another conspirator has had a hand in these troubling incidents."
+
+</details>
+
+**#35 onward · main**
+
+> The de facto leader of Camp Drybone, who is helping you look into the vanishings there and suspects the Amalj'aa have help. He refuses to believe Thancred's suspicion of Sister Ourcen, and since you saved her he is more convinced than ever that she is innocent.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0); Unsolved Mystery — main scenario quest (2.0); A Proper Burial — main scenario quest (2.0); For the Children — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31f** Isembard is the de facto leader of Camp Drybone. *A Wild Rose by Any Other Name* (2.0, main): "A fellow by the name of Isembard serves as the camp's de facto leader."
+  - **M32c** The Amalj'aa cannot be acting alone; Isembard suspects another conspirator. *Unsolved Mystery* (2.0, main): "it is impossible that the Amalj'aa have been acting alone in the recent wave of disappearances. Isembard cannot help but wonder if another conspirator has had a hand in these troubling incidents."
+  - **M34e** Thancred suspects Ourcen, who takes the commonfolk's confession; Isembard is not convinced. *A Proper Burial* (2.0, main): "he suspects that the only person who could take the vigilant commonfolk by surprise is the very Sister Ourcen who takes their confession. Isembard, however, is not so easily convinced."
+  - **M35a** Isembard refuses to believe Ourcen is behind the disappearances. *For the Children* (2.0, main): "Isembard refuses to believe that Sister Ourcen is behind the mysterious disappearances"
+  - **M35d** Isembard is more convinced than ever that Ourcen is innocent. *For the Children* (2.0, main): "Isembard is more convinced than ever that Sister Ourcen is not in any way responsible for the vanishings."
+
+</details>
+
+### Ungust (`char-ungust`, character)
+
+**#33–#36 · main**
+
+> A merchant born in Drybone and raised in the Golden Bazaar, said to know the commonfolk best. He recognized you as the adventurer who threatened him in Ul'dah, and seems unconcerned by the growing number of missing people around Drybone.
+
+Sources shown: What Poor People Think — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M33a** Ungust is a merchant born in Drybone and raised in the Golden Bazaar. *What Poor People Think* (2.0, main): "There is a merchant by the name of Ungust who was born here in Drybone and grew up in the Golden Bazaar."
+  - **M33b** Ungust recognizes you as the adventurer who threatened him in Ul'dah. *What Poor People Think* (2.0, main): "You're that bloody adventurer who threatened me back in Ul'dah!"
+  - **M33c** Ungust seems unconcerned about the growing number of missing people. *What Poor People Think* (2.0, main): "Ungust seems unconcerned about the growing list of missing people around [[Camp Drybone|Drybone]]."
+
+</details>
+
+**#37–#38 · main**
+
+> A Drybone-born merchant whom you first found preying on a refugee woman in Ul'dah. He was unmasked as the false priest behind the Drybone vanishings: at the behest of the Amalj'aa he lured the vulnerable to them, after first selling them the schedule of crystal shipments from the Nanawa Mines.
+
+Sources shown: What Poor People Think — main scenario quest (2.0); Dressed to Deceive — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M33a** Ungust is a merchant born in Drybone and raised in the Golden Bazaar. *What Poor People Think* (2.0, main): "There is a merchant by the name of Ungust who was born here in Drybone and grew up in the Golden Bazaar."
+  - **M37c** The false priest is Ungust, whom you first found preying on a refugee woman in Ul'dah. *Dressed to Deceive* (2.0, main): "The false priest turns out to be none other than [[Ungust]], the obnoxious merchant whom you first found preying upon a refugee woman in [[Ul'dah]]."
+  - **M37d** Ungust has been abducting people at the behest of the Amalj'aa. *Dressed to Deceive* (2.0, main): "The man reveals that he has been abducting people at the behest of the [[Amalj'aa]]."
+  - **M37f** Ungust posed as a priest to lure the vulnerable to the Amalj'aa. *Dressed to Deceive* (2.0, main): "So, I posed as a priest to lure in the vulnerable and give them over to the Amalj'aa."
+  - **M37e** The Amalj'aa first wanted the schedule of crystal shipments from the Nanawa Mines. *Dressed to Deceive* (2.0, main): "First of all, they wanted the schedule for crystal shipments from the Nanawa Mines."
+
+</details>
+
+**#39 onward · main**
+
+> A Drybone-born merchant who, as a false priest, lured the vulnerable to the Amalj'aa. The Immortal Flames used him as bait to capture Amalj'aa, but a traitor in their ranks sprang a trap on them.
+
+Sources shown: Dressed to Deceive — main scenario quest (2.0); Lord of the Inferno — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M37c** The false priest is Ungust, whom you first found preying on a refugee woman in Ul'dah. *Dressed to Deceive* (2.0, main): "The false priest turns out to be none other than [[Ungust]], the obnoxious merchant whom you first found preying upon a refugee woman in [[Ul'dah]]."
+  - **M37f** Ungust posed as a priest to lure the vulnerable to the Amalj'aa. *Dressed to Deceive* (2.0, main): "So, I posed as a priest to lure in the vulnerable and give them over to the Amalj'aa."
+  - **M39a** The Immortal Flames plan to capture Amalj'aa with Ungust as bait, and you go as the Scions' representative. *Lord of the Inferno* (2.0, main): "the Immortal Flames have devised a plan to capture [[Amalj'aa]], using the false priest [[Ungust]] as bait. Minfilia bids you take part in the operation as [[The Scions of the Seventh Dawn|the Scions]]' representative."
+  - **M39b** A traitor in the ranks gives you away, and you are captured with the Flames. *Lord of the Inferno* (2.0, main): "you learn that there is a traitor in the ranks, and are swiftly subdued. After an indeterminate amount of time, you awake to find yourself imprisoned within an Amalj'aa stronghold, along with the Flames."
+
+</details>
+
+### Ourcen (`char-ourcen`, character)
+
+**#34 only · main** · Also searchable as: Sister Ourcen
+
+> A sister of the Church of Saint Adama Landama, through whom the commonfolk of Drybone speak to their keeper, Thal. She has heard nothing that helps your investigation, but Thancred suspects her, since she hears the commonfolk's confessions.
+
+Sources shown: A Proper Burial — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M34b** Marques knows little of the commonfolk and sends you to Sister Ourcen. *A Proper Burial* (2.0, main): "Marques admits to knowing little of the commonfolk. He suggests you speak to Sister [[Ourcen]] within the church."
+  - **M34c** Ourcen is the medium through whom the commonfolk speak to Thal. *A Proper Burial* (2.0, main): "When they wish to speak to their keeper, Thal, I am the medium through which they do."
+  - **M34d** Ourcen has heard nothing that helps the investigation. *A Proper Burial* (2.0, main): "she has not heard anything that might help your investigation"
+  - **M34e** Thancred suspects Ourcen, who takes the commonfolk's confession; Isembard is not convinced. *A Proper Burial* (2.0, main): "he suspects that the only person who could take the vigilant commonfolk by surprise is the very Sister Ourcen who takes their confession. Isembard, however, is not so easily convinced."
+
+</details>
+
+**#35 only · main** · Also searchable as: Sister Ourcen
+
+> A sister of the Church of Saint Adama Landama and confidante of the commonfolk of Drybone. Thancred suspects her of a hand in the vanishings, but after she risked her life to recover an orphan's ring and you saved her from undead soldiers, Isembard is sure she is innocent.
+
+Sources shown: A Proper Burial — main scenario quest (2.0); For the Children — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M34c** Ourcen is the medium through whom the commonfolk speak to Thal. *A Proper Burial* (2.0, main): "When they wish to speak to their keeper, Thal, I am the medium through which they do."
+  - **M34e** Thancred suspects Ourcen, who takes the commonfolk's confession; Isembard is not convinced. *A Proper Burial* (2.0, main): "he suspects that the only person who could take the vigilant commonfolk by surprise is the very Sister Ourcen who takes their confession. Isembard, however, is not so easily convinced."
+  - **M35c** Ourcen went out to recover an orphan's ring, a gift from his late mother. *For the Children* (2.0, main): "It is a ring given him by his mother before she passed."
+  - **M35b** You rescue Ourcen from undead soldiers. *For the Children* (2.0, main): "You have rescued Ourcen from a grisly fate at the hands of undead soldiers."
+  - **M35d** Isembard is more convinced than ever that Ourcen is innocent. *For the Children* (2.0, main): "Isembard is more convinced than ever that Sister Ourcen is not in any way responsible for the vanishings."
+
+</details>
+
+**#36 onward · main** · Also searchable as: Sister Ourcen
+
+> A sister of the Church of Saint Adama Landama and confidante of the commonfolk of Drybone, whom Isembard believes innocent of the vanishings. She told you a leaflet found in an Amalj'aa camp was not of her Order's making, and that garments had gone missing from the church.
+
+Sources shown: A Proper Burial — main scenario quest (2.0); For the Children — main scenario quest (2.0); Amalj'aa Wrong Places — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M34c** Ourcen is the medium through whom the commonfolk speak to Thal. *A Proper Burial* (2.0, main): "When they wish to speak to their keeper, Thal, I am the medium through which they do."
+  - **M35d** Isembard is more convinced than ever that Ourcen is innocent. *For the Children* (2.0, main): "Isembard is more convinced than ever that Sister Ourcen is not in any way responsible for the vanishings."
+  - **M36c** Ourcen confirms the leaflet is not of the Order's making, and garments have gone missing from the church. *Amalj'aa Wrong Places* (2.0, main): "Sister Ourcen confirms that the leaflet is not of the Order's making, and goes on to tell you that the church was recently plagued by a rash of missing garments."
+
+</details>
+
+### Ifrit (`char-ifrit`, character)
+
+**#31–#38 · main**
+
+> A primal worshiped by the Amalj'aa. The Scions suspect a primal is behind a crystal robbery and a wave of disappearances near Ul'dah, and the evidence points to the Amalj'aa.
+
+Sources shown: A Wild Rose by Any Other Name — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M31d** The evidence implicates the Amalj'aa, known worshipers of Ifrit. *A Wild Rose by Any Other Name* (2.0, main): "the evidence left behind implicates the Amalj'aa, who are known worshipers of Ifrit."
+  - **M31b** Your first task is to investigate crimes in Ul'dah that the Scions suspect involve a primal. *A Wild Rose by Any Other Name* (2.0, main): "you are assigned your first task─to investigate a series of crimes committed in [[Ul'dah]], which the Scions suspect to be [[primal]]-related."
+  - **M31e** Thancred believes the robbery and the disappearances are connected. *A Wild Rose by Any Other Name* (2.0, main): "Thancred believes that the caravan robbery and the recent spate of disappearances are connected."
+
+</details>
+
+**#39 only · main**
+
+> A primal of the Amalj'aa, who can bind mortals to his will. The crystal robbery and abductions near Ul'dah served his cause, and the Amalj'aa meant to offer you and captured Immortal Flames to him. The Echo made you immune, and you struck him down; his tempered victims must be put to death to keep him from gaining strength.
+
+Sources shown: Lord of the Inferno — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M39d** Ifrit can bind mortals to his will, but you are immune; he tries to kill you and is outmatched. *Lord of the Inferno* (2.0, main): "It would appear that Ifrit has the power to bind mortals to his will, but for reasons yet unknown you are immune to his influence. Having failed to make you his minion, Ifrit elects to exterminate you instead, only to find himself outmatched."
+  - **M39e** The crystal robbery and the abductions served to advance Ifrit's cause. *Lord of the Inferno* (2.0, main): "explaining to you how the crystal robbery and the abductions served to advance Ifrit's cause."
+  - **M39c** The Amalj'aa mean to offer you and your companions to their primal, Ifrit. *Lord of the Inferno* (2.0, main): "It appears the Amalj'aa mean to make an offering of you and your companions to their [[primal]], [[Ifrit]]."
+  - **M39f** To keep the primal from gaining strength, his tempered victims must be put to death. *Lord of the Inferno* (2.0, main): "in order to prevent the primal from gaining strength, his “tempered” victims must be put to death."
+
+</details>
+
+**#40 onward · main**
+
+> A primal of the Amalj'aa, who can bind mortals to his will; you struck him down, immune through the Echo. The Amalj'aa summon him more and more often, and though Ul'dah's forces always smite him, each victory costs blood.
+
+Sources shown: Lord of the Inferno — main scenario quest (2.0); A Hero in the Making — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M39d** Ifrit can bind mortals to his will, but you are immune; he tries to kill you and is outmatched. *Lord of the Inferno* (2.0, main): "It would appear that Ifrit has the power to bind mortals to his will, but for reasons yet unknown you are immune to his influence. Having failed to make you his minion, Ifrit elects to exterminate you instead, only to find himself outmatched."
+  - **M40b** Each company would have Ifrit's bane for its own, and each has sent an officer to court you. *A Hero in the Making* (2.0, main): "Each organization would have Ifrit's bane for its own. To this end, all three have sent officers to ''court'' you."
+  - **M40m** The Amalj'aa summon Ifrit more and more often. *A Hero in the Making* (2.0, main): "It has been observed that the Amalj'aa are summoning him with ever-increasing frequency."
+  - **M40z** Each victory over Ifrit costs Ul'dah blood, a war of attrition it cannot sustain. *A Hero in the Making* (2.0, main): "Every time they do so, the Ul'dahns send their forces to smite the primal, and though they invariably succeed, each victory is bought with blood."
+
+</details>
+
+### Vorsaile (`char-vorsaile`, character)
+
+**#43 only · main** · Also searchable as: Commander Vorsaile
+
+> A commander at the Adders' Nest in Gridania, to whom you report before approaching the sylphs. He admits Gridania knows far too little of the sylphs to lay any worthwhile plans.
+
+Sources shown: Sylph-management — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M43a** Minfilia asks you to learn the sylphs' intentions with the Echo, reporting first to Commander Vorsaile at the Adders' Nest. *Sylph-management* (2.0, main): "Minfilia would have you ascertain the [[Sylph Daily Quests|sylph tribe]]'s intentions, aided by the power of [[the Echo]]. Before making contact with the diminutive [[beastmen]], report to Commander [[Vorsaile Heuloix]] at [[the Adders' Nest]] in [[Gridania]]."
+  - **M43g** Vorsaile admits Gridania knows far too little of the sylphs to plan. *Sylph-management* (2.0, main): "We know far too little of the sylphs to lay any worthwhile plans."
+
+</details>
+
+**#44–#51 · main** · Also searchable as: Commander Vorsaile
+
+> A commander of the Order of the Twin Adder at the Adders' Nest in Gridania. Unable to decide whether to strike at the primal Ramuh or leave the sylphs to their ways, he has asked the Scions to serve as an impartial liaison to them.
+
+Sources shown: We Come in Peace — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M44d** The sylphs' ties to Ramuh have raised a warning in the Twin Adder's ranks. *We Come in Peace* (2.0, main): "the sylphs' relation to the primal Ramuh has raised a flag of warning amongst our ranks."
+  - **M44b** Gridania cannot decide whether to strike at Ramuh or leave the sylphs alone. *We Come in Peace* (2.0, main): "Do we strike at Ramuh, or leave the sylphs to their own ways? That is the question"
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+
+</details>
+
+**#52–#60 · main** · Also searchable as: Commander Vorsaile
+
+> A commander of the Order of the Twin Adder at the Adders' Nest, who asked the Scions to act as liaison to the sylphs. He has agreed to help search for the missing sylph elder, with his Serpents watching night and day, fearing a crisis if the tempered sylphs take him.
+
+Sources shown: We Come in Peace — main scenario quest (2.0); Spirited Away — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52d** Vorsaile agrees to help search for the sylph elder, with his Serpents watching night and day. *Spirited Away* (2.0, main): "Commander Vorsaile Heuloix consents to assist in the search for the sylph elder. … You can assure the sylphs that my sharpest-eyed Serpents will be on the lookout night and day."
+  - **M52c** Vorsaile fears a crisis if the elder ends up with the tempered sylphs. *Spirited Away* (2.0, main): "Why, if he were to end up in the hands of the tempered ones, we'd have a crisis on our hands."
+
+</details>
+
+**#61 onward · main** · Also searchable as: Commander Vorsaile
+
+> A commander of the Order of the Twin Adder at the Adders' Nest, who asked the Scions to act as liaison to the sylphs. The sylph elder's letter has relieved him: the sylphs want no conflict with Gridania and do not intend to summon Ramuh.
+
+Sources shown: We Come in Peace — main scenario quest (2.0); Spirited Away — main scenario quest (2.0); Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M44a** Vorsaile wants an impartial liaison to hear the sylphs themselves. *We Come in Peace* (2.0, main): "I would hear from the other side─the sylphs themselves─and seek an impartial party to serve as my liaison."
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M61h** Vorsaile is relieved that the sylphs want no conflict and do not intend to summon Ramuh. *Believe in Your Sylph* (2.0, main): "So the sylphs have no desire for conflict, nor do they intend to summon Ramuh."
+
+</details>
+
+### Komuxio (`char-komuxio`, character)
+
+**#47–#48 · main**
+
+> A sylph of Little Solace, to whom Gridania's envoy must bring its letter. He accepted your gifts and dance but called them a trick, and sent you away: the elder has no words for Gridania.
+
+Sources shown: First Contact — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M47a** Amelain gives you a letter from the Elder Seedseer for Komuxio of Little Solace. *First Contact* (2.0, main): "Amelain has entrusted you with [[Letter to the Elder (First Contact)|a missive]] penned by [[Kan-E-Senna|the Elder Seedseer]] herself. Deliver it safely to [[Komuxio]] at [[Little Solace]]."
+  - **M47d** Komuxio accepts your gifts but remains unconvinced, and you are denied an audience with the elder of Little Solace. *First Contact* (2.0, main): "Despite accepting your gifts, Komuxio remains unconvinced as to your intentions. Is there no way to gain the [[sylph]]'s trust and secure an audience with the elder of Little Solace?"
+  - **M47e** Komuxio says the elder has no words for Gridania. *First Contact* (2.0, main): "Elder one has no words for Gridania. Walking ones waste every one's time."
+
+</details>
+
+**#49–#50 · main**
+
+> A sylph of Little Solace, slow to trust Gridania's envoys, who once refused you an audience with the elder. Since you helped his people, he admits he may have been wrong not to trust you.
+
+Sources shown: First Contact — main scenario quest (2.0); Forest Friend — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M47d** Komuxio accepts your gifts but remains unconvinced, and you are denied an audience with the elder of Little Solace. *First Contact* (2.0, main): "Despite accepting your gifts, Komuxio remains unconvinced as to your intentions. Is there no way to gain the [[sylph]]'s trust and secure an audience with the elder of Little Solace?"
+  - **M49c** The sylphs have begun to warm to you, gradually. *Forest Friend* (2.0, main): "It would seem the sylphs have begun to warm to your presence, albeit gradually."
+  - **M49d** Komuxio thinks he may have been wrong not to trust you. *Forest Friend* (2.0, main): "Perhaps this one was wrong not to trust dancing one, after all."
+
+</details>
+
+**#51 only · main**
+
+> A sylph of Little Solace. After you saved his friend Claxio from sylphs tempered by Ramuh, he trusts you without reserve.
+
+Sources shown: Brotherly Love — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M51a** Komuxio fears for his friend Claxio, who wandered off alone. *Brotherly Love* (2.0, main): "Komuxio fears for the safety of his friend [[Claxio]], who has wandered off unaccompanied."
+  - **M51d** You save Claxio from tempered sylphs, and he returns to Little Solace. *Brotherly Love* (2.0, main): "You find Claxio just in time to prevent tempered sylphs from spiriting him away. Following an emotional reunion with Komuxio, Claxio agrees to return to Little Solace."
+  - **M51f** You have earned Komuxio's unreserved trust; whether the sylph elder will accept you is uncertain. *Brotherly Love* (2.0, main): "Your efforts on his friend's behalf have earned you Komuxio's unreserved trust. Will the sylph elder be as accepting?"
+
+</details>
+
+**#52–#60 · main**
+
+> A sylph of Little Solace who trusts you without reserve. He confessed that the elder went into the forest and has not come back, and begged you to seek the Order of the Twin Adder's help.
+
+Sources shown: Brotherly Love — main scenario quest (2.0); Spirited Away — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M51f** You have earned Komuxio's unreserved trust; whether the sylph elder will accept you is uncertain. *Brotherly Love* (2.0, main): "Your efforts on his friend's behalf have earned you Komuxio's unreserved trust. Will the sylph elder be as accepting?"
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52b** The elder went into the forest and has not come back. *Spirited Away* (2.0, main): "Elder one went into forest yesterday, but has not come back..."
+
+</details>
+
+**#61 onward · main**
+
+> A sylph of Little Solace who trusts you without reserve. With the elder Frixio safe, he asked you to observe the tempered sylphs so your word could reassure the Gridanians that they have nothing to fear.
+
+Sources shown: Brotherly Love — main scenario quest (2.0); Into the Beast's Maw — main scenario quest (2.0); Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M51f** You have earned Komuxio's unreserved trust; whether the sylph elder will accept you is uncertain. *Brotherly Love* (2.0, main): "Your efforts on his friend's behalf have earned you Komuxio's unreserved trust. Will the sylph elder be as accepting?"
+  - **M59i** You find Frixio shaken but unharmed; he agrees to speak with you about Ramuh at Little Solace. *Into the Beast's Maw* (2.0, main): "you find Frixio, shaken but unharmed. Grateful for your timely intervention, he agrees to speak with you regarding [[Ramuh]], and bids you meet him later at [[Little Solace]]."
+  - **M61a** Komuxio asks you to observe his tempered kindred so your word can reassure the Gridanians. *Believe in Your Sylph* (2.0, main): "Komuxio has asked you to observe his tempered kindred in the [[sylph]] homeland, hoping that your testimony might serve to reassure the [[Gridania]]ns that they have nothing to fear from his people."
+
+</details>
+
+### The sylph elder (`char-frixio`, character)
+
+**#52–#56 · main**
+
+> The elder of the sylphs of Little Solace, who went into the forest and has not come back. Commander Vorsaile fears a crisis if the tempered sylphs take him.
+
+Sources shown: Spirited Away — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M52b** The elder went into the forest and has not come back. *Spirited Away* (2.0, main): "Elder one went into forest yesterday, but has not come back..."
+  - **M52c** Vorsaile fears a crisis if the elder ends up with the tempered sylphs. *Spirited Away* (2.0, main): "Why, if he were to end up in the hands of the tempered ones, we'd have a crisis on our hands."
+
+</details>
+
+**#57 only · main**
+
+> The missing elder of the sylphs of Little Solace. Sylphs have been seen in a part of the Twelveswood beyond their lands, and Buscarron thinks the elder is likely among them.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Sylphish Concerns — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M57a** Sylphs have been seen in a part of the wood beyond their domain. *Sylphish Concerns* (2.0, main): "Sightings of sylphs in a region of the wood beyond their domain have given cause for concern."
+  - **M57b** Buscarron thinks the missing sylph elder is likely among them. *Sylphish Concerns* (2.0, main): "More than like, the missing sylph elder's among them."
+
+</details>
+
+**#58 only · main**
+
+> The elder of the sylphs of Little Solace, who went missing in the forest. Buscarron has brought news that he has been found.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Nouveau Riche — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52a** Komuxio confesses that his elder is missing and asks you to seek the Twin Adder's help from Commander Vorsaile. *Spirited Away* (2.0, main): "Komuxio confesses to you that his elder has gone missing, and beseeches you to seek the aid of [[the Order of the Twin Adder]]. Make for [[the Adders' Nest]] and inquire with Commander [[Vorsaile Heuloix]]"
+  - **M58e** Buscarron brings news that the missing sylph elder has been found. *Nouveau Riche* (2.0, main): "He then shares some exciting news: the missing sylph elder has been found."
+
+</details>
+
+**#59–#60 · main**
+
+> The eldest of the sylphs of Little Solace. Fleeing Garlean soldiers, he went into the Thousand Maws of Toto-Rak, where you found him shaken but unharmed, and he has agreed to speak with you about Ramuh. Had he come to harm, the hope of peace between man and sylph would have died.
+
+Sources shown: Into the Beast's Maw — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M59d** Frixio is the eldest of the sylphs of Little Solace. *Into the Beast's Maw* (2.0, main): "This one is called Frixio, eldest of these ones of Little Solace."
+  - **M59a** Fleeing Garlean soldiers, the sylph elder Frixio has gone into the Thousand Maws of Toto-Rak. *Into the Beast's Maw* (2.0, main): "Fleeing from [[Garlean]] soldiers, the sylph elder, [[Frixio]], has ventured into [[The Thousand Maws of Toto-Rak|the Thousand Maws of Toto–Rak]]."
+  - **M59i** You find Frixio shaken but unharmed; he agrees to speak with you about Ramuh at Little Solace. *Into the Beast's Maw* (2.0, main): "you find Frixio, shaken but unharmed. Grateful for your timely intervention, he agrees to speak with you regarding [[Ramuh]], and bids you meet him later at [[Little Solace]]."
+  - **M59b** Were harm to befall him, the effort to make peace between man and sylph would be undone. *Into the Beast's Maw* (2.0, main): "Were any misfortune to befall him, the effort to secure peace between man and [[sylph]] would surely be undone."
+
+</details>
+
+**#61 onward · main**
+
+> The eldest of the sylphs of Little Solace. He told you that some sylphs summoned Ramuh against his wishes to protect the wood from imperial soldiers, and that all who took part were tempered; he fled to Little Solace with those who refused. He gave you a crystal he says will one day be of use, and warned that a crueler fate awaits you than he can imagine.
+
+Sources shown: Into the Beast's Maw — main scenario quest (2.0); Believe in Your Sylph — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M59d** Frixio is the eldest of the sylphs of Little Solace. *Into the Beast's Maw* (2.0, main): "This one is called Frixio, eldest of these ones of Little Solace."
+  - **M61b** Frixio says the sylphs summoned Ramuh to protect the wood from imperial soldiers. *Believe in Your Sylph* (2.0, main): "These ones resorted to summoning Lord Ramuh to protect the wood from imperial ones."
+  - **M61c** Ramuh was summoned against Frixio's wishes, and all who took part were tempered. *Believe in Your Sylph* (2.0, main): "Against this one's wishes, Lord Ramuh was summoned...and all those ones who took part became touched ones."
+  - **M61d** Frixio fled to Little Solace with all who did not wish to be bound to Ramuh. *Believe in Your Sylph* (2.0, main): "So this one fled to Little Solace with all those ones who did not wish to be bound to Lord Ramuh."
+  - **M61f** Frixio gives you a crystal he says will one day be of use. *Believe in Your Sylph* (2.0, main): "Mark this one well: that crystal will one day be of use to walking one."
+  - **M61g** Frixio warns that you are destined for a fate crueler than he can imagine. *Believe in Your Sylph* (2.0, main): "Walking one is destined to walk a fate far crueler than this one can imagine."
+
+</details>
+
+### Buscarron (`char-buscarron`, character)
+
+**#52–#53 · main**
+
+> Proprietor of Buscarron's Druthers in the South Shroud, near where the sylph elder vanished. He has agreed to listen among his many customers for news of the elder.
+
+Sources shown: Spirited Away — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52h** Buscarron's Druthers is in the South Shroud. *Spirited Away* (2.0, main): "Take yourself to [[Buscarron's Druthers]] in the [[South Shroud]] and speak with the proprietor."
+  - **M52g** Buscarron's home is near where the elder disappeared. *Spirited Away* (2.0, main): "Near where elder one disappeared is the home of a walking one named Buscarron."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+
+</details>
+
+**#54–#56 · main**
+
+> Proprietor of Buscarron's Druthers in the South Shroud, who serves any who pay and stay out of trouble, and is listening for news of the missing sylph elder. After the Calamity he found the Qiqirn Teteroon fallen in the Shroud and nursed him back to health; Teteroon remembers him fondly.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Druthers House Rules — main scenario quest (2.0); Never Forget — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52h** Buscarron's Druthers is in the South Shroud. *Spirited Away* (2.0, main): "Take yourself to [[Buscarron's Druthers]] in the [[South Shroud]] and speak with the proprietor."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+  - **M53c** Buscarron opens his doors to all who pay and stay out of trouble. *Druthers House Rules* (2.0, main): "Buscarron prides himself on opening his doors to all customers─even those with unsavory reputations─so long as they pay good coin and stay out of trouble."
+  - **M54a** After the Calamity Buscarron found the Qiqirn Teteroon fallen in the Shroud and nursed him back to health. *Never Forget* (2.0, main): "It was right after the [[Calamity]] that I came across him fallen in the [[The Black Shroud|Shroud]]. … So, I took him in and nursed him back to health best I could."
+  - **M54c** You deliver Teteroon's forgotten earring, and he remembers Buscarron fondly. *Never Forget* (2.0, main): "You have delivered the scarlet earring to Teteroon. Reminded of [[Buscarron]], he promptly lapses into nostalgic reminiscences of former days."
+
+</details>
+
+**#57–#59 · main**
+
+> Proprietor of Buscarron's Druthers in the South Shroud, who is helping search for the missing sylph elder. Having found Garlean soldiers deep in the forest, he reasons that a Gridanian traitor who knows the Wood Wailers' spires must be guiding them.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Sylphish Concerns — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52h** Buscarron's Druthers is in the South Shroud. *Spirited Away* (2.0, main): "Take yourself to [[Buscarron's Druthers]] in the [[South Shroud]] and speak with the proprietor."
+  - **M52f** Buscarron agrees to listen among his many customers for news of the elder. *Spirited Away* (2.0, main): "You speak with [[Buscarron]], who agrees to keep an ear out amongst his many customers for any news of the sylph elder's whereabouts."
+  - **M57c** Garlean soldiers were never before able to reach the forest depths. *Sylphish Concerns* (2.0, main): "Buscarron tells you that [[Garlean]] soldiers were never before able to penetrate the forest depths."
+  - **M57e** Buscarron reasons that only someone who knew the Wailers' spires and watches could have guided them: a Gridanian traitor. *Sylphish Concerns* (2.0, main): "Unless someone guided them through. Someone who knew where the spires stand, and when the Wailers watch. A Gridanian traitor."
+
+</details>
+
+**#60–#70 · main**
+
+> Proprietor of Buscarron's Druthers in the South Shroud, who helped find the sylph elder and unmask a traitor among the Wood Wailers. Believing Gridanians and sylphs must work together now that the Calamity has weakened the elementals, he sent the sylphs a peace offering.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Nouveau Riche — main scenario quest (2.0); A Simple Gift — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52h** Buscarron's Druthers is in the South Shroud. *Spirited Away* (2.0, main): "Take yourself to [[Buscarron's Druthers]] in the [[South Shroud]] and speak with the proprietor."
+  - **M58e** Buscarron brings news that the missing sylph elder has been found. *Nouveau Riche* (2.0, main): "He then shares some exciting news: the missing sylph elder has been found."
+  - **M58c** Laurentius confesses to selling maps and rations to the Empire. *Nouveau Riche* (2.0, main): "Aye, I sold maps and rations to the Empire. It was I."
+  - **M60b** Buscarron says the Calamity weakened the elementals. *A Simple Gift* (2.0, main): "The wood is not what it once was. The Calamity changed the elementals─weakened them."
+  - **M60c** Buscarron believes Gridanians and sylphs survive only by working together. *A Simple Gift* (2.0, main): "Only by working together and fighting together will we survive together─and the Twelveswood with us."
+  - **M60a** Buscarron sends a peace offering of rose oil to Knolexia in Little Solace. *A Simple Gift* (2.0, main): "Buscarron would like to send a peace offering to the sylphs of [[Little Solace]] in hopes of reinforcing the current spirit of cooperation."
+
+</details>
+
+**#71 onward · main**
+
+> Proprietor of Buscarron's Druthers, said never to turn away folk in need. An Ala Mhigan friend once saved his life with an antelope-horn remedy, so he gave you medicine from his own stores for Meffrid's wounded comrade.
+
+Sources shown: Helping Horn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M71d** Meffrid sends you to Buscarron, proprietor of Buscarron's Druthers, who is said never to turn away folk in need. *Helping Horn* (2.0, main): "They said he never turns away folk in need, no matter where they're from. … He bids you take them to [[Buscarron's Druthers]] in order to have the proprietor, [[Buscarron]], make the [[medicine]] in his stead."
+  - **M71b** Buscarron, once saved by the same remedy from an Ala Mhigan friend, makes the medicine. *Helping Horn* (2.0, main): "An Ala Mhigan friend once used it to treat my festering wound, years and years ago. Safe to say he saved my life."
+  - **M71a** Meffrid tries an old Ala Mhigan remedy of long antelope horn. *Helping Horn* (2.0, main): "In my homeland, long antelope horn is a traditional remedy with poison-purging properties."
+
+</details>
+
+### Laurentius (`char-laurentius`, character)
+
+**#58 onward · main**
+
+> A Wood Wailer whose sudden good fortune roused Buscarron's suspicion. He confessed to selling maps and rations to the Empire, repented, and has gone to give himself up to the Order of the Twin Adder.
+
+Sources shown: Nouveau Riche — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M58a** Suspicion surrounds the sudden good fortune of Laurentius. *Nouveau Riche* (2.0, main): "Suspicion surrounds the recent good fortune of a man named [[Laurentius]]."
+  - **M58b** Laurentius is a Wood Wailer. *Nouveau Riche* (2.0, main): "Were he a merchant, I'd prob'ly think nothing of it, but this lad's a Wood Wailer."
+  - **M58c** Laurentius confesses to selling maps and rations to the Empire. *Nouveau Riche* (2.0, main): "Aye, I sold maps and rations to the Empire. It was I."
+  - **M58d** Laurentius repents and resolves to give himself up to the Order of the Twin Adder. *Nouveau Riche* (2.0, main): "he repents his decision to sell information and supplies to the Garleans, and resolves to give himself up to [[the Order of the Twin Adder]]."
+
+</details>
+
+### The Wood Wailers (`org-wood-wailers`, organization)
+
+**#52–#56 · main**
+
+> Gridanian sentries of the forest, who have pledged their cooperation in the search for the missing sylph elder.
+
+Sources shown: Spirited Away — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52e** The Wood Wailers pledge their cooperation in the search. *Spirited Away* (2.0, main): "Giah Molkoh has pledged [[the Wood Wailers]]' cooperation in the search effort."
+
+</details>
+
+**#57 only · main**
+
+> Gridanian sentries who watch the forest from their spires, and are helping search for the missing sylph elder. Buscarron believes Garlean soldiers slipped past their watch only because a Gridanian traitor guided them.
+
+Sources shown: Spirited Away — main scenario quest (2.0); Sylphish Concerns — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M52e** The Wood Wailers pledge their cooperation in the search. *Spirited Away* (2.0, main): "Giah Molkoh has pledged [[the Wood Wailers]]' cooperation in the search effort."
+  - **M57e** Buscarron reasons that only someone who knew the Wailers' spires and watches could have guided them: a Gridanian traitor. *Sylphish Concerns* (2.0, main): "Unless someone guided them through. Someone who knew where the spires stand, and when the Wailers watch. A Gridanian traitor."
+
+</details>
+
+**#58 onward · main**
+
+> Gridanian sentries who watch the forest from their spires. One of their own, Laurentius, sold maps and rations to the Empire, then repented and gave himself up to the Order of the Twin Adder.
+
+Sources shown: Sylphish Concerns — main scenario quest (2.0); Nouveau Riche — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M57e** Buscarron reasons that only someone who knew the Wailers' spires and watches could have guided them: a Gridanian traitor. *Sylphish Concerns* (2.0, main): "Unless someone guided them through. Someone who knew where the spires stand, and when the Wailers watch. A Gridanian traitor."
+  - **M58b** Laurentius is a Wood Wailer. *Nouveau Riche* (2.0, main): "Were he a merchant, I'd prob'ly think nothing of it, but this lad's a Wood Wailer."
+  - **M58c** Laurentius confesses to selling maps and rations to the Empire. *Nouveau Riche* (2.0, main): "Aye, I sold maps and rations to the Empire. It was I."
+  - **M58d** Laurentius repents and resolves to give himself up to the Order of the Twin Adder. *Nouveau Riche* (2.0, main): "he repents his decision to sell information and supplies to the Garleans, and resolves to give himself up to [[the Order of the Twin Adder]]."
+
+</details>
+
+### The Masked Man (`evt-the-masked-man`, event)
+
+**#62 only · main**
+
+> With the sylph dispute settled, Gridania credits the Scions' mediation, and the sylph Noraxia has come to the Waking Sands as a friend. Then Minfilia heard of a man named Lahabrea, red-masked and robed in black. The Ascians hid before the Calamity, and fearing that they now act openly, she has set you to learn all you can of him.
+
+Sources shown: Back from the Wood — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M62b** Gridania credits the Scions' mediation with averting a needless conflict with the sylphs. *Back from the Wood* (2.0, main): "Had the Scions of the Seventh Dawn not offered to mediate between our peoples, suspicion and doubt may well have led us into needless conflict."
+  - **M62c** The sylph Noraxia comes to the Waking Sands as a friend, sent by the elder Frixio to help the Scions. *Back from the Wood* (2.0, main): "Is sent by elder one Frixio to help walking ones! … This one comes as a friend."
+  - **M62d** Minfilia hears of a man named Lahabrea, in a red mask and black robes. *Back from the Wood* (2.0, main): "A man named Lahabrea, sporting a red mask and robed in black...?"
+  - **M62e** The Ascians stayed hidden before the Calamity, and Minfilia is alarmed that they now cast off their secrecy. *Back from the Wood* (2.0, main): "Prior to the Calamity, the Ascians took great pains to remain hidden... Why would they choose to cast off their veil of secrecy now?"
+  - **M62f** Minfilia means to use the lull in primal hostilities to learn all she can of Lahabrea and his designs. *Back from the Wood* (2.0, main): "We must take advantage of the present lull in primal hostilities and investigate this Lahabrea─learn all we can of him and his designs."
+
+</details>
+
+**#63 only · main**
+
+> Minfilia has set you to uncover the motives of Lahabrea, a masked Ascian, fearing his kind are behind the chaos racking the realm. The Immortal Flames answered her call: Flame Commander Swift told you a Brass Blade at Highbridge saw the masked stranger before Qiqirn killed him, and sent you to Hihibaru, a merchant there.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M63b** Minfilia suspects the Ascians are behind the chaos racking the realm. *Shadow of Darkness* (2.0, main): "I should not be surprised if these beings are behind the chaos that racks the realm."
+  - **M63c** Minfilia asked each Grand Company for help, and the Immortal Flames answered with word of a possible sighting. *Shadow of Darkness* (2.0, main): "Earlier, I sent word to each Grand Company to solicit cooperation. The Immortal Flames responded to the effect that they have information on a potential sighting."
+  - **M63d** Flame Commander Swift receives you at the Hall of Flames in Ul'dah. *Shadow of Darkness* (2.0, main): "Go speak with Flame Commander Swift at the Hall of Flames in Ul'dah to inquire further."
+  - **M63e** A Brass Blade at Highbridge reported the masked man, then was killed by Qiqirn. *Shadow of Darkness* (2.0, main): "According to Commander Swift, a [[The Brass Blades|Brass Blade]] stationed at [[Highbridge]] has reported seeing a suspicious masked man, but the sentry has since died in the line of duty. … I'm afraid he died not two days ago, slain by a marauding horde of Qiqirn."
+  - **M63f** Swift sends you to the Highbridge merchant Hihibaru, who hints he knows of the masked man. *Shadow of Darkness* (2.0, main): "speak with a merchant named [[Hihibaru]]. … Hihibaru hints at knowing of the masked man, but his mannerisms do not instill you with much confidence."
+
+</details>
+
+**#64 only · main**
+
+> You are hunting Lahabrea, the masked Ascian whom Minfilia fears is behind the realm's troubles. At Highbridge, where beastman raids keep travelers away, the merchants offered only rumors that he has been seen across Thanalan. Hihibaru suspects someone is orchestrating the Qiqirn raids, and has promised to watch for your quarry.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Highbridge Times — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M63b** Minfilia suspects the Ascians are behind the chaos racking the realm. *Shadow of Darkness* (2.0, main): "I should not be surprised if these beings are behind the chaos that racks the realm."
+  - **M64a** Endless beastman raids keep travelers away from Highbridge. *Highbridge Times* (2.0, main): "But thanks to the nigh-endless beastman raids, folk are too afraid to come within a malm of here."
+  - **M64b** The masked man has been seen elsewhere about Thanalan too. *Highbridge Times* (2.0, main): "Seems he's been appearing not only around Highbridge, but elsewhere about Thanalan, too."
+  - **M64c** Hihibaru suspects someone is orchestrating the Qiqirn raids and inciting the beast tribes. *Highbridge Times* (2.0, main): "The Qiqirn raids are so constant, so organized, we're beginning to suspect that someone is orchestrating it all. … Hihibaru suspects that someone may be inciting the [[Tribes|beast tribes]]."
+  - **M64d** Hihibaru promises to watch for the masked man. *Highbridge Times* (2.0, main): "I promise to keep an eye out for your masked man."
+
+</details>
+
+**#65 onward · main**
+
+> You are hunting Lahabrea, the masked Ascian whom Minfilia fears is behind the realm's troubles. Hihibaru saw a masked man meeting beastmen in secret, so you lit a fire of your own, and it drew an armed bandit. His scroll bears the mark of Rhalgr, guardian of Ala Mhigo, a land the Empire rules: Lahabrea seems tied to the Ala Mhigans.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Where There Is Smoke — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63a** Minfilia names Lahabrea an Ascian and sets you to uncover his motives. *Shadow of Darkness* (2.0, main): "We must delve further into the motivations of the masked man─the Ascian known as Lahabrea."
+  - **M65a** Hihibaru saw a masked man meeting beastman accomplices in secret. *Where There Is Smoke* (2.0, main): "Hihibaru claims to have witnessed a masked man meeting his [[beastman]] accomplices in secret."
+  - **M65b** Your smoke draws a bandit carrying a scroll marked with Rhalgr, the Destroyer. *Where There Is Smoke* (2.0, main): "The smoldering coal gives rise to a column of smoke, which serves to summon [[Corpse Brigade Footsoldier|a bandit]]. … bearing [[Rhalgr|the mark of Rhalgr, the Destroyer]]"
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M65d** Lahabrea seems to have secret ties to the Qiqirn and the Ala Mhigans. *Where There Is Smoke* (2.0, main): "It would seem that Lahabrea has clandestine connections not only with the [[Qiqirn]], but also the [[Ala Mhigo|Ala Mhigans]]."
+
+</details>
+
+### The Refugees' Trust (`evt-the-refugees-trust`, event)
+
+**#66 only · main**
+
+> The trail of Lahabrea, the masked Ascian, points to the Ala Mhigans. Hihibaru sent you to Little Ala Mhigo, a lawless refugee settlement where his daughter Hihira lives. She knew nothing of the masked stranger, and the settlement's leader, Gundobald, turned you away.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0); On to Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65d** Lahabrea seems to have secret ties to the Qiqirn and the Ala Mhigans. *Where There Is Smoke* (2.0, main): "It would seem that Lahabrea has clandestine connections not only with the [[Qiqirn]], but also the [[Ala Mhigo|Ala Mhigans]]."
+  - **M66a** Hihibaru sends you to Little Ala Mhigo, a lawless place where his daughter Hihira lives. *On to Little Ala Mhigo* (2.0, main): "His daughter, a lass named [[Hihira]], has taken up residence there … And for all intents and purposes, it's a lawless place."
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M66c** Gundobald turns you away. *On to Little Ala Mhigo* (2.0, main): "You are not welcome here. Begone."
+
+</details>
+
+**#67 only · main**
+
+> Seeking Lahabrea among the Ala Mhigans, you were turned away by Gundobald, leader of Little Ala Mhigo. Gisilbehrt of the Immortal Flames, head of security there, sent you to his lookouts, and one saw a masked figure talking with Ala Mhigans. The refugees trust no one but themselves, and you will need their cooperation.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Tea for Three — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M66c** Gundobald turns you away. *On to Little Ala Mhigo* (2.0, main): "You are not welcome here. Begone."
+  - **M67a** Gisilbehrt of the Immortal Flames heads security at Little Ala Mhigo. *Tea for Three* (2.0, main): "I'm Gisilbehrt, head of security here at Little Ala Mhigo. … Gisilbehrt of [[the Immortal Flames]] believes that one of his lookouts may have seen the man you seek."
+  - **M67b** A lookout saw a masked figure talking with Ala Mhigans. *Tea for Three* (2.0, main): "he was talking with some Ala Mhigans. I assumed he was one of them."
+  - **M67c** Lahabrea seems connected to Little Ala Mhigo. *Tea for Three* (2.0, main): "it would seem that [[Lahabrea]] is in some way connected to [[Little Ala Mhigo]]."
+  - **M67d** The refugees trust no one but themselves, and you will need their cooperation. *Tea for Three* (2.0, main): "Owing to their hardships, the refugees don't trust anyone but themselves. … seems to me you'll need the cooperation of the Ala Mhigans."
+
+</details>
+
+**#68 only · main**
+
+> Lahabrea seems tied to Little Ala Mhigo, but its refugees trust only their own. Their leader, Gundobald, belongs to the Ala Mhigan Resistance, and only a respected compatriot's word will win you a hearing. At the Waking Sands, Minfilia offered to introduce you to an Ala Mhigan among the Scions.
+
+Sources shown: Tea for Three — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M67c** Lahabrea seems connected to Little Ala Mhigo. *Tea for Three* (2.0, main): "it would seem that [[Lahabrea]] is in some way connected to [[Little Ala Mhigo]]."
+  - **M67d** The refugees trust no one but themselves, and you will need their cooperation. *Tea for Three* (2.0, main): "Owing to their hardships, the refugees don't trust anyone but themselves. … seems to me you'll need the cooperation of the Ala Mhigans."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M68e** The refugees will trust you only if a respected compatriot vouches for you. *Foot in the Door* (2.0, main): "the best way to win that trust is to get a compatriot of theirs─someone they respect─to vouch for you."
+  - **M68d** There is an Ala Mhigan native among the Scions. *Foot in the Door* (2.0, main): "there is an Ala Mhigan native among the Scions. I should be pleased to introduce him to you."
+
+</details>
+
+**#69 only · main**
+
+> To win the trust of Little Ala Mhigo, whose leader Gundobald belongs to the Ala Mhigan Resistance, you need a compatriot to vouch for you. The Scion Haribehrt left the Resistance and is shunned by his old comrades, but sent you to Albreda at Quarrymill. Angry at his name, she pointed you to Meffrid, a captain of the Resistance.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); Meeting with the Resistance — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M68e** The refugees will trust you only if a respected compatriot vouches for you. *Foot in the Door* (2.0, main): "the best way to win that trust is to get a compatriot of theirs─someone they respect─to vouch for you."
+  - **M69a** Haribehrt joined the Scions hoping to find a way to free his homeland. *Meeting with the Resistance* (2.0, main): "He joined our cause in the hopes that he might find a way to liberate his homeland."
+  - **M69b** Haribehrt left the Ala Mhigan Resistance for the Scions, and his old comrades shun him. *Meeting with the Resistance* (2.0, main): "I used to be a member of the [[Ala Mhigan Resistance]], you see, but I left in favor of joining the Scions. … I abandoned my comrades, and they'll have nothing to do with me."
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+
+</details>
+
+**#70 only · main**
+
+> You are seeking the trust of the Ala Mhigan Resistance, whose member Gundobald leads Little Ala Mhigo. At Quarrymill, Meffrid's comrade Gallien has a festering wound, and the villagers refused to help even when Meffrid begged. Their Hearer, Charline, denied the petition, saying the right belongs only to the elementals.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); Meeting with the Resistance — main scenario quest (2.0); Killing Him Softly — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M69c** At Quarrymill, an angry Albreda sends you to Meffrid, a captain of the Resistance. *Meeting with the Resistance* (2.0, main): "Take yourself to [[Quarrymill]] in the [[South Shroud]], and introduce yourself to a woman named [[Albreda]]. … Mentioning Haribehrt's name to Albreda earns you an angry outburst. Nonetheless, she relents to your request and refers you to a man named [[Meffrid]], a captain of the Ala Mhigan Resistance."
+  - **M70a** Gallien, one of Meffrid's men, has a festering wound. *Killing Him Softly* (2.0, main): "His wound's gone an' festered, an' he's burnin' up!"
+  - **M70b** Quarrymill's villagers refused help even when Meffrid begged. *Killing Him Softly* (2.0, main): "I asked the villagers for aid─got on my knees and ''begged''─but they refused to lift a finger!"
+  - **M70c** The Hearer Charline denies the Ala Mhigans' petition, saying only the elementals may grant it. *Killing Him Softly* (2.0, main): "This authority belongs only to the elementals, eternal guardians of the Twelveswood. … Alas, the Ala Mhigans' petition has been denied."
+
+</details>
+
+**#71 only · main**
+
+> You are seeking the trust of the Ala Mhigan Resistance, whose member Gundobald leads Little Ala Mhigo. With Quarrymill refusing aid, Meffrid tried an old Ala Mhigan remedy of antelope horn, and the tavern keeper Buscarron made the medicine. Gallien's chances have improved, and Meffrid's brothers are starting to trust you.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); Killing Him Softly — main scenario quest (2.0); Helping Horn — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M70b** Quarrymill's villagers refused help even when Meffrid begged. *Killing Him Softly* (2.0, main): "I asked the villagers for aid─got on my knees and ''begged''─but they refused to lift a finger!"
+  - **M71a** Meffrid tries an old Ala Mhigan remedy of long antelope horn. *Helping Horn* (2.0, main): "In my homeland, long antelope horn is a traditional remedy with poison-purging properties."
+  - **M71b** Buscarron, once saved by the same remedy from an Ala Mhigan friend, makes the medicine. *Helping Horn* (2.0, main): "An Ala Mhigan friend once used it to treat my festering wound, years and years ago. Safe to say he saved my life."
+  - **M71c** Gallien's chances improve, and Meffrid's brothers in the Resistance begin to trust you. *Helping Horn* (2.0, main): "Thanks to your aid, [[Gallien]] now has a much improved chance of survival. Slowly but surely, you are winning the trust of Meffrid and his brothers in the [[Ala Mhigan Resistance]]."
+
+</details>
+
+**#72 only · main**
+
+> You are seeking the trust of the Ala Mhigan Resistance, whose member Gundobald leads Little Ala Mhigo. The wounded Gallien slipped away from Quarrymill so as not to burden his comrades, and you tracked him down. Meffrid reminded him of their oath to set foot on Ala Mhigan soil again together or not at all, and Gallien is expected to recover.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); He Ain't Heavy — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M72a** Gallien leaves Quarrymill alone so as not to burden his fellows. *He Ain't Heavy* (2.0, main): "decided to leave Quarrymill of his own volition, in an attempt to not burden his fellows any longer."
+  - **M72b** Meffrid reminds Gallien of their oath to return to Ala Mhigo together or not at all. *He Ain't Heavy* (2.0, main): "We'll set foot on Ala Mhigan soil again─''together''─or not at all!"
+  - **M72c** Gallien is expected to make a full recovery. *He Ain't Heavy* (2.0, main): "Gallien's expected to make a full recovery."
+
+</details>
+
+**#73 onward · main**
+
+> For your help with his wounded comrade, Meffrid gave you a letter of introduction to Gundobald, the leader of Little Ala Mhigo, who mentored him in the Resistance. Gundobald has cast aside his mistrust and offered you his friendship. He knows of the masked stranger you seek, and will tell you what he can.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Come Highly Recommended — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M73a** Meffrid gives you a letter of introduction to Gundobald. *Come Highly Recommended* (2.0, main): "He provides you with a [[Meffrid's Recommendation|letter of introduction]], and instructs you to show it to [[Gundobald]] at [[Little Ala Mhigo]]."
+  - **M73b** Gundobald mentored Meffrid when he joined the Resistance. *Come Highly Recommended* (2.0, main): "The old bear was my mentor when I first joined the Resistance."
+  - **M73c** Gundobald casts aside his mistrust and will tell you what he knows of the masked stranger. *Come Highly Recommended* (2.0, main): "Thanks to Meffrid's letter, Gundobald casts aside his mistrust and offers you his hand in friendship. … I know of this masked stranger you seek, and will tell you what I can"
+
+</details>
+
+### The Youngbloods of Little Ala Mhigo (`evt-youngbloods-of-little-ala-mhigo`, event)
+
+**#74 only · main**
+
+> Gundobald, leader of Little Ala Mhigo, now trusts you, and says some of the settlement's youngbloods are meeting the masked stranger in secret. The youths' reactions suggest something is afoot, and Lahabrea may be involved. Gundobald, who once rose with his brothers against Ala Mhigo's despot only to see it fall to the Empire, fears they will commit some great folly.
+
+Sources shown: Come Highly Recommended — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M73c** Gundobald casts aside his mistrust and will tell you what he knows of the masked stranger. *Come Highly Recommended* (2.0, main): "Thanks to Meffrid's letter, Gundobald casts aside his mistrust and offers you his hand in friendship. … I know of this masked stranger you seek, and will tell you what I can"
+  - **M74a** Some youths of Little Ala Mhigo are meeting the masked man in secret. *The Bear and the Young'uns' Cares* (2.0, main): "it seems that some of our youngbloods are meeting him in secret."
+  - **M74b** Something is afoot among the youths, and Lahabrea may be involved. *The Bear and the Young'uns' Cares* (2.0, main): "Judging by the youths' reactions, it would seem that something is indeed in the offing, and [[Lahabrea]] may be involved."
+  - **M74c** Two decades ago Gundobald and his brothers rose against Ala Mhigo's despot, and it cost them their freedom. *The Bear and the Young'uns' Cares* (2.0, main): "Two decades ago, that same anger drove me and my brothers to rise against the despot who ruled Ala Mhigo. … but it cost us our freedom."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M74e** Gundobald fears the youths will commit some great folly. *The Bear and the Young'uns' Cares* (2.0, main): "Gundobald fears that the youths may be involved in something they do not fully understand, and are likely to commit some great folly."
+
+</details>
+
+**#75 only · main**
+
+> Some of Little Ala Mhigo's youths have been meeting the masked stranger in secret. Their leader, Wilred, lured you into an ambush, and when you overpowered his band he boasted that they will obtain the power to bring down the Empire and reclaim their homeland. He slipped away, and Gundobald fears the young fools will harm others, if not themselves.
+
+Sources shown: The Bear and the Young'uns' Cares — main scenario quest (2.0); Wilred Wants You — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M74a** Some youths of Little Ala Mhigo are meeting the masked man in secret. *The Bear and the Young'uns' Cares* (2.0, main): "it seems that some of our youngbloods are meeting him in secret."
+  - **M75a** Wilred is something of a leader among the young people. *Wilred Wants You* (2.0, main): "Lad's something of a leader among the young ones here."
+  - **M75b** Wilred's invitation is a trap, and you overpower him and his cronies. *Wilred Wants You* (2.0, main): "the rendezvous turns out to be a trap. Wilred and his cronies fall upon you, but you succeed in overpowering them."
+  - **M75c** Wilred's group means to obtain the power to bring down the Empire and reclaim their homeland. *Wilred Wants You* (2.0, main): "We're going to obtain the power to bring down the Empire, and with it we'll reclaim our homeland!"
+  - **M75d** Gundobald fears the youths will harm others or themselves. *Wilred Wants You* (2.0, main): "Left to their own devices, the young fools are like to harm others, if not themselves."
+
+</details>
+
+**#76 only · main**
+
+> Wilred and his friends, youths of Little Ala Mhigo, set out to steal crystals from an Amalj'aa stronghold and summon Rhalgr, guardian of their lost homeland, but you stopped them. Wilred admitted that the masked stranger gave them the idea, promising it would let them defeat the Empire. Gundobald told him he owes his life to you.
+
+Sources shown: Wilred Wants You — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M75a** Wilred is something of a leader among the young people. *Wilred Wants You* (2.0, main): "Lad's something of a leader among the young ones here."
+  - **M76b** Wilred's friends plotted to summon Rhalgr with crystals stolen from an Amalj'aa stronghold. *Big Trouble in Little Ala Mhigo* (2.0, main): "It seems that Wilred and his friends have been plotting to summon [[Rhalgr]]. … they seek to infiltrate an [[Amalj'aa]] stronghold and steal the [[beastmen]]'s cache of [[crystals]]."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M76d** The masked man told them they could defeat the Empire by summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "The masked man told us we could defeat the Empire if we summoned Rhalgr!"
+  - **M76e** Wilred's plan fails, and with it his hope of reclaiming his homeland. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred's plan has come to naught, as have his hopes of reclaiming his homeland."
+  - **M76f** Gundobald tells Wilred he owes his life to you, an outsider. *Big Trouble in Little Ala Mhigo* (2.0, main): "never forget that you owe it to this adventurer─an ''outsider''."
+
+</details>
+
+**#77 onward · main**
+
+> A masked stranger, perhaps Lahabrea, set youths of Little Ala Mhigo on summoning Rhalgr, and you thwarted their plot. Gundobald has nothing more to tell you. Back at the Waking Sands, Minfilia sees in it the kind of deception the Ascians would use, believes a malign will is behind some of the land's ills, and has promised to look further.
+
+Sources shown: The Bear and the Young'uns' Cares — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0); Back to Square One — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M74b** Something is afoot among the youths, and Lahabrea may be involved. *The Bear and the Young'uns' Cares* (2.0, main): "Judging by the youths' reactions, it would seem that something is indeed in the offing, and [[Lahabrea]] may be involved."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M76e** Wilred's plan fails, and with it his hope of reclaiming his homeland. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred's plan has come to naught, as have his hopes of reclaiming his homeland."
+  - **M77a** Gundobald's people have nothing more to tell of the masked stranger. *Back to Square One* (2.0, main): "There is no more that Gundobald and his people can tell you of the masked stranger."
+  - **M77b** Minfilia sees Ascian deception in the plot. *Back to Square One* (2.0, main): "Precisely the kind of deception the Ascians would employ..."
+  - **M77c** Minfilia believes some of the land's ills come from a malign will. *Back to Square One* (2.0, main): "While many of the ills that ail the land can be attributed to the Calamity, some are being brought about by a malign will."
+  - **M77d** Minfilia promises to look further into the matter. *Back to Square One* (2.0, main): "Thanking you for your efforts, she promises to look further into the matter."
+
+</details>
+
+### Murders in the Shroud (`evt-murders-in-the-shroud`, event)
+
+**#78 only · main**
+
+> Someone fitting Lahabrea's description has been seen in the North Shroud, in the wake of a series of mysterious deaths. The sylph Noraxia sent you to Medrod, a miner at Fallgourd Float, who saw a masked man with a winged creature that was all eyeball and teeth. His friends Aideen and Ivaurault have offered to help.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78a** Someone fitting Lahabrea's description has been sighted in the North Shroud. *Terror at Fallgourd* (2.0, main): "An individual fitting Lahabrea's description has been sighted in the North Shroud."
+  - **M78b** The sighting follows a series of mysterious deaths there. *Terror at Fallgourd* (2.0, main): "This sighting comes in the wake of a series of mysterious deaths in the selfsame area."
+  - **M78c** Noraxia tells you that a miner, Medrod, saw a masked character in the wood. *Terror at Fallgourd* (2.0, main): "Noraxia tells you that a miner named [[Medrod]] witnessed an unsavory masked character in the wood."
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M78e** The masked man appears connected to the mysterious deaths. *Terror at Fallgourd* (2.0, main): "it appears that this individual is indeed connected to the recent spate of mysterious deaths."
+  - **M78f** Aideen and Ivaurault offer to help. *Terror at Fallgourd* (2.0, main): "If that's the case, we'll help you in whatever way we can!"
+
+</details>
+
+**#79 only · main**
+
+> A masked man, perhaps Lahabrea, was seen in the North Shroud with a winged eyeball, amid a spate of mysterious deaths. At Fallgourd Float, Aideen told you the victims' faces were torn to shreds, which folk blame on the ziz. You culled three and found nothing, so she has turned back to the masked stranger and his winged eyeball.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Ziz Is So Ridiculous — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78a** Someone fitting Lahabrea's description has been sighted in the North Shroud. *Terror at Fallgourd* (2.0, main): "An individual fitting Lahabrea's description has been sighted in the North Shroud."
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M78e** The masked man appears connected to the mysterious deaths. *Terror at Fallgourd* (2.0, main): "it appears that this individual is indeed connected to the recent spate of mysterious deaths."
+  - **M79a** The victims were all found with their faces torn to shreds. *Ziz Is So Ridiculous* (2.0, main): "all the victims were found with their faces torn to shreds."
+  - **M79b** Aideen rules out the ziz and turns back to the masked man and his winged eyeball. *Ziz Is So Ridiculous* (2.0, main): "Aideen strikes ziz from her list of suspects, and turns her attention once more towards the masked man and his winged eyeball."
+
+</details>
+
+**#80 only · main**
+
+> A masked man, perhaps Lahabrea, was seen in the North Shroud with a winged eyeball, amid deaths that left the victims' faces torn to shreds. Ivaurault confessed that he too saw the eyeball, at the same moment as Medrod. Where he saw it, a monstrous banemite attacked you instead, and he now wonders whether he imagined it.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Ziz Is So Ridiculous — main scenario quest (2.0); Seeing Eye to Winged Eye — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78a** Someone fitting Lahabrea's description has been sighted in the North Shroud. *Terror at Fallgourd* (2.0, main): "An individual fitting Lahabrea's description has been sighted in the North Shroud."
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M79a** The victims were all found with their faces torn to shreds. *Ziz Is So Ridiculous* (2.0, main): "all the victims were found with their faces torn to shreds."
+  - **M80a** Ivaurault also saw the winged eyeball, at the same moment as Medrod. *Seeing Eye to Winged Eye* (2.0, main): "I have been keeping this to myself, lest I worsen Medrod's paranoia, but I, too, have seen the winged eyeball. … my sighting took place precisely the same time as Medrod's."
+  - **M80b** A monstrous banemite attacks you where he saw it, and Ivaurault begins to doubt himself. *Seeing Eye to Winged Eye* (2.0, main): "Instead of the winged eyeball, a [[Heavy Banemite|monstrous banemite]] appears, and you are forced to defend yourself. … he wonders whether he only imagined seeing the winged eyeball."
+
+</details>
+
+**#80b only · main**
+
+> A masked man, perhaps Lahabrea, was seen in the North Shroud with a winged eyeball, amid deaths that left the victims' faces torn to shreds. Aideen learned that every victim has been a comely maiden, and a rumor said their rancor went into a rock. You blasted it apart, but its flashes came from ordinary crystals, nothing to do with the masked stranger.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Ziz Is So Ridiculous — main scenario quest (2.0); Rock of Rancor — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78a** Someone fitting Lahabrea's description has been sighted in the North Shroud. *Terror at Fallgourd* (2.0, main): "An individual fitting Lahabrea's description has been sighted in the North Shroud."
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M79a** The victims were all found with their faces torn to shreds. *Ziz Is So Ridiculous* (2.0, main): "all the victims were found with their faces torn to shreds."
+  - **M80ba** All the victims have been comely maidens. *Rock of Rancor* (2.0, main): "It appears ''all'' the victims have been comely maidens."
+  - **M80bb** A rumored rock of rancor proves to hold ordinary crystals, nothing to do with the masked stranger. *Rock of Rancor* (2.0, main): "her rancor went into the great big rock southwest of here, causing it to flash and moan. … Nothing to do with the masked stranger."
+
+</details>
+
+**#82 only · main**
+
+> Mysterious deaths in the North Shroud follow sightings of a masked man and a winged eyeball, and every victim has been a comely maiden. Ivaurault is sure of what he saw, and the friends at Fallgourd Float have left the case to you. You found another body, and Aethelmaer found on it a button engraved with a lily, like one from an earlier victim.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Rock of Rancor — main scenario quest (2.0); Power of Deduction — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M80ba** All the victims have been comely maidens. *Rock of Rancor* (2.0, main): "It appears ''all'' the victims have been comely maidens."
+  - **M82a** Ivaurault is now sure he saw a winged eyeball, and the three friends leave the investigating to you. *Power of Deduction* (2.0, main): "While uncertain for a time, [[Ivaurault]] is now convinced that it was a winged eyeball that he encountered at the rocky area to the west. … The three friends would leave the task of investigating to the expert─you."
+  - **M82b** You find another victim and bring the body to Aethelmaer. *Power of Deduction* (2.0, main): "As the three friends had feared, there was indeed another victim. … show it to [[Aethelmaer]]."
+  - **M82d** A button engraved with a lily is found on this victim, as on an earlier one. *Power of Deduction* (2.0, main): "A cursory examination of the body turns up a [[Lily Button|button engraved with a lily motif]]. A similar object had been discovered upon an earlier victim."
+
+</details>
+
+**#83 only · main**
+
+> Mysterious deaths in the North Shroud follow sightings of a masked man and a winged eyeball. Aethelmaer gave you a lily button found on two victims, the best lead yet. In Gridania, Ursandel knew the sigil as the Dartancours family's, and will tell the truth of the murders if you promise to end his lady's madness.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Power of Deduction — main scenario quest (2.0); Secret of the White Lily — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M82d** A button engraved with a lily is found on this victim, as on an earlier one. *Power of Deduction* (2.0, main): "A cursory examination of the body turns up a [[Lily Button|button engraved with a lily motif]]. A similar object had been discovered upon an earlier victim."
+  - **M83a** Aethelmaer entrusts you with the lily button, the best lead in the murders. *Secret of the White Lily* (2.0, main): "Aethelmaer entrusts you with the [[Lily Button|lily button]], thus far the most promising lead in the murder investigation"
+  - **M83c** Ursandel knows the sigil as the Dartancours family's. *Secret of the White Lily* (2.0, main): "Ursandel instantly recognizes the sigil as that of the old and proud Dartancours family."
+  - **M83d** Ursandel will tell the truth of the deaths if you promise to end his lady's madness. *Secret of the White Lily* (2.0, main): "I shall reveal to you the truth of the deaths, but on one condition: you promise to put an end to my lady's madness and free her from her torment."
+
+</details>
+
+**#84 onward · main**
+
+> Ursandel told you how Lady Amandine of the Dartancours, disfigured in the Calamity, held rites of rejuvenation that spilled maiden blood, urged on by masked men. You defeated her in Haukke Manor. Then two masked Ascians appeared, said they had come to measure your strength for Master Lahabrea, and vanished; Minfilia is sure the Ascians have begun to move in earnest.
+
+Sources shown: Skeletons in Her Closet — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M84a** Ursandel once waited upon Lady Amandine, mistress of the Dartancours household. *Skeletons in Her Closet* (2.0, main): "During that time, I had the honor of waiting upon Lady Amandine, mistress of the household."
+  - **M84b** Disfigured in the Calamity, Amandine held rites of rejuvenation at masked men's urging, spilling maiden blood. *Skeletons in Her Closet* (2.0, main): "how [[Lady Amandine]], his once beautiful mistress, was disfigured in [[the Calamity]], and how she subsequently began to hold rites of rejuvenation at the urging of masked men. It would seem these rites involve the spilling of maiden blood."
+  - **M84c** You defeat Amandine, and two masked men appear who seem to have masterminded the atrocities. *Skeletons in Her Closet* (2.0, main): "No sooner have you defeated Lady Amandine than two masked men appear, their ominous exchange suggesting that it was they who masterminded the atrocities committed within the manor."
+  - **M84d** The two Ascians came to take your measure for Master Lahabrea, and then leave. *Skeletons in Her Closet* (2.0, main): "we came here not to play, but to take the measure of your strength for Master Lahabrea."
+  - **M84g** Minfilia is sure the Ascians have begun to move in earnest, to what end she cannot say. *Skeletons in Her Closet* (2.0, main): "It is beyond doubt, then─the Ascians have begun to move in earnest. Would that we knew to what end."
+
+</details>
+
+### Titan Reawakened (`evt-titan-reawakened`, event)
+
+**#85 only · main**
+
+> A tribe of kobolds near Limsa Lominsa has summoned Titan again, and the Maelstrom has asked the Scions to slay the primal. Admiral Merlwyb pledged her full support, though she owned that the Lominsans broke their pact with the beastmen. The only force known to have bested Titan, the Company of Heroes, has disbanded, so Y'shtola sent you to find a former member, Trachtoum.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85c** Admiral Merlwyb pledges the Maelstrom's full support. *Wrath of the Titan* (2.0, main): "you are received by Admiral [[Merlwyb]] Bloefhiswyn herself, who pledges the full support of the Maelstrom in the forthcoming operation."
+  - **M85d** Y'shtola recalls the pact that kept each to its own lands; Merlwyb owns that the Lominsans broke it. *Wrath of the Titan* (2.0, main): "Did not the thalassocracy make a pact with the beastmen that each would keep to their own lands, and that no blood would be shed? … And the wrong is mine. Freely do I claim it."
+  - **M85b** The only force known to have bested Titan, the Company of Heroes, disbanded five years ago. *Wrath of the Titan* (2.0, main): "the only force known to have bested him─the modestly named “Company of Heroes”─disbanded five years since"
+  - **M85f** Y'shtola proposes learning about Titan from former members of the Company of Heroes. *Wrath of the Titan* (2.0, main): "[[Y'shtola]] proposes that you learn more about your foe by speaking to former members of the [[Company of Heroes]]─the famous band of mercenaries who defeated the dread primal once before."
+  - **M85i** Trachtoum calls himself the best axeman of the Company of Heroes. *Wrath of the Titan* (2.0, main): "Your search leads you to [[Trachtoum]], the self-proclaimed “best axeman” of the Company of Heroes."
+
+</details>
+
+**#86 only · main**
+
+> The kobolds have summoned Titan, and the Scions have agreed to slay him with the Maelstrom's support. To learn how the Company of Heroes once beat him, you found Trachtoum, a marauder at the Grey Fleet mills who boasts of serving with it. He would share the Company's secret strategy only if you cleared a rats' nest, which turned out to be his own chore.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); Tales from the Tidus Slayer — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85c** Admiral Merlwyb pledges the Maelstrom's full support. *Wrath of the Titan* (2.0, main): "you are received by Admiral [[Merlwyb]] Bloefhiswyn herself, who pledges the full support of the Maelstrom in the forthcoming operation."
+  - **M85i** Trachtoum calls himself the best axeman of the Company of Heroes. *Wrath of the Titan* (2.0, main): "Your search leads you to [[Trachtoum]], the self-proclaimed “best axeman” of the Company of Heroes."
+  - **M86a** Trachtoum withholds the Company's secret strategy unless you clear a rats' nest. *Tales from the Tidus Slayer* (2.0, main): "refuses to reveal [[Company of Heroes|the Company]]'s secret strategy─that is, unless you destroy a nest of wild rats"
+  - **M86b** Trachtoum used you to do work he had been given. *Tales from the Tidus Slayer* (2.0, main): "It would appear that Trachtoum used you to handle work he himself had been tasked to do."
+
+</details>
+
+**#87 only · main**
+
+> The kobolds have summoned Titan, and the Scions have agreed to slay him with the Maelstrom's support. Trachtoum, who boasts of serving with the Company of Heroes, the band that once beat Titan, doubts you can face a primal. You slew a goobbue that was harassing the millers, but even that did not earn his confidence.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); Hungry Hungry Goobbues — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M85c** Admiral Merlwyb pledges the Maelstrom's full support. *Wrath of the Titan* (2.0, main): "you are received by Admiral [[Merlwyb]] Bloefhiswyn herself, who pledges the full support of the Maelstrom in the forthcoming operation."
+  - **M85i** Trachtoum calls himself the best axeman of the Company of Heroes. *Wrath of the Titan* (2.0, main): "Your search leads you to [[Trachtoum]], the self-proclaimed “best axeman” of the Company of Heroes."
+  - **M87a** Trachtoum doubts you can face a primal, and even slaying a goobbue does not win his confidence. *Hungry Hungry Goobbues* (2.0, main): "Trachtoum is concerned that you lack the strength to face a [[primal]] in battle. … Your deeds serve to shock the veteran [[marauder]], but they are not enough to earn his confidence."
+  - **M87b** The goobbue you slew had been harassing the millers. *Hungry Hungry Goobbues* (2.0, main): "that goobbue that was harassin' the millers is dead?"
+
+</details>
+
+**#88 only · main**
+
+> The kobolds have summoned Titan, and the Scions mean to slay him. Trachtoum confessed he was never in the Company of Heroes, and sent you to Wheiskaet, one of its former captains, at Costa del Sol. Wheiskaet says Titan took some of the Company's best, and won't send you into O'Ghomoro on a whim; Y'shtola has left you to meet his conditions alone.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+  - **M88d** Wheiskaet will not send you into O'Ghomoro on a whim; you must complete his challenges. *The Lominsan Way* (2.0, main): "But I will not send you into O'Ghomoro on a whim. … you must yet again prove yourself by completing Wheiskaet's challenges."
+  - **M88e** Y'shtola asks you to undertake his task alone while she sees to other preparations. *The Lominsan Way* (2.0, main): "Forgive me, but I must ask you to undertake this task alone. I will use the time to see to the remaining preparations."
+
+</details>
+
+**#89 onward · main**
+
+> The Scions mean to slay Titan, whom the kobolds have summoned, but they lack the knowledge of how to enter his lair, and Wheiskaet, a former captain of the Company of Heroes, holds it. A former employee who lied about serving in the Company has made him wary of strangers. You passed his simple test by slaying a nix, and he is ready to set you a real challenge.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0); Nix That — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85a** The Maelstrom asks the Scions to slay Titan, summoned by a tribe of kobolds near Limsa Lominsa. *Wrath of the Titan* (2.0, main): "[[The Maelstrom]] has requested that [[the Scions]] slay the [[primal]] [[Titan]], who has been summoned by a tribe of [[kobolds]] who reside near [[Limsa Lominsa]]."
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M89a** Wheiskaet tests you with a simple task first. *Nix That* (2.0, main): "Before he bothers giving you a truly demanding task, Wheiskaet would first have you attend to a simple one."
+  - **M89b** A former employee who falsely claimed Company service has made Wheiskaet wary of strangers. *Nix That* (2.0, main): "He claimed to have served in the Company of Heroes, but I knew for a fact he did not. … Wheiskaet explains that a recent incident with a former employee has forced him to treat strangers with greater caution."
+  - **M89c** Wheiskaet is ready to set you a real challenge. *Nix That* (2.0, main): "he is now willing to give you a challenge as befits your talents."
+  - **M89d** You slay a nix near Costa del Sol as proof. *Nix That* (2.0, main): "You dispatch the slimy creature with great fanfare and sever one of [[Nix Leg|its legs]] as proof of your kill."
+
+</details>
+
+### A Feast at Costa del Sol (`evt-a-feast-at-costa-del-sol`, event)
+
+**#90 only · main**
+
+> Wheiskaet, a former captain of the Company of Heroes, knows how to reach Titan's lair, but first wants proof of your worth. Master Gegeruju, whose estates he guards, will welcome two distinguished visitors to Costa del Sol with an elaborate feast, and you are to gather its ingredients, guided by the Company's old mercenaries. Landenel, at Camp Tranquil, told you how to take a giant adamantoise's egg.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M88c** Wheiskaet oversees security for Master Gegeruju's estates. *The Lominsan Way* (2.0, main): "I oversee security for Master Gegeruju's estates."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M90b** Many of Wheiskaet's old mercenaries still live and will guide you. *A Modest Proposal* (2.0, main): "Many of the mercenaries who once served under my command still live, and they will guide you in your quest."
+  - **M90e** Landenel is at Camp Tranquil in the South Shroud. *A Modest Proposal* (2.0, main): "To obtain the first ingredient, you must seek out [[Landenel]] at [[Camp Tranquil]] in the [[South Shroud]]."
+  - **M90d** The first ingredient is a giant adamantoise's egg. *A Modest Proposal* (2.0, main): "You learn that the first ingredient is the [[Adamantoise Egg|egg of a giant adamantoise]]."
+
+</details>
+
+**#91 only · main**
+
+> To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol. Landenel, who keeps his time with the Company of Heroes a secret, was sure you would die taking a giant adamantoise's egg, but you claimed it. He sent you on to U'odh Nunh at Forgotten Springs, who refuses to help.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0); Trial by Turtle — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M91a** Landenel served with the Company and keeps that a secret. *Trial by Turtle* (2.0, main): "See, I don't regret my time spent with the Company in the slightest. … this business between you, me, and the captain must remain a secret."
+  - **M91d** Landenel believes you will die taking the egg. *Trial by Turtle* (2.0, main): "he believes that you will surely perish if you attempt to take it"
+  - **M91b** You take the egg despite the mother adamantoise, and Landenel takes it on Wheiskaet's behalf. *Trial by Turtle* (2.0, main): "As Landenel suspected, you were immediately attacked by the mother [[Adamantoise (Mob)|adamantoise]] when you touched the egg. … After taking the egg on behalf of [[Wheiskaet]]"
+  - **M91c** Landenel sends you to U'odh Nunh at Forgotten Springs, who refuses to help. *Trial by Turtle* (2.0, main): "he bids you journey to [[Forgotten Springs]] in [[southern Thanalan]] and speak with a man named [[U'odh Nunh]] … Contrary to what Landenel said, U'odh Nunh has no intention of aiding you in your quest. It seems the old [[Miqo'te]] will require some convincing..."
+
+</details>
+
+**#92 only · main**
+
+> To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol, and Landenel has the first. U'odh Nunh, who joined the Company of Heroes to hone his skills, would not aid a stranger. You lured out and slew an Amalj'aa veteran, and he will now tell you the second ingredient.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0); Trial by Turtle — main scenario quest (2.0); The Perfect Prey — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M91b** You take the egg despite the mother adamantoise, and Landenel takes it on Wheiskaet's behalf. *Trial by Turtle* (2.0, main): "As Landenel suspected, you were immediately attacked by the mother [[Adamantoise (Mob)|adamantoise]] when you touched the egg. … After taking the egg on behalf of [[Wheiskaet]]"
+  - **M92a** U'odh Nunh joined the Company of Heroes to hone his skills. *The Perfect Prey* (2.0, main): "Many years ago, I joined the Company of Heroes to hone my skills, instead of challenging my predecessor before I was ready."
+  - **M92d** The Children of the Sands do not help strangers. *The Perfect Prey* (2.0, main): "The Children of the Sands do not offer aid to strangers."
+  - **M92b** U'odh Nunh sets you to slay an Amalj'aa veteran. *The Perfect Prey* (2.0, main): "U'odh Nunh has bid you slay an [[Stonespike Tanadd Gah|Amalj'aa veteran]] who dwells in the encampment to the east of [[Forgotten Springs]]."
+  - **M92c** Impressed, U'odh Nunh will tell you of the ingredient. *The Perfect Prey* (2.0, main): "U'odh Nunh is impressed with your accomplishment, and is at last willing to tell you of the ingredient that you seek."
+
+</details>
+
+**#93 only · main**
+
+> To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol. You have the adamantoise egg, and at U'odh Nunh's suggestion you baited and slew a Wellwick worm for its meat, which he will send to Wheiskaet. He does not know where the third ingredient is.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0); Trial by Turtle — main scenario quest (2.0); When the Worm Turns — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M91b** You take the egg despite the mother adamantoise, and Landenel takes it on Wheiskaet's behalf. *Trial by Turtle* (2.0, main): "As Landenel suspected, you were immediately attacked by the mother [[Adamantoise (Mob)|adamantoise]] when you touched the egg. … After taking the egg on behalf of [[Wheiskaet]]"
+  - **M93a** The second ingredient is Wellwick worm meat, which U'odh Nunh will send to Wheiskaet. *When the Worm Turns* (2.0, main): "The ingredient you seek is the [[Wellwick Worm Meat|meat of a Wellwick worm]]. … he promises to send it to [[Wheiskaet]] in time for the banquet."
+  - **M93b** U'odh Nunh does not know where the third ingredient is. *When the Worm Turns* (2.0, main): "I regret to say that I know naught of its location."
+
+</details>
+
+**#94 only · main**
+
+> To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol, and two are on their way. You carried a bottle of brandewine from U'odh Nunh, once a reckless young recruit in the Company of Heroes, to his old captain. Wheiskaet was surprised and touched, and one ingredient remains.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0); When the Worm Turns — main scenario quest (2.0); There and Back Again — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M93a** The second ingredient is Wellwick worm meat, which U'odh Nunh will send to Wheiskaet. *When the Worm Turns* (2.0, main): "The ingredient you seek is the [[Wellwick Worm Meat|meat of a Wellwick worm]]. … he promises to send it to [[Wheiskaet]] in time for the banquet."
+  - **M94a** U'odh Nunh was a reckless youth when he joined, and Wheiskaet could have cast him out. *There and Back Again* (2.0, main): "I was a rrreckless, angry youth when I first joined the Company, and he would have been well within his rights to cast me out."
+  - **M94b** You deliver U'odh Nunh's brandewine, and Wheiskaet resolves to thank his old comrade. *There and Back Again* (2.0, main): "Wheiskaet is surprised by the gift, and resolves to thank his old comrade when next they meet."
+
+</details>
+
+**#95 only · main**
+
+> To earn Wheiskaet's knowledge of how to reach Titan, you are gathering ingredients for Master Gegeruju's feast at Costa del Sol. The last was to come from Brayflox, Wheiskaet's former quartermaster, but a dragon had driven her goblins from their lands. You slew it and brought Wheiskaet her goblin cheese, though he won't say how it is made.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0); The Things We Do for Cheese — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M95a** Brayflox, Wheiskaet's former quartermaster, was to bring the last ingredient, but something befell her people. *The Things We Do for Cheese* (2.0, main): "[[Brayflox]], his former quartermaster, was planning to deliver it to [[Costa del Sol]] herself. However, something appears to have befallen Brayflox and her people"
+  - **M95b** A flying beast drove the goblins from their lands; you slay the dragon and send them home. *The Things We Do for Cheese* (2.0, main): "a large flying beast has driven the goblins from their lands. … you slay the invading [[dragon]] and return the displaced goblins to their beloved homes."
+  - **M95c** Brayflox gives you goblin cheese. *The Things We Do for Cheese* (2.0, main): "Brayflox proudly presents to you a [[Goblin Cheese|hunk of gobbie gouda]]."
+  - **M95d** Wheiskaet won't say how the cheese is made. *The Things We Do for Cheese* (2.0, main): "When pressed as to how the cheese is made, he replies that some things are best left unknown."
+
+</details>
+
+**#96 only · main**
+
+> You have gathered an egg, worm meat and goblin cheese for Master Gegeruju's feast at Costa del Sol, but Wheiskaet still keeps Titan's secrets. Now he wants the finest wine, and sent you to Shamani, a former member of the Company of Heroes and a vintner at Wineport. Shamani, who has lost his sight, read the order by its smell.
+
+Sources shown: A Modest Proposal — main scenario quest (2.0); The Things We Do for Cheese — main scenario quest (2.0); What Do You Mean You Forgot the Wine — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M95c** Brayflox gives you goblin cheese. *The Things We Do for Cheese* (2.0, main): "Brayflox proudly presents to you a [[Goblin Cheese|hunk of gobbie gouda]]."
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M96c** Shamani is in Wineport. *What Do You Mean You Forgot the Wine* (2.0, main): "Make your way to Wineport and seek out Shamani Lohmani, another former member of the Company."
+  - **M96b** Shamani has lost his sight, and reads the order by smell. *What Do You Mean You Forgot the Wine* (2.0, main): "When one loses his vision, he is forced to compensate in other ways. … Shamani Lohmani immediately deduces your intent with his impressive sense of smell."
+
+</details>
+
+**#97 only · main**
+
+> Wheiskaet still keeps Titan's secrets until you bring the finest wine for Master Gegeruju's feast at Costa del Sol. Shamani, a blind former mercenary of the Company of Heroes turned vintner, says only Byrglaent, who owns the largest winery in Vylbrand, has wine good enough. Byrglaent refused, offering goobbue urine instead.
+
+Sources shown: A Modest Proposal — main scenario quest (2.0); What Do You Mean You Forgot the Wine — main scenario quest (2.0); An Offer You Can Refuse — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M96b** Shamani has lost his sight, and reads the order by smell. *What Do You Mean You Forgot the Wine* (2.0, main): "When one loses his vision, he is forced to compensate in other ways. … Shamani Lohmani immediately deduces your intent with his impressive sense of smell."
+  - **M97c** Shamani became a vintner with his savings from his years as a mercenary. *An Offer You Can Refuse* (2.0, main): "It wouldn't have been possible if not for the savings I amassed during my time as a mercenary, of course."
+  - **M97a** Only Byrglaent, owner of Vylbrand's largest winery, has wines fit for the feast. *An Offer You Can Refuse* (2.0, main): "Shamani Lohmani tells you that the only suitable wines for Master [[Gegeruju]]'s banquet are in the possession of [[Byrglaent]], who owns and operates the largest winery in [[Vylbrand]]."
+  - **M97b** Byrglaent refuses, offering goobbue urine instead. *An Offer You Can Refuse* (2.0, main): "Byrglaent is less than receptive to your requests, and instead offers to serve you [[Goobbue (Mob)|goobbue]] urine."
+
+</details>
+
+**#98 only · main**
+
+> Wheiskaet still keeps Titan's secrets until you bring the finest wine for Master Gegeruju's feast. Shamani sent you looking for Bacchus wine, but the Calamity destroyed most of it and Wineport's vignerons have none. Shamani told you Titan blinded him beneath O'Ghomoro, and that Bacchus wine pulled him from despair and made him a vintner.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0); An Offer You Can Refuse — main scenario quest (2.0); It Won't Work — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M97a** Only Byrglaent, owner of Vylbrand's largest winery, has wines fit for the feast. *An Offer You Can Refuse* (2.0, main): "Shamani Lohmani tells you that the only suitable wines for Master [[Gegeruju]]'s banquet are in the possession of [[Byrglaent]], who owns and operates the largest winery in [[Vylbrand]]."
+  - **M98a** Most Bacchus wine was destroyed in the Calamity, and the vignerons have none. *It Won't Work* (2.0, main): "most stores were destroyed during [[the Calamity]]. … Alas, the vignerons reiterate that there is no point in searching for Bacchus wine."
+  - **M98b** Titan blinded Shamani beneath O'Ghomoro, and he fell into despair. *It Won't Work* (2.0, main): "After Titan blinded me in our battle beneath O'Ghomoro, I fell into a deep depression."
+  - **M98c** Bacchus wine is why Shamani became a vintner. *It Won't Work* (2.0, main): "It is, after all, the very reason I decided to become a vintner."
+
+</details>
+
+**#99 only · main**
+
+> Wheiskaet still keeps Titan's secrets until you bring the finest wine for Master Gegeruju's feast. Shamani, who cannot bear to disappoint his former captain, swore to find one, and sent his own wine to Drest, the man who once nursed him back to health. You found Drest living alone at the Severed String, nervous and plainly unwell.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0); Give a Man a Drink — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M99a** Shamani cannot bear to disappoint his former captain and swears to find a suitable wine. *Give a Man a Drink* (2.0, main): "Shamani Lohmani has decided that he cannot bear to disappoint his former captain, and he swears that he will find a suitable wine for the banquet."
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+  - **M99d** Drest lives alone at the Severed String. *Give a Man a Drink* (2.0, main): "However, he does know that Drest lives alone at [[the Severed String]], which lies far to the southwest of the docks."
+  - **M99e** Drest accepts the wine with great trepidation; something is very wrong with him. *Give a Man a Drink* (2.0, main): "Though he accepts your gift of wine, he does so with great trepidation. It is immediately clear to you that there is something very, very wrong with this disheveled, nervous man..."
+
+</details>
+
+**#100 only · main**
+
+> While Shamani seeks a wine fit for Master Gegeruju's feast, you took his gift to Drest, the hermit who once nursed him back to health. After you cleared the midges that kept him from sleep, Drest confessed that he is an imperial deserter, though not Garlean, and the only survivor of his unit. He toils in secret, hoping one day to go home.
+
+Sources shown: Give a Man a Drink — main scenario quest (2.0); That Weight — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M99a** Shamani cannot bear to disappoint his former captain and swears to find a suitable wine. *Give a Man a Drink* (2.0, main): "Shamani Lohmani has decided that he cannot bear to disappoint his former captain, and he swears that he will find a suitable wine for the banquet."
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+  - **M100d** You clear the midges that kept Drest from sleeping. *That Weight* (2.0, main): "Drest cannot sleep due to the incessant buzzing of [[Dung Midge Swarm|midge swarms]]."
+  - **M100a** Drest confesses he is an imperial deserter, though not Garlean. *That Weight* (2.0, main): "Drest confesses that he is an imperial deserter, though he himself is not [[Garlean]]."
+  - **M100b** His unit was caught by the Maelstrom on a reconnaissance mission, and no one else survived. *That Weight* (2.0, main): "on a reconnaissance mission when the Maelstrom caught us by surprise. … N-No one else survived."
+  - **M100c** Drest bears Eorzeans no ill will, and toils in secret hoping to go home. *That Weight* (2.0, main): "he holds no ill will towards the people of [[Eorzea]]. Nevertheless, he had no choice but to come to [[Vylbrand]], where he now toils in secret so that one day he might return home."
+
+</details>
+
+**#101 onward · main**
+
+> Shamani is still seeking a wine fit for Master Gegeruju's feast, which Wheiskaet demands before he will tell you how to reach Titan. Drest, the imperial deserter who once nursed Shamani back to health, is calmer now, and sent him palm wine in thanks. Shamani sees in Drest a man who, like himself, struggles not to let his scars define him.
+
+Sources shown: Give a Man a Drink — main scenario quest (2.0); What Do You Mean You Forgot the Wine — main scenario quest (2.0); That Weight — main scenario quest (2.0); Battle Scars — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M99a** Shamani cannot bear to disappoint his former captain and swears to find a suitable wine. *Give a Man a Drink* (2.0, main): "Shamani Lohmani has decided that he cannot bear to disappoint his former captain, and he swears that he will find a suitable wine for the banquet."
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M100a** Drest confesses he is an imperial deserter, though not Garlean. *That Weight* (2.0, main): "Drest confesses that he is an imperial deserter, though he himself is not [[Garlean]]."
+  - **M101a** Calmer now, Drest sends Shamani palm wine in thanks. *Battle Scars* (2.0, main): "[[Drest]] appears to be in greater control of his faculties. … To express his gratitude to [[Shamani Lohmani]], Drest has asked you to deliver three [[Palm Wine|coconuts filled with palm wine]]"
+  - **M101b** Shamani sees Drest and himself as two men struggling not to let their scars define them. *Battle Scars* (2.0, main): "Two men who have long struggled not to let our scars define us..."
+  - **M101c** Shamani resolves to spend more time with Drest. *Battle Scars* (2.0, main): "Shamani Lohmani then thanks you for looking after Drest, with whom he resolves to spend more time."
+
+</details>
+
+### Flame Commander Swift (`char-swift`, character)
+
+**#63 onward · main**
+
+> Flame Commander of the Immortal Flames, at the Hall of Flames in Ul'dah. He told you a Brass Blade at Highbridge reported the masked stranger before dying in a Qiqirn raid, and sent you to the merchant Hihibaru.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63d** Flame Commander Swift receives you at the Hall of Flames in Ul'dah. *Shadow of Darkness* (2.0, main): "Go speak with Flame Commander Swift at the Hall of Flames in Ul'dah to inquire further."
+  - **M63e** A Brass Blade at Highbridge reported the masked man, then was killed by Qiqirn. *Shadow of Darkness* (2.0, main): "According to Commander Swift, a [[The Brass Blades|Brass Blade]] stationed at [[Highbridge]] has reported seeing a suspicious masked man, but the sentry has since died in the line of duty. … I'm afraid he died not two days ago, slain by a marauding horde of Qiqirn."
+  - **M63f** Swift sends you to the Highbridge merchant Hihibaru, who hints he knows of the masked man. *Shadow of Darkness* (2.0, main): "speak with a merchant named [[Hihibaru]]. … Hihibaru hints at knowing of the masked man, but his mannerisms do not instill you with much confidence."
+
+</details>
+
+### Hihibaru (`char-hihibaru`, character)
+
+**#63 only · main**
+
+> A merchant at Highbridge in eastern Thanalan. Swift sent you to him for word of the masked stranger, and he hints that he knows something, though his manner inspires little confidence.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63f** Swift sends you to the Highbridge merchant Hihibaru, who hints he knows of the masked man. *Shadow of Darkness* (2.0, main): "speak with a merchant named [[Hihibaru]]. … Hihibaru hints at knowing of the masked man, but his mannerisms do not instill you with much confidence."
+
+</details>
+
+**#64 only · main**
+
+> A merchant at Highbridge, where endless beastman raids keep customers away. He suspects someone is orchestrating the Qiqirn raids and inciting the beast tribes, and has promised to watch for the masked stranger.
+
+Sources shown: Shadow of Darkness — main scenario quest (2.0); Highbridge Times — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M63f** Swift sends you to the Highbridge merchant Hihibaru, who hints he knows of the masked man. *Shadow of Darkness* (2.0, main): "speak with a merchant named [[Hihibaru]]. … Hihibaru hints at knowing of the masked man, but his mannerisms do not instill you with much confidence."
+  - **M64a** Endless beastman raids keep travelers away from Highbridge. *Highbridge Times* (2.0, main): "But thanks to the nigh-endless beastman raids, folk are too afraid to come within a malm of here."
+  - **M64c** Hihibaru suspects someone is orchestrating the Qiqirn raids and inciting the beast tribes. *Highbridge Times* (2.0, main): "The Qiqirn raids are so constant, so organized, we're beginning to suspect that someone is orchestrating it all. … Hihibaru suspects that someone may be inciting the [[Tribes|beast tribes]]."
+  - **M64d** Hihibaru promises to watch for the masked man. *Highbridge Times* (2.0, main): "I promise to keep an eye out for your masked man."
+
+</details>
+
+**#65 only · main**
+
+> A merchant at Highbridge, who suspects someone is inciting the beast tribes. He saw the masked stranger meeting beastmen in secret, and knew the scroll you took from a bandit for the mark of Rhalgr, guardian deity of Ala Mhigo.
+
+Sources shown: Highbridge Times — main scenario quest (2.0); Where There Is Smoke — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M64c** Hihibaru suspects someone is orchestrating the Qiqirn raids and inciting the beast tribes. *Highbridge Times* (2.0, main): "The Qiqirn raids are so constant, so organized, we're beginning to suspect that someone is orchestrating it all. … Hihibaru suspects that someone may be inciting the [[Tribes|beast tribes]]."
+  - **M65a** Hihibaru saw a masked man meeting beastman accomplices in secret. *Where There Is Smoke* (2.0, main): "Hihibaru claims to have witnessed a masked man meeting his [[beastman]] accomplices in secret."
+  - **M65b** Your smoke draws a bandit carrying a scroll marked with Rhalgr, the Destroyer. *Where There Is Smoke* (2.0, main): "The smoldering coal gives rise to a column of smoke, which serves to summon [[Corpse Brigade Footsoldier|a bandit]]. … bearing [[Rhalgr|the mark of Rhalgr, the Destroyer]]"
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+
+</details>
+
+**#66 onward · main**
+
+> A merchant at Highbridge, who saw the masked stranger meeting beastmen in secret and traced a bandit's scroll to the Ala Mhigans. He sent you on to Little Ala Mhigo, where his daughter Hihira lives.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0); On to Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65a** Hihibaru saw a masked man meeting beastman accomplices in secret. *Where There Is Smoke* (2.0, main): "Hihibaru claims to have witnessed a masked man meeting his [[beastman]] accomplices in secret."
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M66a** Hihibaru sends you to Little Ala Mhigo, a lawless place where his daughter Hihira lives. *On to Little Ala Mhigo* (2.0, main): "His daughter, a lass named [[Hihira]], has taken up residence there … And for all intents and purposes, it's a lawless place."
+
+</details>
+
+### Gundobald (`char-gundobald`, character)
+
+**#66–#67 · main**
+
+> Leader of Little Ala Mhigo, a settlement of Ala Mhigan refugees. He turned you away.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M66c** Gundobald turns you away. *On to Little Ala Mhigo* (2.0, main): "You are not welcome here. Begone."
+
+</details>
+
+**#68–#72 · main**
+
+> Leader of Little Ala Mhigo and a member of the Ala Mhigan Resistance. He turned you away, and the refugees will trust you only if a respected compatriot vouches for you.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M66c** Gundobald turns you away. *On to Little Ala Mhigo* (2.0, main): "You are not welcome here. Begone."
+  - **M68e** The refugees will trust you only if a respected compatriot vouches for you. *Foot in the Door* (2.0, main): "the best way to win that trust is to get a compatriot of theirs─someone they respect─to vouch for you."
+
+</details>
+
+**#73 only · main**
+
+> Leader of Little Ala Mhigo and a member of the Ala Mhigan Resistance, who once mentored Meffrid. Meffrid's letter of introduction won him over, and he will tell you what he knows of the masked stranger.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0); Come Highly Recommended — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M73b** Gundobald mentored Meffrid when he joined the Resistance. *Come Highly Recommended* (2.0, main): "The old bear was my mentor when I first joined the Resistance."
+  - **M73c** Gundobald casts aside his mistrust and will tell you what he knows of the masked stranger. *Come Highly Recommended* (2.0, main): "Thanks to Meffrid's letter, Gundobald casts aside his mistrust and offers you his hand in friendship. … I know of this masked stranger you seek, and will tell you what I can"
+
+</details>
+
+**#74–#75 · main**
+
+> Leader of Little Ala Mhigo and a member of the Ala Mhigan Resistance. Two decades ago he and his brothers rose against the despot who ruled Ala Mhigo, but blinded by hate they danced to the Empire's tune, and Ala Mhigo fell. Now he fears for youths meeting the masked stranger in secret.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M74c** Two decades ago Gundobald and his brothers rose against Ala Mhigo's despot, and it cost them their freedom. *The Bear and the Young'uns' Cares* (2.0, main): "Two decades ago, that same anger drove me and my brothers to rise against the despot who ruled Ala Mhigo. … but it cost us our freedom."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M74a** Some youths of Little Ala Mhigo are meeting the masked man in secret. *The Bear and the Young'uns' Cares* (2.0, main): "it seems that some of our youngbloods are meeting him in secret."
+
+</details>
+
+**#76 only · main**
+
+> Leader of Little Ala Mhigo and a member of the Ala Mhigan Resistance. Two decades ago he rose against Ala Mhigo's despot, only to see it fall to the Empire. When the settlement's youths tried to summon Rhalgr, he told their leader, Wilred, that he owes his life to you.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M74c** Two decades ago Gundobald and his brothers rose against Ala Mhigo's despot, and it cost them their freedom. *The Bear and the Young'uns' Cares* (2.0, main): "Two decades ago, that same anger drove me and my brothers to rise against the despot who ruled Ala Mhigo. … but it cost us our freedom."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M76b** Wilred's friends plotted to summon Rhalgr with crystals stolen from an Amalj'aa stronghold. *Big Trouble in Little Ala Mhigo* (2.0, main): "It seems that Wilred and his friends have been plotting to summon [[Rhalgr]]. … they seek to infiltrate an [[Amalj'aa]] stronghold and steal the [[beastmen]]'s cache of [[crystals]]."
+  - **M76f** Gundobald tells Wilred he owes his life to you, an outsider. *Big Trouble in Little Ala Mhigo* (2.0, main): "never forget that you owe it to this adventurer─an ''outsider''."
+
+</details>
+
+**#77 onward · main**
+
+> Leader of Little Ala Mhigo and a member of the Ala Mhigan Resistance, who once rose against Ala Mhigo's despot, only to see it fall to the Empire. He has nothing more to tell of the masked stranger, and prays you will put an end to him for the sake of the young ones who died by his poisoned words.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0); Back to Square One — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M68a** Gundobald belongs to the Ala Mhigan Resistance. *Foot in the Door* (2.0, main): "Gundobald belongs to the Ala Mhigan Resistance, so your best bet would be someone who's part of the same crew."
+  - **M74c** Two decades ago Gundobald and his brothers rose against Ala Mhigo's despot, and it cost them their freedom. *The Bear and the Young'uns' Cares* (2.0, main): "Two decades ago, that same anger drove me and my brothers to rise against the despot who ruled Ala Mhigo. … but it cost us our freedom."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M77a** Gundobald's people have nothing more to tell of the masked stranger. *Back to Square One* (2.0, main): "There is no more that Gundobald and his people can tell you of the masked stranger."
+  - **M77e** Gundobald prays you will end the masked stranger, for the young ones who died by his words. *Back to Square One* (2.0, main): "I pray that you'll find and put a swift end to the creature─for the sake of the young ones who died by his poisoned words."
+
+</details>
+
+### Haribehrt (`char-haribehrt`, character)
+
+**#69 onward · main**
+
+> An Ala Mhigan member of the Scions, who joined hoping to find a way to free his homeland. He left the Ala Mhigan Resistance to do so, and his former comrades will have nothing to do with him.
+
+Sources shown: Foot in the Door — main scenario quest (2.0); Meeting with the Resistance — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M68d** There is an Ala Mhigan native among the Scions. *Foot in the Door* (2.0, main): "there is an Ala Mhigan native among the Scions. I should be pleased to introduce him to you."
+  - **M69a** Haribehrt joined the Scions hoping to find a way to free his homeland. *Meeting with the Resistance* (2.0, main): "He joined our cause in the hopes that he might find a way to liberate his homeland."
+  - **M69b** Haribehrt left the Ala Mhigan Resistance for the Scions, and his old comrades shun him. *Meeting with the Resistance* (2.0, main): "I used to be a member of the [[Ala Mhigan Resistance]], you see, but I left in favor of joining the Scions. … I abandoned my comrades, and they'll have nothing to do with me."
+
+</details>
+
+### Medrod (`char-medrod`, character)
+
+**#78–#80b · main**
+
+> A miner at Fallgourd Float in the North Shroud, who saw a masked man in the wood with a winged creature that was all eyeball and teeth.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78c** Noraxia tells you that a miner, Medrod, saw a masked character in the wood. *Terror at Fallgourd* (2.0, main): "Noraxia tells you that a miner named [[Medrod]] witnessed an unsavory masked character in the wood."
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+
+</details>
+
+**#82 onward · main**
+
+> A miner at Fallgourd Float in the North Shroud, who saw a masked man with a winged eyeball amid a spate of murders. With Aideen and Ivaurault he has left the investigation to you.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Power of Deduction — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78d** Medrod saw the masked man with a winged creature that was all eyeball and teeth. *Terror at Fallgourd* (2.0, main): "He had a hideous fiend in tow, a winged creature that was all eyeball and jagged teeth."
+  - **M78b** The sighting follows a series of mysterious deaths there. *Terror at Fallgourd* (2.0, main): "This sighting comes in the wake of a series of mysterious deaths in the selfsame area."
+  - **M82a** Ivaurault is now sure he saw a winged eyeball, and the three friends leave the investigating to you. *Power of Deduction* (2.0, main): "While uncertain for a time, [[Ivaurault]] is now convinced that it was a winged eyeball that he encountered at the rocky area to the west. … The three friends would leave the task of investigating to the expert─you."
+
+</details>
+
+### Aideen (`char-aideen`, character)
+
+**#78 only · main**
+
+> A local at Fallgourd Float in the North Shroud, who has offered to help find the masked stranger Medrod saw.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78f** Aideen and Ivaurault offer to help. *Terror at Fallgourd* (2.0, main): "If that's the case, we'll help you in whatever way we can!"
+  - **M78c** Noraxia tells you that a miner, Medrod, saw a masked character in the wood. *Terror at Fallgourd* (2.0, main): "Noraxia tells you that a miner named [[Medrod]] witnessed an unsavory masked character in the wood."
+
+</details>
+
+**#79–#80 · main**
+
+> A local at Fallgourd Float in the North Shroud, helping you investigate the mysterious deaths. The victims' faces were torn to shreds, but she has ruled out the ziz and turned back to the masked stranger and his winged eyeball.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Ziz Is So Ridiculous — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78f** Aideen and Ivaurault offer to help. *Terror at Fallgourd* (2.0, main): "If that's the case, we'll help you in whatever way we can!"
+  - **M79a** The victims were all found with their faces torn to shreds. *Ziz Is So Ridiculous* (2.0, main): "all the victims were found with their faces torn to shreds."
+  - **M79b** Aideen rules out the ziz and turns back to the masked man and his winged eyeball. *Ziz Is So Ridiculous* (2.0, main): "Aideen strikes ziz from her list of suspects, and turns her attention once more towards the masked man and his winged eyeball."
+
+</details>
+
+**#80b only · main**
+
+> A local at Fallgourd Float in the North Shroud, helping you investigate the mysterious deaths. She learned that every victim has been a comely maiden, but a rumored rock of rancor held only ordinary crystals.
+
+Sources shown: Ziz Is So Ridiculous — main scenario quest (2.0); Rock of Rancor — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M79a** The victims were all found with their faces torn to shreds. *Ziz Is So Ridiculous* (2.0, main): "all the victims were found with their faces torn to shreds."
+  - **M79b** Aideen rules out the ziz and turns back to the masked man and his winged eyeball. *Ziz Is So Ridiculous* (2.0, main): "Aideen strikes ziz from her list of suspects, and turns her attention once more towards the masked man and his winged eyeball."
+  - **M80ba** All the victims have been comely maidens. *Rock of Rancor* (2.0, main): "It appears ''all'' the victims have been comely maidens."
+  - **M80bb** A rumored rock of rancor proves to hold ordinary crystals, nothing to do with the masked stranger. *Rock of Rancor* (2.0, main): "her rancor went into the great big rock southwest of here, causing it to flash and moan. … Nothing to do with the masked stranger."
+
+</details>
+
+**#82 onward · main**
+
+> A local at Fallgourd Float in the North Shroud. She helped you investigate the murders of comely maidens there, then with Medrod and Ivaurault left the case to you.
+
+Sources shown: Ziz Is So Ridiculous — main scenario quest (2.0); Rock of Rancor — main scenario quest (2.0); Power of Deduction — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M79b** Aideen rules out the ziz and turns back to the masked man and his winged eyeball. *Ziz Is So Ridiculous* (2.0, main): "Aideen strikes ziz from her list of suspects, and turns her attention once more towards the masked man and his winged eyeball."
+  - **M80ba** All the victims have been comely maidens. *Rock of Rancor* (2.0, main): "It appears ''all'' the victims have been comely maidens."
+  - **M82a** Ivaurault is now sure he saw a winged eyeball, and the three friends leave the investigating to you. *Power of Deduction* (2.0, main): "While uncertain for a time, [[Ivaurault]] is now convinced that it was a winged eyeball that he encountered at the rocky area to the west. … The three friends would leave the task of investigating to the expert─you."
+
+</details>
+
+### Ivaurault (`char-ivaurault`, character)
+
+**#78–#79 · main**
+
+> A local at Fallgourd Float in the North Shroud, who has offered to help find the masked stranger Medrod saw.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78f** Aideen and Ivaurault offer to help. *Terror at Fallgourd* (2.0, main): "If that's the case, we'll help you in whatever way we can!"
+  - **M78c** Noraxia tells you that a miner, Medrod, saw a masked character in the wood. *Terror at Fallgourd* (2.0, main): "Noraxia tells you that a miner named [[Medrod]] witnessed an unsavory masked character in the wood."
+
+</details>
+
+**#80–#80b · main**
+
+> A local at Fallgourd Float in the North Shroud. He confessed that he too saw the winged eyeball, at the same moment as Medrod, but where he saw it a monstrous banemite attacked you instead, and he began to doubt himself.
+
+Sources shown: Terror at Fallgourd — main scenario quest (2.0); Seeing Eye to Winged Eye — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M78f** Aideen and Ivaurault offer to help. *Terror at Fallgourd* (2.0, main): "If that's the case, we'll help you in whatever way we can!"
+  - **M80a** Ivaurault also saw the winged eyeball, at the same moment as Medrod. *Seeing Eye to Winged Eye* (2.0, main): "I have been keeping this to myself, lest I worsen Medrod's paranoia, but I, too, have seen the winged eyeball. … my sighting took place precisely the same time as Medrod's."
+  - **M80b** A monstrous banemite attacks you where he saw it, and Ivaurault begins to doubt himself. *Seeing Eye to Winged Eye* (2.0, main): "Instead of the winged eyeball, a [[Heavy Banemite|monstrous banemite]] appears, and you are forced to defend yourself. … he wonders whether he only imagined seeing the winged eyeball."
+
+</details>
+
+**#82 onward · main**
+
+> A local at Fallgourd Float in the North Shroud, who saw the winged eyeball at the same moment as Medrod. He is now convinced of what he saw, and with his friends has left the investigation to you.
+
+Sources shown: Seeing Eye to Winged Eye — main scenario quest (2.0); Power of Deduction — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M80a** Ivaurault also saw the winged eyeball, at the same moment as Medrod. *Seeing Eye to Winged Eye* (2.0, main): "I have been keeping this to myself, lest I worsen Medrod's paranoia, but I, too, have seen the winged eyeball. … my sighting took place precisely the same time as Medrod's."
+  - **M82a** Ivaurault is now sure he saw a winged eyeball, and the three friends leave the investigating to you. *Power of Deduction* (2.0, main): "While uncertain for a time, [[Ivaurault]] is now convinced that it was a winged eyeball that he encountered at the rocky area to the west. … The three friends would leave the task of investigating to the expert─you."
+
+</details>
+
+### Ursandel (`char-ursandel`, character)
+
+**#83 only · main**
+
+> A man in Gridania who wears a button bearing the lily sigil of the Dartancours family. He will tell the truth of the North Shroud murders if you promise to end his lady's madness.
+
+Sources shown: Secret of the White Lily — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M83b** Ceinguled recalls Ursandel wearing an identical button. *Secret of the White Lily* (2.0, main): "Ceinguled recalls having seen a man named [[Ursandel]] wearing an identical button upon the breast of his jacket."
+  - **M83c** Ursandel knows the sigil as the Dartancours family's. *Secret of the White Lily* (2.0, main): "Ursandel instantly recognizes the sigil as that of the old and proud Dartancours family."
+  - **M83d** Ursandel will tell the truth of the deaths if you promise to end his lady's madness. *Secret of the White Lily* (2.0, main): "I shall reveal to you the truth of the deaths, but on one condition: you promise to put an end to my lady's madness and free her from her torment."
+
+</details>
+
+**#84 onward · main**
+
+> A former servant of Lady Amandine, mistress of the Dartancours household. He told you how the Calamity disfigured her and masked men urged her into rites that spilled maiden blood. With her defeated, he will surrender himself for keeping silent.
+
+Sources shown: Skeletons in Her Closet — main scenario quest (2.0); Secret of the White Lily — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M84a** Ursandel once waited upon Lady Amandine, mistress of the Dartancours household. *Skeletons in Her Closet* (2.0, main): "During that time, I had the honor of waiting upon Lady Amandine, mistress of the household."
+  - **M83c** Ursandel knows the sigil as the Dartancours family's. *Secret of the White Lily* (2.0, main): "Ursandel instantly recognizes the sigil as that of the old and proud Dartancours family."
+  - **M84b** Disfigured in the Calamity, Amandine held rites of rejuvenation at masked men's urging, spilling maiden blood. *Skeletons in Her Closet* (2.0, main): "how [[Lady Amandine]], his once beautiful mistress, was disfigured in [[the Calamity]], and how she subsequently began to hold rites of rejuvenation at the urging of masked men. It would seem these rites involve the spilling of maiden blood."
+  - **M84f** Ursandel will surrender himself for keeping silent. *Skeletons in Her Closet* (2.0, main): "I will surrender myself to the authorities and accept whatever punishment they deem just."
+
+</details>
+
+### Amandine (`char-amandine`, character)
+
+**#84 onward · main** · Also searchable as: Lady Amandine
+
+> Mistress of the Dartancours household, disfigured in the Calamity. At the urging of masked men she held rites of rejuvenation that spilled maiden blood, until you defeated her in Haukke Manor.
+
+Sources shown: Skeletons in Her Closet — main scenario quest (2.0); Secret of the White Lily — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M84a** Ursandel once waited upon Lady Amandine, mistress of the Dartancours household. *Skeletons in Her Closet* (2.0, main): "During that time, I had the honor of waiting upon Lady Amandine, mistress of the household."
+  - **M83c** Ursandel knows the sigil as the Dartancours family's. *Secret of the White Lily* (2.0, main): "Ursandel instantly recognizes the sigil as that of the old and proud Dartancours family."
+  - **M84b** Disfigured in the Calamity, Amandine held rites of rejuvenation at masked men's urging, spilling maiden blood. *Skeletons in Her Closet* (2.0, main): "how [[Lady Amandine]], his once beautiful mistress, was disfigured in [[the Calamity]], and how she subsequently began to hold rites of rejuvenation at the urging of masked men. It would seem these rites involve the spilling of maiden blood."
+  - **M84c** You defeat Amandine, and two masked men appear who seem to have masterminded the atrocities. *Skeletons in Her Closet* (2.0, main): "No sooner have you defeated Lady Amandine than two masked men appear, their ominous exchange suggesting that it was they who masterminded the atrocities committed within the manor."
+
+</details>
+
+### Trachtoum (`char-trachtoum`, character)
+
+**#85 only · main**
+
+> A man at the Grey Fleet mills in lower La Noscea, the self-proclaimed best axeman of the Company of Heroes.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85i** Trachtoum calls himself the best axeman of the Company of Heroes. *Wrath of the Titan* (2.0, main): "Your search leads you to [[Trachtoum]], the self-proclaimed “best axeman” of the Company of Heroes."
+
+</details>
+
+**#86–#87 · main**
+
+> A marauder at the Grey Fleet mills, the self-proclaimed best axeman of the Company of Heroes. He won't share the Company's secret strategy until you prove yourself, and the rats' nest he had you clear turned out to be his own chore.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); Tales from the Tidus Slayer — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85i** Trachtoum calls himself the best axeman of the Company of Heroes. *Wrath of the Titan* (2.0, main): "Your search leads you to [[Trachtoum]], the self-proclaimed “best axeman” of the Company of Heroes."
+  - **M86a** Trachtoum withholds the Company's secret strategy unless you clear a rats' nest. *Tales from the Tidus Slayer* (2.0, main): "refuses to reveal [[Company of Heroes|the Company]]'s secret strategy─that is, unless you destroy a nest of wild rats"
+  - **M86b** Trachtoum used you to do work he had been given. *Tales from the Tidus Slayer* (2.0, main): "It would appear that Trachtoum used you to handle work he himself had been tasked to do."
+
+</details>
+
+**#88 onward · main**
+
+> A marauder at the Grey Fleet mills who claimed to be the best axeman of the Company of Heroes. Bested in a boulder-breaking contest, he confessed he was never a member, and pointed you to Wheiskaet, one of its former captains.
+
+Sources shown: Wrath of the Titan — main scenario quest (2.0); The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M85i** Trachtoum calls himself the best axeman of the Company of Heroes. *Wrath of the Titan* (2.0, main): "Your search leads you to [[Trachtoum]], the self-proclaimed “best axeman” of the Company of Heroes."
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+
+</details>
+
+### Wheiskaet (`char-wheiskaet`, character)
+
+**#88–#89 · main**
+
+> A former captain of the Company of Heroes, who oversees security for Master Gegeruju's estates at Costa del Sol. He says Titan took some of the Company's very best, and won't send you into O'Ghomoro on a whim: first you must complete his challenges.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88c** Wheiskaet oversees security for Master Gegeruju's estates. *The Lominsan Way* (2.0, main): "I oversee security for Master Gegeruju's estates."
+  - **M88b** Wheiskaet says the Company's victories were bought with lifeblood, and Titan took some of its best. *The Lominsan Way* (2.0, main): "each victory was bought with the lifeblood of brave men and women. … but he took from us some of our very best."
+  - **M88d** Wheiskaet will not send you into O'Ghomoro on a whim; you must complete his challenges. *The Lominsan Way* (2.0, main): "But I will not send you into O'Ghomoro on a whim. … you must yet again prove yourself by completing Wheiskaet's challenges."
+
+</details>
+
+**#90–#95 · main**
+
+> A former captain of the Company of Heroes, who guards Master Gegeruju's estates at Costa del Sol and knows how to reach Titan. A man who lied about serving in the Company has made him wary, so after a simple test he set you to gather the ingredients of a feast for Master Gegeruju's distinguished guests, guided by his old mercenaries.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); Nix That — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88c** Wheiskaet oversees security for Master Gegeruju's estates. *The Lominsan Way* (2.0, main): "I oversee security for Master Gegeruju's estates."
+  - **M88f** The Scions lack only the knowledge of how to enter Titan's lair. *The Lominsan Way* (2.0, main): "We lack only the knowledge of how to enter Titan's lair."
+  - **M89b** A former employee who falsely claimed Company service has made Wheiskaet wary of strangers. *Nix That* (2.0, main): "He claimed to have served in the Company of Heroes, but I knew for a fact he did not. … Wheiskaet explains that a recent incident with a former employee has forced him to treat strangers with greater caution."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M90b** Many of Wheiskaet's old mercenaries still live and will guide you. *A Modest Proposal* (2.0, main): "Many of the mercenaries who once served under my command still live, and they will guide you in your quest."
+
+</details>
+
+**#96 onward · main**
+
+> A former captain of the Company of Heroes, who guards Master Gegeruju's estates at Costa del Sol. You brought him an egg, worm meat and goblin cheese for Master Gegeruju's feast, but he still keeps Titan's secrets until you bring the finest wine.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0); The Things We Do for Cheese — main scenario quest (2.0); What Do You Mean You Forgot the Wine — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88a** Bested in a contest, Trachtoum admits he was never in the Company; one of its former captains works at Costa del Sol. *The Lominsan Way* (2.0, main): "After besting Trachtoum in a boulder-breaking contest, you discover that the marauder was never a member of the [[Company of Heroes]]. However, he tells you that one of the Company's former captains now works at [[Costa del Sol]]."
+  - **M88c** Wheiskaet oversees security for Master Gegeruju's estates. *The Lominsan Way* (2.0, main): "I oversee security for Master Gegeruju's estates."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+  - **M95c** Brayflox gives you goblin cheese. *The Things We Do for Cheese* (2.0, main): "Brayflox proudly presents to you a [[Goblin Cheese|hunk of gobbie gouda]]."
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+
+</details>
+
+### Gegeruju (`char-gegeruju`, character)
+
+**#88–#89 · main** · Also searchable as: Master Gegeruju
+
+> A master whose estates Wheiskaet guards.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88c** Wheiskaet oversees security for Master Gegeruju's estates. *The Lominsan Way* (2.0, main): "I oversee security for Master Gegeruju's estates."
+
+</details>
+
+**#90 onward · main** · Also searchable as: Master Gegeruju
+
+> A master whose estates at Costa del Sol Wheiskaet guards. He means to welcome two distinguished visitors with an elaborate feast.
+
+Sources shown: The Lominsan Way — main scenario quest (2.0); A Modest Proposal — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M88c** Wheiskaet oversees security for Master Gegeruju's estates. *The Lominsan Way* (2.0, main): "I oversee security for Master Gegeruju's estates."
+  - **M90a** Master Gegeruju will welcome two distinguished visitors to Costa del Sol with a feast, and you are to gather its ingredients. *A Modest Proposal* (2.0, main): "Two highly distinguished individuals are scheduled to visit [[Costa del Sol]], and Master [[Gegeruju]] wishes to welcome them with an elaborate banquet. Wheiskaet bids you assist in this endeavor by bringing him the ingredients required for this exotic feast."
+
+</details>
+
+### Landenel (`char-landenel`, character)
+
+**#90 only · main**
+
+> A man at Camp Tranquil in the South Shroud, who knew you as the one who would challenge Titan. He would not help you openly, but told you how to take a giant adamantoise's egg.
+
+Sources shown: A Modest Proposal — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M90e** Landenel is at Camp Tranquil in the South Shroud. *A Modest Proposal* (2.0, main): "To obtain the first ingredient, you must seek out [[Landenel]] at [[Camp Tranquil]] in the [[South Shroud]]."
+  - **M90c** Landenel knows you as the one who would challenge Titan, but will give only information. *A Modest Proposal* (2.0, main): "So this is the one who would challenge Titan. … From me you will receive only information."
+  - **M90d** The first ingredient is a giant adamantoise's egg. *A Modest Proposal* (2.0, main): "You learn that the first ingredient is the [[Adamantoise Egg|egg of a giant adamantoise]]."
+
+</details>
+
+**#91 onward · main**
+
+> A man at Camp Tranquil in the South Shroud, who once served with the Company of Heroes and keeps that past a secret. He was sure you would die taking a giant adamantoise's egg, and when you brought it he sent it on to Wheiskaet and pointed you to U'odh Nunh.
+
+Sources shown: A Modest Proposal — main scenario quest (2.0); Trial by Turtle — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M90e** Landenel is at Camp Tranquil in the South Shroud. *A Modest Proposal* (2.0, main): "To obtain the first ingredient, you must seek out [[Landenel]] at [[Camp Tranquil]] in the [[South Shroud]]."
+  - **M91a** Landenel served with the Company and keeps that a secret. *Trial by Turtle* (2.0, main): "See, I don't regret my time spent with the Company in the slightest. … this business between you, me, and the captain must remain a secret."
+  - **M91d** Landenel believes you will die taking the egg. *Trial by Turtle* (2.0, main): "he believes that you will surely perish if you attempt to take it"
+  - **M91b** You take the egg despite the mother adamantoise, and Landenel takes it on Wheiskaet's behalf. *Trial by Turtle* (2.0, main): "As Landenel suspected, you were immediately attacked by the mother [[Adamantoise (Mob)|adamantoise]] when you touched the egg. … After taking the egg on behalf of [[Wheiskaet]]"
+  - **M91c** Landenel sends you to U'odh Nunh at Forgotten Springs, who refuses to help. *Trial by Turtle* (2.0, main): "he bids you journey to [[Forgotten Springs]] in [[southern Thanalan]] and speak with a man named [[U'odh Nunh]] … Contrary to what Landenel said, U'odh Nunh has no intention of aiding you in your quest. It seems the old [[Miqo'te]] will require some convincing..."
+
+</details>
+
+### U'odh Nunh (`char-uodh-nunh`, character)
+
+**#91 only · main**
+
+> A Miqo'te at Forgotten Springs in southern Thanalan, to whom Landenel sent you for the next ingredient. He has no intention of helping you.
+
+Sources shown: Trial by Turtle — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M91c** Landenel sends you to U'odh Nunh at Forgotten Springs, who refuses to help. *Trial by Turtle* (2.0, main): "he bids you journey to [[Forgotten Springs]] in [[southern Thanalan]] and speak with a man named [[U'odh Nunh]] … Contrary to what Landenel said, U'odh Nunh has no intention of aiding you in your quest. It seems the old [[Miqo'te]] will require some convincing..."
+
+</details>
+
+**#92–#93 · main**
+
+> A Miqo'te at Forgotten Springs in southern Thanalan, who joined the Company of Heroes long ago to hone his skills. He would not aid a stranger, but after you slew an Amalj'aa veteran he agreed to tell you the ingredient you seek.
+
+Sources shown: Trial by Turtle — main scenario quest (2.0); The Perfect Prey — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M91c** Landenel sends you to U'odh Nunh at Forgotten Springs, who refuses to help. *Trial by Turtle* (2.0, main): "he bids you journey to [[Forgotten Springs]] in [[southern Thanalan]] and speak with a man named [[U'odh Nunh]] … Contrary to what Landenel said, U'odh Nunh has no intention of aiding you in your quest. It seems the old [[Miqo'te]] will require some convincing..."
+  - **M92a** U'odh Nunh joined the Company of Heroes to hone his skills. *The Perfect Prey* (2.0, main): "Many years ago, I joined the Company of Heroes to hone my skills, instead of challenging my predecessor before I was ready."
+  - **M92d** The Children of the Sands do not help strangers. *The Perfect Prey* (2.0, main): "The Children of the Sands do not offer aid to strangers."
+  - **M92b** U'odh Nunh sets you to slay an Amalj'aa veteran. *The Perfect Prey* (2.0, main): "U'odh Nunh has bid you slay an [[Stonespike Tanadd Gah|Amalj'aa veteran]] who dwells in the encampment to the east of [[Forgotten Springs]]."
+  - **M92c** Impressed, U'odh Nunh will tell you of the ingredient. *The Perfect Prey* (2.0, main): "U'odh Nunh is impressed with your accomplishment, and is at last willing to tell you of the ingredient that you seek."
+
+</details>
+
+**#94 onward · main**
+
+> A Miqo'te at Forgotten Springs who joined the Company of Heroes as a reckless youth, when his captain, Wheiskaet, could have cast him out. He prepared Wellwick worm meat for Wheiskaet's feast, and you carried his gift of brandewine to his old captain.
+
+Sources shown: The Perfect Prey — main scenario quest (2.0); There and Back Again — main scenario quest (2.0); When the Worm Turns — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M92a** U'odh Nunh joined the Company of Heroes to hone his skills. *The Perfect Prey* (2.0, main): "Many years ago, I joined the Company of Heroes to hone my skills, instead of challenging my predecessor before I was ready."
+  - **M94a** U'odh Nunh was a reckless youth when he joined, and Wheiskaet could have cast him out. *There and Back Again* (2.0, main): "I was a rrreckless, angry youth when I first joined the Company, and he would have been well within his rights to cast me out."
+  - **M93a** The second ingredient is Wellwick worm meat, which U'odh Nunh will send to Wheiskaet. *When the Worm Turns* (2.0, main): "The ingredient you seek is the [[Wellwick Worm Meat|meat of a Wellwick worm]]. … he promises to send it to [[Wheiskaet]] in time for the banquet."
+  - **M94b** You deliver U'odh Nunh's brandewine, and Wheiskaet resolves to thank his old comrade. *There and Back Again* (2.0, main): "Wheiskaet is surprised by the gift, and resolves to thank his old comrade when next they meet."
+
+</details>
+
+### Brayflox (`char-brayflox`, character)
+
+**#95 onward · main**
+
+> Wheiskaet's former quartermaster, who was to bring the last ingredient for the feast. When a dragon drove her goblin people from their lands, you slew it, and she gave you a hunk of goblin cheese.
+
+Sources shown: The Things We Do for Cheese — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M95a** Brayflox, Wheiskaet's former quartermaster, was to bring the last ingredient, but something befell her people. *The Things We Do for Cheese* (2.0, main): "[[Brayflox]], his former quartermaster, was planning to deliver it to [[Costa del Sol]] herself. However, something appears to have befallen Brayflox and her people"
+  - **M95b** A flying beast drove the goblins from their lands; you slay the dragon and send them home. *The Things We Do for Cheese* (2.0, main): "a large flying beast has driven the goblins from their lands. … you slay the invading [[dragon]] and return the displaced goblins to their beloved homes."
+  - **M95c** Brayflox gives you goblin cheese. *The Things We Do for Cheese* (2.0, main): "Brayflox proudly presents to you a [[Goblin Cheese|hunk of gobbie gouda]]."
+
+</details>
+
+### Shamani (`char-shamani`, character)
+
+**#96 only · main**
+
+> A former member of the Company of Heroes, now a vintner at Wineport, who has lost his sight and reads much by smell. Wheiskaet sent you to him for the finest wine.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M96c** Shamani is in Wineport. *What Do You Mean You Forgot the Wine* (2.0, main): "Make your way to Wineport and seek out Shamani Lohmani, another former member of the Company."
+  - **M96b** Shamani has lost his sight, and reads the order by smell. *What Do You Mean You Forgot the Wine* (2.0, main): "When one loses his vision, he is forced to compensate in other ways. … Shamani Lohmani immediately deduces your intent with his impressive sense of smell."
+
+</details>
+
+**#97 only · main**
+
+> A blind vintner at Wineport, once a mercenary of the Company of Heroes, who used his savings to take up wine. He says the only wines fit for Master Gegeruju's feast belong to Byrglaent, who refused you.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0); An Offer You Can Refuse — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M96b** Shamani has lost his sight, and reads the order by smell. *What Do You Mean You Forgot the Wine* (2.0, main): "When one loses his vision, he is forced to compensate in other ways. … Shamani Lohmani immediately deduces your intent with his impressive sense of smell."
+  - **M97c** Shamani became a vintner with his savings from his years as a mercenary. *An Offer You Can Refuse* (2.0, main): "It wouldn't have been possible if not for the savings I amassed during my time as a mercenary, of course."
+  - **M97a** Only Byrglaent, owner of Vylbrand's largest winery, has wines fit for the feast. *An Offer You Can Refuse* (2.0, main): "Shamani Lohmani tells you that the only suitable wines for Master [[Gegeruju]]'s banquet are in the possession of [[Byrglaent]], who owns and operates the largest winery in [[Vylbrand]]."
+  - **M97b** Byrglaent refuses, offering goobbue urine instead. *An Offer You Can Refuse* (2.0, main): "Byrglaent is less than receptive to your requests, and instead offers to serve you [[Goobbue (Mob)|goobbue]] urine."
+
+</details>
+
+**#98 only · main**
+
+> A blind vintner at Wineport, once of the Company of Heroes. Titan blinded him beneath O'Ghomoro, and Bacchus wine lifted him from despair and made him a vintner, but the vignerons have none left.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0); It Won't Work — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M96b** Shamani has lost his sight, and reads the order by smell. *What Do You Mean You Forgot the Wine* (2.0, main): "When one loses his vision, he is forced to compensate in other ways. … Shamani Lohmani immediately deduces your intent with his impressive sense of smell."
+  - **M98b** Titan blinded Shamani beneath O'Ghomoro, and he fell into despair. *It Won't Work* (2.0, main): "After Titan blinded me in our battle beneath O'Ghomoro, I fell into a deep depression."
+  - **M98c** Bacchus wine is why Shamani became a vintner. *It Won't Work* (2.0, main): "It is, after all, the very reason I decided to become a vintner."
+  - **M98a** Most Bacchus wine was destroyed in the Calamity, and the vignerons have none. *It Won't Work* (2.0, main): "most stores were destroyed during [[the Calamity]]. … Alas, the vignerons reiterate that there is no point in searching for Bacchus wine."
+
+</details>
+
+**#99–#100 · main**
+
+> A blind vintner at Wineport, once of the Company of Heroes, whom Titan blinded beneath O'Ghomoro. He misses his life with the Company and cannot bear to disappoint his former captain. He sent his own wine to Drest, the man who once nursed him back to health.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0); It Won't Work — main scenario quest (2.0); Give a Man a Drink — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M98b** Titan blinded Shamani beneath O'Ghomoro, and he fell into despair. *It Won't Work* (2.0, main): "After Titan blinded me in our battle beneath O'Ghomoro, I fell into a deep depression."
+  - **M99c** Shamani misses his life with the Company. *Give a Man a Drink* (2.0, main): "Indeed, there is much I miss about my life with the Company of Heroes."
+  - **M99a** Shamani cannot bear to disappoint his former captain and swears to find a suitable wine. *Give a Man a Drink* (2.0, main): "Shamani Lohmani has decided that he cannot bear to disappoint his former captain, and he swears that he will find a suitable wine for the banquet."
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+
+</details>
+
+**#101 onward · main**
+
+> A blind vintner at Wineport, once of the Company of Heroes, still seeking a wine for his former captain. He sees in Drest, the man who once nursed him back to health, another who struggles not to let his scars define him, and resolves to spend more time with him.
+
+Sources shown: What Do You Mean You Forgot the Wine — main scenario quest (2.0); Give a Man a Drink — main scenario quest (2.0); Battle Scars — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M96a** Wheiskaet still keeps Titan's secrets and sends you for the finest wine from Shamani, a former Company member. *What Do You Mean You Forgot the Wine* (2.0, main): "Wheiskaet applauds your performance, but still refuses to tell you of [[Titan]]'s secrets. … you must procure a bottle of the very finest wine from [[Shamani Lohmani]], a former member of [[Company of Heroes|the Company]]."
+  - **M99a** Shamani cannot bear to disappoint his former captain and swears to find a suitable wine. *Give a Man a Drink* (2.0, main): "Shamani Lohmani has decided that he cannot bear to disappoint his former captain, and he swears that he will find a suitable wine for the banquet."
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+  - **M101b** Shamani sees Drest and himself as two men struggling not to let their scars define them. *Battle Scars* (2.0, main): "Two men who have long struggled not to let our scars define us..."
+  - **M101c** Shamani resolves to spend more time with Drest. *Battle Scars* (2.0, main): "Shamani Lohmani then thanks you for looking after Drest, with whom he resolves to spend more time."
+
+</details>
+
+### Byrglaent (`char-byrglaent`, character)
+
+**#97 onward · main**
+
+> Owner of the largest winery in Vylbrand, whom Shamani calls the Wine Baron of Limsa Lominsa, a man not known for his tact. He refused to sell wine for Master Gegeruju's feast, offering goobbue urine instead.
+
+Sources shown: An Offer You Can Refuse — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M97a** Only Byrglaent, owner of Vylbrand's largest winery, has wines fit for the feast. *An Offer You Can Refuse* (2.0, main): "Shamani Lohmani tells you that the only suitable wines for Master [[Gegeruju]]'s banquet are in the possession of [[Byrglaent]], who owns and operates the largest winery in [[Vylbrand]]."
+  - **M97d** Shamani calls Byrglaent the Wine Baron of Limsa Lominsa, a man not known for tact. *An Offer You Can Refuse* (2.0, main): "the Wine Baron of Limsa Lominsa is not a man known for his tact."
+  - **M97b** Byrglaent refuses, offering goobbue urine instead. *An Offer You Can Refuse* (2.0, main): "Byrglaent is less than receptive to your requests, and instead offers to serve you [[Goobbue (Mob)|goobbue]] urine."
+
+</details>
+
+### Drest (`char-drest`, character)
+
+**#99 only · main**
+
+> A man who once took Shamani in and nursed him back to health, and now lives alone at the Severed String. He accepted Shamani's wine with great trepidation; something is very wrong with him.
+
+Sources shown: Give a Man a Drink — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+  - **M99d** Drest lives alone at the Severed String. *Give a Man a Drink* (2.0, main): "However, he does know that Drest lives alone at [[the Severed String]], which lies far to the southwest of the docks."
+  - **M99e** Drest accepts the wine with great trepidation; something is very wrong with him. *Give a Man a Drink* (2.0, main): "Though he accepts your gift of wine, he does so with great trepidation. It is immediately clear to you that there is something very, very wrong with this disheveled, nervous man..."
+
+</details>
+
+**#100 only · main**
+
+> A hermit at the Severed String who once nursed Shamani back to health. He confessed that he is an imperial deserter, though not Garlean: the Empire conquered his lands. The Maelstrom caught his unit on a reconnaissance mission and no one else survived, and he toils in secret, hoping one day to go home.
+
+Sources shown: Give a Man a Drink — main scenario quest (2.0); That Weight — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+  - **M100a** Drest confesses he is an imperial deserter, though not Garlean. *That Weight* (2.0, main): "Drest confesses that he is an imperial deserter, though he himself is not [[Garlean]]."
+  - **E100a** The Empire conquered the lands of the deserter Drest, as it tried to conquer Eorzea. *That Weight* (2.0, main): "They conquered my lands just like they tried to conquer yours!"
+  - **M100b** His unit was caught by the Maelstrom on a reconnaissance mission, and no one else survived. *That Weight* (2.0, main): "on a reconnaissance mission when the Maelstrom caught us by surprise. … N-No one else survived."
+  - **M100c** Drest bears Eorzeans no ill will, and toils in secret hoping to go home. *That Weight* (2.0, main): "he holds no ill will towards the people of [[Eorzea]]. Nevertheless, he had no choice but to come to [[Vylbrand]], where he now toils in secret so that one day he might return home."
+
+</details>
+
+**#101 onward · main**
+
+> A hermit at the Severed String, an imperial deserter who is not Garlean and hopes one day to go home. Calmer now, he sent palm wine to Shamani, whom he once nursed back to health, and Shamani means to spend more time with him.
+
+Sources shown: That Weight — main scenario quest (2.0); Give a Man a Drink — main scenario quest (2.0); Battle Scars — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M100a** Drest confesses he is an imperial deserter, though not Garlean. *That Weight* (2.0, main): "Drest confesses that he is an imperial deserter, though he himself is not [[Garlean]]."
+  - **M100c** Drest bears Eorzeans no ill will, and toils in secret hoping to go home. *That Weight* (2.0, main): "he holds no ill will towards the people of [[Eorzea]]. Nevertheless, he had no choice but to come to [[Vylbrand]], where he now toils in secret so that one day he might return home."
+  - **M99b** Drest took Shamani in and nursed him back to health. *Give a Man a Drink* (2.0, main): "It was there that a man named Drest took me in and nursed me back to health."
+  - **M101a** Calmer now, Drest sends Shamani palm wine in thanks. *Battle Scars* (2.0, main): "[[Drest]] appears to be in greater control of his faculties. … To express his gratitude to [[Shamani Lohmani]], Drest has asked you to deliver three [[Palm Wine|coconuts filled with palm wine]]"
+  - **M101c** Shamani resolves to spend more time with Drest. *Battle Scars* (2.0, main): "Shamani Lohmani then thanks you for looking after Drest, with whom he resolves to spend more time."
+
+</details>
+
+### Little Ala Mhigo (`loc-little-ala-mhigo`, location)
+
+**#66 only · main**
+
+> A settlement of Ala Mhigan refugees, led by Gundobald. Hihibaru calls it a lawless place, and its leader turned you away.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66a** Hihibaru sends you to Little Ala Mhigo, a lawless place where his daughter Hihira lives. *On to Little Ala Mhigo* (2.0, main): "His daughter, a lass named [[Hihira]], has taken up residence there … And for all intents and purposes, it's a lawless place."
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M66c** Gundobald turns you away. *On to Little Ala Mhigo* (2.0, main): "You are not welcome here. Begone."
+
+</details>
+
+**#67 only · main**
+
+> A settlement of Ala Mhigan refugees, led by Gundobald. The refugees trust no one but themselves, and Lahabrea seems connected to the settlement: a lookout saw a masked figure talking with Ala Mhigans.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Tea for Three — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M67d** The refugees trust no one but themselves, and you will need their cooperation. *Tea for Three* (2.0, main): "Owing to their hardships, the refugees don't trust anyone but themselves. … seems to me you'll need the cooperation of the Ala Mhigans."
+  - **M67c** Lahabrea seems connected to Little Ala Mhigo. *Tea for Three* (2.0, main): "it would seem that [[Lahabrea]] is in some way connected to [[Little Ala Mhigo]]."
+  - **M67b** A lookout saw a masked figure talking with Ala Mhigans. *Tea for Three* (2.0, main): "he was talking with some Ala Mhigans. I assumed he was one of them."
+
+</details>
+
+**#68–#73 · main**
+
+> A settlement of Ala Mhigan refugees, led by Gundobald. The city-states cannot take in all the displaced, and Minfilia believes only reclaiming their homeland would be a lasting solution. Lahabrea seems connected to the settlement.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0); Tea for Three — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M68c** The city-states cannot take in all the displaced, and Minfilia thinks only reclaiming their homeland would last. *Foot in the Door* (2.0, main): "none of the three city-states have the means to take in all those who were displaced. … I fear that nothing short of reclaiming their homeland would be a lasting solution."
+  - **M67c** Lahabrea seems connected to Little Ala Mhigo. *Tea for Three* (2.0, main): "it would seem that [[Lahabrea]] is in some way connected to [[Little Ala Mhigo]]."
+
+</details>
+
+**#74–#75 · main**
+
+> A settlement of Ala Mhigan refugees, led by Gundobald, who has offered you his friendship. Some of its young people are meeting the masked stranger in secret.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Come Highly Recommended — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M73c** Gundobald casts aside his mistrust and will tell you what he knows of the masked stranger. *Come Highly Recommended* (2.0, main): "Thanks to Meffrid's letter, Gundobald casts aside his mistrust and offers you his hand in friendship. … I know of this masked stranger you seek, and will tell you what I can"
+  - **M74a** Some youths of Little Ala Mhigo are meeting the masked man in secret. *The Bear and the Young'uns' Cares* (2.0, main): "it seems that some of our youngbloods are meeting him in secret."
+
+</details>
+
+**#76 onward · main**
+
+> A settlement of Ala Mhigan refugees, led by Gundobald. A band of its youths, led by Wilred, plotted to summon Rhalgr with crystals stolen from the Amalj'aa at the masked stranger's urging, and you thwarted them.
+
+Sources shown: On to Little Ala Mhigo — main scenario quest (2.0); Wilred Wants You — main scenario quest (2.0); Big Trouble in Little Ala Mhigo — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M66b** Gundobald leads the refugee settlement. *On to Little Ala Mhigo* (2.0, main): "She recommends you speak with a man named [[Gundobald]], the leader of the refugee settlement."
+  - **M75a** Wilred is something of a leader among the young people. *Wilred Wants You* (2.0, main): "Lad's something of a leader among the young ones here."
+  - **M76b** Wilred's friends plotted to summon Rhalgr with crystals stolen from an Amalj'aa stronghold. *Big Trouble in Little Ala Mhigo* (2.0, main): "It seems that Wilred and his friends have been plotting to summon [[Rhalgr]]. … they seek to infiltrate an [[Amalj'aa]] stronghold and steal the [[beastmen]]'s cache of [[crystals]]."
+  - **M76c** The masked stranger first gave the youths the idea of summoning Rhalgr. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred reveals that it was the masked stranger who first prompted him and his friends to entertain the notion of summoning Rhalgr."
+  - **M76e** Wilred's plan fails, and with it his hope of reclaiming his homeland. *Big Trouble in Little Ala Mhigo* (2.0, main): "Wilred's plan has come to naught, as have his hopes of reclaiming his homeland."
+
+</details>
+
 ### Ala Mhigo (`loc-ala-mhigo`, location)
+
+**#65–#67 · main**
+
+> A land under Garlean rule, whose guardian deity is Rhalgr, the Destroyer.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M65b** Your smoke draws a bandit carrying a scroll marked with Rhalgr, the Destroyer. *Where There Is Smoke* (2.0, main): "The smoldering coal gives rise to a column of smoke, which serves to summon [[Corpse Brigade Footsoldier|a bandit]]. … bearing [[Rhalgr|the mark of Rhalgr, the Destroyer]]"
+
+</details>
+
+**#68–#73 · main**
+
+> A land under Garlean rule, whose guardian deity is Rhalgr. Its refugees share one purpose, freeing their home from the Garleans; the city-states cannot take in all the displaced, and Minfilia believes only reclaiming their homeland would be a lasting solution.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+  - **M68c** The city-states cannot take in all the displaced, and Minfilia thinks only reclaiming their homeland would last. *Foot in the Door* (2.0, main): "none of the three city-states have the means to take in all those who were displaced. … I fear that nothing short of reclaiming their homeland would be a lasting solution."
+
+</details>
+
+**#74–#199 · main**
+
+> A land under Garlean rule, whose guardian deity is Rhalgr. Two decades ago Gundobald and his brothers rose against the despot who ruled it, but blinded by hate they were dancing to the Empire's tune, and Ala Mhigo fell. Its refugees share one purpose, freeing their home from the Garleans.
+
+Sources shown: Where There Is Smoke — main scenario quest (2.0); The Bear and the Young'uns' Cares — main scenario quest (2.0); Foot in the Door — main scenario quest (2.0)
+
+<details><summary>Evidence</summary>
+
+  - **M65c** Rhalgr is the guardian deity of Ala Mhigo, which is under Garlean rule. *Where There Is Smoke* (2.0, main): "Rhalgr is the guardian deity of [[Ala Mhigo]], which is currently under [[Garlean Empire|Garlean]] rule."
+  - **M74c** Two decades ago Gundobald and his brothers rose against Ala Mhigo's despot, and it cost them their freedom. *The Bear and the Young'uns' Cares* (2.0, main): "Two decades ago, that same anger drove me and my brothers to rise against the despot who ruled Ala Mhigo. … but it cost us our freedom."
+  - **M74d** Blinded by hate, the rebels danced to the Empire's tune, and Ala Mhigo fell. *The Bear and the Young'uns' Cares* (2.0, main): "Blinded by our hate, we didn't realize that we had been dancing to the Empire's tune. … Ala Mhigo had fallen."
+  - **M68b** The Ala Mhigans' shared purpose is freeing their home from the Garleans. *Foot in the Door* (2.0, main): "That purpose is, of course, the liberation of their home from the Garleans."
+
+</details>
 
 **#200–4.0 · main**
 
@@ -47932,7 +56228,7 @@ Sources shown: Shadows in the Empire — main scenario quest (4.4); Parley on th
 | R04 | Urianger → *member of* → The Scions of the Seventh Dawn | 2.0 onward | main | C31, C36 |
 | R05 | Alphinaud → *member of* → The Scions of the Seventh Dawn | 2.0 onward | main | C25 |
 | R06 | Tataru → *member of* → The Scions of the Seventh Dawn | 2.0 onward | main | C32, C36 |
-| R07 | Alphinaud → *twin of* → Alisaie | 2.0 onward | main | C10 |
+| R07 | Alphinaud → *twin of* → Alisaie | #40 onward | main | C10 |
 | R08 | The Scions of the Seventh Dawn → *headquartered at* → The Waking Sands | 2.0–#170 | main | C02 · ends: C45, M171c |
 | R09 | Alphinaud's trial company → *controls* → The Rising Stones | 2.55 onward | main | C19, C19b |
 | R10 | Alphinaud's trial company → *turned against* → The Scions of the Seventh Dawn | 2.55–#293 | main | C19, C20 · ends: M294c, M294e |
@@ -47959,16 +56255,16 @@ Sources shown: Shadows in the Empire — main scenario quest (4.4); Parley on th
 | P8 | Lahabrea → *part of* → The Black Wolf's Challenge | #155 onward | main | C37 |
 | P9 | The Eorzean Alliance → *part of* → The Black Wolf's Challenge | #155 onward | main | K26 |
 | P10 | Operation Archon → *part of* → The Black Wolf's Challenge | #157 onward | main | K40 |
-| R24 | Minfilia → *leads* → The Scions of the Seventh Dawn | #102–#153 | main | C01 |
-| R25 | Thancred → *member of* → The Scions of the Seventh Dawn | #102–#153 | main | C31 |
-| R26 | Y'shtola → *member of* → The Scions of the Seventh Dawn | #102–#160 | main | C31, C40 |
-| R27 | Urianger → *member of* → The Scions of the Seventh Dawn | #102–#160 | main | C31 |
-| R28 | Tataru → *member of* → The Scions of the Seventh Dawn | #102–#160 | main | C32 |
+| R24 | Minfilia → *leads* → The Scions of the Seventh Dawn | #30–#153 | main | C01 |
+| R25 | Thancred → *member of* → The Scions of the Seventh Dawn | #31–#153 | main | C31 |
+| R26 | Y'shtola → *member of* → The Scions of the Seventh Dawn | #31–#160 | main | C31, C40 |
+| R27 | Urianger → *member of* → The Scions of the Seventh Dawn | #31–#160 | main | C31 |
+| R28 | Tataru → *member of* → The Scions of the Seventh Dawn | #31–#160 | main | C32 |
 | R29 | Alphinaud → *member of* → The Scions of the Seventh Dawn | #110–#153 | main | C25 |
-| R30 | The Scions of the Seventh Dawn → *headquartered at* → The Waking Sands | #102–#160 | main | C02 |
+| R30 | The Scions of the Seventh Dawn → *headquartered at* → The Waking Sands | #30–#160 | main | C02 |
 | R31 | Minfilia → *prisoner of* → Livia | #106–#153 | main | K01, E106d |
-| R32 | Yda → *member of* → The Scions of the Seventh Dawn | #102–#378 | main | C31 |
-| R33 | Papalymo → *member of* → The Scions of the Seventh Dawn | #102–#373 | main | C31 · ends: M374g |
+| R32 | Yda → *member of* → The Scions of the Seventh Dawn | #31–#378 | main | C31 |
+| R33 | Papalymo → *member of* → The Scions of the Seventh Dawn | #31–#373 | main | C31 · ends: M374g |
 | R34 | Lahabrea → *allied with* → The Garlean Empire | #105–#334 | main | K14 |
 | R35 | Livia → *member of* → The Garlean Empire | #106–#159 | main | K01, E106b · ends: K62 |
 | R36 | Iliud → *aids* → The Scions of the Seventh Dawn | #106 onward | main | E106f |
@@ -49288,6 +57584,246 @@ Sources shown: Shadows in the Empire — main scenario quest (4.4); Parley on th
 | P1360 | Krile → *part of* → One Banner for Eorzea | #697 onward | main | M697i |
 | P1361 | Arenvald → *part of* → One Banner for Eorzea | 5.55 onward | main | M698c |
 | P1362 | Fandaniel → *part of* → One Banner for Eorzea | 5.55 onward | main | M698f |
-| R1363 | Hydaelyn → *opposes* → Zodiark | #623 onward | main | M623d, M623o |
+| R1363 | Galfrid → *member of* → The Order of the Twin Adder | #2 onward | main | M2b |
+| R1364 | Yda → *aids* → Gridania | #4 onward | main | M4i, M4j |
+| R1365 | Papalymo → *aids* → Gridania | #4 onward | main | M4i, M4j |
+| R1366 | The masked mage → *member of* → The Ascians | #19 onward | main | M19j, M19k |
+| R1367 | The Ixal → *serves* → Garuda | #19 onward | main | M19f |
+| R1368 | Kan-E-Senna → *leads* → Gridania | #19 onward | main | M19s |
+| R1369 | Merlwyb → *leads* → Limsa Lominsa | #22 onward | main | M22e |
+| R1370 | Gridania → *member of* → The Eorzean Alliance | #22 onward | main | M22b |
+| R1371 | Limsa Lominsa → *member of* → The Eorzean Alliance | #22 onward | main | M22b |
+| R1372 | Ul'dah → *member of* → The Eorzean Alliance | #22 onward | main | M22b |
+| R1373 | Merlwyb → *leads* → The Maelstrom | #22–#178 | main | M22e |
+| R1374 | Raubahn → *leads* → The Immortal Flames | #22–#199 | main | M22p |
+| R1375 | Gaius → *member of* → The Garlean Empire | #22–#140 | main | M22k |
+| P1376 | Galfrid → *part of* → Shadows over the Twelveswood | #4 onward | main | M4a |
+| P1377 | The Ixal → *part of* → Shadows over the Twelveswood | #4 onward | main | M4a |
+| P1378 | Yda → *part of* → Shadows over the Twelveswood | #4 onward | main | M4i |
+| P1379 | Papalymo → *part of* → Shadows over the Twelveswood | #4 onward | main | M4i |
+| P1380 | Hydaelyn → *part of* → Shadows over the Twelveswood | #4 onward | main | M4h |
+| P1381 | The masked mage → *part of* → Shadows over the Twelveswood | #8 onward | main | M8c |
+| P1382 | Miounne → *part of* → Shadows over the Twelveswood | #8 onward | main | M8h |
+| P1383 | Lewin → *part of* → Shadows over the Twelveswood | #19 onward | main | M19e |
+| P1384 | Garuda → *part of* → Shadows over the Twelveswood | #19 onward | main | M19f |
+| P1385 | The Ascians → *part of* → Shadows over the Twelveswood | #19 onward | main | M19k |
+| P1386 | Kan-E-Senna → *part of* → The Seedseer's Envoy | #19 onward | main | M19t |
+| P1387 | Gridania → *part of* → The Seedseer's Envoy | #19 onward | main | M19s |
+| P1388 | Miounne → *part of* → The Seedseer's Envoy | #20 onward | main | M20b |
+| P1389 | Lewin → *part of* → The Seedseer's Envoy | #20 onward | main | M20a |
+| P1390 | The Eorzean Alliance → *part of* → The Seedseer's Envoy | #22 onward | main | M22a |
+| P1391 | Merlwyb → *part of* → The Seedseer's Envoy | #22 onward | main | M22j |
+| P1392 | Raubahn → *part of* → The Seedseer's Envoy | #22 onward | main | M22s |
+| P1393 | Gaius → *part of* → The Seedseer's Envoy | #22 onward | main | M22k |
+| P1394 | The Garlean Empire → *part of* → The Seedseer's Envoy | #22 onward | main | M22k |
+| P1395 | Baderon → *part of* → The Seedseer's Envoy | #23 onward | main | M23b |
+| R1396 | Staelwyrn → *controls* → Summerford Farms | #2b onward | main | M2bb, M2ba |
+| R1397 | The Serpent Reavers → *aids* → The Sahagin | #9b–#178 | main | M9bh, M9bj |
+| R1398 | Ahtbyrm → *child of* → Ahtzapfyn | #17b onward | main | M17bc |
+| R1399 | Ahtzapfyn → *prisoner of* → The Yellowjackets | #17b onward | main | M17bf, M17bh |
+| R1400 | Reyner → *leads* → The Yellowjackets | #19b onward | main | M19bd, M19be |
+| R1401 | Y'shtola → *aids* → The Yellowjackets | #19b onward | main | M19bl, M19bm |
+| R1402 | The Ascians → *controls* → The Sahagin | #19b onward | main | M19bh |
+| R1403 | Baderon → *allied with* → Merlwyb | #19b onward | main | M19bo |
+| R1404 | The Serpent Reavers → *serves* → Leviathan | #21b onward | main | M21bb |
+| P1405 | Baderon → *part of* → Trouble at Summerford | #2b onward | main | M2ba |
+| P1406 | Staelwyrn → *part of* → Trouble at Summerford | #2b onward | main | M2bb |
+| P1407 | Summerford Farms → *part of* → Trouble at Summerford | #2b onward | main | M2ba |
+| P1408 | Y'shtola → *part of* → Trouble at Summerford | #4b onward | main | M4bg |
+| P1409 | Sevrin → *part of* → Trouble at Summerford | #5b onward | main | M5bb |
+| P1410 | The Serpent Reavers → *part of* → Trouble at Summerford | #8b onward | main | M8bc |
+| P1411 | The Sahagin → *part of* → Trouble at Summerford | #9b onward | main | M9bj |
+| P1412 | The Yellowjackets → *part of* → Trouble at Summerford | #9b onward | main | M9bl |
+| P1413 | Baderon → *part of* → Rebuilding La Noscea | #10b onward | main | M10ba |
+| P1414 | The Yellowjackets → *part of* → Rebuilding La Noscea | #12b onward | main | M12ba |
+| P1415 | Ahtbyrm → *part of* → Rebuilding La Noscea | #13b onward | main | M13bb |
+| P1416 | The Maelstrom → *part of* → Rebuilding La Noscea | #13b onward | main | M13bd |
+| P1417 | The Sahagin → *part of* → Rebuilding La Noscea | #15b onward | main | M15bd |
+| P1418 | Ghimthota → *part of* → The Drydocks Plot | #16b onward | main | M16ba |
+| P1419 | Ahtbyrm → *part of* → The Drydocks Plot | #16b onward | main | M16ba |
+| P1420 | Ahtzapfyn → *part of* → The Drydocks Plot | #17b onward | main | M17bc |
+| P1421 | The Yellowjackets → *part of* → The Drydocks Plot | #17b onward | main | M17bh |
+| P1422 | Baderon → *part of* → The Drydocks Plot | #18b onward | main | M18bb |
+| P1423 | The Serpent Reavers → *part of* → The Drydocks Plot | #19b onward | main | M19ba |
+| P1424 | The Sahagin → *part of* → The Drydocks Plot | #19b onward | main | M19bf |
+| P1425 | Y'shtola → *part of* → The Drydocks Plot | #19b onward | main | M19bh |
+| P1426 | The Ascians → *part of* → The Drydocks Plot | #19b onward | main | M19bh |
+| P1427 | Reyner → *part of* → The Drydocks Plot | #19b onward | main | M19bd |
+| P1428 | Merlwyb → *part of* → The Admiral's Honor | #20b onward | main | M20ba |
+| P1429 | Reyner → *part of* → The Admiral's Honor | #20b onward | main | M20ba |
+| P1430 | Baderon → *part of* → The Admiral's Honor | #20b onward | main | M20bb |
+| P1431 | Y'shtola → *part of* → The Admiral's Honor | #21b onward | main | M21be |
+| P1432 | Hydaelyn → *part of* → The Admiral's Honor | #21b onward | main | M21bg |
+| P1433 | Kan-E-Senna → *part of* → The Admiral's Honor | #22b onward | main | M22bd |
+| P1434 | Raubahn → *part of* → The Admiral's Honor | #22b onward | main | M22bj |
+| P1435 | Gaius → *part of* → The Admiral's Honor | #22b onward | main | M22bp |
+| P1436 | The Eorzean Alliance → *part of* → The Admiral's Honor | #22b onward | main | M22bc |
+| P1437 | The Garlean Empire → *part of* → The Admiral's Honor | #22b onward | main | M22bo |
+| R1438 | Papashan → *aids* → The Sultansworn | #4c onward | main | M4ca |
+| R1439 | Lolorito → *member of* → The Syndicate | #8c–#173 | main | M8cg |
+| R1440 | Lolorito → *controls* → The Brass Blades | #8c onward | main | M8cf |
+| R1441 | Lolorito → *opposes* → Wystan | #8c onward | main | M8ce |
+| R1442 | Leofric → *member of* → The Brass Blades | #13c onward | main | M13cd |
+| R1443 | Baldewyn → *member of* → The Brass Blades | #16c–#17c | main | M16cc · ends: M18cf |
+| R1444 | Fufulupa → *member of* → The Brass Blades | #16c onward | main | M16ca |
+| R1445 | Owyne → *member of* → The Sultansworn | #19c onward | main | M19ca |
+| R1446 | The Sultansworn → *serves* → Nanamo | #20c onward | main | M20co |
+| R1447 | Raubahn → *serves* → Nanamo | #20c–#216 | main | M20cn |
+| R1448 | Momodi → *aids* → Nanamo | #20c onward | main | M19cb, M20ca |
+| P1449 | Ul'dah → *part of* → A Newcomer in Ul'dah | #1c onward | main | M1cc |
+| P1450 | Momodi → *part of* → A Newcomer in Ul'dah | #1c onward | main | M1ca |
+| P1451 | Papashan → *part of* → A Newcomer in Ul'dah | #2c onward | main | M2cb |
+| P1452 | The Sultansworn → *part of* → A Newcomer in Ul'dah | #3c onward | main | M3ca |
+| P1453 | Lilira → *part of* → A Newcomer in Ul'dah | #4c onward | main | M4ca |
+| P1454 | Thancred → *part of* → A Newcomer in Ul'dah | #4c onward | main | M4cg |
+| P1455 | Wystan → *part of* → Ore and Gil | #8c onward | main | M8ca |
+| P1456 | Lolorito → *part of* → Ore and Gil | #8c onward | main | M8ce |
+| P1457 | The Brass Blades → *part of* → Ore and Gil | #8c onward | main | M8cc |
+| P1458 | The Syndicate → *part of* → Ore and Gil | #8c onward | main | M8cc |
+| P1459 | Momodi → *part of* → Ore and Gil | #8c onward | main | M8cj |
+| P1460 | Dadanen → *part of* → Ore and Gil | #9c onward | main | M9ca |
+| P1461 | Fufulupa → *part of* → Ore and Gil | #12c onward | main | M12cb |
+| P1462 | Leofric → *part of* → Ore and Gil | #12c onward | main | M12cc |
+| P1463 | Baldewyn → *part of* → Ore and Gil | #16c onward | main | M16cc |
+| P1464 | Owyne → *part of* → Ore and Gil | #19c onward | main | M19ca |
+| P1465 | Owyne → *part of* → The Sultana's Crown | #20c onward | main | M20cd |
+| P1466 | Momodi → *part of* → The Sultana's Crown | #20c onward | main | M20ca |
+| P1467 | Papashan → *part of* → The Sultana's Crown | #20c onward | main | M20cg |
+| P1468 | The Sultansworn → *part of* → The Sultana's Crown | #20c onward | main | M20cg |
+| P1469 | The Ascians → *part of* → The Sultana's Crown | #20c onward | main | M20ci |
+| P1470 | Thancred → *part of* → The Sultana's Crown | #20c onward | main | M20ci |
+| P1471 | Nanamo → *part of* → The Sultana's Crown | #20c onward | main | M20cm |
+| P1472 | Raubahn → *part of* → The Sultana's Crown | #20c onward | main | M20ch |
+| P1473 | The Syndicate → *part of* → The Sultana's Crown | #22c onward | main | M22cc |
+| P1474 | Raubahn → *part of* → The Flame General's Envoy | #23b onward | main | M23ba |
+| P1475 | The Eorzean Alliance → *part of* → The Flame General's Envoy | #23b onward | main | M23ba |
+| P1476 | Merlwyb → *part of* → The Flame General's Envoy | #23b onward | main | M23bk |
+| P1477 | Kan-E-Senna → *part of* → The Flame General's Envoy | #23b onward | main | M23bo |
+| P1478 | Gaius → *part of* → The Flame General's Envoy | #23b onward | main | M23bg |
+| P1479 | The Garlean Empire → *part of* → The Flame General's Envoy | #23b onward | main | M23bg |
+| P1480 | The Immortal Flames → *part of* → The Flame General's Envoy | #23b onward | main | M23be |
+| P1481 | Baderon → *part of* → The Flame General's Envoy | #24 onward | main | M24a |
+| R1482 | Isembard → *aids* → The Scions of the Seventh Dawn | #31 onward | main | M31f, M31j |
+| R1483 | Ungust → *aids* → The Amalj'aa | #37 onward | main | M37d, M37f, M37e |
+| R1484 | Ifrit → *summoned by* → The Amalj'aa | #40 onward | main | M40m |
+| R1485 | Garuda → *summoned by* → The Ixal | #40–#109 | main | M40h |
+| R1486 | Kan-E-Senna → *leads* → The Order of the Twin Adder | #40 onward | main | M40e |
+| R1487 | Ramuh → *summoned by* → The sylphs | #43–#191 | main | M40y, M43c |
+| R1488 | Komuxio → *member of* → The sylphs | #47 onward | main | M47d, M47e |
+| R1489 | The sylph elder → *leads* → The sylphs | #52 onward | main | M52a, M52b |
+| R1490 | Vorsaile → *member of* → The Order of the Twin Adder | #52 onward | main | M52a, M52d |
+| R1491 | Buscarron → *aids* → The sylphs | #52 onward | main | M52f |
+| R1492 | Laurentius → *member of* → The Wood Wailers | #58 onward | main | M58b |
+| R1493 | Laurentius → *turned against* → The Wood Wailers | #58 onward | main | M58c, M57e |
+| R1494 | Noraxia → *member of* → The sylphs | #59 onward | main | M59c |
+| P1495 | Baderon → *part of* → The Adventurer of the Moment | #25 onward | main | M25a |
+| P1496 | The Serpent Reavers → *part of* → The Adventurer of the Moment | #25 onward | main | M25b |
+| P1497 | The Sahagin → *part of* → The Adventurer of the Moment | #25 onward | main | M25c |
+| P1498 | The Adventurers' Guild → *part of* → The Adventurer of the Moment | #25 onward | main | M25e |
+| P1499 | Miounne → *part of* → The Adventurer of the Moment | #26 onward | main | M26a |
+| P1500 | The Lambs of Dalamud → *part of* → The Adventurer of the Moment | #27 onward | main | M27a |
+| P1501 | Momodi → *part of* → The Adventurer of the Moment | #28 onward | main | M28a |
+| P1502 | Minfilia → *part of* → The Adventurer of the Moment | #30 onward | main | M30b |
+| P1503 | The Scions of the Seventh Dawn → *part of* → The Adventurer of the Moment | #30 onward | main | C34 |
+| P1504 | Thancred → *part of* → The Drybone Vanishings | #31 onward | main | M31e |
+| P1505 | Isembard → *part of* → The Drybone Vanishings | #31 onward | main | M31f |
+| P1506 | The Amalj'aa → *part of* → The Drybone Vanishings | #31 onward | main | M31d |
+| P1507 | Ifrit → *part of* → The Drybone Vanishings | #31 onward | main | M31d |
+| P1508 | Minfilia → *part of* → The Drybone Vanishings | #31 onward | main | M31b |
+| P1509 | Ungust → *part of* → The Drybone Vanishings | #33 onward | main | M33a |
+| P1510 | Ourcen → *part of* → The Drybone Vanishings | #34 onward | main | M34c |
+| P1511 | Marques → *part of* → The Drybone Vanishings | #34 onward | main | M34a |
+| P1512 | The Immortal Flames → *part of* → The Drybone Vanishings | #39 onward | main | M39a |
+| P1513 | Alphinaud → *part of* → Choosing a Grand Company | #40 onward | main | C10 |
+| P1514 | Alisaie → *part of* → Choosing a Grand Company | #40 onward | main | C10 |
+| P1515 | Kan-E-Senna → *part of* → Choosing a Grand Company | #40 onward | main | M40e |
+| P1516 | Raubahn → *part of* → Choosing a Grand Company | #40 onward | main | M40i |
+| P1517 | Merlwyb → *part of* → Choosing a Grand Company | #40 onward | main | M40w |
+| P1518 | The Immortal Flames → *part of* → Choosing a Grand Company | #40 onward | main | M40c |
+| P1519 | The Maelstrom → *part of* → Choosing a Grand Company | #40 onward | main | M40c |
+| P1520 | The Order of the Twin Adder → *part of* → Choosing a Grand Company | #40 onward | main | M40c |
+| P1521 | Biggs → *part of* → Choosing a Grand Company | #41 onward | main | M41c |
+| P1522 | Wedge → *part of* → Choosing a Grand Company | #41 onward | main | M41c |
+| P1523 | Minfilia → *part of* → Envoys to the Sylphs | #43 onward | main | M43a |
+| P1524 | Yda → *part of* → Envoys to the Sylphs | #43 onward | main | M43h |
+| P1525 | Papalymo → *part of* → Envoys to the Sylphs | #43 onward | main | M43h |
+| P1526 | Vorsaile → *part of* → Envoys to the Sylphs | #43 onward | main | M43a |
+| P1527 | The sylphs → *part of* → Envoys to the Sylphs | #43 onward | main | M43b |
+| P1528 | Ramuh → *part of* → Envoys to the Sylphs | #43 onward | main | M43c |
+| P1529 | The Order of the Twin Adder → *part of* → Envoys to the Sylphs | #43 onward | main | M43b |
+| P1530 | Komuxio → *part of* → Envoys to the Sylphs | #47 onward | main | M47d |
+| P1531 | The Garlean Empire → *part of* → Envoys to the Sylphs | #50 onward | main | M50b |
+| P1532 | The sylph elder → *part of* → The Missing Elder | #52 onward | main | M52a |
+| P1533 | Komuxio → *part of* → The Missing Elder | #52 onward | main | M52a |
+| P1534 | Vorsaile → *part of* → The Missing Elder | #52 onward | main | M52d |
+| P1535 | The Wood Wailers → *part of* → The Missing Elder | #52 onward | main | M52e |
+| P1536 | Buscarron → *part of* → The Missing Elder | #52 onward | main | M52f |
+| P1537 | The sylphs → *part of* → The Missing Elder | #52 onward | main | M52a |
+| P1538 | The Garlean Empire → *part of* → The Missing Elder | #57 onward | main | M57c |
+| P1539 | Laurentius → *part of* → The Missing Elder | #58 onward | main | M58c |
+| P1540 | Lahabrea → *part of* → The Missing Elder | #59 onward | main | M59e |
+| P1541 | Ramuh → *part of* → The Missing Elder | #59 onward | main | M59i |
+| R1542 | Noraxia → *aids* → The Scions of the Seventh Dawn | #62–#105 | main | M62c · ends: E106e |
+| R1543 | Lahabrea → *member of* → The Ascians | #63–#168 | main | M63a |
+| R1544 | Flame Commander Swift → *member of* → The Immortal Flames | #63 onward | main | M63d |
+| R1545 | Gundobald → *leads* → Little Ala Mhigo | #66 onward | main | M66b |
+| R1546 | Gundobald → *member of* → The Ala Mhigan Resistance | #68 onward | main | M68a |
+| R1547 | Haribehrt → *member of* → The Scions of the Seventh Dawn | #69 onward | main | M68d, M69a |
+| R1548 | Meffrid → *member of* → The Ala Mhigan Resistance | #69–#383 | main | M69c |
+| R1549 | Titan → *summoned by* → The kobolds | #85 onward | main | M85a |
+| R1550 | Wheiskaet → *serves* → Gegeruju | #88 onward | main | M88c |
+| R1551 | Drest → *deserted* → The Garlean Empire | #100 onward | main | M100a |
+| P1552 | Minfilia → *part of* → The Masked Man | #62 onward | main | M62f |
+| P1553 | Lahabrea → *part of* → The Masked Man | #62 onward | main | M62d |
+| P1554 | The Ascians → *part of* → The Masked Man | #62 onward | main | M62e |
+| P1555 | The Immortal Flames → *part of* → The Masked Man | #63 onward | main | M63c |
+| P1556 | Flame Commander Swift → *part of* → The Masked Man | #63 onward | main | M63d |
+| P1557 | Hihibaru → *part of* → The Masked Man | #63 onward | main | M63f |
+| P1558 | The Garlean Empire → *part of* → The Masked Man | #65 onward | main | M65c |
+| P1559 | Lahabrea → *part of* → The Refugees' Trust | #66 onward | main | M65d |
+| P1560 | Hihibaru → *part of* → The Refugees' Trust | #66 onward | main | M66a |
+| P1561 | Gundobald → *part of* → The Refugees' Trust | #66 onward | main | M66b |
+| P1562 | Little Ala Mhigo → *part of* → The Refugees' Trust | #66 onward | main | M66b |
+| P1563 | The Ala Mhigan Resistance → *part of* → The Refugees' Trust | #68 onward | main | M68a |
+| P1564 | Minfilia → *part of* → The Refugees' Trust | #68 onward | main | M68d |
+| P1565 | Haribehrt → *part of* → The Refugees' Trust | #69 onward | main | M69a |
+| P1566 | Meffrid → *part of* → The Refugees' Trust | #69 onward | main | M69c |
+| P1567 | Gundobald → *part of* → The Youngbloods of Little Ala Mhigo | #74 onward | main | M74a |
+| P1568 | Little Ala Mhigo → *part of* → The Youngbloods of Little Ala Mhigo | #74 onward | main | M74a |
+| P1569 | Lahabrea → *part of* → The Youngbloods of Little Ala Mhigo | #74 onward | main | M74b |
+| P1570 | Wilred → *part of* → The Youngbloods of Little Ala Mhigo | #75 onward | main | M75a |
+| P1571 | The Garlean Empire → *part of* → The Youngbloods of Little Ala Mhigo | #75 onward | main | M75c |
+| P1572 | Ala Mhigo → *part of* → The Youngbloods of Little Ala Mhigo | #74 onward | main | M74c |
+| P1573 | Minfilia → *part of* → The Youngbloods of Little Ala Mhigo | #77 onward | main | M77b |
+| P1574 | The Ascians → *part of* → The Youngbloods of Little Ala Mhigo | #77 onward | main | M77b |
+| P1575 | Lahabrea → *part of* → Murders in the Shroud | #78 onward | main | M78a |
+| P1576 | Minfilia → *part of* → Murders in the Shroud | #78 onward | main | M78a |
+| P1577 | Noraxia → *part of* → Murders in the Shroud | #78 onward | main | M78c |
+| P1578 | Medrod → *part of* → Murders in the Shroud | #78 onward | main | M78c |
+| P1579 | Aideen → *part of* → Murders in the Shroud | #78 onward | main | M78f |
+| P1580 | Ivaurault → *part of* → Murders in the Shroud | #78 onward | main | M78f |
+| P1581 | Ursandel → *part of* → Murders in the Shroud | #83 onward | main | M83b |
+| P1582 | Amandine → *part of* → Murders in the Shroud | #84 onward | main | M84a |
+| P1583 | The Ascians → *part of* → Murders in the Shroud | #84 onward | main | M84d |
+| P1584 | Titan → *part of* → Titan Reawakened | #85 onward | main | M85a |
+| P1585 | The kobolds → *part of* → Titan Reawakened | #85 onward | main | M85a |
+| P1586 | The Maelstrom → *part of* → Titan Reawakened | #85 onward | main | M85a |
+| P1587 | Merlwyb → *part of* → Titan Reawakened | #85 onward | main | M85c |
+| P1588 | Minfilia → *part of* → Titan Reawakened | #85 onward | main | M85j |
+| P1589 | Y'shtola → *part of* → Titan Reawakened | #85 onward | main | M85g |
+| P1590 | The Company of Heroes → *part of* → Titan Reawakened | #85 onward | main | M85b |
+| P1591 | Trachtoum → *part of* → Titan Reawakened | #85 onward | main | M85i |
+| P1592 | Wheiskaet → *part of* → Titan Reawakened | #88 onward | main | M88a |
+| P1593 | Wheiskaet → *part of* → A Feast at Costa del Sol | #90 onward | main | M90a |
+| P1594 | Gegeruju → *part of* → A Feast at Costa del Sol | #90 onward | main | M90a |
+| P1595 | Titan → *part of* → A Feast at Costa del Sol | #90 onward | main | M90c |
+| P1596 | The Company of Heroes → *part of* → A Feast at Costa del Sol | #90 onward | main | M90b |
+| P1597 | Landenel → *part of* → A Feast at Costa del Sol | #90 onward | main | M90c |
+| P1598 | U'odh Nunh → *part of* → A Feast at Costa del Sol | #91 onward | main | M91c |
+| P1599 | Brayflox → *part of* → A Feast at Costa del Sol | #95 onward | main | M95a |
+| P1600 | Shamani → *part of* → A Feast at Costa del Sol | #96 onward | main | M96a |
+| P1601 | Byrglaent → *part of* → A Feast at Costa del Sol | #97 onward | main | M97a |
+| P1602 | Drest → *part of* → A Feast at Costa del Sol | #99 onward | main | M99b |
+| R1603 | Hydaelyn → *opposes* → Zodiark | #623 onward | main | M623d, M623o |
 
 Evidence for each claim is listed under the entities above and in full in the [claims table](content-claims.md).
