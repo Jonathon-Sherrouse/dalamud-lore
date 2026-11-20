@@ -1,6 +1,6 @@
 # Atlas era modules (patches 2.1–3.56)
 
-Starting 2026-11-19, the Atlas covers every main-scenario quest through *Death Unto Dawn* (5.55). The content after
+Starting 2026-11-19, the Atlas covers every main-scenario quest through *The Coming Dawn* (6.55). The content after
 2.0 lives in data-only Python modules under `tools/atlas/`, one per era. `build_pilot_content.py` merges them with
 the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the review sheets, and lints them.
 
@@ -20,6 +20,12 @@ the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the rev
 | `content_5_0_part3.py` | 5.0, *A Fresh Start* to *Shadowbringers* | `cp-msq-621` … `cp-shb-5-0` | `n` |
 | `content_5_1_to_5_3.py` | 5.1 to 5.3 | `cp-msq-648` … `cp-msq-681` | `o` |
 | `content_5_4_to_5_55.py` | 5.4 to 5.55 | `cp-msq-682` … `cp-shb-5-55` | `p` |
+| `content_6_0_part1.py` | 6.0, *The Next Ship to Sail* to *Personae non Gratae* | `cp-msq-699` … `cp-msq-731` | `v` |
+| `content_6_0_part2.py` | 6.0, *His Park Materials* to *At World's End* | `cp-msq-732` … `cp-msq-760` | `w` |
+| `content_6_0_part3.py` | 6.0, *Return to the Crystarium* to *Thou Must Live, Die, and Know* | `cp-msq-761` … `cp-msq-780` | `x` |
+| `content_6_0_part4.py` | 6.0, *As the Heavens Burn* to *Endwalker* | `cp-msq-781` … `cp-ew-6-0` | `y` |
+| `content_6_1_to_6_3.py` | 6.1 to 6.3 | `cp-msq-807` … `cp-msq-834` | `z` |
+| `content_6_4_to_6_55.py` | 6.4 to 6.55 | `cp-msq-835` … `cp-ew-6-55` | `za` |
 | `content_arr_gridania.py` | 2.0 #1–#23, the Gridania starting chain | `cp-msq-1` … `cp-msq-23` | `q` |
 | `content_arr_limsa.py` | 2.0 #1–#22, the Limsa Lominsa starting chain | `cp-msq-1b` … `cp-msq-22b` | `r` |
 | `content_arr_uldah.py` | 2.0 #1–#24, the Ul'dah starting chain | `cp-msq-1c` … `cp-msq-24` | `s` |
@@ -30,11 +36,11 @@ The 2.0 steps before #102 (`timeline_arr_early.py`) come first in the timeline. 
 mutually exclusive in game and run one after another here (user decision, 2026-11-19), as do the three Grand Company
 pairs at #41–#42.
 
-The timeline itself is `timeline_arr_early.py` (2.0 #1–#101), `content_arr_2_0.py`'s steps (#102–#153), `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood) and `timeline_5x.py` (Shadowbringers): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
+The timeline itself is `timeline_arr_early.py` (2.0 #1–#101), `content_arr_2_0.py`'s steps (#102–#153), `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood), `timeline_5x.py` (Shadowbringers) and `timeline_6x.py` (Endwalker): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
 parallel paths share an index (`cp-msq-234b`, `cp-msq-245b` … `cp-msq-251b`, `cp-msq-282b`, `cp-msq-282c`). Each step
 means "after this quest". Each patch's last quest is a milestone instead of a step: `cp-arr-2-55` (after *Before the
 Dawn*), `cp-hw-3-0` (after *Heavensward*), `cp-hw-3-56` (after *The Far Edge of Fate*), `cp-sb-4-0` (after *Stormblood*) and
-`cp-sb-4-56` (after *A Requiem for Heroes*), `cp-shb-5-0` (after *Shadowbringers*) and `cp-shb-5-55` (after *Death Unto Dawn*). The 2.0 milestone,
+`cp-sb-4-56` (after *A Requiem for Heroes*), `cp-shb-5-0` (after *Shadowbringers*), `cp-shb-5-55` (after *Death Unto Dawn*), `cp-ew-6-0` (after *Endwalker*) and `cp-ew-6-55` (after *The Coming Dawn*). The 2.0 milestone,
 `cp-arr-2-0`, comes right before `cp-msq-162`.
 
 ## Commands
@@ -49,7 +55,7 @@ python3 tools/atlas/build_pilot_content.py                              # write 
 python3 tools/atlas/build_pilot_content.py --accept-pending             # record pending records' fingerprints (lead only)
 ```
 
-`--lint` and `--verify-locators` write nothing. Then run `dotnet test NpcDialogueLinks.Tests`.
+`--lint` and `--verify-locators` write nothing. `--lint <module>` loads every era plus that module, except the other modules listed in `IN_PROGRESS` in the build (the ones being written in parallel); update that set when a new batch of eras starts. Then run `dotnet test NpcDialogueLinks.Tests`.
 
 ## Module contract
 

@@ -25,6 +25,7 @@ import content_arr_2_0 as ARR  # NDL-012: MSQ #102–#154, five arcs before A4 (
 import timeline_2x_3x as TL  # one step per main-scenario quest of 2.1–3.56, plus the 2.55, 3.0 and 3.56 milestones
 import timeline_4x as TL4  # the same for Stormblood, 4.0–4.56, plus the 4.0 and 4.56 milestones
 import timeline_5x as TL5
+import timeline_6x as TL6  # the same for Endwalker, 6.0–6.55, plus the 6.0 and 6.55 milestones
 import timeline_arr_early as TLE  # ARR 2.0 #1–#101, before the NDL-012 steps (the three starting-city chains included)  # the same for Shadowbringers, 5.0–5.55, plus the 5.0 and 5.55 milestones
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
@@ -40,6 +41,7 @@ A, B = "cp-arr-2-0", "cp-arr-2-55"
 C3, D3 = TL.MILESTONE_3_0[0], TL.MILESTONE_3_56[0]
 E4, F4 = TL4.MILESTONE_4_0[0], TL4.MILESTONE_4_56[0]
 G5, H5 = TL5.MILESTONE_5_0[0], TL5.MILESTONE_5_55[0]
+I6, J6 = TL6.MILESTONE_6_0[0], TL6.MILESTONE_6_55[0]
 
 # The era modules after 2.0, in timeline order: (module, first step it may start a record on, last checkpoint).
 ERAS = [
@@ -57,6 +59,12 @@ ERAS = [
     ("content_5_0_part3", "cp-msq-621", G5),
     ("content_5_1_to_5_3", "cp-msq-648", "cp-msq-681"),
     ("content_5_4_to_5_55", "cp-msq-682", H5),
+    ("content_6_0_part1", "cp-msq-699", "cp-msq-731"),
+    ("content_6_0_part2", "cp-msq-732", "cp-msq-760"),
+    ("content_6_0_part3", "cp-msq-761", "cp-msq-780"),
+    ("content_6_0_part4", "cp-msq-781", I6),
+    ("content_6_1_to_6_3", "cp-msq-807", "cp-msq-834"),
+    ("content_6_4_to_6_55", "cp-msq-835", J6),
     # The lead's integration module, merged last: earlier entries for entities that accepted or earlier-era text already
     # names (so nothing is named before it is visible), and the cross-era endings no single era could write.
     ("content_arr_gridania", "cp-msq-1", "cp-msq-23"),
@@ -64,7 +72,7 @@ ERAS = [
     ("content_arr_uldah", "cp-msq-1c", "cp-msq-24"),
     ("content_arr_25_to_61", "cp-msq-25", "cp-msq-61"),
     ("content_arr_62_to_101", "cp-msq-62", "cp-msq-101"),
-    ("content_lead_integration", "cp-msq-1", H5),
+    ("content_lead_integration", "cp-msq-1", J6),
 ]
 LINT_ONLY = ARGS[1] if LINT and len(ARGS) == 2 else None
 if LINT_ONLY and LINT_ONLY not in {m for m, _, _ in ERAS}:
@@ -84,19 +92,20 @@ SLICE = TLE.STEPS_EARLY + ARR.EARLY_SLICE + [  # (checkpoint id, MSQ index, ques
     ("cp-msq-160", 160, "Rock the Castrum", 69409),
 ]
 BASE = SLICE[0][0]
-LATER = TL.STEPS_2X + TL.STEPS_3_0 + TL.STEPS_3X + TL4.STEPS_4_0 + TL4.STEPS_4X + TL5.STEPS_5_0 + TL5.STEPS_5X  # (checkpoint id, MSQ index, quest title, game quest id, patch)
+LATER = TL.STEPS_2X + TL.STEPS_3_0 + TL.STEPS_3X + TL4.STEPS_4_0 + TL4.STEPS_4X + TL5.STEPS_5_0 + TL5.STEPS_5X + TL6.STEPS_6_0 + TL6.STEPS_6X  # (checkpoint id, MSQ index, quest title, game quest id, patch)
 MILESTONES = {A: ("A Realm Reborn — Patch 2.0 complete", "The Ultimate Weapon", 70058), B: TL.MILESTONE_2_55[1:],
               C3: TL.MILESTONE_3_0[1:], D3: TL.MILESTONE_3_56[1:], E4: TL4.MILESTONE_4_0[1:], F4: TL4.MILESTONE_4_56[1:],
-              G5: TL5.MILESTONE_5_0[1:], H5: TL5.MILESTONE_5_55[1:]}
+              G5: TL5.MILESTONE_5_0[1:], H5: TL5.MILESTONE_5_55[1:], I6: TL6.MILESTONE_6_0[1:], J6: TL6.MILESTONE_6_55[1:]}
 STEP_OF = {title: cid for cid, _, title, _ in SLICE} | {title: cid for cid, _, title, _, _ in LATER}
 MILESTONE_OF = {quest: cid for cid, (_, quest, _) in MILESTONES.items()}  # a milestone's own quest counts from it
 CP_LABEL = {cid: label for cid, (label, _, _) in MILESTONES.items()} | {cid: f"After {title}" for cid, _, title, _ in SLICE} \
     | {cid: f"After {title}" for cid, _, title, _, _ in LATER}
-CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", E4: "4.0", F4: "4.56", G5: "5.0", H5: "5.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT, **TLE.SHORT,
-            **{cid: f"#{n}" for cid, n, _, _, _ in LATER}, **TL.SHORT, **TL4.SHORT, **TL5.SHORT}
+CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", E4: "4.0", F4: "4.56", G5: "5.0", H5: "5.55", I6: "6.0", J6: "6.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT, **TLE.SHORT,
+            **{cid: f"#{n}" for cid, n, _, _, _ in LATER}, **TL.SHORT, **TL4.SHORT, **TL5.SHORT, **TL6.SHORT}
 ORDER = ([cid for cid, _, _, _ in SLICE] + [A] + [c for c, *_ in TL.STEPS_2X] + [B] + [c for c, *_ in TL.STEPS_3_0] + [C3]
          + [c for c, *_ in TL.STEPS_3X] + [D3] + [c for c, *_ in TL4.STEPS_4_0] + [E4] + [c for c, *_ in TL4.STEPS_4X] + [F4]
-         + [c for c, *_ in TL5.STEPS_5_0] + [G5] + [c for c, *_ in TL5.STEPS_5X] + [H5])
+         + [c for c, *_ in TL5.STEPS_5_0] + [G5] + [c for c, *_ in TL5.STEPS_5X] + [H5]
+         + [c for c, *_ in TL6.STEPS_6_0] + [I6] + [c for c, *_ in TL6.STEPS_6X] + [J6])
 IDX = {cid: i for i, cid in enumerate(ORDER)}
 
 # ---- Sources: wiki page title -> (display title, patch, availableAt, scope) -------------------------------
@@ -133,12 +142,13 @@ for k, patch in [("The Gifted", "2.1"), ("Laying the Foundation", "2.1"), ("Buil
 for k, patch in [("Another Turn in the Coil", "2.2"), ("Alisaie's Resolve", "2.2"), ("Alisaie's Path", "2.4")]:
     src(k, k, patch, "optional")
 # Every later main-scenario quest, and the quest each later milestone follows, so era modules can cite any of them.
-PAGES_LATER = {**TL.PAGES, **TL4.PAGES, **TL5.PAGES}
+PAGES_LATER = {**TL.PAGES, **TL4.PAGES, **TL5.PAGES, **TL6.PAGES}
 for _, _, k, _, patch in LATER:
     if k not in SRC:
         src(k, PAGES_LATER.get(k, k), patch)
 for k, patch in [("Heavensward", "3.0"), ("The Far Edge of Fate", "3.56"), ("Stormblood", "4.0"), ("A Requiem for Heroes", "4.56"),
-                 ("Shadowbringers", "5.0"), ("Death Unto Dawn", "5.55")]:
+                 ("Shadowbringers", "5.0"), ("Death Unto Dawn", "5.55"),
+                 ("Endwalker", "6.0"), ("The Coming Dawn", "6.55")]:
     src(k, PAGES_LATER.get(k, k), patch)
 
 # ---- Claims: id -> (own-words claim, source key, locator quote) ------------------------------------------------
@@ -220,11 +230,12 @@ def _milestone(cid):
     label, _, gid = MILESTONES[cid]
     return {"id": cid, "label": label, "milestone": True, "contiguousWithPrevious": True, "gameQuestIds": [gid]}
 def _later(steps):
-    return [{"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({} if cid in TL.NOT_CONTIGUOUS | TL4.NOT_CONTIGUOUS | TL5.NOT_CONTIGUOUS else {"contiguousWithPrevious": True}),
+    return [{"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({} if cid in TL.NOT_CONTIGUOUS | TL4.NOT_CONTIGUOUS | TL5.NOT_CONTIGUOUS | TL6.NOT_CONTIGUOUS else {"contiguousWithPrevious": True}),
              "gameQuestIds": [gid]} for cid, _, title, gid, _ in steps]
 CHECKPOINTS += [_milestone(A)] + _later(TL.STEPS_2X) + [_milestone(B)] + _later(TL.STEPS_3_0) + [_milestone(C3)] + _later(TL.STEPS_3X) + [_milestone(D3)] \
     + _later(TL4.STEPS_4_0) + [_milestone(E4)] + _later(TL4.STEPS_4X) + [_milestone(F4)] \
-    + _later(TL5.STEPS_5_0) + [_milestone(G5)] + _later(TL5.STEPS_5X) + [_milestone(H5)]
+    + _later(TL5.STEPS_5_0) + [_milestone(G5)] + _later(TL5.STEPS_5X) + [_milestone(H5)] \
+    + _later(TL6.STEPS_6_0) + [_milestone(I6)] + _later(TL6.STEPS_6X) + [_milestone(J6)]
 assert [c["id"] for c in CHECKPOINTS] == ORDER
 
 ENT = [
@@ -731,8 +742,12 @@ LINT_ERRORS = []
 DROPPED_DUPLICATES = []
 def _lint(msg):
     LINT_ERRORS.append(msg)
+# Linting one module loads everything else too, except the other modules being written in parallel with it (their
+# authors work at the same time), so an era can build on every accepted era before it.
+IN_PROGRESS = {"content_6_0_part1", "content_6_0_part2", "content_6_0_part3", "content_6_0_part4", "content_6_1_to_6_3",
+               "content_6_4_to_6_55"}
 for _mod, _first, _last in ERAS:
-    if LINT_ONLY and _mod != LINT_ONLY:
+    if LINT_ONLY and _mod != LINT_ONLY and (_mod in IN_PROGRESS or LINT_ONLY not in IN_PROGRESS):
         continue
     try:
         M = importlib.import_module(_mod)
@@ -867,6 +882,14 @@ for _r in RELS:
             _lint(f"{_rid}: unknown end claim {_c}")
         elif _u is None or IDX[SRC[C[_c][1]]["avail"]] > IDX.get(_u, -1):
             _lint(f"{_rid}: end claim {_c} cites {C[_c][1]!r}, which is not available by the ending step {_u}")
+        elif IDX[SRC[C[_c][1]]["avail"]] <= IDX.get(_f, -1):  # the validator's EndCitationOutOfRange
+            _lint(f"{_rid}: end claim {_c} cites {C[_c][1]!r}, which is available by the starting step {_f}; end evidence must come after it")
+# A symmetric relationship is stored once, in one direction (the validator's ReverseSymmetricDuplicate).
+_sym = {i for i, _, _, sym in TYPES if sym}
+_pairs = {(r[1], r[2], r[3]): r[0] for r in RELS if r[2] in _sym}
+for (_s, _t, _g), _rid in _pairs.items():
+    if (_g, _t, _s) in _pairs and _s < _g:
+        _lint(f"{_rid}: reverses the symmetric {_pairs[(_g, _t, _s)]}; store it once, in one direction")
 if LINT_ERRORS and not LINT:
     sys.exit("Content errors (run --lint for the full report):\n  " + "\n  ".join(LINT_ERRORS[:40]))
 

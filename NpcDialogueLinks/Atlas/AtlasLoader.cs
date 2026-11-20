@@ -66,11 +66,11 @@ public static class AtlasLoader
 {
     public const int SupportedSchemaVersion = 2;
     public const int MaxFileBytes = 8 * 1024 * 1024;
-    public const int MaxCheckpoints = 1024;
-    public const int MaxEntities = 512;
-    public const int MaxRelationships = 2048;
+    public const int MaxCheckpoints = 2048;
+    public const int MaxEntities = 1024;
+    public const int MaxRelationships = 4096;
     public const int MaxRelationshipTypes = 64;
-    public const int MaxArcs = 128;
+    public const int MaxArcs = 256;
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
