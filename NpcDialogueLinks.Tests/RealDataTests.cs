@@ -17,6 +17,8 @@ public class RealDataTests
     private const string Cp456 = "cp-sb-4-56";
     private const string Cp50 = "cp-shb-5-0";
     private const string Cp555 = "cp-shb-5-55";
+    private const string Cp60 = "cp-ew-6-0";
+    private const string Cp655 = "cp-ew-6-55";
 
     private static string RealPath => Path.Combine(AppContext.BaseDirectory, "atlas.json");
 
@@ -132,9 +134,10 @@ public class RealDataTests
         // (tools/atlas/timeline_2x_3x.py), with each patch's last quest as a milestone: 2.55, 3.0 and 3.56.
         // Stormblood (2026-11-19): one step per quest of 4.0–4.56 (tools/atlas/timeline_4x.py), with the 4.0 and 4.56 milestones.
         // Shadowbringers (2026-11-19): one step per quest of 5.0–5.55 (tools/atlas/timeline_5x.py), with the 5.0 and 5.55 milestones.
-        Assert.Equal(747, dataset.Checkpoints.Count);
+        // Endwalker (2026-11-19): one step per quest of 6.0–6.55 (tools/atlas/timeline_6x.py), with the 6.0 and 6.55 milestones.
+        Assert.Equal(902, dataset.Checkpoints.Count);
         Assert.Equal(
-            new[] { (Cp20, 59 + o, 70058), (Cp255, 139 + o, 65964), (Cp30, 233 + o, 67205), (Cp356, 277 + o, 67895), (Cp40, 399 + o, 68089), (Cp456, 439 + o, 68721), (Cp50, 545 + o, 69190), (Cp555, 596 + o, 69602) },
+            new[] { (Cp20, 59 + o, 70058), (Cp255, 139 + o, 65964), (Cp30, 233 + o, 67205), (Cp356, 277 + o, 67895), (Cp40, 399 + o, 68089), (Cp456, 439 + o, 68721), (Cp50, 545 + o, 69190), (Cp555, 596 + o, 69602), (Cp60, 704 + o, 70000), (Cp655, 751 + o, 70289) },
             dataset.Checkpoints.Where(c => c.Milestone).Select(c => (c.Id, c.Order, c.GameQuestIds.Single())));
         Assert.Equal("A Realm Reborn — Patch 2.55 complete", dataset.Checkpoints[139 + o].Label);
         Assert.Equal("Heavensward — Patch 3.0 complete", dataset.Checkpoints[233 + o].Label);
@@ -156,13 +159,18 @@ public class RealDataTests
         Assert.Equal(("cp-msq-697", "On Official Business"), (dataset.Checkpoints[595 + o].Id, dataset.Checkpoints[595 + o].QuestTitle));
         Assert.Equal("Shadowbringers — Patch 5.0 complete", dataset.Checkpoints[545 + o].Label);
         Assert.Equal("Shadowbringers — Patch 5.55 complete", dataset.Checkpoints[596 + o].Label);
+        Assert.Equal(("cp-msq-699", "The Next Ship to Sail", 69893), (dataset.Checkpoints[597 + o].Id, dataset.Checkpoints[597 + o].QuestTitle, dataset.Checkpoints[597 + o].GameQuestIds.Single()));
+        Assert.Equal(("cp-msq-807", "Newfound Adventure"), (dataset.Checkpoints[705 + o].Id, dataset.Checkpoints[705 + o].QuestTitle));
+        Assert.Equal(("cp-msq-852", "The Game Is Afoot"), (dataset.Checkpoints[750 + o].Id, dataset.Checkpoints[750 + o].QuestTitle));
+        Assert.Equal("Endwalker — Patch 6.0 complete", dataset.Checkpoints[704 + o].Label);
+        Assert.Equal("Endwalker — Patch 6.55 complete", dataset.Checkpoints[751 + o].Label);
         Assert.Equal(dataset.Checkpoints.Count, dataset.Checkpoints.Select(c => c.Id).Distinct().Count());
         Assert.All(dataset.Checkpoints.Where(c => !c.Milestone), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
 
         // Not contiguous: the first step, and each step that follows another parallel path (#150, 2.55's pairs, the
         // Artoirel and Emmanellain chains, the moogle trials). Every milestone follows its patch's last quest.
         Assert.Equal(
-            new[] { "cp-msq-1", "cp-msq-1b", "cp-msq-1c", "cp-msq-41b", "cp-msq-41c", "cp-msq-80b", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c", "cp-msq-545b", "cp-msq-570b", "cp-msq-570c" },
+            new[] { "cp-msq-1", "cp-msq-1b", "cp-msq-1c", "cp-msq-41b", "cp-msq-41c", "cp-msq-80b", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c", "cp-msq-545b", "cp-msq-570b", "cp-msq-570c", "cp-msq-701b" },
             dataset.Checkpoints.Where(c => !c.ContiguousWithPrevious).Select(c => c.Id));
     }
 
@@ -264,9 +272,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (438 with ARR #1–#101).
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (438 with ARR #1–#101, 542 through Endwalker).
         Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
-        Assert.Equal(438, dataset.Entities.Count);
+        Assert.Equal(542, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);

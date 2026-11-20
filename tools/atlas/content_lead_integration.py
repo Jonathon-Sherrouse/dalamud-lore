@@ -61,12 +61,25 @@ PRES = {
  ],
  # Shadowbringers: what the First learns of Hydaelyn, drafted by 5.0 parts 2 and 3 (her entity is from 2.1).
  "char-hydaelyn": [*SHB2.HYDAELYN_DRAFT["char-hydaelyn"], *SHB3.HYDAELYN_DRAFT["PRES"]["char-hydaelyn"]],
+ # Endwalker: two names the 6.0 text uses before the era that makes them entries (Galuf from 6.55, Khalzahl from #752).
+ "char-galuf": [
+   P("cp-msq-700", None, "main", "Galuf",
+     "Krile's grandfather, who sat in Sharlayan's Forum and, like Archon Louisoix, argued for direct intervention abroad.",
+     ["M700d"]),
+ ],
+ "char-khalzahl": [
+   P("cp-msq-702b", None, "main", "Khalzahl",
+     "A merchant of Thavnair who buys the fisherman Matsya's catch to sell on to foreign traders, though he has bought nothing for a while.",
+     ["M702be"]),
+ ],
  # Part 1 creates these two places; part 3 drafted their later records.
  "loc-castellum-velodyna": SB3.LOC_DRAFTS["loc-castellum-velodyna"],
  "loc-specula-imperatoris": SB3.LOC_DRAFTS["loc-specula-imperatoris"],
 }
 
 DECISIONS = [
+ "**Endwalker, earlier entries from the lead:** Galuf from #700 and Khalzahl from #702b, because 6.0 text names them there, before the eras that make them entries (6.55 and #752).",
+ "**Endwalker, cross-era endings:** Hydaelyn's opposition to Zodiark, Zenos's lead of the Telophoroi and Fandaniel's Ascian membership end at #740; Elidibus's hold in the Crystal Tower and his opposition to the Scions end at #762; Azdaja's captivity under Golbez ends at #842 and his opposition to Zero at #848. The edges opposing Zenos close on the step after the 6.0 milestone, where his Journal says he breathes his last.",
  "**Ala Mhigo from #200:** text there already names it, so the lead starts its entry with Raubahn and Ilberd's shared past, then adopts the 4.1–4.56 era's drafted records. Part 3's later records for Castellum Velodyna and Specula Imperatoris, which part 1 creates, are adopted the same way.",
  "**Earlier entries from the lead:** Revenant's Toll from #148, Raubahn from #159 and Omega from #190, because text there already names them. Omega's 3.56 records were drafted by the 3.1–3.56 era and adopted here.",
 ]
@@ -74,5 +87,18 @@ DECISIONS = [
 RELS = [*SHB3.HYDAELYN_DRAFT["RELS"]]
 
 # Cross-era endings no single era could write: Eline (2.4) served Varis, who is murdered in 5.2.
-ADJUST = {"rel-eline-serves-varis": {"until": "cp-msq-657", "end": ["M657f"]}}
+ADJUST = {"rel-eline-serves-varis": {"until": "cp-msq-657", "end": ["M657f"]},
+          # Endwalker endings across eras: Zodiark falls and Fandaniel dies (#740); Elidibus's essence is consumed (#762);
+          # Golbez releases Azdaja (#842) and is unmasked and repentant (#848). Zenos breathes his last at the 6.0
+          # milestone, so the edges against him close on the next step, with no end claims (none may sit there).
+          "rel-hydaelyn-opposes-zodiark": {"until": "cp-msq-740", "end": ["M740f", "M740h"]},
+          "rel-zenos-leads-telophoroi": {"until": "cp-msq-740", "end": ["M740h"]},
+          "rel-fandaniel-member-of-ascians": {"until": "cp-msq-740", "end": ["M740h"]},
+          "rel-elidibus-held-at-crystal-tower": {"until": "cp-msq-762", "end": ["M762i"]},
+          "rel-elidibus-opposes-scions": {"until": "cp-msq-762", "end": ["M762i"]},
+          "rel-azdaja-prisoner-of-golbez": {"until": "cp-msq-842", "end": ["M842f"]},
+          "rel-golbez-opposes-zero": {"until": "cp-msq-848", "end": ["M848h"]},
+          "rel-jullus-opposes-zenos": {"until": "cp-msq-807"},
+          "rel-xth-legion-opposes-zenos": {"until": "cp-msq-807"},
+          "rel-gaius-opposes-zenos": {"until": "cp-msq-807"}}
 

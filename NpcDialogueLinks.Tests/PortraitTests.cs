@@ -160,6 +160,15 @@ public class PortraitTests
         "char-za-da", "char-zodiark", "evt-homeward-bound", "evt-the-missing-mayor", "loc-amaurot", "loc-the-first",
         "loc-the-tempest", "org-bloody-executioners", "org-children-of-the-everlasting-dark", "org-convocation-of-fourteen",
         "org-kobolds", "org-lightwardens", "org-telophoroi",
+        // Endwalker: no faithful image, or a face or later form that would give a reveal away (Zero, Azdaja, Azem, the
+        // watcher, Al End, Stigma-1, M-017, the knight in black).
+        "char-ahewann", "char-al-end", "char-ameliance", "char-azdaja", "char-azem", "char-bloewyda", "char-doros", "char-erenville",
+        "char-galuf", "char-gnaeus", "char-growingway", "char-khalzahl", "char-knight-in-black", "char-koana", "char-kokkol-dankkol",
+        "char-licinia", "char-livingway", "char-m-017", "char-matsya", "char-mettius", "char-montichaigne", "char-nidhana",
+        "char-stigma-1", "char-vergilia", "char-watcher", "char-wilfsunn", "char-zero", "loc-bestways-burrow", "loc-ktisis-hyperboreia",
+        "loc-red-moon", "loc-tertium", "loc-the-thirteenth", "loc-tower-of-zot", "loc-tuliyollal", "loc-tural", "loc-ultima-thule",
+        "org-archfiends", "org-bureau-of-the-architect", "org-iiird-legion", "org-ilsabard-contingent", "org-ist-legion", "org-meteia",
+        "org-radiant-host", "org-xth-legion",
     ];
 
     [Fact]
