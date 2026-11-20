@@ -2,7 +2,7 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
-> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #102 through 4.56 (*A Brief Reprieve*), plus the 2.0, 2.55, 3.0, 3.56, 4.0 and 4.56 milestones: 440 points and 62 arcs. See [through-heavensward.md](through-heavensward.md) and [through-stormblood.md](through-stormblood.md).
+> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #102 through 5.55 (*On Official Business*), plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0 and 5.55 milestones: 597 points and 95 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md) and [through-shadowbringers.md](through-shadowbringers.md).
 
 > **Earlier coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
 
@@ -158,4 +158,18 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 5 | View → "Stormblood — Patch 4.0 complete". | *The March on Ala Mhigo*. Zenos's entry says he took his own life. |
 | 6 | View → "After Gosetsu and Tsuyu", search "Tsuyu". | Yotsuyu, also searchable as Tsuyu. |
 | 7 | View → "Stormblood — Patch 4.56 complete". | *War on the Border*. No "Exarch" anywhere; the hooded figure is "the enigmatic figure", with no portrait. |
+
+## In-game check (through Shadowbringers)
+
+> **Status:** not run in game.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | **Raise…** → "Shadowbringers — Patch 5.55 complete" → **Show**. View → "After The Syrcus Trench". | *Answering the Summons*. The Crystal Exarch has no portrait; searching "enigmatic" finds him. |
+| 2 | View → "After In Search of Alisaie". | *The Inn at Journey's Head* (the Amh Araeng chain). |
+| 3 | View → "After The Oracle of Light", search "Minfilia". | The girl's own entry ("Minfilia of the First"), separate from the Scions' Minfilia. |
+| 4 | View → "After A Party Soon Divided", search "Solus". | Emet-Selch, with a "revealed as" edge from Solus. |
+| 5 | View → "After The Unbroken Thread", search "Exarch". | G'raha Tia, with a portrait, revealed from the Crystal Exarch. |
+| 6 | View → "Shadowbringers — Patch 5.0 complete", search "Emet". | Hades, also searchable as Emet-Selch and Solus. |
+| 7 | View → "Shadowbringers — Patch 5.55 complete". | *One Banner for Eorzea*. No "Endwalker" anywhere. |
 

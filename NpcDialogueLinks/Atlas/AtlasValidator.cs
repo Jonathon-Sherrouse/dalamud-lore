@@ -13,7 +13,7 @@ internal static class AtlasValidator
     public const int MaxSummaryLength = 1200;
     public const int MaxCitationTitleLength = 200;
     public const int MaxUrlLength = 2048;
-    public const int MaxPresentations = 128;
+    public const int MaxPresentations = 512;
 
     /// <summary>The highest game icon number a portrait may name (the game's icon folders stop below a million).</summary>
     public const uint MaxGameIcon = 999_999;
