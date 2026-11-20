@@ -2,7 +2,7 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
-> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #102 through 5.55 (*On Official Business*), plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0 and 5.55 milestones: 597 points and 95 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md) and [through-shadowbringers.md](through-shadowbringers.md).
+> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #1 (all three starting cities) through 5.55 (*On Official Business*), plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0 and 5.55 milestones: 747 points and 95 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md) [through-shadowbringers.md](through-shadowbringers.md) and [arr-1-to-101.md](arr-1-to-101.md).
 
 > **Earlier coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
 
@@ -172,4 +172,17 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 5 | View → "After The Unbroken Thread", search "Exarch". | G'raha Tia, with a portrait, revealed from the Crystal Exarch. |
 | 6 | View → "Shadowbringers — Patch 5.0 complete", search "Emet". | Hades, also searchable as Emet-Selch and Solus. |
 | 7 | View → "Shadowbringers — Patch 5.55 complete". | *One Banner for Eorzea*. No "Endwalker" anywhere. |
+
+## In-game check (ARR #1–#101)
+
+> **Status:** not run in game.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | Open **Viewing as of**. | The list now starts at "After Close to Home (Gridania)", then the Limsa Lominsa and Ul'dah chains, then "After It's Probably Pirates". |
+| 2 | View → your own city's "After Close to Home (…)", **Lens → Story point**. | "Search or pick an entry to see its connections": no Scions yet. |
+| 3 | View → "After A Wild Rose by Any Other Name". | Arc lens: *The Drybone Vanishings*. The Story point lens opens on the Scions. |
+| 4 | View → "After Lord of the Inferno", search "Ifrit". | Ifrit, with his card portrait. |
+| 5 | View → "After The Company You Keep (Maelstrom)". | *Choosing a Grand Company*, with the Maelstrom's own recap. |
+| 6 | View → "After Battle Scars", then "After It Was a Very Good Year". | *A Feast at Costa del Sol* leads straight into the accepted #102 point. |
 

@@ -51,6 +51,15 @@ public class RealDataTests
     public void Real_HasExactlyTheApprovedCheckpoints()
     {
         var dataset = LoadDraft();
+        // ARR #1–#101 (2026-11-19) come first: the three starting-city chains (one after another), then the shared story
+        // to #101 (tools/atlas/timeline_arr_early.py). Everything from #102 on keeps its pinned position, offset by them.
+        const int o = 150;
+        Assert.Equal(("cp-msq-1", "Close to Home (Gridania)", 65621), (dataset.Checkpoints[0].Id, dataset.Checkpoints[0].QuestTitle, dataset.Checkpoints[0].GameQuestIds.Single()));
+        Assert.Equal(("cp-msq-1b", "Close to Home (Limsa Lominsa)"), (dataset.Checkpoints[23].Id, dataset.Checkpoints[23].QuestTitle));
+        Assert.Equal(("cp-msq-1c", "Close to Home (Ul'dah)"), (dataset.Checkpoints[45].Id, dataset.Checkpoints[45].QuestTitle));
+        Assert.Equal(("cp-msq-25", "It's Probably Pirates"), (dataset.Checkpoints[69].Id, dataset.Checkpoints[69].QuestTitle));
+        Assert.Equal(("cp-msq-101", "Battle Scars"), (dataset.Checkpoints[o - 1].Id, dataset.Checkpoints[o - 1].QuestTitle));
+        Assert.Equal("cp-msq-102", dataset.Checkpoints[o].Id);
         // NDL-012: MSQ #102–#153, one step per quest, both #150 paths in MSQ-index-then-authored order (no #152).
         // NDL-009: the A4 slice (after MSQ #154, then #155–160), then the two kept milestone ids.
         Assert.Equal(
@@ -117,43 +126,43 @@ public class RealDataTests
                 ("cp-msq-160", "After Rock the Castrum", 69409),
                 (Cp20, "A Realm Reborn — Patch 2.0 complete", 70058), // The Ultimate Weapon (#161)
             },
-            dataset.Checkpoints.Take(60).Select(c => (c.Id, c.Label, c.GameQuestIds.Single())));
+            dataset.Checkpoints.Skip(o).Take(60).Select(c => (c.Id, c.Label, c.GameQuestIds.Single())));
 
         // After 2.0 (2026-11-19): one step per main-scenario quest of 2.1–3.56, generated from the wiki infoboxes
         // (tools/atlas/timeline_2x_3x.py), with each patch's last quest as a milestone: 2.55, 3.0 and 3.56.
         // Stormblood (2026-11-19): one step per quest of 4.0–4.56 (tools/atlas/timeline_4x.py), with the 4.0 and 4.56 milestones.
         // Shadowbringers (2026-11-19): one step per quest of 5.0–5.55 (tools/atlas/timeline_5x.py), with the 5.0 and 5.55 milestones.
-        Assert.Equal(597, dataset.Checkpoints.Count);
+        Assert.Equal(747, dataset.Checkpoints.Count);
         Assert.Equal(
-            new[] { (Cp20, 59, 70058), (Cp255, 139, 65964), (Cp30, 233, 67205), (Cp356, 277, 67895), (Cp40, 399, 68089), (Cp456, 439, 68721), (Cp50, 545, 69190), (Cp555, 596, 69602) },
+            new[] { (Cp20, 59 + o, 70058), (Cp255, 139 + o, 65964), (Cp30, 233 + o, 67205), (Cp356, 277 + o, 67895), (Cp40, 399 + o, 68089), (Cp456, 439 + o, 68721), (Cp50, 545 + o, 69190), (Cp555, 596 + o, 69602) },
             dataset.Checkpoints.Where(c => c.Milestone).Select(c => (c.Id, c.Order, c.GameQuestIds.Single())));
-        Assert.Equal("A Realm Reborn — Patch 2.55 complete", dataset.Checkpoints[139].Label);
-        Assert.Equal("Heavensward — Patch 3.0 complete", dataset.Checkpoints[233].Label);
-        Assert.Equal("Heavensward — Patch 3.56 complete", dataset.Checkpoints[277].Label);
-        Assert.Equal(("cp-msq-162", "The Price of Principles", 66711), (dataset.Checkpoints[60].Id, dataset.Checkpoints[60].QuestTitle, dataset.Checkpoints[60].GameQuestIds.Single()));
-        Assert.Equal(("cp-msq-240", "The Parting Glass"), (dataset.Checkpoints[138].Id, dataset.Checkpoints[138].QuestTitle));
-        Assert.Equal(("cp-msq-242", "Coming to Ishgard"), (dataset.Checkpoints[140].Id, dataset.Checkpoints[140].QuestTitle));
-        Assert.Equal(("cp-msq-334", "Fetters of Lament"), (dataset.Checkpoints[232].Id, dataset.Checkpoints[232].QuestTitle));
-        Assert.Equal(("cp-msq-336", "An Uncertain Future"), (dataset.Checkpoints[234].Id, dataset.Checkpoints[234].QuestTitle));
-        Assert.Equal(("cp-msq-378", "Fly Free, My Pretty"), (dataset.Checkpoints[276].Id, dataset.Checkpoints[276].QuestTitle));
-        Assert.Equal(("cp-msq-380", "Beyond the Great Wall", 67982), (dataset.Checkpoints[278].Id, dataset.Checkpoints[278].QuestTitle, dataset.Checkpoints[278].GameQuestIds.Single()));
-        Assert.Equal(("cp-msq-500", "The Measure of His Reach"), (dataset.Checkpoints[398].Id, dataset.Checkpoints[398].QuestTitle));
-        Assert.Equal(("cp-msq-502", "Arenvald's Adventure"), (dataset.Checkpoints[400].Id, dataset.Checkpoints[400].QuestTitle));
-        Assert.Equal(("cp-msq-540", "A Brief Reprieve"), (dataset.Checkpoints[438].Id, dataset.Checkpoints[438].QuestTitle));
-        Assert.Equal("Stormblood — Patch 4.0 complete", dataset.Checkpoints[399].Label);
-        Assert.Equal("Stormblood — Patch 4.56 complete", dataset.Checkpoints[439].Label);
-        Assert.Equal(("cp-msq-542", "The Syrcus Trench"), (dataset.Checkpoints[440].Id, dataset.Checkpoints[440].QuestTitle));
-        Assert.Equal(("cp-msq-646", "A Greater Purpose"), (dataset.Checkpoints[544].Id, dataset.Checkpoints[544].QuestTitle));
-        Assert.Equal(("cp-msq-697", "On Official Business"), (dataset.Checkpoints[595].Id, dataset.Checkpoints[595].QuestTitle));
-        Assert.Equal("Shadowbringers — Patch 5.0 complete", dataset.Checkpoints[545].Label);
-        Assert.Equal("Shadowbringers — Patch 5.55 complete", dataset.Checkpoints[596].Label);
+        Assert.Equal("A Realm Reborn — Patch 2.55 complete", dataset.Checkpoints[139 + o].Label);
+        Assert.Equal("Heavensward — Patch 3.0 complete", dataset.Checkpoints[233 + o].Label);
+        Assert.Equal("Heavensward — Patch 3.56 complete", dataset.Checkpoints[277 + o].Label);
+        Assert.Equal(("cp-msq-162", "The Price of Principles", 66711), (dataset.Checkpoints[60 + o].Id, dataset.Checkpoints[60 + o].QuestTitle, dataset.Checkpoints[60 + o].GameQuestIds.Single()));
+        Assert.Equal(("cp-msq-240", "The Parting Glass"), (dataset.Checkpoints[138 + o].Id, dataset.Checkpoints[138 + o].QuestTitle));
+        Assert.Equal(("cp-msq-242", "Coming to Ishgard"), (dataset.Checkpoints[140 + o].Id, dataset.Checkpoints[140 + o].QuestTitle));
+        Assert.Equal(("cp-msq-334", "Fetters of Lament"), (dataset.Checkpoints[232 + o].Id, dataset.Checkpoints[232 + o].QuestTitle));
+        Assert.Equal(("cp-msq-336", "An Uncertain Future"), (dataset.Checkpoints[234 + o].Id, dataset.Checkpoints[234 + o].QuestTitle));
+        Assert.Equal(("cp-msq-378", "Fly Free, My Pretty"), (dataset.Checkpoints[276 + o].Id, dataset.Checkpoints[276 + o].QuestTitle));
+        Assert.Equal(("cp-msq-380", "Beyond the Great Wall", 67982), (dataset.Checkpoints[278 + o].Id, dataset.Checkpoints[278 + o].QuestTitle, dataset.Checkpoints[278 + o].GameQuestIds.Single()));
+        Assert.Equal(("cp-msq-500", "The Measure of His Reach"), (dataset.Checkpoints[398 + o].Id, dataset.Checkpoints[398 + o].QuestTitle));
+        Assert.Equal(("cp-msq-502", "Arenvald's Adventure"), (dataset.Checkpoints[400 + o].Id, dataset.Checkpoints[400 + o].QuestTitle));
+        Assert.Equal(("cp-msq-540", "A Brief Reprieve"), (dataset.Checkpoints[438 + o].Id, dataset.Checkpoints[438 + o].QuestTitle));
+        Assert.Equal("Stormblood — Patch 4.0 complete", dataset.Checkpoints[399 + o].Label);
+        Assert.Equal("Stormblood — Patch 4.56 complete", dataset.Checkpoints[439 + o].Label);
+        Assert.Equal(("cp-msq-542", "The Syrcus Trench"), (dataset.Checkpoints[440 + o].Id, dataset.Checkpoints[440 + o].QuestTitle));
+        Assert.Equal(("cp-msq-646", "A Greater Purpose"), (dataset.Checkpoints[544 + o].Id, dataset.Checkpoints[544 + o].QuestTitle));
+        Assert.Equal(("cp-msq-697", "On Official Business"), (dataset.Checkpoints[595 + o].Id, dataset.Checkpoints[595 + o].QuestTitle));
+        Assert.Equal("Shadowbringers — Patch 5.0 complete", dataset.Checkpoints[545 + o].Label);
+        Assert.Equal("Shadowbringers — Patch 5.55 complete", dataset.Checkpoints[596 + o].Label);
         Assert.Equal(dataset.Checkpoints.Count, dataset.Checkpoints.Select(c => c.Id).Distinct().Count());
         Assert.All(dataset.Checkpoints.Where(c => !c.Milestone), c => Assert.Equal(c.Label, $"After {c.QuestTitle}"));
 
         // Not contiguous: the first step, and each step that follows another parallel path (#150, 2.55's pairs, the
         // Artoirel and Emmanellain chains, the moogle trials). Every milestone follows its patch's last quest.
         Assert.Equal(
-            new[] { "cp-msq-102", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c", "cp-msq-545b", "cp-msq-570b", "cp-msq-570c" },
+            new[] { "cp-msq-1", "cp-msq-1b", "cp-msq-1c", "cp-msq-41b", "cp-msq-41c", "cp-msq-80b", "cp-msq-150b", "cp-msq-234b", "cp-msq-245b", "cp-msq-282b", "cp-msq-282c", "cp-msq-385b", "cp-msq-387c", "cp-msq-398b", "cp-msq-398c", "cp-msq-421b", "cp-msq-421c", "cp-msq-545b", "cp-msq-570b", "cp-msq-570c" },
             dataset.Checkpoints.Where(c => !c.ContiguousWithPrevious).Select(c => c.Id));
     }
 
@@ -212,9 +221,10 @@ public class RealDataTests
         // The lead's earlier entries (2026-11-19): text from #148 names Revenant's Toll, and the #159 recap names Raubahn.
         var at = OrderOf(checkpoint);
         entities = [.. entities, .. LeadBackfills.Where(b => at >= OrderOf(b.From)).Select(b => b.Id)];
-        if (checkpoint == Cp255)
+        if (checkpoint == Cp255 || OrderOf(checkpoint) >= OrderOf("cp-msq-102"))
         {
-            // 2.1–2.55 now lead up to this milestone, so it shows everything reviewed here plus that content.
+            // Every story point now has earlier or later content around it (ARR #1–#101 before the slice, 2.1–2.55 before
+            // this milestone), so each shows everything reviewed here plus that content.
             Assert.Subset(snapshot.Entities.Select(e => e.Id).ToHashSet(), entities.ToHashSet());
             Assert.Subset(snapshot.Relationships.Select(r => r.Id).ToHashSet(), relationships.ToHashSet());
             return;
@@ -234,10 +244,18 @@ public class RealDataTests
     [MemberData(nameof(AllCheckpoints))]
     public void Real_OpensOnTheScionsAtEveryCheckpoint(string checkpoint)
     {
-        // NDL-005 D5: the pilot home entry exists and is visible wherever the Atlas can open. In the Story point lens,
-        // which the in-game window pins until NDL-010; inside the arc the default lens is Arc, resting on the whole cast.
-        var session = new AtlasSession(LoadDraft(), new AtlasSpoilerState(Cp255, checkpoint));
+        // NDL-005 D5: the Atlas opens on the home entry wherever it is visible. Before the Scions appear (#30, 2026-11-19)
+        // there is no home entry yet, so the Story point lens opens with nothing focused rather than naming them early.
+        var dataset = LoadDraft();
+        var session = new AtlasSession(dataset, new AtlasSpoilerState(dataset.Checkpoints[^1].Id, checkpoint));
+        Assert.Equal(checkpoint, session.SpoilerState.ViewId);
         session.SetLens(AtlasLens.StoryPoint);
+        if (session.Snapshot.FindEntity(AtlasDefaults.HomeEntityId) is null)
+        {
+            Assert.Null(session.FocusId);
+            return;
+        }
+
         Assert.Equal(AtlasDefaults.HomeEntityId, session.FocusId);
         Assert.NotEmpty(session.Neighborhood!.Neighbors);
     }
@@ -246,9 +264,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (358 through Shadowbringers).
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (438 with ARR #1–#101).
         Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
-        Assert.Equal(358, dataset.Entities.Count);
+        Assert.Equal(438, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);
