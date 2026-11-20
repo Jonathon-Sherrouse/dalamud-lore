@@ -2,9 +2,1354 @@
   "schemaVersion": 2,
   "checkpoints": [
     {
+      "id": "cp-msq-1",
+      "label": "After Close to Home (Gridania)",
+      "questTitle": "Close to Home (Gridania)",
+      "gameQuestIds": [
+        65621
+      ]
+    },
+    {
+      "id": "cp-msq-2",
+      "label": "After To the Bannock",
+      "questTitle": "To the Bannock",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65564
+      ]
+    },
+    {
+      "id": "cp-msq-3",
+      "label": "After Passing Muster",
+      "questTitle": "Passing Muster",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65737
+      ]
+    },
+    {
+      "id": "cp-msq-4",
+      "label": "After Chasing Shadows",
+      "questTitle": "Chasing Shadows",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65981
+      ]
+    },
+    {
+      "id": "cp-msq-5",
+      "label": "After Eggs over Queasy",
+      "questTitle": "Eggs over Queasy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69390
+      ]
+    },
+    {
+      "id": "cp-msq-6",
+      "label": "After Surveying the Damage",
+      "questTitle": "Surveying the Damage",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65711
+      ]
+    },
+    {
+      "id": "cp-msq-7",
+      "label": "After A Soldier's Breakfast",
+      "questTitle": "A Soldier's Breakfast",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69391
+      ]
+    },
+    {
+      "id": "cp-msq-8",
+      "label": "After Spirithold Broken",
+      "questTitle": "Spirithold Broken",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65665
+      ]
+    },
+    {
+      "id": "cp-msq-9",
+      "label": "After On to Bentbranch",
+      "questTitle": "On to Bentbranch",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65712
+      ]
+    },
+    {
+      "id": "cp-msq-10",
+      "label": "After You Shall Not Trespass",
+      "questTitle": "You Shall Not Trespass",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65912
+      ]
+    },
+    {
+      "id": "cp-msq-11",
+      "label": "After Don't Look Down",
+      "questTitle": "Don't Look Down",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65913
+      ]
+    },
+    {
+      "id": "cp-msq-12",
+      "label": "After In the Grim Darkness of the Forest",
+      "questTitle": "In the Grim Darkness of the Forest",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65915
+      ]
+    },
+    {
+      "id": "cp-msq-13",
+      "label": "After Threat Level Elevated",
+      "questTitle": "Threat Level Elevated",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65916
+      ]
+    },
+    {
+      "id": "cp-msq-14",
+      "label": "After Migrant Marauders",
+      "questTitle": "Migrant Marauders",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65917
+      ]
+    },
+    {
+      "id": "cp-msq-15",
+      "label": "After A Hearer Is Often Late",
+      "questTitle": "A Hearer Is Often Late",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65920
+      ]
+    },
+    {
+      "id": "cp-msq-16",
+      "label": "After Salvaging the Scene",
+      "questTitle": "Salvaging the Scene",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65923
+      ]
+    },
+    {
+      "id": "cp-msq-17",
+      "label": "After Leia's Legacy",
+      "questTitle": "Leia's Legacy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65697
+      ]
+    },
+    {
+      "id": "cp-msq-18",
+      "label": "After Dread Is in the Air",
+      "questTitle": "Dread Is in the Air",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65982
+      ]
+    },
+    {
+      "id": "cp-msq-19",
+      "label": "After To Guard a Guardian",
+      "questTitle": "To Guard a Guardian",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65983
+      ]
+    },
+    {
+      "id": "cp-msq-20",
+      "label": "After Festive Endeavors",
+      "questTitle": "Festive Endeavors",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65984
+      ]
+    },
+    {
+      "id": "cp-msq-21",
+      "label": "After Renewing the Covenant",
+      "questTitle": "Renewing the Covenant",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65985
+      ]
+    },
+    {
+      "id": "cp-msq-22",
+      "label": "After The Gridanian Envoy",
+      "questTitle": "The Gridanian Envoy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66043
+      ]
+    },
+    {
+      "id": "cp-msq-23",
+      "label": "After Call of the Sea (Gridania)",
+      "questTitle": "Call of the Sea (Gridania)",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66210
+      ]
+    },
+    {
+      "id": "cp-msq-1b",
+      "label": "After Close to Home (Limsa Lominsa)",
+      "questTitle": "Close to Home (Limsa Lominsa)",
+      "gameQuestIds": [
+        65644
+      ]
+    },
+    {
+      "id": "cp-msq-2b",
+      "label": "After On to Summerford",
+      "questTitle": "On to Summerford",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65998
+      ]
+    },
+    {
+      "id": "cp-msq-3b",
+      "label": "After Dressed to Call",
+      "questTitle": "Dressed to Call",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65999
+      ]
+    },
+    {
+      "id": "cp-msq-4b",
+      "label": "After Lurkers in the Grotto",
+      "questTitle": "Lurkers in the Grotto",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66079
+      ]
+    },
+    {
+      "id": "cp-msq-5b",
+      "label": "After Washed Up",
+      "questTitle": "Washed Up",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66001
+      ]
+    },
+    {
+      "id": "cp-msq-6b",
+      "label": "After Double Dealing",
+      "questTitle": "Double Dealing",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66002
+      ]
+    },
+    {
+      "id": "cp-msq-7b",
+      "label": "After Loam Maintenance",
+      "questTitle": "Loam Maintenance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66003
+      ]
+    },
+    {
+      "id": "cp-msq-8b",
+      "label": "After Plowshares to Swords",
+      "questTitle": "Plowshares to Swords",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66004
+      ]
+    },
+    {
+      "id": "cp-msq-9b",
+      "label": "After Just Deserts",
+      "questTitle": "Just Deserts",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66005
+      ]
+    },
+    {
+      "id": "cp-msq-10b",
+      "label": "After Sky-high",
+      "questTitle": "Sky-high",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65933
+      ]
+    },
+    {
+      "id": "cp-msq-11b",
+      "label": "After Thanks a Million",
+      "questTitle": "Thanks a Million",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65938
+      ]
+    },
+    {
+      "id": "cp-msq-12b",
+      "label": "After Relighting the Torch",
+      "questTitle": "Relighting the Torch",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65939
+      ]
+    },
+    {
+      "id": "cp-msq-13b",
+      "label": "After On to the Drydocks",
+      "questTitle": "On to the Drydocks",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65942
+      ]
+    },
+    {
+      "id": "cp-msq-14b",
+      "label": "After Without a Doubt",
+      "questTitle": "Without a Doubt",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65948
+      ]
+    },
+    {
+      "id": "cp-msq-15b",
+      "label": "After Righting the Shipwright",
+      "questTitle": "Righting the Shipwright",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65951
+      ]
+    },
+    {
+      "id": "cp-msq-16b",
+      "label": "After Do Angry Pirates Dream",
+      "questTitle": "Do Angry Pirates Dream",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65949
+      ]
+    },
+    {
+      "id": "cp-msq-17b",
+      "label": "After Victory in Peril",
+      "questTitle": "Victory in Peril",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65950
+      ]
+    },
+    {
+      "id": "cp-msq-18b",
+      "label": "After Men of the Blue Tattoos",
+      "questTitle": "Men of the Blue Tattoos",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66225
+      ]
+    },
+    {
+      "id": "cp-msq-19b",
+      "label": "After Feint and Strike",
+      "questTitle": "Feint and Strike",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66080
+      ]
+    },
+    {
+      "id": "cp-msq-20b",
+      "label": "After High Society",
+      "questTitle": "High Society",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66226
+      ]
+    },
+    {
+      "id": "cp-msq-21b",
+      "label": "After A Mizzenmast Repast",
+      "questTitle": "A Mizzenmast Repast",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66081
+      ]
+    },
+    {
+      "id": "cp-msq-22b",
+      "label": "After The Lominsan Envoy",
+      "questTitle": "The Lominsan Envoy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66082
+      ]
+    },
+    {
+      "id": "cp-msq-1c",
+      "label": "After Close to Home (Ul'dah)",
+      "questTitle": "Close to Home (Ul'dah)",
+      "gameQuestIds": [
+        66104
+      ]
+    },
+    {
+      "id": "cp-msq-2c",
+      "label": "After We Must Rebuild",
+      "questTitle": "We Must Rebuild",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66131
+      ]
+    },
+    {
+      "id": "cp-msq-3c",
+      "label": "After Nothing to See Here",
+      "questTitle": "Nothing to See Here",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66207
+      ]
+    },
+    {
+      "id": "cp-msq-4c",
+      "label": "After Underneath the Sultantree",
+      "questTitle": "Underneath the Sultantree",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66086
+      ]
+    },
+    {
+      "id": "cp-msq-5c",
+      "label": "After Step Nine",
+      "questTitle": "Step Nine",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65839
+      ]
+    },
+    {
+      "id": "cp-msq-6c",
+      "label": "After Prudence at This Junction",
+      "questTitle": "Prudence at This Junction",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69388
+      ]
+    },
+    {
+      "id": "cp-msq-7c",
+      "label": "After Out of House and Home",
+      "questTitle": "Out of House and Home",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65843
+      ]
+    },
+    {
+      "id": "cp-msq-8c",
+      "label": "After Way Down in the Hole",
+      "questTitle": "Way Down in the Hole",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65856
+      ]
+    },
+    {
+      "id": "cp-msq-9c",
+      "label": "After Takin' What They're Givin'",
+      "questTitle": "Takin' What They're Givin'",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66159
+      ]
+    },
+    {
+      "id": "cp-msq-10c",
+      "label": "After Supply and Demands",
+      "questTitle": "Supply and Demands",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65864
+      ]
+    },
+    {
+      "id": "cp-msq-11c",
+      "label": "After Give It to Me Raw",
+      "questTitle": "Give It to Me Raw",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66039
+      ]
+    },
+    {
+      "id": "cp-msq-12c",
+      "label": "After The Perfect Swarm",
+      "questTitle": "The Perfect Swarm",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65865
+      ]
+    },
+    {
+      "id": "cp-msq-13c",
+      "label": "After Last Letter to Lost Hope",
+      "questTitle": "Last Letter to Lost Hope",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65866
+      ]
+    },
+    {
+      "id": "cp-msq-14c",
+      "label": "After Heir Today, Gone Tomorrow",
+      "questTitle": "Heir Today, Gone Tomorrow",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69389
+      ]
+    },
+    {
+      "id": "cp-msq-15c",
+      "label": "After Passing the Blade",
+      "questTitle": "Passing the Blade",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65868
+      ]
+    },
+    {
+      "id": "cp-msq-16c",
+      "label": "After Following Footfalls",
+      "questTitle": "Following Footfalls",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65869
+      ]
+    },
+    {
+      "id": "cp-msq-17c",
+      "label": "After Storms on the Horizon",
+      "questTitle": "Storms on the Horizon",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65870
+      ]
+    },
+    {
+      "id": "cp-msq-18c",
+      "label": "After Oh Captain, My Captain",
+      "questTitle": "Oh Captain, My Captain",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65872
+      ]
+    },
+    {
+      "id": "cp-msq-19c",
+      "label": "After Secrets and Lies",
+      "questTitle": "Secrets and Lies",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66164
+      ]
+    },
+    {
+      "id": "cp-msq-20c",
+      "label": "After Duty, Honor, Country",
+      "questTitle": "Duty, Honor, Country",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66087
+      ]
+    },
+    {
+      "id": "cp-msq-21c",
+      "label": "After A Matter of Tradition",
+      "questTitle": "A Matter of Tradition",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66177
+      ]
+    },
+    {
+      "id": "cp-msq-22c",
+      "label": "After A Royal Reception",
+      "questTitle": "A Royal Reception",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66088
+      ]
+    },
+    {
+      "id": "cp-msq-23b",
+      "label": "After The Ul'dahn Envoy",
+      "questTitle": "The Ul'dahn Envoy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66064
+      ]
+    },
+    {
+      "id": "cp-msq-24",
+      "label": "After Call of the Sea (Ul'dah)",
+      "questTitle": "Call of the Sea (Ul'dah)",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66209
+      ]
+    },
+    {
+      "id": "cp-msq-25",
+      "label": "After It's Probably Pirates",
+      "questTitle": "It's Probably Pirates",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65781
+      ]
+    },
+    {
+      "id": "cp-msq-26",
+      "label": "After Call of the Forest",
+      "questTitle": "Call of the Forest",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66212
+      ]
+    },
+    {
+      "id": "cp-msq-27",
+      "label": "After Fire in the Gloom",
+      "questTitle": "Fire in the Gloom",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66213
+      ]
+    },
+    {
+      "id": "cp-msq-28",
+      "label": "After Call of the Desert",
+      "questTitle": "Call of the Desert",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66214
+      ]
+    },
+    {
+      "id": "cp-msq-29",
+      "label": "After Into a Copper Hell",
+      "questTitle": "Into a Copper Hell",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66196
+      ]
+    },
+    {
+      "id": "cp-msq-30",
+      "label": "After The Scions of the Seventh Dawn",
+      "questTitle": "The Scions of the Seventh Dawn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66045
+      ]
+    },
+    {
+      "id": "cp-msq-31",
+      "label": "After A Wild Rose by Any Other Name",
+      "questTitle": "A Wild Rose by Any Other Name",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66046
+      ]
+    },
+    {
+      "id": "cp-msq-32",
+      "label": "After Unsolved Mystery",
+      "questTitle": "Unsolved Mystery",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66154
+      ]
+    },
+    {
+      "id": "cp-msq-33",
+      "label": "After What Poor People Think",
+      "questTitle": "What Poor People Think",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66155
+      ]
+    },
+    {
+      "id": "cp-msq-34",
+      "label": "After A Proper Burial",
+      "questTitle": "A Proper Burial",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66156
+      ]
+    },
+    {
+      "id": "cp-msq-35",
+      "label": "After For the Children",
+      "questTitle": "For the Children",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66157
+      ]
+    },
+    {
+      "id": "cp-msq-36",
+      "label": "After Amalj'aa Wrong Places",
+      "questTitle": "Amalj'aa Wrong Places",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66158
+      ]
+    },
+    {
+      "id": "cp-msq-37",
+      "label": "After Dressed to Deceive",
+      "questTitle": "Dressed to Deceive",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66110
+      ]
+    },
+    {
+      "id": "cp-msq-38",
+      "label": "After Life, Materia and Everything",
+      "questTitle": "Life, Materia and Everything",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65808
+      ]
+    },
+    {
+      "id": "cp-msq-39",
+      "label": "After Lord of the Inferno",
+      "questTitle": "Lord of the Inferno",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        65879
+      ]
+    },
+    {
+      "id": "cp-msq-40",
+      "label": "After A Hero in the Making",
+      "questTitle": "A Hero in the Making",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66047
+      ]
+    },
+    {
+      "id": "cp-msq-41",
+      "label": "After The Company You Keep (Immortal Flames)",
+      "questTitle": "The Company You Keep (Immortal Flames)",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66218
+      ]
+    },
+    {
+      "id": "cp-msq-42",
+      "label": "After For Coin and Country",
+      "questTitle": "For Coin and Country",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66221
+      ]
+    },
+    {
+      "id": "cp-msq-41b",
+      "label": "After The Company You Keep (Maelstrom)",
+      "questTitle": "The Company You Keep (Maelstrom)",
+      "gameQuestIds": [
+        66217
+      ]
+    },
+    {
+      "id": "cp-msq-42b",
+      "label": "After Till Sea Swallows All",
+      "questTitle": "Till Sea Swallows All",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66220
+      ]
+    },
+    {
+      "id": "cp-msq-41c",
+      "label": "After The Company You Keep (Twin Adder)",
+      "questTitle": "The Company You Keep (Twin Adder)",
+      "gameQuestIds": [
+        66216
+      ]
+    },
+    {
+      "id": "cp-msq-42c",
+      "label": "After Wood's Will Be Done",
+      "questTitle": "Wood's Will Be Done",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66219
+      ]
+    },
+    {
+      "id": "cp-msq-43",
+      "label": "After Sylph-management",
+      "questTitle": "Sylph-management",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66049
+      ]
+    },
+    {
+      "id": "cp-msq-44",
+      "label": "After We Come in Peace",
+      "questTitle": "We Come in Peace",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69392
+      ]
+    },
+    {
+      "id": "cp-msq-45",
+      "label": "After Sylphic Studies",
+      "questTitle": "Sylphic Studies",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66245
+      ]
+    },
+    {
+      "id": "cp-msq-46",
+      "label": "After First Impressions",
+      "questTitle": "First Impressions",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66246
+      ]
+    },
+    {
+      "id": "cp-msq-47",
+      "label": "After First Contact",
+      "questTitle": "First Contact",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66251
+      ]
+    },
+    {
+      "id": "cp-msq-48",
+      "label": "After Dance Dance Diplomacy",
+      "questTitle": "Dance Dance Diplomacy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69393
+      ]
+    },
+    {
+      "id": "cp-msq-49",
+      "label": "After Forest Friend",
+      "questTitle": "Forest Friend",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69394
+      ]
+    },
+    {
+      "id": "cp-msq-50",
+      "label": "After Presence of the Enemy",
+      "questTitle": "Presence of the Enemy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66255
+      ]
+    },
+    {
+      "id": "cp-msq-51",
+      "label": "After Brotherly Love",
+      "questTitle": "Brotherly Love",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66260
+      ]
+    },
+    {
+      "id": "cp-msq-52",
+      "label": "After Spirited Away",
+      "questTitle": "Spirited Away",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66261
+      ]
+    },
+    {
+      "id": "cp-msq-53",
+      "label": "After Druthers House Rules",
+      "questTitle": "Druthers House Rules",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69395
+      ]
+    },
+    {
+      "id": "cp-msq-54",
+      "label": "After Never Forget",
+      "questTitle": "Never Forget",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69396
+      ]
+    },
+    {
+      "id": "cp-msq-55",
+      "label": "After Microbrewing",
+      "questTitle": "Microbrewing",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69397
+      ]
+    },
+    {
+      "id": "cp-msq-56",
+      "label": "After Like Fine Wine",
+      "questTitle": "Like Fine Wine",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66273
+      ]
+    },
+    {
+      "id": "cp-msq-57",
+      "label": "After Sylphish Concerns",
+      "questTitle": "Sylphish Concerns",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66274
+      ]
+    },
+    {
+      "id": "cp-msq-58",
+      "label": "After Nouveau Riche",
+      "questTitle": "Nouveau Riche",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69398
+      ]
+    },
+    {
+      "id": "cp-msq-59",
+      "label": "After Into the Beast's Maw",
+      "questTitle": "Into the Beast's Maw",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66050
+      ]
+    },
+    {
+      "id": "cp-msq-60",
+      "label": "After A Simple Gift",
+      "questTitle": "A Simple Gift",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66279
+      ]
+    },
+    {
+      "id": "cp-msq-61",
+      "label": "After Believe in Your Sylph",
+      "questTitle": "Believe in Your Sylph",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66280
+      ]
+    },
+    {
+      "id": "cp-msq-62",
+      "label": "After Back from the Wood",
+      "questTitle": "Back from the Wood",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66282
+      ]
+    },
+    {
+      "id": "cp-msq-63",
+      "label": "After Shadow of Darkness",
+      "questTitle": "Shadow of Darkness",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66283
+      ]
+    },
+    {
+      "id": "cp-msq-64",
+      "label": "After Highbridge Times",
+      "questTitle": "Highbridge Times",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66284
+      ]
+    },
+    {
+      "id": "cp-msq-65",
+      "label": "After Where There Is Smoke",
+      "questTitle": "Where There Is Smoke",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66292
+      ]
+    },
+    {
+      "id": "cp-msq-66",
+      "label": "After On to Little Ala Mhigo",
+      "questTitle": "On to Little Ala Mhigo",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66293
+      ]
+    },
+    {
+      "id": "cp-msq-67",
+      "label": "After Tea for Three",
+      "questTitle": "Tea for Three",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66297
+      ]
+    },
+    {
+      "id": "cp-msq-68",
+      "label": "After Foot in the Door",
+      "questTitle": "Foot in the Door",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66298
+      ]
+    },
+    {
+      "id": "cp-msq-69",
+      "label": "After Meeting with the Resistance",
+      "questTitle": "Meeting with the Resistance",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66299
+      ]
+    },
+    {
+      "id": "cp-msq-70",
+      "label": "After Killing Him Softly",
+      "questTitle": "Killing Him Softly",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66301
+      ]
+    },
+    {
+      "id": "cp-msq-71",
+      "label": "After Helping Horn",
+      "questTitle": "Helping Horn",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66310
+      ]
+    },
+    {
+      "id": "cp-msq-72",
+      "label": "After He Ain't Heavy",
+      "questTitle": "He Ain't Heavy",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66311
+      ]
+    },
+    {
+      "id": "cp-msq-73",
+      "label": "After Come Highly Recommended",
+      "questTitle": "Come Highly Recommended",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66312
+      ]
+    },
+    {
+      "id": "cp-msq-74",
+      "label": "After The Bear and the Young'uns' Cares",
+      "questTitle": "The Bear and the Young'uns' Cares",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66313
+      ]
+    },
+    {
+      "id": "cp-msq-75",
+      "label": "After Wilred Wants You",
+      "questTitle": "Wilred Wants You",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66314
+      ]
+    },
+    {
+      "id": "cp-msq-76",
+      "label": "After Big Trouble in Little Ala Mhigo",
+      "questTitle": "Big Trouble in Little Ala Mhigo",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66318
+      ]
+    },
+    {
+      "id": "cp-msq-77",
+      "label": "After Back to Square One",
+      "questTitle": "Back to Square One",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66319
+      ]
+    },
+    {
+      "id": "cp-msq-78",
+      "label": "After Terror at Fallgourd",
+      "questTitle": "Terror at Fallgourd",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69399
+      ]
+    },
+    {
+      "id": "cp-msq-79",
+      "label": "After Ziz Is So Ridiculous",
+      "questTitle": "Ziz Is So Ridiculous",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69400
+      ]
+    },
+    {
+      "id": "cp-msq-80",
+      "label": "After Seeing Eye to Winged Eye",
+      "questTitle": "Seeing Eye to Winged Eye",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66322
+      ]
+    },
+    {
+      "id": "cp-msq-80b",
+      "label": "After Rock of Rancor",
+      "questTitle": "Rock of Rancor",
+      "gameQuestIds": [
+        66323
+      ]
+    },
+    {
+      "id": "cp-msq-82",
+      "label": "After Power of Deduction",
+      "questTitle": "Power of Deduction",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66335
+      ]
+    },
+    {
+      "id": "cp-msq-83",
+      "label": "After Secret of the White Lily",
+      "questTitle": "Secret of the White Lily",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66336
+      ]
+    },
+    {
+      "id": "cp-msq-84",
+      "label": "After Skeletons in Her Closet",
+      "questTitle": "Skeletons in Her Closet",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66337
+      ]
+    },
+    {
+      "id": "cp-msq-85",
+      "label": "After Wrath of the Titan",
+      "questTitle": "Wrath of the Titan",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66052
+      ]
+    },
+    {
+      "id": "cp-msq-86",
+      "label": "After Tales from the Tidus Slayer",
+      "questTitle": "Tales from the Tidus Slayer",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66345
+      ]
+    },
+    {
+      "id": "cp-msq-87",
+      "label": "After Hungry Hungry Goobbues",
+      "questTitle": "Hungry Hungry Goobbues",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66346
+      ]
+    },
+    {
+      "id": "cp-msq-88",
+      "label": "After The Lominsan Way",
+      "questTitle": "The Lominsan Way",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66347
+      ]
+    },
+    {
+      "id": "cp-msq-89",
+      "label": "After Nix That",
+      "questTitle": "Nix That",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66348
+      ]
+    },
+    {
+      "id": "cp-msq-90",
+      "label": "After A Modest Proposal",
+      "questTitle": "A Modest Proposal",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66350
+      ]
+    },
+    {
+      "id": "cp-msq-91",
+      "label": "After Trial by Turtle",
+      "questTitle": "Trial by Turtle",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69401
+      ]
+    },
+    {
+      "id": "cp-msq-92",
+      "label": "After The Perfect Prey",
+      "questTitle": "The Perfect Prey",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66357
+      ]
+    },
+    {
+      "id": "cp-msq-93",
+      "label": "After When the Worm Turns",
+      "questTitle": "When the Worm Turns",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66358
+      ]
+    },
+    {
+      "id": "cp-msq-94",
+      "label": "After There and Back Again",
+      "questTitle": "There and Back Again",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66367
+      ]
+    },
+    {
+      "id": "cp-msq-95",
+      "label": "After The Things We Do for Cheese",
+      "questTitle": "The Things We Do for Cheese",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66368
+      ]
+    },
+    {
+      "id": "cp-msq-96",
+      "label": "After What Do You Mean You Forgot the Wine",
+      "questTitle": "What Do You Mean You Forgot the Wine",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        69402
+      ]
+    },
+    {
+      "id": "cp-msq-97",
+      "label": "After An Offer You Can Refuse",
+      "questTitle": "An Offer You Can Refuse",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66376
+      ]
+    },
+    {
+      "id": "cp-msq-98",
+      "label": "After It Won't Work",
+      "questTitle": "It Won't Work",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66379
+      ]
+    },
+    {
+      "id": "cp-msq-99",
+      "label": "After Give a Man a Drink",
+      "questTitle": "Give a Man a Drink",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66381
+      ]
+    },
+    {
+      "id": "cp-msq-100",
+      "label": "After That Weight",
+      "questTitle": "That Weight",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66382
+      ]
+    },
+    {
+      "id": "cp-msq-101",
+      "label": "After Battle Scars",
+      "questTitle": "Battle Scars",
+      "contiguousWithPrevious": true,
+      "gameQuestIds": [
+        66384
+      ]
+    },
+    {
       "id": "cp-msq-102",
       "label": "After It Was a Very Good Year",
       "questTitle": "It Was a Very Good Year",
+      "contiguousWithPrevious": true,
       "gameQuestIds": [
         66386
       ]
@@ -5537,7 +6882,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             }
           ],
@@ -5554,7 +6899,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5577,7 +6922,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5606,7 +6951,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5641,7 +6986,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5676,7 +7021,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5699,7 +7044,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5724,7 +7069,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5755,7 +7100,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5780,7 +7125,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5805,7 +7150,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5836,7 +7181,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5861,7 +7206,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5886,7 +7231,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5911,7 +7256,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5936,7 +7281,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5967,7 +7312,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -5992,7 +7337,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6017,7 +7362,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6042,7 +7387,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6067,7 +7412,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6090,7 +7435,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6113,7 +7458,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6136,7 +7481,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6159,7 +7504,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6182,7 +7527,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6267,7 +7612,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6298,7 +7643,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6329,7 +7674,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -6531,7 +7876,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -6548,7 +7893,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -6565,7 +7910,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6588,7 +7933,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6617,7 +7962,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6646,7 +7991,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6669,7 +8014,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6692,7 +8037,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6721,7 +8066,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -6744,7 +8089,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7265,7 +8610,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7294,7 +8639,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7323,7 +8668,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7346,7 +8691,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7369,7 +8714,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7398,7 +8743,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7421,7 +8766,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7450,7 +8795,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7473,7 +8818,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7756,7 +9101,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -7773,7 +9118,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7796,7 +9141,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7819,7 +9164,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7842,7 +9187,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7871,7 +9216,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7894,7 +9239,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7917,7 +9262,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7940,7 +9285,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7963,7 +9308,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -7986,7 +9331,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8015,7 +9360,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8518,7 +9863,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8541,7 +9886,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8576,7 +9921,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8605,7 +9950,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8634,7 +9979,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8669,7 +10014,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8698,7 +10043,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8721,7 +10066,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -8750,7 +10095,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9112,7 +10457,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -9129,7 +10474,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9152,7 +10497,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9181,7 +10526,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9210,7 +10555,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9766,7 +11111,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9795,7 +11140,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9824,7 +11169,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9853,7 +11198,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9876,7 +11221,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9899,7 +11244,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -9928,7 +11273,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -10268,7 +11613,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             }
           ],
@@ -10417,7 +11762,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10452,7 +11797,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10475,7 +11820,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10504,7 +11849,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10533,7 +11878,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10556,7 +11901,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10585,7 +11930,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10614,7 +11959,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10643,7 +11988,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10672,7 +12017,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10695,7 +12040,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10718,7 +12063,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10741,7 +12086,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10764,7 +12109,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10793,7 +12138,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10822,7 +12167,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10857,7 +12202,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10886,7 +12231,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10915,7 +12260,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10944,7 +12289,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10967,7 +12312,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -10996,7 +12341,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11019,7 +12364,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11060,7 +12405,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11089,7 +12434,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11124,7 +12469,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11159,7 +12504,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11194,7 +12539,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11229,7 +12574,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11264,7 +12609,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11299,7 +12644,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11334,7 +12679,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11363,7 +12708,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11456,7 +12801,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -11485,7 +12830,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -12361,7 +13706,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -12384,7 +13729,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -12407,7 +13752,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -12436,7 +13781,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -12821,13 +14166,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-62",
               "scope": "main"
             }
           ],
@@ -12844,13 +14189,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-62",
               "scope": "main"
             },
             {
@@ -12873,13 +14218,13 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
               "title": "Back from the Wood — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/Back_from_the_Wood_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-62",
               "scope": "main"
             },
             {
@@ -12908,7 +14253,7 @@
             {
               "title": "A Hero in the Making — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-40",
               "scope": "main"
             },
             {
@@ -14399,7 +15744,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14422,7 +15767,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14445,7 +15790,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14468,7 +15813,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14491,7 +15836,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14520,7 +15865,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14549,7 +15894,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -14572,7 +15917,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -15261,13 +16606,13 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-22b",
               "scope": "main"
             },
             {
               "title": "The Gridanian Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Gridanian_Envoy",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-22",
               "scope": "main"
             },
             {
@@ -15293,7 +16638,7 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-22b",
               "scope": "main"
             },
             {
@@ -15319,7 +16664,7 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-22b",
               "scope": "main"
             },
             {
@@ -15345,7 +16690,7 @@
             {
               "title": "The Lominsan Envoy — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Lominsan_Envoy",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-22b",
               "scope": "main"
             },
             {
@@ -15493,7 +16838,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -15510,7 +16855,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -15533,7 +16878,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -15562,7 +16907,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -15591,7 +16936,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -16326,7 +17671,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             }
           ],
@@ -16343,7 +17688,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16366,7 +17711,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16395,7 +17740,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16424,7 +17769,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16447,7 +17792,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16482,7 +17827,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16505,7 +17850,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16528,13 +17873,13 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -16569,7 +17914,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16592,7 +17937,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16621,7 +17966,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16644,7 +17989,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16667,7 +18012,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16690,7 +18035,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16713,7 +18058,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16742,7 +18087,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16765,7 +18110,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16788,7 +18133,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16811,7 +18156,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16834,7 +18179,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16857,7 +18202,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16915,7 +18260,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16938,7 +18283,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -16967,7 +18312,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -17008,7 +18353,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -17113,7 +18458,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -17136,7 +18481,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -17165,7 +18510,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -17966,13 +19311,13 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -17989,7 +19334,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -18012,7 +19357,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -18041,7 +19386,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -18070,7 +19415,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -18093,7 +19438,7 @@
             {
               "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-30",
               "scope": "main"
             },
             {
@@ -22514,7 +23859,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -22531,7 +23876,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22554,7 +23899,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22583,7 +23928,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22612,7 +23957,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22635,7 +23980,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22862,7 +24207,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             }
           ],
@@ -22879,7 +24224,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22902,7 +24247,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22931,7 +24276,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22960,7 +24305,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -22989,7 +24334,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -23018,7 +24363,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -23047,7 +24392,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -23070,7 +24415,7 @@
             {
               "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-31",
               "scope": "main"
             },
             {
@@ -25168,7 +26513,7 @@
             {
               "title": "That Weight — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/That_Weight",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-100",
               "scope": "main"
             }
           ],
@@ -25187,7 +26532,7 @@
             {
               "title": "That Weight — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/That_Weight",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-100",
               "scope": "main"
             },
             {
@@ -25212,7 +26557,7 @@
             {
               "title": "That Weight — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/That_Weight",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-100",
               "scope": "main"
             },
             {
@@ -25237,7 +26582,7 @@
             {
               "title": "That Weight — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/That_Weight",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-100",
               "scope": "main"
             },
             {
@@ -25293,7 +26638,7 @@
             {
               "title": "That Weight — main scenario quest (2.0)",
               "url": "https://ffxiv.consolegameswiki.com/wiki/That_Weight",
-              "availableAt": "cp-msq-102",
+              "availableAt": "cp-msq-100",
               "scope": "main"
             },
             {
@@ -76591,7 +77936,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-30",
           "scope": "main"
         }
       ],
@@ -76617,7 +77962,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -76635,7 +77980,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -76653,7 +77998,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         },
         {
@@ -76695,7 +78040,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         },
         {
@@ -76719,7 +78064,7 @@
         {
           "title": "A Hero in the Making — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Hero_in_the_Making",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-40",
           "scope": "main"
         }
       ],
@@ -76737,7 +78082,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-30",
           "scope": "main"
         }
       ],
@@ -76903,7 +78248,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-30",
           "scope": "main"
         }
       ],
@@ -76921,7 +78266,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -77267,7 +78612,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-30",
           "scope": "main"
         }
       ],
@@ -77285,7 +78630,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -77303,7 +78648,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -77321,7 +78666,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -77339,7 +78684,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -77375,7 +78720,7 @@
         {
           "title": "The Scions of the Seventh Dawn — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/The_Scions_of_the_Seventh_Dawn_(Quest)",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-30",
           "scope": "main"
         }
       ],
@@ -77411,7 +78756,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],
@@ -77429,7 +78774,7 @@
         {
           "title": "A Wild Rose by Any Other Name — main scenario quest (2.0)",
           "url": "https://ffxiv.consolegameswiki.com/wiki/A_Wild_Rose_by_Any_Other_Name",
-          "availableAt": "cp-msq-102",
+          "availableAt": "cp-msq-31",
           "scope": "main"
         }
       ],

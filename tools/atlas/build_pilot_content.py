@@ -24,7 +24,8 @@ import copy, hashlib, importlib, json, re, sys, pathlib, urllib.parse
 import content_arr_2_0 as ARR  # NDL-012: MSQ #102–#154, five arcs before A4 (data only)
 import timeline_2x_3x as TL  # one step per main-scenario quest of 2.1–3.56, plus the 2.55, 3.0 and 3.56 milestones
 import timeline_4x as TL4  # the same for Stormblood, 4.0–4.56, plus the 4.0 and 4.56 milestones
-import timeline_5x as TL5  # the same for Shadowbringers, 5.0–5.55, plus the 5.0 and 5.55 milestones
+import timeline_5x as TL5
+import timeline_arr_early as TLE  # ARR 2.0 #1–#101, before the NDL-012 steps (the three starting-city chains included)  # the same for Shadowbringers, 5.0–5.55, plus the 5.0 and 5.55 milestones
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
 ARGS = sys.argv[1:]
@@ -58,7 +59,12 @@ ERAS = [
     ("content_5_4_to_5_55", "cp-msq-682", H5),
     # The lead's integration module, merged last: earlier entries for entities that accepted or earlier-era text already
     # names (so nothing is named before it is visible), and the cross-era endings no single era could write.
-    ("content_lead_integration", "cp-msq-102", H5),
+    ("content_arr_gridania", "cp-msq-1", "cp-msq-23"),
+    ("content_arr_limsa", "cp-msq-1b", "cp-msq-22b"),
+    ("content_arr_uldah", "cp-msq-1c", "cp-msq-24"),
+    ("content_arr_25_to_61", "cp-msq-25", "cp-msq-61"),
+    ("content_arr_62_to_101", "cp-msq-62", "cp-msq-101"),
+    ("content_lead_integration", "cp-msq-1", H5),
 ]
 LINT_ONLY = ARGS[1] if LINT and len(ARGS) == 2 else None
 if LINT_ONLY and LINT_ONLY not in {m for m, _, _ in ERAS}:
@@ -68,7 +74,7 @@ if LINT_ONLY and LINT_ONLY not in {m for m, _, _ in ERAS}:
 # The A4 slice (NDL-009): the baseline step after MSQ #154, then one step after each of #155–160. Each step means
 # "after this quest". The milestone A (cp-arr-2-0) is the step after #161, The Ultimate Weapon, so it is contiguous
 # with the slice. Every step carries its quest's game id (wiki id-gt) for Follow (deferred; NDL-007 verifies them).
-SLICE = ARR.EARLY_SLICE + [  # (checkpoint id, MSQ index, quest title, game quest id); NDL-012 prepends #102–#153
+SLICE = TLE.STEPS_EARLY + ARR.EARLY_SLICE + [  # (checkpoint id, MSQ index, quest title, game quest id); NDL-012 prepends #102–#153
     ("cp-msq-154", 154, "Every Little Thing She Does Is Magitek", 66541),
     ("cp-msq-155", 155, "Escape from Castrum Centri", 66057),
     ("cp-msq-156", 156, "The Black Wolf's Ultimatum", 66058),
@@ -86,7 +92,7 @@ STEP_OF = {title: cid for cid, _, title, _ in SLICE} | {title: cid for cid, _, t
 MILESTONE_OF = {quest: cid for cid, (_, quest, _) in MILESTONES.items()}  # a milestone's own quest counts from it
 CP_LABEL = {cid: label for cid, (label, _, _) in MILESTONES.items()} | {cid: f"After {title}" for cid, _, title, _ in SLICE} \
     | {cid: f"After {title}" for cid, _, title, _, _ in LATER}
-CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", E4: "4.0", F4: "4.56", G5: "5.0", H5: "5.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT,
+CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", E4: "4.0", F4: "4.56", G5: "5.0", H5: "5.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT, **TLE.SHORT,
             **{cid: f"#{n}" for cid, n, _, _, _ in LATER}, **TL.SHORT, **TL4.SHORT, **TL5.SHORT}
 ORDER = ([cid for cid, _, _, _ in SLICE] + [A] + [c for c, *_ in TL.STEPS_2X] + [B] + [c for c, *_ in TL.STEPS_3_0] + [C3]
          + [c for c, *_ in TL.STEPS_3X] + [D3] + [c for c, *_ in TL4.STEPS_4_0] + [E4] + [c for c, *_ in TL4.STEPS_4X] + [F4]
@@ -205,7 +211,7 @@ def P(frm, until, scope, name, summary, claims, aliases=()):
     return dict(frm=frm, until=until, scope=scope, name=name, aliases=list(aliases), summary=summary, claims=claims)
 
 CHECKPOINTS = [
-    {"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({"contiguousWithPrevious": True} if i and cid not in ARR.NOT_CONTIGUOUS else {}), "gameQuestIds": [gid]}
+    {"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({"contiguousWithPrevious": True} if i and cid not in ARR.NOT_CONTIGUOUS | TLE.NOT_CONTIGUOUS else {}), "gameQuestIds": [gid]}
     for i, (cid, _, title, gid) in enumerate(SLICE)
 ]
 # Each milestone is the step after its patch's last quest, so it is contiguous with the step before it; each later step
@@ -388,7 +394,7 @@ RELS = [
 # Scions, plus Cid, Gaius, Livia, Lahabrea and the Eorzean Alliance, plus the Operation Archon event; the caps were
 # raised by one each (5 new entities, 4 new relationship types). First names only; "Garlond Ironworks" is shown as
 # "the Ironworks". Q1..Q7 below are the slice steps.
-Q154, Q155, Q156, Q157, Q158, Q159, Q160 = (cid for cid, _, _, _ in SLICE[len(ARR.EARLY_SLICE):])
+Q154, Q155, Q156, Q157, Q158, Q159, Q160 = (cid for cid, _, _, _ in SLICE[len(TLE.STEPS_EARLY) + len(ARR.EARLY_SLICE):])
 for k, p in [("Come-Into-My-Castrum", None), ("Lady of the Vortex", None), ("In Pursuit of the Past", None), ("Lord of Crags", None),
              ("Every Little Thing She Does Is Magitek", None), ("The Black Wolf's Ultimatum", None), ("Operation Archon", None),
              ("A Hero in Need", None), ("Hearts on Fire", None), ("Rock the Castrum", None)]:
@@ -688,6 +694,9 @@ ARC_NOTES = {"arc-a4-black-wolf": "MSQ #155 *Escape from Castrum Centri* to #161
 # Data lives in content_arr_2_0.py; merged here so review status, citations and generated files work as for A4.
 for _, _, title, _ in ARR.EARLY_SLICE:
     src(title, ARR.PAGES.get(title, title), "2.0")
+for _, _, title, _ in TLE.STEPS_EARLY:
+    if title not in SRC:
+        src(title, TLE.PAGES.get(title, title), "2.0")
 for title in ARR.EXTRA_SOURCES:
     src(title, title, "2.0")
 assert not set(ARR.CLAIMS) & set(C), "claim id collision"

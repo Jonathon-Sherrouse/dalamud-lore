@@ -20,8 +20,17 @@ the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the rev
 | `content_5_0_part3.py` | 5.0, *A Fresh Start* to *Shadowbringers* | `cp-msq-621` … `cp-shb-5-0` | `n` |
 | `content_5_1_to_5_3.py` | 5.1 to 5.3 | `cp-msq-648` … `cp-msq-681` | `o` |
 | `content_5_4_to_5_55.py` | 5.4 to 5.55 | `cp-msq-682` … `cp-shb-5-55` | `p` |
+| `content_arr_gridania.py` | 2.0 #1–#23, the Gridania starting chain | `cp-msq-1` … `cp-msq-23` | `q` |
+| `content_arr_limsa.py` | 2.0 #1–#22, the Limsa Lominsa starting chain | `cp-msq-1b` … `cp-msq-22b` | `r` |
+| `content_arr_uldah.py` | 2.0 #1–#24, the Ul'dah starting chain | `cp-msq-1c` … `cp-msq-24` | `s` |
+| `content_arr_25_to_61.py` | 2.0, *It's Probably Pirates* to *Believe in Your Sylph* | `cp-msq-25` … `cp-msq-61` | `t` |
+| `content_arr_62_to_101.py` | 2.0, *Back from the Wood* to *Battle Scars* | `cp-msq-62` … `cp-msq-101` | `u` |
 
-The timeline itself is `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood) and `timeline_5x.py` (Shadowbringers): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
+The 2.0 steps before #102 (`timeline_arr_early.py`) come first in the timeline. The three starting-city chains are
+mutually exclusive in game and run one after another here (user decision, 2026-11-19), as do the three Grand Company
+pairs at #41–#42.
+
+The timeline itself is `timeline_arr_early.py` (2.0 #1–#101), `content_arr_2_0.py`'s steps (#102–#153), `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood) and `timeline_5x.py` (Shadowbringers): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
 parallel paths share an index (`cp-msq-234b`, `cp-msq-245b` … `cp-msq-251b`, `cp-msq-282b`, `cp-msq-282c`). Each step
 means "after this quest". Each patch's last quest is a milestone instead of a step: `cp-arr-2-55` (after *Before the
 Dawn*), `cp-hw-3-0` (after *Heavensward*), `cp-hw-3-56` (after *The Far Edge of Fate*), `cp-sb-4-0` (after *Stormblood*) and

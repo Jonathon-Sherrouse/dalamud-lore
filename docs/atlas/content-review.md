@@ -168,6 +168,156 @@ Visible records at each step, in the main-story view and the main + optional vie
 
 | Step | Entities (main) | Entities (+ optional) | Relationships (main) | Relationships (+ optional) |
 |---|---|---|---|---|
+| #1 After Close to Home (Gridania) | 0 | 0 | 0 | 0 |
+| #2 After To the Bannock | 0 | 0 | 0 | 0 |
+| #3 After Passing Muster | 0 | 0 | 0 | 0 |
+| #4 After Chasing Shadows | 0 | 0 | 0 | 0 |
+| #5 After Eggs over Queasy | 0 | 0 | 0 | 0 |
+| #6 After Surveying the Damage | 0 | 0 | 0 | 0 |
+| #7 After A Soldier's Breakfast | 0 | 0 | 0 | 0 |
+| #8 After Spirithold Broken | 0 | 0 | 0 | 0 |
+| #9 After On to Bentbranch | 0 | 0 | 0 | 0 |
+| #10 After You Shall Not Trespass | 0 | 0 | 0 | 0 |
+| #11 After Don't Look Down | 0 | 0 | 0 | 0 |
+| #12 After In the Grim Darkness of the Forest | 0 | 0 | 0 | 0 |
+| #13 After Threat Level Elevated | 0 | 0 | 0 | 0 |
+| #14 After Migrant Marauders | 0 | 0 | 0 | 0 |
+| #15 After A Hearer Is Often Late | 0 | 0 | 0 | 0 |
+| #16 After Salvaging the Scene | 0 | 0 | 0 | 0 |
+| #17 After Leia's Legacy | 0 | 0 | 0 | 0 |
+| #18 After Dread Is in the Air | 0 | 0 | 0 | 0 |
+| #19 After To Guard a Guardian | 0 | 0 | 0 | 0 |
+| #20 After Festive Endeavors | 0 | 0 | 0 | 0 |
+| #21 After Renewing the Covenant | 0 | 0 | 0 | 0 |
+| #22 After The Gridanian Envoy | 0 | 0 | 0 | 0 |
+| #23 After Call of the Sea (Gridania) | 0 | 0 | 0 | 0 |
+| #1b After Close to Home (Limsa Lominsa) | 0 | 0 | 0 | 0 |
+| #2b After On to Summerford | 0 | 0 | 0 | 0 |
+| #3b After Dressed to Call | 0 | 0 | 0 | 0 |
+| #4b After Lurkers in the Grotto | 0 | 0 | 0 | 0 |
+| #5b After Washed Up | 0 | 0 | 0 | 0 |
+| #6b After Double Dealing | 0 | 0 | 0 | 0 |
+| #7b After Loam Maintenance | 0 | 0 | 0 | 0 |
+| #8b After Plowshares to Swords | 0 | 0 | 0 | 0 |
+| #9b After Just Deserts | 0 | 0 | 0 | 0 |
+| #10b After Sky-high | 0 | 0 | 0 | 0 |
+| #11b After Thanks a Million | 0 | 0 | 0 | 0 |
+| #12b After Relighting the Torch | 0 | 0 | 0 | 0 |
+| #13b After On to the Drydocks | 0 | 0 | 0 | 0 |
+| #14b After Without a Doubt | 0 | 0 | 0 | 0 |
+| #15b After Righting the Shipwright | 0 | 0 | 0 | 0 |
+| #16b After Do Angry Pirates Dream | 0 | 0 | 0 | 0 |
+| #17b After Victory in Peril | 0 | 0 | 0 | 0 |
+| #18b After Men of the Blue Tattoos | 0 | 0 | 0 | 0 |
+| #19b After Feint and Strike | 0 | 0 | 0 | 0 |
+| #20b After High Society | 0 | 0 | 0 | 0 |
+| #21b After A Mizzenmast Repast | 0 | 0 | 0 | 0 |
+| #22b After The Lominsan Envoy | 0 | 0 | 0 | 0 |
+| #1c After Close to Home (Ul'dah) | 0 | 0 | 0 | 0 |
+| #2c After We Must Rebuild | 0 | 0 | 0 | 0 |
+| #3c After Nothing to See Here | 0 | 0 | 0 | 0 |
+| #4c After Underneath the Sultantree | 0 | 0 | 0 | 0 |
+| #5c After Step Nine | 0 | 0 | 0 | 0 |
+| #6c After Prudence at This Junction | 0 | 0 | 0 | 0 |
+| #7c After Out of House and Home | 0 | 0 | 0 | 0 |
+| #8c After Way Down in the Hole | 0 | 0 | 0 | 0 |
+| #9c After Takin' What They're Givin' | 0 | 0 | 0 | 0 |
+| #10c After Supply and Demands | 0 | 0 | 0 | 0 |
+| #11c After Give It to Me Raw | 0 | 0 | 0 | 0 |
+| #12c After The Perfect Swarm | 0 | 0 | 0 | 0 |
+| #13c After Last Letter to Lost Hope | 0 | 0 | 0 | 0 |
+| #14c After Heir Today, Gone Tomorrow | 0 | 0 | 0 | 0 |
+| #15c After Passing the Blade | 0 | 0 | 0 | 0 |
+| #16c After Following Footfalls | 0 | 0 | 0 | 0 |
+| #17c After Storms on the Horizon | 0 | 0 | 0 | 0 |
+| #18c After Oh Captain, My Captain | 0 | 0 | 0 | 0 |
+| #19c After Secrets and Lies | 0 | 0 | 0 | 0 |
+| #20c After Duty, Honor, Country | 0 | 0 | 0 | 0 |
+| #21c After A Matter of Tradition | 0 | 0 | 0 | 0 |
+| #22c After A Royal Reception | 0 | 0 | 0 | 0 |
+| #23b After The Ul'dahn Envoy | 0 | 0 | 0 | 0 |
+| #24 After Call of the Sea (Ul'dah) | 0 | 0 | 0 | 0 |
+| #25 After It's Probably Pirates | 0 | 0 | 0 | 0 |
+| #26 After Call of the Forest | 0 | 0 | 0 | 0 |
+| #27 After Fire in the Gloom | 0 | 0 | 0 | 0 |
+| #28 After Call of the Desert | 0 | 0 | 0 | 0 |
+| #29 After Into a Copper Hell | 0 | 0 | 0 | 0 |
+| #30 After The Scions of the Seventh Dawn | 0 | 0 | 0 | 0 |
+| #31 After A Wild Rose by Any Other Name | 0 | 0 | 0 | 0 |
+| #32 After Unsolved Mystery | 0 | 0 | 0 | 0 |
+| #33 After What Poor People Think | 0 | 0 | 0 | 0 |
+| #34 After A Proper Burial | 0 | 0 | 0 | 0 |
+| #35 After For the Children | 0 | 0 | 0 | 0 |
+| #36 After Amalj'aa Wrong Places | 0 | 0 | 0 | 0 |
+| #37 After Dressed to Deceive | 0 | 0 | 0 | 0 |
+| #38 After Life, Materia and Everything | 0 | 0 | 0 | 0 |
+| #39 After Lord of the Inferno | 0 | 0 | 0 | 0 |
+| #40 After A Hero in the Making | 0 | 0 | 0 | 0 |
+| #41 After The Company You Keep (Immortal Flames) | 0 | 0 | 0 | 0 |
+| #42 After For Coin and Country | 0 | 0 | 0 | 0 |
+| #41b After The Company You Keep (Maelstrom) | 0 | 0 | 0 | 0 |
+| #42b After Till Sea Swallows All | 0 | 0 | 0 | 0 |
+| #41c After The Company You Keep (Twin Adder) | 0 | 0 | 0 | 0 |
+| #42c After Wood's Will Be Done | 0 | 0 | 0 | 0 |
+| #43 After Sylph-management | 0 | 0 | 0 | 0 |
+| #44 After We Come in Peace | 0 | 0 | 0 | 0 |
+| #45 After Sylphic Studies | 0 | 0 | 0 | 0 |
+| #46 After First Impressions | 0 | 0 | 0 | 0 |
+| #47 After First Contact | 0 | 0 | 0 | 0 |
+| #48 After Dance Dance Diplomacy | 0 | 0 | 0 | 0 |
+| #49 After Forest Friend | 0 | 0 | 0 | 0 |
+| #50 After Presence of the Enemy | 0 | 0 | 0 | 0 |
+| #51 After Brotherly Love | 0 | 0 | 0 | 0 |
+| #52 After Spirited Away | 0 | 0 | 0 | 0 |
+| #53 After Druthers House Rules | 0 | 0 | 0 | 0 |
+| #54 After Never Forget | 0 | 0 | 0 | 0 |
+| #55 After Microbrewing | 0 | 0 | 0 | 0 |
+| #56 After Like Fine Wine | 0 | 0 | 0 | 0 |
+| #57 After Sylphish Concerns | 0 | 0 | 0 | 0 |
+| #58 After Nouveau Riche | 0 | 0 | 0 | 0 |
+| #59 After Into the Beast's Maw | 0 | 0 | 0 | 0 |
+| #60 After A Simple Gift | 0 | 0 | 0 | 0 |
+| #61 After Believe in Your Sylph | 0 | 0 | 0 | 0 |
+| #62 After Back from the Wood | 0 | 0 | 0 | 0 |
+| #63 After Shadow of Darkness | 0 | 0 | 0 | 0 |
+| #64 After Highbridge Times | 0 | 0 | 0 | 0 |
+| #65 After Where There Is Smoke | 0 | 0 | 0 | 0 |
+| #66 After On to Little Ala Mhigo | 0 | 0 | 0 | 0 |
+| #67 After Tea for Three | 0 | 0 | 0 | 0 |
+| #68 After Foot in the Door | 0 | 0 | 0 | 0 |
+| #69 After Meeting with the Resistance | 0 | 0 | 0 | 0 |
+| #70 After Killing Him Softly | 0 | 0 | 0 | 0 |
+| #71 After Helping Horn | 0 | 0 | 0 | 0 |
+| #72 After He Ain't Heavy | 0 | 0 | 0 | 0 |
+| #73 After Come Highly Recommended | 0 | 0 | 0 | 0 |
+| #74 After The Bear and the Young'uns' Cares | 0 | 0 | 0 | 0 |
+| #75 After Wilred Wants You | 0 | 0 | 0 | 0 |
+| #76 After Big Trouble in Little Ala Mhigo | 0 | 0 | 0 | 0 |
+| #77 After Back to Square One | 0 | 0 | 0 | 0 |
+| #78 After Terror at Fallgourd | 0 | 0 | 0 | 0 |
+| #79 After Ziz Is So Ridiculous | 0 | 0 | 0 | 0 |
+| #80 After Seeing Eye to Winged Eye | 0 | 0 | 0 | 0 |
+| #80b After Rock of Rancor | 0 | 0 | 0 | 0 |
+| #82 After Power of Deduction | 0 | 0 | 0 | 0 |
+| #83 After Secret of the White Lily | 0 | 0 | 0 | 0 |
+| #84 After Skeletons in Her Closet | 0 | 0 | 0 | 0 |
+| #85 After Wrath of the Titan | 0 | 0 | 0 | 0 |
+| #86 After Tales from the Tidus Slayer | 0 | 0 | 0 | 0 |
+| #87 After Hungry Hungry Goobbues | 0 | 0 | 0 | 0 |
+| #88 After The Lominsan Way | 0 | 0 | 0 | 0 |
+| #89 After Nix That | 0 | 0 | 0 | 0 |
+| #90 After A Modest Proposal | 0 | 0 | 0 | 0 |
+| #91 After Trial by Turtle | 0 | 0 | 0 | 0 |
+| #92 After The Perfect Prey | 0 | 0 | 0 | 0 |
+| #93 After When the Worm Turns | 0 | 0 | 0 | 0 |
+| #94 After There and Back Again | 0 | 0 | 0 | 0 |
+| #95 After The Things We Do for Cheese | 0 | 0 | 0 | 0 |
+| #96 After What Do You Mean You Forgot the Wine | 0 | 0 | 0 | 0 |
+| #97 After An Offer You Can Refuse | 0 | 0 | 0 | 0 |
+| #98 After It Won't Work | 0 | 0 | 0 | 0 |
+| #99 After Give a Man a Drink | 0 | 0 | 0 | 0 |
+| #100 After That Weight | 0 | 0 | 0 | 0 |
+| #101 After Battle Scars | 0 | 0 | 0 | 0 |
 | #102 After It Was a Very Good Year | 11 | 11 | 8 | 8 |
 | #103 After In the Company of Heroes | 14 | 14 | 11 | 11 |
 | #104 After As You Wish | 14 | 14 | 11 | 11 |
