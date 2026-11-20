@@ -12,6 +12,7 @@ import content_4_0_part3 as SB3
 import content_4_1_to_4_56 as SB4X
 import content_5_0_part2 as SHB2
 import content_5_0_part3 as SHB3
+import content_7_0_part1 as DT1
 
 def P(frm, until, scope, name, summary, claims, aliases=()):
     return dict(frm=frm, until=until, scope=scope, name=name, aliases=list(aliases), summary=summary, claims=claims)
@@ -21,7 +22,8 @@ CLAIMS = {
            "Cid bids you make your way to [[Revenant's Toll]] in [[Mor Dhona]], and solicit the local [[adventurer]]s for information."),
 }
 
-ENTITIES = {"char-omega": "character", "loc-ala-mhigo": "location", "org-lightwardens": "organization", "char-halric": "character"}
+ENTITIES = {"char-omega": "character", "loc-ala-mhigo": "location", "org-lightwardens": "organization", "char-halric": "character",
+            **DT1.VALIGARMANDA_DRAFT["ENTITIES"]}
 
 PRES = {
  "loc-revenants-toll": [
@@ -72,19 +74,28 @@ PRES = {
      "A merchant of Thavnair who buys the fisherman Matsya's catch to sell on to foreign traders, though he has bought nothing for a while.",
      ["M702be"]),
  ],
+ # Dawntrail: Valigarmanda, whom 6.55 text already names at #851, drafted by 7.0 part 1; the Hhetsarro, named from #911
+ # in 7.0 part 2 text before 7.1 makes them an entry.
+ "char-valigarmanda": DT1.VALIGARMANDA_DRAFT["PRES"]["char-valigarmanda"],
+ "org-hhetsarro": [
+   P("cp-msq-911", None, "main", "The Hhetsarro",
+     "A people of Shaaloani whose territory holds the timber the railway needs for its repairs; the stationmaster must ask their permission first.",
+     ["M911g"]),
+ ],
  # Part 1 creates these two places; part 3 drafted their later records.
  "loc-castellum-velodyna": SB3.LOC_DRAFTS["loc-castellum-velodyna"],
  "loc-specula-imperatoris": SB3.LOC_DRAFTS["loc-specula-imperatoris"],
 }
 
 DECISIONS = [
+ "**Dawntrail, earlier entries from the lead:** Valigarmanda from #851 (6.55 text names it; 7.0 part 1 drafted the records) and the Hhetsarro from #911 (7.0 part 2 text names them before 7.1 makes them an entry). Bakool Ja Ja's opposition to Wuk Lamat ends at #899 and Sareel Ja's service to Zoraal Ja at #905, across the 7.0 parts.",
  "**Endwalker, earlier entries from the lead:** Galuf from #700 and Khalzahl from #702b, because 6.0 text names them there, before the eras that make them entries (6.55 and #752).",
  "**Endwalker, cross-era endings:** Hydaelyn's opposition to Zodiark, Zenos's lead of the Telophoroi and Fandaniel's Ascian membership end at #740; Elidibus's hold in the Crystal Tower and his opposition to the Scions end at #762; Azdaja's captivity under Golbez ends at #842 and his opposition to Zero at #848. The edges opposing Zenos close on the step after the 6.0 milestone, where his Journal says he breathes his last.",
  "**Ala Mhigo from #200:** text there already names it, so the lead starts its entry with Raubahn and Ilberd's shared past, then adopts the 4.1–4.56 era's drafted records. Part 3's later records for Castellum Velodyna and Specula Imperatoris, which part 1 creates, are adopted the same way.",
  "**Earlier entries from the lead:** Revenant's Toll from #148, Raubahn from #159 and Omega from #190, because text there already names them. Omega's 3.56 records were drafted by the 3.1–3.56 era and adopted here.",
 ]
 
-RELS = [*SHB3.HYDAELYN_DRAFT["RELS"]]
+RELS = [*SHB3.HYDAELYN_DRAFT["RELS"], *DT1.VALIGARMANDA_DRAFT["RELS"]]
 
 # Cross-era endings no single era could write: Eline (2.4) served Varis, who is murdered in 5.2.
 ADJUST = {"rel-eline-serves-varis": {"until": "cp-msq-657", "end": ["M657f"]},
@@ -100,5 +111,8 @@ ADJUST = {"rel-eline-serves-varis": {"until": "cp-msq-657", "end": ["M657f"]},
           "rel-golbez-opposes-zero": {"until": "cp-msq-848", "end": ["M848h"]},
           "rel-jullus-opposes-zenos": {"until": "cp-msq-807"},
           "rel-xth-legion-opposes-zenos": {"until": "cp-msq-807"},
-          "rel-gaius-opposes-zenos": {"until": "cp-msq-807"}}
+          "rel-gaius-opposes-zenos": {"until": "cp-msq-807"},
+          # Dawntrail across its 7.0 parts: Bakool Ja Ja turns to Wuk Lamat's side (#899); Zoraal Ja kills Sareel Ja (#905).
+          "rel-bakool-ja-ja-opposes-wuk-lamat": {"until": "cp-msq-899", "end": ["M899g", "M899h"]},
+          "rel-sareel-ja-serves-zoraal-ja": {"until": "cp-msq-905", "end": ["M905k"]}}
 

@@ -169,6 +169,20 @@ public class PortraitTests
         "loc-red-moon", "loc-tertium", "loc-the-thirteenth", "loc-tower-of-zot", "loc-tuliyollal", "loc-tural", "loc-ultima-thule",
         "org-archfiends", "org-bureau-of-the-architect", "org-iiird-legion", "org-ilsabard-contingent", "org-ist-legion", "org-meteia",
         "org-radiant-host", "org-xth-legion",
+        // Dawntrail: no faithful image, or a face or form that would give a reveal away (Cahciua, the Vulture and Wihuwte,
+        // Zoraal Ja, Halmarut, Calyx, the simulant).
+        "char-alayla", "char-bakool-ja-ja", "char-cahciua", "char-calyx", "char-ethos", "char-eyaney", "char-fonjeantaine",
+        "char-geode", "char-gossan", "char-gurfurlur", "char-halmarut", "char-hhwato", "char-hunmu-rruk", "char-isadora",
+        "char-iyaate", "char-kanilokka", "char-kemakka", "char-ketenramm", "char-ketill", "char-linuhanu", "char-lithander",
+        "char-lumull", "char-mablu", "char-mahuwsa", "char-malachite", "char-miayli", "char-miilal-ja", "char-milos",
+        "char-namikka", "char-nostalgia", "char-rediroq", "char-robor", "char-sareel-ja", "char-shale", "char-shepetto",
+        "char-simulant", "char-teeshal-ja", "char-tobli", "char-visna", "char-vorporlor", "char-vulture", "char-wawkesa",
+        "char-wawlika", "char-wayakkwe", "char-wihuwte", "char-wuk-evu", "char-zander", "char-zanuhali", "char-zekowa",
+        "char-zereel-ja", "char-zoraal-ja", "char-zurmurwur", "evt-the-third-promise-taken", "loc-brightploom-post",
+        "loc-earthenshire", "loc-everkeep", "loc-gladr", "loc-mist-continent", "loc-naglfar", "loc-ok-hanu",
+        "loc-wachunpelo", "loc-xak-tural", "loc-yak-tel", "loc-yyasulani", "org-daybreakers", "org-dustwatch",
+        "org-endless", "org-hhetsarro", "org-jotnar", "org-landsguard", "org-mamool-ja", "org-milalla", "org-oblivion",
+        "org-preservation", "org-winterers", "org-xbraal", "org-yok-huy",
     ];
 
     [Fact]

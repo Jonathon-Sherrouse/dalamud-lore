@@ -886,7 +886,7 @@ PRES = {
 # ---- Arc recaps ---------------------------------------------------------------------------------------------------
 N1, N2, N3, N4, N5, N6, N7, N8 = ("The Throne of Lyhe Ghiah", "The Ascian's Offer", "Darkness in the Greatwood",
                                   "Allies of Ronka", "The Warden of the Greatwood", "The Siege of the Crystarium",
-                                  "The Road to Nabaath Areng", "The Oracle's Crossroads")
+                                  "The Road to Nabaath Areng", "The Oracle's Fork in the Road")
 PRES.update({
  "evt-the-throne-of-lyhe-ghiah": [
    P(S580, None, "main", N1,

@@ -2,7 +2,7 @@
 
 > **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Scope:** Follow, which would move the view with your quest progress, is not included. The user deferred it on 2026-11-14, and its investigation (`NDL-007`) is parked. The Atlas never reads your quest progress; you always pick the story point yourself.
 
-> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #1 (all three starting cities) through 6.55 (*The Game Is Afoot*), plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0, 5.55, 6.0 and 6.55 milestones: 902 points and 144 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md), [through-shadowbringers.md](through-shadowbringers.md), [through-endwalker.md](through-endwalker.md) and [arr-1-to-101.md](arr-1-to-101.md).
+> **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #1 (all three starting cities) through 7.56 (*The World Locked in Ice*), the latest patch, plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0, 5.55, 6.0, 6.55, 7.0 and 7.56 milestones: 1,045 points and 169 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md), [through-shadowbringers.md](through-shadowbringers.md), [through-endwalker.md](through-endwalker.md), [through-dawntrail.md](through-dawntrail.md) and [arr-1-to-101.md](arr-1-to-101.md).
 
 > **Earlier coverage (`NDL-012`, accepted 2026-11-17):** one story point per main-scenario quest from MSQ #102 to the 2.0 finale, with six arcs, from *The Road to Titan* to *The Black Wolf's Challenge*. See [ndl-012-discovery.md](ndl-012-discovery.md).
 
@@ -172,6 +172,20 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 5 | View → "After The Unbroken Thread", search "Exarch". | G'raha Tia, with a portrait, revealed from the Crystal Exarch. |
 | 6 | View → "Shadowbringers — Patch 5.0 complete", search "Emet". | Hades, also searchable as Emet-Selch and Solus. |
 | 7 | View → "Shadowbringers — Patch 5.55 complete". | *One Banner for Eorzea*. No "Endwalker" anywhere. |
+
+## In-game check (through Dawntrail)
+
+> **Status:** not run in game.
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | **Raise…** → "Dawntrail — Patch 7.56 complete" → **Show**. View → "After A New World to Explore". | *Landfall in Tuliyollal*. |
+| 2 | Open **Viewing as of**. | After "The Rite of Succession", the Kozama'uka chain, then the Urqopacha chain (#859b on), then "After The Success of Others". |
+| 3 | View → "After Braced for Trouble", search "Vulture". | The Vulture, with no portrait. One step later ("After Blowing Smoke"), he is revealed as Wihuwte. |
+| 4 | View → "After History's Keepers", search "Valigarmanda". | Valigarmanda, with its card portrait, in *The Vidraal Unbound*. |
+| 5 | View → "After A Glimmer of the Past", search "Sphene". | Two entries: Endless Sphene and Sphene, the living queen. |
+| 6 | View → "After Crossroads" (#960). | *Children Left Behind*. The 5.0 arc is now listed as *The Oracle's Fork in the Road*. |
+| 7 | View → "Dawntrail — Patch 7.56 complete". | *The Ice-Locked Sky*. |
 
 ## In-game check (through Endwalker)
 
