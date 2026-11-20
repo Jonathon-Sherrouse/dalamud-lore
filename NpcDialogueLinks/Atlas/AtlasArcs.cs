@@ -65,11 +65,14 @@ public static class AtlasArcs
             return Array.Empty<AtlasArcOption>();
         }
 
+        var entities = dataset.Entities.ToDictionary(e => e.Id, StringComparer.Ordinal);
         return dataset.Arcs
             .Where(a => a.FirstOrder <= viewPoint.Order)
             .OrderBy(a => a.FirstOrder)
             .ThenBy(a => a.AuthoredOrder)
-            .Select(a => new AtlasArcOption(a.Id, AtlasProjector.Project(dataset, dataset.Checkpoints[Math.Min(viewPoint.Order, a.LastOrder)].Id, view).FindEntity(a.EntityId)!.Name)
+            // The arc entry's name as of min(view, last step): the same presentation a projection would show, without
+            // projecting the whole dataset once per arc (2026-11-19: that made the Arc picker cost ~60 ms late in the timeline).
+            .Select(a => new AtlasArcOption(a.Id, entities[a.EntityId].PresentationAt(Math.Min(viewPoint.Order, a.LastOrder), view)!.Name)
             {
                 StartLabel = AtlasText.ArcStartsAt(dataset.Checkpoints[a.FirstOrder]),
                 Group = dataset.Checkpoints.Skip(a.FirstOrder).FirstOrDefault(c => c.Milestone) is { } patch ? AtlasText.ArcGroup(patch.Label) : null,

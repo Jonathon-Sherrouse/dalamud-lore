@@ -401,23 +401,29 @@ public class V2LeakSweepTests
     }
 
     /// <summary>
-    /// The real timeline (one step per quest through 3.56): the exhaustive sweep grows with the cube of the step count,
-    /// so this one keeps what the content can break and drops what the synthetic sweep already proves for the code.
-    /// Every view is swept at its own limit (the strictest picker check: everything past it is locked), in both content
-    /// views and all three lenses, with no pick, each arc containing the view, and the most recently ended arc. Each
-    /// arc's pick is also held along a walk from its last step down to two steps before its first and back up. Surfaces
-    /// skip the refocus of every entry: each neighbour's entry and edge is already on the snapshot.
+    /// The real timeline (one step per quest, 747 points): sweeping every point made the suite take over half an hour, and
+    /// the exhaustive sweep over the synthetic datasets already proves the session code. This one samples the points where
+    /// the content changes shape: the first and last points, each milestone and the points on either side, each step that
+    /// is not contiguous (parallel paths and starting cities), each arc's first and last steps and the step before it, and
+    /// every 10th point. Each sampled view is swept at its own limit (the strictest picker check), in both content views and
+    /// all three lenses, with no pick, each arc containing the view, and the most recently ended arc. Arc picks are held
+    /// along walks for every arc that shares a step with another and every 5th arc. Surfaces skip the refocus of every
+    /// entry: each neighbour's entry and edge is already on the snapshot. The per-point checks in RealDataTests still cover
+    /// every point.
     /// </summary>
     [Fact]
     public void Sweep_RealTimeline_EveryViewLensAndArc()
     {
         var d = LoadNamed("real");
         var stops = 0;
+        var sampled = SampledOrders(d);
+        var arcsToWalk = d.Arcs.Where((a, i) => i % 5 == 0
+            || d.Arcs.Any(o => o.Id != a.Id && o.FirstOrder <= a.LastOrder && a.FirstOrder <= o.LastOrder)).ToList();
         foreach (var contentView in new[] { AtlasContentView.MainStory, AtlasContentView.MainAndOptional })
         {
             foreach (var lens in new[] { AtlasLens.Arc, AtlasLens.StoryPoint, AtlasLens.Changes })
             {
-                foreach (var view in d.Checkpoints)
+                foreach (var view in d.Checkpoints.Where(c => sampled.Contains(c.Order)))
                 {
                     var eligible = AtlasArcs.Eligible(d, view.Id, contentView).Select(a => a.ArcId).ToHashSet();
                     var arcs = d.Arcs.Where(a => eligible.Contains(a.Id)).ToList();
@@ -432,7 +438,7 @@ public class V2LeakSweepTests
                     }
                 }
 
-                foreach (var arc in d.Arcs)
+                foreach (var arc in arcsToWalk)
                 {
                     // Held from the last step down to the first and back up, then past the first (where it drops) and back.
                     var last = d.Checkpoints[arc.LastOrder];
@@ -463,6 +469,33 @@ public class V2LeakSweepTests
         Assert.True(stops > 1000, $"only {stops} stops swept");
     }
 
+    /// <summary>The real timeline's sampled points (see <see cref="Sweep_RealTimeline_EveryViewLensAndArc"/>).</summary>
+    private static HashSet<int> SampledOrders(AtlasDataset d)
+    {
+        var last = d.Checkpoints.Count - 1;
+        var orders = new HashSet<int> { 0, last };
+        foreach (var c in d.Checkpoints)
+        {
+            if (c.Order % 10 == 0 || !c.ContiguousWithPrevious)
+            {
+                orders.Add(c.Order);
+            }
+
+            if (c.Milestone)
+            {
+                orders.UnionWith(new[] { c.Order - 1, c.Order, c.Order + 1 });
+            }
+        }
+
+        foreach (var a in d.Arcs)
+        {
+            orders.UnionWith(new[] { a.FirstOrder - 1, a.FirstOrder, a.LastOrder });
+        }
+
+        orders.RemoveWhere(o => o < 0 || o > last);
+        return orders;
+    }
+
     private static AtlasSession Open(AtlasDataset d, AtlasCheckpoint ceiling, AtlasCheckpoint view, AtlasContentView contentView, AtlasLens lens, string? pick)
     {
         var s = new AtlasSession(d, new AtlasSpoilerState(ceiling.Id, view.Id), contentView);
@@ -475,21 +508,22 @@ public class V2LeakSweepTests
     {
         Assert.True(d.TryGetCheckpoint(s.SpoilerState.ViewId, out var view));
         var surface = Gather(s, refocus);
-        var (knownEntities, knownRelationships, knownSources, laterBad) = Known(d, view, contentView);
+        var known = Known(d, contentView);
+        var at = view.Order;
 
         foreach (var entity in surface.Entities)
         {
-            Assert.True(knownEntities.Contains(EntityKey(entity)), $"entity {entity.Id} '{entity.Summary}' is not as of the view at {where}");
+            Assert.True(known.EntityFrom.TryGetValue(EntityKey(entity), out var from) && from <= at, $"entity {entity.Id} '{entity.Summary}' is not as of the view at {where}");
         }
 
         foreach (var relationship in surface.Relationships)
         {
-            Assert.True(knownRelationships.Contains(RelationshipKey(relationship)), $"relationship {relationship.Id} is not as of the view at {where}");
+            Assert.True(known.RelationshipFrom.TryGetValue(RelationshipKey(relationship), out var from) && from <= at, $"relationship {relationship.Id} is not as of the view at {where}");
         }
 
         foreach (var citation in surface.Citations)
         {
-            Assert.True(knownSources.Contains(citation), $"source '{citation.Title}' ({citation.Url}) is not available by the view at {where}");
+            Assert.True(known.SourceFrom.TryGetValue(citation, out var from) && from <= at, $"source '{citation.Title}' ({citation.Url}) is not available by the view at {where}");
         }
 
         // End evidence: only on a Changes "ended" row, and an end-only source never appears anywhere else.
@@ -510,23 +544,13 @@ public class V2LeakSweepTests
             Assert.All(row.EndCitations, c => Assert.True(allowed.Contains((c.Title, c.Url?.ToString())), $"end citation '{c.Title}' ({c.Url}) is not {row.Key}'s own available end evidence at {where}"));
         }
 
-        // One scan for every later name, source and quest title; only a hit falls back to naming the culprit.
-        var joined = string.Join("\n", surface.Texts);
-        if (LaterPattern(d, view, contentView, laterBad) is { } pattern && pattern.IsMatch(joined))
-        {
-            foreach (var bad in laterBad)
-            {
-                AssertNoText(surface.Texts, bad, where);
-            }
-        }
+        // No text names a later quest, an entity not yet introduced, or a source not yet available.
+        var later = known.Later.FirstHit(surface.Texts, at);
+        Assert.True(later is null, $"'{later?.Needle}' leaked at {where}: {later?.Text}");
 
-        var lockedTitles = d.Checkpoints.Where(c => c.Order > ceiling.Order)
-            .SelectMany(c => new[] { c.Milestone ? null : c.Label, c.QuestTitle }).OfType<string>();
-        var pickers = Pickers(s).ToList();
-        foreach (var bad in lockedTitles)
-        {
-            AssertNoText(pickers, bad, where + " (pickers)");
-        }
+        // Pickers and prompts never name a quest past the limit (milestones are named on purpose).
+        var locked = Locked(d).FirstHit(Pickers(s).ToList(), ceiling.Order);
+        Assert.True(locked is null, $"'{locked?.Needle}' leaked at {where} (pickers): {locked?.Text}");
 
         if (s.Arc is { PastEnd: false })
         {
@@ -536,61 +560,156 @@ public class V2LeakSweepTests
     }
 
     /// <summary>
-    /// What is known by a view, and the texts that must not appear there. Projections are pure, so this is computed once
-    /// per (dataset, view, content view) and reused by every stop (NDL-012: 61 steps made the uncached sweep take 35 min).
+    /// What is known from which point, per content view, computed once per dataset: the order each entity text,
+    /// relationship and source first appears, and a scanner for every string that must not appear before a given order
+    /// (a later entity's name or alias, a later source's title, a later quest's title). Each check is then a lookup, so
+    /// the sweep grows linearly with the timeline (2026-11-19: rebuilding these per view made 747 points take over 30 min).
     /// </summary>
-    private static (HashSet<(string, string, string, string)> Entities, HashSet<(string, string, string, string)> Relationships, HashSet<AtlasCitationView> Sources, List<string> LaterBad)
-        Known(AtlasDataset d, AtlasCheckpoint view, AtlasContentView contentView)
+    private sealed record KnownFrom(
+        Dictionary<(string, string, string, string), int> EntityFrom,
+        Dictionary<(string, string, string, string), int> RelationshipFrom,
+        Dictionary<AtlasCitationView, int> SourceFrom,
+        TextScanner Later);
+
+    private static KnownFrom Known(AtlasDataset d, AtlasContentView contentView)
     {
         var cache = KnownCache.GetOrCreateValue(d);
         lock (cache)
         {
-            if (cache.TryGetValue((view.Id, contentView), out var hit))
+            if (cache.TryGetValue(contentView, out var hit))
             {
                 return hit;
             }
 
-            var known = d.Checkpoints.Where(c => c.Order <= view.Order).Select(c => Project(d, c.Id, contentView)).ToList();
-            var knownSources = known.SelectMany(p => p.Entities.SelectMany(e => e.Citations).Concat(p.Relationships.SelectMany(r => r.Citations))).ToHashSet();
-            var later = d.Checkpoints.Where(c => c.Order > view.Order).ToList();
-            var knownNames = known.SelectMany(p => p.Entities).SelectMany(e => e.Aliases.Append(e.Name)).ToHashSet();
-            var laterNames = later.SelectMany(c => Project(d, c.Id, AtlasContentView.MainAndOptional).Entities)
-                .SelectMany(e => e.Aliases.Append(e.Name)).Where(n => !knownNames.Contains(n)).Distinct();
-            var knownTitles = knownSources.Select(c => c.Title).ToHashSet();
-            var laterSources = later.SelectMany(c => Project(d, c.Id, AtlasContentView.MainAndOptional).Relationships.SelectMany(r => r.Citations)
-                    .Concat(Project(d, c.Id, AtlasContentView.MainAndOptional).Entities.SelectMany(e => e.Citations)))
-                .Select(c => c.Title).Where(t => !knownTitles.Contains(t)).Distinct();
-            var laterQuestTitles = later.Select(c => c.QuestTitle).OfType<string>();
-            var result = (
-                known.SelectMany(p => p.Entities).Select(EntityKey).ToHashSet(),
-                known.SelectMany(p => p.Relationships).Select(RelationshipKey).ToHashSet(),
-                knownSources,
-                laterNames.Concat(laterSources).Concat(laterQuestTitles).Distinct().ToList());
-            cache[(view.Id, contentView)] = result;
-            return result;
-        }
-    }
-
-    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), (HashSet<(string, string, string, string)>, HashSet<(string, string, string, string)>, HashSet<AtlasCitationView>, List<string>)>> KnownCache = new();
-
-    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), AtlasSnapshot>> ProjectionCache = new();
-
-    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), System.Text.RegularExpressions.Regex?>> PatternCache = new();
-
-    private static System.Text.RegularExpressions.Regex? LaterPattern(AtlasDataset d, AtlasCheckpoint view, AtlasContentView contentView, List<string> laterBad)
-    {
-        var cache = PatternCache.GetOrCreateValue(d);
-        lock (cache)
-        {
-            if (!cache.TryGetValue((view.Id, contentView), out var pattern))
+            var entityFrom = new Dictionary<(string, string, string, string), int>();
+            var relationshipFrom = new Dictionary<(string, string, string, string), int>();
+            var sourceFrom = new Dictionary<AtlasCitationView, int>();
+            var nameFrom = new Dictionary<string, int>();
+            var titleFrom = new Dictionary<string, int>();
+            var nameLast = new Dictionary<string, int>();
+            var titleLast = new Dictionary<string, int>();
+            foreach (var c in d.Checkpoints)
             {
-                cache[(view.Id, contentView)] = pattern = laterBad.Count == 0 ? null
-                    : new System.Text.RegularExpressions.Regex(string.Join("|", laterBad.Select(System.Text.RegularExpressions.Regex.Escape)), System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+                var p = Project(d, c.Id, contentView);
+                foreach (var e in p.Entities)
+                {
+                    entityFrom.TryAdd(EntityKey(e), c.Order);
+                    foreach (var n in e.Aliases.Append(e.Name))
+                    {
+                        nameFrom.TryAdd(n, c.Order);
+                    }
+                }
+
+                foreach (var r in p.Relationships)
+                {
+                    relationshipFrom.TryAdd(RelationshipKey(r), c.Order);
+                }
+
+                foreach (var cite in p.Entities.SelectMany(e => e.Citations).Concat(p.Relationships.SelectMany(r => r.Citations)))
+                {
+                    sourceFrom.TryAdd(cite, c.Order);
+                    titleFrom.TryAdd(cite.Title, c.Order);
+                }
+
+                var full = Project(d, c.Id, AtlasContentView.MainAndOptional);
+                foreach (var n in full.Entities.SelectMany(e => e.Aliases.Append(e.Name)))
+                {
+                    nameLast[n] = c.Order;
+                }
+
+                foreach (var cite in full.Entities.SelectMany(e => e.Citations).Concat(full.Relationships.SelectMany(r => r.Citations)))
+                {
+                    titleLast[cite.Title] = c.Order;
+                }
             }
 
-            return pattern;
+            // A name or source title is bad at a view before the earlier of two points: where it becomes known in this
+            // content view, and the last point it still appears anywhere (after which it is no longer "later"). A quest
+            // title is bad before its own step.
+            var later = new TextScanner();
+            foreach (var (n, last) in nameLast)
+            {
+                later.Add(n, Math.Min(last, nameFrom.GetValueOrDefault(n, int.MaxValue)));
+            }
+
+            foreach (var (title, last) in titleLast)
+            {
+                later.Add(title, Math.Min(last, titleFrom.GetValueOrDefault(title, int.MaxValue)));
+            }
+
+            foreach (var c in d.Checkpoints.Where(c => c.QuestTitle is not null))
+            {
+                later.Add(c.QuestTitle!, c.Order);
+            }
+
+            return cache[contentView] = new KnownFrom(entityFrom, relationshipFrom, sourceFrom, later);
         }
     }
+
+    /// <summary>Quest titles and step labels, each bad in a picker while the limit is below its step.</summary>
+    private static TextScanner Locked(AtlasDataset d) => LockedCache.GetValue(d, data =>
+    {
+        var scanner = new TextScanner();
+        foreach (var c in data.Checkpoints)
+        {
+            foreach (var text in new[] { c.Milestone ? null : c.Label, c.QuestTitle }.OfType<string>())
+            {
+                scanner.Add(text, c.Order);
+            }
+        }
+
+        return scanner;
+    });
+
+    /// <summary>Finds any registered string (case-sensitive) that is bad at an order: bad while order &lt; its threshold.</summary>
+    private sealed class TextScanner
+    {
+        private readonly Dictionary<string, int> until = new();
+        private Dictionary<(char, char), List<(string Needle, int Until)>>? byPrefix;
+
+        public void Add(string needle, int badUntil)
+        {
+            if (needle.Length < 2)
+            {
+                return;
+            }
+
+            until[needle] = Math.Max(badUntil, until.GetValueOrDefault(needle, int.MinValue));
+            byPrefix = null;
+        }
+
+        public (string Needle, string Text)? FirstHit(IEnumerable<string> texts, int at)
+        {
+            var index = byPrefix ??= until.GroupBy(kv => (kv.Key[0], kv.Key[1]))
+                .ToDictionary(g => g.Key, g => g.Select(kv => (kv.Key, kv.Value)).ToList());
+            foreach (var text in texts)
+            {
+                for (var i = 0; i + 1 < text.Length; i++)
+                {
+                    if (!index.TryGetValue((text[i], text[i + 1]), out var list))
+                    {
+                        continue;
+                    }
+
+                    foreach (var (needle, u) in list)
+                    {
+                        if (at < u && i + needle.Length <= text.Length && string.CompareOrdinal(text, i, needle, 0, needle.Length) == 0)
+                        {
+                            return (needle, text);
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+    }
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<AtlasContentView, KnownFrom>> KnownCache = new();
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, TextScanner> LockedCache = new();
+
+    private static readonly System.Runtime.CompilerServices.ConditionalWeakTable<AtlasDataset, Dictionary<(string, AtlasContentView), AtlasSnapshot>> ProjectionCache = new();
 
     private static AtlasSnapshot Project(AtlasDataset d, string checkpointId, AtlasContentView view)
     {
