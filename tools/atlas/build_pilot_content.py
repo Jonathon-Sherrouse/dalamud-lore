@@ -26,6 +26,7 @@ import timeline_2x_3x as TL  # one step per main-scenario quest of 2.1–3.56, p
 import timeline_4x as TL4  # the same for Stormblood, 4.0–4.56, plus the 4.0 and 4.56 milestones
 import timeline_5x as TL5
 import timeline_6x as TL6  # the same for Endwalker, 6.0–6.55, plus the 6.0 and 6.55 milestones
+import timeline_7x as TL7  # the same for Dawntrail, 7.0–7.56, plus the 7.0 and 7.56 milestones
 import timeline_arr_early as TLE  # ARR 2.0 #1–#101, before the NDL-012 steps (the three starting-city chains included)  # the same for Shadowbringers, 5.0–5.55, plus the 5.0 and 5.55 milestones
 
 REPO = pathlib.Path(__file__).resolve().parents[2]
@@ -42,6 +43,7 @@ C3, D3 = TL.MILESTONE_3_0[0], TL.MILESTONE_3_56[0]
 E4, F4 = TL4.MILESTONE_4_0[0], TL4.MILESTONE_4_56[0]
 G5, H5 = TL5.MILESTONE_5_0[0], TL5.MILESTONE_5_55[0]
 I6, J6 = TL6.MILESTONE_6_0[0], TL6.MILESTONE_6_55[0]
+K7, L7 = TL7.MILESTONE_7_0[0], TL7.MILESTONE_7_56[0]
 
 # The era modules after 2.0, in timeline order: (module, first step it may start a record on, last checkpoint).
 ERAS = [
@@ -65,6 +67,11 @@ ERAS = [
     ("content_6_0_part4", "cp-msq-781", I6),
     ("content_6_1_to_6_3", "cp-msq-807", "cp-msq-834"),
     ("content_6_4_to_6_55", "cp-msq-835", J6),
+    ("content_7_0_part1", "cp-msq-854", "cp-msq-890"),
+    ("content_7_0_part2", "cp-msq-891", "cp-msq-920"),
+    ("content_7_0_part3", "cp-msq-921", K7),
+    ("content_7_1_to_7_3", "cp-msq-954", "cp-msq-978"),
+    ("content_7_4_to_7_56", "cp-msq-979", L7),
     # The lead's integration module, merged last: earlier entries for entities that accepted or earlier-era text already
     # names (so nothing is named before it is visible), and the cross-era endings no single era could write.
     ("content_arr_gridania", "cp-msq-1", "cp-msq-23"),
@@ -72,7 +79,7 @@ ERAS = [
     ("content_arr_uldah", "cp-msq-1c", "cp-msq-24"),
     ("content_arr_25_to_61", "cp-msq-25", "cp-msq-61"),
     ("content_arr_62_to_101", "cp-msq-62", "cp-msq-101"),
-    ("content_lead_integration", "cp-msq-1", J6),
+    ("content_lead_integration", "cp-msq-1", L7),
 ]
 LINT_ONLY = ARGS[1] if LINT and len(ARGS) == 2 else None
 if LINT_ONLY and LINT_ONLY not in {m for m, _, _ in ERAS}:
@@ -92,20 +99,22 @@ SLICE = TLE.STEPS_EARLY + ARR.EARLY_SLICE + [  # (checkpoint id, MSQ index, ques
     ("cp-msq-160", 160, "Rock the Castrum", 69409),
 ]
 BASE = SLICE[0][0]
-LATER = TL.STEPS_2X + TL.STEPS_3_0 + TL.STEPS_3X + TL4.STEPS_4_0 + TL4.STEPS_4X + TL5.STEPS_5_0 + TL5.STEPS_5X + TL6.STEPS_6_0 + TL6.STEPS_6X  # (checkpoint id, MSQ index, quest title, game quest id, patch)
+LATER = TL.STEPS_2X + TL.STEPS_3_0 + TL.STEPS_3X + TL4.STEPS_4_0 + TL4.STEPS_4X + TL5.STEPS_5_0 + TL5.STEPS_5X + TL6.STEPS_6_0 + TL6.STEPS_6X + TL7.STEPS_7_0 + TL7.STEPS_7X  # (checkpoint id, MSQ index, quest title, game quest id, patch)
 MILESTONES = {A: ("A Realm Reborn — Patch 2.0 complete", "The Ultimate Weapon", 70058), B: TL.MILESTONE_2_55[1:],
               C3: TL.MILESTONE_3_0[1:], D3: TL.MILESTONE_3_56[1:], E4: TL4.MILESTONE_4_0[1:], F4: TL4.MILESTONE_4_56[1:],
-              G5: TL5.MILESTONE_5_0[1:], H5: TL5.MILESTONE_5_55[1:], I6: TL6.MILESTONE_6_0[1:], J6: TL6.MILESTONE_6_55[1:]}
-STEP_OF = {title: cid for cid, _, title, _ in SLICE} | {title: cid for cid, _, title, _, _ in LATER}
+              G5: TL5.MILESTONE_5_0[1:], H5: TL5.MILESTONE_5_55[1:], I6: TL6.MILESTONE_6_0[1:], J6: TL6.MILESTONE_6_55[1:], K7: TL7.MILESTONE_7_0[1:], L7: TL7.MILESTONE_7_56[1:]}
+SOURCE_KEYS = TL7.SOURCE_KEYS  # checkpoint -> source key, for a quest title an earlier expansion already used
+STEP_OF = {title: cid for cid, _, title, _ in SLICE} | {SOURCE_KEYS.get(cid, title): cid for cid, _, title, _, _ in LATER}
 MILESTONE_OF = {quest: cid for cid, (_, quest, _) in MILESTONES.items()}  # a milestone's own quest counts from it
 CP_LABEL = {cid: label for cid, (label, _, _) in MILESTONES.items()} | {cid: f"After {title}" for cid, _, title, _ in SLICE} \
     | {cid: f"After {title}" for cid, _, title, _, _ in LATER}
-CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", E4: "4.0", F4: "4.56", G5: "5.0", H5: "5.55", I6: "6.0", J6: "6.55", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT, **TLE.SHORT,
-            **{cid: f"#{n}" for cid, n, _, _, _ in LATER}, **TL.SHORT, **TL4.SHORT, **TL5.SHORT, **TL6.SHORT}
+CP_SHORT = {A: "2.0", B: "2.55", C3: "3.0", D3: "3.56", E4: "4.0", F4: "4.56", G5: "5.0", H5: "5.55", I6: "6.0", J6: "6.55", K7: "7.0", L7: "7.56", **{cid: f"#{n}" for cid, n, _, _ in SLICE}, **ARR.SHORT, **TLE.SHORT,
+            **{cid: f"#{n}" for cid, n, _, _, _ in LATER}, **TL.SHORT, **TL4.SHORT, **TL5.SHORT, **TL6.SHORT, **TL7.SHORT}
 ORDER = ([cid for cid, _, _, _ in SLICE] + [A] + [c for c, *_ in TL.STEPS_2X] + [B] + [c for c, *_ in TL.STEPS_3_0] + [C3]
          + [c for c, *_ in TL.STEPS_3X] + [D3] + [c for c, *_ in TL4.STEPS_4_0] + [E4] + [c for c, *_ in TL4.STEPS_4X] + [F4]
          + [c for c, *_ in TL5.STEPS_5_0] + [G5] + [c for c, *_ in TL5.STEPS_5X] + [H5]
-         + [c for c, *_ in TL6.STEPS_6_0] + [I6] + [c for c, *_ in TL6.STEPS_6X] + [J6])
+         + [c for c, *_ in TL6.STEPS_6_0] + [I6] + [c for c, *_ in TL6.STEPS_6X] + [J6]
+         + [c for c, *_ in TL7.STEPS_7_0] + [K7] + [c for c, *_ in TL7.STEPS_7X] + [L7])
 IDX = {cid: i for i, cid in enumerate(ORDER)}
 
 # ---- Sources: wiki page title -> (display title, patch, availableAt, scope) -------------------------------
@@ -142,13 +151,14 @@ for k, patch in [("The Gifted", "2.1"), ("Laying the Foundation", "2.1"), ("Buil
 for k, patch in [("Another Turn in the Coil", "2.2"), ("Alisaie's Resolve", "2.2"), ("Alisaie's Path", "2.4")]:
     src(k, k, patch, "optional")
 # Every later main-scenario quest, and the quest each later milestone follows, so era modules can cite any of them.
-PAGES_LATER = {**TL.PAGES, **TL4.PAGES, **TL5.PAGES, **TL6.PAGES}
-for _, _, k, _, patch in LATER:
+PAGES_LATER = {**TL.PAGES, **TL4.PAGES, **TL5.PAGES, **TL6.PAGES, **TL7.PAGES, 'On Track (Dawntrail)': 'On Track (Dawntrail)'}
+for _cid, _, k, _, patch in LATER:
+    k = SOURCE_KEYS.get(_cid, k)
     if k not in SRC:
         src(k, PAGES_LATER.get(k, k), patch)
 for k, patch in [("Heavensward", "3.0"), ("The Far Edge of Fate", "3.56"), ("Stormblood", "4.0"), ("A Requiem for Heroes", "4.56"),
                  ("Shadowbringers", "5.0"), ("Death Unto Dawn", "5.55"),
-                 ("Endwalker", "6.0"), ("The Coming Dawn", "6.55")]:
+                 ("Endwalker", "6.0"), ("The Coming Dawn", "6.55"), ("Dawntrail", "7.0"), ("Windborne", "7.56")]:
     src(k, PAGES_LATER.get(k, k), patch)
 
 # ---- Claims: id -> (own-words claim, source key, locator quote) ------------------------------------------------
@@ -230,12 +240,13 @@ def _milestone(cid):
     label, _, gid = MILESTONES[cid]
     return {"id": cid, "label": label, "milestone": True, "contiguousWithPrevious": True, "gameQuestIds": [gid]}
 def _later(steps):
-    return [{"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({} if cid in TL.NOT_CONTIGUOUS | TL4.NOT_CONTIGUOUS | TL5.NOT_CONTIGUOUS | TL6.NOT_CONTIGUOUS else {"contiguousWithPrevious": True}),
+    return [{"id": cid, "label": CP_LABEL[cid], "questTitle": title, **({} if cid in TL.NOT_CONTIGUOUS | TL4.NOT_CONTIGUOUS | TL5.NOT_CONTIGUOUS | TL6.NOT_CONTIGUOUS | TL7.NOT_CONTIGUOUS else {"contiguousWithPrevious": True}),
              "gameQuestIds": [gid]} for cid, _, title, gid, _ in steps]
 CHECKPOINTS += [_milestone(A)] + _later(TL.STEPS_2X) + [_milestone(B)] + _later(TL.STEPS_3_0) + [_milestone(C3)] + _later(TL.STEPS_3X) + [_milestone(D3)] \
     + _later(TL4.STEPS_4_0) + [_milestone(E4)] + _later(TL4.STEPS_4X) + [_milestone(F4)] \
     + _later(TL5.STEPS_5_0) + [_milestone(G5)] + _later(TL5.STEPS_5X) + [_milestone(H5)] \
-    + _later(TL6.STEPS_6_0) + [_milestone(I6)] + _later(TL6.STEPS_6X) + [_milestone(J6)]
+    + _later(TL6.STEPS_6_0) + [_milestone(I6)] + _later(TL6.STEPS_6X) + [_milestone(J6)] \
+    + _later(TL7.STEPS_7_0) + [_milestone(K7)] + _later(TL7.STEPS_7X) + [_milestone(L7)]
 assert [c["id"] for c in CHECKPOINTS] == ORDER
 
 ENT = [
@@ -744,8 +755,7 @@ def _lint(msg):
     LINT_ERRORS.append(msg)
 # Linting one module loads everything else too, except the other modules being written in parallel with it (their
 # authors work at the same time), so an era can build on every accepted era before it.
-IN_PROGRESS = {"content_6_0_part1", "content_6_0_part2", "content_6_0_part3", "content_6_0_part4", "content_6_1_to_6_3",
-               "content_6_4_to_6_55"}
+IN_PROGRESS = {"content_7_0_part1", "content_7_0_part2", "content_7_0_part3", "content_7_1_to_7_3", "content_7_4_to_7_56"}
 for _mod, _first, _last in ERAS:
     if LINT_ONLY and _mod != LINT_ONLY and (_mod in IN_PROGRESS or LINT_ONLY not in IN_PROGRESS):
         continue
@@ -1422,7 +1432,12 @@ def _texts_of_presentation(p):
 def lint():
     errs = list(LINT_ERRORS)
     later_titles = {}  # step index -> quest titles of later steps
-    titles = [(IDX[c["id"]], c["questTitle"]) for c in CHECKPOINTS if c.get("questTitle")]
+    # A title two steps share (Shadowbringers' and Dawntrail's "On Track") is known from the earlier step.
+    _first_title = {}
+    for c in CHECKPOINTS:
+        if c.get("questTitle"):
+            _first_title.setdefault(c["questTitle"], IDX[c["id"]])
+    titles = [(i, t) for t, i in _first_title.items()]
     first_known = {}
     for eid, _, pres in ENT:
         for p in pres:
@@ -1430,7 +1445,9 @@ def lint():
                 first_known[n] = min(first_known.get(n, 10**6), IDX[p["frm"]])
     def check_text(where, at, text, citation=False):
         for i, title in titles:
-            if i > at and title in text:
+            # A citation shows its own quest's title, which is at or before the step (checked elsewhere); a later title
+            # inside it (Travelers at the Crossroads, 6.0, holds Crossroads, 7.1) spoils nothing.
+            if i > at and title in text and not citation:
                 errs.append(f"{where}: names a later quest, {title!r} ({ORDER[i]}): {text[:140]}")
         for n, i in first_known.items():
             if i > at and n in text:

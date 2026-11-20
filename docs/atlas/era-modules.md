@@ -1,6 +1,6 @@
 # Atlas era modules (patches 2.1–3.56)
 
-Starting 2026-11-19, the Atlas covers every main-scenario quest through *The Coming Dawn* (6.55). The content after
+Starting 2026-11-19, the Atlas covers every main-scenario quest through *Windborne* (7.56, the latest patch). The content after
 2.0 lives in data-only Python modules under `tools/atlas/`, one per era. `build_pilot_content.py` merges them with
 the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the review sheets, and lints them.
 
@@ -26,6 +26,11 @@ the accepted content (the pilot, A4 and NDL-012), emits `atlas.json` and the rev
 | `content_6_0_part4.py` | 6.0, *As the Heavens Burn* to *Endwalker* | `cp-msq-781` … `cp-ew-6-0` | `y` |
 | `content_6_1_to_6_3.py` | 6.1 to 6.3 | `cp-msq-807` … `cp-msq-834` | `z` |
 | `content_6_4_to_6_55.py` | 6.4 to 6.55 | `cp-msq-835` … `cp-ew-6-55` | `za` |
+| `content_7_0_part1.py` | 7.0, *A New World to Explore* to *The Promise of Peace* | `cp-msq-854` … `cp-msq-890` | `zb` |
+| `content_7_0_part2.py` | 7.0, *The Leap to Yak T'el* to *All Aboard* | `cp-msq-891` … `cp-msq-920` | `zc` |
+| `content_7_0_part3.py` | 7.0, *The Land of Levin* to *Dawntrail* | `cp-msq-921` … `cp-dt-7-0` | `zd` |
+| `content_7_1_to_7_3.py` | 7.1 to 7.3 | `cp-msq-954` … `cp-msq-978` | `ze` |
+| `content_7_4_to_7_56.py` | 7.4 to 7.56 | `cp-msq-979` … `cp-dt-7-56` | `zf` |
 | `content_arr_gridania.py` | 2.0 #1–#23, the Gridania starting chain | `cp-msq-1` … `cp-msq-23` | `q` |
 | `content_arr_limsa.py` | 2.0 #1–#22, the Limsa Lominsa starting chain | `cp-msq-1b` … `cp-msq-22b` | `r` |
 | `content_arr_uldah.py` | 2.0 #1–#24, the Ul'dah starting chain | `cp-msq-1c` … `cp-msq-24` | `s` |
@@ -36,11 +41,11 @@ The 2.0 steps before #102 (`timeline_arr_early.py`) come first in the timeline. 
 mutually exclusive in game and run one after another here (user decision, 2026-11-19), as do the three Grand Company
 pairs at #41–#42.
 
-The timeline itself is `timeline_arr_early.py` (2.0 #1–#101), `content_arr_2_0.py`'s steps (#102–#153), `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood), `timeline_5x.py` (Shadowbringers) and `timeline_6x.py` (Endwalker): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
+The timeline itself is `timeline_arr_early.py` (2.0 #1–#101), `content_arr_2_0.py`'s steps (#102–#153), `timeline_2x_3x.py`, `timeline_4x.py` (Stormblood), `timeline_5x.py` (Shadowbringers), `timeline_6x.py` (Endwalker) and `timeline_7x.py` (Dawntrail): one step per quest, `cp-msq-<msq-index>`, with `b`/`c` suffixes where
 parallel paths share an index (`cp-msq-234b`, `cp-msq-245b` … `cp-msq-251b`, `cp-msq-282b`, `cp-msq-282c`). Each step
 means "after this quest". Each patch's last quest is a milestone instead of a step: `cp-arr-2-55` (after *Before the
 Dawn*), `cp-hw-3-0` (after *Heavensward*), `cp-hw-3-56` (after *The Far Edge of Fate*), `cp-sb-4-0` (after *Stormblood*) and
-`cp-sb-4-56` (after *A Requiem for Heroes*), `cp-shb-5-0` (after *Shadowbringers*), `cp-shb-5-55` (after *Death Unto Dawn*), `cp-ew-6-0` (after *Endwalker*) and `cp-ew-6-55` (after *The Coming Dawn*). The 2.0 milestone,
+`cp-sb-4-56` (after *A Requiem for Heroes*), `cp-shb-5-0` (after *Shadowbringers*), `cp-shb-5-55` (after *Death Unto Dawn*), `cp-ew-6-0` (after *Endwalker*), `cp-ew-6-55` (after *The Coming Dawn*), `cp-dt-7-0` (after *Dawntrail*) and `cp-dt-7-56` (after *Windborne*). A quest title an earlier expansion already used gets its own source key (`SOURCE_KEYS` in `timeline_7x.py`: Dawntrail's *On Track* is cited as "On Track (Dawntrail)"). The 2.0 milestone,
 `cp-arr-2-0`, comes right before `cp-msq-162`.
 
 ## Commands

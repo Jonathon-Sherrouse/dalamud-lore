@@ -50,7 +50,7 @@ Same pipeline as before ([era-modules.md](era-modules.md)):
 | 5.0 part 2 | *The Warden of the Greatwood* | The Aftermath → Out of the Wood |
 | 5.0 part 2 | *The Siege of the Crystarium* | When It Rains → The Best Way Out |
 | 5.0 part 2 | *The Road to Nabaath Areng* | Free Trade → The Truth Hurts |
-| 5.0 part 2 | *The Oracle's Crossroads* | A Convenient Distraction → Crossing Paths |
+| 5.0 part 2 | *The Oracle's Fork in the Road* (renamed 2026-11-19: 7.1 has a quest called Crossroads) | A Convenient Distraction → Crossing Paths |
 | 5.0 part 3 | *The Last Foothold* | A Fresh Start → The Ladder |
 | 5.0 part 3 | *A Talos for Mt. Gulg* | The View from Above → Rich Veins of Hope |
 | 5.0 part 3 | *The Final Warden* | That None Shall Ever Again → In His Garden |

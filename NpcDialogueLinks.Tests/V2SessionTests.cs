@@ -544,8 +544,12 @@ public class V2LeakSweepTests
             Assert.All(row.EndCitations, c => Assert.True(allowed.Contains((c.Title, c.Url?.ToString())), $"end citation '{c.Title}' ({c.Url}) is not {row.Key}'s own available end evidence at {where}"));
         }
 
-        // No text names a later quest, an entity not yet introduced, or a source not yet available.
-        var later = known.Later.FirstHit(surface.Texts, at);
+        // No text names a later quest, an entity not yet introduced, or a source not yet available. A citation's own title
+        // and link are checked above (available by the view), and a later quest title inside one spoils nothing: 5.0's
+        // "On Track" and 7.0's, or "Travelers at the Crossroads" (6.0) and "Crossroads" (7.1). Mirrors the build's lint.
+        var cited = surface.Citations.Concat(surface.Rows.Where(r => r.InChangesEnded).SelectMany(r => r.Row.EndCitations))
+            .SelectMany(c => new[] { c.Title, c.Url?.ToString() }).OfType<string>().ToHashSet();
+        var later = known.Later.FirstHit(surface.Texts.Where(t => !cited.Contains(t)), at);
         Assert.True(later is null, $"'{later?.Needle}' leaked at {where}: {later?.Text}");
 
         // Pickers and prompts never name a quest past the limit (milestones are named on purpose).
@@ -637,11 +641,13 @@ public class V2LeakSweepTests
                 later.Add(title, Math.Min(last, titleFrom.GetValueOrDefault(title, int.MaxValue)));
             }
 
-            foreach (var c in d.Checkpoints.Where(c => c.QuestTitle is not null))
+            // A quest title shared by two steps (Shadowbringers' and Dawntrail's "On Track") is known from the earlier one.
+            foreach (var c in d.Checkpoints.Where(c => c.QuestTitle is not null).DistinctBy(c => c.QuestTitle))
             {
                 later.Add(c.QuestTitle!, c.Order);
             }
 
+            later.AddTitleContainers(d);
             return cache[contentView] = new KnownFrom(entityFrom, relationshipFrom, sourceFrom, later);
         }
     }
@@ -649,15 +655,24 @@ public class V2LeakSweepTests
     /// <summary>Quest titles and step labels, each bad in a picker while the limit is below its step.</summary>
     private static TextScanner Locked(AtlasDataset d) => LockedCache.GetValue(d, data =>
     {
-        var scanner = new TextScanner();
+        // A label or title is fine once its earliest step is reached: Shadowbringers' "On Track" (#613) and Dawntrail's
+        // (#911) share one, and only the earlier counts (2026-11-19).
+        var first = new Dictionary<string, int>();
         foreach (var c in data.Checkpoints)
         {
             foreach (var text in new[] { c.Milestone ? null : c.Label, c.QuestTitle }.OfType<string>())
             {
-                scanner.Add(text, c.Order);
+                first.TryAdd(text, c.Order);
             }
         }
 
+        var scanner = new TextScanner();
+        foreach (var (text, order) in first)
+        {
+            scanner.Add(text, order);
+        }
+
+        scanner.AddTitleContainers(data);
         return scanner;
     });
 
@@ -678,6 +693,64 @@ public class V2LeakSweepTests
             byPrefix = null;
         }
 
+        private readonly Dictionary<string, List<(string Container, int From)>> containers = new();
+
+        /// <summary>
+        /// A needle inside a longer string that is fine from a given order is no leak there: "Crossroads" (7.1) inside
+        /// "Travelers at the Crossroads" (6.0) once that quest is reached.
+        /// </summary>
+        public void AddContainer(string needle, string container, int from)
+        {
+            if (!containers.TryGetValue(needle, out var list))
+            {
+                containers[needle] = list = new();
+            }
+
+            list.Add((container, from));
+        }
+
+        private bool InsideKnownContainer(string text, int i, string needle, int at)
+        {
+            if (!containers.TryGetValue(needle, out var list))
+            {
+                return false;
+            }
+
+            foreach (var (container, from) in list.Where(c => c.From <= at))
+            {
+                for (var p = text.IndexOf(container, StringComparison.Ordinal); p >= 0; p = text.IndexOf(container, p + 1, StringComparison.Ordinal))
+                {
+                    if (p <= i && i + needle.Length <= p + container.Length)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>Registers every quest title that sits inside another, earlier-or-equal quest title as such.</summary>
+        public void AddTitleContainers(AtlasDataset d)
+        {
+            var first = new Dictionary<string, int>();
+            foreach (var c in d.Checkpoints.Where(c => c.QuestTitle is not null))
+            {
+                first.TryAdd(c.QuestTitle!, c.Order);
+            }
+
+            foreach (var (needle, _) in first)
+            {
+                foreach (var (container, from) in first)
+                {
+                    if (container != needle && container.Contains(needle, StringComparison.Ordinal))
+                    {
+                        AddContainer(needle, container, from);
+                    }
+                }
+            }
+        }
+
         public (string Needle, string Text)? FirstHit(IEnumerable<string> texts, int at)
         {
             var index = byPrefix ??= until.GroupBy(kv => (kv.Key[0], kv.Key[1]))
@@ -693,7 +766,8 @@ public class V2LeakSweepTests
 
                     foreach (var (needle, u) in list)
                     {
-                        if (at < u && i + needle.Length <= text.Length && string.CompareOrdinal(text, i, needle, 0, needle.Length) == 0)
+                        if (at < u && i + needle.Length <= text.Length && string.CompareOrdinal(text, i, needle, 0, needle.Length) == 0
+                            && !InsideKnownContainer(text, i, needle, at))
                         {
                             return (needle, text);
                         }

@@ -21,6 +21,10 @@ Matsya, Nidhana, Khalzahl, Galuf, Ahewann, Vergilia, Licinia, Livingway, Growing
 Doros, Gnaeus, Mettius, Koana and several groups and places), and faces that would give a reveal or a later form away:
 Zero (a hooded voidsent until #818), Azdaja (her only card is the Shadow Dragon), Azem, the watcher, Al End, Stigma-1 and
 M-017, and the knight in black.
+Dawntrail (7.0–7.56) adds 51 picks. Left without one: entries with no faithful image (most of the Turali characters,
+the Dustwatch, the Endless and Oblivion as groups, and several places), and faces that would give a reveal away:
+Cahciua (a human face before #943 shows she is Endless), the Vulture and Wihuwte, Zoraal Ja (his only card shows a later
+form), Halmarut (disguised at first), Calyx (who changes form) and the simulant.
 """
 
 PORTRAITS = {
@@ -375,4 +379,56 @@ PORTRAITS = {
     'org-forum': (101101, 0.5, 0.5, 1.0, 'Quest illustration, A Guide of Sorts (MSQ #708)'),
     'org-loporrits': (101116, 0.45, 0.5, 1.0, 'Quest illustration, Heart of the Matter (MSQ #749)'),
     'org-omicrons': (101133, 0.8, 0.5, 1.0, 'Quest illustration, Hello, World (MSQ #803)'),
+    # Dawntrail (7.0–7.56), picked by the lead on 2026-11-19.
+    'char-doomtrain': (87456, 0.5, 0.4, 0.75, 'Triple Triad card #456'),
+    'char-enuo': (87471, 0.5, 0.4, 0.75, 'Triple Triad card #471'),
+    'char-gulool-ja': (87444, 0.5, 0.4, 0.75, 'Triple Triad card #444'),
+    'char-malphas': (87468, 0.5, 0.4, 0.75, 'Triple Triad card #468'),
+    'char-necron': (87448, 0.5, 0.4, 0.75, 'Triple Triad card #448'),
+    'char-nitowikwe': (87465, 0.5, 0.4, 0.75, 'Triple Triad card #465'),
+    'char-original-sphene': (87425, 0.5, 0.4, 0.75, 'Triple Triad card #425'),
+    'char-otis': (87422, 0.5, 0.4, 0.75, 'Triple Triad card #422'),
+    'char-sphene': (87425, 0.5, 0.4, 0.75, 'Triple Triad card #425'),
+    'char-valigarmanda': (87418, 0.5, 0.4, 0.75, 'Triple Triad card #418'),
+    'char-zelenia': (87438, 0.5, 0.4, 0.75, 'Triple Triad card #438'),
+    'evt-a-feast-to-end-a-war': (101321, 0.5, 0.5, 1.0, 'Quest illustration, Taking a Stand (MSQ #896)'),
+    'evt-beneath-everkeep': (112592, 0.5, 0.5, 1.0, 'Quest illustration, Descent to the Foundation (MSQ #966)'),
+    'evt-beyond-the-barrier': (101330, 0.3, 0.5, 1.0, 'Quest illustration, The Land of Levin (MSQ #921)'),
+    'evt-children-left-behind': (101385, 0.5, 0.5, 1.0, 'Quest illustration, A Royal Invitation (MSQ #954)'),
+    'evt-landfall-in-tuliyollal': (101308, 0.5, 0.5, 1.0, 'Quest illustration, A New World to Explore (MSQ #854)'),
+    'evt-siege-from-the-dome': (101327, 0.5, 0.5, 1.0, 'Quest illustration, And the Land Would Tremble (MSQ #913)'),
+    'evt-survivors-of-the-storm-surge': (101468, 0.5, 0.5, 1.0, 'Quest illustration, With the Winds (MSQ #979)'),
+    'evt-the-bandits-of-shaaloani': (101326, 0.4, 0.5, 1.0, 'Quest illustration, Law of the Land (MSQ #910)'),
+    'evt-the-cloister-of-mamook': (101322, 0.8, 0.5, 1.0, 'Quest illustration, City of Silence (MSQ #898)'),
+    'evt-the-fear-of-death': (112611, 0.5, 0.5, 1.0, 'Quest illustration, A Terminal Invitation (MSQ #976)'),
+    'evt-the-harvest-of-five-thousand': (101431, 0.6, 0.5, 1.0, 'Quest illustration, Targeted Tragedy (MSQ #969)'),
+    'evt-the-ice-locked-sky': (101497, 0.55, 0.5, 1.0, 'Quest illustration, A Rush of Cold Wind (MSQ #994)'),
+    'evt-the-last-terminal': (101341, 0.4, 0.5, 1.0, 'Quest illustration, In Search of Discovery (MSQ #951)'),
+    'evt-the-moblin-potpact': (101315, 0.5, 0.5, 1.0, 'Quest illustration, Lending a Helphand (MSQ #875)'),
+    'evt-the-queen-who-slept': (101412, 0.5, 0.5, 1.0, 'Quest illustration, A Glimmer of the Past (MSQ #961)'),
+    'evt-the-queens-secret': (101332, 0.5, 0.5, 1.0, "Quest illustration, The Queen's Tour (MSQ #928)"),
+    'evt-the-reeds-of-ok-hanu': (101311, 0.5, 0.5, 1.0, 'Quest illustration, Knowing the Hanuhanu (MSQ #864)'),
+    'evt-the-speakers-heir': (101469, 0.5, 0.5, 1.0, 'Quest illustration, Where We Call Home (MSQ #986)'),
+    'evt-the-summit-of-everkeep': (101335, 0.5, 0.5, 1.0, 'Quest illustration, The Protector and the Destroyer (MSQ #936)'),
+    'evt-the-thinning-veil': (101493, 0.5, 0.5, 1.0, "Quest illustration, In Fate's Footsteps (MSQ #988)"),
+    'evt-the-unlost-world': (101337, 0.5, 0.5, 1.0, 'Quest illustration, Through the Gate of Gold (MSQ #942)'),
+    'evt-the-vidraal-unbound': (101318, 0.5, 0.5, 1.0, 'Quest illustration, The High Luminary (MSQ #885)'),
+    'evt-trading-up-in-urqopacha': (101313, 0.5, 0.5, 1.0, 'Quest illustration, Knowing the Pelupelu (MSQ #865)'),
+    'evt-two-vows-for-tuliyollal': (101324, 0.5, 0.5, 1.0, 'Quest illustration, Ever Greater, Ever Brighter (MSQ #905)'),
+    'loc-alexandria': (101330, 0.5, 0.5, 1.0, 'Quest illustration, The Land of Levin (MSQ #921)'),
+    'loc-iq-braax': (101320, 0.45, 0.5, 1.0, 'Quest illustration, Village of the Hunt (MSQ #892)'),
+    'loc-kozamauka': (101310, 0.5, 0.5, 1.0, "Quest illustration, To Kozama'uka (MSQ #859)"),
+    'loc-living-memory': (101338, 0.5, 0.5, 1.0, 'Quest illustration, Those Who Live Forever (MSQ #943)'),
+    'loc-mamook': (101322, 0.5, 0.5, 1.0, 'Quest illustration, City of Silence (MSQ #898)'),
+    'loc-shaaloani': (101325, 0.5, 0.5, 1.0, 'Quest illustration, The Long Road to Xak Tural (MSQ #906)'),
+    'loc-skydeep-cenote': (101323, 0.5, 0.5, 1.0, 'Quest illustration, Road to the Golden City (MSQ #903)'),
+    'loc-solution-nine': (101332, 0.2, 0.5, 1.0, "Quest illustration, The Queen's Tour (MSQ #928)"),
+    'loc-the-fourth': (101495, 0.5, 0.5, 1.0, 'Quest illustration, Trail to the Heavens (MSQ #992)'),
+    'loc-treno': (112634, 0.5, 0.5, 1.0, 'Quest illustration, Beyond the Mountains (MSQ #981)'),
+    'loc-urqopacha': (101312, 0.5, 0.5, 1.0, 'Quest illustration, To Urqopacha (MSQ #859b)'),
+    'loc-worlars-echo': (101317, 0.6, 0.5, 1.0, "Quest illustration, History's Keepers (MSQ #883)"),
+    'loc-yuweyawata': (112584, 0.5, 0.5, 1.0, 'Quest illustration, In Search of the Past (MSQ #956)'),
+    'org-hanuhanu': (101311, 0.82, 0.5, 1.0, 'Quest illustration, Knowing the Hanuhanu (MSQ #864)'),
+    'org-moblins': (87408, 0.5, 0.4, 0.75, 'Triple Triad card #408'),
+    'org-pelupelu': (87406, 0.5, 0.4, 0.75, 'Triple Triad card #406'),
 }
