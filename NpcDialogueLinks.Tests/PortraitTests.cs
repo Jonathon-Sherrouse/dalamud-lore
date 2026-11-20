@@ -145,6 +145,12 @@ public class PortraitTests
         "loc-castellum-velodyna", "loc-castrum-oriens", "loc-house-of-the-fierce", "loc-namai", "loc-specula-imperatoris",
         "org-confederacy", "org-doman-liberation-front", "org-dotharl", "org-ferae-domitae", "org-oronir", "org-populares", "org-raen",
         "org-sekiseigumi",
+        // Shadowbringers: no faithful image, a later-expansion card only, or a face that would give away a reveal.
+        "char-almet", "char-crystal-exarch", "char-fandaniel", "char-halric", "char-hyllfyr", "char-kai-shirr", "char-korutt",
+        "char-sicard", "char-tesleen", "char-tristol", "char-vauthry", "char-venat", "char-white-robed-figure", "char-wrenden",
+        "char-za-da", "char-zodiark", "evt-homeward-bound", "evt-the-missing-mayor", "loc-amaurot", "loc-the-first",
+        "loc-the-tempest", "org-bloody-executioners", "org-children-of-the-everlasting-dark", "org-convocation-of-fourteen",
+        "org-kobolds", "org-lightwardens", "org-telophoroi",
     ];
 
     [Fact]

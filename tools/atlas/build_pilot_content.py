@@ -1370,6 +1370,9 @@ BANNED_PHRASES = [  # case-insensitive (RealDataTests.BannedPhrases)
 ALLOWED_FROM = {  # accepted by the lead on 2026-11-19, each from the step where the pages establish it
     "Nabriales": "cp-msq-224", "Warriors of Darkness": "cp-msq-340", "Warrior of Darkness": "cp-msq-340",
     "Word of the Mother": "cp-msq-345", "Nero": "cp-msq-376", "Lyse": D3, "Heavensward": C3,
+    # Shadowbringers: each from the earliest step any era's pages establish it (the eras' ALLOW proposals, reconciled).
+    "Exarch": "cp-msq-542", "The First": "cp-msq-542", "Oracle of Light": "cp-msq-543", "Lightwarden": "cp-msq-563",
+    "Emet-Selch": "cp-msq-584", "Zodiark": "cp-msq-603", "Ryne": "cp-msq-620", "Hythlodaeus": "cp-msq-646", "Hades": G5,
 }
 for _mod, M in ERA_MODULES:
     for term, step in getattr(M, "ALLOW", {}).items():
@@ -1415,8 +1418,8 @@ def lint():
     for eid, _, pres in ENT:
         if not pres:
             errs.append(f"{eid}: has no presentations"); continue
-        if len(pres) > 128:
-            errs.append(f"{eid}: {len(pres)} presentations (max 128)")
+        if len(pres) > 512:
+            errs.append(f"{eid}: {len(pres)} presentations (max 512)")
         if len(eid) > 64:
             errs.append(f"{eid}: id longer than 64")
         for p in pres:

@@ -246,9 +246,9 @@ public class RealDataTests
     public void Real_MeetsPilotShape()
     {
         var dataset = LoadDraft();
-        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (268 through Stormblood).
+        // Every entry through NDL-012 is still there; the eras after 2.0 add the rest (358 through Shadowbringers).
         Assert.All(AllEntities.Concat(ArcEntities).Concat(ArrEntities), id => Assert.Contains(dataset.Entities, e => e.Id == id));
-        Assert.Equal(268, dataset.Entities.Count);
+        Assert.Equal(358, dataset.Entities.Count);
 
         var early = AtlasProjector.Project(dataset, Cp20, AtlasContentView.MainStory);
         var late = AtlasProjector.Project(dataset, Cp255, AtlasContentView.MainStory);
@@ -292,6 +292,10 @@ public class RealDataTests
         ["Nero"] = "cp-msq-376", // he introduces himself to the Alliance in The Obvious Solution
         ["Lyse"] = "cp-hw-3-56", // Yda is revealed as Lyse in The Far Edge of Fate
         ["Heavensward"] = "cp-hw-3-0", // the 3.0 finale's own quest title
+        // Shadowbringers: each from the earliest step any era's pages establish it (mirrors ALLOWED_FROM in the build).
+        ["Exarch"] = "cp-msq-542", ["The First"] = "cp-msq-542", ["Oracle of Light"] = "cp-msq-543", ["Lightwarden"] = "cp-msq-563",
+        ["Emet-Selch"] = "cp-msq-584", ["Zodiark"] = "cp-msq-603", ["Ryne"] = "cp-msq-620", ["Hythlodaeus"] = "cp-msq-646",
+        ["Hades"] = "cp-shb-5-0",
     };
 
     /// <summary>Terms of the 2.x story that must not surface before the quest that introduces them (case-insensitive).</summary>
