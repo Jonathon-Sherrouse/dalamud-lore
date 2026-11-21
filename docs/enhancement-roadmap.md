@@ -71,10 +71,6 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Add a setting to suppress repeated detections within the same conversation.
 - Add a user ignore list for noisy terms.
 
-## Approved: Atlas dictionary previews
-
-- `NDL-013` adds opt-in dictionary links to visible Atlas summaries and recaps. After a one-time spoiler warning, matching terms are subtly underlined and support hover definitions and click-through. See the [backlog](backlog.md).
-
 ## Approved: Atlas v2 (arc context)
 
 - **Priority (user decision, 2026-11-14):** Atlas v2 goes ahead of `Pre-Ship` and `Next Polish Pass`; those items stay open.
@@ -127,6 +123,8 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Add quest-aware actions only after runtime validation proves the active dialogue can be mapped to a specific quest.
 
 ## Completed
+
+- Added opt-in dictionary previews to Atlas summaries and recaps (`NDL-013`). Matching terms open the dictionary and show definitions on hover after a one-time spoiler warning.
 
 - Added ARR 2.0 before the Black Wolf to the Atlas (`NDL-012`, 2026-11-17). There is one story point per quest from MSQ #102, and five new arcs, from *The Road to Titan* to *The Road to Castrum Centri*. That brings the Atlas to 61 points, 6 arcs, 44 entries and 105 relationships, every claim checked verbatim against the wiki. The step bound rose to 128. The in-game check is untested.
 - Shipped Atlas portraits (`NDL-011`, 2026-11-16). 18 of 19 entries show a reviewed portrait from the player's own game data (Triple Triad cards, quest and duty art), on chart nodes, headers and the browse list; the Waking Sands keeps its shape. The local viewer draws the same portraits from a cache the repository tool fills from the user's install, and the chart's text placement matches the window. The story arc picker says where each arc starts and when it has ended. The in-game look is untested.
