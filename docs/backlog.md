@@ -12,6 +12,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
+- [ ] `NDL-013` **Link Atlas prose to dictionary entries**
+  - Owner: `lead`
+  - Outcome: Readers can look up a term without losing their place in the Atlas.
+  - Acceptance: Dictionary links start off. Enabling them requires a one-time warning that definitions may contain later-story spoilers. The choice persists and can be turned off. Whole terms and aliases in visible summaries and recaps get a subtle underline, a definition on hover, and a click-through to the selected dictionary entry. The local viewer uses the same matching and consent flow.
+  - Evidence: Host matching and consent tests, plugin and viewer builds, viewer smoke, and an in-game check.
+  - Dependencies: Accepted `NDL-010`; branch `codex/ndl-013-atlas-dictionary-links`.
+  - Substantive PR: [#38](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/38)
+
 ## User Accepted
 
 The user asked on 2026-11-17 for "a lot more story research to populate the Atlas" and chose the scope: the rest of A Realm Reborn 2.0 before the Black Wolf's Challenge, accepting a raised step bound.
