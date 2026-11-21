@@ -10,14 +10,15 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
+## In Review
+
 - [ ] `NDL-013` **Link Atlas prose to dictionary entries**
   - Owner: `lead`
   - Outcome: Readers can look up a term without losing their place in the Atlas.
   - Acceptance: Dictionary links start off. Enabling them requires a one-time warning that definitions may contain later-story spoilers. The choice persists and can be turned off. Whole terms and aliases in visible summaries and recaps get a subtle underline, a definition on hover, and a click-through to the selected dictionary entry. The local viewer uses the same matching and consent flow.
   - Evidence: Host matching and consent tests, plugin and viewer builds, viewer smoke, and an in-game check.
   - Dependencies: Accepted `NDL-010`; branch `codex/ndl-013-atlas-dictionary-links`.
-
-## In Review
+  - Substantive PR: [#38](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/38)
 
 ## User Accepted
 
