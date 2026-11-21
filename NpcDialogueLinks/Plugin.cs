@@ -78,10 +78,11 @@ public sealed class Plugin : IDalamudPlugin
         this.questMetadataProbe = new QuestMetadataProbe(PluginInterface, AddonLifecycle, ClientState, DataManager, TargetManager);
         this.termDictionary = new TermDictionary(
             Path.Combine(pluginDirectory, "terms.json"),
-            Path.Combine(PluginInterface.ConfigDirectory.FullName, "user-terms.json"));
+            Path.Combine(PluginInterface.ConfigDirectory.FullName, "user-terms.json"),
+            (exception, message) => Log.Warning(exception, "{DictionaryMessage}", message));
         this.dictionaryWindow = new DictionaryWindow(this.termDictionary, this.RefreshLastCandidates);
         this.settingsWindow = new SettingsWindow(this.configuration);
-        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider);
+        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider, this.termDictionary, this.dictionaryWindow.OpenTerm);
         this.windowSystem.AddWindow(this.dictionaryWindow);
         this.windowSystem.AddWindow(this.settingsWindow);
         this.windowSystem.AddWindow(this.loreExplainWindow);

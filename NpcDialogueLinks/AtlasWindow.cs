@@ -18,6 +18,7 @@ namespace NpcDialogueLinks;
 /// </summary>
 internal sealed class AtlasWindow : Window
 {
+    private const string DictionaryWarningId = AtlasDictionaryOptions.Label + "##AtlasDictionaryWarning";
     private const string LimitMenuId = "AtlasLimitMenu";
     private const string ConfirmModalId = AtlasText.WindowTitle + "##AtlasConfirmRaise";
 
@@ -37,6 +38,8 @@ internal sealed class AtlasWindow : Window
     private readonly string dataPath;
     private readonly PluginConfiguration configuration;
     private readonly ITextureProvider textures;
+    private readonly TermDictionary dictionary;
+    private readonly Action<string> openDictionaryTerm;
 
     private AtlasSession? session;
     private bool loadFailed;
@@ -53,12 +56,15 @@ internal sealed class AtlasWindow : Window
     private (string? Relationship, string? Change, string? Focus) shownSelection;
     private bool forceRevealDetails;
 
-    public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures)
+    public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures,
+        TermDictionary dictionary, Action<string> openDictionaryTerm)
         : base($"{AtlasText.WindowTitle}###NpcDialogueLinksAtlas")
     {
         this.dataPath = dataPath;
         this.configuration = configuration;
         this.textures = textures;
+        this.dictionary = dictionary;
+        this.openDictionaryTerm = openDictionaryTerm;
         this.Size = new Vector2(960, 600);
         this.SizeCondition = ImGuiCond.FirstUseEver;
         this.SizeConstraints = new()
@@ -163,7 +169,12 @@ internal sealed class AtlasWindow : Window
         DrawLensBar(s);
         ImGui.Separator();
 
-        var footerHeight = ImGui.GetTextLineHeightWithSpacing() + (ImGui.GetStyle().ItemSpacing.Y * 2);
+        var style = ImGui.GetStyle();
+        var footerHelp = AtlasText.ContentViewHelp(s.ContentView);
+        var checkboxWidth = ImGui.CalcTextSize(AtlasDictionaryOptions.Label).X + ImGui.GetFrameHeight() + style.ItemInnerSpacing.X;
+        var footerFits = checkboxWidth + style.ItemSpacing.X + ImGui.CalcTextSize(footerHelp).X <= ImGui.GetContentRegionAvail().X;
+        var footerHeight = ImGui.GetFrameHeightWithSpacing() + (style.ItemSpacing.Y * 2)
+            + (footerFits ? 0 : ImGui.GetTextLineHeightWithSpacing());
         var bodyHeight = Math.Max(ImGui.GetContentRegionAvail().Y - footerHeight, 100 * scale);
         // Side panes give width to the chart in a small window (AtlasChartStyle), as the viewer's clamp() columns do.
         var contentWidth = ImGui.GetContentRegionAvail().X;
@@ -254,7 +265,14 @@ internal sealed class AtlasWindow : Window
             }
         }
 
-        ImGui.TextColored(MutedColor, AtlasText.ContentViewHelp(s.ContentView));
+        this.DrawDictionaryOptions();
+        if (footerFits)
+        {
+            ImGui.SameLine();
+            ImGui.AlignTextToFramePadding();
+        }
+
+        ImGui.TextColored(MutedColor, footerHelp);
 
         this.DrawConfirmModal(s);
     }
@@ -1032,8 +1050,8 @@ internal sealed class AtlasWindow : Window
             ImGui.TextColored(MutedColor, asOf);
         }
 
-        ImGui.TextWrapped(entry.Summary);
         ImGui.PopTextWrapPos();
+        this.DrawDictionaryProse(entry.Summary);
         DrawSources(s, entry.Citations, "arc-entry", AtlasText.SourcesToggle(entry.Citations.Count));
 
         string? refocus = null;
@@ -1214,16 +1232,77 @@ internal sealed class AtlasWindow : Window
         ImGui.PopTextWrapPos();
     }
 
-    private static void DrawEntitySummary(AtlasEntityView entity)
+    private void DrawEntitySummary(AtlasEntityView entity)
     {
-        ImGui.PushTextWrapPos();
-        ImGui.TextWrapped(entity.Summary);
+        this.DrawDictionaryProse(entity.Summary);
         if (entity.IncludesOptional)
         {
             OptionalTag(AtlasText.OptionalSummaryNote);
         }
+    }
 
+    private void DrawDictionaryProse(string text)
+    {
+        if (this.configuration.AtlasDictionaryPreviews == AtlasDictionaryPreference.Enabled)
+        {
+            var links = this.dictionary.FindAtlasLinks(text);
+            if (links.Count > 0)
+            {
+                AtlasDictionaryParagraph.Draw(text, links, this.openDictionaryTerm);
+                return;
+            }
+        }
+
+        ImGui.PushTextWrapPos();
+        ImGui.TextUnformatted(text);
         ImGui.PopTextWrapPos();
+    }
+
+    private void DrawDictionaryOptions()
+    {
+        var current = this.configuration.AtlasDictionaryPreviews;
+        var enabled = current == AtlasDictionaryPreference.Enabled;
+        if (ImGui.Checkbox(AtlasDictionaryOptions.Label, ref enabled))
+        {
+            var next = AtlasDictionaryOptions.Toggle(current);
+            if (next == AtlasDictionaryPreference.Unacknowledged)
+            {
+                ImGui.OpenPopup(DictionaryWarningId);
+            }
+            else
+            {
+                this.SaveDictionaryPreference(next);
+            }
+        }
+
+        ImGui.SetNextWindowSize(new Vector2(420 * ImGuiHelpers.GlobalScale, 0), ImGuiCond.Appearing);
+        using var modal = ImRaii.PopupModal(DictionaryWarningId, ImGuiWindowFlags.AlwaysAutoResize);
+        if (!modal)
+        {
+            return;
+        }
+
+        ImGui.PushTextWrapPos();
+        ImGui.TextUnformatted(AtlasDictionaryOptions.Warning);
+        ImGui.PopTextWrapPos();
+        ImGui.Spacing();
+        if (ImGui.Button(AtlasDictionaryOptions.Cancel))
+        {
+            ImGui.CloseCurrentPopup();
+        }
+
+        ImGui.SameLine();
+        if (ImGui.Button(AtlasDictionaryOptions.Enable))
+        {
+            this.SaveDictionaryPreference(AtlasDictionaryOptions.Confirm(current, warningOpen: true));
+            ImGui.CloseCurrentPopup();
+        }
+    }
+
+    private void SaveDictionaryPreference(AtlasDictionaryPreference preference)
+    {
+        this.configuration.AtlasDictionaryPreviews = preference;
+        this.configuration.Save();
     }
 
     private static void Muted(string text)

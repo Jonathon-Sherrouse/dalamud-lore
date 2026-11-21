@@ -16,10 +16,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="../NpcDialogueLinks/LinkCandidateExtractor.cs" Link="LinkCandidateExtractor.cs" />
+    <Compile Include="../NpcDialogueLinks/TermDictionary.cs" Link="TermDictionary.cs" />
     <Compile Include="../NpcDialogueLinks/Atlas/**/*.cs" Link="Atlas/%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="../NpcDialogueLinks/terms.json" Link="terms.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Update="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Update="sample-arc-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Update="wwwroot/**" CopyToOutputDirectory="PreserveNewest" />

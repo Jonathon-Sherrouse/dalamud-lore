@@ -76,6 +76,10 @@ Maintenance rules for every change (the in-game window shipped in `NDL-004`):
 | Portraits from the local cache (`tools/atlas/PortraitCache`); shapes without it. | Portraits from the game's own icons through Dalamud's texture provider; shapes until they load. |
 | v2 lenses (`NDL-008`): "← Whole cast" and the change marks `+ − ~`. | The same lenses (`NDL-010`): "< Whole cast" and `+ - ~` in plain ASCII, so they never depend on font coverage. |
 
+### Dictionary previews
+
+Enable **Dictionary previews** in the footer and confirm the one-time spoiler warning. Hover over underlined text for a definition, or click to open the viewer's read-only dictionary entry. The viewer remembers the choice in its own state file. Previews start off when upgrading from an older state file. It uses the bundled terms; pass `--user-terms /path/to/user-terms.json` to include your own dictionary.
+
 ## Tests
 
 ```sh

@@ -71,6 +71,10 @@ This is the working planning list for feature polish and future enhancements. Ag
 - Add a setting to suppress repeated detections within the same conversation.
 - Add a user ignore list for noisy terms.
 
+## Approved: Atlas dictionary previews
+
+- `NDL-013` adds opt-in dictionary links to visible Atlas summaries and recaps. After a one-time spoiler warning, matching terms are subtly underlined and support hover definitions and click-through. See the [backlog](backlog.md).
+
 ## Approved: Atlas v2 (arc context)
 
 - **Priority (user decision, 2026-11-14):** Atlas v2 goes ahead of `Pre-Ship` and `Next Polish Pass`; those items stay open.

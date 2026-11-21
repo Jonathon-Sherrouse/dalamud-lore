@@ -23,6 +23,8 @@ internal sealed class DictionaryWindow : Window
     private string? pendingDeleteTerm;
     private bool isEditing;
     private bool isCreatingNewEntry;
+    private (string Search, string? Term)? suspendedEditSelection;
+    private bool scrollToSelectedTerm;
 
     public DictionaryWindow(TermDictionary termDictionary, Action onDictionaryChanged)
         : base("NPC Dictionary###NpcDialogueLinksDictionary")
@@ -40,6 +42,26 @@ internal sealed class DictionaryWindow : Window
         this.RespectCloseHotkey = true;
     }
 
+    public void OpenTerm(string term)
+    {
+        if (!this.termDictionary.TryGetEntry(term, out _))
+        {
+            return;
+        }
+
+        if (this.isEditing)
+        {
+            this.suspendedEditSelection ??= (this.searchText, this.selectedTerm);
+        }
+
+        this.searchText = string.Empty;
+        this.selectedTerm = term;
+        this.pendingDeleteTerm = null;
+        this.scrollToSelectedTerm = true;
+        this.IsOpen = true;
+        this.BringToFront();
+    }
+
     public override void Draw()
     {
         ImGui.TextUnformatted("Dictionary");
@@ -50,9 +72,18 @@ internal sealed class DictionaryWindow : Window
         ImGui.SetNextItemWidth(-196);
         ImGui.InputTextWithHint("##NpcDictionarySearch", "Search terms...", ref this.searchText, 128);
         ImGui.SameLine();
-        if (ImGui.Button("New", new Vector2(88, 0)))
+        if (ImGui.Button(this.suspendedEditSelection.HasValue ? "Resume edit" : "New", new Vector2(88, 0)))
         {
-            this.StartNewEntry();
+            if (this.suspendedEditSelection is { } editSelection)
+            {
+                (this.searchText, this.selectedTerm) = editSelection;
+                this.suspendedEditSelection = null;
+                this.scrollToSelectedTerm = true;
+            }
+            else
+            {
+                this.StartNewEntry();
+            }
         }
 
         ImGui.SameLine();
@@ -104,10 +135,15 @@ internal sealed class DictionaryWindow : Window
                 {
                     this.selectedTerm = row.Term;
                     this.pendingDeleteTerm = null;
-                    if (this.isEditing)
+                    if (this.isEditing && !this.suspendedEditSelection.HasValue)
                     {
                         this.StartEditEntry(row.Term);
                     }
+                }
+
+                if (this.scrollToSelectedTerm && isSelected)
+                {
+                    ImGui.SetScrollHereY(0.5f);
                 }
             }
         }
@@ -115,7 +151,13 @@ internal sealed class DictionaryWindow : Window
         ImGui.TableSetColumnIndex(1);
         using (var rightChild = new ChildRegion("NpcDictionaryDefinition", new Vector2(0, availableHeight), false))
         {
-            if (this.isEditing)
+            if (this.scrollToSelectedTerm)
+            {
+                ImGui.SetScrollY(0f);
+                this.scrollToSelectedTerm = false;
+            }
+
+            if (this.isEditing && !this.suspendedEditSelection.HasValue)
             {
                 this.DrawEditor();
             }
@@ -153,7 +195,9 @@ internal sealed class DictionaryWindow : Window
         ImGui.Separator();
 
         ImGui.TextUnformatted("Definition");
-        ImGui.TextWrapped(selectedRow.Definition);
+        ImGui.PushTextWrapPos();
+        ImGui.TextUnformatted(selectedRow.Definition);
+        ImGui.PopTextWrapPos();
 
         if (this.termDictionary.TryGetEditableEntry(selectedRow.CanonicalName, out var editableEntry) &&
             editableEntry.Aliases.Count > 0)
@@ -164,6 +208,11 @@ internal sealed class DictionaryWindow : Window
         }
 
         ImGui.Spacing();
+
+        if (this.suspendedEditSelection.HasValue)
+        {
+            return;
+        }
 
         if (ImGui.Button("Edit Term", new Vector2(104, 0)))
         {

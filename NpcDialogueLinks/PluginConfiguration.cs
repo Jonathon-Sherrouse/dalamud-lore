@@ -1,5 +1,6 @@
 using Dalamud.Configuration;
 using Dalamud.Plugin;
+using NpcDialogueLinks.Atlas;
 
 namespace NpcDialogueLinks;
 
@@ -25,6 +26,8 @@ internal sealed class PluginConfiguration : IPluginConfiguration
 
     /// <summary>Lore Atlas "Viewing as of" checkpoint id. Revalidated against the data on every open.</summary>
     public string? AtlasViewId { get; set; }
+
+    public AtlasDictionaryPreference AtlasDictionaryPreviews { get; set; }
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
     {
