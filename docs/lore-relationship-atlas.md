@@ -2,6 +2,8 @@
 
 ## Status and priority exception
 
+**Atlas dictionary previews approved (NDL-013).** The Atlas annotates visible summaries and recaps with links to the live dictionary only after the player opts in and acknowledges a one-time spoiler warning. Definitions can reveal events beyond the selected checkpoint. With previews off, the Atlas shows its reviewed prose and checkpoint-filtered facts.
+
 **Atlas v2 approved (2026-11-14).** The user approved [Atlas v2: arc context](atlas/v2-plan.md) after an eight-round council review, and made it the priority ahead of `Pre-Ship`. v2 amends this contract as follows. The pilot text below stays the record of v1.
 - **Exclusions.** v2 lifts two items from the excluded list in [Fixed pilot scope](#fixed-pilot-scope): **story-event entities** (now the `event` category, with arc entries) and **automatic progression filtering**. Follow uses client completed-quest flags for authored `gameQuestIds` as the **only** allowed progress source, and moves only the view within the spoiler limit. The rest of the list stays excluded, including dictionary/Lore Explain bridges. v2's Lore Explain "Open Atlas" button only opens the window; no data passes between the two.
 - **Checkpoints.** v2 replaces "exactly two ordered checkpoints" with a main-scenario timeline of one "after this quest" step per covered quest. `cp-arr-2-0` and `cp-arr-2-55` stay as milestone steps.

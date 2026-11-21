@@ -57,13 +57,13 @@ internal static partial class LinkCandidateExtractor
             : Math.Min(exactIndex, sentenceCapitalizedIndex);
     }
 
-    private static int FindWholeTermVariantIndex(string dialogue, string term)
+    internal static int FindWholeTermVariantIndex(
+        string dialogue, string term, int searchIndex = 0, StringComparison comparison = StringComparison.Ordinal)
     {
-        var searchIndex = 0;
 
         while (searchIndex < dialogue.Length)
         {
-            var index = dialogue.IndexOf(term, searchIndex, StringComparison.Ordinal);
+            var index = dialogue.IndexOf(term, searchIndex, comparison);
             if (index < 0)
             {
                 return -1;

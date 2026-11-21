@@ -124,6 +124,8 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ## Completed
 
+- Added opt-in dictionary previews to Atlas summaries and recaps (`NDL-013`). Matching terms open the dictionary and show definitions on hover after a one-time spoiler warning.
+
 - Added ARR 2.0 before the Black Wolf to the Atlas (`NDL-012`, 2026-11-17). There is one story point per quest from MSQ #102, and five new arcs, from *The Road to Titan* to *The Road to Castrum Centri*. That brings the Atlas to 61 points, 6 arcs, 44 entries and 105 relationships, every claim checked verbatim against the wiki. The step bound rose to 128. The in-game check is untested.
 - Shipped Atlas portraits (`NDL-011`, 2026-11-16). 18 of 19 entries show a reviewed portrait from the player's own game data (Triple Triad cards, quest and duty art), on chart nodes, headers and the browse list; the Waking Sands keeps its shape. The local viewer draws the same portraits from a cache the repository tool fills from the user's install, and the chart's text placement matches the window. The story arc picker says where each arc starts and when it has ended. The in-game look is untested.
 - Shipped Atlas v2 without Follow (`NDL-006`, `NDL-008`–`NDL-010`, 2026-11-15). The in-game Atlas adds quest-level steps from MSQ #154 to #160, the first reviewed story arc (*The Black Wolf's Challenge*, a recap at every step and a cast of 10), and the Arc, Story point and Changes lenses. Lore Explain gains an Open Atlas button. The user accepted it without running the in-game test. Follow (`NDL-007`) stays parked.

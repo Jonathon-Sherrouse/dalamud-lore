@@ -29,7 +29,15 @@ This toggles the Atlas window. It works offline and needs no OpenAI key.
 - **Portraits.** Most entries show a picture from the game's own data (Triple Triad cards, quest and duty art) in a ring of their category colour, with their shape as a small badge. The Waking Sands has none, so it keeps its shape. Pictures load from your game install; the plugin ships none.
 - **Open Atlas** in the Lore Explain window opens this window. It passes nothing across; the Atlas keeps its own spoiler limit and view.
 
-Only the two spoiler controls are saved, in the plugin configuration. They are revalidated every time the window opens. The window reads the bundled `atlas.json` in Strict mode on every open. If the file is missing or invalid, only the Atlas shows a generic message; the structured errors go to the Dalamud log (`/xllog`), and every other plugin feature keeps working.
+**Dictionary previews** in the footer starts off. The first time you enable it, confirm the warning about later-story spoilers. Matching words and phrases in entry summaries and arc recaps get a dotted underline. Hover over a match for its definition, or click it to open that entry in the Dictionary. Turn previews off in the same spot. Your acknowledgement is remembered if you turn them back on.
+
+The two spoiler controls and dictionary preview preference are saved in the plugin configuration. The checkpoint selections are revalidated every time the window opens. The window reads the bundled `atlas.json` in Strict mode on every open. If the file is missing or invalid, only the Atlas shows a generic message; the structured errors go to the Dalamud log (`/xllog`), and every other plugin feature keeps working.
+
+### In-game check for dictionary previews
+
+1. Reload the plugin and open `/npclinks atlas`. On a fresh preference, hover a known term and verify the prose is plain. Toggle **Dictionary previews**, cancel the warning, and check again.
+2. Toggle again and select **Enable previews**. Hover a dotted term in a summary or recap, including a term that wraps across lines. Click it and verify the Dictionary opens on the definition shown in the tooltip. Return to the same Atlas entry.
+3. Turn previews off, reload the plugin, and verify the choice persisted. Turn them back on and verify they activate without another warning.
 
 ## Files
 

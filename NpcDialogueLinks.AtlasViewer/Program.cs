@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using NpcDialogueLinks;
 using NpcDialogueLinks.Atlas;
 
 // Local Atlas viewer. Usage:
@@ -45,7 +46,7 @@ Console.WriteLine($"Data: {options.DataPath} ({(options.Draft ? "Draft" : "Stric
 Console.WriteLine($"Portraits: {options.PortraitDir} ({(Directory.Exists(options.PortraitDir) ? "found" : "missing; run tools/atlas/PortraitCache to fill it")})");
 app.Run();
 
-internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, string StatePath, string PortraitDir)
+internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, string StatePath, string PortraitDir, string UserTermsPath)
 {
     public static ViewerOptions Parse(string[] args)
     {
@@ -54,6 +55,7 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
         var port = 5219;
         string? state = null;
         string? portraits = null;
+        string? userTerms = null;
         for (var i = 0; i < args.Length; i++)
         {
             switch (args[i])
@@ -63,6 +65,7 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
                 case "--draft": draft = true; break;
                 case "--port" when i + 1 < args.Length && int.TryParse(args[i + 1], out var p): port = p; i++; break;
                 case "--state" when i + 1 < args.Length: state = Path.GetFullPath(args[++i]); break;
+                case "--user-terms" when i + 1 < args.Length: userTerms = Path.GetFullPath(args[++i]); break;
                 case "--portraits" when i + 1 < args.Length: portraits = Path.GetFullPath(args[++i]); break;
             }
         }
@@ -72,7 +75,7 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
 
         // Game images never enter the repository: the cache lives beside the viewer's state, outside it.
         portraits ??= Path.Combine(DefaultFolder, "portraits");
-        return new ViewerOptions(data, draft, port, state, portraits);
+        return new ViewerOptions(data, draft, port, state, portraits, userTerms ?? Path.Combine(DefaultFolder, "user-terms.json"));
     }
 
     public static string DefaultFolder =>
@@ -81,13 +84,17 @@ internal sealed record ViewerOptions(string DataPath, bool Draft, int Port, stri
 
 internal sealed record ViewerAction(string Type, string? Value);
 
-internal sealed record SavedState(string? CeilingId, string? ViewId);
+internal sealed record SavedState(string? CeilingId, string? ViewId, AtlasDictionaryPreference DictionaryPreviews);
 
 /// <summary>Hosts one AtlasSession, the same way the plugin window will: load, guard, persist, render.</summary>
 internal sealed class ViewerHost(ViewerOptions options)
 {
     private readonly object gate = new();
     private readonly Dictionary<uint, (int Width, int Height)?> portraitSizes = new();
+    private readonly TermDictionary dictionary = new(Path.Combine(AppContext.BaseDirectory, "terms.json"),
+        options.UserTermsPath, (ex, message) => Console.Error.WriteLine($"[atlas] {message}: {ex.Message}"));
+    private AtlasDictionaryPreference dictionaryPreviews;
+    private bool dictionaryWarningOpen;
     private AtlasSession? session;
     private string? loadError;
 
@@ -112,6 +119,9 @@ internal sealed class ViewerHost(ViewerOptions options)
 
             var contentView = session?.ContentView ?? AtlasContentView.MainAndOptional;
             var saved = ReadSaved();
+            dictionaryPreviews = saved?.DictionaryPreviews ?? AtlasDictionaryPreference.Unacknowledged;
+            dictionaryWarningOpen = false;
+            dictionary.Reload();
             session = new AtlasSession(result.Dataset!, new AtlasSpoilerState(saved?.CeilingId ?? string.Empty, saved?.ViewId ?? string.Empty), contentView);
             session.SpoilerStateChanged += Save;
             Save(session.SpoilerState); // persist the revalidated state, as the plugin will after content updates
@@ -136,6 +146,17 @@ internal sealed class ViewerHost(ViewerOptions options)
             {
                 switch (action.Type)
                 {
+                    case "toggleDictionary":
+                        dictionaryPreviews = AtlasDictionaryOptions.Toggle(dictionaryPreviews);
+                        dictionaryWarningOpen = dictionaryPreviews == AtlasDictionaryPreference.Unacknowledged;
+                        Save(session.SpoilerState);
+                        break;
+                    case "confirmDictionary":
+                        dictionaryPreviews = AtlasDictionaryOptions.Confirm(dictionaryPreviews, dictionaryWarningOpen);
+                        dictionaryWarningOpen = false;
+                        Save(session.SpoilerState);
+                        break;
+                    case "cancelDictionary": dictionaryWarningOpen = false; break;
                     case "search": session.SetSearch(action.Value); break;
                     case "focus": session.FocusOn(action.Value); break;
                     case "selectRelationship": session.SelectRelationship(action.Value); break;
@@ -178,6 +199,8 @@ internal sealed class ViewerHost(ViewerOptions options)
         {
             ok = true,
             mode,
+            dictionaryEnabled = dictionaryPreviews == AtlasDictionaryPreference.Enabled,
+            dictionaryWarningOpen,
             portraitStyle = new
             {
                 nodeRadius = AtlasPortraitStyle.NodeRadius,
@@ -217,6 +240,11 @@ internal sealed class ViewerHost(ViewerOptions options)
             text = new
             {
                 title = AtlasText.WindowTitle,
+                dictionaryLabel = AtlasDictionaryOptions.Label,
+                dictionaryWarning = AtlasDictionaryOptions.Warning,
+                dictionaryEnable = AtlasDictionaryOptions.Enable,
+                dictionaryCancel = AtlasDictionaryOptions.Cancel,
+                dictionaryClose = AtlasDictionaryOptions.CloseEntry,
                 ceilingLabel = AtlasText.CeilingLabel,
                 viewLabel = AtlasText.ViewLabel,
                 contentViewHelp = AtlasText.ContentViewHelp(s.ContentView),
@@ -339,6 +367,7 @@ internal sealed class ViewerHost(ViewerOptions options)
         category = AtlasText.CategoryLabel(entity.Category),
         aliases = entity.Aliases,
         entity.Summary,
+        summaryLinks = dictionaryPreviews == AtlasDictionaryPreference.Enabled ? dictionary.FindAtlasLinks(entity.Summary) : null,
         glyph = AtlasText.CategoryGlyph(entity.Category),
         includesOptional = entity.IncludesOptional,
         citations = Citations(entity.Citations),
@@ -454,7 +483,7 @@ internal sealed class ViewerHost(ViewerOptions options)
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(options.StatePath)!);
-            File.WriteAllText(options.StatePath, JsonSerializer.Serialize(new SavedState(state.CeilingId, state.ViewId)));
+            File.WriteAllText(options.StatePath, JsonSerializer.Serialize(new SavedState(state.CeilingId, state.ViewId, dictionaryPreviews)));
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
         {
