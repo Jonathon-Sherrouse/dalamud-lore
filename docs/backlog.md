@@ -245,7 +245,7 @@ The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas
 
 ### Deferred: Follow (`NDL-007`)
 
-Atlas Follow remains deferred. The [progress investigation](atlas/follow-progress-investigation.md) includes the read-only adapter, host tests and Debug-only `/npclinks followprobe` command. To resume, run the guide's before-and-after checks on two characters and record whether either completed A Realm Reborn before the quest replacements in 2020 or 2022.
+**Resumed as `NDL-017` (user request, 2026-11-26).** The [progress investigation](atlas/follow-progress-investigation.md) includes the read-only adapter, host tests and Debug-only `/npclinks followprobe` command. Its before-and-after checks on two characters are still worth running: record whether either character completed A Realm Reborn before the quest replacements in 2020 or 2022.
 
 ### Deferred during the Atlas work (collected by the user's request, 2026-11-14)
 
@@ -261,7 +261,7 @@ Everything consciously put off during the Atlas pilot and the v2 planning, in on
 **Atlas views and behaviour**
 - **"During a quest" positions,** so facts that start and end inside one quest can be relationships. That needs a flagged amendment, because v2 keeps them as summary text.
 - **Richer Changes lens:** pairing a type change into one "~ changed" row, and distinguishing "revealed" from "began".
-- **Follow itself** is parked above, as `NDL-007`. Beyond it: **continuous Follow** (live updates, instead of on open or Refresh), and Follow for optional-quest progress.
+- **Follow itself** is `NDL-017`, which also re-reads when a quest is completed. Still parked: Follow for optional-quest progress.
 - **Optional quests on the timeline,** in some order. v2's timeline is main scenario only.
 - **Scene- or objective-level positions** inside a quest.
 - **Navigation history:** a back button. It was excluded from the pilot.
