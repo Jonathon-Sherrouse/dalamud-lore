@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    NDL-017: checks every Atlas step's game quest row against the player's own game data, with the same title rule
+    Follow uses in game. Never packaged. Uses the Lumina assemblies that ship with the Dalamud dev install.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DalamudLibPath Condition="'$(DalamudLibPath)' == ''">$(AppData)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../NpcDialogueLinks/Progress/QuestProgress.cs" Link="QuestProgress.cs" />
+    <Reference Include="Lumina" HintPath="$(DalamudLibPath)Lumina.dll" />
+    <Reference Include="Lumina.Excel" HintPath="$(DalamudLibPath)Lumina.Excel.dll" />
+  </ItemGroup>
+</Project>

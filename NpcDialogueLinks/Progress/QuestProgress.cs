@@ -5,7 +5,7 @@ namespace NpcDialogueLinks.Progress;
 
 // NDL-007: pure, host-testable rules for reading completed-quest progress.
 // No Dalamud or game types here; the game adapter is AtlasProgressSource.cs.
-// Follow's position logic (FollowPosition) is NDL-006's and lives in the Atlas core, not here.
+// Follow's position logic (AtlasFollow) lives in the Atlas core, not here.
 
 /// <summary>What the game client says about one quest. Unknown is never a synonym for incomplete.</summary>
 public enum QuestCompletion
@@ -226,6 +226,85 @@ public static class QuestTitles
         var right = Normalize(actual);
         return left.Length > 0 && string.Equals(left, right, StringComparison.Ordinal);
     }
+
+    /// <summary>
+    /// NDL-017: the cross-check for an Atlas step's authored title. Besides <see cref="Matches"/>, it accepts the Atlas's
+    /// city disambiguator ("Close to Home (Ul'dah)" for the game's "Close to Home") and the reviewed typography variants
+    /// in <see cref="ReviewedVariants"/>, each pinned to its row and to both spellings. Wording stays strict.
+    /// </summary>
+    public static bool MatchesAuthored(uint questRowId, string? authored, string? game)
+    {
+        if (Matches(authored, game) || Matches(StripDisambiguator(authored), game))
+        {
+            return true;
+        }
+
+        return ReviewedVariants.TryGetValue(questRowId, out var variant)
+            && Matches(variant.Authored, authored)
+            && Matches(variant.Game, game);
+    }
+
+    /// <summary>"Close to Home (Ul'dah)" → "Close to Home". Null when the title has no single trailing parenthetical.</summary>
+    public static string? StripDisambiguator(string? title)
+    {
+        var normalized = Normalize(title);
+        if (!normalized.EndsWith(')'))
+        {
+            return null;
+        }
+
+        var open = normalized.LastIndexOf(" (", StringComparison.Ordinal);
+        if (open <= 0 || open + 3 >= normalized.Length || normalized.IndexOf('(', open + 2) >= 0 || normalized.IndexOf(')', open) != normalized.Length - 1)
+        {
+            return null;
+        }
+
+        return normalized[..open];
+    }
+
+    /// <summary>
+    /// Authored titles that differ from the English Quest sheet only in typography, checked against the user's install
+    /// on 2026-11-26 with <c>tools/atlas/QuestRowCheck</c>. The Atlas keeps its spelling because citations and the
+    /// same-title rule use it; the game's spelling is pinned too, so a later rename still fails the check.
+    /// </summary>
+    public static IReadOnlyDictionary<uint, (string Authored, string Game)> ReviewedVariants { get; } = new Dictionary<uint, (string, string)>
+    {
+        [68865] = ("Stirring up Trouble", "Stirring Up Trouble"),
+        [68877] = ("Bearing With It", "Bearing with It"),
+        [69991] = ("A Test of Wιll", "Α Test of Wιll"), // the game's first letter is a Greek capital alpha
+    };
+}
+
+/// <summary>
+/// NDL-017: one gated read of every quest the Atlas covers, taken in a single framework tick. <see cref="Reason"/> is the
+/// gate's verdict, or the first data error (title mismatch, invalid row) when the gate passed.
+/// </summary>
+public sealed record QuestProgressSnapshot(int Generation, ProgressUnknownReason Reason, IReadOnlyDictionary<uint, QuestCompletion> Quests)
+{
+    public static QuestProgressSnapshot Failed(int generation) =>
+        new(generation, ProgressUnknownReason.ReadFailed, new Dictionary<uint, QuestCompletion>());
+
+    /// <summary>Unread rows are unknown, never incomplete.</summary>
+    public QuestCompletion this[uint questRowId] => Quests.TryGetValue(questRowId, out var state) ? state : QuestCompletion.Unknown;
+}
+
+/// <summary>NDL-017: what Follow tells the player when progress reads unknown, and whether waiting can fix it.</summary>
+public static class FollowStatusText
+{
+    public static string? Hint(ProgressUnknownReason reason) => reason switch
+    {
+        ProgressUnknownReason.None => null,
+        ProgressUnknownReason.LoggedOut or ProgressUnknownReason.PlayerNotLoaded or ProgressUnknownReason.NoCharacter
+            => "Log in to a character to read your progress.",
+        ProgressUnknownReason.TitleMismatch or ProgressUnknownReason.InvalidQuestRow
+            => "The Atlas quest list doesn't match this game version, so Follow can't place you.",
+        ProgressUnknownReason.ReadFailed => "The game didn't return your progress. Try Refresh.",
+        _ => "Waiting for the game to finish loading.",
+    };
+
+    /// <summary>Unknown for a reason that can clear by itself (logging in, loading). Data errors never do.</summary>
+    public static bool IsTransient(ProgressUnknownReason reason) =>
+        reason is not (ProgressUnknownReason.None or ProgressUnknownReason.TitleMismatch or ProgressUnknownReason.InvalidQuestRow);
 }
 
 /// <summary>

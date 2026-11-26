@@ -17,7 +17,7 @@ public enum AtlasFollowKind
     /// <summary>A covered step the view can follow to.</summary>
     Position,
 
-    /// <summary>The player has not completed the first covered step.</summary>
+    /// <summary>The player has completed no covered step.</summary>
     BeforeCoverage,
 
     /// <summary>Any covered step reads unknown, or the player is not logged in. Takes precedence.</summary>
@@ -42,9 +42,16 @@ public sealed record AtlasFollowResult(AtlasFollowKind Kind, string? CheckpointI
 public static class AtlasFollow
 {
     /// <summary>
-    /// The last step of the contiguous completed prefix among covered steps (those with game quest ids), clamped to the
-    /// limit. A step is complete when all its quests are complete.
+    /// The latest covered step (one with game quest ids) that the player has completed, clamped to the limit. A step's
+    /// quest ids are alternatives: any completed one completes it.
     /// </summary>
+    /// <remarks>
+    /// NDL-017 amendment: the timeline lays mutually exclusive paths end to end (the three starting-city chains, the
+    /// Grand Company pairs) and lists parallel quests one after another, so most players never complete some earlier
+    /// steps. A contiguous completed prefix would stop every Limsa Lominsa or Ul'dah starter at "before coverage", so
+    /// Follow takes the latest completed step instead. Main-scenario quests unlock in order, so completing a step means
+    /// the player finished the story before it on their own path.
+    /// </remarks>
     public static AtlasFollowResult Position(AtlasDataset dataset, Func<int, AtlasQuestProgress> progress, string ceilingId)
     {
         ArgumentNullException.ThrowIfNull(dataset);
@@ -60,24 +67,26 @@ public static class AtlasFollow
             return AtlasFollowResult.Unknown;
         }
 
-        var states = covered.Select(c => c.GameQuestIds.Select(progress).ToList()).ToList();
-        if (states.Any(s => s.Contains(AtlasQuestProgress.Unknown)))
+        AtlasCheckpoint? reached = null;
+        foreach (var checkpoint in covered)
         {
-            return AtlasFollowResult.Unknown;
+            var states = checkpoint.GameQuestIds.Select(progress).ToList();
+            if (states.Contains(AtlasQuestProgress.Unknown))
+            {
+                return AtlasFollowResult.Unknown;
+            }
+
+            if (states.Contains(AtlasQuestProgress.Complete) && (reached is null || checkpoint.Order > reached.Order))
+            {
+                reached = checkpoint;
+            }
         }
 
-        var prefix = -1;
-        while (prefix + 1 < covered.Count && states[prefix + 1].All(p => p == AtlasQuestProgress.Complete))
-        {
-            prefix++;
-        }
-
-        if (prefix < 0)
+        if (reached is null)
         {
             return AtlasFollowResult.BeforeCoverage;
         }
 
-        var reached = covered[prefix];
         return reached.Order > ceiling.Order
             ? new AtlasFollowResult(AtlasFollowKind.Position, ceiling.Id, true, reached.Id)
             : new AtlasFollowResult(AtlasFollowKind.Position, reached.Id, false, reached.Id);

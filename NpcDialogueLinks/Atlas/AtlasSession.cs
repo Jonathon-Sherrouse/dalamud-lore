@@ -109,6 +109,20 @@ public static class AtlasText
     /// <summary>Only a Follow result is presented as the player's progress.</summary>
     public static string FollowProgress(string questOrPoint) => $"Your progress: through {questOrPoint}";
 
+    // ---- Follow (NDL-017) ----
+
+    public const string FollowToggle = "Follow my progress";
+    public const string FollowTooltip = "Moves the view to the latest main-scenario quest you have completed, never past your spoiler limit. Reads your completed quests only.";
+    public const string FollowRefreshButton = "Refresh";
+    public const string FollowReading = "Reading your progress…";
+
+    /// <summary>Progress beyond the limit: names no quest past it, and reads sensibly beside the raise offer.</summary>
+    public const string FollowBeyondLimit = "Your progress is past your spoiler limit.";
+    public const string FollowRaiseButton = "Raise to my progress…";
+
+    /// <summary>The position line when Follow placed the view at the limit because progress is beyond it.</summary>
+    public static string FollowAtLimit(AtlasCheckpoint point) => $"{FollowBeyondLimit} {ViewingAt(point)}";
+
     /// <summary>A default or manually chosen position, never presented as "you are here".</summary>
     public static string ViewingAt(AtlasCheckpoint point) =>
         point.Milestone ? $"Viewing: {point.Label}" : $"Viewing: after {point.DisplayTitle}";
@@ -198,7 +212,7 @@ public static class AtlasText
     public static string EndSourcesToggle(int count) => $"Sources for the ending ({count})";
 }
 
-/// <summary>What the window shows (v2 plan, "Product shape"). Follow is deferred (user decision, 2026-11-14).</summary>
+/// <summary>What the window shows (v2 plan, "Product shape"). Follow is a toggle beside the lenses, not a lens.</summary>
 public enum AtlasLens
 {
     Arc,
@@ -324,8 +338,13 @@ public sealed class AtlasSession
             .Select(l => new AtlasLensOption(l, AtlasText.LensLabel(l), l == Lens))
             .ToList();
 
-    /// <summary>"Viewing: after ‹quest›": the chosen point, never "you are here" (v2 plan, "Honest positioning").</summary>
-    public string PositionLabel => AtlasText.ViewingAt(ViewCheckpoint);
+    /// <summary>
+    /// "Viewing: after ‹quest›", the chosen point, never "you are here" (v2 plan, "Honest positioning"). Only when Follow
+    /// placed the view does it read as the player's progress.
+    /// </summary>
+    public string PositionLabel => !FollowedHere ? AtlasText.ViewingAt(ViewCheckpoint)
+        : FollowResult!.BeyondLimit ? AtlasText.FollowAtLimit(ViewCheckpoint)
+        : AtlasText.FollowProgress(ViewCheckpoint.DisplayTitle);
 
     /// <summary>The coverage line on slice steps; null on milestones.</summary>
     public string? CoverageNote => ViewCheckpoint.Milestone ? null : AtlasText.CoverageNote;
@@ -670,12 +689,164 @@ public sealed class AtlasSession
 
     public void CancelPendingCeiling() => PendingCeiling = null;
 
+    /// <summary>A manual view change. It turns Follow off (v2 plan, "Follow").</summary>
     public AtlasStateChange SetView(string? checkpointId)
     {
         PendingCeiling = null;
         var result = AtlasSpoilerPolicy.SetView(Dataset, SpoilerState, checkpointId);
         Apply(result);
+        if (result.Change == AtlasStateChange.Changed)
+        {
+            SetFollow(false);
+        }
+
         return result.Change;
+    }
+
+    // ---- Follow (NDL-017) ----
+
+    private Func<int, AtlasQuestProgress>? followProgress;
+    private bool followRaiseOffered;
+
+    /// <summary>The Follow toggle. Only the host persists it; a Follow position is never persisted as progress.</summary>
+    public bool FollowEnabled { get; private set; }
+
+    /// <summary>The latest Follow result, or null while Follow is off or nothing has been read for this character.</summary>
+    public AtlasFollowResult? FollowResult { get; private set; }
+
+    /// <summary>The one neutral "your completed quests" raise is on offer (once per session and character).</summary>
+    public bool FollowRaiseOffered { get; private set; }
+
+    /// <summary>The offered raise awaits confirmation.</summary>
+    public bool FollowRaisePending { get; private set; }
+
+    /// <summary>The neutral confirmation for the Follow raise. It never names a quest.</summary>
+    public string? FollowRaisePrompt => FollowRaisePending ? AtlasText.ConfirmRaiseToProgress : null;
+
+    /// <summary>Follow placed the current view (the position line then reads as the player's progress).</summary>
+    public bool FollowedHere => FollowEnabled && FollowResult is { Kind: AtlasFollowKind.Position } result && result.CheckpointId == SpoilerState.ViewId;
+
+    /// <summary>
+    /// The Follow status line, or null when there is nothing to add to the position line. It never names a quest beyond
+    /// the limit: a clamped result names only the limit's own step.
+    /// </summary>
+    public string? FollowStatus => !FollowEnabled ? null
+        : FollowResult is not { } result ? AtlasText.FollowReading
+        : result.Kind == AtlasFollowKind.Unknown ? AtlasText.FollowUnknown
+        : result.Kind == AtlasFollowKind.BeforeCoverage ? AtlasText.FollowBeforeCoverage
+        : FollowedHere ? null
+        : result.BeyondLimit ? AtlasText.FollowBeyondLimit
+        : Dataset.TryGetCheckpoint(result.CheckpointId, out var point) ? AtlasText.FollowProgress(point.DisplayTitle)
+        : null;
+
+    /// <summary>Turn Follow on or off. Turning it off forgets the result and any raise offer; the view stays where it is.</summary>
+    public void SetFollow(bool enabled)
+    {
+        if (enabled == FollowEnabled)
+        {
+            return;
+        }
+
+        FollowEnabled = enabled;
+        if (!enabled)
+        {
+            FollowResult = null;
+            followProgress = null;
+            FollowRaiseOffered = false;
+            FollowRaisePending = false;
+        }
+    }
+
+    /// <summary>
+    /// Apply a fresh progress read (on window open, Refresh, or a completed quest). A position moves the view, clamped to
+    /// the limit, and ends an explicit arc pick; "before coverage" and "unknown" leave the view alone. Returns true when
+    /// the view moved. <paramref name="progress"/> must be a snapshot: it is kept for the raise confirmation.
+    /// </summary>
+    public bool ApplyFollow(Func<int, AtlasQuestProgress> progress)
+    {
+        ArgumentNullException.ThrowIfNull(progress);
+        if (!FollowEnabled)
+        {
+            return false;
+        }
+
+        followProgress = progress;
+        Evaluate(offerRaise: true);
+        if (FollowResult is not { Kind: AtlasFollowKind.Position } result || result.CheckpointId == SpoilerState.ViewId)
+        {
+            return false;
+        }
+
+        var change = AtlasSpoilerPolicy.SetView(Dataset, SpoilerState, result.CheckpointId);
+        if (change.Change != AtlasStateChange.Changed)
+        {
+            return false;
+        }
+
+        explicitArcId = null; // Follow moving the view ends an explicit arc pick (v2 plan, "Arc lens").
+        Apply(change);
+        return true;
+    }
+
+    /// <summary>A different character (or a logout): drop the result and any raise offer until the next read.</summary>
+    public void ResetFollowForCharacter()
+    {
+        FollowResult = null;
+        followProgress = null;
+        FollowRaiseOffered = false;
+        FollowRaisePending = false;
+        followRaiseOffered = false;
+    }
+
+    /// <summary>Ask to confirm the offered raise. Returns false when nothing is on offer.</summary>
+    public bool RequestFollowRaise()
+    {
+        FollowRaisePending = FollowRaiseOffered;
+        return FollowRaisePending;
+    }
+
+    /// <summary>Confirm the offered raise: the limit rises to the player's progress and the view does not move.</summary>
+    public AtlasStateChange ConfirmFollowRaise()
+    {
+        if (!FollowRaisePending || followProgress is null)
+        {
+            FollowRaisePending = false;
+            return AtlasStateChange.None;
+        }
+
+        var result = AtlasSpoilerPolicy.SetCeilingToFollowed(Dataset, SpoilerState, followProgress, confirmed: true);
+        FollowRaisePending = false;
+        FollowRaiseOffered = false;
+        Apply(result);
+        return result.Change;
+    }
+
+    /// <summary>Decline the offered raise. It is not offered again this session for this character.</summary>
+    public void CancelFollowRaise()
+    {
+        FollowRaisePending = false;
+        FollowRaiseOffered = false;
+    }
+
+    /// <summary>Recompute the Follow result from the last read against the current limit, without moving the view.</summary>
+    private void Evaluate(bool offerRaise)
+    {
+        if (!FollowEnabled || followProgress is null)
+        {
+            return;
+        }
+
+        FollowResult = AtlasFollow.Position(Dataset, followProgress, SpoilerState.CeilingId);
+        if (!FollowResult.BeyondLimit)
+        {
+            FollowRaiseOffered = false;
+            FollowRaisePending = false;
+        }
+        else if (offerRaise && !followRaiseOffered)
+        {
+            followRaiseOffered = true;
+            FollowRaiseOffered = true;
+        }
     }
 
     /// <summary>Switch between main-story-only and main-plus-optional records. Clears transient state like a checkpoint change.</summary>
@@ -697,7 +868,14 @@ public sealed class AtlasSession
             return;
         }
 
+        var ceilingChanged = result.State.CeilingId != SpoilerState.CeilingId;
         SpoilerState = result.State;
+        if (ceilingChanged)
+        {
+            // The Follow result is clamped to the limit, so re-clamp it; a limit change never moves the view for Follow.
+            Evaluate(offerRaise: false);
+        }
+
         Reproject(storySettingChanged: true);
         SpoilerStateChanged?.Invoke(SpoilerState);
     }

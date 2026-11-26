@@ -215,6 +215,71 @@ public class FollowProgressTests
         Assert.False(tracker.IsCurrent(0));
     }
 
+    // ---- NDL-017 ----
+
+    [Theory]
+    [InlineData(65644u, "Close to Home (Limsa Lominsa)", "Close to Home")]
+    [InlineData(66104u, "Close to Home (Ul’dah)", "Close to Home")]
+    [InlineData(70058u, "The Ultimate Weapon", "The Ultimate Weapon")]
+    [InlineData(68865u, "Stirring up Trouble", "Stirring Up Trouble")]
+    [InlineData(68877u, "Bearing With It", "Bearing with It")]
+    [InlineData(69991u, "A Test of Wιll", "Α Test of Wιll")]
+    [InlineData(69995u, "Vic┨οry ̈ ̈", "Vic┨οry  ̈ ̈")] // repeated spaces
+    public void AuthoredTitles_AcceptTheCityDisambiguatorAndReviewedVariants(uint row, string authored, string game)
+    {
+        Assert.True(QuestTitles.MatchesAuthored(row, authored, game));
+    }
+
+    [Theory]
+    [InlineData(65644u, "Close to Home (Limsa Lominsa)", "Call of the Sea")]
+    [InlineData(65644u, "Close to Home (Limsa Lominsa) (x)", "Close to Home")] // only one disambiguator is removed
+    [InlineData(65644u, "Close to Home ()", "Close to Home")]
+    [InlineData(70058u, "the ultimate weapon", "The Ultimate Weapon")] // case stays strict outside the reviewed list
+    [InlineData(68865u, "Stirring up Trouble", "Stirring Up Troubles")] // a later game rename still fails
+    [InlineData(68866u, "Stirring up Trouble", "Stirring Up Trouble")]  // a variant is pinned to its row
+    [InlineData(69991u, "A Test of Will", "Α Test of Wιll")]
+    public void AuthoredTitles_StayStrictOtherwise(uint row, string authored, string game)
+    {
+        Assert.False(QuestTitles.MatchesAuthored(row, authored, game));
+    }
+
+    [Theory]
+    [InlineData("Close to Home (Ul'dah)", "Close to Home")]
+    [InlineData("Call of the Sea (Gridania)", "Call of the Sea")]
+    [InlineData("Close to Home", null)]
+    [InlineData("(Ul'dah)", null)]
+    [InlineData("A (b) c", null)]
+    [InlineData("Close to Home ()", null)]
+    public void Disambiguator_IsOnlyOneTrailingParenthetical(string title, string? expected)
+    {
+        Assert.Equal(expected, QuestTitles.StripDisambiguator(title));
+    }
+
+    [Fact]
+    public void Snapshot_UnreadRowsAreUnknownNeverIncomplete()
+    {
+        var snapshot = new QuestProgressSnapshot(1, ProgressUnknownReason.None, new Dictionary<uint, QuestCompletion> { [65621] = QuestCompletion.Incomplete });
+        Assert.Equal(QuestCompletion.Incomplete, snapshot[65621]);
+        Assert.Equal(QuestCompletion.Unknown, snapshot[65644]);
+        Assert.Equal(QuestCompletion.Unknown, QuestProgressSnapshot.Failed(3)[65621]);
+        Assert.Equal(ProgressUnknownReason.ReadFailed, QuestProgressSnapshot.Failed(3).Reason);
+    }
+
+    [Theory]
+    [InlineData(ProgressUnknownReason.LoggedOut, true)]
+    [InlineData(ProgressUnknownReason.Loading, true)]
+    [InlineData(ProgressUnknownReason.QuestDataEmpty, true)]
+    [InlineData(ProgressUnknownReason.NotFrameworkThread, true)]
+    [InlineData(ProgressUnknownReason.ReadFailed, true)]
+    [InlineData(ProgressUnknownReason.TitleMismatch, false)]
+    [InlineData(ProgressUnknownReason.InvalidQuestRow, false)]
+    [InlineData(ProgressUnknownReason.None, false)]
+    public void Status_OnlyStatesThatCanClearAreRetried(ProgressUnknownReason reason, bool transient)
+    {
+        Assert.Equal(transient, FollowStatusText.IsTransient(reason));
+        Assert.Equal(reason == ProgressUnknownReason.None, FollowStatusText.Hint(reason) is null);
+    }
+
     private static QuestCompletionRead Complete(uint row) => QuestCompletionRead.Known(row, complete: true);
 
     private static QuestCompletionRead Incomplete(uint row) => QuestCompletionRead.Known(row, complete: false);

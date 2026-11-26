@@ -531,7 +531,7 @@ public class V2FollowTests
         id => id == unknown ? AtlasQuestProgress.Unknown : id <= completeThrough ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
 
     [Fact]
-    public void Follow_LandsOnTheLastStepOfTheCompletedPrefix()
+    public void Follow_LandsOnTheLatestCompletedStep()
     {
         Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s2", false, "s2"), AtlasFollow.Position(D, Progress(102), "m2"));
         Assert.Equal("m2", AtlasFollow.Position(D, Progress(999), "m2").CheckpointId);
@@ -544,21 +544,46 @@ public class V2FollowTests
     }
 
     [Fact]
-    public void Follow_PrefixStopsAtTheFirstIncompleteStep()
+    public void Follow_AnEarlierStepOffThePlayersPathDoesNotStopIt()
     {
-        // 100 and 101 done, 102 not, 103 done (out-of-order completion): the prefix ends at s1, never jumps to s3.
-        AtlasQuestProgress Gap(int id) => id is 100 or 101 or 103 ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
-        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s1", false, "s1"), AtlasFollow.Position(D, Gap, "m2"));
+        // NDL-017: 102 is another path's step (a different starting city, or the other half of a pair). The player
+        // completed 103 after it in the timeline, so Follow lands on s3 instead of stopping at s1.
+        AtlasQuestProgress OtherPath(int id) => id is 100 or 101 or 103 ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
+        Assert.Equal(new AtlasFollowResult(AtlasFollowKind.Position, "s3", false, "s3"), AtlasFollow.Position(D, OtherPath, "m2"));
     }
 
     [Fact]
-    public void Follow_AStepNeedsAllItsQuests()
+    public void Follow_AStepsQuestsAreAlternatives()
     {
+        // Starting-city variants, or a retired row beside its replacement: any completed row completes the step.
         var doc = V2Fx.Doc();
-        V2Fx.Checkpoint(doc, "s2")["gameQuestIds"] = new JsonArray(102, 150);
+        V2Fx.Checkpoint(doc, "s2")["gameQuestIds"] = new JsonArray(150, 102);
         var dataset = Fx.Load(doc);
-        AtlasQuestProgress Partial(int id) => id is 150 || id > 103 ? AtlasQuestProgress.Incomplete : AtlasQuestProgress.Complete;
-        Assert.Equal("s1", AtlasFollow.Position(dataset, Partial, "m2").CheckpointId);
+        AtlasQuestProgress OnlyTheVariant(int id) => id is 100 or 101 or 150 ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
+        Assert.Equal("s2", AtlasFollow.Position(dataset, OnlyTheVariant, "m2").CheckpointId);
+        AtlasQuestProgress OneUnknown(int id) => id == 150 ? AtlasQuestProgress.Unknown : id <= 102 ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
+        Assert.Equal(AtlasFollowResult.Unknown, AtlasFollow.Position(dataset, OneUnknown, "m2"));
+    }
+
+    [Theory]
+    [InlineData("cp-msq-1", "cp-msq-22")]   // Gridania
+    [InlineData("cp-msq-1b", "cp-msq-22b")] // Limsa Lominsa
+    [InlineData("cp-msq-1c", "cp-msq-22c")] // Ul'dah
+    public void Follow_EveryStartingCityReachesTheSharedStory(string chainStart, string chainEnd)
+    {
+        // The real timeline lays the three city chains end to end. A starter completes only their own chain, then the
+        // shared story from "It's Probably Pirates" (cp-msq-25); Follow must land there for all three.
+        var real = AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Draft).Dataset!;
+        var order = real.Checkpoints.ToDictionary(c => c.Id, c => c.Order);
+        var done = real.Checkpoints
+            .Where(c => (c.Order >= order[chainStart] && c.Order <= order[chainEnd]) || (c.Order >= order["cp-msq-25"] && c.Order <= order["cp-msq-30"]))
+            .SelectMany(c => c.GameQuestIds)
+            .ToHashSet();
+        AtlasQuestProgress Done(int id) => done.Contains(id) ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
+        Assert.Equal("cp-msq-30", AtlasFollow.Position(real, Done, "cp-arr-2-0").CheckpointId);
+
+        var onlyChain = real.Checkpoints.Where(c => c.Order >= order[chainStart] && c.Order <= order[chainEnd]).SelectMany(c => c.GameQuestIds).ToHashSet();
+        Assert.Equal(chainEnd, AtlasFollow.Position(real, id => onlyChain.Contains(id) ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete, "cp-arr-2-0").CheckpointId);
     }
 
     [Fact]

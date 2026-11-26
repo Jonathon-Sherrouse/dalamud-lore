@@ -1,7 +1,11 @@
+using System.Collections.Concurrent;
+using Dalamud.Game;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game;
+using Lumina.Excel;
 using Lumina.Excel.Sheets;
+using NpcDialogueLinks.Atlas;
 using NpcDialogueLinks.Progress;
 
 namespace NpcDialogueLinks;
@@ -14,8 +18,10 @@ namespace NpcDialogueLinks;
 /// failure reads as unknown.
 /// </summary>
 /// <remarks>
-/// Dalamud's <c>IUnlockState.IsQuestCompleted</c> is deliberately not used: it returns <c>false</c> when the
-/// player state isn't loaded, which would turn "unknown" into "incomplete".
+/// NDL-017: the flag comes from Dalamud's <c>IUnlockState.IsQuestCompleted</c>, which wraps the same
+/// <c>QuestManager.IsQuestComplete</c> check. On its own it returns <c>false</c> while the player state isn't loaded,
+/// which would turn "unknown" into "incomplete", so it is only called after the gate has passed. Its <c>Unlock</c>
+/// event tells Follow when a quest was completed.
 /// </remarks>
 internal sealed unsafe class AtlasProgressSource : IDisposable
 {
@@ -25,7 +31,13 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
     private readonly ICondition condition;
     private readonly IObjectTable objectTable;
     private readonly IDataManager dataManager;
+    private readonly IUnlockState unlockState;
     private readonly CharacterTracker characters = new();
+
+    // Static English game data, so the title cross-check works whatever language the client runs in.
+    private readonly ConcurrentDictionary<uint, string?> titles = new();
+    private ExcelSheet<Quest>? englishQuests;
+    private int questChangeSerial;
 
     public AtlasProgressSource(
         IFramework framework,
@@ -33,7 +45,8 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
         IPlayerState playerState,
         ICondition condition,
         IObjectTable objectTable,
-        IDataManager dataManager)
+        IDataManager dataManager,
+        IUnlockState unlockState)
     {
         this.framework = framework;
         this.clientState = clientState;
@@ -41,8 +54,10 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
         this.condition = condition;
         this.objectTable = objectTable;
         this.dataManager = dataManager;
+        this.unlockState = unlockState;
         this.clientState.Login += this.OnLogin;
         this.clientState.Logout += this.OnLogout;
+        this.unlockState.Unlock += this.OnUnlock;
     }
 
     /// <summary>Raised on the framework thread whenever earlier results stop belonging to the current character.</summary>
@@ -53,10 +68,17 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
 
     public bool HasCharacter => this.characters.Current.HasValue;
 
+    /// <summary>
+    /// Bumped whenever Dalamud reports a newly completed quest (on the framework thread). Safe to read from any thread;
+    /// a consumer re-reads when it changes. Dalamud also reports every completed quest once after login.
+    /// </summary>
+    public int QuestChangeSerial => Volatile.Read(ref this.questChangeSerial);
+
     public void Dispose()
     {
         this.clientState.Login -= this.OnLogin;
         this.clientState.Logout -= this.OnLogout;
+        this.unlockState.Unlock -= this.OnUnlock;
     }
 
     /// <summary>Sample the gate. Off the framework thread nothing else is touched.</summary>
@@ -129,14 +151,43 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
         return results;
     }
 
-    /// <summary>The game's title for a quest row, or null when the row doesn't exist. Static data; safe anywhere.</summary>
+    /// <summary>
+    /// NDL-017: read every quest of every covered Atlas step in one framework tick, from any thread. Never faults; a
+    /// failure reads as unknown. Each step's authored quest title is cross-checked (milestones carry none).
+    /// </summary>
+    public Task<QuestProgressSnapshot> ReadCheckpointsAsync(IReadOnlyList<AtlasCheckpoint> checkpoints)
+    {
+        var quests = checkpoints
+            .SelectMany(c => c.GameQuestIds.Select(id => ((uint)id, c.QuestTitle)))
+            .ToArray();
+        return this.framework.RunOnFrameworkThread(() => this.ReadSnapshot(quests))
+            .ContinueWith(
+                task =>
+                {
+                    if (task.IsCompletedSuccessfully)
+                    {
+                        return task.Result;
+                    }
+
+                    Plugin.Log.Warning(task.Exception, "Follow progress read failed; treating progress as unknown.");
+                    return QuestProgressSnapshot.Failed(this.CharacterGeneration);
+                },
+                TaskScheduler.Default);
+    }
+
+    /// <summary>The game's English title for a quest row, or null when the row doesn't exist. Static data; safe anywhere.</summary>
     public string? GetQuestTitle(uint questRowId)
     {
+        if (this.titles.TryGetValue(questRowId, out var cached))
+        {
+            return cached;
+        }
+
         try
         {
-            return this.dataManager.GetExcelSheet<Quest>().TryGetRow(questRowId, out var row)
-                ? row.Name.ExtractText()
-                : null;
+            var title = this.EnglishQuests.TryGetRow(questRowId, out var row) ? row.Name.ExtractText() : null;
+            this.titles[questRowId] = title;
+            return title;
         }
         catch (Exception exception)
         {
@@ -145,9 +196,37 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
         }
     }
 
+    private ExcelSheet<Quest> EnglishQuests => this.englishQuests ??= this.dataManager.GetExcelSheet<Quest>(ClientLanguage.English);
+
+    private QuestProgressSnapshot ReadSnapshot(IReadOnlyList<(uint QuestRowId, string? ExpectedTitle)> quests)
+    {
+        var reads = this.ReadMany(quests);
+        var states = new Dictionary<uint, QuestCompletion>(reads.Count);
+        var reason = ProgressUnknownReason.None;
+        foreach (var read in reads)
+        {
+            // A row listed by two steps keeps its worst read.
+            if (!states.ContainsKey(read.QuestRowId) || read.State == QuestCompletion.Unknown)
+            {
+                states[read.QuestRowId] = read.State;
+            }
+
+            if (reason == ProgressUnknownReason.None && read.Reason != ProgressUnknownReason.None)
+            {
+                reason = read.Reason;
+                if (read.Reason is ProgressUnknownReason.TitleMismatch or ProgressUnknownReason.InvalidQuestRow)
+                {
+                    Plugin.Log.Warning("Follow: Atlas quest row {QuestRowId} failed the cross-check ({Reason}).", read.QuestRowId, read.Reason);
+                }
+            }
+        }
+
+        return new QuestProgressSnapshot(this.CharacterGeneration, reason, states);
+    }
+
     private QuestCompletionRead ReadOne(uint questRowId, string? expectedTitle, int bitCount)
     {
-        if (!QuestIdMapping.TryToClientId(questRowId, bitCount, out var clientId))
+        if (!QuestIdMapping.TryToClientId(questRowId, bitCount, out _))
         {
             return QuestCompletionRead.Unknown(questRowId, ProgressUnknownReason.InvalidQuestRow);
         }
@@ -158,19 +237,28 @@ internal sealed unsafe class AtlasProgressSource : IDisposable
             return QuestCompletionRead.Unknown(questRowId, ProgressUnknownReason.InvalidQuestRow);
         }
 
-        if (expectedTitle is not null && !QuestTitles.Matches(expectedTitle, title))
+        if (expectedTitle is not null && !QuestTitles.MatchesAuthored(questRowId, expectedTitle, title))
         {
             return QuestCompletionRead.Unknown(questRowId, ProgressUnknownReason.TitleMismatch);
         }
 
         try
         {
-            return QuestCompletionRead.Known(questRowId, QuestManager.IsQuestComplete(clientId));
+            // The gate has passed, so IUnlockState's own "not loaded reads false" can't apply here.
+            return QuestCompletionRead.Known(questRowId, this.unlockState.IsQuestCompleted(this.EnglishQuests.GetRow(questRowId)));
         }
         catch (Exception exception)
         {
             Plugin.Log.Warning(exception, "Completed-quest read failed for row {QuestRowId}.", questRowId);
             return QuestCompletionRead.Unknown(questRowId, ProgressUnknownReason.ReadFailed);
+        }
+    }
+
+    private void OnUnlock(RowRef rowRef)
+    {
+        if (rowRef.Is<Quest>())
+        {
+            Interlocked.Increment(ref this.questChangeSerial);
         }
     }
 

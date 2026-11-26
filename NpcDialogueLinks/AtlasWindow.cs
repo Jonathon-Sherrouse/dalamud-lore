@@ -8,6 +8,7 @@ using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using NpcDialogueLinks.Atlas;
+using NpcDialogueLinks.Progress;
 
 namespace NpcDialogueLinks;
 
@@ -21,6 +22,8 @@ internal sealed class AtlasWindow : Window
     private const string DictionaryWarningId = AtlasDictionaryOptions.Label + "##AtlasDictionaryWarning";
     private const string LimitMenuId = "AtlasLimitMenu";
     private const string ConfirmModalId = AtlasText.WindowTitle + "##AtlasConfirmRaise";
+    private const string FollowConfirmModalId = AtlasText.WindowTitle + "##AtlasConfirmFollowRaise";
+    private static readonly TimeSpan FollowRetryInterval = TimeSpan.FromSeconds(3);
 
     // Palette shared with the local viewer's CSS (docs/atlas/ux-design.md, visual language).
     private static readonly Vector4 CharacterColor = new(0.498f, 0.698f, 0.898f, 1f);
@@ -40,6 +43,7 @@ internal sealed class AtlasWindow : Window
     private readonly ITextureProvider textures;
     private readonly TermDictionary dictionary;
     private readonly Action<string> openDictionaryTerm;
+    private readonly AtlasProgressSource progress;
 
     private AtlasSession? session;
     private bool loadFailed;
@@ -56,8 +60,17 @@ internal sealed class AtlasWindow : Window
     private (string? Relationship, string? Change, string? Focus) shownSelection;
     private bool forceRevealDetails;
 
+    // Follow (NDL-017): one read in flight at a time; what triggered the next one; the last unknown reason.
+    private Task<QuestProgressSnapshot>? followRead;
+    private bool followReadRequested;
+    private int followGeneration;
+    private int followQuestSerial;
+    private DateTime followRetryAt = DateTime.MaxValue;
+    private ProgressUnknownReason followReason;
+    private bool openFollowConfirmNextFrame;
+
     public AtlasWindow(string dataPath, PluginConfiguration configuration, ITextureProvider textures,
-        TermDictionary dictionary, Action<string> openDictionaryTerm)
+        TermDictionary dictionary, Action<string> openDictionaryTerm, AtlasProgressSource progress)
         : base($"{AtlasText.WindowTitle}###NpcDialogueLinksAtlas")
     {
         this.dataPath = dataPath;
@@ -65,6 +78,7 @@ internal sealed class AtlasWindow : Window
         this.textures = textures;
         this.dictionary = dictionary;
         this.openDictionaryTerm = openDictionaryTerm;
+        this.progress = progress;
         this.Size = new Vector2(960, 600);
         this.SizeCondition = ImGuiCond.FirstUseEver;
         this.SizeConstraints = new()
@@ -84,6 +98,8 @@ internal sealed class AtlasWindow : Window
         this.searchBuffer = string.Empty;
         this.syncedQuery = string.Empty;
         this.openConfirmNextFrame = false;
+        this.openFollowConfirmNextFrame = false;
+        this.followRead = null;
 
         var result = AtlasLoader.LoadFile(this.dataPath, AtlasValidationMode.Strict);
         if (!result.Success)
@@ -105,6 +121,10 @@ internal sealed class AtlasWindow : Window
             newSession.SpoilerStateChanged += this.SaveSpoilerState;
             this.session = newSession;
 
+            // Follow runs on open when the toggle is on (v2 plan, "Follow").
+            newSession.SetFollow(this.configuration.AtlasFollow);
+            this.RequestFollowRead();
+
             // Persist the revalidated state, so a stale or invalid saved state is repaired after content updates.
             this.SaveSpoilerState(newSession.SpoilerState);
         }
@@ -122,6 +142,7 @@ internal sealed class AtlasWindow : Window
         }
 
         this.session = null;
+        this.followRead = null; // a read still in flight finishes on the framework thread and is ignored
     }
 
     public override void Draw()
@@ -164,9 +185,11 @@ internal sealed class AtlasWindow : Window
     private void DrawSession(AtlasSession s)
     {
         var scale = ImGuiHelpers.GlobalScale;
+        this.PumpFollow(s);
         this.DrawTopBar(s);
         ImGui.Separator();
-        DrawLensBar(s);
+        this.DrawLensBar(s);
+        this.DrawFollowStatus(s);
         ImGui.Separator();
 
         var style = ImGui.GetStyle();
@@ -275,13 +298,167 @@ internal sealed class AtlasWindow : Window
         ImGui.TextColored(MutedColor, footerHelp);
 
         this.DrawConfirmModal(s);
+        this.DrawFollowRaiseModal(s);
+        if (this.configuration.AtlasFollow != s.FollowEnabled)
+        {
+            // The toggle, or a manual view change that turned Follow off. Only the toggle is saved, never a position.
+            this.configuration.AtlasFollow = s.FollowEnabled;
+            this.configuration.Save();
+        }
+    }
+
+    // ---- Follow (NDL-017) ----
+
+    /// <summary>
+    /// Drive Follow from the progress source: re-read on open, on Refresh, when Dalamud reports a completed quest, after
+    /// a character change, and every few seconds while progress is unknown for a reason that can clear (logging in,
+    /// loading). Reads run on the framework thread; results are applied here, where the session lives.
+    /// </summary>
+    private void PumpFollow(AtlasSession s)
+    {
+        if (!s.FollowEnabled)
+        {
+            this.followRead = null;
+            return;
+        }
+
+        if (this.followRead is { IsCompleted: true } done)
+        {
+            this.followRead = null;
+            var snapshot = done.Result; // ReadCheckpointsAsync never faults
+            if (snapshot.Generation != this.progress.CharacterGeneration)
+            {
+                this.followReadRequested = true; // the character changed while reading
+            }
+            else
+            {
+                this.followGeneration = snapshot.Generation;
+                this.followReason = snapshot.Reason;
+                s.ApplyFollow(id => ToAtlasProgress(snapshot[(uint)id]));
+                this.followRetryAt = FollowStatusText.IsTransient(snapshot.Reason) ? DateTime.UtcNow + FollowRetryInterval : DateTime.MaxValue;
+            }
+        }
+
+        var generation = this.progress.CharacterGeneration;
+        if (generation != this.followGeneration)
+        {
+            this.followGeneration = generation;
+            s.ResetFollowForCharacter();
+            this.followReadRequested = true;
+        }
+
+        var serial = this.progress.QuestChangeSerial;
+        if (serial != this.followQuestSerial)
+        {
+            this.followQuestSerial = serial;
+            this.followReadRequested = true;
+        }
+
+        if (this.followRead is null && (this.followReadRequested || DateTime.UtcNow >= this.followRetryAt))
+        {
+            this.followReadRequested = false;
+            this.followRetryAt = DateTime.MaxValue;
+            this.followRead = this.progress.ReadCheckpointsAsync(s.Dataset.Checkpoints);
+        }
+    }
+
+    private void RequestFollowRead()
+    {
+        this.followReadRequested = true;
+        this.followGeneration = this.progress.CharacterGeneration;
+        this.followQuestSerial = this.progress.QuestChangeSerial;
+        this.followRetryAt = DateTime.MaxValue;
+        this.followReason = ProgressUnknownReason.None;
+    }
+
+    private static AtlasQuestProgress ToAtlasProgress(QuestCompletion completion) => completion switch
+    {
+        QuestCompletion.Complete => AtlasQuestProgress.Complete,
+        QuestCompletion.Incomplete => AtlasQuestProgress.Incomplete,
+        _ => AtlasQuestProgress.Unknown,
+    };
+
+    /// <summary>The Follow status row: why progress is unavailable, where it is, and the one neutral raise offer.</summary>
+    private void DrawFollowStatus(AtlasSession s)
+    {
+        var status = s.FollowStatus;
+        if (status is not null && s.FollowResult is { Kind: AtlasFollowKind.Unknown } && FollowStatusText.Hint(this.followReason) is { } hint)
+        {
+            status = $"{status} {hint}";
+        }
+
+        if (status is null && !s.FollowRaiseOffered)
+        {
+            return;
+        }
+
+        if (status is not null)
+        {
+            ImGui.AlignTextToFramePadding();
+            ImGui.TextColored(MutedColor, status);
+        }
+
+        if (s.FollowRaiseOffered)
+        {
+            if (status is not null)
+            {
+                SameLineIfFits(ImGui.CalcTextSize(AtlasText.FollowRaiseButton).X + (ImGui.GetStyle().FramePadding.X * 2), 8 * ImGuiHelpers.GlobalScale);
+            }
+
+            if (ImGui.Button($"{AtlasText.FollowRaiseButton}##AtlasFollowRaise") && s.RequestFollowRaise())
+            {
+                this.openFollowConfirmNextFrame = true;
+            }
+        }
+    }
+
+    private void DrawFollowRaiseModal(AtlasSession s)
+    {
+        if (this.openFollowConfirmNextFrame)
+        {
+            ImGui.OpenPopup(FollowConfirmModalId);
+            this.openFollowConfirmNextFrame = false;
+        }
+
+        ImGui.SetNextWindowSize(new Vector2(420 * ImGuiHelpers.GlobalScale, 0), ImGuiCond.Appearing);
+        using var modal = ImRaii.PopupModal(FollowConfirmModalId, ImGuiWindowFlags.AlwaysAutoResize);
+        if (!modal)
+        {
+            return;
+        }
+
+        if (s.FollowRaisePrompt is not { } prompt)
+        {
+            ImGui.CloseCurrentPopup();
+            return;
+        }
+
+        ImGui.PushTextWrapPos(400 * ImGuiHelpers.GlobalScale);
+        ImGui.TextWrapped(prompt);
+        ImGui.PopTextWrapPos();
+        ImGui.Spacing();
+        if (ImGui.Button($"{AtlasText.CancelRaiseButton}##AtlasCancelFollowRaise"))
+        {
+            s.CancelFollowRaise();
+            ImGui.CloseCurrentPopup();
+        }
+
+        ImGui.SameLine();
+        if (ImGui.Button($"{AtlasText.ConfirmRaiseButton}##AtlasConfirmFollowRaise"))
+        {
+            s.ConfirmFollowRaise();
+            ImGui.CloseCurrentPopup();
+        }
     }
 
     /// <summary>The Arc lens with no arc covering the view (L7): the picker stays, everything else says so.</summary>
     private static bool NoArcHere(AtlasSession s) => s.Lens == AtlasLens.Arc && s.Arc is null;
 
-    /// <summary>The v2 lens bar (D6): the lens switch, the position line, and the coverage note on slice steps.</summary>
-    private static void DrawLensBar(AtlasSession s)
+    /// <summary>
+    /// The v2 lens bar (D6): the lens switch, the Follow toggle and Refresh (NDL-017), the position line, and the
+    /// coverage note on slice steps.
+    /// </summary>
+    private void DrawLensBar(AtlasSession s)
     {
         ImGui.AlignTextToFramePadding();
         ImGui.TextColored(MutedColor, AtlasText.LensLabelHeading);
@@ -292,6 +469,33 @@ internal sealed class AtlasWindow : Window
             if (ToggleButton($"{option.Label}##lens-{option.Lens}", option.IsCurrent) && !option.IsCurrent)
             {
                 picked = option.Lens;
+            }
+        }
+
+        ImGui.SameLine(0, 16 * ImGuiHelpers.GlobalScale);
+        if (ToggleButton($"{AtlasText.FollowToggle}##AtlasFollow", s.FollowEnabled))
+        {
+            s.SetFollow(!s.FollowEnabled);
+            if (s.FollowEnabled)
+            {
+                this.RequestFollowRead();
+            }
+        }
+
+        if (ImGui.IsItemHovered())
+        {
+            ImGui.SetTooltip(AtlasText.FollowTooltip);
+        }
+
+        if (s.FollowEnabled)
+        {
+            ImGui.SameLine();
+            using (ImRaii.Disabled(this.followRead is not null))
+            {
+                if (ImGui.Button($"{AtlasText.FollowRefreshButton}##AtlasFollowRefresh"))
+                {
+                    this.followReadRequested = true;
+                }
             }
         }
 
