@@ -28,6 +28,7 @@ internal sealed class QuestMetadataProbe : IDisposable
     private readonly IDalamudPluginInterface pluginInterface;
     private readonly ITargetManager targetManager;
     private readonly List<TalkAddonEventSnapshot> recentAddonSnapshots = [];
+    private QuestProbeRecord? lastLine;
 
     public QuestMetadataProbe(
         IDalamudPluginInterface pluginInterface,
@@ -58,36 +59,82 @@ internal sealed class QuestMetadataProbe : IDisposable
         this.Enabled = enabled;
         if (!enabled)
         {
+            this.lastLine = null;
             this.recentAddonSnapshots.Clear();
         }
     }
 
     public QuestProbeWriteResult CaptureDialogue(
-        string source,
         string dialogue,
-        string userVerifiedQuestName,
-        LoreContextMetadata context,
+        Func<LoreContextMetadata> captureContext,
         IReadOnlyList<string> knownTerms)
     {
-        if (string.IsNullOrWhiteSpace(dialogue))
+        // A failure on a new line must never leave the previous line available for labeling.
+        this.lastLine = null;
+        try
         {
-            return new QuestProbeWriteResult(false, string.Empty, "No dialogue has been captured yet.");
+            var loggedIn = this.clientState.IsLoggedIn;
+            var target = loggedIn ? this.targetManager.Target : null;
+            if (target is not null && !target.IsValid())
+            {
+                target = null;
+            }
+            var record = new QuestProbeRecord(
+                SchemaVersion: 2,
+                LineId: Guid.NewGuid(),
+                CreatedAt: DateTimeOffset.Now,
+                Source: "auto-dialogue",
+                Dialogue: dialogue,
+                UserVerifiedQuestName: string.Empty,
+                KnownTerms: knownTerms,
+                Context: loggedIn ? captureContext() : LoreContextMetadata.Empty,
+                Target: this.CaptureTarget(target),
+                AddonEvents: this.GetRecentAddonSnapshots(),
+                Runtime: loggedIn ? QuestProbeRuntime.Capture(this.dataManager, target) : null);
+            var result = this.Write(record);
+            if (result.Succeeded)
+            {
+                this.lastLine = record;
+            }
+
+            return result;
+        }
+        catch (Exception exception)
+        {
+            Plugin.Log.Warning(exception, "Failed to capture quest metadata probe.");
+            return new QuestProbeWriteResult(false, string.Empty, $"Failed to capture quest probe: {exception.Message}");
+        }
+    }
+
+    public QuestProbeWriteResult LabelLastDialogue(string label)
+    {
+        if (this.lastLine is null)
+        {
+            return new QuestProbeWriteResult(false, string.Empty, "Enable the quest probe and talk to an NPC before labeling a line.");
         }
 
+        if (string.IsNullOrWhiteSpace(label))
+        {
+            return new QuestProbeWriteResult(false, string.Empty, "Enter the journal quest name, or NO QUEST for ordinary NPC dialogue.");
+        }
+
+        var marked = this.lastLine with { Source = "manual-capture", UserVerifiedQuestName = label.Trim() };
+        var result = this.Write(marked);
+        if (!result.Succeeded)
+        {
+            return result;
+        }
+
+        var excerpt = marked.Dialogue.Length <= 100 ? marked.Dialogue : marked.Dialogue[..100] + "…";
+        return result with { Message = $"Labeled “{excerpt}” as {marked.UserVerifiedQuestName}." };
+    }
+
+    private QuestProbeWriteResult Write(QuestProbeRecord record)
+    {
         try
         {
             Directory.CreateDirectory(this.OutputDirectory);
-            var path = Path.Combine(this.OutputDirectory, $"quest-probe-{DateTimeOffset.Now:yyyyMMdd}.jsonl");
-            var record = new QuestProbeRecord(
-                CreatedAt: DateTimeOffset.Now,
-                Source: source,
-                Dialogue: dialogue,
-                UserVerifiedQuestName: userVerifiedQuestName.Trim(),
-                KnownTerms: knownTerms,
-                Context: context,
-                Target: this.CaptureTarget(),
-                AddonEvents: this.GetRecentAddonSnapshots());
-
+            var path = Path.Combine(this.OutputDirectory, $"quest-probe-{record.CreatedAt:yyyyMMdd}.jsonl");
             File.AppendAllText(path, JsonSerializer.Serialize(record, SerializerOptions) + Environment.NewLine);
             return new QuestProbeWriteResult(true, path, $"Quest probe captured: {path}");
         }
@@ -127,9 +174,8 @@ internal sealed class QuestMetadataProbe : IDisposable
     private IReadOnlyList<TalkAddonEventSnapshot> GetRecentAddonSnapshots()
         => this.recentAddonSnapshots.ToArray();
 
-    private QuestProbeTargetSnapshot CaptureTarget()
+    private QuestProbeTargetSnapshot CaptureTarget(IGameObject? target)
     {
-        var target = this.targetManager.Target;
         if (target is null)
         {
             return QuestProbeTargetSnapshot.Empty;
@@ -234,6 +280,8 @@ internal sealed class QuestMetadataProbe : IDisposable
 internal sealed record QuestProbeWriteResult(bool Succeeded, string Path, string Message);
 
 internal sealed record QuestProbeRecord(
+    int SchemaVersion,
+    Guid LineId,
     DateTimeOffset CreatedAt,
     string Source,
     string Dialogue,
@@ -241,7 +289,8 @@ internal sealed record QuestProbeRecord(
     IReadOnlyList<string> KnownTerms,
     LoreContextMetadata Context,
     QuestProbeTargetSnapshot Target,
-    IReadOnlyList<TalkAddonEventSnapshot> AddonEvents);
+    IReadOnlyList<TalkAddonEventSnapshot> AddonEvents,
+    QuestProbeRuntimeSnapshot? Runtime);
 
 internal sealed record QuestProbeTargetSnapshot(
     string Name,

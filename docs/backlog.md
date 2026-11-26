@@ -20,15 +20,15 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
   - Dependencies: `NDL-014` ([#40](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/40)); stacked on `codex/ndl-014-quest-probe-v2`.
   - Substantive PR: [#42](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/42)
 
-- [ ] `NDL-014` **Capture quest evidence with dialogue probe v2**
+## User Accepted
+
+- [x] `NDL-014` **Capture quest evidence with dialogue probe v2**
   - Owner: `runtime`
   - Outcome: A tester can compare a journal-verified quest name with the event and quest state captured for the same Talk line.
   - Acceptance: The opt-in probe writes versioned local records with available event identifiers and active/tracked quest evidence. A manual label reuses the latest line's snapshot. Missing runtime data is distinguishable from an empty quest list. Lore Explain continues to require verified ownership.
   - Evidence: Locked plugin build, capture/label checks, and an in-game reload with quest and ordinary NPC samples.
   - Dependencies: None.
-  - Substantive PR: [#40](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/40)
-
-## User Accepted
+  - Acceptance record: The user requested merge on 2026-11-26. The locked builds and host checks passed. The live Backrix and Oswold captures confirmed that labeling preserved the dialogue and journal evidence.
 
 - [x] `NDL-013` **Link Atlas prose to dictionary entries**
   - Owner: `lead`

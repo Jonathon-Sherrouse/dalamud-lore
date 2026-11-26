@@ -129,7 +129,7 @@ public sealed class Plugin : IDalamudPlugin
 
         if (this.questMetadataProbe.Enabled)
         {
-            var result = this.CaptureQuestProbe("auto-dialogue", string.Empty);
+            var result = this.questMetadataProbe.CaptureDialogue(dialogue, this.gameContextProvider.Capture, this.lastCandidates);
             if (!result.Succeeded)
             {
                 ChatGui.Print(result.Message, "NPC Links");
@@ -362,7 +362,7 @@ public sealed class Plugin : IDalamudPlugin
             case "on":
             case "enable":
                 this.questMetadataProbe.SetEnabled(true);
-                ChatGui.Print($"Quest probe enabled. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
+                ChatGui.Print($"Quest probe v2 enabled. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
                 ChatGui.Print("Talk to quest NPCs, then use /npclinks questprobe capture <verified quest name> when you know the quest.", "NPC Links");
                 break;
             case "off":
@@ -372,7 +372,7 @@ public sealed class Plugin : IDalamudPlugin
                 break;
             case "capture":
             case "mark":
-                this.PrintQuestProbeWriteResult(this.CaptureQuestProbe("manual-capture", rest));
+                this.PrintQuestProbeWriteResult(this.questMetadataProbe.LabelLastDialogue(rest));
                 break;
             case "path":
                 ChatGui.Print($"Quest probe output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
@@ -389,23 +389,8 @@ public sealed class Plugin : IDalamudPlugin
     private void PrintQuestProbeStatus()
     {
         var state = this.questMetadataProbe.Enabled ? "enabled" : "disabled";
-        ChatGui.Print($"Quest probe is {state}. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
+        ChatGui.Print($"Quest probe v2 is {state}. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
         ChatGui.Print("Usage: /npclinks questprobe on, then /npclinks questprobe capture <verified quest name> after a captured Talk line.", "NPC Links");
-    }
-
-    private QuestProbeWriteResult CaptureQuestProbe(string source, string userVerifiedQuestName)
-    {
-        var context = this.gameContextProvider.Capture();
-        var knownTerms = string.IsNullOrWhiteSpace(this.lastDialogue)
-            ? Array.Empty<string>()
-            : LinkCandidateExtractor.Extract(this.lastDialogue, this.termDictionary.MatchTerms);
-
-        return this.questMetadataProbe.CaptureDialogue(
-            source,
-            this.lastDialogue,
-            userVerifiedQuestName,
-            context,
-            knownTerms);
     }
 
     private void PrintQuestProbeWriteResult(QuestProbeWriteResult result)
