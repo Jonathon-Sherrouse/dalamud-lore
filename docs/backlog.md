@@ -6,18 +6,19 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
+The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
+
+The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
+
+## In Review
+
 - [ ] `NDL-015` **Identify quest dialogue from local scripts**
   - Owner: `runtime`
   - Outcome: A tester sees the quest title automatically when an NPC line matches one quest's script.
   - Acceptance: Enabling the probe loads scripts in the client language off the game thread. A unique exact line match displays the quest title and saves the quest row. Shared and absent lines show Unknown. Manual labels stay independent, and disabling or reloading the probe ends the session.
   - Evidence: Saved dialogue replay, shared and missing line checks, locked builds, and an in-game reload with one quest NPC and one ordinary NPC.
   - Dependencies: `NDL-014` ([#40](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/40)); stacked on `codex/ndl-014-quest-probe-v2`.
-
-The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
-
-The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
-
-## In Review
+  - Substantive PR: [#42](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/42)
 
 - [ ] `NDL-014` **Capture quest evidence with dialogue probe v2**
   - Owner: `runtime`
