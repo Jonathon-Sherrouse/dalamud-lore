@@ -13,9 +13,9 @@ using NpcDialogueLinks.Progress;
 namespace NpcDialogueLinks;
 
 /// <summary>
-/// The in-game Lore Atlas (NDL-004, v2 lenses in NDL-010). A thin ImGui renderer over the shared <see cref="AtlasSession"/>:
+/// The in-game Lore Atlas (NDL-004, arcs in NDL-010, one map in NDL-018). A thin ImGui renderer over the shared <see cref="AtlasSession"/>:
 /// every browsing rule and player-facing string lives in NpcDialogueLinks/Atlas/, and the local viewer renders the same
-/// session. Layout and visual language follow docs/atlas/ux-design.md (NDL-005, and "v2 lenses" from NDL-008).
+/// session. Layout and visual language follow docs/atlas/ux-design.md (NDL-005, "v2 lenses" from NDL-008, and "One map").
 /// </summary>
 internal sealed class AtlasWindow : Window
 {
@@ -49,15 +49,15 @@ internal sealed class AtlasWindow : Window
     private bool loadFailed;
     private string searchBuffer = string.Empty;
 
-    // The search text the window last saw in the session. When the session changes it (a lens, view or limit change
+    // The search text the window last saw in the session. When the session changes it (a view, limit or arc change
     // clears it), the input box is reset to match instead of pushing its stale text back.
     private string syncedQuery = string.Empty;
     private bool openConfirmNextFrame;
 
-    // Pane scroll (council round 3): panes reset when the lens, view or content view changes, as in the viewer, and the
-    // details pane shows a new selection's card or subject from the top.
+    // Pane scroll (council round 3): panes reset when the view, content view or story arc changes, as in the viewer, and
+    // the details pane shows a new selection's card or subject from the top.
     private string? scrollContext;
-    private (string? Relationship, string? Change, string? Focus) shownSelection;
+    private (string? Relationship, string? Focus) shownSelection;
     private bool forceRevealDetails;
 
     // Follow (NDL-017): one read in flight at a time; what triggered the next one; the last unknown reason.
@@ -189,7 +189,7 @@ internal sealed class AtlasWindow : Window
         this.PumpFollow(s);
         this.DrawTopBar(s);
         ImGui.Separator();
-        this.DrawLensBar(s);
+        this.DrawPositionBar(s);
         this.DrawFollowStatus(s);
         ImGui.Separator();
 
@@ -207,56 +207,37 @@ internal sealed class AtlasWindow : Window
         var spacing = ImGui.GetStyle().ItemSpacing.X;
         var graphWidth = Math.Max(ImGui.GetContentRegionAvail().X - browseWidth - detailsWidth - (spacing * 2), 120 * scale);
 
-        var context = $"{s.Lens}|{s.SpoilerState.ViewId}|{s.ContentView}";
+        var context = $"{s.SpoilerState.ViewId}|{s.ContentView}|{s.Arc?.ArcId}";
         var resetPanes = context != this.scrollContext;
         this.scrollContext = context;
-        var selection = (s.SelectedRelationshipId, s.SelectedChangeKey, s.FocusId);
+        var selection = (s.SelectedRelationshipId, s.FocusId);
         var revealDetails = resetPanes || this.forceRevealDetails
             || (selection.SelectedRelationshipId is not null && selection.SelectedRelationshipId != this.shownSelection.Relationship)
-            || (selection.SelectedChangeKey is not null && selection.SelectedChangeKey != this.shownSelection.Change)
             || (selection.FocusId is not null && selection.FocusId != this.shownSelection.Focus);
         this.shownSelection = selection;
         this.forceRevealDetails = false;
 
         // ImRaii scopes end every child and popup even if drawing throws, so a failure stays inside the Atlas.
-        if (s.Lens == AtlasLens.Changes)
+        using (var browse = ImRaii.Child("AtlasBrowse", new Vector2(browseWidth, bodyHeight), true))
         {
-            // D7: the change list takes the browse pane and the canvas.
-            using (var list = ImRaii.Child("AtlasChanges", new Vector2(browseWidth + spacing + graphWidth, bodyHeight), true))
+            if (browse)
             {
-                if (list)
+                if (resetPanes)
                 {
-                    if (resetPanes)
-                    {
-                        ImGui.SetScrollY(0);
-                    }
-
-                    DrawChangesList(s);
+                    ImGui.SetScrollY(0);
                 }
+
+                this.DrawBrowse(s);
             }
         }
-        else
+
+        ImGui.SameLine();
+        using (var graph = ImRaii.Child("AtlasGraph", new Vector2(graphWidth, bodyHeight), true, ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
         {
-            using (var browse = ImRaii.Child("AtlasBrowse", new Vector2(browseWidth, bodyHeight), true))
+            if (graph)
             {
-                if (browse)
-                {
-                    if (resetPanes)
-                    {
-                        ImGui.SetScrollY(0);
-                    }
-
-                    this.DrawBrowse(s);
-                }
-            }
-
-            ImGui.SameLine();
-            using (var graph = ImRaii.Child("AtlasGraph", new Vector2(graphWidth, bodyHeight), true, ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
-            {
-                if (graph)
-                {
-                    DrawGraph(s);
-                }
+                DrawTrail(s);
+                DrawGraph(s);
             }
         }
 
@@ -270,17 +251,9 @@ internal sealed class AtlasWindow : Window
                     ImGui.SetScrollY(0);
                 }
 
-                if (s.Lens == AtlasLens.Changes)
-                {
-                    DrawChangeDetails(s);
-                }
-                else if (s.ShowsWholeCast)
+                if (s.ShowsWholeCast)
                 {
                     DrawArcPanel(s);
-                }
-                else if (NoArcHere(s))
-                {
-                    Muted(AtlasText.NoArcHere);
                 }
                 else
                 {
@@ -450,28 +423,12 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    /// <summary>The Arc lens with no arc covering the view (L7): the picker stays, everything else says so.</summary>
-    private static bool NoArcHere(AtlasSession s) => s.Lens == AtlasLens.Arc && s.Arc is null;
-
     /// <summary>
-    /// The v2 lens bar (D6): the lens switch, the Follow toggle and Refresh (NDL-017), the position line, and the
-    /// coverage note on slice steps.
+    /// The second row (D6, without the lens switch since NDL-018): the Follow toggle and Refresh (NDL-017), the position
+    /// line, and the coverage note on slice steps.
     /// </summary>
-    private void DrawLensBar(AtlasSession s)
+    private void DrawPositionBar(AtlasSession s)
     {
-        ImGui.AlignTextToFramePadding();
-        ImGui.TextColored(MutedColor, AtlasText.LensLabelHeading);
-        AtlasLens? picked = null;
-        foreach (var option in s.LensOptions)
-        {
-            ImGui.SameLine();
-            if (ToggleButton($"{option.Label}##lens-{option.Lens}", option.IsCurrent) && !option.IsCurrent)
-            {
-                picked = option.Lens;
-            }
-        }
-
-        ImGui.SameLine(0, 16 * ImGuiHelpers.GlobalScale);
         if (ToggleButton($"{AtlasText.FollowToggle}##AtlasFollow", s.FollowEnabled))
         {
             s.SetFollow(!s.FollowEnabled);
@@ -508,11 +465,6 @@ internal sealed class AtlasWindow : Window
             ImGui.PushTextWrapPos();
             ImGui.TextColored(MutedColor, coverage);
             ImGui.PopTextWrapPos();
-        }
-
-        if (picked is { } lens)
-        {
-            s.SetLens(lens);
         }
     }
 
@@ -625,15 +577,9 @@ internal sealed class AtlasWindow : Window
 
     private void DrawBrowse(AtlasSession s)
     {
-        if (s.Lens == AtlasLens.Arc)
+        if (s.ArcPickerOffered)
         {
             DrawArcPicker(s);
-
-            // L7: with no arc here the browse pane is empty apart from the picker, so there is nothing to search.
-            if (s.Arc is null)
-            {
-                return;
-            }
         }
 
         if (!string.Equals(s.SearchQuery, this.syncedQuery, StringComparison.Ordinal))
@@ -664,11 +610,6 @@ internal sealed class AtlasWindow : Window
             ImGui.PushTextWrapPos();
             ImGui.TextColored(MutedColor, AtlasText.SelectionReset);
             ImGui.PopTextWrapPos();
-        }
-
-        if (NoArcHere(s))
-        {
-            return;
         }
 
         if (s.CastHeading is { } castHeading)
@@ -716,6 +657,42 @@ internal sealed class AtlasWindow : Window
         }
     }
 
+    /// <summary>
+    /// The trail above the map (NDL-018): every entry put in the middle, oldest first. Earlier steps are links back; the
+    /// last one names what is in the middle. It wraps inside the pane on narrow windows.
+    /// </summary>
+    private static void DrawTrail(AtlasSession s)
+    {
+        var steps = s.Trail;
+        if (steps.Count == 0)
+        {
+            return;
+        }
+
+        var pieces = new List<FlowPiece>();
+        for (var i = 0; i < steps.Count; i++)
+        {
+            var step = steps[i];
+            if (i > 0)
+            {
+                pieces.Add(new(AtlasText.TrailSeparator, MutedColor));
+            }
+
+            pieces.Add(step.IsCurrent
+                ? new(step.Name, TextColor)
+                : new(step.Name, HoverColor, $"trail-{i}-{step.EntityId}", i.ToString(System.Globalization.CultureInfo.InvariantCulture), Underline: true));
+        }
+
+        ImGui.PushTextWrapPos();
+        var back = Flow(pieces);
+        ImGui.PopTextWrapPos();
+        ImGui.Separator();
+        if (back is not null)
+        {
+            s.ReturnTo(int.Parse(back, System.Globalization.CultureInfo.InvariantCulture));
+        }
+    }
+
     private void DrawGraph(AtlasSession s)
     {
         var drawList = ImGui.GetWindowDrawList();
@@ -724,7 +701,7 @@ internal sealed class AtlasWindow : Window
         var layout = s.Layout;
         if (layout is null)
         {
-            var text = NoArcHere(s) ? AtlasText.NoArcHere : AtlasText.EmptyFocus;
+            var text = AtlasText.EmptyFocus;
             var textSize = ImGui.CalcTextSize(text);
             ImGui.SetCursorScreenPos(origin + ((size - textSize) / 2));
             ImGui.TextColored(MutedColor, text);
@@ -952,7 +929,7 @@ internal sealed class AtlasWindow : Window
         {
             var p = positions[node.Entity.Id];
             var r = radii[node.Entity.Id];
-            var canClick = !node.IsFocus || wholeCast;
+            var canClick = !node.IsFocus;
             ImGui.SetCursorScreenPos(p - new Vector2(r, r));
             var clicked = ImGui.InvisibleButton($"##node-{node.Entity.Id}", new Vector2(r * 2, r * 2));
             var hovered = ImGui.IsItemHovered();
@@ -964,7 +941,7 @@ internal sealed class AtlasWindow : Window
                 DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (3 * scale), ImGui.GetColorU32(new Vector4(1, 1, 1, 0.6f)), 2 * scale);
             }
 
-            // A clickable node, the whole-cast centre included, gets a hover ring (as in the viewer).
+            // A clickable node gets a hover ring (as in the viewer). The centre is already in the middle.
             if (hovered && canClick)
             {
                 DrawMarkOutline(drawList, node.Entity.Category, round, p, r + (node.IsFocus ? 6 : 2) * scale, ImGui.GetColorU32(HoverColor), 2 * scale);
@@ -1000,7 +977,6 @@ internal sealed class AtlasWindow : Window
                 }
             }
 
-            // The arc entry at the centre of the whole-cast chart can always be clicked (L4); a focused node cannot.
             if (clicked && canClick)
             {
                 refocus = node.Entity.Id;
@@ -1022,18 +998,6 @@ internal sealed class AtlasWindow : Window
             ImGui.TextColored(MutedColor, AtlasText.EmptyFocus);
             ImGui.PopTextWrapPos();
             return;
-        }
-
-        // L4: refocused inside an arc, a button returns to the whole-cast chart.
-        if (s.Lens == AtlasLens.Arc && s.Arc is not null)
-        {
-            if (ImGui.SmallButton($"< {AtlasText.WholeCastButton}##AtlasWholeCast"))
-            {
-                s.ShowWholeCast();
-                return;
-            }
-
-            ImGui.Spacing();
         }
 
         // The selected connection's card comes first, as in the arc panel, so picking an edge never pushes it below the fold.
@@ -1165,8 +1129,8 @@ internal sealed class AtlasWindow : Window
         ImGui.Spacing();
         ImGui.TextColored(MutedColor, AtlasText.SelectedConnectionHeading.ToUpperInvariant());
         ImGui.Separator();
-        var source = s.Snapshot.FindEntity(chosen.SourceId)?.Name ?? string.Empty;
-        var target = s.Snapshot.FindEntity(chosen.TargetId)?.Name ?? string.Empty;
+        var source = s.ChartSnapshot.FindEntity(chosen.SourceId)?.Name ?? string.Empty;
+        var target = s.ChartSnapshot.FindEntity(chosen.TargetId)?.Name ?? string.Empty;
         ImGui.PushTextWrapPos();
         ImGui.TextWrapped($"{source} {chosen.OutgoingLabel} {target}");
         ImGui.PopTextWrapPos();
@@ -1216,6 +1180,11 @@ internal sealed class AtlasWindow : Window
             s.PickArc(picked.ArcId);
         }
 
+        if (s.ArcPickerNote is { } note)
+        {
+            Muted(note);
+        }
+
         ImGui.Spacing();
     }
 
@@ -1236,7 +1205,7 @@ internal sealed class AtlasWindow : Window
         return clicked;
     }
 
-    /// <summary>The Arc lens at rest (L3): the arc's name, its reviewed recap, and what is new and what has ended so far.</summary>
+    /// <summary>The arc panel (L3): the arc's name, its reviewed recap, and what is new and what has ended so far.</summary>
     private void DrawArcPanel(AtlasSession s)
     {
         var arc = s.Arc!;
@@ -1270,8 +1239,8 @@ internal sealed class AtlasWindow : Window
         }
     }
 
-    /// <summary>An Arc-panel row list. Names refocus; ended rows say when they ended and carry no sources of any kind.</summary>
-    private static void DrawRowSection(string heading, IReadOnlyList<AtlasChangeRow> rows, string none, ref string? refocus)
+    /// <summary>An arc-panel row list. Names refocus; ended rows say when they ended and carry no sources of any kind.</summary>
+    private static void DrawRowSection(string heading, IReadOnlyList<AtlasArcRow> rows, string none, ref string? refocus)
     {
         ImGui.Spacing();
         ImGui.TextColored(MutedColor, heading.ToUpperInvariant());
@@ -1284,16 +1253,11 @@ internal sealed class AtlasWindow : Window
 
         foreach (var row in rows)
         {
-            if (row.Relationship is null)
-            {
-                continue;
-            }
-
             var pieces = new List<FlowPiece>
             {
-                new(row.Source!.Name, TextColor, $"arcrow-{row.Key}-s", row.Source.Id, Underline: true),
+                new(row.Source.Name, TextColor, $"arcrow-{row.Key}-s", row.Source.Id, Underline: true),
                 new(row.Relationship.OutgoingLabel, MutedColor),
-                new(row.Target!.Name, TextColor, $"arcrow-{row.Key}-t", row.Target.Id, Underline: true),
+                new(row.Target.Name, TextColor, $"arcrow-{row.Key}-t", row.Target.Id, Underline: true),
             };
             if (row.Relationship.IsOptional)
             {
@@ -1306,102 +1270,6 @@ internal sealed class AtlasWindow : Window
             }
 
             refocus = Flow(pieces) ?? refocus;
-        }
-    }
-
-    /// <summary>The Changes lens (L8, L9): a heading, then Added (+), Ended (−) and Description updated (~) rows.</summary>
-    private static void DrawChangesList(AtlasSession s)
-    {
-        if (!s.ChangesOffered)
-        {
-            Muted(AtlasText.ChangesNotOffered);
-            return;
-        }
-
-        ImGui.TextUnformatted(s.ChangesLabel ?? string.Empty);
-        var groups = s.ChangeGroups;
-        if (groups.Count == 0)
-        {
-            ImGui.Spacing();
-            Muted(AtlasText.NoChanges);
-            return;
-        }
-
-        string? pick = null;
-        foreach (var group in groups)
-        {
-            ImGui.Spacing();
-            ImGui.TextColored(MutedColor, group.Label.ToUpperInvariant());
-            ImGui.Separator();
-            foreach (var row in group.Rows)
-            {
-                var mark = ChangeMark(row.Kind);
-                var optional = row.Relationship?.IsOptional == true ? $"  [{AtlasText.OptionalTag}]" : string.Empty;
-                if (WrappedSelectable(mark, row.Text + optional, $"change-{row.Key}", row.Key == s.SelectedChangeKey) && row.Key != s.SelectedChangeKey)
-                {
-                    pick = row.Key;
-                }
-            }
-        }
-
-        if (pick is not null)
-        {
-            s.SelectChange(pick);
-        }
-    }
-
-    /// <summary>The selected change. End evidence appears here, on an "ended" row, and nowhere else (v2 spoiler rule 2).</summary>
-    private void DrawChangeDetails(AtlasSession s)
-    {
-        // The reset hint only makes sense where there is something to pick.
-        if (s.SelectionWasReset && s.ChangesOffered)
-        {
-            ImGui.PushTextWrapPos();
-            ImGui.TextColored(MutedColor, AtlasText.SelectionReset);
-            ImGui.PopTextWrapPos();
-            ImGui.Spacing();
-        }
-
-        if (!s.ChangesOffered)
-        {
-            return;
-        }
-
-        var row = s.SelectedChange;
-        if (row is null)
-        {
-            Muted(AtlasText.ChangesPickHint);
-            return;
-        }
-
-        // What the row did, first, so an ended relationship never reads as current (council round 1).
-        ImGui.PushTextWrapPos();
-        ImGui.TextColored(AccentColor, $"{ChangeMark(row.Kind)} {s.SelectedChangeStatus}");
-        ImGui.PopTextWrapPos();
-        ImGui.Spacing();
-
-        if (row.Entity is { } entity)
-        {
-            DrawEntityHeader(entity, withAliases: false);
-            ImGui.Spacing();
-            DrawEntitySummary(entity);
-            DrawSources(s, entity.Citations, "change-entity", AtlasText.SourcesToggle(entity.Citations.Count));
-            return;
-        }
-
-        var relationship = row.Relationship!;
-        ImGui.PushTextWrapPos();
-        ImGui.TextWrapped(row.Text);
-        ImGui.PopTextWrapPos();
-        if (relationship.IsOptional)
-        {
-            OptionalTag(AtlasText.OptionalTag);
-        }
-
-        DrawSources(s, relationship.Citations, "change-relationship", AtlasText.SourcesToggle(relationship.Citations.Count));
-        if (row.Kind == AtlasChangeKind.Ended)
-        {
-            DrawSources(s, row.EndCitations, "change-ending", AtlasText.EndSourcesToggle(row.EndCitations.Count));
         }
     }
 
@@ -1578,27 +1446,6 @@ internal sealed class AtlasWindow : Window
             }
         }
 
-        return clicked;
-    }
-
-    private static string ChangeMark(AtlasChangeKind kind) => kind switch
-    {
-        AtlasChangeKind.Added => "+",
-        AtlasChangeKind.Ended => "-",
-        _ => "~",
-    };
-
-    /// <summary>A full-width selectable row whose text wraps under a fixed mark column, for long Changes rows.</summary>
-    private static bool WrappedSelectable(string mark, string text, string id, bool selected)
-    {
-        var markWidth = ImGui.CalcTextSize("~").X + (10 * ImGuiHelpers.GlobalScale);
-        var start = ImGui.GetCursorScreenPos();
-        var wrap = Math.Max(ImGui.GetContentRegionAvail().X - markWidth, 40 * ImGuiHelpers.GlobalScale);
-        var height = ImGui.CalcTextSize(text, false, wrap).Y;
-        var clicked = ImGui.Selectable($"##{id}", selected, ImGuiSelectableFlags.None, new Vector2(0, height));
-        var drawList = ImGui.GetWindowDrawList();
-        drawList.AddText(start, ImGui.GetColorU32(MutedColor), mark);
-        drawList.AddText(ImGui.GetFont(), ImGui.GetFontSize(), start + new Vector2(markWidth, 0), ImGui.GetColorU32(TextColor), text, wrap);
         return clicked;
     }
 

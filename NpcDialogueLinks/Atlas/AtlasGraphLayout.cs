@@ -176,7 +176,7 @@ public sealed record AtlasGraphLayout(IReadOnlyList<AtlasGraphNode> Nodes, IRead
     }
 
     /// <summary>
-    /// Deterministic whole-cast layout for the Arc lens: <paramref name="centerId"/> (the arc entry) at (0, 0), every other
+    /// Deterministic whole-cast layout, shown while a story arc's entry is in the middle: <paramref name="centerId"/> (the arc entry) at (0, 0), every other
     /// cast member on a unit circle clockwise from the top in category-then-id order, and every cast-to-cast relationship
     /// drawn, with parallel edges between the same pair in separate lanes. The cast cap keeps it small.
     /// </summary>

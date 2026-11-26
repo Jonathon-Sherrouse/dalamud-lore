@@ -278,49 +278,19 @@ public class V2ValidationFixTests
     }
 }
 
+/// <summary>The snapshot comparison behind the arc panel's New and Ended rows (the Changes lens itself went in NDL-018).</summary>
 public class V2ChangesTests
 {
     private static readonly AtlasDataset D = V2Fx.Load();
 
-    [Theory]
-    [InlineData("s0", false)] // first step
-    [InlineData("s1", true)]
-    [InlineData("s2", true)]
-    [InlineData("m1", false)] // slice → milestone boundary
-    [InlineData("s5", false)] // milestone → slice
-    [InlineData("s6", true)]  // slice → slice across a gap
-    [InlineData("m2", false)] // slice → milestone
-    public void Changes_OfferedOnlyBetweenStepsOfTheSameKind(string checkpoint, bool offered)
-    {
-        Assert.Equal(offered, AtlasChanges.IsOffered(D, checkpoint));
-        Assert.Equal(offered, AtlasChanges.At(D, checkpoint, AtlasContentView.MainAndOptional) is not null);
-    }
-
-    [Fact]
-    public void Changes_LabelsContiguousStepsAsThisQuest()
-    {
-        Assert.Equal(AtlasText.ChangesThisQuest, AtlasChanges.Label(D, "s2"));
-        Assert.Null(AtlasChanges.Label(D, "m1"));
-    }
-
-    [Fact]
-    public void Changes_SlicesAcrossAGapSayChangesSince()
-    {
-        Assert.Equal(AtlasText.ChangesSince("Quest Nine"), AtlasChanges.Label(D, "s6"));
-    }
-
-    [Fact]
-    public void Changes_MilestonesAcrossAGapSayChangesSince()
-    {
-        var sample = Fx.SampleDataset();
-        Assert.True(AtlasChanges.IsOffered(sample, Fx.Later));
-        Assert.Equal(AtlasText.ChangesSince(sample.Checkpoints[0].Label), AtlasChanges.Label(sample, Fx.Later));
-    }
+    private static AtlasDiff Diff(string before, string after) => AtlasChanges.Compare(
+        AtlasProjector.Project(D, before, AtlasContentView.MainAndOptional),
+        AtlasProjector.Project(D, after, AtlasContentView.MainAndOptional));
 
     [Fact]
     public void Changes_DiffsByTripleSoCitationSplitsAreNotChanges()
     {
-        var diff = AtlasChanges.At(D, "s2", AtlasContentView.MainAndOptional)!;
+        var diff = Diff("s1", "s2");
         Assert.Equal(new[] { "r-ana-prisoner", "r-cy-bo-1", "r-dee-bo-1" }, V2Fx.Ids(diff.Ended).Order(StringComparer.Ordinal));
         Assert.DoesNotContain(diff.Ended, e => e.Relationship.Id.StartsWith("r-cy-foe"));
         Assert.DoesNotContain(diff.Added, r => r.Id.StartsWith("r-cy-foe"));
@@ -328,16 +298,15 @@ public class V2ChangesTests
     }
 
     [Fact]
-    public void Changes_EndEvidenceAppearsOnlyOnTheEndedRow()
+    public void Changes_EndedRowsKeepTheirEndpointsAsTheyWereAndNoEndEvidence()
     {
-        var diff = AtlasChanges.At(D, "s2", AtlasContentView.MainAndOptional)!;
-        var ended = diff.Ended.Single(e => e.Relationship.Id == "r-ana-prisoner");
-        Assert.Equal("Src s2", ended.EndCitations.Single().Title);
+        var ended = Diff("s1", "s2").Ended.Single(e => e.Relationship.Id == "r-ana-prisoner");
         Assert.Equal("Ana is held.", ended.Source.Summary); // endpoints as they were before the ending
+        Assert.Equal("s2", ended.EndedAtCheckpointId);
 
-        // The record itself never carries its end evidence into a normal snapshot.
-        var before = AtlasProjector.Project(D, "s1", AtlasContentView.MainAndOptional);
-        Assert.DoesNotContain(before.Relationships.Single(r => r.Id == "r-ana-prisoner").Citations, c => c.Title == "Src s2");
+        // The record keeps its end evidence (validated, and shown nowhere since NDL-018); a snapshot never carries it.
+        Assert.Equal("Src s2", D.Relationships.Single(r => r.Id == "r-ana-prisoner").EndCitations.Single().Title);
+        Assert.DoesNotContain(ended.Relationship.Citations, c => c.Title == "Src s2");
     }
 }
 
@@ -386,11 +355,9 @@ public class V2ArcTests
         Assert.Equal(new[] { "r-ana-prisoner", "r-bo-possessed" }, V2Fx.Ids(ended));
         Assert.Equal("s2", ended[0].EndedAtCheckpointId);
         Assert.Equal("s3", ended[1].EndedAtCheckpointId);
-        Assert.NotEmpty(AtlasChanges.At(D, "s2", AtlasContentView.MainAndOptional)!.Ended.Single(e => e.Relationship.Id == "r-ana-prisoner").EndCitations);
         Assert.All(ended, e =>
         {
-            // Arc-lens ended rows show no sources: no end evidence, and no citations on the row or its endpoints.
-            Assert.Empty(e.EndCitations);
+            // Arc-panel ended rows show no sources: no citations on the row or its endpoints.
             Assert.Empty(e.Relationship.Citations);
             Assert.Empty(e.Source.Citations);
             Assert.Empty(e.Target.Citations);
@@ -418,7 +385,6 @@ public class V2ArcTests
         var atMilestone = Arc("arc-shadow", "m1");
         Assert.Empty(atMilestone.New); // newbie appears at m1 but is not in the cast
         Assert.DoesNotContain(atMilestone.Cast.Entities, e => e.Id == "char-newbie");
-        Assert.False(AtlasChanges.IsOffered(D, "m1")); // and Changes never compares across the boundary
     }
 
     [Fact]

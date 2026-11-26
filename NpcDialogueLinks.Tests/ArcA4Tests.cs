@@ -13,12 +13,7 @@ public class ArcA4Tests
 
     private static readonly AtlasDataset D = AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Draft).Dataset!;
 
-    private static AtlasSession At(string view)
-    {
-        var session = new AtlasSession(D, new AtlasSpoilerState("cp-arr-2-55", view));
-        session.SetLens(AtlasLens.Arc);
-        return session;
-    }
+    private static AtlasSession At(string view) => new(D, new AtlasSpoilerState("cp-arr-2-55", view));
 
     public static TheoryData<string, string[], string[]> NewAndEnded() => new()
     {
@@ -38,9 +33,9 @@ public class ArcA4Tests
     {
         var s = At(step);
         Assert.Equal(Arc, s.Arc!.ArcId);
-        Assert.Equal(added, s.ArcNewRows.Select(r => r.Relationship!.Id).Order(StringComparer.Ordinal));
-        Assert.Equal(ended, s.ArcEndedRows.Select(r => r.Relationship!.Id));
-        Assert.All(s.ArcEndedRows, r => Assert.Empty(r.EndCitations));
+        Assert.Equal(added, s.ArcNewRows.Select(r => r.Relationship.Id).Order(StringComparer.Ordinal));
+        Assert.Equal(ended, s.ArcEndedRows.Select(r => r.Relationship.Id));
+        Assert.All(s.ArcEndedRows, r => Assert.Empty(r.Relationship.Citations));
     }
 
     [Fact]
@@ -107,31 +102,25 @@ public class ArcA4Tests
     }
 
     [Fact]
-    public void A4_EndEvidenceShowsOnlyInTheChangesRowsWhereItCanShow()
+    public void A4_EndingsCarryTheirOwnEndEvidence()
     {
-        // The rescue (#154 → #155) and Livia's fall (#159 → #160) end between slice steps, so Changes shows their evidence.
-        var rescue = At("cp-msq-155");
-        rescue.SetLens(AtlasLens.Changes);
-        Assert.Equal(AtlasText.ChangesThisQuest, rescue.ChangesLabel);
+        // The rescue (#154 → #155) and Livia's fall (#159 → #160) end between slice steps, each recorded with the quest
+        // that ends it. Since NDL-018 no surface shows end evidence, but the records keep it and the validator checks it.
+        IReadOnlyList<AtlasEndedRelationship> EndedAt(int quest) => AtlasChanges.Compare(
+            AtlasProjector.Project(D, $"cp-msq-{quest - 1}", AtlasContentView.MainAndOptional),
+            AtlasProjector.Project(D, $"cp-msq-{quest}", AtlasContentView.MainAndOptional)).Ended;
+        string EndEvidence(AtlasEndedRelationship e) => D.Relationships.Single(r => r.Id == e.Relationship.Id).EndCitations.Single().Title;
+
         // NDL-012 adds the four "held at Castrum Centri" edges, which end with the same rescue and the same evidence.
-        var endedAtRescue = rescue.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows;
+        var endedAtRescue = EndedAt(155);
         Assert.Equal(5, endedAtRescue.Count);
-        Assert.All(endedAtRescue, r => Assert.Equal("Escape from Castrum Centri — main scenario quest (2.0)", r.EndCitations.Single().Title));
-        var freed = endedAtRescue.Single(r => r.Relationship!.Id == "rel-minfilia-prisoner-livia");
-        Assert.Equal("rel-minfilia-prisoner-livia", freed.Relationship!.Id);
-        Assert.Equal("Escape from Castrum Centri — main scenario quest (2.0)", freed.EndCitations.Single().Title);
+        Assert.Contains(endedAtRescue, e => e.Relationship.Id == "rel-minfilia-prisoner-livia");
+        Assert.All(endedAtRescue, e => Assert.Equal("Escape from Castrum Centri — main scenario quest (2.0)", EndEvidence(e)));
 
-        var fall = At("cp-msq-160");
-        fall.SetLens(AtlasLens.Changes);
         // NDL-012: Livia's fall also ends her membership of the Empire, with the same evidence.
-        var fallen = fall.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows;
-        Assert.Equal(new[] { "rel-livia-member-empire", "rel-livia-serves-gaius" }, fallen.Select(r => r.Relationship!.Id).Order(StringComparer.Ordinal));
-        Assert.All(fallen, r => Assert.Equal("Rock the Castrum — main scenario quest (2.0)", r.EndCitations.Single().Title));
-
-        // The possession ends across the slice → milestone boundary, where Changes is never offered (WE-1).
-        var finale = At(Milestone);
-        finale.SetLens(AtlasLens.Changes);
-        Assert.False(finale.ChangesOffered);
+        var fallen = EndedAt(160);
+        Assert.Equal(new[] { "rel-livia-member-empire", "rel-livia-serves-gaius" }, fallen.Select(e => e.Relationship.Id).Order(StringComparer.Ordinal));
+        Assert.All(fallen, e => Assert.Equal("Rock the Castrum — main scenario quest (2.0)", EndEvidence(e)));
     }
 
     [Fact]

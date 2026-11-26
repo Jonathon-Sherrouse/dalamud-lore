@@ -1,6 +1,6 @@
 # Atlas UX design (NDL-005)
 
-> **v2 note.** [Atlas v2](v2-plan.md) adds three lenses, designed in [v2 lenses](#v2-lenses-ndl-008) below (`NDL-008`, accepted 2026-11-14; `NDL-010` builds it in game). Everything above that section is the accepted v1 design, and it stays the **Story point** lens unchanged, except that flows F5 and F6 follow v2 spoiler rule 1: above the spoiler limit, pickers and the raise menu show only neutral milestone labels plus an unnamed "next story step", never quest titles.
+> **v2 note.** [Atlas v2](v2-plan.md) adds three lenses, designed in [v2 lenses](#v2-lenses-ndl-008) below (`NDL-008`, accepted 2026-11-14; `NDL-010` builds it in game). [One map](#one-map-ndl-018) (`NDL-018`) later replaces the lenses. Everything above that section is the accepted v1 design, and it is what the map shows with anyone but a story arc in the middle, except that flows F5 and F6 follow v2 spoiler rule 1: above the spoiler limit, pickers and the raise menu show only neutral milestone labels plus an unnamed "next story step", never quest titles.
 >
 > **Status: accepted.** The user accepted this design on 2026-11-14. `NDL-004` builds it in game, and the [local viewer](local-viewer.md) is its reference implementation. Sections marked **Prototyped** are built in the viewer and accepted as part of the whole design. Later changes go through `NDL-004` or a new story, and update both front ends together.
 
@@ -164,6 +164,8 @@ The window opens focused on the Scions (`AtlasDefaults.HomeEntityId`). It return
 
 ## v2 lenses (NDL-008)
 
+> **Superseded by [One map](#one-map-ndl-018) (`NDL-018`, 2026-11-26).** The lens switch, the Story point and Changes lenses, flows L1, L2, L4 and L7–L9, and decisions D7 and D10–D12 no longer apply. The arc panel, the whole-cast chart, the picker (L5, L6 without the lens part), the visual language and the spoiler rules below still do. This section is kept for history.
+
 > **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). `NDL-010` renders it in the in-game window. **Follow was deferred** (user decision, 2026-11-14), so this design has no Follow toggle, status line or "your progress" wording. `NDL-017` adds them in game: a **Follow my progress** toggle and **Refresh** after the lens buttons, "Your progress: through ‹quest›" as the position line, and a muted status row below for unknown, before-coverage and the raise offer. See the [plan's amendments](v2-plan.md#ndl-017-amendments).
 
 ### What changes on screen
@@ -262,6 +264,53 @@ Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`
 5. **D10. Switching lens clears focus and search silently**, without the reset hint.
 6. **D11. The default lens rule re-applies on every view change** until the player picks a lens or an arc. The plan names only "on open" and "when Follow moves the view". With Follow deferred, this is how a player moving through the story lands in the Arc lens on their own.
 7. **D12. Picking an arc counts as picking the Arc lens,** so a picked arc stays on screen when the view moves past its end. The cost: the Arc lens then stays chosen for the session, even after the pick ends or is cleared with "The arc at this point". Moving before every arc shows "No story arc covers this point." rather than returning to Story point.
+
+## One map (NDL-018)
+
+> **Status: built, awaiting acceptance.** On 2026-11-26 the user found the three lenses confusing for a first-time player, asked for one map, and asked for Changes to be removed entirely.
+
+Arc and Story point were the same chart with a different thing in the middle. The map always has something in the middle, and that decides what shows. The only control to learn is **Viewing as of**.
+
+```text
+┌ Lore Atlas ─────────────────────────────────────────────────────────────────────── ✕ ┐
+│ Viewing as of [After The Captain's Bargain ▾]  Spoiler limit: … [Raise…]  Content [ … ] │
+│ [Follow my progress]  Viewing: after The Captain's Bargain  This point covers only…    │
+├────────────────┬─────────────────────────────────────────┬────────────────────────────┤
+│ Story arc      │ The Siege of Saltmere › Captain Mira    │ ● Captain Mira              │
+│ [The arc at ▾] │─────────────────────────────────────────│ Character                   │
+│ [Search…]      │              ● Vessa                    │ ‹summary›                   │
+│ CAST (6)       │      ⬡ The Siege  ·  ■ The Watch        │ ▸ Sources (1)               │
+│ CHARACTERS     │            ● CAPTAIN MIRA               │ CONNECTIONS (4)             │
+│ ● Captain Mira │      ● Tobin                            │ → allied with Vessa         │
+│ …              │                                         │ …                           │
+└────────────────┴─────────────────────────────────────────┴────────────────────────────┘
+```
+
+| In the middle | Browse pane | Centre | Details pane |
+|---|---|---|---|
+| **A story arc's entry** | The picker, search, then **Cast (n)** | The whole-cast chart at the arc's effective step | The arc panel, unchanged |
+| **Anyone else** | The picker (once an arc has started), search, then the story arc's cast, or everyone when no arc applies | The one-hop graph over the whole view | The entry and its connections, as in v1 |
+
+### Flows
+
+| # | Flow | Behavior |
+|---|---|---|
+| M1 | **Rest** | On open and after every story-setting change (view, limit, content view), the trail starts again at the resting centre: the story arc's entry (the pick, else the default arc), otherwise the Scions when visible, otherwise nothing ("Search or pick an entry to see its connections."). This replaces the default lens rule (L1, D11). |
+| M2 | **Put in the middle** | Clicking a chart node, a list row, a name in an arc-panel row or a connection puts that entry in the middle and adds it to the trail. An entry already on the trail cuts the trail back to it. The trail keeps at most 6 steps; past that, the oldest step after the first is dropped, so the way back to where you started stays. The centre node itself is not a click target. |
+| M3 | **Trail** | A line above the chart: earlier steps are links back, the last one names the centre, separated by "›". It wraps inside the pane. Arc steps are named as the picker names them, as of their effective step. |
+| M4 | **Arc entries** | Putting a started arc's entry in the middle makes it the story arc, as a pick would, and shows its whole cast and arc panel. The trail is kept. |
+| M5 | **Everyone** | A person's connections come from the whole projected view, no longer filtered to the cast. Search always covers everyone. With an empty search and a story arc, the list shows that arc's cast. |
+| M6 | **Picker** | Shown once any arc has started. Picking an arc starts a fresh trail at it, and "The arc at this point" clears the pick. The pick's lifetime is L5–L6 without the lens part. With arcs started but none covering the view, a muted "No story arc covers this point." sits under the picker, and the map rests on the Scions. This replaces L7 and D12. |
+| M7 | **Reset hint** | After a story-setting change, "Selection reset…" shows only when the player had left the resting centre, searched or selected a connection. A pick never shows it. |
+| M8 | **Second row** | Follow, Refresh, the position line and the coverage note (D6 without the lens switch). |
+
+**Removed.** The Changes lens (L8, L9, D7), its rows and **Sources for the ending**. End evidence stays in the data and the validator still checks it, but no surface shows it. The arc panel's New and Ended rows are unchanged.
+
+**Spoilers.** The rules are unchanged. Every centre is drawn from a projection at or below the view: the whole cast at the arc's effective step, anything else at the view. Trail names come from the same projections and start over with every story-setting change, so a name never outlives the point it was shown at. `V2LeakSweepTests` now puts every entry in the middle at every stop (arc entries included, which open their arc) and gathers the trail and every chart card. Its end-only source sentinel proves that end evidence appears nowhere.
+
+**Shared core.** `AtlasSession` gains `Trail`, `ReturnTo`, `MaxTrailSteps`, `ChartSnapshot`, `ArcPickerOffered` and `ArcPickerNote`. `FocusId` is the trail's last step, and `Snapshot` is always the full projected view. `Lens`, `SetLens`, `LensOptions`, `LensIsExplicit`, `ShowWholeCast` and the Changes members are gone. `AtlasArcRow` replaces `AtlasChangeRow`, and `AtlasChanges` keeps only `Compare`, which the arc panel's rows use.
+
+**ImGui.** The trail is the window's `Flow` word-wrapping helper over `ClickableText`, with a `Separator` under it. The chart takes the space that remains.
 
 ## Portraits (NDL-011)
 

@@ -2,77 +2,157 @@ using NpcDialogueLinks.Atlas;
 
 namespace NpcDialogueLinks.Tests;
 
-/// <summary>NDL-008: the v2 lenses composed in the shared session (docs/atlas/ux-design.md, "v2 lenses").</summary>
-public class V2LensTests
+/// <summary>NDL-018: one map, where whatever is in the middle decides what shows (docs/atlas/ux-design.md, "One map").</summary>
+public class V2MapTests
 {
     private static readonly AtlasDataset D = V2Fx.Load();
 
-    private static AtlasSession At(string ceiling, string view, AtlasContentView contentView = AtlasContentView.MainAndOptional) =>
-        new(D, new AtlasSpoilerState(ceiling, view), contentView);
+    private static AtlasSession At(string ceiling, string view, string? home = "char-bo") =>
+        new(D, new AtlasSpoilerState(ceiling, view), AtlasContentView.MainAndOptional, home);
 
     [Fact]
-    public void Lens_OpensInStoryPointBeforeAnyArc()
+    public void Map_RestsOnTheHomeEntryBeforeAnyArc()
     {
         var s = At("s0", "s0");
-        Assert.Equal(AtlasLens.StoryPoint, s.Lens);
-        Assert.False(s.LensIsExplicit);
+        Assert.Null(s.Arc);
+        Assert.Equal("char-bo", s.FocusId);
+        Assert.False(s.ShowsWholeCast);
+        Assert.Equal(new[] { new AtlasTrailStep("char-bo", "Bo", false, true) }, s.Trail);
+        Assert.False(s.ArcPickerOffered); // no arc has started, so the picker is left out
+        Assert.Null(s.ArcPickerNote);
     }
 
     [Fact]
-    public void Lens_OpensInArcWhenAnArcContainsTheView()
+    public void Map_RestsOnTheStoryArcWhenAnArcContainsTheView()
     {
         var s = At("m2", "s2");
-        Assert.Equal(AtlasLens.Arc, s.Lens);
         Assert.Equal("arc-hold", s.Arc!.ArcId); // earliest-started of the three arcs containing s2
+        Assert.Equal("evt-hold", s.FocusId);
+        Assert.True(s.ShowsWholeCast);
+        Assert.Equal(new[] { new AtlasTrailStep("evt-hold", "The Hold", true, true) }, s.Trail);
+        Assert.Same(s.Arc.Entry, s.Focus);
+        Assert.Null(s.Neighborhood); // the arc panel replaces the connections list
     }
 
     [Fact]
-    public void Lens_DefaultFollowsTheViewUntilThePlayerPicksOne()
+    public void Map_RestingCentreFollowsTheView()
     {
         var s = At("m2", "s0");
-        Assert.Equal(AtlasLens.StoryPoint, s.Lens);
+        Assert.Equal("char-bo", s.FocusId);
         s.SetView("s1");
-        Assert.Equal(AtlasLens.Arc, s.Lens);
+        Assert.Equal("evt-hold", s.FocusId);
         s.SetView("s5"); // no arc contains s5
-        Assert.Equal(AtlasLens.StoryPoint, s.Lens);
-
-        s.SetLens(AtlasLens.Changes);
-        s.SetView("s2");
-        Assert.Equal(AtlasLens.Changes, s.Lens); // an explicit lens lasts for the session
-        Assert.True(s.LensIsExplicit);
+        Assert.Equal("char-bo", s.FocusId);
+        Assert.True(s.ArcPickerOffered); // arcs have started, so the picker stays, and says why none shows
+        Assert.Equal(AtlasText.NoArcHere, s.ArcPickerNote);
     }
 
     [Fact]
-    public void Lens_ExplicitArcWithNoArcHereShowsTheEmptyState()
+    public void Map_WithoutAVisibleHomeEntryShowsNothingOutsideArcs()
     {
-        var s = At("m2", "s1");
-        s.SetLens(AtlasLens.Arc);
-        s.SetView("s5");
-        Assert.Equal(AtlasLens.Arc, s.Lens);
-        Assert.Null(s.Arc);
-        Assert.Empty(s.Snapshot.Entities);
-        Assert.Null(s.Layout);
-        Assert.Empty(s.SearchResults);
-    }
-
-    [Fact]
-    public void Lens_SwitchingClearsBrowsingWithoutTheResetHint()
-    {
-        var s = At("m2", "s2");
-        s.SetLens(AtlasLens.StoryPoint);
-        Assert.True(s.FocusOn("char-bo"));
-        s.SetLens(AtlasLens.Arc);
+        var s = At("m2", "s5", home: null);
         Assert.Null(s.FocusId);
-        Assert.False(s.SelectionWasReset);
+        Assert.Empty(s.Trail);
+        Assert.Null(s.Layout);
+        Assert.Null(s.Focus);
     }
 
     [Fact]
-    public void StoryPoint_IsTheUnfilteredProjection()
+    public void Map_APersonInTheMiddleShowsTheirWholeStorySoFar()
     {
-        var s = At("m2", "s2");
-        s.SetLens(AtlasLens.StoryPoint);
-        Assert.Equal(AtlasProjector.Project(D, "s2", AtlasContentView.MainAndOptional).Entities.Select(e => e.Id), s.Snapshot.Entities.Select(e => e.Id));
-        Assert.Contains(s.SearchResults, e => e.Id == "char-zed"); // not in any cast
+        var s = At("m2", "s3");
+        Assert.True(s.FocusOn("char-ana"));
+        Assert.False(s.ShowsWholeCast);
+        Assert.Equal(AtlasProjector.Project(D, "s3", AtlasContentView.MainAndOptional).GetNeighborhood("char-ana")!.Neighbors.Select(n => n.Relationship.Id),
+            s.Neighborhood!.Neighbors.Select(n => n.Relationship.Id));
+        Assert.Contains(s.Neighborhood.Neighbors, n => n.Entity.Id == "char-zed"); // outside every cast
+        Assert.True(s.FocusOn("char-zed"));
+        Assert.Equal("arc-hold", s.Arc!.ArcId); // the story arc stays, and so does its cast list
+        Assert.Equal(AtlasText.CastHeading(5), s.CastHeading);
+    }
+
+    [Fact]
+    public void Search_CoversEveryoneAndTheEmptyListIsTheCast()
+    {
+        var s = At("m2", "s3");
+        var cast = s.Arc!.Cast.Entities.Select(e => e.Id).ToHashSet();
+        Assert.All(s.SearchResults, e => Assert.Contains(e.Id, cast));
+        s.SetSearch("Zed");
+        Assert.Equal(new[] { "char-zed" }, s.SearchResults.Select(e => e.Id));
+        Assert.Null(s.CastHeading);
+        Assert.Contains(At("m2", "s5").SearchResults, e => e.Id == "char-zed"); // no arc: the empty search lists everyone
+    }
+
+    [Fact]
+    public void Trail_GrowsAndGoesBack()
+    {
+        var s = At("m2", "s3");
+        Assert.True(s.FocusOn("char-bo"));
+        Assert.True(s.FocusOn("char-cy"));
+        Assert.Equal(new[] { "The Hold", "Bo", "Cy" }, s.Trail.Select(t => t.Name));
+        Assert.Equal(new[] { false, false, true }, s.Trail.Select(t => t.IsCurrent));
+
+        Assert.True(s.FocusOn("char-bo")); // already on the trail: cut back to it
+        Assert.Equal(new[] { "evt-hold", "char-bo" }, s.Trail.Select(t => t.EntityId));
+
+        Assert.False(s.ReturnTo(1)); // the current step
+        Assert.False(s.ReturnTo(-1));
+        Assert.True(s.ReturnTo(0));
+        Assert.True(s.ShowsWholeCast);
+        Assert.Single(s.Trail);
+    }
+
+    [Fact]
+    public void Trail_KeepsItsFirstStepWhenItGrowsLong()
+    {
+        var s = At("m2", "s3");
+        foreach (var id in new[] { "char-bo", "char-cy", "char-dee", "char-ana", "char-zed", "org-foe", "char-bo" })
+        {
+            Assert.True(s.FocusOn(id));
+        }
+
+        Assert.Equal(new[] { "evt-hold", "char-dee", "char-ana", "char-zed", "org-foe", "char-bo" }, s.Trail.Select(t => t.EntityId));
+        Assert.Equal(AtlasSession.MaxTrailSteps, s.Trail.Count);
+    }
+
+    [Fact]
+    public void Trail_StartsAgainOnAStorySettingChange()
+    {
+        var s = At("m2", "s3");
+        s.FocusOn("char-bo");
+        s.SetSearch("Cy");
+        s.SetView("s2");
+        Assert.Equal(new[] { "evt-hold" }, s.Trail.Select(t => t.EntityId));
+        Assert.Equal(string.Empty, s.SearchQuery);
+        Assert.True(s.SelectionWasReset);
+    }
+
+    [Fact]
+    public void Map_AnArcEntryInTheMiddleOpensThatArc()
+    {
+        var s = At("m2", "s3");
+        Assert.True(s.FocusOn("char-ana"));
+        Assert.True(s.FocusOn("evt-tie")); // ana's participant-in edge to an ended arc
+        Assert.Equal("arc-tie", s.Arc!.ArcId);
+        Assert.True(s.ShowsWholeCast);
+        Assert.True(s.Arc.PastEnd);
+        Assert.True(s.ArcPickerOptions.Single(o => o.ArcId == "arc-tie").IsCurrent); // like a pick in the picker
+        Assert.Equal(new[] { "The Hold", "Ana", "The Tie" }, s.Trail.Select(t => t.Name)); // and the way back stays
+        Assert.Equal(new[] { true, false, true }, s.Trail.Select(t => t.IsArc));
+
+        Assert.True(s.ReturnTo(0));
+        Assert.Equal("arc-hold", s.Arc!.ArcId);
+        Assert.True(s.ShowsWholeCast);
+    }
+
+    [Fact]
+    public void Map_AnArcEntryIsNamedAsOfItsOwnEffectiveStep()
+    {
+        // The trail names an ended arc the way the picker does, not as some later presentation would.
+        var s = At("m2", "s5");
+        Assert.True(s.PickArc("arc-hold"));
+        Assert.Equal(s.ArcPickerOptions.Single(o => o.ArcId == "arc-hold").Label, s.Trail.Single().Name);
+        Assert.Equal("Recap two.", s.Focus!.Summary);
     }
 
     [Fact]
@@ -85,6 +165,18 @@ public class V2LensTests
         var milestone = At("m2", "m1");
         Assert.Equal("Viewing: Patch One complete", milestone.PositionLabel);
         Assert.Null(milestone.CoverageNote);
+    }
+
+    [Fact]
+    public void Text_MilestonesReadAsPointsNotQuests()
+    {
+        var quest = new AtlasCheckpoint("q", "After Quest Two", 1) { QuestTitle = "Quest Two" };
+        var milestone = new AtlasCheckpoint("m", "Patch One complete", 2) { Milestone = true };
+        Assert.Equal("Viewing: after Quest Two", AtlasText.ViewingAt(quest));
+        Assert.Equal("Viewing: Patch One complete", AtlasText.ViewingAt(milestone));
+        Assert.Equal("Story so far, as of Patch One complete", AtlasText.RecapThrough(milestone));
+        Assert.Equal("ended by Patch One complete", AtlasText.EndedIn(milestone));
+        Assert.Equal("New as of Patch One complete", AtlasText.ArcNewIn(milestone));
     }
 }
 
@@ -99,27 +191,14 @@ public class V2ArcSessionTests
     {
         var s = At("m2", "s2");
         Assert.True(s.ShowsWholeCast);
-        Assert.Null(s.FocusId);
+        Assert.Equal("evt-hold", s.FocusId);
         var layout = s.Layout!;
         Assert.Equal("evt-hold", layout.Nodes[0].Entity.Id);
-        Assert.Equal(s.Snapshot.Entities.Count, layout.Nodes.Count);
-        Assert.Equal(s.Snapshot.Relationships.Count, layout.Edges.Count);
+        Assert.Equal(s.Arc!.Cast.Entities.Count, layout.Nodes.Count);
+        Assert.Equal(s.Arc.Cast.Relationships.Count, layout.Edges.Count);
+        Assert.Same(s.Arc.Cast, s.ChartSnapshot);
         Assert.All(layout.Edges.Where(e => e.Relationship.TypeId == AtlasDataset.ParticipantTypeId), e => Assert.True(e.IsParticipation));
         Assert.Contains(layout.Edges, e => !e.IsParticipation);
-    }
-
-    [Fact]
-    public void Arc_BrowsingNeverLeavesTheCast()
-    {
-        var s = At("m2", "s3");
-        var cast = s.Arc!.Cast.Entities.Select(e => e.Id).ToHashSet();
-        Assert.All(s.SearchResults, e => Assert.Contains(e.Id, cast));
-        Assert.False(s.FocusOn("char-zed")); // never a participant
-        Assert.True(s.FocusOn("char-bo"));
-        Assert.False(s.ShowsWholeCast);
-        Assert.All(s.Neighborhood!.Neighbors, n => Assert.Contains(n.Entity.Id, cast));
-        s.ShowWholeCast();
-        Assert.True(s.ShowsWholeCast);
     }
 
     [Fact]
@@ -137,6 +216,7 @@ public class V2ArcSessionTests
         var s = At("m2", "s3");
         Assert.True(s.PickArc("arc-shadow"));
         Assert.Equal("arc-shadow", s.Arc!.ArcId);
+        Assert.Equal("evt-shadow", s.FocusId);
         Assert.True(s.ArcPickerOptions.Single(o => o.ArcId == "arc-shadow").IsCurrent);
 
         s.SetView("s1"); // below arc-shadow's first step: the pick ends
@@ -145,6 +225,16 @@ public class V2ArcSessionTests
 
         s.SetView("s3"); // and does not come back
         Assert.Equal("arc-hold", s.Arc!.ArcId);
+    }
+
+    [Fact]
+    public void Arc_PickStartsANewTrail()
+    {
+        var s = At("m2", "s3");
+        s.FocusOn("char-bo");
+        Assert.True(s.PickArc("arc-shadow"));
+        Assert.Equal(new[] { "evt-shadow" }, s.Trail.Select(t => t.EntityId));
+        Assert.False(s.SelectionWasReset); // the player did it on purpose
     }
 
     [Fact]
@@ -187,9 +277,9 @@ public class V2ArcSessionTests
     public void Arc_EndedArcStaysViewableAsOfItsLastQuest()
     {
         var s = At("m2", "s5");
-        s.SetLens(AtlasLens.Arc);
         Assert.Null(s.Arc); // the automatic choice: no arc contains s5
         Assert.True(s.PickArc("arc-hold"));
+        Assert.True(s.ShowsWholeCast);
         Assert.True(s.Arc!.PastEnd);
         Assert.Equal(AtlasText.ArcEnded, s.Arc.AsOfLabel);
     }
@@ -206,116 +296,32 @@ public class V2ArcSessionTests
     public void Arc_RowsShowNewAndEndedWithoutSources()
     {
         var s = At("m2", "s3");
-        Assert.Equal(new[] { "r-cy-bo-2", "r-dee-bo-2" }, s.ArcNewRows.Select(r => r.Relationship!.Id).Order(StringComparer.Ordinal));
+        Assert.Equal(new[] { "r-cy-bo-2", "r-dee-bo-2" }, s.ArcNewRows.Select(r => r.Relationship.Id).Order(StringComparer.Ordinal));
         var ended = s.ArcEndedRows;
-        Assert.Equal(new[] { "r-ana-prisoner", "r-bo-possessed" }, ended.Select(r => r.Relationship!.Id));
+        Assert.Equal(new[] { "r-ana-prisoner", "r-bo-possessed" }, ended.Select(r => r.Relationship.Id));
         Assert.Equal(new[] { "ended in Quest Two", "ended in Quest Three" }, ended.Select(r => r.EndedInLabel));
         Assert.All(ended, r =>
         {
-            Assert.Empty(r.EndCitations);
-            Assert.Empty(r.Relationship!.Citations);
-            Assert.Empty(r.Source!.Citations);
-            Assert.Empty(r.Target!.Citations);
+            Assert.Empty(r.Relationship.Citations);
+            Assert.Empty(r.Source.Citations);
+            Assert.Empty(r.Target.Citations);
         });
         Assert.Equal("Ana prisoner of The Foe", ended[0].Text);
     }
 }
 
-public class V2ChangesSessionTests
-{
-    private static readonly AtlasDataset D = V2Fx.Load();
-
-    private static AtlasSession Changes(string view)
-    {
-        var s = new AtlasSession(D, new AtlasSpoilerState("m2", view));
-        s.SetLens(AtlasLens.Changes);
-        return s;
-    }
-
-    [Fact]
-    public void Changes_GroupsRowsUnderTheQuestLabel()
-    {
-        var s = Changes("s2");
-        Assert.True(s.ChangesOffered);
-        Assert.Equal(AtlasText.ChangesThisQuest, s.ChangesLabel);
-        Assert.Equal(new[] { AtlasText.ChangesAdded, AtlasText.ChangesEnded, AtlasText.ChangesUpdated }, s.ChangeGroups.Select(g => g.Label));
-        var ended = s.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows.Single(r => r.Relationship!.Id == "r-ana-prisoner");
-        Assert.Equal("Src s2", ended.EndCitations.Single().Title); // the one surface that shows end evidence
-        Assert.Contains(s.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Updated).Rows, r => r.Entity!.Id == "char-ana");
-        Assert.Null(s.Layout); // no chart in the Changes lens
-    }
-
-    [Fact]
-    public void Changes_AcrossAGapNamesThePreviousPoint()
-    {
-        Assert.Equal(AtlasText.ChangesSince("Quest Nine"), Changes("s6").ChangesLabel);
-    }
-
-    [Fact]
-    public void Changes_NotOfferedAcrossASliceMilestoneBoundary()
-    {
-        var s = Changes("m1");
-        Assert.False(s.ChangesOffered);
-        Assert.Null(s.ChangesLabel);
-        Assert.Empty(s.ChangeGroups);
-    }
-
-    [Fact]
-    public void Changes_SelectionClearsOnAStorySettingChange()
-    {
-        var s = Changes("s2");
-        Assert.True(s.SelectChange("ended:r-ana-prisoner"));
-        Assert.Equal("ended:r-ana-prisoner", s.SelectedChange!.Key);
-        Assert.False(s.SelectChange("ended:nope"));
-        s.SetView("s3");
-        Assert.Null(s.SelectedChangeKey);
-        Assert.True(s.SelectionWasReset);
-    }
-
-    [Fact]
-    public void Changes_PickedRowSaysWhatHappenedAndWhen()
-    {
-        // Council round 1 (NDL-011): an ended row's details must not read as a live relationship.
-        var s = Changes("s2");
-        Assert.Null(s.SelectedChangeStatus);
-        Assert.True(s.SelectChange("ended:r-ana-prisoner"));
-        Assert.Equal("Ended in Quest Two", s.SelectedChangeStatus);
-    }
-
-    [Fact]
-    public void Text_MilestonesReadAsPointsNotQuests()
-    {
-        var quest = new AtlasCheckpoint("q", "After Quest Two", 1) { QuestTitle = "Quest Two" };
-        var milestone = new AtlasCheckpoint("m", "Patch One complete", 2) { Milestone = true };
-        Assert.Equal("Viewing: after Quest Two", AtlasText.ViewingAt(quest));
-        Assert.Equal("Viewing: Patch One complete", AtlasText.ViewingAt(milestone));
-        Assert.Equal("Story so far, as of Patch One complete", AtlasText.RecapThrough(milestone));
-        Assert.Equal("ended by Patch One complete", AtlasText.EndedIn(milestone));
-        Assert.Equal("New as of Patch One complete", AtlasText.ArcNewIn(milestone));
-        Assert.Equal("Added by Patch One complete", AtlasText.ChangeStatus(AtlasChangeKind.Added, milestone));
-        Assert.Equal("Description updated in Quest Two", AtlasText.ChangeStatus(AtlasChangeKind.Updated, quest));
-    }
-
-    [Fact]
-    public void Changes_RowsAreSelectableOnlyInTheChangesLens()
-    {
-        var s = new AtlasSession(D, new AtlasSpoilerState("m2", "s2")); // Arc lens
-        Assert.False(s.SelectChange("ended:r-ana-prisoner"));
-    }
-}
-
 /// <summary>
-/// v2 spoiler rule 5, the per-step leak sweep, over every limit × view × content view × lens × arc pick. It runs in fresh
+/// v2 spoiler rule 5, the per-step leak sweep, over every limit × view × content view × arc pick. It runs in fresh
 /// sessions, along a walk down to the first step and back up (the pick drops at the bottom), and along a walk that turns
 /// at the picked arc's first step so the pick is held both ways. At each stop it gathers every surface the session
-/// exposes (including what selecting each chart edge and each change shows, and every refocus) and checks:
+/// exposes (including what selecting each chart edge shows, the trail, and every entry put in the middle, arc entries
+/// included, which open their arc) and checks:
 /// <list type="bullet">
 /// <item>every entity, relationship and source shown exists, exactly as shown, in some projection at or before the view
 /// (so nothing from a later step; an out-of-date earlier text would not be a leak);</item>
-/// <item>every end citation on a Changes "ended" row is that relationship's own end evidence (title and URL), available by the view;</item>
 /// <item>no text names a quest past the view, an entity not yet introduced, or a source not yet available;</item>
 /// <item>pickers and prompts never name a quest past the limit, milestones included;</item>
-/// <item>end evidence appears only on a Changes "ended" row (an end-only source sentinel proves it);</item>
+/// <item>end evidence appears nowhere since the Changes lens was removed (NDL-018; an end-only source sentinel proves it);</item>
 /// <item>"As of" and "New in ‹last quest›" appear only after the arc's last step (rule 7).</item>
 /// </list>
 /// </summary>
@@ -354,42 +360,39 @@ public class V2LeakSweepTests
         {
             foreach (var contentView in new[] { AtlasContentView.MainStory, AtlasContentView.MainAndOptional })
             {
-                foreach (var lens in new[] { AtlasLens.Arc, AtlasLens.StoryPoint, AtlasLens.Changes })
+                foreach (var view in d.Checkpoints.Where(c => c.Order <= ceiling.Order))
                 {
-                    foreach (var view in d.Checkpoints.Where(c => c.Order <= ceiling.Order))
+                    var picks = new List<string?> { null };
+                    picks.AddRange(AtlasArcs.Eligible(d, view.Id, contentView).Select(a => a.ArcId));
+                    foreach (var pick in picks)
                     {
-                        var picks = new List<string?> { null };
-                        picks.AddRange(AtlasArcs.Eligible(d, view.Id, contentView).Select(a => a.ArcId));
-                        foreach (var pick in picks)
+                        // A fresh session at this stop.
+                        var s = Open(d, ceiling, view, contentView, pick);
+                        Check(d, s, ceiling, contentView, $"{name} fresh limit={ceiling.Id} view={view.Id} {contentView} pick={pick}");
+                        stops++;
+
+                        // The same pick held while the view walks down to the first step and back up.
+                        if (pick is not null && view.Order == ceiling.Order)
                         {
-                            // A fresh session at this stop.
-                            var s = Open(d, ceiling, view, contentView, lens, pick);
-                            Check(d, s, ceiling, contentView, $"{name} fresh limit={ceiling.Id} view={view.Id} {contentView} {lens} pick={pick}");
-                            stops++;
-
-                            // The same pick held while the view walks down to the first step and back up.
-                            if (pick is not null && view.Order == ceiling.Order)
+                            var walk = d.Checkpoints.Where(c => c.Order < view.Order).Reverse().Concat(d.Checkpoints.Where(c => c.Order > 0 && c.Order <= view.Order));
+                            foreach (var step in walk)
                             {
-                                var walk = d.Checkpoints.Where(c => c.Order < view.Order).Reverse().Concat(d.Checkpoints.Where(c => c.Order > 0 && c.Order <= view.Order));
-                                foreach (var step in walk)
-                                {
-                                    s.SetView(step.Id);
-                                    Check(d, s, ceiling, contentView, $"{name} walk limit={ceiling.Id} at={step.Id} {contentView} {lens} pick={pick}");
-                                    stops++;
-                                }
+                                s.SetView(step.Id);
+                                Check(d, s, ceiling, contentView, $"{name} walk limit={ceiling.Id} at={step.Id} {contentView} pick={pick}");
+                                stops++;
+                            }
 
-                                // Turn at the arc's first step, so the pick is held all the way down and back up.
-                                var first = d.Arcs.First(a => a.Id == pick).FirstOrder;
-                                var held = Open(d, ceiling, view, contentView, lens, pick);
-                                var turn = d.Checkpoints.Where(c => c.Order >= first && c.Order < view.Order).Reverse()
-                                    .Concat(d.Checkpoints.Where(c => c.Order > first && c.Order <= view.Order));
-                                foreach (var step in turn)
-                                {
-                                    held.SetView(step.Id);
-                                    Assert.True(held.ArcPickerOptions.Single(o => o.ArcId == pick).IsCurrent, $"pick {pick} lost at {step.Id}");
-                                    Check(d, held, ceiling, contentView, $"{name} held walk limit={ceiling.Id} at={step.Id} {contentView} {lens} pick={pick}");
-                                    stops++;
-                                }
+                            // Turn at the arc's first step, so the pick is held all the way down and back up.
+                            var first = d.Arcs.First(a => a.Id == pick).FirstOrder;
+                            var held = Open(d, ceiling, view, contentView, pick);
+                            var turn = d.Checkpoints.Where(c => c.Order >= first && c.Order < view.Order).Reverse()
+                                .Concat(d.Checkpoints.Where(c => c.Order > first && c.Order <= view.Order));
+                            foreach (var step in turn)
+                            {
+                                held.SetView(step.Id);
+                                Assert.True(held.ArcPickerOptions.Single(o => o.ArcId == pick).IsCurrent, $"pick {pick} lost at {step.Id}");
+                                Check(d, held, ceiling, contentView, $"{name} held walk limit={ceiling.Id} at={step.Id} {contentView} pick={pick}");
+                                stops++;
                             }
                         }
                     }
@@ -405,14 +408,14 @@ public class V2LeakSweepTests
     /// the exhaustive sweep over the synthetic datasets already proves the session code. This one samples the points where
     /// the content changes shape: the first and last points, each milestone and the points on either side, each step that
     /// is not contiguous (parallel paths and starting cities), each arc's first and last steps and the step before it, and
-    /// every 10th point. Each sampled view is swept at its own limit (the strictest picker check), in both content views and
-    /// all three lenses, with no pick, each arc containing the view, and the most recently ended arc. Arc picks are held
+    /// every 10th point. Each sampled view is swept at its own limit (the strictest picker check), in both content views,
+    /// with no pick, each arc containing the view, and the most recently ended arc. Arc picks are held
     /// along walks for every arc that shares a step with another and every 5th arc. Surfaces skip the refocus of every
     /// entry: each neighbour's entry and edge is already on the snapshot. The per-point checks in RealDataTests still cover
     /// every point.
     /// </summary>
     [Fact]
-    public void Sweep_RealTimeline_EveryViewLensAndArc()
+    public void Sweep_RealTimeline_EveryViewAndArc()
     {
         var d = LoadNamed("real");
         var stops = 0;
@@ -421,47 +424,44 @@ public class V2LeakSweepTests
             || d.Arcs.Any(o => o.Id != a.Id && o.FirstOrder <= a.LastOrder && a.FirstOrder <= o.LastOrder)).ToList();
         foreach (var contentView in new[] { AtlasContentView.MainStory, AtlasContentView.MainAndOptional })
         {
-            foreach (var lens in new[] { AtlasLens.Arc, AtlasLens.StoryPoint, AtlasLens.Changes })
+            foreach (var view in d.Checkpoints.Where(c => sampled.Contains(c.Order)))
             {
-                foreach (var view in d.Checkpoints.Where(c => sampled.Contains(c.Order)))
+                var eligible = AtlasArcs.Eligible(d, view.Id, contentView).Select(a => a.ArcId).ToHashSet();
+                var arcs = d.Arcs.Where(a => eligible.Contains(a.Id)).ToList();
+                var picks = new List<string?> { null };
+                picks.AddRange(arcs.Where(a => a.LastOrder >= view.Order).Select(a => a.Id));
+                picks.AddRange(arcs.Where(a => a.LastOrder < view.Order).OrderByDescending(a => a.LastOrder).Take(1).Select(a => a.Id));
+                foreach (var pick in picks)
                 {
-                    var eligible = AtlasArcs.Eligible(d, view.Id, contentView).Select(a => a.ArcId).ToHashSet();
-                    var arcs = d.Arcs.Where(a => eligible.Contains(a.Id)).ToList();
-                    var picks = new List<string?> { null };
-                    picks.AddRange(arcs.Where(a => a.LastOrder >= view.Order).Select(a => a.Id));
-                    picks.AddRange(arcs.Where(a => a.LastOrder < view.Order).OrderByDescending(a => a.LastOrder).Take(1).Select(a => a.Id));
-                    foreach (var pick in picks)
-                    {
-                        var s = Open(d, view, view, contentView, lens, pick);
-                        Check(d, s, view, contentView, $"real limit=view={view.Id} {contentView} {lens} pick={pick}", refocus: false);
-                        stops++;
-                    }
+                    var s = Open(d, view, view, contentView, pick);
+                    Check(d, s, view, contentView, $"real limit=view={view.Id} {contentView} pick={pick}", refocus: false);
+                    stops++;
+                }
+            }
+
+            foreach (var arc in arcsToWalk)
+            {
+                // Held from the last step down to the first and back up, then past the first (where it drops) and back.
+                var last = d.Checkpoints[arc.LastOrder];
+                var held = Open(d, last, last, contentView, arc.Id);
+                var turn = d.Checkpoints.Where(c => c.Order >= arc.FirstOrder && c.Order < last.Order).Reverse()
+                    .Concat(d.Checkpoints.Where(c => c.Order > arc.FirstOrder && c.Order <= last.Order));
+                foreach (var step in turn)
+                {
+                    held.SetView(step.Id);
+                    Assert.True(held.ArcPickerOptions.Single(o => o.ArcId == arc.Id).IsCurrent, $"pick {arc.Id} lost at {step.Id}");
+                    Check(d, held, last, contentView, $"real held walk limit={last.Id} at={step.Id} {contentView} pick={arc.Id}", refocus: false);
+                    stops++;
                 }
 
-                foreach (var arc in arcsToWalk)
+                var bottom = Math.Max(0, arc.FirstOrder - 2);
+                var below = d.Checkpoints.Where(c => c.Order >= bottom && c.Order < last.Order).Reverse()
+                    .Concat(d.Checkpoints.Where(c => c.Order > bottom && c.Order <= arc.FirstOrder));
+                foreach (var step in below)
                 {
-                    // Held from the last step down to the first and back up, then past the first (where it drops) and back.
-                    var last = d.Checkpoints[arc.LastOrder];
-                    var held = Open(d, last, last, contentView, lens, arc.Id);
-                    var turn = d.Checkpoints.Where(c => c.Order >= arc.FirstOrder && c.Order < last.Order).Reverse()
-                        .Concat(d.Checkpoints.Where(c => c.Order > arc.FirstOrder && c.Order <= last.Order));
-                    foreach (var step in turn)
-                    {
-                        held.SetView(step.Id);
-                        Assert.True(held.ArcPickerOptions.Single(o => o.ArcId == arc.Id).IsCurrent, $"pick {arc.Id} lost at {step.Id}");
-                        Check(d, held, last, contentView, $"real held walk limit={last.Id} at={step.Id} {contentView} {lens} pick={arc.Id}", refocus: false);
-                        stops++;
-                    }
-
-                    var bottom = Math.Max(0, arc.FirstOrder - 2);
-                    var below = d.Checkpoints.Where(c => c.Order >= bottom && c.Order < last.Order).Reverse()
-                        .Concat(d.Checkpoints.Where(c => c.Order > bottom && c.Order <= arc.FirstOrder));
-                    foreach (var step in below)
-                    {
-                        held.SetView(step.Id);
-                        Check(d, held, last, contentView, $"real walk limit={last.Id} at={step.Id} {contentView} {lens} pick={arc.Id}", refocus: false);
-                        stops++;
-                    }
+                    held.SetView(step.Id);
+                    Check(d, held, last, contentView, $"real walk limit={last.Id} at={step.Id} {contentView} pick={arc.Id}", refocus: false);
+                    stops++;
                 }
             }
         }
@@ -469,7 +469,7 @@ public class V2LeakSweepTests
         Assert.True(stops > 1000, $"only {stops} stops swept");
     }
 
-    /// <summary>The real timeline's sampled points (see <see cref="Sweep_RealTimeline_EveryViewLensAndArc"/>).</summary>
+    /// <summary>The real timeline's sampled points (see <see cref="Sweep_RealTimeline_EveryViewAndArc"/>).</summary>
     private static HashSet<int> SampledOrders(AtlasDataset d)
     {
         var last = d.Checkpoints.Count - 1;
@@ -496,11 +496,10 @@ public class V2LeakSweepTests
         return orders;
     }
 
-    private static AtlasSession Open(AtlasDataset d, AtlasCheckpoint ceiling, AtlasCheckpoint view, AtlasContentView contentView, AtlasLens lens, string? pick)
+    private static AtlasSession Open(AtlasDataset d, AtlasCheckpoint ceiling, AtlasCheckpoint view, AtlasContentView contentView, string? pick)
     {
         var s = new AtlasSession(d, new AtlasSpoilerState(ceiling.Id, view.Id), contentView);
         Assert.True(s.PickArc(pick));
-        s.SetLens(lens);
         return s;
     }
 
@@ -526,29 +525,13 @@ public class V2LeakSweepTests
             Assert.True(known.SourceFrom.TryGetValue(citation, out var from) && from <= at, $"source '{citation.Title}' ({citation.Url}) is not available by the view at {where}");
         }
 
-        // End evidence: only on a Changes "ended" row, and an end-only source never appears anywhere else.
-        foreach (var (row, inChangesEnded) in surface.Rows)
-        {
-            if (!inChangesEnded)
-            {
-                Assert.True(row.EndCitations.Count == 0, $"end evidence on {row.Key} outside a Changes ended row at {where}");
-            }
-        }
-
+        // End evidence: shown nowhere, so an end-only source never appears.
         AssertNoText(surface.Texts, EndOnlySource, where);
-
-        foreach (var (row, inChangesEnded) in surface.Rows.Where(r => r.InChangesEnded))
-        {
-            var raw = d.Relationships.Single(r => r.Id == row.Relationship!.Id);
-            var allowed = raw.EndCitations.Where(c => c.AvailableAtOrder <= view.Order).Select(c => (c.Title, c.Url?.ToString())).ToHashSet();
-            Assert.All(row.EndCitations, c => Assert.True(allowed.Contains((c.Title, c.Url?.ToString())), $"end citation '{c.Title}' ({c.Url}) is not {row.Key}'s own available end evidence at {where}"));
-        }
 
         // No text names a later quest, an entity not yet introduced, or a source not yet available. A citation's own title
         // and link are checked above (available by the view), and a later quest title inside one spoils nothing: 5.0's
         // "On Track" and 7.0's, or "Travelers at the Crossroads" (6.0) and "Crossroads" (7.1). Mirrors the build's lint.
-        var cited = surface.Citations.Concat(surface.Rows.Where(r => r.InChangesEnded).SelectMany(r => r.Row.EndCitations))
-            .SelectMany(c => new[] { c.Title, c.Url?.ToString() }).OfType<string>().ToHashSet();
+        var cited = surface.Citations.SelectMany(c => new[] { c.Title, c.Url?.ToString() }).OfType<string>().ToHashSet();
         var later = known.Later.FirstHit(surface.Texts.Where(t => !cited.Contains(t)), at);
         Assert.True(later is null, $"'{later?.Needle}' leaked at {where}: {later?.Text}");
 
@@ -556,11 +539,8 @@ public class V2LeakSweepTests
         var locked = Locked(d).FirstHit(Pickers(s).ToList(), ceiling.Order);
         Assert.True(locked is null, $"'{locked?.Needle}' leaked at {where} (pickers): {locked?.Text}");
 
-        if (s.Arc is { PastEnd: false })
-        {
-            Assert.DoesNotContain(surface.Texts, t => t.StartsWith("As of", StringComparison.Ordinal)); // rule 7
-            Assert.DoesNotContain(surface.Texts, t => t.StartsWith("New in", StringComparison.Ordinal));
-        }
+        // Rule 7: an arc in the middle before or at its last step looks exactly like a mid-arc step.
+        Assert.True(surface.EndMarkedEarly.Count == 0, $"arc {string.Join(", ", surface.EndMarkedEarly)} marked as ended before its end at {where}");
     }
 
     /// <summary>
@@ -819,7 +799,8 @@ public class V2LeakSweepTests
 
         public List<AtlasCitationView> Citations { get; } = new();
 
-        public List<(AtlasChangeRow Row, bool InChangesEnded)> Rows { get; } = new();
+        /// <summary>Arcs shown in the middle with an end marker although the view is not past their last step (rule 7).</summary>
+        public List<string> EndMarkedEarly { get; } = new();
 
         public void Add(AtlasEntityView? e)
         {
@@ -846,24 +827,13 @@ public class V2LeakSweepTests
             Cite(r.Citations);
         }
 
-        public void Add(AtlasChangeRow row, bool inChangesEnded)
+        public void Add(AtlasArcRow row)
         {
-            Rows.Add((row, inChangesEnded));
             Texts.Add(row.Text);
             Texts.AddRange(new[] { row.EndedInLabel }.OfType<string>());
             Add(row.Relationship);
             Add(row.Source);
             Add(row.Target);
-            Add(row.Entity);
-            if (inChangesEnded)
-            {
-                // The one allowed place: checked against the relationship's own end evidence, not the ordinary sources.
-                Texts.AddRange(row.EndCitations.Where(c => c.Title != EndOnlySource).SelectMany(c => new[] { c.Title, c.Url?.ToString() }).OfType<string>());
-            }
-            else
-            {
-                Cite(row.EndCitations);
-            }
         }
 
         private void Cite(IEnumerable<AtlasCitationView> citations)
@@ -881,34 +851,62 @@ public class V2LeakSweepTests
     {
         var x = new Surface();
         x.Texts.Add(s.PositionLabel);
-        x.Texts.AddRange(new[] { s.CoverageNote, s.CastHeading, s.ArcNewHeading, s.ChangesLabel }.OfType<string>());
-        x.Texts.AddRange(s.LensOptions.Select(o => o.Label));
+        x.Texts.AddRange(new[] { s.CoverageNote, s.CastHeading, s.ArcPickerNote }.OfType<string>());
         x.Texts.AddRange(s.ArcPickerOptions.SelectMany(o => new[] { o.Label, o.Detail, o.Group ?? string.Empty }));
-        if (s.Arc is { } arc)
+        GatherCentre(s, x);
+        s.Snapshot.Entities.ToList().ForEach(x.Add);
+        s.Snapshot.Relationships.ToList().ForEach(x.Add);
+        s.SearchResultGroups.SelectMany(g => g.Entries).ToList().ForEach(x.Add);
+
+        // Putting every entry on the snapshot in the middle (arc entries included, which open their arc) shows its
+        // one-hop surface or its arc panel, and grows the trail. The pick in force is put back afterwards.
+        var pick = s.ArcPickerOptions.First(o => o.IsCurrent).ArcId;
+        foreach (var entity in refocus ? s.Snapshot.Entities.ToList() : [])
         {
+            if (s.FocusOn(entity.Id))
+            {
+                GatherCentre(s, x);
+            }
+        }
+
+        if (refocus)
+        {
+            Assert.True(s.PickArc(pick));
+        }
+
+        return x;
+    }
+
+    /// <summary>What the middle of the map shows: the trail, the chart and every edge's card, and the arc panel or the connections.</summary>
+    private static void GatherCentre(AtlasSession s, Surface x)
+    {
+        x.Texts.AddRange(s.Trail.Select(t => t.Name));
+        x.Texts.AddRange(new[] { s.ArcNewHeading }.OfType<string>());
+        x.Add(s.Focus);
+        if (s.ShowsWholeCast)
+        {
+            var arc = s.Arc!;
+            if (!arc.PastEnd && (arc.AsOfLabel is not null || s.ArcNewHeading!.StartsWith("New in", StringComparison.Ordinal)))
+            {
+                x.EndMarkedEarly.Add(arc.ArcId);
+            }
+
             x.Texts.Add(arc.RecapLabel);
             x.Texts.AddRange(new[] { arc.AsOfLabel }.OfType<string>());
             x.Add(arc.Entry);
             arc.Cast.Entities.ToList().ForEach(x.Add);
             arc.Cast.Relationships.ToList().ForEach(x.Add);
-        }
-
-        foreach (var row in s.ArcNewRows.Concat(s.ArcEndedRows))
-        {
-            x.Add(row, inChangesEnded: false);
-        }
-
-        foreach (var group in s.ChangeGroups)
-        {
-            foreach (var row in group.Rows)
+            foreach (var row in s.ArcNewRows.Concat(s.ArcEndedRows))
             {
-                x.Add(row, inChangesEnded: group.Kind == AtlasChangeKind.Ended);
+                x.Add(row);
             }
         }
-
-        s.Snapshot.Entities.ToList().ForEach(x.Add);
-        s.Snapshot.Relationships.ToList().ForEach(x.Add);
-        s.SearchResultGroups.SelectMany(g => g.Entries).ToList().ForEach(x.Add);
+        foreach (var neighbor in s.Neighborhood?.Neighbors ?? [])
+        {
+            x.Texts.Add(neighbor.Label);
+            x.Add(neighbor.Entity);
+            x.Add(neighbor.Relationship);
+        }
 
         if (s.Layout is { } layout)
         {
@@ -925,46 +923,13 @@ public class V2LeakSweepTests
                 if (s.SelectRelationship(edge.Relationship.Id))
                 {
                     x.Add(s.SelectedRelationship);
+                    x.Add(s.ChartSnapshot.FindEntity(s.SelectedRelationship!.SourceId));
+                    x.Add(s.ChartSnapshot.FindEntity(s.SelectedRelationship.TargetId));
                 }
             }
 
             s.ClearSelection();
         }
-
-        // Selecting each change shows its details.
-        foreach (var row in s.ChangeGroups.SelectMany(g => g.Rows).ToList())
-        {
-            if (s.SelectChange(row.Key))
-            {
-                x.Add(s.SelectedChange!, inChangesEnded: s.SelectedChange!.Kind == AtlasChangeKind.Ended);
-            }
-        }
-
-        // Refocusing every entry on the snapshot (the arc entry included) shows its one-hop surface.
-        var focusBefore = s.FocusId;
-        foreach (var entity in refocus ? s.Snapshot.Entities.ToList() : [])
-        {
-            if (s.FocusOn(entity.Id) && s.Neighborhood is { } neighborhood)
-            {
-                foreach (var neighbor in neighborhood.Neighbors)
-                {
-                    x.Texts.Add(neighbor.Label);
-                    x.Add(neighbor.Entity);
-                    x.Add(neighbor.Relationship);
-                }
-            }
-        }
-
-        if (focusBefore is null)
-        {
-            s.ShowWholeCast();
-        }
-        else
-        {
-            s.FocusOn(focusBefore);
-        }
-
-        return x;
     }
 
     private static IEnumerable<string> Pickers(AtlasSession s)
@@ -987,7 +952,7 @@ public class V2LeakSweepTests
     }
 }
 
-/// <summary>Round-1 council cases: pick lifetime edges, the window pin, caching and the cast heading.</summary>
+/// <summary>Round-1 council cases: pick lifetime edges, caching and the cast heading.</summary>
 public class V2SessionEdgeTests
 {
     private static readonly AtlasDataset D = V2Fx.Load();
@@ -996,34 +961,32 @@ public class V2SessionEdgeTests
         new(D, new AtlasSpoilerState(ceiling, view), AtlasContentView.MainAndOptional, home);
 
     [Fact]
-    public void Pick_StaysOnScreenPastItsEndUnderTheDefaultLens()
+    public void Pick_StaysOnScreenPastItsEnd()
     {
         var s = At("m2", "s2");
-        Assert.False(s.LensIsExplicit);
         Assert.True(s.PickArc("arc-hold"));
-        Assert.True(s.LensIsExplicit); // picking an arc is choosing the Arc lens
-        s.SetView("s5"); // no arc contains s5, so the default rule alone would have switched to Story point
-        Assert.Equal(AtlasLens.Arc, s.Lens);
+        s.SetView("s5"); // no arc contains s5, so the automatic choice alone would rest on the home entry
+        Assert.True(s.ShowsWholeCast);
         Assert.Equal(AtlasText.ArcEnded, s.Arc!.AsOfLabel);
         Assert.Equal("New in Quest Three", s.ArcNewHeading);
     }
 
     [Fact]
-    public void Pick_TheArcLensStaysChosenAfterThePickEnds()
+    public void Pick_OnceItEndsTheMapRestsOnTheHomeEntry()
     {
-        // D12: picking an arc chose the Arc lens; that choice outlives the pick (dropped, or cleared by the automatic option).
-        var dropped = At("m2", "s3");
+        // NDL-018 retires D12: without lenses, an ended or cleared pick simply returns the map to its resting centre.
+        var dropped = At("m2", "s3", home: "char-bo");
         dropped.PickArc("arc-shadow");
         dropped.SetView("s0");
-        Assert.Equal(AtlasLens.Arc, dropped.Lens);
         Assert.Null(dropped.Arc);
+        Assert.Equal("char-bo", dropped.FocusId);
 
-        var cleared = At("m2", "s2");
+        var cleared = At("m2", "s2", home: "char-bo");
         cleared.PickArc("arc-hold");
         cleared.PickArc(null);
         cleared.SetView("s5");
-        Assert.Equal(AtlasLens.Arc, cleared.Lens);
         Assert.Null(cleared.Arc);
+        Assert.Equal("char-bo", cleared.FocusId);
     }
 
     [Fact]
@@ -1056,74 +1019,46 @@ public class V2SessionEdgeTests
     }
 
     [Fact]
-    public void LensAndPickChangesDismissAPendingRaise()
+    public void PickChangesDismissAPendingRaise()
     {
         var s = At("s2", "s2");
         Assert.Equal(AtlasStateChange.NeedsConfirmation, s.RequestCeiling("s3"));
-        s.SetLens(AtlasLens.Changes);
-        Assert.Null(s.PendingCeilingId);
-
-        s.RequestCeiling("s3");
         s.PickArc("arc-tie");
         Assert.Null(s.PendingCeilingId);
     }
 
     [Fact]
-    public void ShowWholeCast_DoesNothingOutsideTheArcLens()
-    {
-        var s = At("m2", "s2", home: "char-bo");
-        s.SetLens(AtlasLens.StoryPoint);
-        s.ShowWholeCast();
-        Assert.Equal("char-bo", s.FocusId);
-    }
-
-    [Fact]
-    public void ResetHint_InTheArcLensOnlyAfterTheSessionLeftItsResting()
+    public void ResetHint_OnlyAfterTheSessionLeftItsResting()
     {
         var s = At("m2", "s2");
         s.SetView("s3");
-        Assert.False(s.SelectionWasReset); // the whole cast is the Arc lens's resting view
+        Assert.False(s.SelectionWasReset); // the whole cast is the map's resting view
         s.FocusOn("char-bo");
         s.SetView("s2");
         Assert.True(s.SelectionWasReset);
     }
 
     [Fact]
-    public void WindowPin_StoryPointKeepsV1BehaviourAcrossArcs()
+    public void Snapshot_IsAlwaysTheUnfilteredProjection()
     {
-        // AtlasWindow pins Story point until NDL-010; arc data must not change what it sees.
         var s = At("m2", "s0", home: "char-bo");
-        s.SetLens(AtlasLens.StoryPoint);
-        Assert.Equal("char-bo", s.FocusId);
-        Assert.False(s.SelectionWasReset);
         foreach (var view in new[] { "s1", "s2", "s3", "m1", "s5" })
         {
             s.SetView(view);
-            Assert.Equal(AtlasLens.StoryPoint, s.Lens);
-            Assert.Equal("char-bo", s.FocusId);
-            Assert.Equal(AtlasProjector.Project(D, view, AtlasContentView.MainAndOptional).Entities.Count, s.Snapshot.Entities.Count);
-            Assert.False(s.SelectionWasReset);
+            Assert.Equal(AtlasProjector.Project(D, view, AtlasContentView.MainAndOptional).Entities.Select(e => e.Id), s.Snapshot.Entities.Select(e => e.Id));
         }
-
-        var atArc = At("m2", "s2", home: "char-bo"); // opens in Arc, then pinned
-        atArc.SetLens(AtlasLens.StoryPoint);
-        Assert.Equal("char-bo", atArc.FocusId);
-        Assert.False(atArc.SelectionWasReset);
     }
 
     [Fact]
     public void DerivedState_IsCachedUntilSomethingChanges()
     {
-        var s = At("m2", "s2");
-        s.SetLens(AtlasLens.Changes);
-        var groups = s.ChangeGroups;
-        Assert.Same(groups, s.ChangeGroups);
-        s.SelectChange(groups[0].Rows[0].Key);
-        Assert.Same(groups, s.ChangeGroups);
-        s.SetView("s3");
-        Assert.NotSame(groups, s.ChangeGroups);
-
         var arc = At("m2", "s3");
+        var trail = arc.Trail;
+        Assert.Same(trail, arc.Trail);
+        arc.FocusOn("char-bo");
+        Assert.NotSame(trail, arc.Trail);
+        arc.ReturnTo(0);
+
         var (picker, rows, ended, layout) = (arc.ArcPickerOptions, arc.ArcNewRows, arc.ArcEndedRows, arc.Layout);
         Assert.Same(picker, arc.ArcPickerOptions);
         Assert.Same(rows, arc.ArcNewRows);
@@ -1145,14 +1080,15 @@ public class V2SessionEdgeTests
     }
 
     [Fact]
-    public void ArcSurfaces_AreEmptyOutsideTheArcLens()
+    public void ArcPanelSurfaces_AreEmptyAwayFromTheArcEntry()
     {
         var s = At("m2", "s3");
-        s.SetLens(AtlasLens.StoryPoint);
+        Assert.True(s.FocusOn("char-bo"));
         Assert.Empty(s.ArcNewRows);
         Assert.Empty(s.ArcEndedRows);
         Assert.Null(s.ArcNewHeading);
-        Assert.Null(s.CastHeading);
+        Assert.NotNull(s.CastHeading); // the browse list keeps the story arc's cast
+        Assert.Null(At("m2", "s5").CastHeading); // no story arc here
     }
 
     [Fact]
@@ -1162,9 +1098,8 @@ public class V2SessionEdgeTests
         Assert.Equal(AtlasText.CastHeading(5), s.CastHeading);
         Assert.Equal(5, s.SearchResults.Count);
         Assert.DoesNotContain(s.SearchResults, e => e.Id == "evt-hold");
-        Assert.True(s.FocusOn("evt-hold")); // the centre node can still be refocused
-        s.SetLens(AtlasLens.StoryPoint);
-        Assert.Null(s.CastHeading);
+        s.SetSearch("o");
+        Assert.Null(s.CastHeading); // a search lists matches from everyone
     }
 
     [Fact]
@@ -1172,7 +1107,7 @@ public class V2SessionEdgeTests
     {
         var s = At("m2", "s2");
         Assert.Contains(s.Arc!.New, r => r.Id == "p-dee-hold"); // the core reports the joiner's edge
-        Assert.DoesNotContain(s.ArcNewRows, r => r.Relationship!.TypeId == AtlasDataset.ParticipantTypeId);
+        Assert.DoesNotContain(s.ArcNewRows, r => r.Relationship.TypeId == AtlasDataset.ParticipantTypeId);
     }
 
     [Fact]
@@ -1190,7 +1125,7 @@ public class V2SessionEdgeTests
         var ringEdge = s.Layout!.Edges.Single(e => e.Relationship.Id == "p-ana-tie");
         Assert.False(ringEdge.IsParticipation);
         Assert.True(s.Layout.Edges.Single(e => e.Relationship.Id == "p-tie-hold").IsParticipation);
-        Assert.Contains(s.ArcNewRows, r => r.Relationship!.Id == "p-ana-tie");
+        Assert.Contains(s.ArcNewRows, r => r.Relationship.Id == "p-ana-tie");
         Assert.True(s.SelectRelationship("p-ana-tie"));
     }
 
@@ -1226,23 +1161,19 @@ public class ArcSampleTests
     {
         var d = Load();
         var s = new AtlasSession(d, new AtlasSpoilerState("v2", "q2"));
-        Assert.Equal(AtlasLens.Arc, s.Lens);
+        Assert.True(s.ShowsWholeCast);
         Assert.Equal("The Siege of Saltmere", s.Arc!.Entry.Name);
         Assert.Equal("Story so far, through The Captain's Bargain", s.Arc.RecapLabel);
-        Assert.DoesNotContain(s.Snapshot.Entities, e => e.Id == "char-orrin"); // in the story, not in the cast
+        Assert.DoesNotContain(s.Arc.Cast.Entities, e => e.Id == "char-orrin"); // in the story, not in the cast
+        Assert.Contains(s.Snapshot.Entities, e => e.Id == "char-orrin");
         Assert.Equal(new[] { "Captain Mira allied with Vessa", "Vessa member of The Drowned Court" }, s.ArcNewRows.Select(r => r.Text));
         Assert.Equal(new[] { "Captain Mira member of The Harbor Watch" }, s.ArcEndedRows.Select(r => r.Text));
 
         s.SetView("q3");
         Assert.Equal(new[] { AtlasText.ArcAutomatic, "The Siege of Saltmere", "The Undercity Rescue" }, s.ArcPickerOptions.Select(o => o.Label));
-        Assert.Contains(s.ArcEndedRows, r => r.Relationship!.Id == "rel-tobin-prisoner-court");
-
-        s.SetLens(AtlasLens.Changes);
-        Assert.Equal(AtlasText.ChangesThisQuest, s.ChangesLabel);
-        Assert.Equal("Journal: Into the Undercity", s.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows.Single().EndCitations.Single().Title);
+        Assert.Contains(s.ArcEndedRows, r => r.Relationship.Id == "rel-tobin-prisoner-court");
 
         s.SetView("v2");
-        Assert.Equal(AtlasText.ChangesSince("Volume One complete"), s.ChangesLabel);
         Assert.Null(s.CoverageNote);
     }
 }

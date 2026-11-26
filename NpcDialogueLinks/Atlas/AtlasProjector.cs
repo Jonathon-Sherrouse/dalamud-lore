@@ -88,7 +88,7 @@ public sealed class AtlasSnapshot
 
     /// <summary>
     /// The same snapshot restricted to <paramref name="entityIds"/>: only those entities, and only relationships with
-    /// both endpoints inside the set. Used by the Arc lens, where every search, count and connection stays in the cast.
+    /// both endpoints inside the set. Used for an arc's cast: the whole-cast chart and the arc panel's rows.
     /// </summary>
     public AtlasSnapshot Filter(IReadOnlySet<string> entityIds)
     {
