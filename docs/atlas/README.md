@@ -1,6 +1,6 @@
 # Lore Atlas guide
 
-> **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Follow** (`NDL-017`) moves the view to your completed main-scenario progress when you turn it on. It is off by default, and while it's off the Atlas never reads your quest progress.
+> **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses, which `NDL-018` replaced with one map. **Follow** (`NDL-017`) moves the view to your completed main-scenario progress when you turn it on. It is off by default, and while it's off the Atlas never reads your quest progress.
 
 > **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #1 (all three starting cities) through 7.56 (*The World Locked in Ice*), the latest patch, plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0, 5.55, 6.0, 6.55, 7.0 and 7.56 milestones: 1,045 points and 169 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md), [through-shadowbringers.md](through-shadowbringers.md), [through-endwalker.md](through-endwalker.md), [through-dawntrail.md](through-dawntrail.md) and [arr-1-to-101.md](arr-1-to-101.md).
 
@@ -19,15 +19,18 @@ This toggles the Atlas window. It works offline and needs no OpenAI key.
 - **Viewing as of** picks the story point. Points beyond your spoiler limit are greyed out and marked "(locked)".
 - **Spoiler limit → Raise…** moves the limit. Raising it always asks first and never changes your view. Lowering it clamps the view.
 - **Content** switches between main story + optional (the default) and main story only. In the full view, optional-quest connections are dashed and tagged "optional".
-- The window opens on the Scions. Click a node or a name to refocus, and click an edge label or a connection's label to inspect that connection.
+- **One map.** Whatever is in the middle decides what you see ([design](ux-design.md#one-map-ndl-018)).
+  - Inside a story arc, the window opens on the arc: its whole cast on one chart, with faint lines from the arc to each member. The right pane has the arc's "Story so far" recap, what is new at this point, and what has ended so far.
+  - Outside an arc, it opens on the Scions and their connections.
+  - Click anyone (on the chart, in the list, or a name in a row) to put them in the middle. You see their connections across the whole story so far, not only the arc's cast. Click a story arc's hexagon the same way to open that arc.
+  - The trail above the chart (`The Black Wolf's Challenge › Thancred › Y'shtola`) names each step. Click an earlier step to go back.
+  - The left pane lists the arc's cast until you type a search. **Search names…** always looks through everyone.
+  - The **Story arc** picker appears once an arc has started and reopens any arc that has. A pick lasts while you move through the story, until you go back before the arc starts. It is never saved.
+  - Click an edge label or a connection's label to inspect that connection.
 - **Sources (n)** starts collapsed. Links open in your browser only when clicked, behind the spoiler warning.
-- **Lens** (the second row) switches between three views of the same story point ([design](ux-design.md#v2-lenses-ndl-008)). Next to it, "Viewing: after ‹quest›" names the point you chose, and quest steps add a note that they cover only the characters involved.
-  - **Arc** shows the arc around the point: its whole cast on one chart, with the arc at the centre and faint lines to each member. The right pane has the arc's "Story so far" recap, what is new at this point, and what has ended so far. Click a member to see their own connections, inside the cast, and **< Whole cast** to go back. The **Story arc** picker reopens an arc that has already started.
-  - **Story point** is the v1 browser described above.
-  - **Changes** lists what this point added, ended or redescribed compared with the one before. Only an ended row shows **Sources for the ending**.
-  - Until you pick a lens or an arc, the window chooses for you each time the view changes: Arc inside an arc, Story point elsewhere. A pick lasts until the window closes and is never saved.
+- The second row says "Viewing: after ‹quest›" for the point you chose, and quest steps add a note that they cover only the characters involved.
 - **Portraits.** Most entries show a picture from the game's own data (Triple Triad cards, quest and duty art) in a ring of their category colour, with their shape as a small badge. The Waking Sands has none, so it keeps its shape. Game icons load from your installation. Bundled face crops fill out the character roster, including some revealed identities and later forms. See [NPC portrait coverage](npc-portrait-coverage.md).
-- **Follow my progress** (on the Lens row, off by default) moves the view to the latest covered main-scenario quest the game marks complete.
+- **Follow my progress** (on the second row, off by default) moves the view to the latest covered main-scenario quest the game marks complete.
   - It reads your completed quests only, never your active quests or journal.
   - It re-reads when the window opens, when you click **Refresh**, and when you finish a quest.
   - Picking a point yourself turns it off.
@@ -216,6 +219,26 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 | 6 | View → "Endwalker — Patch 6.0 complete". | *The Last Song*. Meteion is also searchable as "The Endsinger" and keeps her winged-girl portrait. |
 | 7 | View → "After Where Everything Begins", search "knight". | Golbez, revealed from the knight in black. Zero has no portrait. |
 | 8 | View → "Endwalker — Patch 6.55 complete". | *A Letter from Tural*, with Wuk Lamat's card portrait. |
+
+## In-game check: one map (NDL-018)
+
+> **Status:** not run in game. Host tests and both plugin builds pass, and the local viewer was smoke-tested.
+
+The checks elsewhere in this guide that predate `NDL-018` name the Lens row. Read **Lens → Arc** and **Lens → Story point** as the map's resting views, use the trail where they say **< Whole cast**, and skip the **Lens → Changes** rows: that feature is gone.
+
+Build and **Reload** as in [Loading a development build](#loading-a-development-build).
+
+| # | Do | Expect |
+|---|---|---|
+| 1 | `/npclinks atlas`. | The second row has **Follow my progress** and "Viewing: after …". There are no Lens buttons. |
+| 2 | View → "After Escape from Castrum Centri". | *The Black Wolf's Challenge* hexagon in the middle with its cast around it. The trail above the chart reads "The Black Wolf's Challenge". Left: the **Story arc** picker and CAST (n). Right: "Story so far", NEW AT THIS POINT and ENDED SO FAR IN THIS ARC. |
+| 3 | Click Thancred on the chart. | Thancred in the middle with all of his connections, including people outside the arc's cast. The trail reads "The Black Wolf's Challenge › Thancred", and the left pane still lists the cast. |
+| 4 | Click a name in his Connections list, then "The Black Wolf's Challenge" in the trail. | The trail grows by one step, then goes back to the whole cast. |
+| 5 | Search "Ifrit" and click the result. | The result list covers everyone, and Ifrit goes in the middle. |
+| 6 | Put someone in the middle whose chart shows another arc's violet hexagon, and click it. | That arc opens with its own recap. The **Story arc** picker shows it, and the trail keeps the way back. |
+| 7 | Deep in the trail, change **Viewing as of**. | "Selection reset because the story settings changed." The trail starts again at the arc at the new point, or at the Scions. |
+| 8 | Pick a point where the picker shows "No story arc covers this point." under it. | The map rests on the Scions. |
+| 9 | Make the window as narrow as it goes with a trail of four or more steps. | The trail wraps inside the chart pane, and the chart stays usable below it. |
 
 ## In-game check: Follow (NDL-017)
 

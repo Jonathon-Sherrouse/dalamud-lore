@@ -232,24 +232,24 @@ public class FollowSessionTests
     }
 
     [Fact]
-    public void Follow_MovingTheViewEndsAnExplicitArcPickButKeepsTheLens()
+    public void Follow_MovingTheViewEndsAnExplicitArcPick()
     {
         var s = Session("m2", "s2");
         Assert.True(s.PickArc("arc-tie"));
         Assert.Equal("arc-tie", s.Arc!.ArcId);
         s.ApplyFollow(Through(103));
         Assert.Equal("s3", s.SpoilerState.ViewId);
-        Assert.Equal(AtlasLens.Arc, s.Lens);
-        Assert.NotEqual("arc-tie", s.Arc?.ArcId);
+        Assert.Equal("arc-hold", s.Arc?.ArcId); // the automatic choice at s3
+        Assert.True(s.ShowsWholeCast);
     }
 
     [Fact]
-    public void Follow_TheDefaultLensRuleAppliesWhenFollowMovesIntoAnArc()
+    public void Follow_TheMapRestsOnTheArcWhenFollowMovesIntoOne()
     {
         var s = Session("m2", "s0");
-        Assert.Equal(AtlasLens.StoryPoint, s.Lens);
+        Assert.Null(s.Arc);
         s.ApplyFollow(Through(102));
-        Assert.Equal(AtlasLens.Arc, s.Lens);
+        Assert.True(s.ShowsWholeCast);
     }
 
     [Fact]

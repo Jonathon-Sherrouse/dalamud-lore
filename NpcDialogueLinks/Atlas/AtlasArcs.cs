@@ -5,7 +5,7 @@ using System.Linq;
 namespace NpcDialogueLinks.Atlas;
 
 /// <summary>
-/// Everything the Arc lens shows for one arc at one view (docs/atlas/v2-plan.md, "Arc lens"). Built only from steps at or
+/// Everything the whole-cast chart and the arc panel show for one arc at one view (docs/atlas/v2-plan.md, "Arc lens"). Built only from steps at or
 /// before <see cref="Effective"/>, so nothing later in the arc can leak.
 /// </summary>
 public sealed record AtlasArcView(
@@ -46,7 +46,7 @@ public sealed record AtlasArcOption(string ArcId, string Name)
 /// </summary>
 public sealed record AtlasArcResolution(string? ArcId, bool PickDropped);
 
-/// <summary>Pure arc selection and projection. Session composition (lens state, lifetime) lives in the front-end session.</summary>
+/// <summary>Pure arc selection and projection. Session composition (the map's centre, pick lifetime) lives in the front-end session.</summary>
 public static class AtlasArcs
 {
     /// <summary>A cast member's <c>participant-in</c> edge to the arc entry <paramref name="entryId"/>: the arc's own membership spoke.</summary>
@@ -176,7 +176,6 @@ public static class AtlasArcs
                 Relationship = e.Relationship with { Citations = Array.Empty<AtlasCitationView>() },
                 Source = e.Source with { Citations = Array.Empty<AtlasCitationView>() },
                 Target = e.Target with { Citations = Array.Empty<AtlasCitationView>() },
-                EndCitations = Array.Empty<AtlasCitationView>(),
             })
             .OrderBy(e => dataset.Checkpoints.First(c => c.Id == e.EndedAtCheckpointId).Order)
             .ThenBy(e => e.Relationship.Id, StringComparer.Ordinal)

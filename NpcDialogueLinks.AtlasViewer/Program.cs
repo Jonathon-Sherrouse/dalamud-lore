@@ -169,16 +169,14 @@ internal sealed class ViewerHost(ViewerOptions options)
                     case "setContentView":
                         session.SetContentView(action.Value == "mainStory" ? AtlasContentView.MainStory : AtlasContentView.MainAndOptional);
                         break;
-                    case "setLens":
-                        if (Enum.TryParse<AtlasLens>(action.Value, ignoreCase: true, out var lens))
+                    case "pickArc": session.PickArc(string.IsNullOrEmpty(action.Value) ? null : action.Value); break;
+                    case "returnTo":
+                        if (int.TryParse(action.Value, System.Globalization.NumberStyles.None, System.Globalization.CultureInfo.InvariantCulture, out var step))
                         {
-                            session.SetLens(lens);
+                            session.ReturnTo(step);
                         }
 
                         break;
-                    case "pickArc": session.PickArc(string.IsNullOrEmpty(action.Value) ? null : action.Value); break;
-                    case "showWholeCast": session.ShowWholeCast(); break;
-                    case "selectChange": session.SelectChange(action.Value); break;
                 }
             }
 
@@ -265,53 +263,38 @@ internal sealed class ViewerHost(ViewerOptions options)
                 optionalTag = AtlasText.OptionalTag,
                 optionalTooltip = AtlasText.OptionalTooltip,
                 optionalSummaryNote = AtlasText.OptionalSummaryNote,
-                lensHeading = AtlasText.LensLabelHeading,
                 arcPickerLabel = AtlasText.ArcPickerLabel,
-                wholeCast = AtlasText.WholeCastButton,
-                noArc = AtlasText.NoArcHere,
                 arcEnded = AtlasText.ArcEndedHeading,
                 arcNothingNew = AtlasText.ArcNothingNew,
                 arcNothingEnded = AtlasText.ArcNothingEnded,
-                noChanges = AtlasText.NoChanges,
-                changesNotOffered = AtlasText.ChangesNotOffered,
-                changesPickHint = AtlasText.ChangesPickHint,
+                trailSeparator = AtlasText.TrailSeparator,
                 eventCategory = AtlasText.CategoryLabel(AtlasCategory.Event),
             },
-            lens = s.Lens,
-            lenses = s.LensOptions.Select(l => new { id = l.Lens, l.Label, l.IsCurrent }),
             position = s.PositionLabel,
             coverage = s.CoverageNote,
-            arc = s.Lens == AtlasLens.Arc
-                ? new
-                {
-                    picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent, o.Detail, o.Group }),
-                    pickerGrouped = s.ArcPickerGrouped,
-                    wholeCast = s.ShowsWholeCast,
-                    castHeading = s.CastHeading,
-                    view = s.Arc is { } a
-                        ? new
-                        {
-                            a.ArcId,
-                            entry = EntityDetails(a.Entry),
-                            recapLabel = a.RecapLabel,
-                            asOf = a.AsOfLabel,
-                            newHeading = s.ArcNewHeading,
-                            newRows = s.ArcNewRows.Select(Row),
-                            endedRows = s.ArcEndedRows.Select(Row),
-                        }
-                        : null,
-                }
-                : null,
-            changes = s.Lens == AtlasLens.Changes
-                ? new
-                {
-                    offered = s.ChangesOffered,
-                    label = s.ChangesLabel,
-                    groups = s.ChangeGroups.Select(g => new { g.Kind, g.Label, rows = g.Rows.Select(Row) }),
-                    selected = s.SelectedChange is { } c ? Row(c) : null,
-                    selectedStatus = s.SelectedChangeStatus,
-                }
-                : null,
+            trail = s.Trail.Select((t, i) => new { index = i, t.EntityId, t.Name, t.IsArc, t.IsCurrent }),
+            arc = new
+            {
+                arcId = s.Arc?.ArcId,
+                pickerOffered = s.ArcPickerOffered,
+                picker = s.ArcPickerOptions.Select(o => new { id = o.ArcId, o.Label, o.IsCurrent, o.Detail, o.Group }),
+                pickerGrouped = s.ArcPickerGrouped,
+                note = s.ArcPickerNote,
+                wholeCast = s.ShowsWholeCast,
+                castHeading = s.CastHeading,
+                view = s.ShowsWholeCast && s.Arc is { } a
+                    ? new
+                    {
+                        a.ArcId,
+                        entry = EntityDetails(a.Entry),
+                        recapLabel = a.RecapLabel,
+                        asOf = a.AsOfLabel,
+                        newHeading = s.ArcNewHeading,
+                        newRows = s.ArcNewRows.Select(Row),
+                        endedRows = s.ArcEndedRows.Select(Row),
+                    }
+                    : null,
+            },
             checkpoints = s.CheckpointOptions.Select(c => new
             {
                 c.Id,
@@ -354,7 +337,7 @@ internal sealed class ViewerHost(ViewerOptions options)
                 }
                 : null,
             selectedRelationship = s.SelectedRelationship is { } r
-                ? new { r.Id, source = s.Snapshot.FindEntity(r.SourceId)!.Name, target = s.Snapshot.FindEntity(r.TargetId)!.Name, label = r.OutgoingLabel, optional = r.IsOptional, citations = Citations(r.Citations), sourcesLabel = AtlasText.SourcesToggle(r.Citations.Count) }
+                ? new { r.Id, source = s.ChartSnapshot.FindEntity(r.SourceId)!.Name, target = s.ChartSnapshot.FindEntity(r.TargetId)!.Name, label = r.OutgoingLabel, optional = r.IsOptional, citations = Citations(r.Citations), sourcesLabel = AtlasText.SourcesToggle(r.Citations.Count) }
                 : null,
         };
     }
@@ -374,24 +357,18 @@ internal sealed class ViewerHost(ViewerOptions options)
         sourcesLabel = AtlasText.SourcesToggle(entity.Citations.Count),
     };
 
-    /// <summary>A Changes or Arc-lens row. End evidence is present only on a Changes "ended" row (the core enforces it).</summary>
-    private object Row(AtlasChangeRow row) => new
+    /// <summary>An arc-panel row. Rows carry no sources of any kind (the core enforces it).</summary>
+    private static object Row(AtlasArcRow row) => new
     {
         row.Key,
-        row.Kind,
         row.Text,
-        sourceId = row.Source?.Id,
-        sourceName = row.Source?.Name,
-        label = row.Relationship?.OutgoingLabel,
-        targetId = row.Target?.Id,
-        targetName = row.Target?.Name,
-        optional = row.Relationship?.IsOptional ?? false,
+        sourceId = row.Source.Id,
+        sourceName = row.Source.Name,
+        label = row.Relationship.OutgoingLabel,
+        targetId = row.Target.Id,
+        targetName = row.Target.Name,
+        optional = row.Relationship.IsOptional,
         endedIn = row.EndedInLabel,
-        citations = row.Relationship is { } r ? Citations(r.Citations) : null,
-        sourcesLabel = row.Relationship is { } r2 ? AtlasText.SourcesToggle(r2.Citations.Count) : null,
-        endCitations = Citations(row.EndCitations),
-        endSourcesLabel = AtlasText.EndSourcesToggle(row.EndCitations.Count),
-        entity = row.Entity is { } e ? EntityDetails(e) : null,
     };
 
     /// <summary>The cached image for a portrait's icon, if the cache has it. Only icons named in the loaded data are served.</summary>

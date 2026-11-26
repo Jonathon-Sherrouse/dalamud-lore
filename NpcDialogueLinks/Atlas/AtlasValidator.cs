@@ -641,7 +641,7 @@ internal static class AtlasValidator
         var until = recordInterval.UntilOrder.Value;
         if (context.Checkpoints[until - 1].Milestone != context.Checkpoints[until].Milestone)
         {
-            context.Errors.Add(AtlasErrorCode.EndCitationOutOfRange, path, "End citations need an ending step where the Changes lens is offered (not across a slice/milestone boundary).");
+            context.Errors.Add(AtlasErrorCode.EndCitationOutOfRange, path, "End citations need an ending between two steps of the same kind (not across a slice/milestone boundary).");
             return null;
         }
 

@@ -83,12 +83,6 @@ public static class AtlasText
     /// <summary><see cref="NextStoryStep"/> standing alone as a picker or menu item, so it starts with a capital.</summary>
     public const string NextStoryStepOption = "The next story step";
 
-    /// <summary>Changes-lens heading for a step contiguous with the previous one.</summary>
-    public const string ChangesThisQuest = "What this quest changed";
-
-    /// <summary>Changes-lens heading across a gap in the covered steps.</summary>
-    public static string ChangesSince(string previousPoint) => $"Changes since {previousPoint}";
-
     /// <summary>Label above an arc's reviewed recap, naming the step it covers. A milestone reads "as of ‹milestone›".</summary>
     public static string RecapThrough(AtlasCheckpoint step) =>
         step.Milestone ? $"Story so far, as of {step.Label}" : $"Story so far, through {step.DisplayTitle}";
@@ -133,16 +127,10 @@ public static class AtlasText
         _ => "Main story + optional",
     };
 
-    // ---- v2 lenses (NDL-008) ----
+    // ---- the map (NDL-018) ----
 
-    public const string LensLabelHeading = "Lens";
-
-    public static string LensLabel(AtlasLens lens) => lens switch
-    {
-        AtlasLens.Arc => "Arc",
-        AtlasLens.Changes => "Changes",
-        _ => "Story point",
-    };
+    /// <summary>Between the steps of the trail above the map.</summary>
+    public const string TrailSeparator = "›";
 
     /// <summary>Shared coverage line on slice (non-milestone) steps (v2 plan, "Coverage note").</summary>
     public const string CoverageNote = "This point covers only the characters involved in this part of the story.";
@@ -169,8 +157,6 @@ public static class AtlasText
     public static string ArcGroup(string milestoneLabel) =>
         milestoneLabel.EndsWith(" complete", StringComparison.Ordinal) ? milestoneLabel[..^" complete".Length] : milestoneLabel;
 
-    public const string WholeCastButton = "Whole cast";
-
     public static string CastHeading(int count) => $"Cast ({count})";
 
     public const string ArcNewHeading = "New at this point";
@@ -185,42 +171,7 @@ public static class AtlasText
     /// <summary>When an ended row's relationship ended (a step at or below the view).</summary>
     public static string EndedIn(AtlasCheckpoint step) =>
         step.Milestone ? $"ended by {step.Label}" : $"ended in {step.DisplayTitle}";
-
-    /// <summary>
-    /// What a picked Changes row did at the view, shown at the top of its details so an ended relationship never reads
-    /// as current. Front ends put the row's mark (+, −, ~) before it.
-    /// </summary>
-    public static string ChangeStatus(AtlasChangeKind kind, AtlasCheckpoint view)
-    {
-        var at = view.Milestone ? $"by {view.Label}" : $"in {view.DisplayTitle}";
-        return kind switch
-        {
-            AtlasChangeKind.Added => $"Added {at}",
-            AtlasChangeKind.Ended => $"Ended {at}",
-            _ => $"Description updated {at}",
-        };
-    }
-
-    public const string ChangesAdded = "Added";
-    public const string ChangesEnded = "Ended";
-    public const string ChangesUpdated = "Description updated";
-    public const string NoChanges = "Nothing changed at this point.";
-    public const string ChangesNotOffered = "Nothing to compare here. Changes compares a quest step with the one before it, or a milestone with the previous milestone.";
-    public const string ChangesPickHint = "Pick a change to see its details.";
-
-    /// <summary>Label of the collapsible end-evidence section, shown only on a Changes "ended" row.</summary>
-    public static string EndSourcesToggle(int count) => $"Sources for the ending ({count})";
 }
-
-/// <summary>What the window shows (v2 plan, "Product shape"). Follow is a toggle beside the lenses, not a lens.</summary>
-public enum AtlasLens
-{
-    Arc,
-    StoryPoint,
-    Changes,
-}
-
-public sealed record AtlasLensOption(AtlasLens Lens, string Label, bool IsCurrent);
 
 /// <summary>One arc-picker row. <see cref="ArcId"/> null is the automatic choice.</summary>
 public sealed record AtlasArcPickerOption(string? ArcId, string Label, bool IsCurrent)
@@ -232,33 +183,26 @@ public sealed record AtlasArcPickerOption(string? ArcId, string Label, bool IsCu
     public string? Group { get; init; }
 }
 
-public enum AtlasChangeKind
+/// <summary>
+/// One row of the arc panel's lists: a relationship new at the arc's effective step, or one that ended so far in the arc
+/// (<see cref="EndedInLabel"/> set). Rows never carry end evidence; no surface shows it (NDL-018).
+/// </summary>
+public sealed record AtlasArcRow(
+    string Key,
+    AtlasRelationshipView Relationship,
+    AtlasEntityView Source,
+    AtlasEntityView Target,
+    string? EndedInLabel = null)
 {
-    Added,
-    Ended,
-    Updated,
+    /// <summary>"Source label Target".</summary>
+    public string Text => $"{Source.Name} {Relationship.OutgoingLabel} {Target.Name}";
 }
 
 /// <summary>
-/// One row of the Changes lens or the Arc lens's lists. A relationship row has <see cref="Relationship"/> with its
-/// endpoints; an updated-description row has <see cref="Entity"/>. <see cref="EndCitations"/> is non-empty only on a
-/// Changes "ended" row, the one surface allowed to show end evidence (v2 spoiler rule 2).
+/// One step of the trail above the map: the entry that was in the middle, named as it is shown now. The last step is
+/// the current centre. An arc entry's step opens that arc's whole cast.
 /// </summary>
-public sealed record AtlasChangeRow(
-    string Key,
-    AtlasChangeKind Kind,
-    AtlasRelationshipView? Relationship,
-    AtlasEntityView? Source,
-    AtlasEntityView? Target,
-    AtlasEntityView? Entity,
-    IReadOnlyList<AtlasCitationView> EndCitations,
-    string? EndedInLabel = null)
-{
-    /// <summary>"Source label Target" for relationship rows; the entity's name otherwise.</summary>
-    public string Text => Relationship is { } r ? $"{Source!.Name} {r.OutgoingLabel} {Target!.Name}" : Entity!.Name;
-}
-
-public sealed record AtlasChangeGroup(AtlasChangeKind Kind, string Label, IReadOnlyList<AtlasChangeRow> Rows);
+public sealed record AtlasTrailStep(string EntityId, string Name, bool IsArc, bool IsCurrent);
 
 public enum AtlasGlyph
 {
@@ -286,14 +230,14 @@ public sealed record AtlasResultGroup(AtlasCategory Category, string Label, IRea
 public sealed record AtlasCheckpointOption(string Id, string Label, bool IsCeiling, bool IsView, bool ViewSelectable);
 
 /// <summary>
-/// UI-agnostic Atlas browser state: spoiler controls, content view, lens, arc selection, search, focus and
-/// relationship or change selection. Every front end (the Dalamud window and the local viewer) renders this object
-/// and calls its methods; no front end keeps its own browsing logic. Not thread-safe; callers serialize access.
+/// UI-agnostic Atlas browser state: spoiler controls, content view, story arc, search, the map's centre and trail, and
+/// relationship selection. Every front end (the Dalamud window and the local viewer) renders this object and calls its
+/// methods; no front end keeps its own browsing logic. Not thread-safe; callers serialize access.
 /// </summary>
 /// <remarks>
-/// <see cref="Snapshot"/> is what browsing works over: the projected view in Story point and Changes, and the arc's
-/// cast-filtered snapshot at its effective step in the Arc lens, so search, counts, connections and refocus never
-/// leave the cast (v2 plan, "Arc lens").
+/// One map (NDL-018): whatever is in the middle decides what shows. A story arc's entry in the middle shows the arc's
+/// whole cast at its effective step with the arc panel; anything else shows its one-hop connections in
+/// <see cref="Snapshot"/>, the projected view, so search, connections and refocus always cover everyone.
 /// </remarks>
 public sealed class AtlasSession
 {
@@ -301,12 +245,15 @@ public sealed class AtlasSession
     private string? explicitArcId;
     private string approvedCeilingId;
 
-    // Derived lens state, built lazily and cleared by Reproject, which every input (limit, view, content view, lens,
-    // arc pick) passes through. Front ends may read these every frame without re-projecting.
-    private IReadOnlyList<AtlasChangeGroup>? changeGroups;
+    // The map's trail: the entries put in the middle, oldest first. The last one is the centre (FocusId).
+    private readonly List<string> trail = new();
+
+    // Derived state, built lazily and cleared whenever its inputs change (Reproject for the limit, view and content view;
+    // ResolveArc for the story arc). Front ends may read these every frame without re-projecting.
     private IReadOnlyList<AtlasArcPickerOption>? arcPickerOptions;
-    private IReadOnlyList<AtlasChangeRow>? arcNewRows;
-    private IReadOnlyList<AtlasChangeRow>? arcEndedRows;
+    private IReadOnlyList<AtlasArcRow>? arcNewRows;
+    private IReadOnlyList<AtlasArcRow>? arcEndedRows;
+    private IReadOnlyList<AtlasTrailStep>? trailSteps;
     private AtlasGraphLayout? wholeCastLayout;
 
     public AtlasSession(
@@ -324,21 +271,7 @@ public sealed class AtlasSession
         Reproject(storySettingChanged: false);
     }
 
-    // ---- lenses ----
-
-    /// <summary>
-    /// The current lens. Until the player picks one, it follows the default rule for the current view: Arc when an arc
-    /// contains the view, Story point otherwise. An explicit pick lasts for the session and is never persisted.
-    /// </summary>
-    public AtlasLens Lens { get; private set; }
-
-    /// <summary>True once the player picked a lens; the default rule then no longer applies this session.</summary>
-    public bool LensIsExplicit { get; private set; }
-
-    public IReadOnlyList<AtlasLensOption> LensOptions =>
-        new[] { AtlasLens.Arc, AtlasLens.StoryPoint, AtlasLens.Changes }
-            .Select(l => new AtlasLensOption(l, AtlasText.LensLabel(l), l == Lens))
-            .ToList();
+    // ---- position ----
 
     /// <summary>
     /// "Viewing: after ‹quest›", the chosen point, never "you are here" (v2 plan, "Honest positioning"). Only when Follow
@@ -351,26 +284,19 @@ public sealed class AtlasSession
     /// <summary>The coverage line on slice steps; null on milestones.</summary>
     public string? CoverageNote => ViewCheckpoint.Milestone ? null : AtlasText.CoverageNote;
 
-    /// <summary>Pick a lens explicitly. It clears search, focus and selection, like any change of what is shown.</summary>
-    public void SetLens(AtlasLens lens)
-    {
-        LensIsExplicit = true;
-        if (lens == Lens)
-        {
-            return;
-        }
+    // ---- story arc ----
 
-        Lens = lens;
-        Reproject(storySettingChanged: false);
-    }
-
-    // ---- Arc lens ----
-
-    /// <summary>The arc shown by the Arc lens (the explicit pick, else the default), or null when none applies.</summary>
+    /// <summary>
+    /// The story arc: the explicit pick while it lasts, otherwise the default (the earliest-started arc containing the
+    /// view), or null when neither applies. The map rests on its entry, and the browse list shows its cast.
+    /// </summary>
     public AtlasArcView? Arc { get; private set; }
 
     /// <summary>The arc picker: the automatic choice, then every arc started by the view, named as of its effective step.</summary>
     public IReadOnlyList<AtlasArcPickerOption> ArcPickerOptions => arcPickerOptions ??= BuildArcPickerOptions();
+
+    /// <summary>Whether any arc has started by the view. Without one, front ends leave the picker out.</summary>
+    public bool ArcPickerOffered => ArcPickerOptions.Count > 1;
 
     /// <summary>
     /// Whether the picker shows patch headings: only when its arcs start in more than one patch (user decision,
@@ -378,36 +304,36 @@ public sealed class AtlasSession
     /// </summary>
     public bool ArcPickerGrouped => ArcPickerOptions.Where(o => o.ArcId is not null).Select(o => o.Group).Distinct().Count() > 1;
 
-    /// <summary>"Cast (n)" above the cast list: the arc's members, not counting the arc entry. Null outside an arc view.</summary>
-    public string? CastHeading => ArcView is { } arc ? AtlasText.CastHeading(arc.Cast.Entities.Count - 1) : null;
+    /// <summary>"No story arc covers this point." under the picker when arcs have started but none applies here.</summary>
+    public string? ArcPickerNote => ArcPickerOffered && Arc is null ? AtlasText.NoArcHere : null;
 
-    /// <summary>"New at this point", or "New in ‹last quest›" for a picked arc viewed after it ended. Null outside an arc view.</summary>
-    public string? ArcNewHeading => ArcView is { } arc ? (arc.PastEnd ? AtlasText.ArcNewIn(arc.Effective) : AtlasText.ArcNewHeading) : null;
+    /// <summary>"Cast (n)" above the cast list while the browse list shows it; null otherwise.</summary>
+    public string? CastHeading => ShowsCastList ? AtlasText.CastHeading(CastMembers.Count) : null;
 
-    /// <summary><see cref="Arc"/> while the Arc lens shows it; null in the other lenses, so Arc-only surfaces stay empty there.</summary>
-    private AtlasArcView? ArcView => Lens == AtlasLens.Arc ? Arc : null;
+    /// <summary>"New at this point", or "New in ‹last quest›" for a picked arc viewed after it ended. Null outside the arc panel.</summary>
+    public string? ArcNewHeading => ShowsWholeCast ? (Arc!.PastEnd ? AtlasText.ArcNewIn(Arc.Effective) : AtlasText.ArcNewHeading) : null;
 
-    /// <summary>True in the Arc lens while no entity is focused: the whole-cast chart and the arc panel show.</summary>
-    public bool ShowsWholeCast => Lens == AtlasLens.Arc && Arc is not null && FocusId is null;
+    /// <summary>True while the story arc's entry is in the middle: the whole-cast chart and the arc panel show.</summary>
+    public bool ShowsWholeCast => Arc is not null && FocusId == Arc.Entry.Id;
 
     /// <summary>
     /// Relationships new at the arc's effective step, as rows (no end evidence). Spokes to the arc entry are left out: a
     /// new member already shows by appearing on the chart, and listing every spoke would bury the real changes (D8).
+    /// Empty outside the arc panel.
     /// </summary>
-    public IReadOnlyList<AtlasChangeRow> ArcNewRows => arcNewRows ??= ArcView is { } arc
-        ? arc.New.Where(r => !AtlasArcs.IsSpoke(r, arc.Entry.Id)).Select(r => RelationshipRow(AtlasChangeKind.Added, r, arc.Cast)).ToList()
-        : Array.Empty<AtlasChangeRow>();
+    public IReadOnlyList<AtlasArcRow> ArcNewRows => !ShowsWholeCast ? Array.Empty<AtlasArcRow>() : arcNewRows ??= Arc!.New
+        .Where(r => !AtlasArcs.IsSpoke(r, Arc.Entry.Id))
+        .Select(r => new AtlasArcRow($"new:{r.Id}", r, Arc.Cast.FindEntity(r.SourceId)!, Arc.Cast.FindEntity(r.TargetId)!))
+        .ToList();
 
-    /// <summary>"Ended so far in this arc", as rows. Never carries sources of any kind (v2 plan, "Arc lens").</summary>
-    public IReadOnlyList<AtlasChangeRow> ArcEndedRows => arcEndedRows ??= ArcView is { } arc
-        ? arc.EndedSoFar.Select(e => new AtlasChangeRow(
-            $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null,
-            Array.Empty<AtlasCitationView>(), EndedInFor(e.EndedAtCheckpointId))).ToList()
-        : Array.Empty<AtlasChangeRow>();
+    /// <summary>"Ended so far in this arc", as rows. Never carries sources of any kind (v2 plan, "Arc lens"). Empty outside the arc panel.</summary>
+    public IReadOnlyList<AtlasArcRow> ArcEndedRows => !ShowsWholeCast ? Array.Empty<AtlasArcRow>() : arcEndedRows ??= Arc!.EndedSoFar
+        .Select(e => new AtlasArcRow($"ended:{e.Relationship.Id}", e.Relationship, e.Source, e.Target, EndedInFor(e.EndedAtCheckpointId)))
+        .ToList();
 
     /// <summary>
-    /// Pick an arc, or null for the automatic choice. Only arcs started by the view can be picked. Picking an arc is
-    /// choosing the Arc lens, so the default lens rule can no longer hide the pick when the view moves past its end.
+    /// Pick an arc, or null for the automatic choice, and put it in the middle with a fresh trail. Only arcs started by
+    /// the view can be picked. The pick holds while the view moves, until the view drops below the arc's first step.
     /// </summary>
     public bool PickArc(string? arcId)
     {
@@ -417,78 +343,44 @@ public sealed class AtlasSession
         }
 
         explicitArcId = arcId;
-        if (arcId is not null)
-        {
-            LensIsExplicit = true;
-            Lens = AtlasLens.Arc;
-        }
-
-        Reproject(storySettingChanged: false);
+        PendingCeiling = null;
+        ResolveArc();
+        Rest();
+        SelectionWasReset = false;
         return true;
     }
 
-    /// <summary>Back to the whole-cast chart after refocusing a character in the Arc lens.</summary>
-    public void ShowWholeCast()
+    // ---- the map's centre and trail ----
+
+    /// <summary>The most steps the trail keeps. Past it, the oldest step after the first is dropped.</summary>
+    public const int MaxTrailSteps = 6;
+
+    /// <summary>
+    /// The trail above the map, oldest first; the last step is the centre. Empty only when nothing can be shown. It
+    /// starts again at the resting centre whenever the limit, view, content view or picked arc changes. Arc entries are
+    /// named as the picker names them, as of their effective step; everything else as the view shows it.
+    /// </summary>
+    public IReadOnlyList<AtlasTrailStep> Trail => trailSteps ??= trail.Select((id, i) =>
+            ArcByEntry(id) is { } arc
+                ? new AtlasTrailStep(id, ArcPickerOptions.First(o => o.ArcId == arc.Id).Label, true, i == trail.Count - 1)
+                : new AtlasTrailStep(id, snapshot.FindEntity(id)?.Name ?? string.Empty, false, i == trail.Count - 1))
+        .ToList();
+
+    /// <summary>Go back to an earlier step of the trail, dropping the steps after it.</summary>
+    public bool ReturnTo(int index)
     {
-        if (Lens != AtlasLens.Arc)
-        {
-            return;
-        }
-
-        FocusId = null;
-        SelectedRelationshipId = null;
-        SelectionWasReset = false;
-    }
-
-    // ---- Changes lens ----
-
-    /// <summary>Whether the Changes lens has a comparison at the view (same-kind steps, from the second step on).</summary>
-    public bool ChangesOffered => AtlasChanges.IsOffered(Dataset, SpoilerState.ViewId);
-
-    /// <summary>"What this quest changed" or "Changes since ‹previous point›"; null where Changes is not offered.</summary>
-    public string? ChangesLabel => AtlasChanges.Label(Dataset, SpoilerState.ViewId);
-
-    /// <summary>The Changes lens rows, grouped Added / Ended / Description updated, omitting empty groups.</summary>
-    public IReadOnlyList<AtlasChangeGroup> ChangeGroups => changeGroups ??= BuildChangeGroups();
-
-    private IReadOnlyList<AtlasChangeGroup> BuildChangeGroups()
-    {
-        if (AtlasChanges.At(Dataset, SpoilerState.ViewId, ContentView) is not { } diff)
-        {
-            return Array.Empty<AtlasChangeGroup>();
-        }
-
-        var after = Lens == AtlasLens.Arc ? Project() : snapshot;
-        var groups = new List<AtlasChangeGroup>
-        {
-            new(AtlasChangeKind.Added, AtlasText.ChangesAdded, diff.Added.Select(r => RelationshipRow(AtlasChangeKind.Added, r, after)).ToList()),
-            new(AtlasChangeKind.Ended, AtlasText.ChangesEnded, diff.Ended.Select(e => new AtlasChangeRow(
-                $"ended:{e.Relationship.Id}", AtlasChangeKind.Ended, e.Relationship, e.Source, e.Target, null, e.EndCitations)).ToList()),
-            new(AtlasChangeKind.Updated, AtlasText.ChangesUpdated, diff.DescriptionUpdated.Select(e => new AtlasChangeRow(
-                $"updated:{e.Id}", AtlasChangeKind.Updated, null, null, null, e, Array.Empty<AtlasCitationView>())).ToList()),
-        };
-        return groups.Where(g => g.Rows.Count > 0).ToList();
-    }
-
-    public string? SelectedChangeKey { get; private set; }
-
-    /// <summary>"Added in ‹quest›", "Ended by ‹milestone›"… for the picked Changes row; null when none is picked.</summary>
-    public string? SelectedChangeStatus => SelectedChange is { } row ? AtlasText.ChangeStatus(row.Kind, ViewCheckpoint) : null;
-
-    public AtlasChangeRow? SelectedChange =>
-        SelectedChangeKey is null ? null : ChangeGroups.SelectMany(g => g.Rows).FirstOrDefault(r => r.Key == SelectedChangeKey);
-
-    public bool SelectChange(string? key)
-    {
-        if (Lens != AtlasLens.Changes || key is null || ChangeGroups.SelectMany(g => g.Rows).All(r => r.Key != key))
+        if (index < 0 || index >= trail.Count - 1)
         {
             return false;
         }
 
-        SelectedChangeKey = key;
-        SelectionWasReset = false;
-        return true;
+        return FocusOn(trail[index]);
     }
+
+    /// <summary>The started arc whose entry is <paramref name="entityId"/>, or null.</summary>
+    private AtlasArc? ArcByEntry(string? entityId) =>
+        entityId is null ? null
+        : ArcPickerOptions.Where(o => o.ArcId is not null).Select(o => Dataset.Arcs.First(a => a.Id == o.ArcId)).FirstOrDefault(a => a.EntityId == entityId);
 
     private IReadOnlyList<AtlasArcPickerOption> BuildArcPickerOptions()
     {
@@ -507,21 +399,18 @@ public sealed class AtlasSession
         }
     }
 
-    private static AtlasChangeRow RelationshipRow(AtlasChangeKind kind, AtlasRelationshipView r, AtlasSnapshot endpoints) =>
-        new($"{kind.ToString().ToLowerInvariant()}:{r.Id}", kind, r, endpoints.FindEntity(r.SourceId), endpoints.FindEntity(r.TargetId), null, Array.Empty<AtlasCitationView>());
-
     private string EndedInFor(string checkpointId)
     {
         Dataset.TryGetCheckpoint(checkpointId, out var ended);
         return AtlasText.EndedIn(ended);
     }
 
-    /// <summary>The entry focused on open and after story-setting changes, when visible. See <see cref="AtlasDefaults"/>.</summary>
+    /// <summary>The entry in the middle when no story arc applies, if visible. See <see cref="AtlasDefaults"/>.</summary>
     public string? HomeEntityId { get; }
 
     /// <summary>
-    /// True after a story-setting change (limit, view or content view) reset a search, focus or selection the
-    /// player had made, until their next browsing action. Front ends show <see cref="AtlasText.SelectionReset"/>.
+    /// True after a story-setting change (limit, view or content view) reset a search, trail or selection the player
+    /// had made, until their next browsing action. Front ends show <see cref="AtlasText.SelectionReset"/>.
     /// </summary>
     public bool SelectionWasReset { get; private set; }
 
@@ -531,11 +420,16 @@ public sealed class AtlasSession
 
     public AtlasContentView ContentView { get; private set; }
 
+    /// <summary>The projected view at the view checkpoint: what search, connections and refocus work over.</summary>
     public AtlasSnapshot Snapshot => snapshot;
+
+    /// <summary>The snapshot the chart and the selected connection are drawn from: the arc's cast in the whole-cast chart.</summary>
+    public AtlasSnapshot ChartSnapshot => ShowsWholeCast ? Arc!.Cast : snapshot;
 
     public string SearchQuery { get; private set; } = string.Empty;
 
-    public string? FocusId { get; private set; }
+    /// <summary>The entry in the middle of the map (the trail's last step), or null when nothing can be shown.</summary>
+    public string? FocusId => trail.Count > 0 ? trail[^1] : null;
 
     public string? SelectedRelationshipId { get; private set; }
 
@@ -584,13 +478,17 @@ public sealed class AtlasSession
     }
 
     /// <summary>
-    /// Visible entries matching the search. In the Arc lens with an empty search, the cast members without the arc entry,
-    /// which is the panel's subject and the chart's centre; a search can still find the entry by name.
+    /// Visible entries matching the search, from everyone. With an empty search and a story arc, the arc's cast members
+    /// instead (without the arc entry, which the trail and the picker already name); a search can still find anyone.
     /// </summary>
-    public IReadOnlyList<AtlasEntityView> SearchResults =>
-        ArcView is { } arc && SearchQuery.Trim().Length == 0
-            ? snapshot.Entities.Where(e => e.Id != arc.Entry.Id).ToList()
-            : snapshot.Search(SearchQuery);
+    public IReadOnlyList<AtlasEntityView> SearchResults => ShowsCastList ? CastMembers : snapshot.Search(SearchQuery);
+
+    private bool ShowsCastList => Arc is not null && SearchQuery.Trim().Length == 0;
+
+    /// <summary>The story arc's members visible at the view, as the view names them, so every one can be put in the middle.</summary>
+    private IReadOnlyList<AtlasEntityView> CastMembers => Arc is { } arc
+        ? arc.Cast.Entities.Where(e => e.Id != arc.Entry.Id).Select(e => snapshot.FindEntity(e.Id)).OfType<AtlasEntityView>().ToList()
+        : Array.Empty<AtlasEntityView>();
 
     /// <summary>Search results grouped by category, omitting empty groups (user decision, 2026-11-14).</summary>
     public IReadOnlyList<AtlasResultGroup> SearchResultGroups =>
@@ -599,19 +497,21 @@ public sealed class AtlasSession
             .Select(g => new AtlasResultGroup(g.Key, AtlasText.CategoryGroupLabel(g.Key), g.ToList()))
             .ToList();
 
-    public AtlasEntityView? Focus => snapshot.FindEntity(FocusId);
+    /// <summary>The entry in the middle, as shown (the arc entry as of its effective step in the whole-cast chart).</summary>
+    public AtlasEntityView? Focus => ShowsWholeCast ? Arc!.Entry : snapshot.FindEntity(FocusId);
 
-    public AtlasNeighborhood? Neighborhood => snapshot.GetNeighborhood(FocusId);
+    /// <summary>The centre's one-hop connections; null in the whole-cast chart, which has the arc panel instead.</summary>
+    public AtlasNeighborhood? Neighborhood => ShowsWholeCast ? null : snapshot.GetNeighborhood(FocusId);
 
-    /// <summary>The whole-cast chart in the Arc lens with nothing focused; otherwise the focus's one-hop graph.</summary>
+    /// <summary>The whole-cast chart while the story arc's entry is in the middle; otherwise the centre's one-hop graph.</summary>
     public AtlasGraphLayout? Layout =>
-        ShowsWholeCast ? wholeCastLayout ??= AtlasGraphLayout.ComputeWholeCast(snapshot, Arc!.Entry.Id)
+        ShowsWholeCast ? wholeCastLayout ??= AtlasGraphLayout.ComputeWholeCast(Arc!.Cast, Arc.Entry.Id)
         : Neighborhood is { } neighborhood ? AtlasGraphLayout.Compute(neighborhood)
         : null;
 
     public AtlasRelationshipView? SelectedRelationship =>
         SelectedRelationshipId is null ? null
-        : ShowsWholeCast ? snapshot.Relationships.FirstOrDefault(r => r.Id == SelectedRelationshipId)
+        : ShowsWholeCast ? Arc!.Cast.Relationships.FirstOrDefault(r => r.Id == SelectedRelationshipId)
         : Neighborhood?.Neighbors.FirstOrDefault(n => n.Relationship.Id == SelectedRelationshipId)?.Relationship;
 
     public void SetSourcesExpanded(bool expanded) => SourcesExpanded = expanded;
@@ -624,15 +524,41 @@ public sealed class AtlasSession
             : query ?? string.Empty;
     }
 
-    /// <summary>Focus (or refocus) a visible entity. Returns false and changes nothing if it is not visible.</summary>
+    /// <summary>
+    /// Put a visible entry in the middle and add it to the trail; an entry already on the trail cuts the trail back to
+    /// it. A started arc's entry becomes the story arc, so its whole cast shows and the browse list shows its cast.
+    /// Returns false and changes nothing if the entry is not visible.
+    /// </summary>
     public bool FocusOn(string? entityId)
     {
-        if (snapshot.FindEntity(entityId) is null)
+        var arc = ArcByEntry(entityId);
+        if (entityId is null || (arc is null && snapshot.FindEntity(entityId) is null))
         {
             return false;
         }
 
-        FocusId = entityId;
+        if (arc is not null && arc.Id != Arc?.ArcId)
+        {
+            // The pick lasts like one made in the picker. Its trail is kept, so the way back stays on screen.
+            explicitArcId = arc.Id;
+            ResolveArc();
+        }
+
+        var existing = trail.IndexOf(entityId);
+        if (existing >= 0)
+        {
+            trail.RemoveRange(existing + 1, trail.Count - existing - 1);
+        }
+        else
+        {
+            trail.Add(entityId);
+            if (trail.Count > MaxTrailSteps)
+            {
+                trail.RemoveAt(1);
+            }
+        }
+
+        trailSteps = null;
         SelectedRelationshipId = null;
         SelectionWasReset = false;
         return true;
@@ -643,7 +569,7 @@ public sealed class AtlasSession
     {
         // Participation spokes are not click targets on the whole-cast chart (D8).
         var onChart = ShowsWholeCast
-            ? snapshot.Relationships.Any(r => r.Id == relationshipId && !AtlasArcs.IsSpoke(r, Arc!.Entry.Id))
+            ? Arc!.Cast.Relationships.Any(r => r.Id == relationshipId && !AtlasArcs.IsSpoke(r, Arc.Entry.Id))
             : Neighborhood?.Neighbors.Any(n => n.Relationship.Id == relationshipId) == true;
         if (!onChart)
         {
@@ -945,32 +871,27 @@ public sealed class AtlasSession
     }
 
     /// <summary>
-    /// Re-project after anything changes what is shown: apply the default lens rule, resolve the arc (ending an explicit
-    /// pick whose first step is now after the view), rebuild the browsing snapshot, clear transient state, and return to
-    /// the lens's resting focus. Only a story-setting change (limit, view, content view) raises the reset hint.
+    /// Re-project after a story-setting change (limit, view, content view): resolve the story arc (ending an explicit pick
+    /// whose first step is now after the view), rebuild the snapshot, clear transient state, and start the trail again at
+    /// the resting centre.
     /// </summary>
     private void Reproject(bool storySettingChanged)
     {
         var hadPlayerState = SearchQuery.Length > 0
+            || trail.Count > 1
             || (FocusId is not null && FocusId != RestingFocus())
-            || SelectedRelationshipId is not null
-            || SelectedChangeKey is not null;
-        SearchQuery = string.Empty;
-        FocusId = null;
-        SelectedRelationshipId = null;
-        SelectedChangeKey = null;
+            || SelectedRelationshipId is not null;
         PendingCeiling = null;
-        changeGroups = null;
+        snapshot = Project();
+        ResolveArc();
+        Rest();
+        SelectionWasReset = storySettingChanged && hadPlayerState;
+    }
+
+    /// <summary>Resolve and project the story arc, clearing the state derived from it.</summary>
+    private void ResolveArc()
+    {
         arcPickerOptions = null;
-        arcNewRows = null;
-        arcEndedRows = null;
-        wholeCastLayout = null;
-
-        if (!LensIsExplicit)
-        {
-            Lens = AtlasArcs.Default(Dataset, SpoilerState.ViewId) is not null ? AtlasLens.Arc : AtlasLens.StoryPoint;
-        }
-
         var resolution = AtlasArcs.Resolve(Dataset, SpoilerState.ViewId, explicitArcId);
         if (resolution.PickDropped)
         {
@@ -978,16 +899,31 @@ public sealed class AtlasSession
         }
 
         Arc = resolution.ArcId is { } arcId ? AtlasArcs.Project(Dataset, arcId, SpoilerState.ViewId, ContentView) : null;
-        snapshot = Lens != AtlasLens.Arc ? Project()
-            : Arc is { } arc ? arc.Cast
-            : Project().Filter(new HashSet<string>(StringComparer.Ordinal));
-        FocusId = RestingFocus();
-        SelectionWasReset = storySettingChanged && hadPlayerState;
+        arcPickerOptions = null;
+        arcNewRows = null;
+        arcEndedRows = null;
+        trailSteps = null;
+        wholeCastLayout = null;
     }
 
-    /// <summary>Where each lens rests: the home entry in Story point (when visible); nothing in Arc (the whole cast) and Changes.</summary>
+    /// <summary>Start the trail again at the resting centre, with no search or selection.</summary>
+    private void Rest()
+    {
+        SearchQuery = string.Empty;
+        SelectedRelationshipId = null;
+        trail.Clear();
+        trailSteps = null;
+        if (RestingFocus() is { } rest)
+        {
+            trail.Add(rest);
+        }
+    }
+
+    /// <summary>Where the map rests: the story arc's entry, else the home entry when visible, else nothing.</summary>
     private string? RestingFocus() =>
-        Lens == AtlasLens.StoryPoint && snapshot.FindEntity(HomeEntityId) is not null ? HomeEntityId : null;
+        Arc is { } arc ? arc.Entry.Id
+        : snapshot.FindEntity(HomeEntityId) is not null ? HomeEntityId
+        : null;
 
     private AtlasSnapshot Project() => AtlasProjector.Project(Dataset, SpoilerState.ViewId, ContentView);
 }

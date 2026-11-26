@@ -19,7 +19,6 @@ public class ArcArr20Tests
     private static AtlasSession At(string view, string? pick = null)
     {
         var session = new AtlasSession(D, new AtlasSpoilerState(D.Checkpoints[^1].Id, view));
-        session.SetLens(AtlasLens.Arc);
         Assert.True(session.PickArc(pick));
         return session;
     }
@@ -85,19 +84,21 @@ public class ArcArr20Tests
     {
         var s = At(step, arc);
         Assert.Equal(arc, s.Arc!.ArcId);
-        Assert.Equal(added, s.ArcNewRows.Select(r => r.Relationship!.Id).Order(StringComparer.Ordinal));
-        Assert.Equal(ended, s.ArcEndedRows.Select(r => r.Relationship!.Id));
-        Assert.All(s.ArcEndedRows, r => Assert.Empty(r.EndCitations));
+        Assert.Equal(added, s.ArcNewRows.Select(r => r.Relationship.Id).Order(StringComparer.Ordinal));
+        Assert.Equal(ended, s.ArcEndedRows.Select(r => r.Relationship.Id));
+        Assert.All(s.ArcEndedRows, r => Assert.Empty(r.Relationship.Citations));
     }
 
     [Fact]
-    public void TheImpostorsDefeatCarriesEndEvidenceInChanges()
+    public void TheImpostorsDefeatCarriesItsOwnEndEvidence()
     {
-        var s = At(Step(128));
-        s.SetLens(AtlasLens.Changes);
-        var ended = s.ChangeGroups.Single(g => g.Kind == AtlasChangeKind.Ended).Rows.Single();
-        Assert.Equal("rel-guillaime-opposes-alphinaud", ended.Relationship!.Id);
-        Assert.Equal("The Heretic among Us — main scenario quest (2.0)", ended.EndCitations.Single().Title);
+        // Shown nowhere since NDL-018, but recorded and validated.
+        Assert.True(D.TryGetCheckpoint(Step(128), out var step));
+        var ended = AtlasChanges.Compare(
+            AtlasProjector.Project(D, D.Checkpoints[step.Order - 1].Id, AtlasContentView.MainAndOptional),
+            AtlasProjector.Project(D, step.Id, AtlasContentView.MainAndOptional)).Ended.Single();
+        Assert.Equal("rel-guillaime-opposes-alphinaud", ended.Relationship.Id);
+        Assert.Equal("The Heretic among Us — main scenario quest (2.0)", D.Relationships.Single(r => r.Id == ended.Relationship.Id).EndCitations.Single().Title);
     }
 
     [Theory]

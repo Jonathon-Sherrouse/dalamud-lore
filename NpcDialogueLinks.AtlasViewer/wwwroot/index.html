@@ -40,11 +40,16 @@
   .seg button:focus-visible { outline-offset: -2px; }
   /* Side panes shrink with the window (AtlasChartStyle.Browse and Details limits; render() sets the two widths). */
   .body { display: grid; grid-template-columns: var(--browse-w, 200px) 1fr var(--details-w, 280px); min-height: 0; }
-  /* Changes lens: the change list takes the browse pane and the canvas (docs/atlas/ux-design.md, "v2 lenses"). */
-  .body.changes { grid-template-columns: 1fr var(--details-w, 280px); }
-  .lensbar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 6px 12px; border-bottom: 1px solid var(--border); background: var(--panel); }
-  .lensbar .pos { color: var(--text); font-size: 12px; }
-  .lensbar .cov { color: var(--muted); font-size: 12px; font-style: italic; }
+  .posbar { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; padding: 6px 12px; border-bottom: 1px solid var(--border); background: var(--panel); }
+  .posbar .pos { color: var(--text); font-size: 12px; }
+  .posbar .cov { color: var(--muted); font-size: 12px; font-style: italic; }
+  /* The map (NDL-018): the trail of entries put in the middle sits above the chart. */
+  .centre { display: grid; grid-template-rows: auto minmax(0, 1fr); min-height: 0; min-width: 0; }
+  .trail { padding: 6px 10px; border-bottom: 1px solid var(--border); font-size: 12.5px; overflow-wrap: anywhere; }
+  .trail .step { color: var(--hover); cursor: pointer; text-decoration: underline dotted; text-underline-offset: 2px; }
+  .trail .step:hover { text-decoration: underline solid; }
+  .trail .sep { color: var(--muted); margin: 0 6px; }
+  .trail .here { color: var(--text); }
   .arcpick { width: 100%; margin-bottom: 8px; }
   .recap-label { font-size: 10.5px; letter-spacing: .08em; color: var(--accent); text-transform: uppercase; margin: 10px 0 4px; }
   .recap { margin: 0 0 6px; font-size: 13.5px; line-height: 1.5; }
@@ -53,15 +58,6 @@
   /* Names that refocus: a quiet dotted underline at rest, solid on hover. */
   .who { cursor: pointer; text-decoration: underline dotted var(--muted); text-underline-offset: 2px; }
   .who:hover { text-decoration: underline solid; }
-  .changes-list { background: var(--panel); overflow: auto; padding: 12px 16px; min-height: 0; }
-  .changes-list h2 { font-size: 15px; margin: 0 0 6px; }
-  .changes-list .crow { cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
-  .changes-list .crow:hover { background: var(--panel-2); }
-  .changes-list .crow.selected { background: var(--sel); }
-  .mark { width: 14px; flex: none; color: var(--muted); text-align: center; }
-  .status { display: flex; gap: 6px; align-items: baseline; font-size: 12px; color: var(--accent); margin: 0 0 8px;
-    padding-bottom: 4px; border-bottom: 1px solid var(--border); }
-  .status .mark { color: inherit; font-weight: 600; width: auto; }
   .browse, .details { background: var(--panel); overflow: auto; padding: 10px; min-height: 0; }
   .browse { border-right: 1px solid var(--border); }
   .details { border-left: 1px solid var(--border); }
@@ -130,7 +126,7 @@
   svg .head.hot:not(.selected) { fill: var(--hover); }
   svg .leader { stroke: var(--muted); stroke-opacity: .6; stroke-width: 1px; }
   svg .edge-hit { stroke: transparent; stroke-width: 10px; fill: none; cursor: pointer; }
-  /* Arc lens: a cast member's participation spoke to the arc entry: faint, unlabelled, not clickable. */
+  /* Whole-cast chart: a cast member's participation spoke to the arc entry: faint, unlabelled, not clickable. */
   svg .edge.spoke { stroke: var(--evt); stroke-opacity: .28; stroke-width: 1px; }
   svg .elabel { cursor: pointer; }
   svg .elabel text { fill: var(--muted); font-size: 11px; }
@@ -177,7 +173,7 @@ async function reload() { state = await (await fetch("/api/reload", { method: "P
 
 // ---- Keyboard focus across re-renders (council round 1) ------------------------------------------------------
 // Every render rebuilds the DOM, so note what had focus (region + identifying attribute + index) and put it back.
-const FOCUS_ATTRS = ["data-focus", "data-rel", "data-change", "data-lens", "data-cv", "data-ceiling", "data-clear", "data-wholecast", "data-dictionary-term"];
+const FOCUS_ATTRS = ["data-focus", "data-rel", "data-trail", "data-cv", "data-ceiling", "data-clear", "data-dictionary-term"];
 const FOCUSABLE = "[tabindex], button, input, select, summary, a[href]";
 function focusKey() {
   const el = document.activeElement;
@@ -370,13 +366,13 @@ function chartSvg(L, W, H) {
       + `<text x="${(box.x0 + box.x1) / 2}" y="${(box.y0 + box.y1) / 2}" text-anchor="middle" dominant-baseline="central">${esc(e.label)}</text></g>`;
   }
 
-  // Nodes on top. A focused node only refocuses on the whole-cast chart (L4), as in the in-game window.
+  // Nodes on top. The centre is already in the middle, so only ring nodes can be clicked, as in the in-game window.
   let nodes = "";
   for (const g of all) {
     const n = g.n, r = g.r, round = !!n.portrait || !["square", "diamond", "hexagon"].includes(n.glyph);
     const body = n.portrait ? portraitParts(n.portrait, n.glyph, r, true) : nodeShape(n.glyph, n.hasPortrait ? r * 0.8 : r);
     const ring = (rr, cls) => round ? `<circle class="${cls}" r="${rr}"/>` : nodeShape(n.glyph, rr, cls, "none");
-    const clickable = !n.isFocus || wholeCast;
+    const clickable = !n.isFocus;
     const outline = (n.isFocus ? ring(r + 3, "fo") : "") + (clickable ? ring(r + (n.isFocus ? 6 : 2), "ho") : "");
     const p = g.plate, lx = (p.x0 + p.x1) / 2 - g.x, ly = (p.y0 + p.y1) / 2 - g.y;
     nodes += `<g class="node${n.isFocus ? " focus" : ""}"${clickable ? ` data-focus="${esc(n.id)}" ${BTN}` : ""} aria-label="${esc(n.name)}" transform="translate(${g.x},${g.y})">`
@@ -385,7 +381,7 @@ function chartSvg(L, W, H) {
       + plate({ x0: p.x0 - g.x, y0: p.y0 - g.y, x1: p.x1 - g.x, y1: p.y1 - g.y })
       + `<text class="name" x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="central"${g.bold ? ' font-weight="bold"' : ""}>${esc(g.name)}</text></g>`;
   }
-  const label = state.focus?.name ?? state.arc?.view?.entry.name ?? "";
+  const label = state.focus?.name ?? "";
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} connections">${edges}${labels}${nodes}</svg>`;
 }
 
@@ -440,10 +436,9 @@ function details() {
       <span>${who(n.entityId, n.entityName)}${optTag(n.optional)}${n.onCanvas ? "" : ` <span class="help">${esc(t.listOnly)}</span>`}</span></div>`;
   }).join("");
   const aliases = f.aliases.length ? " · " + f.aliases.map(esc).join(", ") : "";
-  const back = state.arc?.view ? `<button data-wholecast>← ${esc(t.wholeCast)}</button><div style="height:8px"></div>` : "";
   // The selected connection's card leads the pane, as in the Arc panel, so picking an edge never needs a scroll.
   const card = state.selectedRelationship ? `${selectedCard()}<div style="height:10px"></div>` : "";
-  return `${back}${card}${header(f, aliases)}
+  return `${card}${header(f, aliases)}
     <p class="summary">${dictionaryProse(f)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>
     ${sources(f.citations, f.sourcesLabel)}
     <div class="h3">${esc(t.connectionsHeading)} (${list.length})</div>${rows || `<div class="help">${esc(t.noConnections)}</div>`}`;
@@ -469,7 +464,7 @@ function relRow(r, focusable) {
   return `${name(r.sourceId, r.sourceName)} ${esc(r.label)} ${name(r.targetId, r.targetName)}${optTag(r.optional)}`;
 }
 
-// Arc lens, nothing focused: the arc's name, its reviewed recap, and what is new and what has ended so far (no sources on rows).
+// The arc panel, while the story arc is in the middle: its name, its reviewed recap, and what is new and what has ended so far (no sources on rows).
 function arcPanel() {
   const t = state.text, v = state.arc.view, e = v.entry;
   const rows = (list, none) => list.length
@@ -483,49 +478,32 @@ function arcPanel() {
     <div class="h3">${esc(t.arcEnded)}</div>${rows(v.endedRows, t.arcNothingEnded)}`;
 }
 
-const changeMark = k => k === "added" ? "+" : k === "ended" ? "−" : "~";
-
-function changesList() {
-  const t = state.text, c = state.changes, sel = c.selected?.key;
-  if (!c.offered) return `<div class="changes-list" data-region="changes"><p class="help">${esc(t.changesNotOffered)}</p></div>`;
-  const groups = c.groups.length ? c.groups.map(g => `<div class="h3">${esc(g.label)}</div>` + g.rows.map(r =>
-      `<div class="crow${r.key === sel ? " selected" : ""}" data-change="${esc(r.key)}" ${BTN}><span class="mark">${changeMark(r.kind)}</span><span>${r.entity ? `<strong>${esc(r.entity.name)}</strong>` : relRow(r, false)}</span></div>`).join("")).join("")
-    : `<p class="help">${esc(t.noChanges)}</p>`;
-  return `<div class="changes-list" data-region="changes"><h2>${esc(c.label)}</h2>${groups}</div>`;
-}
-
-// The selected change. End evidence appears here, on an "ended" row, and nowhere else (v2 spoiler rule 2).
-function changeDetails() {
-  const t = state.text, c = state.changes, r = c?.selected;
-  if (!c?.offered) return "";
-  if (!r) return `<p class="help">${esc(t.changesPickHint)}</p>`;
-  const status = `<div class="status"><span class="mark">${changeMark(r.kind)}</span><span>${esc(c.selectedStatus)}</span></div>`;
-  if (r.entity) {
-    const f = r.entity;
-    return `${status}${header(f)}
-      <p class="summary">${dictionaryProse(f)}${f.includesOptional ? `<span class="tag" title="${esc(t.optionalTooltip)}">${esc(t.optionalSummaryNote)}</span>` : ""}</p>${sources(f.citations, f.sourcesLabel)}`;
-  }
-  const ending = r.kind === "ended" ? sources(r.endCitations, r.endSourcesLabel) : "";
-  return `${status}<div class="card"><div>${relRow(r, false)}</div>${sources(r.citations, r.sourcesLabel)}${ending}</div>`;
+// The trail above the map (NDL-018): every entry put in the middle, oldest first. Earlier steps go back; the last names the centre.
+function trail() {
+  const steps = state.trail ?? [];
+  return steps.map(s => s.isCurrent
+      ? `<span class="here">${esc(s.name)}</span>`
+      : `<span class="step" data-trail="${s.index}" ${BTN}>${esc(s.name)}</span>`)
+    .join(`<span class="sep" aria-hidden="true">${esc(state.text.trailSeparator)}</span>`);
 }
 
 // Pane scroll positions survive ordinary actions (picking a row, opening Sources), as ImGui child windows do. They
-// reset only when the lens, view or content view changes, which rebuilds what the panes show.
+// reset only when the view, content view or story arc changes, which rebuilds what the panes show.
 let renderedContext = null;
-let renderedSelection = ["", "", ""];
+let renderedSelection = ["", ""];
 let forceReveal = false;
-const SCROLL_REGIONS = ["browse", "details", "changes"];
+const SCROLL_REGIONS = ["browse", "details"];
 
 function render() {
   const root = $("#root");
   const key = focusKey();
   const scrolls = Object.fromEntries(SCROLL_REGIONS.map(r => [r, $(`[data-region="${r}"]`)?.scrollTop ?? 0]));
-  const context = state.ok ? `${state.lens}|${state.checkpoints.find(c => c.isView)?.id}|${state.contentView}` : null;
+  const context = state.ok ? `${state.checkpoints.find(c => c.isView)?.id}|${state.contentView}|${state.arc.arcId ?? ""}` : null;
   const keepScroll = context !== null && context === renderedContext;
   renderedContext = context;
-  // A new selection (connection, change or focus) shows its card or subject at the top of the details pane.
+  // A new selection (connection or centre) shows its card or subject at the top of the details pane.
   // Closing a card or clearing a selection keeps the pane where it was.
-  const selection = state.ok ? [state.selectedRelationship?.id ?? "", state.changes?.selected?.key ?? "", state.focus?.id ?? ""] : ["", "", ""];
+  const selection = state.ok ? [state.selectedRelationship?.id ?? "", state.focus?.id ?? ""] : ["", ""];
   const revealDetails = forceReveal || selection.some((part, i) => part !== "" && part !== renderedSelection[i]);
   forceReveal = false;
   renderedSelection = selection;
@@ -536,21 +514,19 @@ function render() {
     return;
   }
   const t = state.text;
-  const noArc = state.lens === "arc" && !state.arc?.view;
   const ceiling = state.checkpoints.find(c => c.isCeiling);
   const viewOpts = state.checkpoints.map(c => `<option value="${esc(c.id)}"${c.isView ? " selected" : ""}${c.viewSelectable ? "" : " disabled"}>${esc(c.viewSelectable ? c.label : c.lockedLabel)}</option>`).join("");
   const menu = limitMenuOpen ? `<div class="menu">${state.checkpoints.map(c => c.isCeiling
       ? `<button class="current" disabled>✓ ${esc(c.label)}</button>`
       : `<button data-ceiling="${esc(c.id)}">${esc(c.label)}</button>`).join("")}</div>` : "";
   const seg = state.contentViews.map(v => `<button data-cv="${esc(v.id)}" class="${v.id === state.contentView ? "on" : ""}" aria-pressed="${v.id === state.contentView}">${esc(v.label)}</button>`).join("");
-  const groups = noArc ? "" : state.groups.length
+  const groups = state.groups.length
     ? state.groups.map(g => `<div class="grp">${esc(g.label.toUpperCase())}</div>` + g.entries.map(e =>
         `<div class="row${state.focus?.id === e.id ? " active" : ""}" data-focus="${esc(e.id)}" ${BTN} title="${esc(e.name)}">${e.portrait ? mark(e.glyph, e.portrait, 18) : glyphSvg(e.glyph)}<span class="name">${esc(e.name)}</span></div>`).join("")).join("")
     : `<p class="help">${esc(t.noResults)}</p>`;
-  const lensSeg = state.lenses.map(l => `<button data-lens="${esc(l.id)}" class="${l.isCurrent ? "on" : ""}" aria-pressed="${l.isCurrent}">${esc(l.label)}</button>`).join("");
   // The arc picker: each arc with where it starts; patch headings (optgroups) only when the arcs span more than one patch.
   const pickOpt = o => `<option value="${esc(o.id ?? "")}"${o.isCurrent ? " selected" : ""}>${esc(o.label)}${o.detail ? ` — ${esc(o.detail)}` : ""}</option>`;
-  const pickerBody = state.arc ? (() => {
+  const pickerBody = state.arc.pickerOffered ? (() => {
     const list = state.arc.picker;
     if (!state.arc.pickerGrouped) return list.map(pickOpt).join("");
     let html = "", group;
@@ -561,9 +537,9 @@ function render() {
     }
     return group !== undefined ? html + "</optgroup>" : html;
   })() : "";
-  const arcPicker = state.arc ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${pickerBody}</select>` : "";
-  // The arc lens with no arc: the browse pane is empty apart from the picker (v2 States).
-  const searchBox = noArc ? "" : `<input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">`;
+  const arcPicker = state.arc.pickerOffered ? `<label class="lbl" for="arcpick">${esc(t.arcPickerLabel)}</label><select id="arcpick" class="arcpick">${pickerBody}</select>`
+    + (state.arc.note ? `<p class="help">${esc(state.arc.note)}</p>` : "") : "";
+  const searchBox = `<input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" value="${esc(state.search)}" aria-label="${esc(t.searchPlaceholder)}">`;
   const resetNotice = state.selectionWasReset ? `<div class="notice">${esc(t.selectionReset)}</div>` : "";
   const C = state.chartStyle, pane = (f, lo, hi) => `clamp(${lo}px, ${f * 100}vw, ${hi}px)`;
   root.innerHTML = `<div class="win" style="--browse-w: ${pane(C.browseFraction, C.browseMin, C.browseMax)}; --details-w: ${pane(C.detailsFraction, C.detailsMin, C.detailsMax)}">
@@ -574,22 +550,24 @@ function render() {
         <button id="raise" aria-haspopup="menu" aria-expanded="${limitMenuOpen}">${esc(t.raiseButton)}</button>${menu}</span>
       <span><span class="lbl">${esc(t.contentLabel)}</span><span class="seg">${seg}</span></span>
     </div>
-    <div class="lensbar" data-region="lens">
-      <span><span class="lbl">${esc(t.lensHeading)}</span><span class="seg">${lensSeg}</span></span>
+    <div class="posbar" data-region="position">
       <span class="pos">${esc(state.position)}</span>
       ${state.coverage ? `<span class="cov">${esc(state.coverage)}</span>` : ""}
     </div>
-    ${state.lens === "changes" ? `<div class="body changes">${changesList()}<section class="details" data-region="details">${state.changes?.offered ? resetNotice : ""}${changeDetails()}</section></div>` : `<div class="body">
+    <div class="body">
       <aside class="browse" data-region="browse">
         ${arcPicker}
         ${searchBox}
         ${resetNotice}
-        ${state.arc?.view ? `<div class="grp">${esc(state.arc.castHeading.toUpperCase())}</div>` : ""}
+        ${state.arc.castHeading ? `<div class="grp">${esc(state.arc.castHeading.toUpperCase())}</div>` : ""}
         ${groups}
       </aside>
-      <main data-region="chart" data-empty="${esc(noArc ? t.noArc : t.emptyFocus)}"></main>
-      <section class="details" data-region="details">${state.arc?.wholeCast ? arcPanel() : noArc ? `<p class="help">${esc(t.noArc)}</p>` : details()}</section>
-    </div>`}
+      <div class="centre">
+        <nav class="trail" data-region="trail" aria-label="Trail">${trail()}</nav>
+        <main data-region="chart" data-empty="${esc(t.emptyFocus)}"></main>
+      </div>
+      <section class="details" data-region="details">${state.arc.view ? arcPanel() : details()}</section>
+    </div>
     <div class="foot" data-region="foot"><span>${esc(t.contentViewHelp)}</span><span class="spacer"></span>
       <label><input id="dictionary-toggle" type="checkbox"${state.dictionaryEnabled ? " checked" : ""}> ${esc(t.dictionaryLabel)}</label>
       <span class="badge">local viewer</span>
@@ -671,18 +649,16 @@ document.addEventListener("click", e => {
     $("#dictionary-entry").showModal();
     return;
   }
-  const el = e.target.closest?.("[data-focus],[data-rel],[data-change],[data-ceiling],[data-cv],[data-lens],[data-clear],[data-wholecast]");
+  const el = e.target.closest?.("[data-focus],[data-rel],[data-trail],[data-ceiling],[data-cv],[data-clear]");
   if (limitMenuOpen && !e.target.closest(".limit")) { limitMenuOpen = false; if (!el) render(); }
   if (!el || !document.contains(el)) return;
   const d = el.dataset;
   if (d.focus !== undefined) act("focus", d.focus);
   else if (d.rel !== undefined) { forceReveal = true; act("selectRelationship", d.rel); } // a re-click shows the card again
-  else if (d.change !== undefined) act("selectChange", d.change);
+  else if (d.trail !== undefined) act("returnTo", d.trail);
   else if (d.ceiling !== undefined) act("requestCeiling", d.ceiling);
   else if (d.cv !== undefined) { if (d.cv !== state.contentView) act("setContentView", d.cv); }
-  else if (d.lens !== undefined) act("setLens", d.lens);
   else if (d.clear !== undefined) act("clearSelection");
-  else if (d.wholecast !== undefined) act("showWholeCast");
 });
 
 document.addEventListener("keydown", e => {

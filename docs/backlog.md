@@ -10,6 +10,15 @@ The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and ma
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
+The user asked on 2026-11-26 to replace the Arc, Story point and Changes lenses with one map, and to remove Changes entirely, because the lens names confused a first-time player.
+
+- [ ] `NDL-018` **One Atlas map instead of three lenses**
+  - Owner: `lead` (core session, window and viewer)
+  - Outcome: A first-time player learns one control, **Viewing as of**, and explores a single map where clicking anything puts it in the middle.
+  - Acceptance: The lens row and the Changes feature are gone, from both the window and the local viewer. The map opens on the story arc at the chosen point, or on the Scions when no arc covers it. Clicking a person shows their connections across the whole story so far, and clicking a story arc shows its cast with the "Story so far" panel. A trail above the map names each step taken (`‹arc› › ‹person› › ‹person›`) and any earlier step can be clicked to go back. Search always covers everyone. The **Story arc** picker and its lifetime rules stay. Spoiler rules are unchanged, and end evidence, which only Changes showed, now appears nowhere.
+  - Evidence: Host tests, including the leak sweep rewritten to walk the trail; Debug and Release plugin builds; viewer build and smoke; an in-game check in the [Atlas guide](atlas/README.md). Missing in-game evidence stays pending.
+  - Dependencies: Accepted `NDL-017`; branch `codex/ndl-018-atlas-one-map`.
+
 ## In Review
 
 ## User Accepted

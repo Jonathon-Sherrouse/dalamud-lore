@@ -29,6 +29,8 @@ The plan also delivers the five parked quest-scoped ideas, A–E, as switchable 
 
 ## Product shape
 
+> **`NDL-018` (2026-11-26).** The three lenses became [one map](ux-design.md#one-map-ndl-018), and the Changes lens was removed. The [Arc lens](#arc-lens) rules below still govern the whole-cast chart and the arc panel, apart from the cast filter: browsing outside the whole-cast chart now covers everyone. Story point is what the map shows with anyone else in the middle.
+
 There are three **lenses**, which pick *what* is shown, and a **Follow** toggle, which picks *where* on the timeline you are. The existing content toggle (main story only, or main + optional) is orthogonal to both.
 
 | Lens | What it shows |
@@ -146,6 +148,8 @@ For a selected arc **X** whose `firstStep` is at or before the view **V**, the e
 - **With Follow on,** if no arc contains the followed step, the lens says "No story arc covers this point". It never keeps a previous arc on screen as if followed.
 
 ## Changes lens
+
+> **Removed in `NDL-018`.** Kept for history. The comparison itself (`AtlasChanges.Compare`) still builds the arc panel's rows.
 
 - **How it compares.** It diffs two projected snapshots by the triple `(source, type, target)`, so a citation split is not a change. An entity counts as "description updated" only if its name, aliases or summary differ.
 - **When it's offered.** From the second step onward, and only between steps of the same kind: slice step → slice step, or milestone → milestone. It is never offered across a slice → milestone boundary.

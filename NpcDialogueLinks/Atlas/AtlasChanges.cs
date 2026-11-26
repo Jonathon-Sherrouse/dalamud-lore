@@ -15,8 +15,7 @@ public sealed record AtlasEndedRelationship(
     AtlasRelationshipView Relationship,
     AtlasEntityView Source,
     AtlasEntityView Target,
-    string EndedAtCheckpointId,
-    IReadOnlyList<AtlasCitationView> EndCitations);
+    string EndedAtCheckpointId);
 
 /// <summary>The semantic difference between two projected snapshots.</summary>
 public sealed record AtlasDiff(
@@ -25,8 +24,9 @@ public sealed record AtlasDiff(
     IReadOnlyList<AtlasEntityView> DescriptionUpdated);
 
 /// <summary>
-/// The Changes lens (docs/atlas/v2-plan.md). Pure: it compares two safe projected snapshots, never raw intervals, so it
-/// can only ever report what is visible at or below the later step.
+/// Snapshot comparison behind the arc panel's "New at this point" and "Ended so far in this arc" (docs/atlas/v2-plan.md,
+/// "Arc lens"). Pure: it compares two safe projected snapshots, never raw intervals, so it can only ever report what is
+/// visible at or below the later step. The standalone Changes lens that also used it was removed in NDL-018.
 /// </summary>
 public static class AtlasChanges
 {
@@ -34,9 +34,7 @@ public static class AtlasChanges
     /// Compares <paramref name="before"/> with <paramref name="after"/> by triple, so a citation split is not a change.
     /// An entity counts as updated only when its name, aliases or summary differ.
     /// </summary>
-    public static AtlasDiff Compare(AtlasSnapshot before, AtlasSnapshot after) => Compare(before, after, endCitationsFor: null);
-
-    internal static AtlasDiff Compare(AtlasSnapshot before, AtlasSnapshot after, Func<AtlasRelationshipView, IReadOnlyList<AtlasCitationView>>? endCitationsFor)
+    public static AtlasDiff Compare(AtlasSnapshot before, AtlasSnapshot after)
     {
         ArgumentNullException.ThrowIfNull(before);
         ArgumentNullException.ThrowIfNull(after);
@@ -50,8 +48,7 @@ public static class AtlasChanges
                 r,
                 before.FindEntity(r.SourceId)!,
                 before.FindEntity(r.TargetId)!,
-                after.Checkpoint.Id,
-                endCitationsFor?.Invoke(r) ?? Array.Empty<AtlasCitationView>()))
+                after.Checkpoint.Id))
             .ToList();
         var updated = after.Entities
             .Where(e => before.FindEntity(e.Id) is { } old
@@ -59,52 +56,4 @@ public static class AtlasChanges
             .ToList();
         return new AtlasDiff(added, ended, updated);
     }
-
-    /// <summary>
-    /// Whether the Changes lens is offered at a step: from the second step on, and only between steps of the same kind
-    /// (slice step to slice step, or milestone to milestone), never across a slice → milestone boundary.
-    /// </summary>
-    public static bool IsOffered(AtlasDataset dataset, string checkpointId)
-    {
-        ArgumentNullException.ThrowIfNull(dataset);
-        return dataset.TryGetCheckpoint(checkpointId, out var current)
-            && current.Order > 0
-            && dataset.Checkpoints[current.Order - 1].Milestone == current.Milestone;
-    }
-
-    /// <summary>"What this quest changed" for a contiguous step; otherwise "Changes since ‹previous point›".</summary>
-    public static string? Label(AtlasDataset dataset, string checkpointId)
-    {
-        if (!IsOffered(dataset, checkpointId) || !dataset.TryGetCheckpoint(checkpointId, out var current))
-        {
-            return null;
-        }
-
-        return current.ContiguousWithPrevious
-            ? AtlasText.ChangesThisQuest
-            : AtlasText.ChangesSince(dataset.Checkpoints[current.Order - 1].DisplayTitle);
-    }
-
-    /// <summary>
-    /// The Changes lens at a step: the diff from the previous step, with ending evidence attached to ended rows only.
-    /// Returns null where the lens is not offered.
-    /// </summary>
-    public static AtlasDiff? At(AtlasDataset dataset, string checkpointId, AtlasContentView view)
-    {
-        ArgumentNullException.ThrowIfNull(dataset);
-        if (!IsOffered(dataset, checkpointId) || !dataset.TryGetCheckpoint(checkpointId, out var current))
-        {
-            return null;
-        }
-
-        var previous = dataset.Checkpoints[current.Order - 1];
-        var before = AtlasProjector.Project(dataset, previous.Id, view);
-        var after = AtlasProjector.Project(dataset, current.Id, view);
-        return Compare(before, after, r => EndCitations(dataset, r));
-    }
-
-    private static IReadOnlyList<AtlasCitationView> EndCitations(AtlasDataset dataset, AtlasRelationshipView relationship) =>
-        dataset.Relationships.FirstOrDefault(r => r.Id == relationship.Id) is { } record
-            ? record.EndCitations.Select(c => new AtlasCitationView(c.Title, c.Url)).ToArray()
-            : Array.Empty<AtlasCitationView>();
 }

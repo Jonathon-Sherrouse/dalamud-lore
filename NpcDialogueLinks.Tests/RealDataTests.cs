@@ -260,12 +260,20 @@ public class RealDataTests
     [MemberData(nameof(AllCheckpoints))]
     public void Real_OpensOnTheScionsAtEveryCheckpoint(string checkpoint)
     {
-        // NDL-005 D5: the Atlas opens on the home entry wherever it is visible. Before the Scions appear (#30, 2026-11-19)
-        // there is no home entry yet, so the Story point lens opens with nothing focused rather than naming them early.
+        // NDL-005 D5, with NDL-018's one map: the Atlas opens on the story arc at the point, and otherwise on the home entry
+        // wherever it is visible. Before the Scions appear (#30, 2026-11-19) there is no home entry yet, so outside an arc
+        // the map opens with nothing in the middle rather than naming them early.
         var dataset = LoadDraft();
         var session = new AtlasSession(dataset, new AtlasSpoilerState(dataset.Checkpoints[^1].Id, checkpoint));
         Assert.Equal(checkpoint, session.SpoilerState.ViewId);
-        session.SetLens(AtlasLens.StoryPoint);
+        if (session.Arc is { } arc)
+        {
+            Assert.Equal(arc.Entry.Id, session.FocusId);
+            Assert.True(session.ShowsWholeCast);
+            Assert.NotEmpty(session.Layout!.Nodes);
+            return;
+        }
+
         if (session.Snapshot.FindEntity(AtlasDefaults.HomeEntityId) is null)
         {
             Assert.Null(session.FocusId);
