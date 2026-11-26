@@ -32,6 +32,9 @@ public sealed class Plugin : IDalamudPlugin
     internal static IChatGui ChatGui { get; private set; } = null!;
 
     [PluginService]
+    internal static IFramework Framework { get; private set; } = null!;
+
+    [PluginService]
     internal static IDataManager DataManager { get; private set; } = null!;
 
     [PluginService]
@@ -40,9 +43,8 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService]
     internal static ITargetManager TargetManager { get; private set; } = null!;
 
-    // NDL-007: services for the read-only Follow progress source (AtlasProgressSource).
     [PluginService]
-    internal static IFramework Framework { get; private set; } = null!;
+    internal static ITextureProvider TextureProvider { get; private set; } = null!;
 
     [PluginService]
     internal static IPlayerState PlayerState { get; private set; } = null!;
@@ -87,15 +89,16 @@ public sealed class Plugin : IDalamudPlugin
 
         this.configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
         this.configuration.Initialize(PluginInterface);
-        this.loreExplainWindow = new LoreExplainWindow(this.HandleLoreExplainFollowUp, this.SaveDictionaryProposal);
+        this.loreExplainWindow = new LoreExplainWindow(this.HandleLoreExplainFollowUp, this.SaveDictionaryProposal, this.OpenAtlas);
         this.gameContextProvider = new GameContextProvider(ClientState, DataManager, TargetManager);
         this.questMetadataProbe = new QuestMetadataProbe(PluginInterface, AddonLifecycle, ClientState, DataManager, TargetManager);
         this.termDictionary = new TermDictionary(
             Path.Combine(pluginDirectory, "terms.json"),
-            Path.Combine(PluginInterface.ConfigDirectory.FullName, "user-terms.json"));
+            Path.Combine(PluginInterface.ConfigDirectory.FullName, "user-terms.json"),
+            (exception, message) => Log.Warning(exception, "{DictionaryMessage}", message));
         this.dictionaryWindow = new DictionaryWindow(this.termDictionary, this.RefreshLastCandidates);
         this.settingsWindow = new SettingsWindow(this.configuration);
-        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration);
+        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider, this.termDictionary, this.dictionaryWindow.OpenTerm);
         this.atlasProgressSource = new AtlasProgressSource(Framework, ClientState, PlayerState, Condition, ObjectTable, DataManager); // NDL-007
 #if DEBUG
         this.followProgressProbe = new FollowProgressProbe(this.atlasProgressSource, PluginInterface, Framework, ChatGui, DataManager); // NDL-007 debug-only probe
@@ -118,12 +121,20 @@ public sealed class Plugin : IDalamudPlugin
         Log.Information("NPC Dialogue Links loaded.");
     }
 
+    /// <summary>Opens the Atlas from Lore Explain's button (NDL-010). The Atlas keeps its own spoiler limit and view.</summary>
+    private void OpenAtlas()
+    {
+        this.atlasWindow.IsOpen = true;
+        this.atlasWindow.BringToFront();
+    }
+
     public void Dispose()
     {
         PluginInterface.UiBuilder.Draw -= this.DrawUi;
         this.loreExplainCancellationTokenSource?.Cancel();
         this.loreExplainCancellationTokenSource?.Dispose();
         this.dialogueCapture.Dispose();
+        Framework.Update -= this.AnnounceQuestMatchReadiness;
         this.questMetadataProbe.Dispose();
 #if DEBUG
         this.followProgressProbe.Dispose(); // NDL-007 debug-only probe
@@ -143,11 +154,8 @@ public sealed class Plugin : IDalamudPlugin
 
         if (this.questMetadataProbe.Enabled)
         {
-            var result = this.CaptureQuestProbe("auto-dialogue", string.Empty);
-            if (!result.Succeeded)
-            {
-                ChatGui.Print(result.Message, "NPC Links");
-            }
+            var result = this.questMetadataProbe.CaptureDialogue(dialogue, this.gameContextProvider.Capture, this.lastCandidates);
+            ChatGui.Print(result.Message, "NPC Links");
         }
 
         if (this.lastCandidates.Count == 0)
@@ -380,18 +388,24 @@ public sealed class Plugin : IDalamudPlugin
         {
             case "on":
             case "enable":
+                if (this.questMetadataProbe.Enabled)
+                {
+                    this.PrintQuestProbeStatus();
+                    break;
+                }
                 this.questMetadataProbe.SetEnabled(true);
-                ChatGui.Print($"Quest probe enabled. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
-                ChatGui.Print("Talk to quest NPCs, then use /npclinks questprobe capture <verified quest name> when you know the quest.", "NPC Links");
+                Framework.Update += this.AnnounceQuestMatchReadiness;
+                ChatGui.Print("Quest probe v3 enabled. Loading quest dialogue…", "NPC Links");
                 break;
             case "off":
             case "disable":
+                Framework.Update -= this.AnnounceQuestMatchReadiness;
                 this.questMetadataProbe.SetEnabled(false);
                 ChatGui.Print("Quest probe disabled.", "NPC Links");
                 break;
             case "capture":
             case "mark":
-                this.PrintQuestProbeWriteResult(this.CaptureQuestProbe("manual-capture", rest));
+                this.PrintQuestProbeWriteResult(this.questMetadataProbe.LabelLastDialogue(rest));
                 break;
             case "path":
                 ChatGui.Print($"Quest probe output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
@@ -408,23 +422,22 @@ public sealed class Plugin : IDalamudPlugin
     private void PrintQuestProbeStatus()
     {
         var state = this.questMetadataProbe.Enabled ? "enabled" : "disabled";
-        ChatGui.Print($"Quest probe is {state}. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
-        ChatGui.Print("Usage: /npclinks questprobe on, then /npclinks questprobe capture <verified quest name> after a captured Talk line.", "NPC Links");
+        ChatGui.Print($"Quest probe v3 is {state}. Automatic matching: {this.questMetadataProbe.MatchStatus}. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
     }
 
-    private QuestProbeWriteResult CaptureQuestProbe(string source, string userVerifiedQuestName)
+    private void AnnounceQuestMatchReadiness(IFramework framework)
     {
-        var context = this.gameContextProvider.Capture();
-        var knownTerms = string.IsNullOrWhiteSpace(this.lastDialogue)
-            ? Array.Empty<string>()
-            : LinkCandidateExtractor.Extract(this.lastDialogue, this.termDictionary.MatchTerms);
+        var status = this.questMetadataProbe.MatchStatus;
+        if (status == "loading")
+        {
+            return;
+        }
 
-        return this.questMetadataProbe.CaptureDialogue(
-            source,
-            this.lastDialogue,
-            userVerifiedQuestName,
-            context,
-            knownTerms);
+        Framework.Update -= this.AnnounceQuestMatchReadiness;
+        if (this.questMetadataProbe.Enabled)
+        {
+            ChatGui.Print(status == "ready" ? "Quest matching ready." : "Quest matching unavailable. Use /npclinks questprobe off, then on to retry.", "NPC Links");
+        }
     }
 
     private void PrintQuestProbeWriteResult(QuestProbeWriteResult result)

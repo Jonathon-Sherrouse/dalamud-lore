@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace NpcDialogueLinks.Atlas;
 
-/// <summary>Semantic validation for schema v1 (docs/atlas/schema.md). Collects every error rather than stopping at the first.</summary>
+/// <summary>Semantic validation for schema v2 (docs/atlas/schema.md). Collects every error rather than stopping at the first.</summary>
 internal static class AtlasValidator
 {
     public const int MaxIdLength = 64;
@@ -13,9 +13,17 @@ internal static class AtlasValidator
     public const int MaxSummaryLength = 1200;
     public const int MaxCitationTitleLength = 200;
     public const int MaxUrlLength = 2048;
-    public const int MaxPresentations = 32;
+    public const int MaxPresentations = 512;
+
+    /// <summary>The highest game icon number a portrait may name (the game's icon folders stop below a million).</summary>
+    public const uint MaxGameIcon = 999_999;
+
+    /// <summary>The smallest crop, as a fraction of the image's shorter side, so a portrait is never a few stray pixels.</summary>
+    public const double MinCropSize = 0.1;
     public const int MaxAliases = 8;
     public const int MaxCitations = 8;
+    public const int MaxGameQuestIds = 8;
+    public const int MaxCastMembers = 10;
     private const int MaxReportedErrors = 100;
 
     private static readonly Regex IdPattern = new("^[a-z0-9]+(-[a-z0-9]+)*$", RegexOptions.CultureInvariant);
@@ -31,12 +39,14 @@ internal static class AtlasValidator
         CheckCount(errors, "$.relationshipTypes", file.RelationshipTypes, 1, AtlasLoader.MaxRelationshipTypes);
         CheckCount(errors, "$.entities", file.Entities, 1, AtlasLoader.MaxEntities);
         CheckCount(errors, "$.relationships", file.Relationships ?? new List<AtlasRelationshipDto?>(), 0, AtlasLoader.MaxRelationships);
+        CheckCount(errors, "$.arcs", file.Arcs ?? new List<AtlasArcDto?>(), 0, AtlasLoader.MaxArcs);
         if (errors.HasErrors)
         {
             return AtlasLoadResult.Fail(errors.ToList());
         }
 
-        var checkpoints = BuildCheckpoints(errors, file.Checkpoints!);
+        var checkpoints = BuildCheckpoints(errors, file.Checkpoints!, out var checkpointPaths);
+        CheckGameQuestCoverage(errors, checkpoints, checkpointPaths);
         var types = BuildTypes(errors, file.RelationshipTypes!);
         if (errors.HasStructuralErrors)
         {
@@ -45,7 +55,7 @@ internal static class AtlasValidator
 
         var orderById = checkpoints.ToDictionary(c => c.Id, c => c.Order, StringComparer.Ordinal);
         var citationRegistry = new Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)>(StringComparer.Ordinal);
-        var context = new Context(errors, orderById, checkpoints.Count, mode, citationRegistry);
+        var context = new Context(errors, orderById, checkpoints.Count, mode, citationRegistry, checkpoints);
 
         var entities = BuildEntities(context, file.Entities!);
         if (errors.HasStructuralErrors)
@@ -55,12 +65,15 @@ internal static class AtlasValidator
         }
 
         var relationships = BuildRelationships(context, file.Relationships ?? new List<AtlasRelationshipDto?>(), types, entities);
+        var arcs = errors.HasStructuralErrors
+            ? new List<AtlasArc>()
+            : BuildArcs(context, file.Arcs ?? new List<AtlasArcDto?>(), types, entities, relationships);
         if (errors.HasErrors)
         {
             return AtlasLoadResult.Fail(errors.ToList());
         }
 
-        return AtlasLoadResult.Ok(new AtlasDataset(checkpoints, types, entities.Values.ToList(), relationships));
+        return AtlasLoadResult.Ok(new AtlasDataset(checkpoints, types, entities.Values.ToList(), relationships, arcs));
     }
 
     private sealed record Context(
@@ -68,11 +81,13 @@ internal static class AtlasValidator
         IReadOnlyDictionary<string, int> OrderById,
         int CheckpointCount,
         AtlasValidationMode Mode,
-        Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)> CitationRegistry);
+        Dictionary<string, (int AvailableAt, AtlasScope Scope, string Path)> CitationRegistry,
+        IReadOnlyList<AtlasCheckpoint> Checkpoints);
 
-    private static List<AtlasCheckpoint> BuildCheckpoints(ErrorSink errors, List<AtlasCheckpointDto?> dtos)
+    private static List<AtlasCheckpoint> BuildCheckpoints(ErrorSink errors, List<AtlasCheckpointDto?> dtos, out List<string> paths)
     {
         var result = new List<AtlasCheckpoint>();
+        paths = new List<string>();
         var seen = new HashSet<string>(StringComparer.Ordinal);
         for (var i = 0; i < dtos.Count; i++)
         {
@@ -84,20 +99,35 @@ internal static class AtlasValidator
                 continue;
             }
 
+            var before = errors.Count;
             var id = RequireId(errors, $"{path}.id", dto.Id);
             var label = RequireText(errors, $"{path}.label", dto.Label, MaxLabelLength);
-            if (id is null || label is null)
+            var questTitle = dto.QuestTitle is null ? null : RequireText(errors, $"{path}.questTitle", dto.QuestTitle, MaxLabelLength);
+            var gameQuestIds = ParseGameQuestIds(errors, $"{path}.gameQuestIds", dto.GameQuestIds);
+            if (dto.ContiguousWithPrevious == true && result.Count == 0)
+            {
+                errors.Add(AtlasErrorCode.InvalidField, $"{path}.contiguousWithPrevious", "The first checkpoint has no previous step.");
+            }
+
+            if (errors.Count != before)
             {
                 continue;
             }
 
-            if (!seen.Add(id))
+            if (!seen.Add(id!))
             {
                 errors.Add(AtlasErrorCode.DuplicateId, $"{path}.id", "Duplicate checkpoint id.");
                 continue;
             }
 
-            result.Add(new AtlasCheckpoint(id, label, result.Count));
+            paths.Add(path);
+            result.Add(new AtlasCheckpoint(id!, label!, result.Count)
+            {
+                Milestone = dto.Milestone ?? false,
+                QuestTitle = questTitle,
+                ContiguousWithPrevious = dto.ContiguousWithPrevious ?? false,
+                GameQuestIds = gameQuestIds,
+            });
         }
 
         return result;
@@ -161,6 +191,7 @@ internal static class AtlasValidator
             var before = errors.Count;
             var id = RequireId(errors, $"{path}.id", dto.Id);
             var category = ParseCategory(errors, $"{path}.category", dto.Category);
+            var portrait = dto.Portrait is null ? null : BuildPortrait(context, $"{path}.portrait", dto.Portrait);
             var presentations = new List<AtlasPresentation>();
             if (dto.Presentations is null || dto.Presentations.Count == 0 || dto.Presentations.Count > MaxPresentations)
             {
@@ -189,7 +220,7 @@ internal static class AtlasValidator
                 continue;
             }
 
-            var entity = new AtlasEntity(id!, category!.Value, presentations);
+            var entity = new AtlasEntity(id!, category!.Value, presentations) { Portrait = portrait };
             CheckPresentationOverlap(errors, path, presentations);
             CheckOptionalBoundaries(errors, path, presentations, context.CheckpointCount);
             CheckOptionalPersistence(errors, path, entity, context.CheckpointCount);
@@ -198,6 +229,30 @@ internal static class AtlasValidator
         }
 
         return result;
+    }
+
+    /// <summary>A portrait: a game icon number, a crop inside the image, and its own review (NDL-011).</summary>
+    private static AtlasPortrait? BuildPortrait(Context context, string path, AtlasPortraitDto dto)
+    {
+        var errors = context.Errors;
+        var before = errors.Count;
+        if (dto.GameIcon is not { } icon || icon == 0 || icon > MaxGameIcon)
+        {
+            errors.Add(AtlasErrorCode.InvalidField, $"{path}.gameIcon", $"gameIcon must be a game icon number from 1 to {MaxGameIcon}.");
+        }
+
+        var crop = dto.Crop;
+        if (crop?.X is not { } x || crop.Y is not { } y || crop.Size is not { } size
+            || !double.IsFinite(x) || !double.IsFinite(y) || !double.IsFinite(size)
+            || x < 0 || x > 1 || y < 0 || y > 1 || size < MinCropSize || size > 1)
+        {
+            errors.Add(AtlasErrorCode.InvalidField, $"{path}.crop", $"crop needs x and y from 0 to 1 and a size from {MinCropSize} to 1.");
+        }
+
+        var review = ParseReview(errors, $"{path}.review", dto.Review, context.Mode);
+        return errors.Count != before
+            ? null
+            : new AtlasPortrait(dto.GameIcon!.Value, crop!.X!.Value, crop.Y!.Value, crop.Size!.Value, review!.Value);
     }
 
     private static AtlasPresentation? BuildPresentation(Context context, string path, AtlasPresentationDto? dto)
@@ -265,6 +320,9 @@ internal static class AtlasValidator
             var citations = interval is not null && scope is not null
                 ? ParseCitations(context, $"{path}.citations", dto.Citations, interval, scope.Value)
                 : null;
+            var endCitations = interval is not null && scope is not null
+                ? ParseEndCitations(context, $"{path}.endCitations", dto.EndCitations, interval, scope.Value)
+                : null;
             if (errors.Count != before)
             {
                 continue;
@@ -282,13 +340,17 @@ internal static class AtlasValidator
                 continue;
             }
 
-            var relationship = new AtlasRelationship(id!, source.Id, type!.Id, target.Id, interval!, scope!.Value, citations!, review!.Value);
+            var relationship = new AtlasRelationship(id!, source.Id, type!.Id, target.Id, interval!, scope!.Value, citations!, review!.Value)
+            {
+                EndCitations = endCitations!,
+            };
             CheckEndpointsVisible(errors, path, relationship, source, target, context.CheckpointCount);
             result.Add(relationship);
             paths.Add(path);
         }
 
         CheckDuplicatePairs(errors, result, paths, types);
+        CheckEndingsAreReal(errors, result, paths);
         return result;
     }
 
@@ -406,6 +468,34 @@ internal static class AtlasValidator
         }
     }
 
+    /// <summary>
+    /// End evidence shows only on a Changes "ended" row, and Changes diffs by (source, type, target). A record whose
+    /// triple carries straight on at its validUntil, in every view where the record was visible, never produces that row,
+    /// so its end citations could never be shown. A main ending continued only by optional content still shows in the
+    /// main-story view.
+    /// </summary>
+    private static void CheckEndingsAreReal(ErrorSink errors, List<AtlasRelationship> relationships, List<string> paths)
+    {
+        for (var a = 0; a < relationships.Count; a++)
+        {
+            var ending = relationships[a];
+            if (ending.EndCitations.Count == 0 || ending.Interval.UntilOrder is not { } until)
+            {
+                continue;
+            }
+
+            var continued = relationships.Any(next =>
+                !ReferenceEquals(next, ending)
+                && next.SourceId == ending.SourceId && next.TypeId == ending.TypeId && next.TargetId == ending.TargetId
+                && next.Interval.Contains(until)
+                && (next.Scope == AtlasScope.Main || ending.Scope == AtlasScope.Optional));
+            if (continued)
+            {
+                errors.Add(AtlasErrorCode.EndCitationOutOfRange, $"{paths[a]}.endCitations", "The same relationship continues at validUntil, so it never ends and its end evidence could never be shown.");
+            }
+        }
+    }
+
     private static void CheckDuplicatePairs(ErrorSink errors, List<AtlasRelationship> relationships, List<string> paths, IReadOnlyDictionary<string, AtlasRelationshipType> types)
     {
         for (var a = 0; a < relationships.Count; a++)
@@ -503,12 +593,53 @@ internal static class AtlasValidator
 
     private static List<AtlasCitation>? ParseCitations(Context context, string path, List<AtlasCitationDto?>? dtos, AtlasInterval recordInterval, AtlasScope recordScope)
     {
-        var errors = context.Errors;
         if (dtos is null || dtos.Count == 0 || dtos.Count > MaxCitations)
         {
-            errors.Add(AtlasErrorCode.BoundsExceeded, path, $"1–{MaxCitations} citations are required.");
+            context.Errors.Add(AtlasErrorCode.BoundsExceeded, path, $"1–{MaxCitations} citations are required.");
             return null;
         }
+
+        return ParseCitationList(context, path, dtos, recordInterval, recordScope, isEnding: false);
+    }
+
+    /// <summary>
+    /// Optional ending evidence (schema v2): each source must become available after the record starts and no later
+    /// than when it ends, so it can only ever appear once the ending is player knowledge.
+    /// </summary>
+    private static List<AtlasCitation>? ParseEndCitations(Context context, string path, List<AtlasCitationDto?>? dtos, AtlasInterval recordInterval, AtlasScope recordScope)
+    {
+        if (dtos is null || dtos.Count == 0)
+        {
+            return new List<AtlasCitation>();
+        }
+
+        if (dtos.Count > MaxCitations)
+        {
+            context.Errors.Add(AtlasErrorCode.BoundsExceeded, path, $"At most {MaxCitations} end citations are allowed.");
+            return null;
+        }
+
+        if (recordInterval.UntilOrder is null)
+        {
+            context.Errors.Add(AtlasErrorCode.EndCitationOutOfRange, path, "Only a relationship with validUntil can cite why it ended.");
+            return null;
+        }
+
+        // End evidence is shown only in the Changes row at the ending step, so it must end where Changes is offered:
+        // never across a slice/milestone boundary, where no surface could ever display it.
+        var until = recordInterval.UntilOrder.Value;
+        if (context.Checkpoints[until - 1].Milestone != context.Checkpoints[until].Milestone)
+        {
+            context.Errors.Add(AtlasErrorCode.EndCitationOutOfRange, path, "End citations need an ending step where the Changes lens is offered (not across a slice/milestone boundary).");
+            return null;
+        }
+
+        return ParseCitationList(context, path, dtos, recordInterval, recordScope, isEnding: true);
+    }
+
+    private static List<AtlasCitation>? ParseCitationList(Context context, string path, List<AtlasCitationDto?> dtos, AtlasInterval recordInterval, AtlasScope recordScope, bool isEnding)
+    {
+        var errors = context.Errors;
 
         var result = new List<AtlasCitation>();
         var before = errors.Count;
@@ -540,7 +671,15 @@ internal static class AtlasValidator
                 continue;
             }
 
-            if (availableAt.Value > recordInterval.FromOrder)
+            if (isEnding)
+            {
+                if (availableAt.Value <= recordInterval.FromOrder || availableAt.Value > recordInterval.UntilOrder!.Value)
+                {
+                    errors.Add(AtlasErrorCode.EndCitationOutOfRange, $"{itemPath}.availableAt", "An end citation must become available after validFrom and no later than validUntil.");
+                    continue;
+                }
+            }
+            else if (availableAt.Value > recordInterval.FromOrder)
             {
                 errors.Add(AtlasErrorCode.CitationTooNew, $"{itemPath}.availableAt", "A citation must be available at or before its record's validFrom.");
                 continue;
@@ -601,8 +740,9 @@ internal static class AtlasValidator
             case "character": return AtlasCategory.Character;
             case "organization": return AtlasCategory.Organization;
             case "location": return AtlasCategory.Location;
+            case "event": return AtlasCategory.Event;
             default:
-                errors.Add(AtlasErrorCode.InvalidField, path, "category must be character, organization, or location.");
+                errors.Add(AtlasErrorCode.InvalidField, path, "category must be character, organization, location, or event.");
                 return null;
         }
     }
@@ -637,6 +777,202 @@ internal static class AtlasValidator
                 errors.Add(AtlasErrorCode.InvalidField, path, "review must be pending or reviewed.");
                 return null;
         }
+    }
+
+    /// <summary>
+    /// Follow treats a step as covered when it has game quest ids, so coverage is all-or-none: if any checkpoint has
+    /// ids, every checkpoint must, and no id may mark two different steps.
+    /// </summary>
+    private static void CheckGameQuestCoverage(ErrorSink errors, List<AtlasCheckpoint> checkpoints, List<string> paths)
+    {
+        if (checkpoints.All(c => c.GameQuestIds.Count == 0))
+        {
+            return;
+        }
+
+        var owner = new Dictionary<int, string>();
+        for (var i = 0; i < checkpoints.Count; i++)
+        {
+            var checkpoint = checkpoints[i];
+            if (checkpoint.GameQuestIds.Count == 0)
+            {
+                errors.Add(AtlasErrorCode.InvalidField, $"{paths[i]}.gameQuestIds", "Once any checkpoint has game quest ids, every checkpoint must.");
+                continue;
+            }
+
+            foreach (var id in checkpoint.GameQuestIds)
+            {
+                if (!owner.TryAdd(id, checkpoint.Id))
+                {
+                    errors.Add(AtlasErrorCode.InvalidField, $"{paths[i]}.gameQuestIds", $"Game quest id {id} already marks checkpoint '{owner[id]}'.");
+                }
+            }
+        }
+    }
+
+    private static List<int> ParseGameQuestIds(ErrorSink errors, string path, List<int?>? dtos)
+    {
+        var ids = new List<int>();
+        if (dtos is null)
+        {
+            return ids;
+        }
+
+        if (dtos.Count > MaxGameQuestIds)
+        {
+            errors.Add(AtlasErrorCode.BoundsExceeded, path, $"At most {MaxGameQuestIds} game quest ids are allowed.");
+            return ids;
+        }
+
+        for (var i = 0; i < dtos.Count; i++)
+        {
+            if (dtos[i] is not { } value || value <= 0)
+            {
+                errors.Add(AtlasErrorCode.InvalidField, $"{path}[{i}]", "A game quest id must be a positive integer.");
+            }
+            else if (ids.Contains(value))
+            {
+                errors.Add(AtlasErrorCode.InvalidField, $"{path}[{i}]", "Duplicate game quest id.");
+            }
+            else
+            {
+                ids.Add(value);
+            }
+        }
+
+        return ids;
+    }
+
+    /// <summary>
+    /// Arc rules (docs/atlas/v2-plan.md): the entry is a main-scope event that first appears exactly at the arc's
+    /// first step and stays visible through its last; membership edges never end, so the cast only grows; at most
+    /// <see cref="MaxCastMembers"/> participants at any step; an arc never starts on the first timeline step.
+    /// </summary>
+    private static List<AtlasArc> BuildArcs(
+        Context context,
+        List<AtlasArcDto?> dtos,
+        IReadOnlyDictionary<string, AtlasRelationshipType> types,
+        IReadOnlyDictionary<string, AtlasEntity> entities,
+        IReadOnlyList<AtlasRelationship> relationships)
+    {
+        var errors = context.Errors;
+        var result = new List<AtlasArc>();
+        if (dtos.Count == 0)
+        {
+            return result;
+        }
+
+        if (!types.TryGetValue(AtlasDataset.ParticipantTypeId, out var participantType))
+        {
+            errors.Add(AtlasErrorCode.InvalidArc, "$.relationshipTypes", $"Arcs need the '{AtlasDataset.ParticipantTypeId}' relationship type.");
+            return result;
+        }
+
+        if (participantType.Symmetric)
+        {
+            // A symmetric membership edge could point from the entry to a member and silently drop them from the cast.
+            errors.Add(AtlasErrorCode.InvalidArc, "$.relationshipTypes", $"'{AtlasDataset.ParticipantTypeId}' must not be symmetric.");
+            return result;
+        }
+
+        var ids = new HashSet<string>(StringComparer.Ordinal);
+        var entries = new HashSet<string>(StringComparer.Ordinal);
+        for (var i = 0; i < dtos.Count; i++)
+        {
+            var path = $"$.arcs[{i}]";
+            var dto = dtos[i];
+            if (dto is null)
+            {
+                errors.Add(AtlasErrorCode.InvalidField, path, "Arc is null.");
+                continue;
+            }
+
+            var before = errors.Count;
+            var id = RequireId(errors, $"{path}.id", dto.Id);
+            var entry = RequireReference(errors, $"{path}.entityId", dto.EntityId, entities);
+            int first = -1, last = -1;
+            if (dto.FirstStep is null || !context.OrderById.TryGetValue(dto.FirstStep, out first))
+            {
+                errors.Add(AtlasErrorCode.UnknownReference, $"{path}.firstStep", "firstStep must name a known checkpoint.");
+            }
+
+            if (dto.LastStep is null || !context.OrderById.TryGetValue(dto.LastStep, out last))
+            {
+                errors.Add(AtlasErrorCode.UnknownReference, $"{path}.lastStep", "lastStep must name a known checkpoint.");
+            }
+
+            if (errors.Count != before)
+            {
+                continue;
+            }
+
+            if (!ids.Add(id!))
+            {
+                errors.Add(AtlasErrorCode.DuplicateId, $"{path}.id", "Duplicate arc id.");
+                continue;
+            }
+
+            if (!entries.Add(entry!.Id))
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.entityId", "Each arc needs its own entry entity.");
+                continue;
+            }
+
+            if (first > last)
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.lastStep", "lastStep must not be earlier than firstStep.");
+                continue;
+            }
+
+            if (first == 0)
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.firstStep", "An arc cannot start on the first timeline step; a baseline step must come before it.");
+                continue;
+            }
+
+            if (entry.Category != AtlasCategory.Event)
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.entityId", "An arc entry must be an event entity.");
+                continue;
+            }
+
+            if (entry.Presentations.Any(p => p.Scope != AtlasScope.Main))
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.entityId", "An arc entry's presentations must all be main scope.");
+                continue;
+            }
+
+            if (entry.Presentations.Min(p => p.Interval.FromOrder) != first)
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.entityId", "The arc entry's first presentation must start exactly at firstStep.");
+                continue;
+            }
+
+            if (Enumerable.Range(first, last - first + 1).Any(order => !entry.IsVisibleAt(order, AtlasContentView.MainStory)))
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, $"{path}.entityId", "The arc entry must stay visible from firstStep through lastStep.");
+                continue;
+            }
+
+            var members = relationships.Where(r => r.TypeId == AtlasDataset.ParticipantTypeId && r.TargetId == entry.Id).ToList();
+            if (members.Any(r => r.Scope != AtlasScope.Main || r.Interval.UntilOrder is not null || r.Interval.FromOrder < first))
+            {
+                errors.Add(AtlasErrorCode.InvalidArc, path, $"Every '{AtlasDataset.ParticipantTypeId}' edge to the entry must be main scope, start at or after firstStep, and never end.");
+                continue;
+            }
+
+            var tooLarge = Enumerable.Range(first, last - first + 1)
+                .FirstOrDefault(order => members.Where(r => r.Interval.FromOrder <= order).Select(r => r.SourceId).Distinct().Count() > MaxCastMembers, -1);
+            if (tooLarge >= 0)
+            {
+                errors.Add(AtlasErrorCode.CastTooLarge, path, $"The cast exceeds {MaxCastMembers} participants at checkpoint {tooLarge}.");
+                continue;
+            }
+
+            result.Add(new AtlasArc(id!, entry.Id, first, last, result.Count));
+        }
+
+        return result;
     }
 
     private static AtlasEntity? RequireReference(ErrorSink errors, string path, string? id, IReadOnlyDictionary<string, AtlasEntity> entities)

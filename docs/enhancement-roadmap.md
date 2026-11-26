@@ -39,12 +39,10 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ### Quest Metadata Readiness
 
-- Paused after first runtime probe analysis. Resume by implementing Probe v2 from [quest-metadata-investigation.md](quest-metadata-investigation.md), then collect a second verified sample pass.
-- Validate the debug-only quest metadata probe before enabling player-facing quest context.
-- Expand probe coverage if needed to include native event id, tracked quest state, or safely accessible event-handler fields.
-- Run the test matrix from [quest-metadata-investigation.md](quest-metadata-investigation.md): non-quest NPC talk, active sidequest dialogue, MSQ dialogue, and repeatable or cutscene-adjacent dialogue.
-- Promote quest metadata only if a source gives a direct quest row/id for the active dialogue line.
-- Keep current fallback behavior: omit quest metadata rather than infer it from active quests, nearby NPCs, zone, or journal state.
+- In the Probe v2 (`NDL-014`) sample pass, Backrix's confirmed *One Step Behind* turn-in and Oswold's ordinary greeting both reported zero event IDs. Replaying 23 labeled quest lines against local English scripts identified the expected quest for each line. Both ordinary NPC controls had no match.
+- Probe v3 (`NDL-015`) identified two Backrix quest lines and left two ordinary Oswold lines unknown in game. See [why we tried this and what the live test showed](quest-metadata-investigation.md#why-we-tried-this) before revisiting quest context for Lore Explain.
+- Validate whether a field directly identifies the quest that owns the active `Talk` line. Cover sidequests, MSQ, and repeatable or cutscene-adjacent dialogue before exposing quest context in Lore Explain.
+- Keep a line's quest unknown when the only evidence is a tracked quest, nearby NPC, zone, or journal state.
 
 ## Next Polish Pass
 
@@ -76,7 +74,12 @@ This is the working planning list for feature polish and future enhancements. Ag
 - **Priority (user decision, 2026-11-14):** Atlas v2 goes ahead of `Pre-Ship` and `Next Polish Pass`; those items stay open.
 - **Plan:** [docs/atlas/v2-plan.md](atlas/v2-plan.md). A confused player opens the Atlas mid-story and sees the researched arc they're in: a reviewed "story so far" recap plus the whole cast's relationships, built quest by quest. It also adds the Story point and Changes lenses and Follow (completed progress). It is proven on one 2.0 arc.
 - **Cards:** `NDL-006` to `NDL-010` in [backlog.md](backlog.md).
+- **Status (2026-11-14):** `NDL-006` (arc discovery, schema v2 and the pure core) is **User Accepted**; the user chose arc A4, *The Black Wolf's challenge*. Follow (`NDL-007`) is deferred by the user, so v2 ships without it. `NDL-008` (the lens design, prototyped in the viewer), `NDL-009` (arc A4, *The Black Wolf's Challenge*) and `NDL-010` (ship v2 in game, 2026-11-15) are **User Accepted**. Atlas v2 is complete without Follow; see Completed.
+- **User Accepted (2026-11-16): `NDL-011` Atlas portraits.** The polish piece for a strong Atlas vertical slice: portraits from the player's own game data, in the window and identically in the local viewer. Card in [backlog.md](backlog.md).
+- **User Accepted (2026-11-17): `NDL-012` ARR 2.0 before the Black Wolf.** The first breadth step, which the user asked for: one step per quest from MSQ #102 to #153 and five more arcs, so the Atlas covers 2.0 from the Company of Heroes to the finale. Card in [backlog.md](backlog.md); research in [ndl-012-discovery.md](atlas/ndl-012-discovery.md).
 - **Future candidates (not approved):**
+  - **Portraits for the `NDL-012` entries** (25 entries keep their shapes for now).
+  - **The rest of the breadth:** the 2.1–2.55 patch story between the two milestones, and the main scenario before #102.
   - **Breadth coverage across the main story.** The route is decided after the slice proves it helps; it must not use patch-sized outer arcs, and milestone-only recaps give endpoint coverage only.
   - **Lore Explain grounded in the reviewed recaps,** and a deep link into the Atlas.
 
@@ -119,6 +122,11 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ## Completed
 
+- Added opt-in dictionary previews to Atlas summaries and recaps (`NDL-013`). Matching terms open the dictionary and show definitions on hover after a one-time spoiler warning.
+
+- Added ARR 2.0 before the Black Wolf to the Atlas (`NDL-012`, 2026-11-17). There is one story point per quest from MSQ #102, and five new arcs, from *The Road to Titan* to *The Road to Castrum Centri*. That brings the Atlas to 61 points, 6 arcs, 44 entries and 105 relationships, every claim checked verbatim against the wiki. The step bound rose to 128. The in-game check is untested.
+- Shipped Atlas portraits (`NDL-011`, 2026-11-16). 18 of 19 entries show a reviewed portrait from the player's own game data (Triple Triad cards, quest and duty art), on chart nodes, headers and the browse list; the Waking Sands keeps its shape. The local viewer draws the same portraits from a cache the repository tool fills from the user's install, and the chart's text placement matches the window. The story arc picker says where each arc starts and when it has ended. The in-game look is untested.
+- Shipped Atlas v2 without Follow (`NDL-006`, `NDL-008`–`NDL-010`, 2026-11-15). The in-game Atlas adds quest-level steps from MSQ #154 to #160, the first reviewed story arc (*The Black Wolf's Challenge*, a recap at every step and a cast of 10), and the Arc, Story point and Changes lenses. Lore Explain gains an Open Atlas button. The user accepted it without running the in-game test. Follow (`NDL-007`) stays parked.
 - Shipped the Lore Relationship Atlas pilot (`NDL-002`–`NDL-005`, 2026-11-14). `/npclinks atlas` opens a spoiler-safe, offline relationship browser over 12 human-reviewed Scions entities at ARR 2.0 and 2.55, with main-story and optional-content views. A local browser viewer renders the same core without FFXIV. Guide: [docs/atlas/README.md](atlas/README.md).
 - Added a merged dictionary model with bundled seed terms plus user `user-terms.json`.
 - Added in-game create, update, delete/hide, reload, and editor UI support.

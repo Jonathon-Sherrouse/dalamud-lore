@@ -1,8 +1,8 @@
 # Follow progress investigation (`NDL-007`)
 
-Status: **agent investigation complete; in-game evidence pending.** Nothing here counts as passed until the user's in-game run is recorded below and the user accepts the story.
+The user accepted the investigation for merge on November 26, 2026. The two-character in-game checks below are pending. Atlas Follow remains deferred.
 
-The question: can the client's completed-quest flags safely drive the Atlas **Follow** toggle? The contract is [v2-plan.md → Follow](v2-plan.md#follow-completed-story-progress). This is a different problem from [quest-metadata-investigation.md](../quest-metadata-investigation.md), which asks which quest a dialogue line belongs to. Its negative findings don't apply here.
+This investigation asks whether the client's completed-quest flags can safely drive the Atlas **Follow** toggle. The [Follow plan](v2-plan.md#follow-completed-story-progress) defines its criteria. The separate [quest dialogue investigation](../quest-metadata-investigation.md) covers matching NPC lines to quest scripts.
 
 ## Short answer so far
 

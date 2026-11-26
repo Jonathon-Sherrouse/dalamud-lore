@@ -30,6 +30,9 @@ public enum AtlasErrorCode
     CitationScopeMismatch,
     InconsistentCitation,
     UnreviewedRecord,
+    InvalidArc,
+    CastTooLarge,
+    EndCitationOutOfRange,
     InternalError,
 }
 
@@ -61,12 +64,13 @@ public sealed class AtlasLoadResult
 /// <summary>Loads and validates Atlas data. Never throws; failures are returned as structured errors.</summary>
 public static class AtlasLoader
 {
-    public const int SupportedSchemaVersion = 1;
-    public const int MaxFileBytes = 1024 * 1024;
-    public const int MaxCheckpoints = 16;
-    public const int MaxEntities = 64;
-    public const int MaxRelationships = 256;
-    public const int MaxRelationshipTypes = 32;
+    public const int SupportedSchemaVersion = 2;
+    public const int MaxFileBytes = 8 * 1024 * 1024;
+    public const int MaxCheckpoints = 2048;
+    public const int MaxEntities = 1024;
+    public const int MaxRelationships = 4096;
+    public const int MaxRelationshipTypes = 64;
+    public const int MaxArcs = 256;
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
@@ -182,7 +186,7 @@ public static class AtlasLoader
         }
         catch (JsonException ex)
         {
-            return AtlasLoadResult.Fail(AtlasErrorCode.MalformedJson, ex.Path ?? "$", $"Atlas data does not match schema v1: {ex.Message}");
+            return AtlasLoadResult.Fail(AtlasErrorCode.MalformedJson, ex.Path ?? "$", $"Atlas data does not match schema v2: {ex.Message}");
         }
 
         if (file is null)
@@ -202,12 +206,25 @@ internal sealed class AtlasFileDto
     public List<AtlasRelationshipTypeDto?>? RelationshipTypes { get; set; }
     public List<AtlasEntityDto?>? Entities { get; set; }
     public List<AtlasRelationshipDto?>? Relationships { get; set; }
+    public List<AtlasArcDto?>? Arcs { get; set; }
+}
+
+internal sealed class AtlasArcDto
+{
+    public string? Id { get; set; }
+    public string? EntityId { get; set; }
+    public string? FirstStep { get; set; }
+    public string? LastStep { get; set; }
 }
 
 internal sealed class AtlasCheckpointDto
 {
     public string? Id { get; set; }
     public string? Label { get; set; }
+    public bool? Milestone { get; set; }
+    public string? QuestTitle { get; set; }
+    public bool? ContiguousWithPrevious { get; set; }
+    public List<int?>? GameQuestIds { get; set; }
 }
 
 internal sealed class AtlasRelationshipTypeDto
@@ -222,7 +239,22 @@ internal sealed class AtlasEntityDto
 {
     public string? Id { get; set; }
     public string? Category { get; set; }
+    public AtlasPortraitDto? Portrait { get; set; }
     public List<AtlasPresentationDto?>? Presentations { get; set; }
+}
+
+internal sealed class AtlasPortraitDto
+{
+    public uint? GameIcon { get; set; }
+    public AtlasCropDto? Crop { get; set; }
+    public string? Review { get; set; }
+}
+
+internal sealed class AtlasCropDto
+{
+    public double? X { get; set; }
+    public double? Y { get; set; }
+    public double? Size { get; set; }
 }
 
 internal sealed class AtlasPresentationDto
@@ -255,5 +287,6 @@ internal sealed class AtlasRelationshipDto
     public string? ValidUntil { get; set; }
     public string? Scope { get; set; }
     public List<AtlasCitationDto?>? Citations { get; set; }
+    public List<AtlasCitationDto?>? EndCitations { get; set; }
     public string? Review { get; set; }
 }

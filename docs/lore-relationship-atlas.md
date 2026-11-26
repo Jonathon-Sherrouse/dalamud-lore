@@ -2,6 +2,8 @@
 
 ## Status and priority exception
 
+**Atlas dictionary previews approved (NDL-013).** The Atlas annotates visible summaries and recaps with links to the live dictionary only after the player opts in and acknowledges a one-time spoiler warning. Definitions can reveal events beyond the selected checkpoint. With previews off, the Atlas shows its reviewed prose and checkpoint-filtered facts.
+
 **Atlas v2 approved (2026-11-14).** The user approved [Atlas v2: arc context](atlas/v2-plan.md) after an eight-round council review, and made it the priority ahead of `Pre-Ship`. v2 amends this contract as follows. The pilot text below stays the record of v1.
 - **Exclusions.** v2 lifts two items from the excluded list in [Fixed pilot scope](#fixed-pilot-scope): **story-event entities** (now the `event` category, with arc entries) and **automatic progression filtering**. Follow uses client completed-quest flags for authored `gameQuestIds` as the **only** allowed progress source, and moves only the view within the spoiler limit. The rest of the list stays excluded, including dictionary/Lore Explain bridges. v2's Lore Explain "Open Atlas" button only opens the window; no data passes between the two.
 - **Checkpoints.** v2 replaces "exactly two ordered checkpoints" with a main-scenario timeline of one "after this quest" step per covered quest. `cp-arr-2-0` and `cp-arr-2-55` stay as milestone steps.
@@ -56,7 +58,7 @@ If a claim is unsupported or does not fit, omit or narrow it by default. If that
 
 Use stable IDs, typed directed relationships, and checkpoint-specific entity presentations including names, aliases, descriptions, and displayed citation metadata. Use inclusive-start/exclusive-end intervals `[validFrom, validUntil)`; an absent end means ongoing.
 
-Require exactly one reviewed presentation for each visible entity at each selected checkpoint **in each content view** (main-story only, or main plus optional; see [schema v1](atlas/schema.md)). Reject same-scope overlapping presentations, gaps inside each view's visibility, duplicate IDs, unknown references, invalid intervals, unsupported schema versions, and edges whose endpoints are not visible throughout their interval. Enforce bounds of 64 entities, 256 edges, 16 checkpoints, and 1 MiB of JSON; these are loader limits, not permission to enlarge the pilot.
+Require exactly one reviewed presentation for each visible entity at each selected checkpoint **in each content view** (main-story only, or main plus optional; see [schema v1](atlas/schema.md)). Reject same-scope overlapping presentations, gaps inside each view's visibility, duplicate IDs, unknown references, invalid intervals, unsupported schema versions, and edges whose endpoints are not visible throughout their interval. Enforce bounds of 64 entities, 256 edges, 16 checkpoints, and 1 MiB of JSON; these are loader limits, not permission to enlarge the pilot. (`NDL-012` raised the checkpoint bound to 128 for one step per quest across ARR 2.0; see [its discovery doc](atlas/ndl-012-discovery.md).) (On 2026-11-19 the timeline was extended to one step per quest through 3.56, and the bounds rose to 256 entities, 1,024 edges, 512 checkpoints, 64 arcs, 64 relationship types, 64 presentations per entity and 4 MiB; see [era-modules.md](atlas/era-modules.md). Extending through Stormblood raised them again: 512 entities, 2,048 edges, 1,024 checkpoints, 128 arcs, 128 presentations per entity and 8 MiB; Shadowbringers raised presentations per entity to 512.)
 
 Validation has two explicit modes:
 

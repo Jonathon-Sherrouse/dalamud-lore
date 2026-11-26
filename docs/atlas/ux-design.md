@@ -1,6 +1,6 @@
 # Atlas UX design (NDL-005)
 
-> **v2 note (2026-11-14).** Under [Atlas v2](v2-plan.md), flows F5 and F6 change: above the spoiler limit, pickers show only neutral milestone labels plus an unnamed "next story step", and never quest titles. The raise menu offers the same choices. `NDL-008` redesigns the window for v2's lenses. Until then, this document stays the accepted v1 design.
+> **v2 note.** [Atlas v2](v2-plan.md) adds three lenses, designed in [v2 lenses](#v2-lenses-ndl-008) below (`NDL-008`, accepted 2026-11-14; `NDL-010` builds it in game). Everything above that section is the accepted v1 design, and it stays the **Story point** lens unchanged, except that flows F5 and F6 follow v2 spoiler rule 1: above the spoiler limit, pickers and the raise menu show only neutral milestone labels plus an unnamed "next story step", never quest titles.
 >
 > **Status: accepted.** The user accepted this design on 2026-11-14. `NDL-004` builds it in game, and the [local viewer](local-viewer.md) is its reference implementation. Sections marked **Prototyped** are built in the viewer and accepted as part of the whole design. Later changes go through `NDL-004` or a new story, and update both front ends together.
 
@@ -161,4 +161,141 @@ The window opens focused on the Scions (`AtlasDefaults.HomeEntityId`). It return
 
 - The reset hint appears only when the reset discarded something the player had chosen.
 - The home entry is a pilot constant in the shared core, not data. A later schema version could move it into `atlas.json`.
+
+## v2 lenses (NDL-008)
+
+> **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). `NDL-010` renders it in the in-game window. **Follow is deferred** (user decision, 2026-11-14), so there is no Follow toggle, status line or "your progress" wording.
+
+### What changes on screen
+
+A **lens bar** sits under the top bar: the lens switch, then the position line, then the coverage note on slice steps.
+
+```text
+┌ Lore Atlas ─────────────────────────────────────────────────────────────────────── ✕ ┐
+│ Viewing as of [After The Captain's Bargain ▾]  Spoiler limit: … [Raise…]  Content [ … ] │
+│ Lens [ Arc | Story point | Changes ]  Viewing: after The Captain's Bargain               │
+│                                       This point covers only the characters involved…   │
+├────────────────┬─────────────────────────────────────────┬────────────────────────────┤
+│ Story arc      │              ● Mira                     │ ⬡ The Siege of Saltmere     │
+│ [The arc at ▾] │      ◆ Harbor    ·    ● Tobin           │ Event                       │
+│ [Search…]      │            ⬡ THE SIEGE                  │ STORY SO FAR, THROUGH THE   │
+│ CAST (6)       │      ● Vessa     ·    ■ The Watch       │ CAPTAIN'S BARGAIN           │
+│ CHARACTERS     │              ■ The Drowned Court        │ Tobin is still a prisoner…  │
+│ ● Captain Mira │                                         │ ▸ Sources (1)               │
+│ …              │  (faint spokes to the centre, labelled  │ NEW AT THIS POINT           │
+│ LOCATIONS      │   edges between cast members)           │ Mira allied with Vessa      │
+│ ◆ Saltmere …   │                                         │ ENDED SO FAR IN THIS ARC    │
+│                │                                         │ Mira member of … (ended in …)│
+└────────────────┴─────────────────────────────────────────┴────────────────────────────┘
+```
+
+| Lens | Browse pane | Centre | Details pane |
+|---|---|---|---|
+| **Arc** | The **Story arc** picker, then search, then the cast members under "Cast (n)", grouped by category. The arc entry is the panel's subject, so it is not listed while the search is empty; searching finds it, and its centre node can always be clicked. | The **whole-cast chart**: the arc entry in the centre, every cast member on a ring, every cast-to-cast relationship drawn | The **arc panel**: name, "Story so far, through ‹quest›", the recap, Sources (n), **New at this point**, **Ended so far in this arc** |
+| **Story point** | Unchanged (v1) | Unchanged one-hop graph | Unchanged |
+| **Changes** | Replaced by the change list | Replaced by the change list | The selected change |
+
+### Flows
+
+| # | Flow | Behavior |
+|---|---|---|
+| L1 | **Open** | The default lens rule: **Arc** when an arc contains the view, **Story point** otherwise. Until the player picks a lens or an arc, the rule is re-applied whenever the view changes ([D11](#decisions-accepted-by-the-user-2026-11-14)). An explicit pick lasts for the session and is never saved. Saved state still opens at the earliest checkpoint when absent or invalid, which is the pre-arc baseline, so a first open is always Story point. |
+| L2 | **Switch lens** | The lens switch changes what is shown. Like a checkpoint change it clears search, focus and selection, but it never shows the "Selection reset" hint, because the player did it on purpose. |
+| L3 | **Arc lens at rest** | Nothing is focused: the whole-cast chart and the arc panel show. The recap is the arc entry's reviewed summary at the effective step. Clicking a labelled edge on the chart opens its **Selected connection** card, with its sources and Close, at the top of the arc panel; the recap stays below it. |
+| L4 | **Refocus in the arc** | Clicking a cast member (canvas, cast list, or a name in the panel's rows) shows the v1 one-hop graph and details, **inside the cast**. Search, counts and connections never leave the cast. A **← Whole cast** button returns to rest. |
+| L5 | **Pick an arc** | The **Story arc** picker lists "The arc at this point" (the automatic choice), then every arc already started by the view, by start and then authored order, each named as of its effective step. Each arc also says where it starts ("from ‹start quest›", always at or below the view), and arcs are listed under patch headings ("A Realm Reborn — Patch 2.0", from the first milestone at or after the arc's start) whenever they span more than one patch (user decision, 2026-11-15, `NDL-011`). Once the view is past an arc's last step it reads "from ‹start quest› · ended" (user decision, 2026-11-16, `NDL-011`); before that there is no hint of where or whether it ends. No spans or step counts. |
+| L6 | **Pick lifetime** | Picking an arc also chooses the Arc lens ([D12](#decisions-accepted-by-the-user-2026-11-14)). A pick holds while the view moves, and ends when the view drops below the arc's first step (also when lowering the limit clamps the view there); it does not come back when the view rises again. "The arc at this point" clears it; the Arc lens stays chosen either way. A picked arc that has already ended shows "This arc has ended." under the recap label, which already names its last step, and its "New" heading becomes "New in ‹last quest›". |
+| L7 | **No arc here** | In the Arc lens with no arc covering the view: "No story arc covers this point." The picker still lists started arcs, so an ended one can be reopened. |
+| L8 | **Changes lens** | A heading, "What this quest changed" or "Changes since ‹previous point›", then rows under **Added** (+), **Ended** (−) and **Description updated** (~). Picking a row shows it on the right: the relationship and its sources, plus **Sources for the ending (n)** on an ended row, the only place end evidence ever appears. |
+| L9 | **Changes not offered** | At the first step or across a slice ↔ milestone boundary: "Changes compare one quest step with the one before it, or one milestone with the previous milestone. There is no comparison for this point." |
+| L10 | **Position and coverage** | The lens bar always says "Viewing: after ‹quest›" (or "Viewing: ‹milestone›"), the chosen point, never "you are here". On slice steps the shared coverage note follows it. |
+
+### Visual language additions
+
+- **Events and arc entries:** a flat-topped **hexagon** in violet (`#c39bd3`), the fourth category glyph, ordered last in lists ("Events").
+- **Participation spokes:** in the whole-cast chart, each member's `participant-in` edge to the entry is a faint violet line with no label, arrow or click target (`AtlasGraphEdge.IsParticipation`; the session refuses to select one there). Membership is already shown by the member being on the chart, and ten labelled spokes would bury the real relationships. For the same reason, **New at this point** leaves out participation edges. In a refocused one-hop graph the same edge is drawn and selectable like any other.
+- **Recap label:** small caps in the accent colour, above the recap text, which is slightly larger than a summary.
+- **Change marks:** `+`, `−` and `~` repeat the group heading, so meaning never rests on colour.
+- **Ended rows in the Arc lens** carry "(ended in ‹quest›)" and **no sources** of any kind.
+
+### States
+
+| State | What shows |
+|---|---|
+| Arc lens, no arc | Centre and details: "No story arc covers this point." The browse list is empty apart from the picker. |
+| Arc lens, nothing new or ended | "Nothing new." / "Nothing has ended yet." |
+| Changes, nothing changed | "Nothing changed at this point." |
+| Changes, no row picked | "Pick a change to see its details." |
+
+### Shared core
+
+Every rule and string lives in the shared core, as in v1: `AtlasSession` (`Lens`, `SetLens`, `LensOptions`, `PositionLabel`, `CoverageNote`; `Arc`, `ArcPickerOptions`, `PickArc`, `CastHeading`, `ArcNewHeading`, `ShowsWholeCast`, `ShowWholeCast`, `ArcNewRows`, `ArcEndedRows`; `ChangesOffered`, `ChangesLabel`, `ChangeGroups`, `SelectChange`, `SelectedChange`) and `AtlasText`. In the Arc lens the session's `Snapshot` is the arc's cast-filtered snapshot at its effective step, so every v1 browsing method is cast-filtered for free.
+
+**Per-frame cost.** The derived lens state (change groups, picker options, arc rows, the whole-cast layout) is built once and cached until the next change of limit, view, content view, lens or pick, so an ImGui window can read it every frame.
+
+**Leak sweep.** `V2LeakSweepTests` covers every limit, view, content view, lens and arc pick. It runs in three ways: in fresh sessions, along a walk down and back up the timeline, and along a walk that turns at the picked arc's first step, so the pick is held both ways. At each stop it selects every chart edge and every change, and refocuses every entry. It checks four things:
+- Every entity, relationship and source shown exists, exactly as shown, at some step at or before the view. Each end citation on a Changes row must be that relationship's own end evidence.
+- No text names a later quest, entity or source.
+- Pickers and prompts name nothing past the limit.
+- End evidence appears only on Changes "ended" rows, proved by a source cited nowhere else.
+
+### ImGui feasibility (for `NDL-010`)
+
+| Element | ImGui approach |
+|---|---|
+| Lens switch | Three `Selectable`s in a row (or `RadioButton`s), the same pattern as the content toggle |
+| Position and coverage | `TextUnformatted` and `TextDisabled` on the lens bar line; the coverage note wraps with `TextWrapped` on narrow windows |
+| Story arc picker | `BeginCombo` over `ArcPickerOptions`; the automatic option first |
+| Whole-cast chart | The existing `ImDrawList` renderer over `AtlasGraphLayout.ComputeWholeCast`: up to 11 nodes on one ring, so no new layout code. Spokes are a single `AddLine` with a low-alpha `EventColor` and no `InvisibleButton`. The hexagon is `AddNgonFilled` / `AddNgon` with 6 sides, already drawn by the window. |
+| Arc panel | `BeginChild` details pane: a `PushStyleColor` accent `TextUnformatted` for the recap label, `TextWrapped` for the recap, the existing Sources `CollapsingHeader`, then the window's existing heading pattern (`TextColored(MutedColor, LABEL)` + `Separator`) and its `ClickableText` helper for inline names in rows. The selected-connection card is the window's existing card, drawn above the recap. |
+| ← Whole cast | `SmallButton` at the top of the details pane |
+| Changes list | One `BeginChild` spanning the browse and canvas width (the window already sizes panes from a table), group headings in the same heading pattern, full-width `Selectable` rows; the mark glyph as a fixed-width `TextDisabled` |
+| End evidence | A second `CollapsingHeader` labelled `EndSourcesToggle(n)`, driven by the same `SourcesExpanded` setting |
+| Known layout limit | Resolved in `NDL-011` (council round 1): see [Chart text placement](#chart-text-placement-ndl-011). |
+
+### Decisions (accepted by the user, 2026-11-14)
+
+1. **D6. The lens bar** is a second row under the top bar, not a tab strip above the panes.
+2. **D7. The Changes lens takes the browse pane and the canvas** for its list, with no chart. A diff is a list; a chart of a diff would need its own layout rules.
+3. **D8. Participation spokes are faint and unlabelled** on the whole-cast chart, and can't be clicked there. "New at this point" leaves out these spokes too, so a member joining shows by appearing on the chart, not as a row. After refocusing, the same edge is an ordinary labelled connection.
+4. **D9. The automatic arc option reads "The arc at this point".** It avoids "current" and "you are here", which would imply progress.
+5. **D10. Switching lens clears focus and search silently**, without the reset hint.
+6. **D11. The default lens rule re-applies on every view change** until the player picks a lens or an arc. The plan names only "on open" and "when Follow moves the view". With Follow deferred, this is how a player moving through the story lands in the Arc lens on their own.
+7. **D12. Picking an arc counts as picking the Arc lens,** so a picked arc stays on screen when the view moves past its end. The cost: the Arc lens then stays chosen for the session, even after the pick ends or is cleared with "The arc at this point". Moving before every arc shows "No story arc covers this point." rather than returning to Story point.
+
+## Portraits (NDL-011)
+
+Entities with a reviewed portrait show a picture from the game's own data instead of their bare category shape. The user approved every pick on 2026-11-15; see the [review sheet](content-review.md#portraits) and the [schema](schema.md#portraits-ndl-011).
+
+| Where | How it looks |
+|---|---|
+| Chart nodes | Round, radius 0.11 of the ring (0.15 for the centre), inside a ring in the category colour, with the category shape as a small badge at the lower right. Category-shape nodes keep their v1 sizes. |
+| Details and arc-panel headers | 48 px, with the badge, beside the name and category. |
+| Browse list | One text line tall, with no badge: the list is already grouped under category headings. |
+
+- **Meaning never rests on the picture or the colour alone.** The ring carries the category colour, and the badge and the list headings carry the shape.
+- **Fallback.** Without a portrait, or until its texture loads, the category shape is drawn (at 80% of a portrait node's size, so the chart doesn't jump).
+- **ImGui.** `AddImageRounded` with the radius as the rounding clips the texture round, `AddCircle` draws the ring, and the badge reuses the existing shape renderer. Textures come from `ITextureProvider.GetFromGameIcon` (high resolution) and are never stored by the plugin.
+- **Shared values.** `AtlasPortraitStyle` holds the sizes and `AtlasPortrait.Uv` the crop, so the viewer matches the window.
+
+## Chart text placement (NDL-011)
+
+The council's round-1 review found chart text unreadable at small sizes in the viewer and edge labels landing beside the wrong node. Both front ends now place chart text the same way (`AtlasChartStyle`):
+
+- **Screen pixels.** The chart is drawn in pixels: the ring's radius is 0.36 of the canvas's shorter side. Chart text has fixed sizes in both front ends: 12 px names and 11 px labels on 15 px plates, scaled with the game's UI scale. The game draws chart text at these sizes, not its larger UI font, so placement matches the viewer. Portrait nodes never shrink below 14 px radius (20 px at the centre).
+- **Names outside the ring.** A ring member's name sits above it in the upper half of the ring and below it otherwise, so a chord between two members never crosses a name. Names are truncated with "…" to the gap between ring neighbours (at most 150 px, or 200 px while the ring has fewer than 4 members; the centre at most 200 px) and sit on a dark plate. The full name is in the tooltip.
+- **Edge labels near their own edge.** Each label sits on a dark plate. The candidates are 0.5, 0.38, 0.62, 0.28, 0.72, 0.2 and 0.8 along the edge, each on the edge first and then one, then two, plate heights to either side. The label takes the first candidate that clears every node (a portrait's badge included), name and label already placed. An off-edge label gets a short leader line back to its edge. If nothing is clear, the label takes the least-overlapping candidate, weighting names highest, so it covers a name only as a last resort. Hovering a label lights up its edge, and the tooltip gives the full sentence ("Thancred member of The Scions of the Seventh Dawn"). This replaces the old centre-node nudge.
+- **The centre name** is shortened until its plate clears every ring node and ring name.
+- **Small windows.** The side panes shrink to fit: browse is 20% of the width (150–200 px) and details 28% (220–280 px). At the 760 px minimum the chart gets about 390 px instead of 280. Edges and arrowheads stop at a diamond's or hexagon's outline.
+
+Other round-1 polish:
+- **Wrapping.** The in-game top bar and lens bar wrap at the minimum width, with Raise… kept on screen. Connection rows, Changes rows and source titles wrap.
+- **Active state.** The active lens and content buttons are underlined in the accent colour as well as filled.
+- **Details.** The selected connection's card sits at the top of the details pane, as in the arc panel. The footer describes the content view in use.
+- **Changes details.** A picked change starts with what it did ("− Ended in ‹quest›", "+ Added by ‹milestone›").
+- **Milestone wording.** Milestones read as points: "Viewing: ‹milestone›", "Story so far, as of ‹milestone›", "ended by ‹milestone›".
+- **Viewer.**
+  - Browse rows, connections, Changes rows, Arc-row names and chart items work from the keyboard.
+  - Focus survives redraws.
+  - Escape cancels the raise prompt.
 

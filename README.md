@@ -115,27 +115,15 @@ If live explain is off, or if no API key is configured, the command writes a JSO
 
 ## Quest Metadata Probe
 
-Quest metadata is not sent to Lore Explain yet. The probe is an opt-in investigation tool for collecting evidence about which quest, if any, owns a captured `Talk` dialogue line.
+Probe v3 compares each new NPC dialogue line with quest scripts from your local game files in the client language. When exactly one quest contains the line, its title appears in chat.
 
-Workflow:
+1. Open `/xlplugins` → **Dev Tools** → **Installed Dev Plugins**. Find **NPC Dialogue Links** and click **Reload**. For a first-time installation, follow the [dev plugin setup](docs/atlas/README.md#loading-a-development-build).
+2. Run `/npclinks questprobe on` and wait for **Quest matching ready.** in chat.
+3. Talk to an ordinary NPC. For a greeting absent from quest scripts, expect **Quest: Unknown**.
+4. Start a conversation for a quest objective or turn-in. Compare the **Quest:** title in chat with your journal. A line shared by multiple quests shows **Quest: Unknown (shared line).** The probe saves the result automatically.
+5. Run `/npclinks questprobe off` when finished. If a result surprised you, note the NPC, journal title and chat result.
 
-```text
-/npclinks questprobe on
-```
-
-Talk to a quest NPC. The plugin will auto-export each newly captured Talk line while the probe is enabled. If you can verify the quest name from the journal or your in-game context, add a manual marked capture:
-
-```text
-/npclinks questprobe capture The Verified Quest Name
-```
-
-Probe output is written as JSONL under the plugin config directory:
-
-```text
-quest-metadata-probes/quest-probe-YYYYMMDD.jsonl
-```
-
-Each record includes the dialogue line, your optional verified quest name, zone/target context, target object identifiers, known local dictionary terms, and recent `Talk` addon setup/refresh `AtkValue` snapshots. Treat all captured quest-related fields as investigative data until runtime validation identifies a direct source of truth.
+The probe saves each result locally. The [investigation guide](docs/quest-metadata-investigation.md#checking-automatic-matches) explains how to read the log and add an optional journal-verified label. Quest context in Lore Explain requires separate validation.
 
 Starter helper:
 

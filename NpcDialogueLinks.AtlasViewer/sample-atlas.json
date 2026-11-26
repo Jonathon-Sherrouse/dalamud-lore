@@ -1,13 +1,15 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "checkpoints": [
     {
       "id": "cp-early",
-      "label": "Sample — Chapter 1 complete"
+      "label": "Sample — Chapter 1 complete",
+      "milestone": true
     },
     {
       "id": "cp-later",
-      "label": "Sample — Chapter 2 complete"
+      "label": "Sample — Chapter 2 complete",
+      "milestone": true
     }
   ],
   "relationshipTypes": [

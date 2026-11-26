@@ -22,7 +22,10 @@ public enum AtlasStateChange
 
 public sealed record AtlasStateResult(AtlasSpoilerState State, AtlasStateChange Change);
 
-/// <summary>Pure rules for the ceiling ("knowledge approved through") and view ("viewing as of") controls.</summary>
+/// <summary>
+/// Pure rules for the ceiling ("spoiler limit") and view ("viewing as of") controls. Absent or invalid saved state
+/// resets to the earliest checkpoint, the pre-arc baseline in v2, so a reset never raises the limit (v2 plan).
+/// </summary>
 public static class AtlasSpoilerPolicy
 {
     /// <summary>Both controls at the earliest checkpoint.</summary>
@@ -71,6 +74,13 @@ public static class AtlasSpoilerPolicy
 
         if (requested.Order > current.Order)
         {
+            // v2 spoiler rule 1: the limit rises only to a milestone or to the single next step, so raising can never
+            // require naming a quest further ahead.
+            if (!requested.Milestone && requested.Order != current.Order + 1)
+            {
+                return new AtlasStateResult(state, AtlasStateChange.Rejected);
+            }
+
             return confirmed
                 ? new AtlasStateResult(state with { CeilingId = requested.Id }, AtlasStateChange.Changed)
                 : new AtlasStateResult(state, AtlasStateChange.NeedsConfirmation);
@@ -78,6 +88,27 @@ public static class AtlasSpoilerPolicy
 
         var clampedView = view.Order > requested.Order ? requested.Id : view.Id;
         return new AtlasStateResult(new AtlasSpoilerState(requested.Id, clampedView), AtlasStateChange.Changed);
+    }
+
+    /// <summary>
+    /// Follow's neutral "your completed quests" raise. Progress is read here, against the current limit, so the raise is
+    /// verified by construction and a stale or hand-built Follow result can never be applied. The limit rises to exactly
+    /// the reached step, only with <paramref name="confirmed"/>, and the view never moves. Anything else is rejected.
+    /// </summary>
+    public static AtlasStateResult SetCeilingToFollowed(AtlasDataset dataset, AtlasSpoilerState state, Func<int, AtlasQuestProgress> progress, bool confirmed)
+    {
+        ArgumentNullException.ThrowIfNull(dataset);
+        ArgumentNullException.ThrowIfNull(state);
+        ArgumentNullException.ThrowIfNull(progress);
+        var follow = AtlasFollow.Position(dataset, progress, state.CeilingId);
+        if (follow.Kind != AtlasFollowKind.Position || !follow.BeyondLimit || !dataset.TryGetCheckpoint(follow.ReachedCheckpointId, out var reached))
+        {
+            return new AtlasStateResult(state, AtlasStateChange.Rejected);
+        }
+
+        return confirmed
+            ? new AtlasStateResult(state with { CeilingId = reached.Id }, AtlasStateChange.Changed)
+            : new AtlasStateResult(state, AtlasStateChange.NeedsConfirmation);
     }
 
     /// <summary>The view may move anywhere at or below the ceiling; it can never raise the ceiling.</summary>

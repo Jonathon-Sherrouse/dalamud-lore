@@ -84,7 +84,7 @@ internal static class Fx
     /// <summary>A minimal three-checkpoint document for rules that two checkpoints cannot exercise.</summary>
     public static JsonObject ThreeCheckpoints() => new()
     {
-        ["schemaVersion"] = 1,
+        ["schemaVersion"] = 2,
         ["checkpoints"] = new JsonArray(
             new JsonObject { ["id"] = "cp-1", ["label"] = "One" },
             new JsonObject { ["id"] = "cp-2", ["label"] = "Two" },

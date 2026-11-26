@@ -15,6 +15,8 @@ internal sealed class TermDictionary
     };
 
     private readonly object syncRoot = new();
+    private readonly Action<Exception, string>? logWarning;
+    private readonly Dictionary<string, IReadOnlyList<AtlasTermMatch>> atlasMatches = new(StringComparer.Ordinal);
     private Dictionary<string, TermEntry> bundledEntriesByCanonicalName;
     private Dictionary<string, TermEntry> userEntriesByCanonicalName;
     private HashSet<string> hiddenCanonicalNames;
@@ -26,8 +28,9 @@ internal sealed class TermDictionary
     {
     }
 
-    public TermDictionary(string bundledDictionaryPath, string userDictionaryPath)
+    public TermDictionary(string bundledDictionaryPath, string userDictionaryPath, Action<Exception, string>? logWarning = null)
     {
+        this.logWarning = logWarning;
         this.BundledDictionaryPath = Path.GetFullPath(bundledDictionaryPath);
         this.UserDictionaryPath = Path.GetFullPath(userDictionaryPath);
         this.bundledEntriesByCanonicalName = LoadCanonicalDefinitions(this.BundledDictionaryPath);
@@ -97,6 +100,53 @@ internal sealed class TermDictionary
                         isUserDefined && this.bundledEntriesByCanonicalName.ContainsKey(entry.CanonicalName));
                 })
                 .ToArray();
+        }
+    }
+
+    public IReadOnlyList<AtlasTermMatch> FindAtlasLinks(string text)
+    {
+        lock (this.syncRoot)
+        {
+            if (this.atlasMatches.TryGetValue(text, out var cached))
+            {
+                return cached;
+            }
+
+            var candidates = new List<AtlasTermMatch>();
+            foreach (var (term, entry) in this.entriesByMatchTerm)
+            {
+                var start = LinkCandidateExtractor.FindWholeTermVariantIndex(text, term, 0, StringComparison.OrdinalIgnoreCase);
+                while (start >= 0)
+                {
+                    candidates.Add(new(start, term, entry.CanonicalName, entry.Definition));
+                    start = LinkCandidateExtractor.FindWholeTermVariantIndex(text, term, start + 1, StringComparison.OrdinalIgnoreCase);
+                }
+            }
+
+            // Keep the longest match at each start. Prefer the written case when dictionary keys differ only in case.
+            var matches = new List<AtlasTermMatch>();
+            var end = 0;
+            foreach (var match in candidates
+                .OrderBy(match => match.Start)
+                .ThenByDescending(match => match.Term.Length)
+                .ThenByDescending(match => text.AsSpan(match.Start, match.Term.Length).SequenceEqual(match.Term))
+                .ThenBy(match => match.Term, StringComparer.Ordinal))
+            {
+                if (match.Start >= end)
+                {
+                    matches.Add(match);
+                    end = match.Start + match.Term.Length;
+                }
+            }
+
+            // The game draws the same paragraphs each frame. Keep a bounded cache and reset it on dictionary edits.
+            if (this.atlasMatches.Count >= 64)
+            {
+                this.atlasMatches.Clear();
+            }
+
+            this.atlasMatches[text] = matches;
+            return matches;
         }
     }
 
@@ -188,7 +238,7 @@ internal sealed class TermDictionary
                 this.userEntriesByCanonicalName = previousUserEntries;
                 this.hiddenCanonicalNames = previousHiddenCanonicalNames;
                 this.RebuildMergedDefinitions();
-                Plugin.Log.Warning(exception, "Failed to save user term dictionary to {DictionaryPath}", this.UserDictionaryPath);
+                this.logWarning?.Invoke(exception, $"Failed to save user term dictionary to {this.UserDictionaryPath}");
                 return DictionaryMutationResult.Failure($"Failed to save user dictionary: {exception.Message}");
             }
 
@@ -242,7 +292,7 @@ internal sealed class TermDictionary
                 this.userEntriesByCanonicalName = previousUserEntries;
                 this.hiddenCanonicalNames = previousHiddenCanonicalNames;
                 this.RebuildMergedDefinitions();
-                Plugin.Log.Warning(exception, "Failed to save user term dictionary to {DictionaryPath}", this.UserDictionaryPath);
+                this.logWarning?.Invoke(exception, $"Failed to save user term dictionary to {this.UserDictionaryPath}");
                 return DictionaryMutationResult.Failure($"Failed to save user dictionary: {exception.Message}");
             }
 
@@ -271,7 +321,7 @@ internal sealed class TermDictionary
         }
     }
 
-    private static Dictionary<string, TermEntry> LoadCanonicalDefinitions(string dictionaryPath)
+    private Dictionary<string, TermEntry> LoadCanonicalDefinitions(string dictionaryPath)
     {
         var entriesByCanonicalName = new Dictionary<string, TermEntry>(StringComparer.OrdinalIgnoreCase);
 
@@ -307,13 +357,13 @@ internal sealed class TermDictionary
         }
         catch (Exception exception)
         {
-            Plugin.Log.Warning(exception, "Failed to load term dictionary from {DictionaryPath}", dictionaryPath);
+            this.logWarning?.Invoke(exception, $"Failed to load term dictionary from {dictionaryPath}");
         }
 
         return entriesByCanonicalName;
     }
 
-    private static (Dictionary<string, TermEntry> EntriesByCanonicalName, HashSet<string> HiddenCanonicalNames)
+    private (Dictionary<string, TermEntry> EntriesByCanonicalName, HashSet<string> HiddenCanonicalNames)
         LoadUserDefinitions(string dictionaryPath)
     {
         var entriesByCanonicalName = new Dictionary<string, TermEntry>(StringComparer.OrdinalIgnoreCase);
@@ -361,7 +411,7 @@ internal sealed class TermDictionary
         }
         catch (Exception exception)
         {
-            Plugin.Log.Warning(exception, "Failed to load user term dictionary from {DictionaryPath}", dictionaryPath);
+            this.logWarning?.Invoke(exception, $"Failed to load user term dictionary from {dictionaryPath}");
         }
 
         return (entriesByCanonicalName, hiddenCanonicalNames);
@@ -403,6 +453,7 @@ internal sealed class TermDictionary
 
     private void RebuildMergedDefinitions()
     {
+        this.atlasMatches.Clear();
         (this.entriesByCanonicalName, this.entriesByMatchTerm) = BuildMergedDefinitions(
             this.bundledEntriesByCanonicalName,
             this.userEntriesByCanonicalName,
@@ -602,3 +653,5 @@ internal sealed class TermEntry
         }
     }
 }
+
+internal sealed record AtlasTermMatch(int Start, string Term, string CanonicalName, string Definition);

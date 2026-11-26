@@ -5,13 +5,16 @@ namespace NpcDialogueLinks.Atlas;
 
 // Pure Atlas core. No Dalamud, ImGui, or Plugin dependencies: every file in this folder is
 // compile-linked into NpcDialogueLinks.Tests and NpcDialogueLinks.AtlasViewer.
-// Contract: docs/atlas/schema.md (schema v1).
+// Contract: docs/atlas/schema.md (schema v2) and docs/atlas/v2-plan.md.
 
 public enum AtlasCategory
 {
     Character = 0,
     Organization = 1,
     Location = 2,
+
+    /// <summary>A story event or an arc entry (schema v2). Ordered last.</summary>
+    Event = 3,
 }
 
 public enum AtlasScope
@@ -44,7 +47,35 @@ public enum AtlasContentView
     MainAndOptional,
 }
 
-public sealed record AtlasCheckpoint(string Id, string Label, int Order);
+/// <summary>
+/// One timeline step: "after this quest" (schema v2), or a patch milestone. <see cref="Order"/> is story order.
+/// </summary>
+public sealed record AtlasCheckpoint(string Id, string Label, int Order)
+{
+    /// <summary>A patch milestone. Its label is neutral, so it may be shown above the spoiler limit.</summary>
+    public bool Milestone { get; init; }
+
+    /// <summary>Reviewed quest title for a quest step; shown only at or below the limit.</summary>
+    public string? QuestTitle { get; init; }
+
+    /// <summary>True when the previous step is the quest immediately before this one.</summary>
+    public bool ContiguousWithPrevious { get; init; }
+
+    /// <summary>Game quest ids whose completion marks this step complete. Used only by Follow.</summary>
+    public IReadOnlyList<int> GameQuestIds { get; init; } = Array.Empty<int>();
+
+    /// <summary>The quest title when there is one, otherwise the label.</summary>
+    public string DisplayTitle => QuestTitle ?? Label;
+}
+
+/// <summary>
+/// A researched story arc (schema v2): an event entity as its entry, spanning <see cref="FirstOrder"/> through
+/// <see cref="LastOrder"/> inclusive. Arcs may overlap or nest. <see cref="AuthoredOrder"/> breaks ties.
+/// </summary>
+public sealed record AtlasArc(string Id, string EntityId, int FirstOrder, int LastOrder, int AuthoredOrder)
+{
+    public bool Contains(int order) => order >= FirstOrder && order <= LastOrder;
+}
 
 /// <summary>A source citation. <see cref="AvailableAtOrder"/> is the earliest checkpoint where the source is player knowledge.</summary>
 public sealed record AtlasCitation(string Title, Uri? Url, int AvailableAtOrder, AtlasScope Scope);
@@ -73,8 +104,37 @@ public sealed record AtlasPresentation(
     IReadOnlyList<AtlasCitation> Citations,
     AtlasReviewStatus Review);
 
+/// <summary>
+/// A reviewed portrait (NDL-011): an icon from the player's own game install, never an image file, cropped to a square.
+/// The crop is the square's centre (<see cref="CropX"/>, <see cref="CropY"/>, fractions of the image's width and height)
+/// and its side (<see cref="CropSize"/>, a fraction of the image's shorter side). Reviewed as safe from the entity's
+/// first appearance, so it is shown wherever the entity is.
+/// </summary>
+public sealed record AtlasPortrait(uint GameIcon, double CropX, double CropY, double CropSize, AtlasReviewStatus Review)
+{
+    /// <summary>
+    /// The crop as texture coordinates (u0, v0, u1, v1) for an image of the given size. The square is moved, never
+    /// shrunk, to stay inside the image, so every front end draws exactly the same pixels.
+    /// </summary>
+    public (double U0, double V0, double U1, double V1) Uv(int width, int height)
+    {
+        if (width <= 0 || height <= 0)
+        {
+            return (0, 0, 1, 1);
+        }
+
+        var side = Math.Min(CropSize, 1.0) * Math.Min(width, height);
+        var left = Math.Clamp((CropX * width) - (side / 2), 0, width - side);
+        var top = Math.Clamp((CropY * height) - (side / 2), 0, height - side);
+        return (left / width, top / height, (left + side) / width, (top + side) / height);
+    }
+}
+
 public sealed record AtlasEntity(string Id, AtlasCategory Category, IReadOnlyList<AtlasPresentation> Presentations)
 {
+    /// <summary>The entity's reviewed portrait, or null to draw its category shape (NDL-011).</summary>
+    public AtlasPortrait? Portrait { get; init; }
+
     /// <summary>The presentation shown at a checkpoint in a view, or null when hidden there.</summary>
     public AtlasPresentation? PresentationAt(int order, AtlasContentView view)
     {
@@ -116,6 +176,12 @@ public sealed record AtlasRelationship(
     IReadOnlyList<AtlasCitation> Citations,
     AtlasReviewStatus Review)
 {
+    /// <summary>
+    /// Reviewed evidence for why the relationship ended (schema v2). Shown only in the Changes row for that ending,
+    /// never on the record elsewhere, so it can never leak an ending early.
+    /// </summary>
+    public IReadOnlyList<AtlasCitation> EndCitations { get; init; } = Array.Empty<AtlasCitation>();
+
     public bool IsVisibleAt(int order, AtlasContentView view) =>
         Interval.Contains(order) && (Scope == AtlasScope.Main || view == AtlasContentView.MainAndOptional);
 }
@@ -129,12 +195,14 @@ public sealed class AtlasDataset
         IReadOnlyList<AtlasCheckpoint> checkpoints,
         IReadOnlyDictionary<string, AtlasRelationshipType> relationshipTypes,
         IReadOnlyList<AtlasEntity> entities,
-        IReadOnlyList<AtlasRelationship> relationships)
+        IReadOnlyList<AtlasRelationship> relationships,
+        IReadOnlyList<AtlasArc>? arcs = null)
     {
         Checkpoints = checkpoints;
         RelationshipTypes = relationshipTypes;
         Entities = entities;
         Relationships = relationships;
+        Arcs = arcs ?? Array.Empty<AtlasArc>();
         checkpointsById = new Dictionary<string, AtlasCheckpoint>(StringComparer.Ordinal);
         foreach (var checkpoint in checkpoints)
         {
@@ -151,6 +219,15 @@ public sealed class AtlasDataset
     internal IReadOnlyList<AtlasEntity> Entities { get; }
 
     internal IReadOnlyList<AtlasRelationship> Relationships { get; }
+
+    /// <summary>
+    /// Researched arcs in authored order. Internal: an arc's span is never shown (rule 7), so front ends go through
+    /// <see cref="AtlasArcs"/>, which exposes only ids and names.
+    /// </summary>
+    internal IReadOnlyList<AtlasArc> Arcs { get; }
+
+    /// <summary>The relationship type that makes an entity part of an arc's cast when it targets the arc entry.</summary>
+    public const string ParticipantTypeId = "participant-in";
 
     public AtlasCheckpoint EarliestCheckpoint => Checkpoints[0];
 

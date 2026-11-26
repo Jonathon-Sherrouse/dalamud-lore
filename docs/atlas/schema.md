@@ -1,13 +1,15 @@
-# Atlas data schema v1 (frozen for the pilot)
+# Atlas data schema v2
 
-This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces. It is frozen from the [discovery evidence](discovery-evidence.md) and the [Atlas contract](../lore-relationship-atlas.md). The four-delegate council reviewed it on 2026-11-14 (see [Review record](#review-record)). Changing it during `NDL-003` requires the one bounded, versioned model-plus-tests amendment that the contract allows.
+> **v2 (NDL-006, 2026-11-14).** The loader accepts `schemaVersion: 2` only, and v1 files are rejected. v2 is a superset of v1: every v1 rule below still holds, and the additions are listed in [Schema v2 additions](#schema-v2-additions). The accepted pilot content was regenerated as v2, and its four snapshots are pinned identical to v1 (`RealDataTests.Real_AcceptedSnapshotsArePinnedAcrossTheV2Upgrade`). Product behavior lives in [v2-plan.md](v2-plan.md).
+
+This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces. The v1 text below was frozen for the pilot. It is frozen from the [discovery evidence](discovery-evidence.md) and the [Atlas contract](../lore-relationship-atlas.md). The four-delegate council reviewed it on 2026-11-14 (see [Review record](#review-record)). Changing it during `NDL-003` requires the one bounded, versioned model-plus-tests amendment that the contract allows.
 
 ## File shape
 
 ```jsonc
 {
-  "schemaVersion": 1,
-  "checkpoints": [                       // ordered, earliest first; 1–16
+  "schemaVersion": 2,
+  "checkpoints": [                       // ordered, earliest first; 1–128 (raised from 16 by NDL-012)
     { "id": "cp-arr-2-0", "label": "A Realm Reborn — Patch 2.0 complete" }
   ],
   "relationshipTypes": [                 // closed vocabulary; 1–32
@@ -18,6 +20,11 @@ This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces
     {
       "id": "char-example",
       "category": "character",           // character | organization | location
+      "portrait": {                      // optional (NDL-011): a game icon, never an image file
+        "gameIcon": 87046,               // 1–999999, read from the player's own install at runtime
+        "crop": { "x": 0.52, "y": 0.4, "size": 0.75 },
+        "review": "reviewed"
+      },
       "presentations": [                 // 1–32
         {
           "validFrom": "cp-arr-2-0",     // checkpoint id, inclusive
@@ -47,7 +54,7 @@ This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces
 }
 ```
 
-Unknown properties, comments, trailing commas and duplicate keys are rejected. The whole file is limited to 1 MiB. An absent `validUntil` or `url` means the same as `null`; absent `aliases` means `[]`.
+Unknown properties, comments, trailing commas and duplicate keys are rejected. The whole file is limited to 8 MiB (1 MiB until 2026-11-19, then 4 MiB until the Stormblood extension). An absent `validUntil` or `url` means the same as `null`; absent `aliases` means `[]`.
 
 ## Field limits
 
@@ -161,6 +168,61 @@ Two persisted checkpoint IDs:
 | Set the view above the ceiling | Rejected. |
 
 Every accepted change tells the UI to clear search, focus, selection and details. The content view is a projection parameter, not a third persisted control, until a toggle is approved.
+
+## Schema v2 additions
+
+**Checkpoints** gain optional fields:
+
+| Field | Default | Rule |
+|---|---|---|
+| `milestone` | `false` | A patch milestone. Its label is neutral, so it may be listed above the spoiler limit. |
+| `questTitle` | absent | A reviewed display title for a quest step; non-empty trimmed text of at most 80 characters. Shown only at or below the limit. |
+| `contiguousWithPrevious` | `false` | The previous step is the quest immediately before this one. It must be false on the first checkpoint. |
+| `gameQuestIds` | `[]` | 0–8 distinct positive game quest ids whose completion marks the step complete. Used only by Follow. Coverage is all-or-none: once any checkpoint has ids, every checkpoint must, and no id may mark two checkpoints. |
+
+**Category `event`.** A story event or an arc entry. It is ordered last and drawn as a hexagon.
+
+**`endCitations`** (relationships, optional, at most 8) hold reviewed evidence for why a relationship ended. The relationship must have a `validUntil`. Each citation must become available after `validFrom` and no later than `validUntil`. The scope rule (a main record cites only main sources) and the same-title consistency rule apply. They are shown only in the Changes row for that ending, never on the record elsewhere, and never in the Arc lens. So the ending must be one Changes can show. `validUntil` and the step before it must be the same kind (both slices or both milestones), and no record of the same source, type and target may carry on at `validUntil` in every view where the ending was visible. A main ending continued only by optional content is allowed, because the main-story view still shows it.
+
+**`arcs`** (top level, optional, at most 16). Each arc is `{ "id", "entityId", "firstStep", "lastStep" }`, in authored order. Arcs may overlap or nest. Validation:
+- The relationship type `participant-in` must exist and must not be symmetric. A `participant-in` edge that targets an arc entry makes its source part of that arc's cast.
+- The entry is an `event` entity used by only one arc, and all its presentations are main scope.
+- `firstStep` is at or before `lastStep`, and `firstStep` is never the first timeline step, so there is always a baseline before it.
+- The entry's first presentation starts exactly at `firstStep`, and the entry stays visible in the main-story view through `lastStep`.
+- Every `participant-in` edge to the entry is main scope, starts at or after `firstStep`, and has no `validUntil`. The cast only grows.
+- An arc has at most 10 participants at any step; the entry itself is not counted. Overflow fails as `CastTooLarge`.
+
+**New error codes:** `InvalidArc`, `CastTooLarge`, `EndCitationOutOfRange`.
+
+**Spoiler state in v2.**
+- The limit rises only to a milestone or to the single next step.
+- Pickers above the limit list only milestones and that next step, which is labelled "the next story step".
+- `AtlasSession.PendingCeilingPrompt` never names a later quest. Front ends read the pending raise only through `PendingCeilingId` and that prompt.
+- Absent or invalid saved state resets both controls to the earliest checkpoint.
+
+**Pure v2 core:**
+- `AtlasChanges`: the triple-based snapshot diff, the offering rule and labels.
+- `AtlasArcs`: selection, the picker, and the Arc-lens projection with its cumulative cast, "New" and "Ended so far" (rows carry no citations of any kind). `Resolve` reports `PickDropped` when an explicit pick ends because the view fell below its first step; the session must then clear the pick.
+- `AtlasFollow`: completed-progress positioning. `CheckpointId` is the clamped view and `ReachedCheckpointId` the real progress step; `AtlasSpoilerPolicy.SetCeilingToFollowed(dataset, state, progress, confirmed)` re-reads progress against the current limit, so a stale or hand-built result can never be applied. It raises the limit to exactly the reached step, with confirmation, and leaves the view where it is.
+- `AtlasGraphLayout.ComputeWholeCast`.
+
+Arc spans stay internal: the public arc API exposes only ids and names (rule 7).
+
+## Portraits (NDL-011)
+
+An entity may carry one optional `portrait`. It names a **game icon number**, not an image: the plugin loads the icon from the player's own game install at runtime, and no game image is ever stored in the repository or the package.
+
+| Field | Rule |
+|---|---|
+| `gameIcon` | An integer from 1 to 999999. |
+| `crop.x`, `crop.y` | The crop square's centre, as fractions (0–1) of the image's width and height. |
+| `crop.size` | The square's side, as a fraction (0.1–1) of the image's shorter side. |
+| `review` | `reviewed` or `pending`, like any record. Strict needs `reviewed`. |
+
+- **The crop is shared.** `AtlasPortrait.Uv` turns it into texture coordinates for an image of known size. If the square would leave the image, it is moved inside, never shrunk. The window and the viewer both draw with it, so they show the same pixels.
+- **Spoiler rule.** A portrait is shown wherever its entity is, at every checkpoint, so it must be safe from the entity's first appearance: no later look, outfit, name or identity. That is part of its review.
+- **Fallback.** An entity without a portrait, or whose icon is not loaded (or not in the viewer's cache), draws its category shape.
+- **Review binding.** The generator's fingerprint covers the icon and the crop, plus the source description shown on the review sheet. Moving the crop or changing the icon makes the portrait `pending` again.
 
 ## Review record
 
