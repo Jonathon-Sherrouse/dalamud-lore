@@ -7,15 +7,27 @@ namespace NpcDialogueLinks.Tests;
 public class FollowSessionTests
 {
     private static readonly AtlasDataset D = V2Fx.Load();
+    private static readonly AtlasDataset WithOptionalEnding = DatasetWithOptionalRelationship("r-bo-possessed");
 
     private static Func<int, AtlasQuestProgress> Through(int completeThrough) =>
         id => id <= completeThrough ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete;
 
-    private static AtlasSession Session(string ceiling, string view, bool follow = true)
+    private static AtlasSession Session(string ceiling, string view, bool follow = true, AtlasDataset? dataset = null)
     {
-        var session = new AtlasSession(D, AtlasSpoilerPolicy.Restore(D, ceiling, view));
+        dataset ??= D;
+        var session = new AtlasSession(dataset, AtlasSpoilerPolicy.Restore(dataset, ceiling, view));
         session.SetFollow(follow);
         return session;
+    }
+
+    private static AtlasDataset DatasetWithOptionalRelationship(string id)
+    {
+        var doc = V2Fx.Doc();
+        var relationship = V2Fx.Rel(doc, id);
+        relationship["scope"] = "optional";
+        relationship["citations"]![0]!["title"] = "Optional quest evidence";
+        relationship["citations"]![0]!["scope"] = "optional";
+        return Fx.Load(doc);
     }
 
     [Fact]
@@ -33,8 +45,9 @@ public class FollowSessionTests
     [Fact]
     public void Follow_OffNeverMovesTheViewOrClaimsProgress()
     {
-        var s = Session("m2", "s0", follow: false);
+        var s = Session("s1", "s0", follow: false);
         Assert.False(s.ApplyFollow(Through(102)));
+        Assert.Equal("s1", s.SpoilerState.CeilingId);
         Assert.Equal("s0", s.SpoilerState.ViewId);
         Assert.Equal("Viewing: after Baseline Quest", s.PositionLabel);
         Assert.Null(s.FollowStatus);
@@ -43,7 +56,7 @@ public class FollowSessionTests
     [Fact]
     public void Follow_UnknownAndBeforeCoverageLeaveTheViewAlone()
     {
-        var s = Session("m2", "s1");
+        var s = Session("s1", "s1");
         Assert.False(s.ApplyFollow(_ => AtlasQuestProgress.Unknown));
         Assert.Equal(("s1", AtlasText.FollowUnknown), (s.SpoilerState.ViewId, s.FollowStatus));
         Assert.StartsWith("Viewing:", s.PositionLabel);
@@ -64,12 +77,49 @@ public class FollowSessionTests
     }
 
     [Fact]
-    public void Follow_BeyondTheLimitStopsAtItAndOffersOneNeutralRaise()
+    public void Follow_AutomaticallyRaisesAndMovesToConfirmedProgressWithoutSavingTheRaisedLimit()
     {
         var s = Session("s1", "s0");
+        AtlasSpoilerState? saved = null;
+        s.SpoilerStateChanged += state => saved = state;
+
+        Assert.True(s.ApplyFollow(Through(103)));
+        Assert.Equal(new AtlasSpoilerState("s3", "s3"), s.SpoilerState);
+        Assert.Equal(new AtlasSpoilerState("s1", "s1"), saved);
+        Assert.Equal("Your progress: through Quest Three", s.PositionLabel);
+        Assert.False(s.FollowRaiseOffered);
+    }
+
+    [Fact]
+    public void Follow_AutomaticallyRaisesFromDawntrailToAlexandriaMournsWithOptionalContentOn()
+    {
+        var dataset = AtlasLoader.LoadFile(Path.Combine(AppContext.BaseDirectory, "atlas.json"), AtlasValidationMode.Strict).Dataset!;
+        const string approved = "cp-dt-7-0";
+        const string completed = "cp-msq-955";
+        Assert.True(dataset.TryGetCheckpoint(completed, out var checkpoint));
+        var questId = Assert.Single(checkpoint.GameQuestIds);
+        var s = Session(approved, approved, dataset: dataset);
+
+        Assert.True(s.ApplyFollow(id => id == questId ? AtlasQuestProgress.Complete : AtlasQuestProgress.Incomplete));
+        Assert.Equal(new AtlasSpoilerState(completed, completed), s.SpoilerState);
+    }
+
+    [Fact]
+    public void Follow_NewOptionalRelationshipBlocksAnAutomaticRaise()
+    {
+        var s = Session("s1", "s0", dataset: DatasetWithOptionalRelationship("r-dee-bo-2"));
+        s.ApplyFollow(Through(103));
+        Assert.Equal(new AtlasSpoilerState("s1", "s1"), s.SpoilerState);
+        Assert.True(s.FollowRaiseOffered);
+    }
+
+    [Fact]
+    public void Follow_NewOptionalLoreStopsAtTheLimitAndOffersOneNeutralRaise()
+    {
+        var s = Session("s1", "s0", dataset: WithOptionalEnding);
         Assert.True(s.ApplyFollow(Through(103))); // reached s3, limit s1
         Assert.Equal("s1", s.SpoilerState.ViewId);
-        Assert.Equal("s1", s.SpoilerState.CeilingId); // Follow never raises the limit by itself
+        Assert.Equal("s1", s.SpoilerState.CeilingId);
         Assert.Equal($"{AtlasText.FollowBeyondLimit} Viewing: after Quest One", s.PositionLabel);
         Assert.DoesNotContain("Quest Three", s.PositionLabel);
         Assert.True(s.FollowRaiseOffered);
@@ -87,9 +137,59 @@ public class FollowSessionTests
     }
 
     [Fact]
-    public void Follow_ADeclinedRaiseIsNotOfferedAgainUntilTheCharacterChanges()
+    public void Follow_AlreadyApprovedOptionalLoreDoesNotBlockAutomaticRaise()
+    {
+        var s = Session("s1", "s0", dataset: WithOptionalEnding);
+        Assert.True(s.ApplyFollow(Through(102)));
+        Assert.Equal(new AtlasSpoilerState("s2", "s2"), s.SpoilerState);
+    }
+
+    [Fact]
+    public void Follow_EnablingOptionalLoreWithdrawsAnIncompatibleAutomaticRaiseBeforeProjection()
+    {
+        var s = Session("s1", "s0", dataset: WithOptionalEnding);
+        s.SetContentView(AtlasContentView.MainStory);
+        s.ApplyFollow(Through(103));
+        Assert.Equal(new AtlasSpoilerState("s3", "s3"), s.SpoilerState);
+
+        s.SetContentView(AtlasContentView.MainAndOptional);
+        Assert.Equal(new AtlasSpoilerState("s1", "s1"), s.SpoilerState);
+        Assert.DoesNotContain("Quest Three", s.PositionLabel);
+        s.ApplyFollow(Through(103));
+        Assert.True(s.FollowRaiseOffered);
+    }
+
+    [Fact]
+    public void Follow_CharacterSwitchDropsAnAutomaticRaiseEvenAfterManualBrowsing()
     {
         var s = Session("s1", "s0");
+        s.ApplyFollow(Through(103));
+        Assert.Equal(AtlasStateChange.Changed, s.SetView("s2"));
+        Assert.False(s.FollowEnabled);
+        Assert.Equal(new AtlasSpoilerState("s3", "s2"), s.SpoilerState);
+
+        s.ResetFollowForCharacter();
+        Assert.Equal(new AtlasSpoilerState("s1", "s1"), s.SpoilerState);
+        Assert.DoesNotContain(s.CheckpointOptions, option => option.Label.Contains("Quest Two"));
+    }
+
+    [Fact]
+    public void Follow_LoweringAnAutomaticLimitDoesNotApproveAStillUnapprovedPoint()
+    {
+        var s = Session("s1", "s0");
+        AtlasSpoilerState? saved = null;
+        s.SpoilerStateChanged += state => saved = state;
+        s.ApplyFollow(Through(103));
+
+        Assert.Equal(AtlasStateChange.Changed, s.RequestCeiling("s2"));
+        Assert.Equal(new AtlasSpoilerState("s2", "s2"), s.SpoilerState);
+        Assert.Equal(new AtlasSpoilerState("s1", "s1"), saved);
+    }
+
+    [Fact]
+    public void Follow_ADeclinedRaiseIsNotOfferedAgainUntilTheCharacterChanges()
+    {
+        var s = Session("s1", "s0", dataset: WithOptionalEnding);
         s.ApplyFollow(Through(103));
         s.RequestFollowRaise();
         s.CancelFollowRaise();
@@ -108,7 +208,7 @@ public class FollowSessionTests
     [Fact]
     public void Follow_ACharacterSwitchDropsAPendingRaise()
     {
-        var s = Session("s1", "s0");
+        var s = Session("s1", "s0", dataset: WithOptionalEnding);
         s.ApplyFollow(Through(103));
         s.RequestFollowRaise();
         s.ResetFollowForCharacter();
@@ -155,7 +255,7 @@ public class FollowSessionTests
     [Fact]
     public void Follow_TurningItOffForgetsTheResult()
     {
-        var s = Session("s1", "s0");
+        var s = Session("s1", "s0", dataset: WithOptionalEnding);
         s.ApplyFollow(Through(103));
         s.SetFollow(false);
         Assert.Null(s.FollowResult);

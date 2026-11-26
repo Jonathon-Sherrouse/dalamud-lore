@@ -233,7 +233,9 @@ These change the behaviour above. The data or the source forced each one, and th
 
    `tools/atlas/QuestRowCheck` applies the same rule to every row, using the player's own game data. On 2026-11-26 it checked 1,045 rows, all main-scenario quests, and found 0 problems. Milestones carry no authored title, so their rows are checked only for existence and category, and the tool lists them for review.
 6. **Persistence.** The toggle is saved. The position is never saved as progress. The view setting saves as usual, so with Follow off the window reopens on that point, labelled "Viewing: after ‹quest›".
-7. **The raise offer.** When progress is beyond the limit, the status row shows **Raise to my progress…**, which opens the neutral confirmation. Declining withdraws the offer until the character changes. Confirming raises only the limit, and the next read moves the view.
+7. **Automatic raises (user revision).** Follow raises the effective spoiler limit to the latest completed step and moves the view there when the newly accessible range reveals only main-story lore or optional lore within the approved limit. The check covers each newly unlocked checkpoint, including optional relationship endings that the Changes lens can expose. In **Main story + optional**, a newly revealed optional record keeps the Atlas at the approved limit and triggers the neutral **Raise to my progress…** offer. Confirming this offer raises the saved limit. The next read moves the view.
+   - Automatic raises apply to the current character for the lifetime of the open window. Logout, character changes, and reopening discard them. Switching to **Main story + optional** clamps an incompatible automatic raise before showing that content.
+   - The game also marks story skips complete. Follow uses the same completion flags for quests completed by play and by a skip.
 
 ## Delivery
 

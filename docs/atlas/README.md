@@ -27,13 +27,13 @@ This toggles the Atlas window. It works offline and needs no OpenAI key.
   - **Changes** lists what this point added, ended or redescribed compared with the one before. Only an ended row shows **Sources for the ending**.
   - Until you pick a lens or an arc, the window chooses for you each time the view changes: Arc inside an arc, Story point elsewhere. A pick lasts until the window closes and is never saved.
 - **Portraits.** Most entries show a picture from the game's own data (Triple Triad cards, quest and duty art) in a ring of their category colour, with their shape as a small badge. The Waking Sands has none, so it keeps its shape. Game icons load from your installation. Bundled face crops fill out the character roster, including some revealed identities and later forms. See [NPC portrait coverage](npc-portrait-coverage.md).
-- **Follow my progress** (on the Lens row, off by default) moves the view to the latest main-scenario quest you've completed, never past your spoiler limit.
+- **Follow my progress** (on the Lens row, off by default) moves the view to the latest covered main-scenario quest the game marks complete.
   - It reads your completed quests only, never your active quests or journal.
   - It re-reads when the window opens, when you click **Refresh**, and when you finish a quest.
   - Picking a point yourself turns it off.
-  - Logged out or loading, it says "Progress unavailable" and leaves the view alone.
-  - If your progress is past the limit, it stops at the limit and offers **Raise to my progress…** once, without naming a quest.
-  - The toggle is saved; your progress isn't.
+  - If your progress is past the limit, Follow raises it automatically when the newly accessible steps would reveal no new optional lore. If optional lore blocks the raise, switch to **Main story only** or use the **Raise to my progress…** offer to approve it.
+  - An automatic raise applies to the current character while the window is open. On logout or a character switch, the Atlas restores the approved limit and clamps the view if needed. While loading, it reports that progress is unavailable.
+  - The toggle and manually approved limit are saved. The game also marks story-skipped quests complete, so those quests count toward Follow.
 - **Open Atlas** in the Lore Explain window opens this window. It passes nothing across; the Atlas keeps its own spoiler limit and view.
 
 **Dictionary previews** in the footer starts off. The first time you enable it, confirm the warning about later-story spoilers. Matching words and phrases in entry summaries and arc recaps get a dotted underline. Hover over a match for its definition, or click it to open that entry in the Dictionary. Turn previews off in the same spot. Your acknowledgement is remembered if you turn them back on.
@@ -219,7 +219,7 @@ Build the main checkout, **Reload** the plugin, and open `/npclinks atlas`. If l
 
 ## In-game check: Follow (NDL-017)
 
-> **Status:** not run in game.
+> **Status:** The original build was checked on one character on 2026-11-26. Follow started off, read progress through *Alexandria Mourns*, respected the limit, dismissed the neutral offer after Cancel and Refresh, turned off on manual selection, and showed unavailable on logout. Automatic raises and the remaining runtime checks are pending.
 
 Build and **Reload** as in [Loading a development build](#loading-a-development-build). The two characters should be at different points in the story; a third on a different starting city helps. Rows 2–5 and 7–8 also settle `NDL-007`'s pending criteria.
 
@@ -227,11 +227,11 @@ Build and **Reload** as in [Loading a development build](#loading-a-development-
 |---|---|---|
 | 1 | `/npclinks atlas`. Note **Viewing as of** and **Spoiler limit**. | A **Follow my progress** button on the Lens row, off. "Viewing: after …" as before. |
 | 2 | Raise the limit to a milestone past your progress, then click **Follow my progress**. | A brief "Reading your progress…", then the view jumps to your last completed main-scenario quest and the line reads "Your progress: through ‹that quest›". The lens follows the default rule (Arc inside an arc). |
-| 3 | Lower the limit below your progress. | The view stops at the limit. The line reads "Your progress is past your spoiler limit. Viewing: after ‹limit quest›", and no later quest is named anywhere. |
-| 4 | Close and reopen the window. Click **Raise to my progress…**, read the prompt, then **Cancel**. Click **Refresh**. | The button shows once. The prompt names no quest. After Cancel and Refresh it doesn't come back. |
+| 3 | Select **Main story only**. Lower the limit below your progress, then click **Refresh**. | Follow raises the limit to the completed quest and moves the view there automatically. |
+| 4 | With an early approved limit and progress beyond newly visible optional lore, select **Main story + optional**. Click **Raise to my progress…**, then **Cancel** and **Refresh**. | The view and limit stay at the approved point. The prompt names no quest, and Refresh leaves the declined offer dismissed. |
 | 5 | Pick a different point in **Viewing as of**. | Follow turns off and the line goes back to "Viewing: after …". Turn it on again: the view returns to your progress. |
 | 6 | With Follow on, complete a main-scenario quest (or hand one in). | Shortly after the completion, the view moves one step on, with no click. If it doesn't, **Refresh** does it (record which). |
-| 7 | With Follow on and the window open, log out to the title screen. | "Progress unavailable. Log in to a character to read your progress." The view doesn't move. |
+| 7 | With Follow on and an automatically raised limit, log out to the title screen. | "Progress unavailable. Log in to a character to read your progress." The limit returns to the approved point, and the view clamps if it was above that point. |
 | 8 | Log in to the other character. | Once the character has loaded, the view moves to *their* progress. No raise or result from the first character carries over. |
 | 9 | Teleport or enter a duty with Follow on. | During the loading screen, at most "Waiting for the game to finish loading."; afterwards it settles back on your progress. |
 | 10 | `/xllog`, filter "Follow". | No "failed the cross-check" warnings. A warning names a row to fix in `atlas.json` (run `tools/atlas/QuestRowCheck`). |

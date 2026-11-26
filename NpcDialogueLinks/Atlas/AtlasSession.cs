@@ -112,7 +112,7 @@ public static class AtlasText
     // ---- Follow (NDL-017) ----
 
     public const string FollowToggle = "Follow my progress";
-    public const string FollowTooltip = "Moves the view to the latest main-scenario quest you have completed, never past your spoiler limit. Reads your completed quests only.";
+    public const string FollowTooltip = "Moves to your latest completed main-scenario quest. Raises the spoiler limit automatically when no new optional story would be revealed.";
     public const string FollowRefreshButton = "Refresh";
     public const string FollowReading = "Reading your progress…";
 
@@ -299,6 +299,7 @@ public sealed class AtlasSession
 {
     private AtlasSnapshot snapshot;
     private string? explicitArcId;
+    private string approvedCeilingId;
 
     // Derived lens state, built lazily and cleared by Reproject, which every input (limit, view, content view, lens,
     // arc pick) passes through. Front ends may read these every frame without re-projecting.
@@ -316,6 +317,7 @@ public sealed class AtlasSession
     {
         Dataset = dataset ?? throw new ArgumentNullException(nameof(dataset));
         SpoilerState = AtlasSpoilerPolicy.Restore(dataset, initialState?.CeilingId, initialState?.ViewId);
+        approvedCeilingId = SpoilerState.CeilingId;
         ContentView = contentView;
         HomeEntityId = homeEntityId;
         snapshot = Project();
@@ -670,8 +672,7 @@ public sealed class AtlasSession
             PendingCeiling = pending;
         }
 
-        Apply(result);
-        return result.Change;
+        return ApplyCeilingSelection(result, confirmed: false);
     }
 
     public AtlasStateChange ConfirmPendingCeiling()
@@ -683,8 +684,7 @@ public sealed class AtlasSession
 
         var result = AtlasSpoilerPolicy.SetCeiling(Dataset, SpoilerState, PendingCeiling.Id, confirmed: true);
         PendingCeiling = null;
-        Apply(result);
-        return result.Change;
+        return ApplyCeilingSelection(result, confirmed: true);
     }
 
     public void CancelPendingCeiling() => PendingCeiling = null;
@@ -758,9 +758,8 @@ public sealed class AtlasSession
     }
 
     /// <summary>
-    /// Apply a fresh progress read (on window open, Refresh, or a completed quest). A position moves the view, clamped to
-    /// the limit, and ends an explicit arc pick; "before coverage" and "unknown" leave the view alone. Returns true when
-    /// the view moved. <paramref name="progress"/> must be a snapshot: it is kept for the raise confirmation.
+    /// Apply a fresh progress snapshot. Raise the session's limit when the completed step is safe to reveal, then move
+    /// the view. Unknown progress leaves the view alone. Returns true when the view moved.
     /// </summary>
     public bool ApplyFollow(Func<int, AtlasQuestProgress> progress)
     {
@@ -771,21 +770,45 @@ public sealed class AtlasSession
         }
 
         followProgress = progress;
-        Evaluate(offerRaise: true);
-        if (FollowResult is not { Kind: AtlasFollowKind.Position } result || result.CheckpointId == SpoilerState.ViewId)
+        var result = AtlasFollow.Position(Dataset, progress, approvedCeilingId);
+        var ceilingId = approvedCeilingId;
+        if (result.BeyondLimit
+            && result.ReachedCheckpointId is { } reachedId
+            && AtlasFollow.CanRaiseAutomatically(Dataset, ContentView, approvedCeilingId, reachedId))
         {
+            ceilingId = reachedId;
+            result = result with { CheckpointId = reachedId, BeyondLimit = false };
+        }
+
+        SetFollowResult(result, offerRaise: true);
+        if (result.Kind != AtlasFollowKind.Position)
+        {
+            if (result.Kind == AtlasFollowKind.BeforeCoverage)
+            {
+                RestoreApprovedCeiling();
+            }
+
             return false;
         }
 
-        var change = AtlasSpoilerPolicy.SetView(Dataset, SpoilerState, result.CheckpointId);
-        if (change.Change != AtlasStateChange.Changed)
+        var state = new AtlasSpoilerState(ceilingId, result.CheckpointId!);
+        var viewMoved = state.ViewId != SpoilerState.ViewId;
+        if (viewMoved)
         {
-            return false;
+            explicitArcId = null;
         }
 
-        explicitArcId = null; // Follow moving the view ends an explicit arc pick (v2 plan, "Arc lens").
-        Apply(change);
-        return true;
+        if (state != SpoilerState)
+        {
+            if (state.CeilingId != SpoilerState.CeilingId)
+            {
+                PendingCeiling = null;
+            }
+
+            Apply(new AtlasStateResult(state, AtlasStateChange.Changed));
+        }
+
+        return viewMoved;
     }
 
     /// <summary>A different character (or a logout): drop the result and any raise offer until the next read.</summary>
@@ -796,6 +819,8 @@ public sealed class AtlasSession
         FollowRaiseOffered = false;
         FollowRaisePending = false;
         followRaiseOffered = false;
+        PendingCeiling = null;
+        RestoreApprovedCeiling();
     }
 
     /// <summary>Ask to confirm the offered raise. Returns false when nothing is on offer.</summary>
@@ -817,8 +842,7 @@ public sealed class AtlasSession
         var result = AtlasSpoilerPolicy.SetCeilingToFollowed(Dataset, SpoilerState, followProgress, confirmed: true);
         FollowRaisePending = false;
         FollowRaiseOffered = false;
-        Apply(result);
-        return result.Change;
+        return ApplyCeilingSelection(result, confirmed: true);
     }
 
     /// <summary>Decline the offered raise. It is not offered again this session for this character.</summary>
@@ -828,16 +852,10 @@ public sealed class AtlasSession
         FollowRaiseOffered = false;
     }
 
-    /// <summary>Recompute the Follow result from the last read against the current limit, without moving the view.</summary>
-    private void Evaluate(bool offerRaise)
+    private void SetFollowResult(AtlasFollowResult result, bool offerRaise)
     {
-        if (!FollowEnabled || followProgress is null)
-        {
-            return;
-        }
-
-        FollowResult = AtlasFollow.Position(Dataset, followProgress, SpoilerState.CeilingId);
-        if (!FollowResult.BeyondLimit)
+        FollowResult = result;
+        if (!result.BeyondLimit)
         {
             FollowRaiseOffered = false;
             FollowRaisePending = false;
@@ -858,7 +876,55 @@ public sealed class AtlasSession
         }
 
         ContentView = view;
-        Reproject(storySettingChanged: true);
+        if (SpoilerState.CeilingId != approvedCeilingId
+            && !AtlasFollow.CanRaiseAutomatically(Dataset, view, approvedCeilingId, SpoilerState.CeilingId))
+        {
+            PendingCeiling = null;
+            RestoreApprovedCeiling();
+        }
+        else
+        {
+            Reproject(storySettingChanged: true);
+        }
+    }
+
+    private AtlasStateChange ApplyCeilingSelection(AtlasStateResult result, bool confirmed)
+    {
+        if (result.Change == AtlasStateChange.Changed)
+        {
+            // Lowering an automatic limit to a point above the approved limit does not approve that point globally.
+            if (confirmed || CheckpointOrder(result.State.CeilingId) <= CheckpointOrder(approvedCeilingId))
+            {
+                approvedCeilingId = result.State.CeilingId;
+            }
+
+            RecheckFollowAtCeiling(result.State.CeilingId);
+            Apply(result);
+        }
+
+        return result.Change;
+    }
+
+    private int CheckpointOrder(string checkpointId)
+        => Dataset.TryGetCheckpoint(checkpointId, out var checkpoint) ? checkpoint.Order : -1;
+
+    private void RecheckFollowAtCeiling(string ceilingId)
+    {
+        if (FollowEnabled && followProgress is { } progress)
+        {
+            SetFollowResult(AtlasFollow.Position(Dataset, progress, ceilingId), offerRaise: false);
+        }
+    }
+
+    private void RestoreApprovedCeiling()
+    {
+        if (SpoilerState.CeilingId == approvedCeilingId)
+        {
+            return;
+        }
+
+        RecheckFollowAtCeiling(approvedCeilingId);
+        Apply(AtlasSpoilerPolicy.SetCeiling(Dataset, SpoilerState, approvedCeilingId, confirmed: false));
     }
 
     private void Apply(AtlasStateResult result)
@@ -868,16 +934,14 @@ public sealed class AtlasSession
             return;
         }
 
-        var ceilingChanged = result.State.CeilingId != SpoilerState.CeilingId;
         SpoilerState = result.State;
-        if (ceilingChanged)
-        {
-            // The Follow result is clamped to the limit, so re-clamp it; a limit change never moves the view for Follow.
-            Evaluate(offerRaise: false);
-        }
-
         Reproject(storySettingChanged: true);
-        SpoilerStateChanged?.Invoke(SpoilerState);
+        // Automatic raises belong to the character whose progress was read. Save only the approved limit and a view
+        // valid at that limit, so reopening or changing characters cannot inherit the automatic raise.
+        var savedState = SpoilerState.CeilingId == approvedCeilingId
+            ? SpoilerState
+            : AtlasSpoilerPolicy.SetCeiling(Dataset, SpoilerState, approvedCeilingId, confirmed: false).State;
+        SpoilerStateChanged?.Invoke(savedState);
     }
 
     /// <summary>

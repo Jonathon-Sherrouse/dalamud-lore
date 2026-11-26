@@ -100,6 +100,7 @@ internal sealed class AtlasWindow : Window
         this.openConfirmNextFrame = false;
         this.openFollowConfirmNextFrame = false;
         this.followRead = null;
+        this.followGeneration = this.progress.CharacterGeneration;
 
         var result = AtlasLoader.LoadFile(this.dataPath, AtlasValidationMode.Strict);
         if (!result.Success)
@@ -316,6 +317,14 @@ internal sealed class AtlasWindow : Window
     /// </summary>
     private void PumpFollow(AtlasSession s)
     {
+        var generation = this.progress.CharacterGeneration;
+        if (generation != this.followGeneration)
+        {
+            this.followGeneration = generation;
+            s.ResetFollowForCharacter();
+            this.followReadRequested = true;
+        }
+
         if (!s.FollowEnabled)
         {
             this.followRead = null;
@@ -326,25 +335,16 @@ internal sealed class AtlasWindow : Window
         {
             this.followRead = null;
             var snapshot = done.Result; // ReadCheckpointsAsync never faults
-            if (snapshot.Generation != this.progress.CharacterGeneration)
+            if (snapshot.Generation != generation || generation != this.progress.CharacterGeneration)
             {
                 this.followReadRequested = true; // the character changed while reading
             }
             else
             {
-                this.followGeneration = snapshot.Generation;
                 this.followReason = snapshot.Reason;
                 s.ApplyFollow(id => ToAtlasProgress(snapshot[(uint)id]));
                 this.followRetryAt = FollowStatusText.IsTransient(snapshot.Reason) ? DateTime.UtcNow + FollowRetryInterval : DateTime.MaxValue;
             }
-        }
-
-        var generation = this.progress.CharacterGeneration;
-        if (generation != this.followGeneration)
-        {
-            this.followGeneration = generation;
-            s.ResetFollowForCharacter();
-            this.followReadRequested = true;
         }
 
         var serial = this.progress.QuestChangeSerial;
@@ -365,7 +365,6 @@ internal sealed class AtlasWindow : Window
     private void RequestFollowRead()
     {
         this.followReadRequested = true;
-        this.followGeneration = this.progress.CharacterGeneration;
         this.followQuestSerial = this.progress.QuestChangeSerial;
         this.followRetryAt = DateTime.MaxValue;
         this.followReason = ProgressUnknownReason.None;
@@ -616,6 +615,10 @@ internal sealed class AtlasWindow : Window
             if (ToggleButton($"{AtlasText.ContentViewLabel(contentView)}##cv-{contentView}", active) && !active)
             {
                 s.SetContentView(contentView);
+                if (s.FollowEnabled)
+                {
+                    this.followReadRequested = true;
+                }
             }
         }
     }

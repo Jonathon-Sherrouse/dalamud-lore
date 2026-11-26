@@ -91,4 +91,33 @@ public static class AtlasFollow
             ? new AtlasFollowResult(AtlasFollowKind.Position, ceiling.Id, true, reached.Id)
             : new AtlasFollowResult(AtlasFollowKind.Position, reached.Id, false, reached.Id);
     }
+
+    /// <summary>MSQ completion covers the main story. Optional records need the player's approval before they are revealed.</summary>
+    internal static bool CanRaiseAutomatically(
+        AtlasDataset dataset,
+        AtlasContentView contentView,
+        string approvedCeilingId,
+        string reachedId)
+    {
+        if (contentView == AtlasContentView.MainStory)
+        {
+            return true;
+        }
+
+        if (!dataset.TryGetCheckpoint(approvedCeilingId, out var approved)
+            || !dataset.TryGetCheckpoint(reachedId, out var reached))
+        {
+            return false;
+        }
+
+        bool NewlyVisible(int order) => order > approved.Order && order <= reached.Order;
+
+        // Players can browse every unlocked step. Include records that begin or end along the way, even if the
+        // destination no longer shows them. Changes can reveal a relationship's ending and its evidence.
+        return !dataset.Entities.Any(entity => entity.Presentations.Any(presentation =>
+                   presentation.Scope == AtlasScope.Optional && NewlyVisible(presentation.Interval.FromOrder)))
+            && !dataset.Relationships.Any(relationship => relationship.Scope == AtlasScope.Optional
+                && (NewlyVisible(relationship.Interval.FromOrder)
+                    || relationship.Interval.UntilOrder is int end && NewlyVisible(end)));
+    }
 }
