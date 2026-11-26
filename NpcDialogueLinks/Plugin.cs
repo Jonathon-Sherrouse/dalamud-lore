@@ -46,9 +46,22 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService]
     internal static ITextureProvider TextureProvider { get; private set; } = null!;
 
+    [PluginService]
+    internal static IPlayerState PlayerState { get; private set; } = null!;
+
+    [PluginService]
+    internal static ICondition Condition { get; private set; } = null!;
+
+    [PluginService]
+    internal static IObjectTable ObjectTable { get; private set; } = null!;
+
     private readonly DialogueCapture dialogueCapture;
     private readonly DialogueHistory dialogueHistory = new();
     private readonly AtlasWindow atlasWindow;
+    private readonly AtlasProgressSource atlasProgressSource; // NDL-007
+#if DEBUG
+    private readonly FollowProgressProbe followProgressProbe; // NDL-007 debug-only probe
+#endif
     private readonly DictionaryWindow dictionaryWindow;
     private readonly GameContextProvider gameContextProvider;
     private readonly LoreExplainClient loreExplainClient = new();
@@ -86,6 +99,10 @@ public sealed class Plugin : IDalamudPlugin
         this.dictionaryWindow = new DictionaryWindow(this.termDictionary, this.RefreshLastCandidates);
         this.settingsWindow = new SettingsWindow(this.configuration);
         this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider, this.termDictionary, this.dictionaryWindow.OpenTerm);
+        this.atlasProgressSource = new AtlasProgressSource(Framework, ClientState, PlayerState, Condition, ObjectTable, DataManager); // NDL-007
+#if DEBUG
+        this.followProgressProbe = new FollowProgressProbe(this.atlasProgressSource, PluginInterface, Framework, ChatGui, DataManager); // NDL-007 debug-only probe
+#endif
         this.windowSystem.AddWindow(this.dictionaryWindow);
         this.windowSystem.AddWindow(this.settingsWindow);
         this.windowSystem.AddWindow(this.loreExplainWindow);
@@ -119,6 +136,10 @@ public sealed class Plugin : IDalamudPlugin
         this.dialogueCapture.Dispose();
         Framework.Update -= this.AnnounceQuestMatchReadiness;
         this.questMetadataProbe.Dispose();
+#if DEBUG
+        this.followProgressProbe.Dispose(); // NDL-007 debug-only probe
+#endif
+        this.atlasProgressSource.Dispose(); // NDL-007
         CommandManager.RemoveHandler(CommandName);
         ChatGui.RemoveChatLinkHandler(LinkCommandId);
         this.windowSystem.RemoveAllWindows();
@@ -235,6 +256,11 @@ public sealed class Plugin : IDalamudPlugin
             case "qprobe":
                 this.HandleQuestProbeCommand(parts.Length > 1 ? parts[1] : string.Empty);
                 break;
+#if DEBUG
+            case "followprobe": // NDL-007 debug-only probe; not in help text, not in Release builds
+                this.followProgressProbe.HandleCommand(parts.Length > 1 ? parts[1] : string.Empty);
+                break;
+#endif
             case "list":
                 this.PrintTriggerList();
                 break;

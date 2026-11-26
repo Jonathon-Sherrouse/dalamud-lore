@@ -6,13 +6,28 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
-The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
+The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** the [player-facing Follow feature](#deferred-follow-ndl-007) moved to the parking lot, and v2 ships without Follow.
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
 ## In Review
 
 ## User Accepted
+
+- [x] `NDL-007` **Investigate completed-progress detection for Follow**
+  - Owner: `runtime`
+  - Outcome: Runtime evidence settles whether client completed-quest flags can drive Follow safely.
+  - Acceptance: Every exit criterion in the plan is met or documented as failing:
+    1. the flag flips before/after for known pairs on at least two characters;
+    2. Lumina → client ID conversion is verified, with a title cross-check;
+    3. reads are framework-thread and logged-in only, with unknown never treated as incomplete;
+    4. a character switch triggers a re-read;
+    5. story-skip behavior is documented.
+
+    A minimal adapter sits outside the pure core and never touches `QuestMetadataProbe`. If it fails, the result is reported and Follow's reduced scope goes to the user.
+  - Evidence: An in-game probe run by the user through a short do/expect table, with logs; the adapter's host tests where possible; locked build. Missing in-game evidence stays pending.
+  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-007-follow-progress`. Must conclude before `NDL-008` is accepted.
+  - Acceptance record: The user requested merge of the investigation on 2026-11-26. The two-character in-game checks remain pending. Player-facing Follow is deferred.
 
 - [x] `NDL-015` **Identify quest dialogue from local scripts**
   - Owner: `runtime`
@@ -223,27 +238,7 @@ The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas
 
 ### Deferred: Follow (`NDL-007`)
 
-The user deferred Follow on 2026-11-14, before the in-game probe run, so Atlas v2 ships without it (the plan's [failure path](atlas/v2-plan.md#follow-completed-story-progress)). The investigation is kept for a later pickup:
-
-- **Kept:** draft PR [#16](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/16) on branch `codex/ndl-007-follow-progress`, with the read-only progress adapter, its host tests, the Debug-only `/npclinks followprobe` command, and the write-up `docs/atlas/follow-progress-investigation.md`.
-- **Kept in the core:** `AtlasFollow` and `AtlasSpoilerPolicy.SetCeilingToFollowed` from `NDL-006` stay, unused by any front end.
-- **To resume:** merge `main` into the branch (`SetCeilingToFollowed` now takes the progress function), then run the probe's do/expect table on at least two characters. Open question: did any test character finish A Realm Reborn before Aug 2020 or Apr 2022, when old quest rows were replaced?
-
-The card, unchanged apart from moving here:
-
-- [ ] `NDL-007` **Investigate completed-progress detection for Follow**
-  - Owner: `runtime`
-  - Outcome: Runtime evidence settles whether client completed-quest flags can drive Follow safely.
-  - Acceptance: Every exit criterion in the plan is met or documented as failing:
-    1. the flag flips before/after for known pairs on at least two characters;
-    2. Lumina → client ID conversion is verified, with a title cross-check;
-    3. reads are framework-thread and logged-in only, with unknown never treated as incomplete;
-    4. a character switch triggers a re-read;
-    5. story-skip behavior is documented.
-
-    A minimal adapter sits outside the pure core and never touches `QuestMetadataProbe`. If it fails, the result is reported and Follow's reduced scope goes to the user.
-  - Evidence: An in-game probe run by the user through a short do/expect table, with logs; the adapter's host tests where possible; locked build. Missing in-game evidence stays pending.
-  - Dependencies: Atlas v2 planning publication; branch `codex/ndl-007-follow-progress`. Must conclude before `NDL-008` is accepted.
+Atlas Follow remains deferred. The [progress investigation](atlas/follow-progress-investigation.md) includes the read-only adapter, host tests and Debug-only `/npclinks followprobe` command. To resume, run the guide's before-and-after checks on two characters and record whether either completed A Realm Reborn before the quest replacements in 2020 or 2022.
 
 ### Deferred during the Atlas work (collected by the user's request, 2026-11-14)
 
