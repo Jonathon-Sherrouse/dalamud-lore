@@ -2,7 +2,22 @@
 
 ## Current status
 
-Probe v2 is ready for an in-game sample pass. It records the state visible when a new `Talk` line appears. A journal-verified title supplied by the player lets us check which event field, if any, identifies that line's quest. Quest identification for Lore Explain remains pending.
+Probe v3 (`NDL-015`) compares new `Talk` lines with local quest scripts in the client language. It reports a quest title when the normalized text matches exactly one quest across the scripts. Lines with zero or multiple matching quests have an unknown quest. Live validation of this build and quest identification for Lore Explain are pending.
+
+## Checking automatic matches
+
+1. Open `/xlplugins` → **Dev Tools** → **Installed Dev Plugins** and click **Reload** for **NPC Dialogue Links**.
+2. Run `/npclinks questprobe on`. Wait for **Quest matching ready.** in chat before starting the conversation.
+3. Talk to an ordinary NPC and check chat for **Quest: Unknown**. Then start a new line for a known quest objective or turn-in. Compare the title after **Quest:** with your journal. For an unexpected title or **Unknown** on a quest line, note the NPC, the expected journal title and the chat result.
+4. Run `/npclinks questprobe off`. Use `/npclinks questprobe path` to locate the dated JSONL file. Each line is written as it is captured.
+
+In a v3 record, `automaticMatch.status` gives the lookup result. A unique match carries `automaticMatch.questRowId` and `automaticMatch.questName`. To add an optional journal-verified label, use `/npclinks questprobe capture` followed by the exact journal title before advancing to the next line. For an ordinary NPC, use `NO QUEST`. The labeled copy carries your label in `userVerifiedQuestName` and shares its `lineId` and automatic match with the original record.
+
+### Evidence from saved dialogue
+
+During the v2 test, *One Step Behind* was tracked in both Oswold's ordinary greeting and Backrix's turn-in. Both lines had a target event ID of zero, two framework event IDs of zero, and a scene of `-1`. Those fields could not distinguish the two conversations.
+
+An offline comparison checked the saved lines against 5,532 English quest scripts in the player's install. All 19 lines from *A Father's Grief*, three from *Getting to the Bottom of Things*, and one from *One Step Behind* matched their expected quest uniquely after trimming surrounding whitespace. The two labeled ordinary conversations had no matches. The live check above tests whether newly displayed lines give the same result in chat.
 
 ## Sources Checked
 
@@ -47,6 +62,8 @@ Reliability for this feature: unknown.
 The plugin reads the dialogue from visible text nodes on `AddonTalk`. The probe also logs available `AtkValues` during `PreSetup`, `PostSetup`, `PreRefresh`, and `PostRefresh`. The first sample set below explains why v2 also looks at event and journal data.
 
 ## Second in-game sample pass
+
+This was the manual-label workflow for v2. Use [Checking automatic matches](#checking-automatic-matches) for v3.
 
 1. Load the v2 DLL and reload **NPC Dialogue Links** in `/xlplugins` → **Dev Tools** → **Installed Dev Plugins**. Run `/npclinks questprobe status` and confirm chat reports v2 with the probe disabled. The [dev plugin setup](atlas/README.md#loading-a-development-build) covers adding a new DLL location.
 2. Run `/npclinks questprobe on`. As you talk to NPCs, each newly captured `Talk` line gets an automatic record.

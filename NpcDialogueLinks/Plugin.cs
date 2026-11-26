@@ -32,6 +32,9 @@ public sealed class Plugin : IDalamudPlugin
     internal static IChatGui ChatGui { get; private set; } = null!;
 
     [PluginService]
+    internal static IFramework Framework { get; private set; } = null!;
+
+    [PluginService]
     internal static IDataManager DataManager { get; private set; } = null!;
 
     [PluginService]
@@ -114,6 +117,7 @@ public sealed class Plugin : IDalamudPlugin
         this.loreExplainCancellationTokenSource?.Cancel();
         this.loreExplainCancellationTokenSource?.Dispose();
         this.dialogueCapture.Dispose();
+        Framework.Update -= this.AnnounceQuestMatchReadiness;
         this.questMetadataProbe.Dispose();
         CommandManager.RemoveHandler(CommandName);
         ChatGui.RemoveChatLinkHandler(LinkCommandId);
@@ -130,10 +134,7 @@ public sealed class Plugin : IDalamudPlugin
         if (this.questMetadataProbe.Enabled)
         {
             var result = this.questMetadataProbe.CaptureDialogue(dialogue, this.gameContextProvider.Capture, this.lastCandidates);
-            if (!result.Succeeded)
-            {
-                ChatGui.Print(result.Message, "NPC Links");
-            }
+            ChatGui.Print(result.Message, "NPC Links");
         }
 
         if (this.lastCandidates.Count == 0)
@@ -361,12 +362,18 @@ public sealed class Plugin : IDalamudPlugin
         {
             case "on":
             case "enable":
+                if (this.questMetadataProbe.Enabled)
+                {
+                    this.PrintQuestProbeStatus();
+                    break;
+                }
                 this.questMetadataProbe.SetEnabled(true);
-                ChatGui.Print($"Quest probe v2 enabled. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
-                ChatGui.Print("Talk to quest NPCs, then use /npclinks questprobe capture <verified quest name> when you know the quest.", "NPC Links");
+                Framework.Update += this.AnnounceQuestMatchReadiness;
+                ChatGui.Print("Quest probe v3 enabled. Loading quest dialogue…", "NPC Links");
                 break;
             case "off":
             case "disable":
+                Framework.Update -= this.AnnounceQuestMatchReadiness;
                 this.questMetadataProbe.SetEnabled(false);
                 ChatGui.Print("Quest probe disabled.", "NPC Links");
                 break;
@@ -389,8 +396,22 @@ public sealed class Plugin : IDalamudPlugin
     private void PrintQuestProbeStatus()
     {
         var state = this.questMetadataProbe.Enabled ? "enabled" : "disabled";
-        ChatGui.Print($"Quest probe v2 is {state}. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
-        ChatGui.Print("Usage: /npclinks questprobe on, then /npclinks questprobe capture <verified quest name> after a captured Talk line.", "NPC Links");
+        ChatGui.Print($"Quest probe v3 is {state}. Automatic matching: {this.questMetadataProbe.MatchStatus}. Output: {this.questMetadataProbe.OutputDirectory}", "NPC Links");
+    }
+
+    private void AnnounceQuestMatchReadiness(IFramework framework)
+    {
+        var status = this.questMetadataProbe.MatchStatus;
+        if (status == "loading")
+        {
+            return;
+        }
+
+        Framework.Update -= this.AnnounceQuestMatchReadiness;
+        if (this.questMetadataProbe.Enabled)
+        {
+            ChatGui.Print(status == "ready" ? "Quest matching ready." : "Quest matching unavailable. Use /npclinks questprobe off, then on to retry.", "NPC Links");
+        }
     }
 
     private void PrintQuestProbeWriteResult(QuestProbeWriteResult result)

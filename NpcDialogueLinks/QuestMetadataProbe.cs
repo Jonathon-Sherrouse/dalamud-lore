@@ -6,6 +6,7 @@ using Dalamud.Game.ClientState.Objects.Types;
 using Dalamud.Game.NativeWrapper;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using Dalamud.Utility;
 
 namespace NpcDialogueLinks;
 
@@ -29,6 +30,8 @@ internal sealed class QuestMetadataProbe : IDisposable
     private readonly ITargetManager targetManager;
     private readonly List<TalkAddonEventSnapshot> recentAddonSnapshots = [];
     private QuestProbeRecord? lastLine;
+    private CancellationTokenSource? indexCancellation;
+    private Task<QuestDialogueIndex?>? indexLoad;
 
     public QuestMetadataProbe(
         IDalamudPluginInterface pluginInterface,
@@ -51,14 +54,54 @@ internal sealed class QuestMetadataProbe : IDisposable
 
     public bool Enabled { get; private set; }
 
+    public string MatchStatus => this.indexLoad switch
+    {
+        null => "disabled",
+        { IsCompleted: false } => "loading",
+        { IsCompletedSuccessfully: true, Result: not null } => "ready",
+        _ => "unavailable",
+    };
+
     public string OutputDirectory
         => Path.Combine(this.pluginInterface.ConfigDirectory.FullName, "quest-metadata-probes");
 
     public void SetEnabled(bool enabled)
     {
-        this.Enabled = enabled;
-        if (!enabled)
+        if (this.Enabled == enabled)
         {
+            return;
+        }
+
+        this.Enabled = enabled;
+        if (enabled)
+        {
+            var path = this.dataManager.GameData.DataPath.FullName;
+            var language = this.dataManager.Language.ToLumina();
+            this.indexCancellation = new CancellationTokenSource();
+            var token = this.indexCancellation.Token;
+            this.indexLoad = Task.Run<QuestDialogueIndex?>(() =>
+            {
+                try
+                {
+                    return QuestDialogueIndex.Build(path, language, token);
+                }
+                catch (OperationCanceledException) when (token.IsCancellationRequested)
+                {
+                    return null;
+                }
+                catch (Exception exception)
+                {
+                    Plugin.Log.Warning(exception, "Could not load the quest dialogue scripts.");
+                    return null;
+                }
+            }, token);
+        }
+        else
+        {
+            this.indexCancellation?.Cancel();
+            this.indexCancellation?.Dispose();
+            this.indexCancellation = null;
+            this.indexLoad = null;
             this.lastLine = null;
             this.recentAddonSnapshots.Clear();
         }
@@ -79,8 +122,12 @@ internal sealed class QuestMetadataProbe : IDisposable
             {
                 target = null;
             }
+            var status = this.MatchStatus;
+            var match = status == "ready"
+                ? this.indexLoad!.Result!.Match(dialogue)
+                : new QuestDialogueMatch(status, null, null);
             var record = new QuestProbeRecord(
-                SchemaVersion: 2,
+                SchemaVersion: 3,
                 LineId: Guid.NewGuid(),
                 CreatedAt: DateTimeOffset.Now,
                 Source: "auto-dialogue",
@@ -90,11 +137,21 @@ internal sealed class QuestMetadataProbe : IDisposable
                 Context: loggedIn ? captureContext() : LoreContextMetadata.Empty,
                 Target: this.CaptureTarget(target),
                 AddonEvents: this.GetRecentAddonSnapshots(),
-                Runtime: loggedIn ? QuestProbeRuntime.Capture(this.dataManager, target) : null);
+                Runtime: loggedIn ? QuestProbeRuntime.Capture(this.dataManager, target) : null,
+                AutomaticMatch: match);
             var result = this.Write(record);
             if (result.Succeeded)
             {
                 this.lastLine = record;
+                var message = match.Status switch
+                {
+                    "unique" => $"Quest: {match.QuestName}",
+                    "ambiguous" => "Quest: Unknown (shared line).",
+                    "unknown" => "Quest: Unknown.",
+                    "loading" => "Quest matching is still loading.",
+                    _ => "Quest matching unavailable.",
+                };
+                return result with { Message = message };
             }
 
             return result;
@@ -147,6 +204,7 @@ internal sealed class QuestMetadataProbe : IDisposable
 
     public void Dispose()
     {
+        this.SetEnabled(false);
         this.addonLifecycle.UnregisterListener(this.OnTalkAddonEvent);
     }
 
@@ -290,7 +348,8 @@ internal sealed record QuestProbeRecord(
     LoreContextMetadata Context,
     QuestProbeTargetSnapshot Target,
     IReadOnlyList<TalkAddonEventSnapshot> AddonEvents,
-    QuestProbeRuntimeSnapshot? Runtime);
+    QuestProbeRuntimeSnapshot? Runtime,
+    QuestDialogueMatch AutomaticMatch);
 
 internal sealed record QuestProbeTargetSnapshot(
     string Name,
