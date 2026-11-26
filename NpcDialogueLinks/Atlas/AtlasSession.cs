@@ -104,7 +104,7 @@ public static class AtlasText
     public const string FollowUnknown = "Progress unavailable.";
 
     /// <summary>Follow's neutral raise prompt: names no quest, and the view does not move.</summary>
-    public const string ConfirmRaiseToProgress = "Allow story knowledge through your completed quests? The current view will not change.";
+    public const string ConfirmRaiseToProgress = "Allow optional story lore through your completed main-scenario quests? The current view will stay where it is.";
 
     /// <summary>Only a Follow result is presented as the player's progress.</summary>
     public static string FollowProgress(string questOrPoint) => $"Your progress: through {questOrPoint}";

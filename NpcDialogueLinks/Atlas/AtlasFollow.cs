@@ -112,8 +112,8 @@ public static class AtlasFollow
 
         bool NewlyVisible(int order) => order > approved.Order && order <= reached.Order;
 
-        // Players can browse every unlocked step. Include records that begin or end along the way, even if the
-        // destination no longer shows them. Changes can reveal a relationship's ending and its evidence.
+        // Players can browse every unlocked step. Include records introduced along the way and relationship endings
+        // exposed by Changes, even when the destination no longer shows those records.
         return !dataset.Entities.Any(entity => entity.Presentations.Any(presentation =>
                    presentation.Scope == AtlasScope.Optional && NewlyVisible(presentation.Interval.FromOrder)))
             && !dataset.Relationships.Any(relationship => relationship.Scope == AtlasScope.Optional
