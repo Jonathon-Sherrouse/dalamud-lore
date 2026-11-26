@@ -39,12 +39,9 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ### Quest Metadata Readiness
 
-- Paused after first runtime probe analysis. Resume by implementing Probe v2 from [quest-metadata-investigation.md](quest-metadata-investigation.md), then collect a second verified sample pass.
-- Validate the debug-only quest metadata probe before enabling player-facing quest context.
-- Expand probe coverage if needed to include native event id, tracked quest state, or safely accessible event-handler fields.
-- Run the test matrix from [quest-metadata-investigation.md](quest-metadata-investigation.md): non-quest NPC talk, active sidequest dialogue, MSQ dialogue, and repeatable or cutscene-adjacent dialogue.
-- Promote quest metadata only if a source gives a direct quest row/id for the active dialogue line.
-- Keep current fallback behavior: omit quest metadata rather than infer it from active quests, nearby NPCs, zone, or journal state.
+- Probe v2 (`NDL-014`) is ready for the [second in-game sample pass](quest-metadata-investigation.md#second-in-game-sample-pass). Collect labeled quest dialogue and ordinary NPC talk to compare event IDs with the player's journal.
+- Validate whether a field directly identifies the quest that owns the active `Talk` line. Cover sidequests, MSQ, and repeatable or cutscene-adjacent dialogue before exposing quest context in Lore Explain.
+- Keep a line's quest unknown when the only evidence is a tracked quest, nearby NPC, zone, or journal state.
 
 ## Next Polish Pass
 

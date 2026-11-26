@@ -115,27 +115,15 @@ If live explain is off, or if no API key is configured, the command writes a JSO
 
 ## Quest Metadata Probe
 
-Quest metadata is not sent to Lore Explain yet. The probe is an opt-in investigation tool for collecting evidence about which quest, if any, owns a captured `Talk` dialogue line.
+Probe v2 writes a local log to help identify which quest owns a line in the NPC dialogue box. Your journal supplies the quest name for comparison. This works with live `Talk` dialogue and requires no API key.
 
-Workflow:
+1. Load the v2 DLL as a dev plugin. In `/xlplugins`, open **Dev Tools** → **Installed Dev Plugins** and reload **NPC Dialogue Links**. For a new DLL location, follow the [dev plugin setup](docs/atlas/README.md#loading-a-development-build).
+2. Run `/npclinks questprobe status` and check that chat identifies v2. Run `/npclinks questprobe on` before talking to an NPC.
+3. Talk to an ordinary NPC. Once a line appears, run `/npclinks questprobe capture NO QUEST`.
+4. Talk to a quest NPC. After a quest line appears, type `/npclinks questprobe capture` followed by a space and the exact quest title from your journal. You can close the dialogue box first. The label applies to the most recent line the probe captured, so enter it before another line appears.
+5. Run `/npclinks questprobe off`, then `/npclinks questprobe path` to find the local JSONL file.
 
-```text
-/npclinks questprobe on
-```
-
-Talk to a quest NPC. The plugin will auto-export each newly captured Talk line while the probe is enabled. If you can verify the quest name from the journal or your in-game context, add a manual marked capture:
-
-```text
-/npclinks questprobe capture The Verified Quest Name
-```
-
-Probe output is written as JSONL under the plugin config directory:
-
-```text
-quest-metadata-probes/quest-probe-YYYYMMDD.jsonl
-```
-
-Each record includes the dialogue line, your optional verified quest name, zone/target context, target object identifiers, known local dictionary terms, and recent `Talk` addon setup/refresh `AtkValue` snapshots. Treat all captured quest-related fields as investigative data until runtime validation identifies a direct source of truth.
+Compare the labeled lines and their recorded event and journal data using the [investigation guide](docs/quest-metadata-investigation.md#second-in-game-sample-pass). Player-facing quest identification in Lore Explain still awaits that comparison.
 
 Starter helper:
 

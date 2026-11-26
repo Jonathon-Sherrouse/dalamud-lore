@@ -6,6 +6,13 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
+- [ ] `NDL-014` **Capture quest evidence with dialogue probe v2**
+  - Owner: `runtime`
+  - Outcome: A tester can compare a journal-verified quest name with the event and quest state captured for the same Talk line.
+  - Acceptance: The opt-in probe writes versioned local records with available event identifiers and active/tracked quest evidence. A manual label reuses the latest line's snapshot. Missing runtime data is distinguishable from an empty quest list. Lore Explain continues to require verified ownership.
+  - Evidence: Locked plugin build, capture/label checks, and an in-game reload with quest and ordinary NPC samples.
+  - Dependencies: None.
+
 The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** `NDL-007` moved to the [parking lot](#deferred-follow-ndl-007), and v2 ships without Follow.
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).

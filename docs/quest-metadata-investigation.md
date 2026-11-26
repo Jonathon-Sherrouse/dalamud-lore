@@ -1,10 +1,8 @@
 # Quest Metadata Investigation
 
-## Answer
+## Current status
 
-Current state: NpcDialogueLinks should not send quest metadata yet.
-
-The plugin can identify broad scene context during `Talk` dialogue, but the current code and locally installed Dalamud/FFXIVClientStructs API surface do not expose a verified "current Talk dialogue belongs to quest X" value through a simple Dalamud service.
+Probe v2 is ready for an in-game sample pass. It records the state visible when a new `Talk` line appears. A journal-verified title supplied by the player lets us check which event field, if any, identifies that line's quest. Quest identification for Lore Explain remains pending.
 
 ## Sources Checked
 
@@ -46,48 +44,32 @@ FFXIVClientStructs documents quest event handler and scene fields. These may pro
 
 Reliability for this feature: unknown.
 
-The current plugin only reads visible text nodes from `AddonTalk`. The XML docs do not identify a quest row/id field on `AddonTalk`. A debug probe should log `AtkValues` during `PreSetup`, `PostSetup`, `PreRefresh`, and `PostRefresh` across known scenarios before any implementation trusts addon values.
+The plugin reads the dialogue from visible text nodes on `AddonTalk`. The probe also logs available `AtkValues` during `PreSetup`, `PostSetup`, `PreRefresh`, and `PostRefresh`. The first sample set below explains why v2 also looks at event and journal data.
 
-## Runtime Test Matrix
+## Second in-game sample pass
 
-Not completed in this pass because it requires in-game scenarios. Test before enabling quest metadata:
+1. Load the v2 DLL and reload **NPC Dialogue Links** in `/xlplugins` → **Dev Tools** → **Installed Dev Plugins**. Run `/npclinks questprobe status` and confirm chat reports v2 with the probe disabled. The [dev plugin setup](atlas/README.md#loading-a-development-build) covers adding a new DLL location.
+2. Run `/npclinks questprobe on`. As you talk to NPCs, each newly captured `Talk` line gets an automatic record.
+3. Label samples while the probe is enabled, following the table below. A manual capture writes a labeled copy of the most recent recorded line with its original evidence. You can close the dialogue box or consult the journal first. Enter the label before the next dialogue line is captured.
+4. Once you have labeled the final line, run `/npclinks questprobe off`. This clears the line available for labeling. Use `/npclinks questprobe path` to find `quest-probe-YYYYMMDD.jsonl`. Look for records with `schemaVersion` equal to `2`. Each labeled copy shares its `lineId` with its automatic record. Check the dialogue and the label on that pair.
 
-- Normal non-quest NPC talk: expect no quest metadata.
-- Active sidequest dialogue: expect one verified quest id/name or omission.
-- MSQ dialogue: expect one verified quest id/name or omission.
-- Repeatable/non-MSQ dialogue: expect verified id/name only when the event source is unambiguous.
+| Sample | What to enter |
+|---|---|
+| Ordinary conversation with a non-quest NPC | `/npclinks questprobe capture NO QUEST` |
+| Two or three lines from an active sidequest | After each line, enter `/npclinks questprobe capture` followed by a space and the exact journal title. For example, use `/npclinks questprobe capture A Father's Grief` if that is the quest you played. |
+| A different sidequest or MSQ | Use its exact journal title. Any accessible quest works. Capturing *Getting to the Bottom of Things* would also allow comparison with the first pass. |
+| Repeatable quest or cutscene-adjacent conversation, if available | Use the quest title only for a line you can independently associate with it. Leave uncertain lines unlabeled. |
 
-## Current Probe Workflow
+The local records include the dialogue, matched dictionary terms, zone and target context, recent addon events, and available event and journal evidence at capture time. The output supports offline comparison.
 
-The plugin now has an opt-in probe command for gathering user-verifiable samples. It does not promote quest metadata to Lore Explain.
+| V2 field under `runtime` | What to compare |
+|---|---|
+| `targetEvent` | The selected object's event ID and its handler's event ID and scene when available. |
+| `eventFramework` | The two event-state IDs and scene number. These values may persist between scenes. |
+| `journal.activeNormalQuests` | The active normal quest slots, short quest IDs, full sheet row IDs, available names, sequences and tracked flags. |
+| `journal.trackedSlots` | Occupied tracking slots with their raw type and index, including other quest types. |
 
-Commands:
-
-```text
-/npclinks questprobe on
-/npclinks questprobe capture <verified quest name>
-/npclinks questprobe off
-/npclinks questprobe path
-```
-
-When enabled, the probe auto-exports each newly captured `Talk` dialogue line. The manual `capture` command writes another record for the current captured line with the quest name supplied by the user after verifying it in game.
-
-Output path:
-
-```text
-<Dalamud plugin config>/quest-metadata-probes/quest-probe-YYYYMMDD.jsonl
-```
-
-Each JSONL record contains:
-
-- captured dialogue text
-- optional user-verified quest name
-- local dictionary terms detected in the dialogue
-- zone, territory, map, target, and best-effort speaker context
-- target object identifiers, including base id, object ids, object kind, object index, and position
-- recent `Talk` addon `PreSetup`, `PostSetup`, `PreRefresh`, and `PostRefresh` `AtkValue` snapshots
-
-Next analysis step: collect samples for the matrix below and compare verified quest names against target identifiers and `AtkValue` values. Only promote a field if it maps directly and consistently to the active `Talk` line's quest.
+An omitted section was unavailable. A present journal with empty lists means the probe read the slots and found no entries. Older records in the same file can be recognized by the absence of `schemaVersion`.
 
 ## Initial Probe Findings
 
@@ -99,42 +81,13 @@ First captured sample set, May 17, 2026:
 
 The captured `Talk` addon values did not expose an obvious quest id or quest row. Values `[5] = 61` and `[11] = 1080` appeared across quest and non-quest samples, while value `[2]` varied within the same quest sample set. Target base ids identified the NPC/object variant being spoken to, but did not by themselves prove quest ownership.
 
-Conclusion from this sample set: `Talk` addon `AtkValues` are not enough for verified quest metadata. The next probe pass should capture native event/handler ids and active quest candidates, then compare those against user-verified quest names.
+These samples showed why the next pass needs event identifiers and active quest data alongside the existing addon values.
 
-## Pickup Later
+## Interpreting v2 captures
 
-Status: paused after the first runtime probe sample analysis.
+Compare event identifiers on the labeled quest lines with their independently verified journal titles and quest rows. The same quest should be identifiable across multiple lines, and an ordinary conversation should remain unassigned even when a quest is tracked. Keep observations with missing fields in the sample set so the coverage gap is visible.
 
-When resuming, do not ask the user to gather more samples with the current probe first. Upgrade the probe to a v2 capture format, then ask for a small second in-game sample pass.
-
-Probe v2 should try to add:
-
-- native target/event id if it can be accessed safely
-- safe event-handler identifiers or scene fields, guarded against null pointers and runtime exceptions
-- active/tracked quest ids, quest names, and quest sequence values from `QuestManager`
-- the existing manual verified quest name, which remains the ground truth for analysis
-
-Recommended second sample pass:
-
-- normal NPC conversation labeled `NO QUEST`
-- 2-3 lines from `A Father's Grief`
-- 2-3 lines from `Getting to the Bottom of Things`
-- one MSQ or unrelated sidequest, if convenient
-
-Important note: `RandomQuest` in the first sample set means `Getting to the Bottom of Things`.
-
-## Recommended Implementation Path
-
-1. Add a debug-only quest probe command or setting that logs, for each new `Talk` line. Initial command/export support is implemented; runtime sample collection is pending.
-   - visible dialogue text
-   - target name, base id, and native `GameObject.EventId` if safely accessible
-   - `Talk` addon `AtkValues` count/types/primitive values during setup and refresh
-   - current `QuestManager.TrackedQuests` and active quest sequences
-   - current `QuestEventHandler` or `EventHandler` fields only behind null checks and exception-safe guards
-2. Run the test matrix and compare logs against known quest names from the in-game journal.
-3. Promote a source only if it gives a direct quest row/id for the active dialogue, not just a plausible active quest.
-4. Resolve the name from `Lumina.Excel.Sheets.Quest` using `IDataManager`.
-5. Set `QuestConfidence = "verified"` only for that direct source.
+Active or tracked quest membership alone only tells us what was in the journal. Before exposing a quest in Lore Explain, identify a field that directly maps the active line to a quest row, verify it across the sample types above, and resolve its name from `Lumina.Excel.Sheets.Quest`. Only a validated source can set `QuestConfidence` to `"verified"`.
 
 ## Fallback Behavior
 

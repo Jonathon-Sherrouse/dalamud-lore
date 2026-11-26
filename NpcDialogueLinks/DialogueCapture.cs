@@ -18,13 +18,19 @@ internal sealed class DialogueCapture : IDisposable
         this.addonLifecycle = addonLifecycle;
         this.onDialogueChanged = onDialogueChanged;
 
+        this.addonLifecycle.RegisterListener(AddonEvent.PreOpen, "Talk", this.OnTalkOpening);
         this.addonLifecycle.RegisterListener(AddonEvent.PostUpdate, "Talk", this.OnTalkUpdated);
     }
 
     public void Dispose()
     {
+        this.addonLifecycle.UnregisterListener(this.OnTalkOpening);
         this.addonLifecycle.UnregisterListener(this.OnTalkUpdated);
     }
+
+    // Two separate conversations can open with the same words and different quest evidence.
+    private void OnTalkOpening(AddonEvent eventType, AddonArgs args)
+        => this.lastDialogue = string.Empty;
 
     private unsafe void OnTalkUpdated(AddonEvent eventType, AddonArgs args)
     {
