@@ -185,7 +185,7 @@ Arc boundaries are **editorial decisions backed by evidence**, and the user revi
 
 ## Follow: completed story progress
 
-> **Deferred (user decision, 2026-11-14).** The user deferred Follow before the `NDL-007` in-game run, so v2 ships without it. That is the explicitly accepted reduced scope under the failure path below. The investigation is parked in the [backlog](../backlog.md#deferred-follow-ndl-007).
+> **Delivered by `NDL-017` and accepted on 2026-11-26.** The user deferred Follow on 2026-11-14 and lifted the deferral after Dalamud added quest completion to `IUnlockState` (January 2026). See [the `NDL-017` amendments](#ndl-017-amendments) for the delivered behaviour and the [Follow check](README.md#in-game-check-follow-ndl-017) for the remaining in-game evidence.
 
 **The source.**
 - Client completed-quest flags for authored `gameQuestIds`, for example FFXIVClientStructs `QuestManager` / `UIState` quest completion.
@@ -211,6 +211,31 @@ Arc boundaries are **editorial decisions backed by evidence**, and the user revi
 - **Turning off.** A manual view change turns Follow off. The position is never persisted.
 
 **Failure path.** If `NDL-007` fails, Follow is reported as **blocked or deferred**, and the user explicitly accepts the reduced scope. Manual picking or viewer simulation does not count as delivering it.
+
+### NDL-017 amendments
+
+These change the behaviour above. The data or the source forced each one, and the `NDL-017` pull request lists them for the user's review.
+
+1. **Latest completed step, not a contiguous prefix.** Since 2026-11-19 the timeline lays mutually exclusive paths end to end (the three starting-city chains, the Grand Company pairs at #41) and lists parallel quests one after another ([arr-1-to-101.md](arr-1-to-101.md)). Under the prefix rule, every Limsa Lominsa and Ul'dah starter would read "before coverage" forever, and Gridania starters would stop at #23. `AtlasFollow.Position` now returns the latest covered step the player completed, clamped to the limit.
+   - **Why it's spoiler-safe:** main-scenario quests unlock in order, so a completed step means the player finished everything before it on their own path. The snapshot there can include another path's records: another city's chain, or the sibling of a parallel pair. The Atlas already allows that when a player picks their own city's step (out of order, never later story).
+   - **Retired rows:** a veteran whose old ARR rows are set, but whose replacement rows aren't, no longer stalls, as long as any later step is complete.
+2. **A step's quest ids are alternatives.** Any completed id completes the step, as `NDL-007` recommended. Any unknown id still makes the whole result unknown. Every step has one id today.
+3. **Timing.** Follow also re-reads:
+   - when Dalamud reports a newly completed quest (`IUnlockState.Unlock`);
+   - after a character change;
+   - every 3 seconds while progress is unknown for a reason that can clear (logged out, loading).
+
+   That takes part of "continuous Follow" out of the parking lot. A limit change still never moves the view; it only re-clamps the result.
+4. **The source.** The flag is read with Dalamud's `IUnlockState.IsQuestCompleted`, which wraps the same `QuestManager.IsQuestComplete` check as before. It is called only after the `NDL-007` gate passes, so its "not loaded reads false" can't turn unknown into incomplete.
+5. **Title cross-check.** Titles come from the English quest sheet, whatever language the client runs in. The check also accepts:
+   - the Atlas's city disambiguator ("Close to Home (Ul'dah)" for the game's "Close to Home");
+   - three reviewed typography variants, each pinned to its row and both spellings: #592 *Stirring up Trouble*, #604 *Bearing With It*, and #797 *A Test of Wιll* (the game's title starts with a Greek capital alpha).
+
+   `tools/atlas/QuestRowCheck` applies the same rule to every row, using the player's own game data. On 2026-11-26 it checked 1,045 rows, all main-scenario quests, and found 0 problems. Milestones carry no authored title, so their rows are checked only for existence and category, and the tool lists them for review.
+6. **Persistence.** The toggle is saved. The position is never saved as progress. The view setting saves as usual, so with Follow off the window reopens on that point, labelled "Viewing: after ‹quest›".
+7. **Automatic raises (user revision).** Follow raises the effective spoiler limit to the latest completed step and moves the view there when the newly accessible range reveals only main-story lore or optional lore within the approved limit. The check covers each newly unlocked checkpoint, including optional relationship endings that the Changes lens can expose. In **Main story + optional**, a newly revealed optional record keeps the Atlas at the approved limit and triggers the neutral **Raise to my progress…** offer. Confirming this offer raises the saved limit. The next read moves the view.
+   - Automatic raises apply to the current character for the lifetime of the open window. Logout, character changes, and reopening discard them. Switching to **Main story + optional** clamps an incompatible automatic raise before showing that content.
+   - The game also marks story skips complete. Follow uses the same completion flags for quests completed by play and by a skip.
 
 ## Delivery
 

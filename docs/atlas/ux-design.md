@@ -164,7 +164,7 @@ The window opens focused on the Scions (`AtlasDefaults.HomeEntityId`). It return
 
 ## v2 lenses (NDL-008)
 
-> **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). `NDL-010` renders it in the in-game window. **Follow is deferred** (user decision, 2026-11-14), so there is no Follow toggle, status line or "your progress" wording.
+> **Status: accepted.** The user accepted this design, decisions D6–D12 included, on 2026-11-14. It is prototyped in the local viewer over the synthetic arc sample (`--arc-sample`). `NDL-010` renders it in the in-game window. **Follow was deferred** (user decision, 2026-11-14), so this design has no Follow toggle, status line or "your progress" wording. `NDL-017` adds them in game: a **Follow my progress** toggle and **Refresh** after the lens buttons, "Your progress: through ‹quest›" as the position line, and a muted status row below for unknown, before-coverage and the raise offer. See the [plan's amendments](v2-plan.md#ndl-017-amendments).
 
 ### What changes on screen
 

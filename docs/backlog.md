@@ -6,21 +6,21 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
-The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** the [player-facing Follow feature](#deferred-follow-ndl-007) moved to the parking lot, and v2 ships without Follow.
+The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow was initially deferred and later delivered as `NDL-017`. The complete contract is in the plan.
 
 The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
 
 ## In Review
 
-- [ ] `NDL-017` **Follow the player's completed story in the Atlas**
-  - Owner: `lead` (runtime adapter, core rule and window integration)
-  - Outcome: With **Follow my progress** on, the Atlas moves to the latest main-scenario quest the character has completed, never past the spoiler limit, using Dalamud's quest completion support.
-  - Acceptance: Off by default. When on, the window moves to completed progress on open, on Refresh and after a quest is completed. It stays at the limit when progress is past it and offers one neutral raise. Logged out or loading, it reads unknown and the view stays put. A character switch drops the old result. A manual pick turns it off. The [plan amendments](atlas/v2-plan.md#ndl-017-amendments) are reviewed: the latest completed step instead of a contiguous prefix, alternatives, re-reading on completion, `IUnlockState` behind the gate, and the title-check variants.
-  - Evidence: Host tests; `tools/atlas/QuestRowCheck` against local game data; Debug and Release builds; the [in-game Follow check](atlas/README.md#in-game-check-follow-ndl-017) on two characters. Missing in-game evidence stays pending.
-  - Dependencies: Accepted `NDL-007` (adapter); branch `codex/ndl-017-atlas-follow`.
-  - Substantive PR: [#46](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/46)
-
 ## User Accepted
+
+- [x] `NDL-017` **Follow the player's completed story in the Atlas**
+  - Owner: `lead` (runtime adapter, core rule and window integration)
+  - Outcome: With **Follow my progress** on, the Atlas moves to the character's latest covered main-scenario completion and automatically raises the spoiler limit when the newly accessible steps contain only completed main-story lore or already approved optional lore.
+  - Acceptance: Off by default. Follow reads on open, on Refresh and after quest completion. New optional lore keeps the limit in place and triggers one neutral raise offer. Automatic raises apply to the current character's session. Logout and character switches restore the manually approved limit. While loading, progress reads unknown. A manual story-point pick turns Follow off. See the [plan amendments](atlas/v2-plan.md#ndl-017-amendments) for quest matching and completion rules.
+  - Evidence: Host tests; `tools/atlas/QuestRowCheck` against local game data; Debug and Release builds; the [in-game Follow check](atlas/README.md#in-game-check-follow-ndl-017) on two characters. Missing in-game evidence stays pending.
+  - Dependencies: Accepted `NDL-007` (adapter).
+  - Acceptance record: The user accepted the one-character test as sufficient and requested merge on 2026-11-26. The automatic raise has automated coverage. The remaining in-game checks are recorded in the guide.
 
 - [x] `NDL-016` **Fill missing Atlas NPC portraits**
   - Owner: `lead`
@@ -253,7 +253,7 @@ The user approved `NDL-011` on 2026-11-15 as the polish piece for a strong Atlas
 
 ### Deferred: Follow (`NDL-007`)
 
-Atlas Follow remains deferred. The [progress investigation](atlas/follow-progress-investigation.md) includes the read-only adapter, host tests and Debug-only `/npclinks followprobe` command. To resume, run the guide's before-and-after checks on two characters and record whether either completed A Realm Reborn before the quest replacements in 2020 or 2022.
+**Resumed as `NDL-017` (user request, 2026-11-26).** The [progress investigation](atlas/follow-progress-investigation.md) includes the read-only adapter, host tests and Debug-only `/npclinks followprobe` command. Its before-and-after checks on two characters are still worth running: record whether either character completed A Realm Reborn before the quest replacements in 2020 or 2022.
 
 ### Deferred during the Atlas work (collected by the user's request, 2026-11-14)
 
@@ -269,7 +269,7 @@ Everything consciously put off during the Atlas pilot and the v2 planning, in on
 **Atlas views and behaviour**
 - **"During a quest" positions,** so facts that start and end inside one quest can be relationships. That needs a flagged amendment, because v2 keeps them as summary text.
 - **Richer Changes lens:** pairing a type change into one "~ changed" row, and distinguishing "revealed" from "began".
-- **Follow itself** is parked above, as `NDL-007`. Beyond it: **continuous Follow** (live updates, instead of on open or Refresh), and Follow for optional-quest progress.
+- **Follow itself** is `NDL-017`, which also re-reads when a quest is completed. Still parked: Follow for optional-quest progress.
 - **Optional quests on the timeline,** in some order. v2's timeline is main scenario only.
 - **Scene- or objective-level positions** inside a quest.
 - **Navigation history:** a back button. It was excluded from the pilot.

@@ -1,6 +1,6 @@
 # Follow progress investigation (`NDL-007`)
 
-The user accepted the investigation for merge on November 26, 2026. The two-character in-game checks below are pending. Atlas Follow remains deferred.
+The user accepted the investigation for merge on November 26, 2026. The two-character in-game checks below are pending. **`NDL-017` (2026-11-26) builds Atlas Follow on this adapter**; see the [plan's amendments](v2-plan.md#ndl-017-amendments).
 
 This investigation asks whether the client's completed-quest flags can safely drive the Atlas **Follow** toggle. The [Follow plan](v2-plan.md#follow-completed-story-progress) defines its criteria. The separate [quest dialogue investigation](../quest-metadata-investigation.md) covers matching NPC lines to quest scripts.
 
@@ -21,7 +21,7 @@ The source looks sound **if** it's read through a strict gate, and **if** NDL-00
 `NpcDialogueLinks/AtlasProgressSource.cs` (adapter, outside `Atlas/`), and `NpcDialogueLinks/Progress/QuestProgress.cs` (pure rules, host-tested).
 
 - **Read:** FFXIVClientStructs `QuestManager.IsQuestComplete(ushort clientId)`, the game's own completion check. Nothing else feeds Follow.
-- **Not used: Dalamud's `IUnlockState.IsQuestCompleted(Quest)`.** The decompiled Dalamud shows it returns `false` whenever `PlayerState` isn't loaded:
+- **Dalamud's `IUnlockState.IsQuestCompleted(Quest)`, only behind the gate.** `NDL-007` didn't use it. Since `NDL-017` it supplies the flag, but only after the gate below has passed. The decompiled Dalamud shows it returns `false` whenever `PlayerState` isn't loaded:
 
   ```csharp
   public bool IsQuestCompleted(Quest row)
@@ -31,7 +31,7 @@ The source looks sound **if** it's read through a strict gate, and **if** NDL-00
   }
   ```
 
-  That's exactly the unknown-as-incomplete mistake the contract forbids.
+  Called on its own, that's exactly the unknown-as-incomplete mistake the contract forbids. Behind the gate, which already requires a loaded player, it's the same `QuestManager.IsQuestComplete` read.
 - **Read-only.** No hooks, no network, no game-state writes. No active-quest, journal or `QuestMetadataProbe` input.
 
 ## Criterion 2: row → client ID

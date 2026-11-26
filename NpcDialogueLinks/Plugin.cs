@@ -55,6 +55,9 @@ public sealed class Plugin : IDalamudPlugin
     [PluginService]
     internal static IObjectTable ObjectTable { get; private set; } = null!;
 
+    [PluginService]
+    internal static IUnlockState UnlockState { get; private set; } = null!; // NDL-017 Follow
+
     private readonly DialogueCapture dialogueCapture;
     private readonly DialogueHistory dialogueHistory = new();
     private readonly AtlasWindow atlasWindow;
@@ -98,8 +101,8 @@ public sealed class Plugin : IDalamudPlugin
             (exception, message) => Log.Warning(exception, "{DictionaryMessage}", message));
         this.dictionaryWindow = new DictionaryWindow(this.termDictionary, this.RefreshLastCandidates);
         this.settingsWindow = new SettingsWindow(this.configuration);
-        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider, this.termDictionary, this.dictionaryWindow.OpenTerm);
-        this.atlasProgressSource = new AtlasProgressSource(Framework, ClientState, PlayerState, Condition, ObjectTable, DataManager); // NDL-007
+        this.atlasProgressSource = new AtlasProgressSource(Framework, ClientState, PlayerState, Condition, ObjectTable, DataManager, UnlockState); // NDL-007, NDL-017
+        this.atlasWindow = new AtlasWindow(Path.Combine(pluginDirectory, "atlas.json"), this.configuration, TextureProvider, this.termDictionary, this.dictionaryWindow.OpenTerm, this.atlasProgressSource);
 #if DEBUG
         this.followProgressProbe = new FollowProgressProbe(this.atlasProgressSource, PluginInterface, Framework, ChatGui, DataManager); // NDL-007 debug-only probe
 #endif
