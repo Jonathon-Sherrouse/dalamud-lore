@@ -6,18 +6,19 @@ Only stable `NDL-###` story cards in the three workflow states below are executa
 
 ## To Do
 
+The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** the [player-facing Follow feature](#deferred-follow-ndl-007) moved to the parking lot, and v2 ships without Follow.
+
+The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
+
+## In Review
+
 - [ ] `NDL-016` **Fill missing Atlas NPC portraits**
   - Owner: `lead`
   - Outcome: Every Atlas character displays a sourced portrait, with game icons preferred and face crops from online screenshots when needed.
   - Acceptance: Portraits appear in the plugin and local viewer. Spoiler-sensitive appearances are recorded for future checkpoint-aware portraits.
   - Evidence: Atlas validation, plugin and viewer builds, local game-icon extraction, and in-game smoke test.
   - Dependencies: `NDL-011`
-
-The user approved [Atlas v2: arc context](atlas/v2-plan.md) on 2026-11-14 and made it the priority ahead of `Pre-Ship`. Follow covers completed story progress only; the user accepted that with the plan. The complete contract is in the plan. **Follow is deferred (user decision, 2026-11-14):** the [player-facing Follow feature](#deferred-follow-ndl-007) moved to the parking lot, and v2 ships without Follow.
-
-The user approved publication of the bounded Atlas pilot plan and priority exception on 2026-11-14. Part 1 publishes these cards; it does not start research or implementation. On 2026-11-14 the user also approved a dedicated UX design story, `NDL-005`, which the window story implements. Execute in the order below (`NDL-005` may run alongside `NDL-003`); the complete contract is in [lore-relationship-atlas.md](lore-relationship-atlas.md).
-
-## In Review
+  - Substantive PR: [#44](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/44)
 
 ## User Accepted
 
