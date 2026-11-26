@@ -1,6 +1,6 @@
 # Lore Atlas guide
 
-> **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Follow** (`NDL-017`, awaiting acceptance) moves the view to your completed main-scenario progress when you turn it on. It is off by default, and while it's off the Atlas never reads your quest progress.
+> **Atlas v2** ([plan](v2-plan.md), `NDL-006` to `NDL-010`) adds quest-level story steps, the first story arc (*The Black Wolf's Challenge*, MSQ #155–161) and three lenses. **Follow** (`NDL-017`) moves the view to your completed main-scenario progress when you turn it on. It is off by default, and while it's off the Atlas never reads your quest progress.
 
 > **Coverage (2026-11-19):** one story point per main-scenario quest from MSQ #1 (all three starting cities) through 7.56 (*The World Locked in Ice*), the latest patch, plus the 2.0, 2.55, 3.0, 3.56, 4.0, 4.56, 5.0, 5.55, 6.0, 6.55, 7.0 and 7.56 milestones: 1,045 points and 169 arcs. See [through-heavensward.md](through-heavensward.md), [through-stormblood.md](through-stormblood.md), [through-shadowbringers.md](through-shadowbringers.md), [through-endwalker.md](through-endwalker.md), [through-dawntrail.md](through-dawntrail.md) and [arr-1-to-101.md](arr-1-to-101.md).
 

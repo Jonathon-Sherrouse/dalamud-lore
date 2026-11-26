@@ -185,7 +185,7 @@ Arc boundaries are **editorial decisions backed by evidence**, and the user revi
 
 ## Follow: completed story progress
 
-> **Delivered by `NDL-017` (user request, 2026-11-26), awaiting acceptance.** The user deferred Follow on 2026-11-14 and lifted the deferral after Dalamud added quest completion to `IUnlockState` (January 2026). The behaviour below holds except where [the `NDL-017` amendments](#ndl-017-amendments) change it. The `NDL-007` two-character in-game run is still pending; the [Follow check](README.md#in-game-check-follow-ndl-017) covers its in-game criteria.
+> **Delivered by `NDL-017` and accepted on 2026-11-26.** The user deferred Follow on 2026-11-14 and lifted the deferral after Dalamud added quest completion to `IUnlockState` (January 2026). See [the `NDL-017` amendments](#ndl-017-amendments) for the delivered behaviour and the [Follow check](README.md#in-game-check-follow-ndl-017) for the remaining in-game evidence.
 
 **The source.**
 - Client completed-quest flags for authored `gameQuestIds`, for example FFXIVClientStructs `QuestManager` / `UIState` quest completion.
