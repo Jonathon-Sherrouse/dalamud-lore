@@ -39,7 +39,8 @@ This is the working planning list for feature polish and future enhancements. Ag
 
 ### Quest Metadata Readiness
 
-- Probe v2 (`NDL-014`) is ready for the [second in-game sample pass](quest-metadata-investigation.md#second-in-game-sample-pass). Collect labeled quest dialogue and ordinary NPC talk to compare event IDs with the player's journal.
+- In the Probe v2 (`NDL-014`) sample pass, Backrix's confirmed *One Step Behind* turn-in and Oswold's ordinary greeting both reported zero event IDs. Replaying 23 labeled quest lines against local English scripts identified the expected quest for each line. Both ordinary NPC controls had no match.
+- Probe v3 (`NDL-015`) identified two Backrix quest lines and left two ordinary Oswold lines unknown in game. See [why we tried this and what the live test showed](quest-metadata-investigation.md#why-we-tried-this) before revisiting quest context for Lore Explain.
 - Validate whether a field directly identifies the quest that owns the active `Talk` line. Cover sidequests, MSQ, and repeatable or cutscene-adjacent dialogue before exposing quest context in Lore Explain.
 - Keep a line's quest unknown when the only evidence is a tracked quest, nearby NPC, zone, or journal state.
 

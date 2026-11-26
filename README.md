@@ -115,15 +115,15 @@ If live explain is off, or if no API key is configured, the command writes a JSO
 
 ## Quest Metadata Probe
 
-Probe v2 writes a local log to help identify which quest owns a line in the NPC dialogue box. Your journal supplies the quest name for comparison. This works with live `Talk` dialogue and requires no API key.
+Probe v3 compares each new NPC dialogue line with quest scripts from your local game files in the client language. When exactly one quest contains the line, its title appears in chat.
 
-1. Load the v2 DLL as a dev plugin. In `/xlplugins`, open **Dev Tools** → **Installed Dev Plugins** and reload **NPC Dialogue Links**. For a new DLL location, follow the [dev plugin setup](docs/atlas/README.md#loading-a-development-build).
-2. Run `/npclinks questprobe status` and check that chat identifies v2. Run `/npclinks questprobe on` before talking to an NPC.
-3. Talk to an ordinary NPC. Once a line appears, run `/npclinks questprobe capture NO QUEST`.
-4. Talk to a quest NPC. After a quest line appears, type `/npclinks questprobe capture` followed by a space and the exact quest title from your journal. You can close the dialogue box first. The label applies to the most recent line the probe captured, so enter it before another line appears.
-5. Run `/npclinks questprobe off`, then `/npclinks questprobe path` to find the local JSONL file.
+1. Open `/xlplugins` → **Dev Tools** → **Installed Dev Plugins**. Find **NPC Dialogue Links** and click **Reload**. For a first-time installation, follow the [dev plugin setup](docs/atlas/README.md#loading-a-development-build).
+2. Run `/npclinks questprobe on` and wait for **Quest matching ready.** in chat.
+3. Talk to an ordinary NPC. For a greeting absent from quest scripts, expect **Quest: Unknown**.
+4. Start a conversation for a quest objective or turn-in. Compare the **Quest:** title in chat with your journal. A line shared by multiple quests shows **Quest: Unknown (shared line).** The probe saves the result automatically.
+5. Run `/npclinks questprobe off` when finished. If a result surprised you, note the NPC, journal title and chat result.
 
-Compare the labeled lines and their recorded event and journal data using the [investigation guide](docs/quest-metadata-investigation.md#second-in-game-sample-pass). Player-facing quest identification in Lore Explain still awaits that comparison.
+The probe saves each result locally. The [investigation guide](docs/quest-metadata-investigation.md#checking-automatic-matches) explains how to read the log and add an optional journal-verified label. Quest context in Lore Explain requires separate validation.
 
 Starter helper:
 
