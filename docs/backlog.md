@@ -12,15 +12,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
-- [ ] `NDL-016` **Fill missing Atlas NPC portraits**
+## User Accepted
+
+- [x] `NDL-016` **Fill missing Atlas NPC portraits**
   - Owner: `lead`
   - Outcome: Every Atlas character displays a sourced portrait, with game icons preferred and face crops from online screenshots when needed.
   - Acceptance: Portraits appear in the plugin and local viewer. Spoiler-sensitive appearances are recorded for future checkpoint-aware portraits.
   - Evidence: Atlas validation, plugin and viewer builds, local game-icon extraction, and in-game smoke test.
   - Dependencies: `NDL-011`
-  - Substantive PR: [#44](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/44)
-
-## User Accepted
 
 - [x] `NDL-007` **Investigate completed-progress detection for Follow**
   - Owner: `runtime`
