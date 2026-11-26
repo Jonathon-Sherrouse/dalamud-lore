@@ -246,6 +246,7 @@ internal sealed class AtlasEntityDto
 internal sealed class AtlasPortraitDto
 {
     public uint? GameIcon { get; set; }
+    public string? Asset { get; set; }
     public AtlasCropDto? Crop { get; set; }
     public string? Review { get; set; }
 }

@@ -105,13 +105,15 @@ public sealed record AtlasPresentation(
     AtlasReviewStatus Review);
 
 /// <summary>
-/// A reviewed portrait (NDL-011): an icon from the player's own game install, never an image file, cropped to a square.
+/// A reviewed portrait (NDL-011): a game icon or a bundled image, cropped to a square.
 /// The crop is the square's centre (<see cref="CropX"/>, <see cref="CropY"/>, fractions of the image's width and height)
 /// and its side (<see cref="CropSize"/>, a fraction of the image's shorter side). Reviewed as safe from the entity's
 /// first appearance, so it is shown wherever the entity is.
 /// </summary>
 public sealed record AtlasPortrait(uint GameIcon, double CropX, double CropY, double CropSize, AtlasReviewStatus Review)
 {
+    public string? Asset { get; init; }
+
     /// <summary>
     /// The crop as texture coordinates (u0, v0, u1, v1) for an image of the given size. The square is moved, never
     /// shrunk, to stay inside the image, so every front end draws exactly the same pixels.

@@ -1455,7 +1455,7 @@ internal sealed class AtlasWindow : Window
     };
 
     /// <summary>
-    /// An entity's mark: its reviewed portrait from the game's own icons, clipped round inside a ring in the category
+    /// An entity's mark: its reviewed portrait, clipped round inside a ring in the category
     /// colour with the category shape as a badge, or the category shape alone when there is no portrait or its texture
     /// is not loaded yet (NDL-011). Returns true when it drew a round portrait.
     /// </summary>
@@ -1486,7 +1486,10 @@ internal sealed class AtlasWindow : Window
         wrap = null!;
         try
         {
-            if (this.textures.GetFromGameIcon(new GameIconLookup(portrait.GameIcon, false, true)).TryGetWrap(out var loaded, out _) && loaded is not null)
+            var texture = portrait.Asset is { } asset
+                ? this.textures.GetFromFile(Path.Combine(Path.GetDirectoryName(this.dataPath)!, "atlas-portraits", $"{asset}.png"))
+                : this.textures.GetFromGameIcon(new GameIconLookup(portrait.GameIcon, false, true));
+            if (texture.TryGetWrap(out var loaded, out _) && loaded is not null)
             {
                 wrap = loaded;
                 return true;
@@ -1494,7 +1497,7 @@ internal sealed class AtlasWindow : Window
         }
         catch (Exception exception)
         {
-            Plugin.Log.Verbose(exception, $"Lore Atlas portrait icon {portrait.GameIcon} is unavailable; drawing the category shape.");
+            Plugin.Log.Verbose(exception, $"Lore Atlas portrait {portrait.Asset ?? portrait.GameIcon.ToString()} is unavailable; drawing the category shape.");
         }
 
         return false;

@@ -416,6 +416,19 @@ internal sealed class ViewerHost(ViewerOptions options)
     /// </summary>
     private object? Portrait(AtlasPortrait? portrait)
     {
+        if (portrait?.Asset is { } asset)
+        {
+            var file = Path.Combine(AppContext.BaseDirectory, "wwwroot", "atlas-portraits", $"{asset}.png");
+            if (!File.Exists(file))
+            {
+                return null;
+            }
+
+            // Bundled assets are already squared at authoring time.
+            var (left, top, right, bottom) = portrait.Uv(1, 1);
+            return new { url = $"/atlas-portraits/{asset}.png", u0 = left, v0 = top, u1 = right, v1 = bottom };
+        }
+
         if (portrait is null || PortraitSize(portrait.GameIcon) is not { } size)
         {
             return null;

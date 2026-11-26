@@ -146,13 +146,13 @@ public class ArcArr20Tests
     }
 
     [Fact]
-    public void MarquesNeverShowsCidsNameOrFaceBeforeTheReveal()
+    public void MarquesKeepsHisOwnNameAndPortraitBeforeTheReveal()
     {
         foreach (var n in Enumerable.Range(106, 4))
         {
             var snapshot = AtlasProjector.Project(D, Step(n), AtlasContentView.MainAndOptional);
             var marques = snapshot.FindEntity("char-marques")!;
-            Assert.Null(marques.Portrait);
+            Assert.Equal("char-marques", marques.Portrait?.Asset);
             Assert.Null(snapshot.FindEntity("char-cid"));
             Assert.DoesNotContain("Cid", marques.Summary, StringComparison.Ordinal);
         }

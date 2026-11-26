@@ -236,9 +236,20 @@ internal static class AtlasValidator
     {
         var errors = context.Errors;
         var before = errors.Count;
-        if (dto.GameIcon is not { } icon || icon == 0 || icon > MaxGameIcon)
+        if ((dto.GameIcon is null) == (dto.Asset is null))
+        {
+            errors.Add(AtlasErrorCode.InvalidField, path, "A portrait needs exactly one of gameIcon and asset.");
+        }
+
+        if (dto.GameIcon is { } icon && (icon == 0 || icon > MaxGameIcon))
         {
             errors.Add(AtlasErrorCode.InvalidField, $"{path}.gameIcon", $"gameIcon must be a game icon number from 1 to {MaxGameIcon}.");
+        }
+
+        if (dto.Asset is { } asset && (asset.Length is < 1 or > 100
+            || !asset.All(c => c is (>= 'a' and <= 'z') or (>= '0' and <= '9') or '-')))
+        {
+            errors.Add(AtlasErrorCode.InvalidField, $"{path}.asset", "asset must be a lowercase image key.");
         }
 
         var crop = dto.Crop;
@@ -252,7 +263,7 @@ internal static class AtlasValidator
         var review = ParseReview(errors, $"{path}.review", dto.Review, context.Mode);
         return errors.Count != before
             ? null
-            : new AtlasPortrait(dto.GameIcon!.Value, crop!.X!.Value, crop.Y!.Value, crop.Size!.Value, review!.Value);
+            : new AtlasPortrait(dto.GameIcon.GetValueOrDefault(), crop!.X!.Value, crop.Y!.Value, crop.Size!.Value, review!.Value) { Asset = dto.Asset };
     }
 
     private static AtlasPresentation? BuildPresentation(Context context, string path, AtlasPresentationDto? dto)

@@ -20,7 +20,7 @@ This is the contract the production loader in `NpcDialogueLinks/Atlas/` enforces
     {
       "id": "char-example",
       "category": "character",           // character | organization | location
-      "portrait": {                      // optional (NDL-011): a game icon, never an image file
+      "portrait": {                      // optional: a game icon or bundled asset
         "gameIcon": 87046,               // 1–999999, read from the player's own install at runtime
         "crop": { "x": 0.52, "y": 0.4, "size": 0.75 },
         "review": "reviewed"
@@ -210,7 +210,7 @@ Arc spans stay internal: the public arc API exposes only ids and names (rule 7).
 
 ## Portraits (NDL-011)
 
-An entity may carry one optional `portrait`. It names a **game icon number**, not an image: the plugin loads the icon from the player's own game install at runtime, and no game image is ever stored in the repository or the package.
+An entity may carry one optional `portrait`. Set exactly one of `gameIcon` or `asset`. A game icon loads from the player?s installation. An asset is a lowercase image key for a bundled PNG in `atlas-portraits/`.
 
 | Field | Rule |
 |---|---|
@@ -220,7 +220,7 @@ An entity may carry one optional `portrait`. It names a **game icon number**, no
 | `review` | `reviewed` or `pending`, like any record. Strict needs `reviewed`. |
 
 - **The crop is shared.** `AtlasPortrait.Uv` turns it into texture coordinates for an image of known size. If the square would leave the image, it is moved inside, never shrunk. The window and the viewer both draw with it, so they show the same pixels.
-- **Spoiler rule.** A portrait is shown wherever its entity is, at every checkpoint, so it must be safe from the entity's first appearance: no later look, outfit, name or identity. That is part of its review.
+- **Spoiler rule.** A portrait is shown wherever its entity is, at every checkpoint. NDL-016 allows later appearances and records known cases in [NPC portrait coverage](npc-portrait-coverage.md).
 - **Fallback.** An entity without a portrait, or whose icon is not loaded (or not in the viewer's cache), draws its category shape.
 - **Review binding.** The generator's fingerprint covers the icon and the crop, plus the source description shown on the review sheet. Moving the crop or changing the icon makes the portrait `pending` again.
 
