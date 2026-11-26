@@ -1,8 +1,16 @@
 # Quest Metadata Investigation
 
-## Current status
+## Why we tried this
 
-Probe v3 (`NDL-015`) compares new `Talk` lines with local quest scripts in the client language. It reports a quest title when the normalized text matches exactly one quest across the scripts. Lines with zero or multiple matching quests have an unknown quest. Live validation of this build and quest identification for Lore Explain are pending.
+The original idea was to let a player ask Lore Explain “What are they talking about?” without first typing the quest title. The title would give the explanation context for the current line. An NPC can offer a quest before it appears in the journal and make small talk while an unrelated quest is active.
+
+The opt-in probe (`NDL-015`) builds a lookup in memory from the quest scripts installed with the game, in the client's language. It compares the displayed line with those scripts after normalizing spacing. A unique match gives a quest title. Shared or missing lines give **Unknown**. The player's labeled captures served as test cases.
+
+### What the live test showed
+
+On November 26, 2026, two Backrix lines each matched *A Gob in the Machine* (quest row `67789`) before it appeared in the player's active journal. By the time the player spoke to Oswold, that quest was active. Both of Oswold's ordinary lines returned **Unknown**.
+
+The result is available in the probe. The open product question is whether supplying these titles would make Lore Explain's answers more useful. If we revisit it, we can compare explanations for the same line with and without the matched title.
 
 ## Checking automatic matches
 
