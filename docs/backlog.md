@@ -12,6 +12,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
+- [ ] `NDL-017` **Follow the player's completed story in the Atlas**
+  - Owner: `lead` (runtime adapter, core rule and window integration)
+  - Outcome: With **Follow my progress** on, the Atlas moves to the latest main-scenario quest the character has completed, never past the spoiler limit, using Dalamud's quest completion support.
+  - Acceptance: Off by default. When on, the window moves to completed progress on open, on Refresh and after a quest is completed. It stays at the limit when progress is past it and offers one neutral raise. Logged out or loading, it reads unknown and the view stays put. A character switch drops the old result. A manual pick turns it off. The [plan amendments](atlas/v2-plan.md#ndl-017-amendments) are reviewed: the latest completed step instead of a contiguous prefix, alternatives, re-reading on completion, `IUnlockState` behind the gate, and the title-check variants.
+  - Evidence: Host tests; `tools/atlas/QuestRowCheck` against local game data; Debug and Release builds; the [in-game Follow check](atlas/README.md#in-game-check-follow-ndl-017) on two characters. Missing in-game evidence stays pending.
+  - Dependencies: Accepted `NDL-007` (adapter); branch `codex/ndl-017-atlas-follow`.
+  - Substantive PR: [#46](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/46)
+
 ## User Accepted
 
 - [x] `NDL-016` **Fill missing Atlas NPC portraits**
