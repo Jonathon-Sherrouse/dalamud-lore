@@ -1,0 +1,2207 @@
+{
+  "char-ahewann": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/6a/Ahewann.jpg/273px-Ahewann.jpg",
+    "portrait": {
+      "asset": "char-ahewann",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ahewann"
+  },
+  "char-ahtbyrm": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/3d/Ahtbyrm.jpg/229px-Ahtbyrm.jpg",
+    "portrait": {
+      "asset": "char-ahtbyrm",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ahtbyrm"
+  },
+  "char-ahtzapfyn": {
+    "image": "https://ff14.tabibun.net/npc/img/npc/1259_s.jpg",
+    "portrait": {
+      "asset": "char-ahtzapfyn",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ff14.tabibun.net/npc/1259/"
+  },
+  "char-aideen": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/8c/Aideen.jpg/216px-Aideen.jpg",
+    "portrait": {
+      "asset": "char-aideen",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Aideen"
+  },
+  "char-al-end": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/86/Al_End.jpg/280px-Al_End.jpg",
+    "portrait": {
+      "asset": "char-al-end",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Al_End"
+  },
+  "char-alayla": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/e4/Alayla.jpg/280px-Alayla.jpg",
+    "portrait": {
+      "asset": "char-alayla",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Alayla"
+  },
+  "char-alianne": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/50/Alianne.jpg/260px-Alianne.jpg",
+    "portrait": {
+      "asset": "char-alianne",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Alianne"
+  },
+  "char-almet": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/6f/Almet_portrait.jpg/280px-Almet_portrait.jpg",
+    "portrait": {
+      "asset": "char-almet",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Almet"
+  },
+  "char-amandine": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7c/Lady_Amandine.jpg/280px-Lady_Amandine.jpg",
+    "portrait": {
+      "asset": "char-amandine",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Lady_Amandine"
+  },
+  "char-ameliance": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/5a/Ameliance.jpg/280px-Ameliance.jpg",
+    "portrait": {
+      "asset": "char-ameliance",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ameliance"
+  },
+  "char-aulus": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/35/Aulus_mal_Asina.jpg/219px-Aulus_mal_Asina.jpg",
+    "portrait": {
+      "asset": "char-aulus",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Aulus_mal_Asina"
+  },
+  "char-azdaja": {
+    "portrait": {
+      "crop": {
+        "size": 0.65,
+        "x": 0.35,
+        "y": 0.28
+      },
+      "gameIcon": 101272,
+      "review": "reviewed"
+    },
+    "source": "Game quest illustration: Growing Light"
+  },
+  "char-azem": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/64/Azem_crystal.png/200px-Azem_crystal.png",
+    "portrait": {
+      "asset": "char-azem",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Azem"
+  },
+  "char-bakool-ja-ja": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f4/Bakool_Ja_Ja.jpg/280px-Bakool_Ja_Ja.jpg",
+    "portrait": {
+      "asset": "char-bakool-ja-ja",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Bakool_Ja_Ja"
+  },
+  "char-baldewyn": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7a/Baldewyn.jpg/280px-Baldewyn.jpg",
+    "portrait": {
+      "asset": "char-baldewyn",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Baldewyn"
+  },
+  "char-bloewyda": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/fc/Bloewyda.png/160px-Bloewyda.png",
+    "portrait": {
+      "asset": "char-bloewyda",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Bloewyda"
+  },
+  "char-brayflox": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/47/Brayflox_Alltalks_portrait.jpg/280px-Brayflox_Alltalks_portrait.jpg",
+    "portrait": {
+      "asset": "char-brayflox",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Brayflox"
+  },
+  "char-bunchin": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/66/Bunchin.jpg/280px-Bunchin.jpg",
+    "portrait": {
+      "asset": "char-bunchin",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Bunchin"
+  },
+  "char-byrglaent": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/6e/Byrglaent.jpg/280px-Byrglaent.jpg",
+    "portrait": {
+      "asset": "char-byrglaent",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Byrglaent"
+  },
+  "char-cahciua": {
+    "data": "https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/TripleTriadCard.csv",
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87423,
+      "review": "reviewed"
+    },
+    "source": "Game TripleTriadCard row 423 (Cahciua)"
+  },
+  "char-calyx": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/37/Calyx_portrait.jpg/280px-Calyx_portrait.jpg",
+    "portrait": {
+      "asset": "char-calyx",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Calyx"
+  },
+  "char-crystal-exarch": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/b6/Crystal_Exarch.jpg/260px-Crystal_Exarch.jpg",
+    "portrait": {
+      "asset": "char-crystal-exarch",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Crystal_Exarch"
+  },
+  "char-curtis": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/b5/Curtis_01.jpg/243px-Curtis_01.jpg",
+    "portrait": {
+      "asset": "char-curtis",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Curtis"
+  },
+  "char-dadanen": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/68/Dadanen.jpg/280px-Dadanen.jpg",
+    "portrait": {
+      "asset": "char-dadanen",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Dadanen"
+  },
+  "char-dewlala": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/3c/Dewlala.jpg/280px-Dewlala.jpg",
+    "portrait": {
+      "asset": "char-dewlala",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Dewlala"
+  },
+  "char-doros": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/89/Doros.jpg/280px-Doros.jpg",
+    "portrait": {
+      "asset": "char-doros",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Doros"
+  },
+  "char-drest": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/d5/Drest.png/280px-Drest.png",
+    "portrait": {
+      "asset": "char-drest",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Drest"
+  },
+  "char-eline": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/4a/Eline_Roaille_portrait.jpg/280px-Eline_Roaille_portrait.jpg",
+    "portrait": {
+      "asset": "char-eline",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Eline"
+  },
+  "char-enigmatic-figure": {
+    "portrait": {
+      "crop": {
+        "size": 0.8,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 100925,
+      "review": "reviewed"
+    },
+    "source": "Game portrait also used by char-graha-tia"
+  },
+  "char-erenville": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/22/Erenville.jpg/216px-Erenville.jpg",
+    "portrait": {
+      "asset": "char-erenville",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Erenville"
+  },
+  "char-ethos": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/d8/Ethos_extracted.jpg/150px-Ethos_extracted.jpg",
+    "portrait": {
+      "asset": "char-ethos",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ethos"
+  },
+  "char-eyaney": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/52/Eyaney.jpg/213px-Eyaney.jpg",
+    "portrait": {
+      "asset": "char-eyaney",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Eyaney"
+  },
+  "char-fandaniel": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7c/Fandaniel_portrait.jpg/280px-Fandaniel_portrait.jpg",
+    "portrait": {
+      "asset": "char-fandaniel",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Fandaniel"
+  },
+  "char-fonjeantaine": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/08/Fonjeantaine.jpg/208px-Fonjeantaine.jpg",
+    "portrait": {
+      "asset": "char-fonjeantaine",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Fonjeantaine"
+  },
+  "char-fufulupa": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/0d/Fufulupa.jpg/280px-Fufulupa.jpg",
+    "portrait": {
+      "asset": "char-fufulupa",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Fufulupa"
+  },
+  "char-galfrid": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/e2/Galfrid.png/280px-Galfrid.png",
+    "portrait": {
+      "asset": "char-galfrid",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Galfrid"
+  },
+  "char-galuf": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c8/Galuf_Baldesion.png/278px-Galuf_Baldesion.png",
+    "portrait": {
+      "asset": "char-galuf",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Galuf"
+  },
+  "char-gegeruju": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/88/Gegeruju.jpg/280px-Gegeruju.jpg",
+    "portrait": {
+      "asset": "char-gegeruju",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Gegeruju"
+  },
+  "char-geode": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f6/Geode.jpg/275px-Geode.jpg",
+    "portrait": {
+      "asset": "char-geode",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Geode"
+  },
+  "char-ghimthota": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/86/Ghimthota.jpg/163px-Ghimthota.jpg",
+    "portrait": {
+      "asset": "char-ghimthota",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ghimthota"
+  },
+  "char-glaumunt": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/63/Glaumunt.png/280px-Glaumunt.png",
+    "portrait": {
+      "asset": "char-glaumunt",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Glaumunt"
+  },
+  "char-gnaeus": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/06/Gnaeus.jpg/198px-Gnaeus.jpg",
+    "portrait": {
+      "asset": "char-gnaeus",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Gnaeus"
+  },
+  "char-gossan": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/cf/Gossan.jpg/246px-Gossan.jpg",
+    "portrait": {
+      "asset": "char-gossan",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Gossan"
+  },
+  "char-grinnaux": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/55/Ser_Grinnaux.jpg/280px-Ser_Grinnaux.jpg",
+    "portrait": {
+      "asset": "char-grinnaux",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Grinnaux"
+  },
+  "char-growingway": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/9/9a/Growingway.jpg/213px-Growingway.jpg",
+    "portrait": {
+      "asset": "char-growingway",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Growingway"
+  },
+  "char-guillaime": {
+    "portrait": {
+      "crop": {
+        "size": 0.86,
+        "x": 0.835,
+        "y": 0.37
+      },
+      "gameIcon": 100143,
+      "review": "reviewed"
+    },
+    "source": "Game quest illustration: The Heretic among Us"
+  },
+  "char-gurfurlur": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f2/Gurfurlur.jpg/280px-Gurfurlur.jpg",
+    "portrait": {
+      "asset": "char-gurfurlur",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Gurfurlur"
+  },
+  "char-hakuro": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/47/Hakuro.jpg/280px-Hakuro.jpg",
+    "portrait": {
+      "asset": "char-hakuro",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Hakuro"
+  },
+  "char-halmarut": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f4/Halmarut.jpg/280px-Halmarut.jpg",
+    "portrait": {
+      "asset": "char-halmarut",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Halmarut"
+  },
+  "char-halric": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/3a/Halric.jpg/280px-Halric.jpg",
+    "portrait": {
+      "asset": "char-halric",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Halric"
+  },
+  "char-haribehrt": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/6b/Haribehrt.png/208px-Haribehrt.png",
+    "portrait": {
+      "asset": "char-haribehrt",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Haribehrt"
+  },
+  "char-hhwato": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/51/Hhwato.jpg/197px-Hhwato.jpg",
+    "portrait": {
+      "asset": "char-hhwato",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Hhwato"
+  },
+  "char-hihibaru": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/cd/Hihibaru.jpg/280px-Hihibaru.jpg",
+    "portrait": {
+      "asset": "char-hihibaru",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Hihibaru"
+  },
+  "char-hunmu-rruk": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/1/1e/Hunmu_Rruk.jpg/280px-Hunmu_Rruk.jpg",
+    "portrait": {
+      "asset": "char-hunmu-rruk",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Hunmu_Rruk"
+  },
+  "char-hydaelyn": {
+    "data": "https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/TripleTriadCard.csv",
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87345,
+      "review": "reviewed"
+    },
+    "source": "Game TripleTriadCard row 345 (Hydaelyn)"
+  },
+  "char-hyllfyr": {
+    "image": "https://i.imgur.com/DVjnik6.jpg",
+    "portrait": {
+      "asset": "char-hyllfyr",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ff14wiki.info/?NPC%E3%83%BB%E7%B5%84%E7%B9%94%2F%E6%96%AD%E7%BD%AA%E5%85%9A"
+  },
+  "char-iliud": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7d/Iliud.jpg/280px-Iliud.jpg",
+    "portrait": {
+      "asset": "char-iliud",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Iliud"
+  },
+  "char-isadora": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/29/Isadora.jpg/280px-Isadora.jpg",
+    "portrait": {
+      "asset": "char-isadora",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Isadora"
+  },
+  "char-isembard": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/5f/Isembard.jpg/280px-Isembard.jpg",
+    "portrait": {
+      "asset": "char-isembard",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Isembard"
+  },
+  "char-isse": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/43/Isse.jpg/263px-Isse.jpg",
+    "portrait": {
+      "asset": "char-isse",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Isse"
+  },
+  "char-ivaurault": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/5c/Ivaurault.jpg/149px-Ivaurault.jpg",
+    "portrait": {
+      "asset": "char-ivaurault",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ivaurault"
+  },
+  "char-ivy": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/4a/Eline_Roaille_portrait.jpg/280px-Eline_Roaille_portrait.jpg",
+    "portrait": {
+      "asset": "char-ivy",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/The_Ivy"
+  },
+  "char-iyaate": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/1/10/Iyaate.jpg/197px-Iyaate.jpg",
+    "portrait": {
+      "asset": "char-iyaate",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Iyaate"
+  },
+  "char-kai-shirr": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/2c/Kai-Shirr.png/280px-Kai-Shirr.png",
+    "portrait": {
+      "asset": "char-kai-shirr",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Kai-Shirr"
+  },
+  "char-kaien": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/78/Ganen_Rijin_IndoorStatue.jpg/300px-Ganen_Rijin_IndoorStatue.jpg",
+    "portrait": {
+      "asset": "char-kaien",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Kaien"
+  },
+  "char-kanilokka": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/b3/Overseer_Kanilokka.jpg/280px-Overseer_Kanilokka.jpg",
+    "portrait": {
+      "asset": "char-kanilokka",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Kanilokka"
+  },
+  "char-kemakka": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/bb/Kemakka.jpg/184px-Kemakka.jpg",
+    "portrait": {
+      "asset": "char-kemakka",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Kemakka"
+  },
+  "char-ketenramm": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/cc/Ketenramm1.jpeg/280px-Ketenramm1.jpeg",
+    "portrait": {
+      "asset": "char-ketenramm",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ketenramm"
+  },
+  "char-ketill": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/30/Ketill.jpg/280px-Ketill.jpg",
+    "portrait": {
+      "asset": "char-ketill",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ketill"
+  },
+  "char-khalzahl": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/66/Khalzahl.jpg/280px-Khalzahl.jpg",
+    "portrait": {
+      "asset": "char-khalzahl",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Khalzahl"
+  },
+  "char-knight-in-black": {
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87387,
+      "review": "reviewed"
+    },
+    "source": "Game portrait also used by char-golbez"
+  },
+  "char-koana": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/a/ae/Koana.jpg/279px-Koana.jpg",
+    "portrait": {
+      "asset": "char-koana",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Koana"
+  },
+  "char-kokkol-dankkol": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/9/99/Kokkol_Dankkol.png/195px-Kokkol_Dankkol.png",
+    "portrait": {
+      "asset": "char-kokkol-dankkol",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Kokkol_Dankkol"
+  },
+  "char-komuxio": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/a/a1/Komuxio.jpg/280px-Komuxio.jpg",
+    "portrait": {
+      "asset": "char-komuxio",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Komuxio"
+  },
+  "char-korutt": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c0/Korutt.jpg/280px-Korutt.jpg",
+    "portrait": {
+      "asset": "char-korutt",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Korutt"
+  },
+  "char-landenel": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/51/Landenel.jpg/280px-Landenel.jpg",
+    "portrait": {
+      "asset": "char-landenel",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Landenel"
+  },
+  "char-laurentius": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c5/Laurentius_portrait.jpg/280px-Laurentius_portrait.jpg",
+    "portrait": {
+      "asset": "char-laurentius",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Laurentius"
+  },
+  "char-leofric": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/87/Leofric.jpg/280px-Leofric.jpg",
+    "portrait": {
+      "asset": "char-leofric",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Leofric"
+  },
+  "char-lewin": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/dd/Lewin.jpg/249px-Lewin.jpg",
+    "portrait": {
+      "asset": "char-lewin",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Lewin"
+  },
+  "char-licinia": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/bc/Licinia.jpg/255px-Licinia.jpg",
+    "portrait": {
+      "asset": "char-licinia",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Licinia"
+  },
+  "char-lilira": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f3/Lilira.jpg/280px-Lilira.jpg",
+    "portrait": {
+      "asset": "char-lilira",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Lilira"
+  },
+  "char-linuhanu": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f2/Linuhanu.jpg/280px-Linuhanu.jpg",
+    "portrait": {
+      "asset": "char-linuhanu",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Linuhanu"
+  },
+  "char-lithander": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/09/Lithander.jpg/259px-Lithander.jpg",
+    "portrait": {
+      "asset": "char-lithander",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Lithander"
+  },
+  "char-livingway": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/62/Livingway.jpg/235px-Livingway.jpg",
+    "portrait": {
+      "asset": "char-livingway",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Livingway"
+  },
+  "char-lumull": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/0e/Lumull.jpg/235px-Lumull.jpg",
+    "portrait": {
+      "asset": "char-lumull",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Lumull"
+  },
+  "char-m-017": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/be/M-017.jpg/280px-M-017.jpg",
+    "portrait": {
+      "asset": "char-m-017",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/M-017"
+  },
+  "char-mablu": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/b2/Mablu.jpg/275px-Mablu.jpg",
+    "portrait": {
+      "asset": "char-mablu",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Mablu"
+  },
+  "char-mahuwsa": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c7/Mahuwsa.jpg/280px-Mahuwsa.jpg",
+    "portrait": {
+      "asset": "char-mahuwsa",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Mahuwsa"
+  },
+  "char-malachite": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/b7/Malachite_%28NPC%29.jpg/266px-Malachite_%28NPC%29.jpg",
+    "portrait": {
+      "asset": "char-malachite",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Malachite_(NPC)"
+  },
+  "char-marques": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/9/9c/Marques.png/280px-Marques.png",
+    "portrait": {
+      "asset": "char-marques",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Marques"
+  },
+  "char-masked-mage": {
+    "image": "https://4.bp.blogspot.com/-4gAvFf-tnLU/VPjkmbx-ZNI/AAAAAAAABPA/dTeJSMHx73U/s1600/ffxiv_03012015_195955.png",
+    "portrait": {
+      "asset": "char-masked-mage",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://gamergirlconfessions.blogspot.com/2015/03/ffxiv-main-story-bonanza.html"
+  },
+  "char-masked-man": {
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.42
+      },
+      "gameIcon": 87050,
+      "review": "reviewed"
+    },
+    "source": "Game portrait also used by char-urianger"
+  },
+  "char-matsya": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/82/Matsya.jpg/280px-Matsya.jpg",
+    "portrait": {
+      "asset": "char-matsya",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Matsya"
+  },
+  "char-maxima": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/3b/Maxima.jpg/280px-Maxima.jpg",
+    "portrait": {
+      "asset": "char-maxima",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Maxima"
+  },
+  "char-medrod": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/56/Medrod.jpg/280px-Medrod.jpg",
+    "portrait": {
+      "asset": "char-medrod",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Medrod"
+  },
+  "char-meffrid": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/65/Meffrid.jpg/256px-Meffrid.jpg",
+    "portrait": {
+      "asset": "char-meffrid",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Meffrid"
+  },
+  "char-mettius": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/47/Mettius.jpg/204px-Mettius.jpg",
+    "portrait": {
+      "asset": "char-mettius",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Mettius"
+  },
+  "char-miayli": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/39/Miayli.jpg/268px-Miayli.jpg",
+    "portrait": {
+      "asset": "char-miayli",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Miayli"
+  },
+  "char-miilal-ja": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/43/Miilal_Ja.jpg/278px-Miilal_Ja.jpg",
+    "portrait": {
+      "asset": "char-miilal-ja",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Miilal_Ja"
+  },
+  "char-milos": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/68/Milos_portrait.jpg/280px-Milos_portrait.jpg",
+    "portrait": {
+      "asset": "char-milos",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Milos"
+  },
+  "char-montichaigne": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/5c/Montichaigne.jpg/280px-Montichaigne.jpg",
+    "portrait": {
+      "asset": "char-montichaigne",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Montichaigne"
+  },
+  "char-nabriales": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/72/Nabriales.jpg/280px-Nabriales.jpg",
+    "portrait": {
+      "asset": "char-nabriales",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Nabriales"
+  },
+  "char-namikka": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c0/Namikka.jpg/280px-Namikka.jpg",
+    "portrait": {
+      "asset": "char-namikka",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Namikka"
+  },
+  "char-nidhana": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/d7/Nidhana.jpg/280px-Nidhana.jpg",
+    "portrait": {
+      "asset": "char-nidhana",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Nidhana"
+  },
+  "char-nostalgia": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/0f/Nostalgia.jpg/246px-Nostalgia.jpg",
+    "portrait": {
+      "asset": "char-nostalgia",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Nostalgia"
+  },
+  "char-ourcen": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/9/91/Ourcen_portrait.jpg/280px-Ourcen_portrait.jpg",
+    "portrait": {
+      "asset": "char-ourcen",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ourcen"
+  },
+  "char-owyne": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7b/Owyne.jpg/280px-Owyne.jpg",
+    "portrait": {
+      "asset": "char-owyne",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Owyne"
+  },
+  "char-papashan": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/4d/Papashan.jpg/280px-Papashan.jpg",
+    "portrait": {
+      "asset": "char-papashan",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Papashan"
+  },
+  "char-rediroq": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f5/Rediroq.jpg/280px-Rediroq.jpg",
+    "portrait": {
+      "asset": "char-rediroq",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Rediroq"
+  },
+  "char-reyner": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/ee/Reyner.jpg/280px-Reyner.jpg",
+    "portrait": {
+      "asset": "char-reyner",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Reyner"
+  },
+  "char-robor": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/1/12/Robor.jpg/280px-Robor.jpg",
+    "portrait": {
+      "asset": "char-robor",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Robor"
+  },
+  "char-sareel-ja": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/39/Sareel_Ja.jpg/280px-Sareel_Ja.jpg",
+    "portrait": {
+      "asset": "char-sareel-ja",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Sareel_Ja"
+  },
+  "char-sarisha": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/63/Sarisha.jpg/243px-Sarisha.jpg",
+    "portrait": {
+      "asset": "char-sarisha",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Sarisha"
+  },
+  "char-sevrin": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/5/5a/Sevrin.jpg",
+    "portrait": {
+      "asset": "char-sevrin",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Sevrin"
+  },
+  "char-shadowhunter": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7d/Gaius.jpg/280px-Gaius.jpg",
+    "portrait": {
+      "asset": "char-shadowhunter",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Shadowhunter"
+  },
+  "char-shale": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7a/Shale.jpg/262px-Shale.jpg",
+    "portrait": {
+      "asset": "char-shale",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Shale"
+  },
+  "char-shamani": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/df/Shamani.jpg/269px-Shamani.jpg",
+    "portrait": {
+      "asset": "char-shamani",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Shamani_Lohmani"
+  },
+  "char-shanti": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/a/a9/Shanti_01.jpg/255px-Shanti_01.jpg",
+    "portrait": {
+      "asset": "char-shanti",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Shanti"
+  },
+  "char-shepetto": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/a/a7/Shepetto.jpg/228px-Shepetto.jpg",
+    "portrait": {
+      "asset": "char-shepetto",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Shepetto"
+  },
+  "char-shiosai": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/b6/Shiosai.jpg/280px-Shiosai.jpg",
+    "portrait": {
+      "asset": "char-shiosai",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Shiosai"
+  },
+  "char-sicard": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/77/Sicard_portrait.jpg/280px-Sicard_portrait.jpg",
+    "portrait": {
+      "asset": "char-sicard",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Sicard"
+  },
+  "char-simulant": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/bc/Sphene.jpg/280px-Sphene.jpg",
+    "portrait": {
+      "asset": "char-simulant",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/simulant"
+  },
+  "char-slafborn": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/d0/Slafborn.jpg/280px-Slafborn.jpg",
+    "portrait": {
+      "asset": "char-slafborn",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Slafborn"
+  },
+  "char-solus": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/d9/Solus_zos_Galvus_concept_art.png/253px-Solus_zos_Galvus_concept_art.png",
+    "portrait": {
+      "asset": "char-solus",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Solus"
+  },
+  "char-soroban": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/ea/Soroban.jpg/259px-Soroban.jpg",
+    "portrait": {
+      "asset": "char-soroban",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Soroban"
+  },
+  "char-stark": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/76/Stark_Woad.jpg/272px-Stark_Woad.jpg",
+    "portrait": {
+      "asset": "char-stark",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Stark_Woad"
+  },
+  "char-stigma-1": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/70/The_Stigma_Dreamscape.png/280px-The_Stigma_Dreamscape.png",
+    "portrait": {
+      "asset": "char-stigma-1",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/The_Stigma_Dreamscape"
+  },
+  "char-swift": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/eb/Swift.jpg/274px-Swift.jpg",
+    "portrait": {
+      "asset": "char-swift",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/swift"
+  },
+  "char-teeshal-ja": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/1/14/Teeshal_Ja.jpg/280px-Teeshal_Ja.jpg",
+    "portrait": {
+      "asset": "char-teeshal-ja",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Teeshal_Ja"
+  },
+  "char-teledji": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/3e/Teledji_Adeledji.jpg/280px-Teledji_Adeledji.jpg",
+    "portrait": {
+      "asset": "char-teledji",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Teledji"
+  },
+  "char-temulun": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/d/d7/Temulun_01.jpg/261px-Temulun_01.jpg",
+    "portrait": {
+      "asset": "char-temulun",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Temulun"
+  },
+  "char-tesleen": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/fe/Tesleen.jpg/280px-Tesleen.jpg",
+    "portrait": {
+      "asset": "char-tesleen",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Tesleen"
+  },
+  "char-theodoric": {
+    "image": "https://ffxiv.gamerescape.com/w/images/thumb/a/ac/Theodoric.png/220px-Theodoric.png",
+    "portrait": {
+      "asset": "char-theodoric",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.gamerescape.com/wiki/Theodoric"
+  },
+  "char-tobli": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c9/Tobli.jpg/231px-Tobli.jpg",
+    "portrait": {
+      "asset": "char-tobli",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Tobli"
+  },
+  "char-trachtoum": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/e3/Trachtoum.jpg/280px-Trachtoum.jpg",
+    "portrait": {
+      "asset": "char-trachtoum",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Trachtoum"
+  },
+  "char-tristol": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/00/Tristol_portrait.jpg/280px-Tristol_portrait.jpg",
+    "portrait": {
+      "asset": "char-tristol",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Tristol"
+  },
+  "char-tsuranuki": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/28/Tsuranuki.jpg/240px-Tsuranuki.jpg",
+    "portrait": {
+      "asset": "char-tsuranuki",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Tsuranuki"
+  },
+  "char-ungust": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/1/15/Ungust.png/232px-Ungust.png",
+    "portrait": {
+      "asset": "char-ungust",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ungust"
+  },
+  "char-uodh-nunh": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/2e/Uodh_Nunh.png/280px-Uodh_Nunh.png",
+    "portrait": {
+      "asset": "char-uodh-nunh",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/U%27odh_Nunh"
+  },
+  "char-ursandel": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/e/ef/Ursandel_portrait.jpg/280px-Ursandel_portrait.jpg",
+    "portrait": {
+      "asset": "char-ursandel",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Ursandel"
+  },
+  "char-vauthry": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/fa/Lord_Vauthry_portrait.jpg/280px-Lord_Vauthry_portrait.jpg",
+    "portrait": {
+      "asset": "char-vauthry",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Vauthry"
+  },
+  "char-venat": {
+    "data": "https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/TripleTriadCard.csv",
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87377,
+      "review": "reviewed"
+    },
+    "source": "Game TripleTriadCard row 377 (Venat)"
+  },
+  "char-vergilia": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f8/Vergilia.jpg/280px-Vergilia.jpg",
+    "portrait": {
+      "asset": "char-vergilia",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Vergilia"
+  },
+  "char-visna": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c7/Visna.jpg/280px-Visna.jpg",
+    "portrait": {
+      "asset": "char-visna",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Visna"
+  },
+  "char-vorporlor": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/30/Vorporlor.jpg/280px-Vorporlor.jpg",
+    "portrait": {
+      "asset": "char-vorporlor",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Vorporlor"
+  },
+  "char-vorsaile": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/a/a6/Vorsaile_Heuloix.jpg/235px-Vorsaile_Heuloix.jpg",
+    "portrait": {
+      "asset": "char-vorsaile",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Vorsaile"
+  },
+  "char-vulture": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/69/Wihuwte.jpg/194px-Wihuwte.jpg",
+    "portrait": {
+      "asset": "char-wihuwte",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wihuwte"
+  },
+  "char-watcher": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/bd/The_Watcher_%28NPC%29.jpg/280px-The_Watcher_%28NPC%29.jpg",
+    "portrait": {
+      "asset": "char-watcher",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/The_Watcher_(NPC)"
+  },
+  "char-wawkesa": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/f/f2/Wawkesa.jpg/193px-Wawkesa.jpg",
+    "portrait": {
+      "asset": "char-wawkesa",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wawkesa"
+  },
+  "char-wawlika": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/4/48/Wawlika.jpg/280px-Wawlika.jpg",
+    "portrait": {
+      "asset": "char-wawlika",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wawlika"
+  },
+  "char-wayakkwe": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/c/c1/Wayakkwe.jpg/264px-Wayakkwe.jpg",
+    "portrait": {
+      "asset": "char-wayakkwe",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wayakkwe"
+  },
+  "char-white-robed-figure": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/7/7c/Fandaniel_portrait.jpg/280px-Fandaniel_portrait.jpg",
+    "portrait": {
+      "asset": "char-fandaniel",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Fandaniel"
+  },
+  "char-wihuwte": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/6/69/Wihuwte.jpg/194px-Wihuwte.jpg",
+    "portrait": {
+      "asset": "char-wihuwte",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wihuwte"
+  },
+  "char-wilfsunn": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/86/Wilfsunn.png/239px-Wilfsunn.png",
+    "portrait": {
+      "asset": "char-wilfsunn",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wilfsunn"
+  },
+  "char-wilred": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/a/a0/Wilred_Crystal_Braves.jpg/280px-Wilred_Crystal_Braves.jpg",
+    "portrait": {
+      "asset": "char-wilred",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wilred"
+  },
+  "char-wiscar": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/81/Wiscar_1.jpg/240px-Wiscar_1.jpg",
+    "portrait": {
+      "asset": "char-wiscar",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wiscar"
+  },
+  "char-wrenden": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/0/07/Wrenden.png/169px-Wrenden.png",
+    "portrait": {
+      "asset": "char-wrenden",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wrenden"
+  },
+  "char-wuk-evu": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/23/Wuk_Evu.jpg/271px-Wuk_Evu.jpg",
+    "portrait": {
+      "asset": "char-wuk-evu",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wuk_Evu"
+  },
+  "char-wystan": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/5/50/Wystan_portrait.jpg/280px-Wystan_portrait.jpg",
+    "portrait": {
+      "asset": "char-wystan",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Wystan"
+  },
+  "char-yuyuhase": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/3/31/Yuyuhase_Crystal_Braves_portrait.jpg/280px-Yuyuhase_Crystal_Braves_portrait.jpg",
+    "portrait": {
+      "asset": "char-yuyuhase",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Yuyuhase"
+  },
+  "char-za-da": {
+    "image": "https://ff14.tabibun.net/npc/img/npc/1353_s.jpg",
+    "portrait": {
+      "asset": "char-za-da",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ff14.tabibun.net/npc/1352/"
+  },
+  "char-zander": {
+    "image": "https://consolegameswiki.com/mediawiki/images/thumb/8/8b/Vanguard_boss.jpg/1067px-Vanguard_boss.jpg",
+    "portrait": {
+      "asset": "char-zander",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Vanguard"
+  },
+  "char-zanuhali": {
+    "image": "https://cdn-ak.f.st-hatena.com/images/fotolife/l/leossan/20240712/20240712210039.png",
+    "portrait": {
+      "asset": "char-zanuhali",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://www.leossan-2nd.com/entry/2024/07/14/FF14_%E9%BB%84%E9%87%91%E3%81%AE%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%83%97%E3%83%AC%E3%82%A4%E6%97%A5%E8%A8%98%E2%91%A4"
+  },
+  "char-zekowa": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/2/22/Zekowa.jpg/200px-Zekowa.jpg",
+    "portrait": {
+      "asset": "char-zekowa",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Zekowa"
+  },
+  "char-zephirin": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/8/8e/Ser_Zephirin.jpg/280px-Ser_Zephirin.jpg",
+    "portrait": {
+      "asset": "char-zephirin",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Zephirin"
+  },
+  "char-zereel-ja": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/9/95/Zereel_Ja.jpg/280px-Zereel_Ja.jpg",
+    "portrait": {
+      "asset": "char-zereel-ja",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Zereel_Ja"
+  },
+  "char-zero": {
+    "data": "https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/TripleTriadCard.csv",
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87467,
+      "review": "reviewed"
+    },
+    "source": "Game TripleTriadCard row 467 (Zero)"
+  },
+  "char-zodiark": {
+    "data": "https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/TripleTriadCard.csv",
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87344,
+      "review": "reviewed"
+    },
+    "source": "Game TripleTriadCard row 344 (Zodiark)"
+  },
+  "char-zoraal-ja": {
+    "data": "https://github.com/xivapi/ffxiv-datamining/blob/master/csv/en/TripleTriadCard.csv",
+    "portrait": {
+      "crop": {
+        "size": 0.75,
+        "x": 0.5,
+        "y": 0.4
+      },
+      "gameIcon": 87419,
+      "review": "reviewed"
+    },
+    "source": "Game TripleTriadCard row 419 (Zoraal Ja)"
+  },
+  "char-zurmurwur": {
+    "image": "https://ffxiv.consolegameswiki.com/mediawiki/images/thumb/b/bd/Zurmurwur.jpg/280px-Zurmurwur.jpg",
+    "portrait": {
+      "asset": "char-zurmurwur",
+      "crop": {
+        "size": 1,
+        "x": 0.5,
+        "y": 0.5
+      },
+      "review": "reviewed"
+    },
+    "source": "https://ffxiv.consolegameswiki.com/wiki/Zurmurwur"
+  }
+}

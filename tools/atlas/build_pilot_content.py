@@ -931,10 +931,13 @@ PORTRAITS = {
 }
 
 import portraits_later
+COVERAGE_PORTRAITS = json.loads((pathlib.Path(__file__).with_name("npc_portraits.json")).read_text(encoding="utf-8"))
 assert not set(portraits_later.PORTRAITS) & set(PORTRAITS), "portrait defined twice"
 PORTRAITS.update(portraits_later.PORTRAITS)
 
 def portrait_record(eid):
+    if eid in COVERAGE_PORTRAITS:
+        return COVERAGE_PORTRAITS[eid]["portrait"]
     icon, x, y, size, source = PORTRAITS[eid]
     record = {"gameIcon": icon, "crop": {"x": x, "y": y, "size": size}}
     return with_review(("portrait", eid), record, {"source": source})
@@ -1379,7 +1382,7 @@ doc = {
   "checkpoints": CHECKPOINTS,
   "relationshipTypes": [{"id": i, "outgoingLabel": o, "incomingLabel": n, "symmetric": s} for i, o, n, s in TYPES],
   "entities": [
-    {"id": eid, "category": cat, **({"portrait": portrait_record(eid)} if eid in PORTRAITS else {}), "presentations": [
+    {"id": eid, "category": cat, **({"portrait": portrait_record(eid)} if eid in PORTRAITS or eid in COVERAGE_PORTRAITS else {}), "presentations": [
       with_review(("presentation", eid, p["frm"], p["scope"]),
         {"validFrom": p["frm"], "validUntil": p["until"], "scope": p["scope"], "name": p["name"], "aliases": p["aliases"],
          "summary": p["summary"], "citations": [citation(k) for k in cites(p["claims"])]},
@@ -1392,7 +1395,8 @@ doc = {
 
 # An accepted key that no longer exists means a record was renamed or deleted: fail loudly instead of drifting.
 EMITTED_KEYS = {("presentation", e["id"], pr["validFrom"], pr["scope"]) for e in doc["entities"] for pr in e["presentations"]} | {("relationship", r["id"]) for r in doc["relationships"]} | {("portrait", e["id"]) for e in doc["entities"] if "portrait" in e}
-assert LINT_ONLY or set(PORTRAITS) <= {e["id"] for e in doc["entities"]}, "PORTRAITS names an unknown entity"
+assert not set(PORTRAITS) & set(COVERAGE_PORTRAITS), "portrait defined twice"
+assert LINT_ONLY or (set(PORTRAITS) | set(COVERAGE_PORTRAITS)) <= {e["id"] for e in doc["entities"]}, "PORTRAITS names an unknown entity"
 MISSING = missing_accepted(ACCEPTED_CORE, EMITTED_KEYS)  # stale ACCEPTED_LATER keys are dropped by --accept-pending
 if MISSING:
     sys.exit(f"ACCEPTED lists records that no longer exist: {MISSING}")
@@ -1716,11 +1720,18 @@ if ARCS:
             w(f"| {CP_SHORT[cid]} | {p['name']} | {p['summary']} | {status} | {', '.join(members)} ({len(members)}) |")
         w("")
 w("## Portraits\n")
-w("Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. "
+w("Portraits use game icons or bundled image crops. "
   "The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).\n")
 w("| Entity | Source in the game | Icon | Crop (x, y, size) |\n|---|---|---|---|")
 for eid, _, _ in ENT:
-    if eid in PORTRAITS:
+    if eid in COVERAGE_PORTRAITS:
+        entry = COVERAGE_PORTRAITS[eid]
+        portrait = entry["portrait"]
+        crop = portrait["crop"]
+        source = entry["source"]
+        label = f"[Source]({source})" if source.startswith("https://") else source
+        w(f'| {NAME[eid]} | {label} | {portrait.get("gameIcon") or portrait["asset"]} | {crop["x"]}, {crop["y"]}, {crop["size"]} |')
+    elif eid in PORTRAITS:
         icon, x, y, size, source = PORTRAITS[eid]
         w(f"| {NAME[eid]} | {source} | {icon} | {x}, {y}, {size} |")
     else:

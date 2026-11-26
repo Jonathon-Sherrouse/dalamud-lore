@@ -26,7 +26,7 @@ This toggles the Atlas window. It works offline and needs no OpenAI key.
   - **Story point** is the v1 browser described above.
   - **Changes** lists what this point added, ended or redescribed compared with the one before. Only an ended row shows **Sources for the ending**.
   - Until you pick a lens or an arc, the window chooses for you each time the view changes: Arc inside an arc, Story point elsewhere. A pick lasts until the window closes and is never saved.
-- **Portraits.** Most entries show a picture from the game's own data (Triple Triad cards, quest and duty art) in a ring of their category colour, with their shape as a small badge. The Waking Sands has none, so it keeps its shape. Pictures load from your game install; the plugin ships none.
+- **Portraits.** Most entries show a picture from the game's own data (Triple Triad cards, quest and duty art) in a ring of their category colour, with their shape as a small badge. The Waking Sands has none, so it keeps its shape. Game icons load from your installation. Bundled face crops fill out the character roster, including some revealed identities and later forms. See [NPC portrait coverage](npc-portrait-coverage.md).
 - **Open Atlas** in the Lore Explain window opens this window. It passes nothing across; the Atlas keeps its own spoiler limit and view.
 
 **Dictionary previews** in the footer starts off. The first time you enable it, confirm the warning about later-story spoilers. Matching words and phrases in entry summaries and arc recaps get a dotted underline. Hover over a match for its definition, or click it to open that entry in the Dictionary. Turn previews off in the same spot. Your acknowledgement is remembered if you turn them back on.

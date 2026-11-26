@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Content Include="../NpcDialogueLinks/terms.json" Link="terms.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../NpcDialogueLinks/atlas-portraits/*.png" Link="wwwroot/atlas-portraits/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Content Update="sample-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Update="sample-arc-atlas.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Update="wwwroot/**" CopyToOutputDirectory="PreserveNewest" />

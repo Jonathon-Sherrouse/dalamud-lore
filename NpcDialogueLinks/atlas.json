@@ -33590,6 +33590,15 @@
     {
       "id": "char-iliud",
       "category": "character",
+      "portrait": {
+        "asset": "char-iliud",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-106",
@@ -33640,6 +33649,15 @@
     {
       "id": "char-marques",
       "category": "character",
+      "portrait": {
+        "asset": "char-marques",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-34",
@@ -34440,6 +34458,15 @@
     {
       "id": "char-guillaime",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.86,
+          "x": 0.835,
+          "y": 0.37
+        },
+        "gameIcon": 100143,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-113",
@@ -35347,6 +35374,15 @@
     {
       "id": "char-glaumunt",
       "category": "character",
+      "portrait": {
+        "asset": "char-glaumunt",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-148",
@@ -38003,6 +38039,15 @@
     {
       "id": "char-slafborn",
       "category": "character",
+      "portrait": {
+        "asset": "char-slafborn",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-165",
@@ -39289,6 +39334,15 @@
     {
       "id": "char-hydaelyn",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87345,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-4",
@@ -40581,6 +40635,15 @@
     {
       "id": "char-teledji",
       "category": "character",
+      "portrait": {
+        "asset": "char-teledji",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-174",
@@ -52613,6 +52676,15 @@
     {
       "id": "char-eline",
       "category": "character",
+      "portrait": {
+        "asset": "char-eline",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-210",
@@ -52723,6 +52795,15 @@
     {
       "id": "char-ivy",
       "category": "character",
+      "portrait": {
+        "asset": "char-ivy",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-200",
@@ -54161,6 +54242,15 @@
     {
       "id": "char-nabriales",
       "category": "character",
+      "portrait": {
+        "asset": "char-nabriales",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-224",
@@ -54207,6 +54297,15 @@
     {
       "id": "char-yuyuhase",
       "category": "character",
+      "portrait": {
+        "asset": "char-yuyuhase",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-208",
@@ -54328,6 +54427,15 @@
     {
       "id": "char-alianne",
       "category": "character",
+      "portrait": {
+        "asset": "char-alianne",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-201",
@@ -54393,6 +54501,15 @@
     {
       "id": "char-wilred",
       "category": "character",
+      "portrait": {
+        "asset": "char-wilred",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-75",
@@ -58080,6 +58197,15 @@
     {
       "id": "char-grinnaux",
       "category": "character",
+      "portrait": {
+        "asset": "char-grinnaux",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-259",
@@ -58105,6 +58231,15 @@
     {
       "id": "char-zephirin",
       "category": "character",
+      "portrait": {
+        "asset": "char-zephirin",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-260",
@@ -59193,6 +59328,15 @@
     {
       "id": "char-dewlala",
       "category": "character",
+      "portrait": {
+        "asset": "char-dewlala",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-263",
@@ -62397,6 +62541,15 @@
     {
       "id": "char-masked-man",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.42
+        },
+        "gameIcon": 87050,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-366",
@@ -67710,6 +67863,15 @@
     {
       "id": "char-meffrid",
       "category": "character",
+      "portrait": {
+        "asset": "char-meffrid",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-69",
@@ -69224,6 +69386,15 @@
     {
       "id": "char-soroban",
       "category": "character",
+      "portrait": {
+        "asset": "char-soroban",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-414",
@@ -73298,6 +73469,15 @@
     {
       "id": "char-bunchin",
       "category": "character",
+      "portrait": {
+        "asset": "char-bunchin",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-426",
@@ -73344,6 +73524,15 @@
     {
       "id": "char-shiosai",
       "category": "character",
+      "portrait": {
+        "asset": "char-shiosai",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-428",
@@ -73416,6 +73605,15 @@
     {
       "id": "char-kaien",
       "category": "character",
+      "portrait": {
+        "asset": "char-kaien",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-428",
@@ -73497,6 +73695,15 @@
     {
       "id": "char-isse",
       "category": "character",
+      "portrait": {
+        "asset": "char-isse",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-435",
@@ -73850,6 +74057,15 @@
     {
       "id": "char-temulun",
       "category": "character",
+      "portrait": {
+        "asset": "char-temulun",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-449",
@@ -76630,6 +76846,15 @@
     {
       "id": "char-aulus",
       "category": "character",
+      "portrait": {
+        "asset": "char-aulus",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-483",
@@ -76670,6 +76895,15 @@
     {
       "id": "char-tsuranuki",
       "category": "character",
+      "portrait": {
+        "asset": "char-tsuranuki",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-468",
@@ -77037,6 +77271,15 @@
     {
       "id": "char-sarisha",
       "category": "character",
+      "portrait": {
+        "asset": "char-sarisha",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-479",
@@ -77083,6 +77326,15 @@
     {
       "id": "char-shanti",
       "category": "character",
+      "portrait": {
+        "asset": "char-shanti",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-480",
@@ -77344,6 +77596,15 @@
     {
       "id": "char-stark",
       "category": "character",
+      "portrait": {
+        "asset": "char-stark",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-491",
@@ -77390,6 +77651,15 @@
     {
       "id": "char-curtis",
       "category": "character",
+      "portrait": {
+        "asset": "char-curtis",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-485",
@@ -77430,6 +77700,15 @@
     {
       "id": "char-theodoric",
       "category": "character",
+      "portrait": {
+        "asset": "char-theodoric",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-494",
@@ -77533,6 +77812,15 @@
     {
       "id": "char-wiscar",
       "category": "character",
+      "portrait": {
+        "asset": "char-wiscar",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-497",
@@ -77579,6 +77867,15 @@
     {
       "id": "char-hakuro",
       "category": "character",
+      "portrait": {
+        "asset": "char-hakuro",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-500",
@@ -78600,6 +78897,15 @@
     {
       "id": "char-maxima",
       "category": "character",
+      "portrait": {
+        "asset": "char-maxima",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-525",
@@ -78895,6 +79201,15 @@
     {
       "id": "char-shadowhunter",
       "category": "character",
+      "portrait": {
+        "asset": "char-shadowhunter",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-527",
@@ -78975,6 +79290,15 @@
     {
       "id": "char-solus",
       "category": "character",
+      "portrait": {
+        "asset": "char-solus",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-527",
@@ -79132,6 +79456,15 @@
     {
       "id": "char-enigmatic-figure",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.8,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 100925,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-533",
@@ -80391,6 +80724,15 @@
     {
       "id": "char-crystal-exarch",
       "category": "character",
+      "portrait": {
+        "asset": "char-crystal-exarch",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-542",
@@ -81756,6 +82098,15 @@
     {
       "id": "char-vauthry",
       "category": "character",
+      "portrait": {
+        "asset": "char-vauthry",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-548",
@@ -82046,6 +82397,15 @@
     {
       "id": "char-kai-shirr",
       "category": "character",
+      "portrait": {
+        "asset": "char-kai-shirr",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-548",
@@ -82183,6 +82543,15 @@
     {
       "id": "char-tesleen",
       "category": "character",
+      "portrait": {
+        "asset": "char-tesleen",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-547b",
@@ -86165,6 +86534,15 @@
     {
       "id": "char-zodiark",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87344,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-603",
@@ -86982,6 +87360,15 @@
     {
       "id": "char-almet",
       "category": "character",
+      "portrait": {
+        "asset": "char-almet",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-596",
@@ -88066,6 +88453,15 @@
     {
       "id": "char-tristol",
       "category": "character",
+      "portrait": {
+        "asset": "char-tristol",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-627",
@@ -88617,6 +89013,15 @@
     {
       "id": "char-korutt",
       "category": "character",
+      "portrait": {
+        "asset": "char-korutt",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-631",
@@ -91051,6 +91456,15 @@
     {
       "id": "char-halric",
       "category": "character",
+      "portrait": {
+        "asset": "char-halric",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-551b",
@@ -91336,6 +91750,15 @@
     {
       "id": "char-wrenden",
       "category": "character",
+      "portrait": {
+        "asset": "char-wrenden",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-654",
@@ -91382,6 +91805,15 @@
     {
       "id": "char-venat",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87377,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-666",
@@ -91629,6 +92061,15 @@
     {
       "id": "char-white-robed-figure",
       "category": "character",
+      "portrait": {
+        "asset": "char-fandaniel",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-657",
@@ -91692,6 +92133,15 @@
     {
       "id": "char-fandaniel",
       "category": "character",
+      "portrait": {
+        "asset": "char-fandaniel",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-679",
@@ -92819,6 +93269,15 @@
     {
       "id": "char-sicard",
       "category": "character",
+      "portrait": {
+        "asset": "char-sicard",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-685",
@@ -92933,6 +93392,15 @@
     {
       "id": "char-hyllfyr",
       "category": "character",
+      "portrait": {
+        "asset": "char-hyllfyr",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-685",
@@ -93034,6 +93502,15 @@
     {
       "id": "char-za-da",
       "category": "character",
+      "portrait": {
+        "asset": "char-za-da",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-688",
@@ -94887,6 +95364,15 @@
     {
       "id": "char-erenville",
       "category": "character",
+      "portrait": {
+        "asset": "char-erenville",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-704",
@@ -95599,6 +96085,15 @@
     {
       "id": "char-montichaigne",
       "category": "character",
+      "portrait": {
+        "asset": "char-montichaigne",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-708",
@@ -95643,6 +96138,15 @@
     {
       "id": "char-ameliance",
       "category": "character",
+      "portrait": {
+        "asset": "char-ameliance",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-709",
@@ -95706,6 +96210,15 @@
     {
       "id": "char-matsya",
       "category": "character",
+      "portrait": {
+        "asset": "char-matsya",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-702b",
@@ -95831,6 +96344,15 @@
     {
       "id": "char-nidhana",
       "category": "character",
+      "portrait": {
+        "asset": "char-nidhana",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-704b",
@@ -96888,6 +97410,15 @@
     {
       "id": "char-ahewann",
       "category": "character",
+      "portrait": {
+        "asset": "char-ahewann",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-709b",
@@ -97540,6 +98071,15 @@
     {
       "id": "char-vergilia",
       "category": "character",
+      "portrait": {
+        "asset": "char-vergilia",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-725",
@@ -97774,6 +98314,15 @@
     {
       "id": "char-licinia",
       "category": "character",
+      "portrait": {
+        "asset": "char-licinia",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-726",
@@ -99158,6 +99707,15 @@
     {
       "id": "char-watcher",
       "category": "character",
+      "portrait": {
+        "asset": "char-watcher",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-738",
@@ -99367,6 +99925,15 @@
     {
       "id": "char-azem",
       "category": "character",
+      "portrait": {
+        "asset": "char-azem",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-739",
@@ -99865,6 +100432,15 @@
     {
       "id": "char-livingway",
       "category": "character",
+      "portrait": {
+        "asset": "char-livingway",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-743",
@@ -100053,6 +100629,15 @@
     {
       "id": "char-growingway",
       "category": "character",
+      "portrait": {
+        "asset": "char-growingway",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-745",
@@ -100150,6 +100735,15 @@
     {
       "id": "char-khalzahl",
       "category": "character",
+      "portrait": {
+        "asset": "char-khalzahl",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-702b",
@@ -101721,6 +102315,15 @@
     {
       "id": "char-doros",
       "category": "character",
+      "portrait": {
+        "asset": "char-doros",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-768",
@@ -102585,6 +103188,15 @@
     {
       "id": "char-kokkol-dankkol",
       "category": "character",
+      "portrait": {
+        "asset": "char-kokkol-dankkol",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-783",
@@ -102642,6 +103254,15 @@
     {
       "id": "char-wilfsunn",
       "category": "character",
+      "portrait": {
+        "asset": "char-wilfsunn",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-787",
@@ -102688,6 +103309,15 @@
     {
       "id": "char-bloewyda",
       "category": "character",
+      "portrait": {
+        "asset": "char-bloewyda",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-787",
@@ -102875,6 +103505,15 @@
     {
       "id": "char-al-end",
       "category": "character",
+      "portrait": {
+        "asset": "char-al-end",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-797",
@@ -103013,6 +103652,15 @@
     {
       "id": "char-stigma-1",
       "category": "character",
+      "portrait": {
+        "asset": "char-stigma-1",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-801",
@@ -103070,6 +103718,15 @@
     {
       "id": "char-m-017",
       "category": "character",
+      "portrait": {
+        "asset": "char-m-017",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-802",
@@ -103627,6 +104284,15 @@
     {
       "id": "char-azdaja",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.65,
+          "x": 0.35,
+          "y": 0.28
+        },
+        "gameIcon": 101272,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-811",
@@ -103989,6 +104655,15 @@
     {
       "id": "char-zero",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87467,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-807",
@@ -104534,6 +105209,15 @@
     {
       "id": "char-knight-in-black",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87387,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-811",
@@ -106232,6 +106916,15 @@
     {
       "id": "char-galuf",
       "category": "character",
+      "portrait": {
+        "asset": "char-galuf",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-700",
@@ -106391,6 +107084,15 @@
     {
       "id": "char-gnaeus",
       "category": "character",
+      "portrait": {
+        "asset": "char-gnaeus",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-837",
@@ -106454,6 +107156,15 @@
     {
       "id": "char-mettius",
       "category": "character",
+      "portrait": {
+        "asset": "char-mettius",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-837",
@@ -108324,6 +109035,15 @@
     {
       "id": "char-koana",
       "category": "character",
+      "portrait": {
+        "asset": "char-koana",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-852",
@@ -109201,6 +109921,15 @@
     {
       "id": "char-zoraal-ja",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87419,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-855",
@@ -109743,6 +110472,15 @@
     {
       "id": "char-bakool-ja-ja",
       "category": "character",
+      "portrait": {
+        "asset": "char-bakool-ja-ja",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-857",
@@ -110073,6 +110811,15 @@
     {
       "id": "char-sareel-ja",
       "category": "character",
+      "portrait": {
+        "asset": "char-sareel-ja",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-858",
@@ -110238,6 +110985,15 @@
     {
       "id": "char-ketenramm",
       "category": "character",
+      "portrait": {
+        "asset": "char-ketenramm",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-857",
@@ -110450,6 +111206,15 @@
     {
       "id": "char-zanuhali",
       "category": "character",
+      "portrait": {
+        "asset": "char-zanuhali",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-860",
@@ -110490,6 +111255,15 @@
     {
       "id": "char-linuhanu",
       "category": "character",
+      "portrait": {
+        "asset": "char-linuhanu",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-861",
@@ -110547,6 +111321,15 @@
     {
       "id": "char-wuk-evu",
       "category": "character",
+      "portrait": {
+        "asset": "char-wuk-evu",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-862",
@@ -110610,6 +111393,15 @@
     {
       "id": "char-tobli",
       "category": "character",
+      "portrait": {
+        "asset": "char-tobli",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-860b",
@@ -110679,6 +111471,15 @@
     {
       "id": "char-mablu",
       "category": "character",
+      "portrait": {
+        "asset": "char-mablu",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-861b",
@@ -110736,6 +111537,15 @@
     {
       "id": "char-fonjeantaine",
       "category": "character",
+      "portrait": {
+        "asset": "char-fonjeantaine",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-872",
@@ -110816,6 +111626,15 @@
     {
       "id": "char-rediroq",
       "category": "character",
+      "portrait": {
+        "asset": "char-rediroq",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-874",
@@ -110873,6 +111692,15 @@
     {
       "id": "char-wawkesa",
       "category": "character",
+      "portrait": {
+        "asset": "char-wawkesa",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-879",
@@ -110913,6 +111741,15 @@
     {
       "id": "char-zurmurwur",
       "category": "character",
+      "portrait": {
+        "asset": "char-zurmurwur",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-883",
@@ -110953,6 +111790,15 @@
     {
       "id": "char-gurfurlur",
       "category": "character",
+      "portrait": {
+        "asset": "char-gurfurlur",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-883",
@@ -111031,6 +111877,15 @@
     {
       "id": "char-vorporlor",
       "category": "character",
+      "portrait": {
+        "asset": "char-vorporlor",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-885",
@@ -112763,6 +113618,15 @@
     {
       "id": "char-cahciua",
       "category": "character",
+      "portrait": {
+        "crop": {
+          "size": 0.75,
+          "x": 0.5,
+          "y": 0.4
+        },
+        "gameIcon": 87423,
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-903",
@@ -113116,6 +113980,15 @@
     {
       "id": "char-namikka",
       "category": "character",
+      "portrait": {
+        "asset": "char-namikka",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-907",
@@ -113316,6 +114189,15 @@
     {
       "id": "char-hunmu-rruk",
       "category": "character",
+      "portrait": {
+        "asset": "char-hunmu-rruk",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-892",
@@ -113545,6 +114427,15 @@
     {
       "id": "char-zereel-ja",
       "category": "character",
+      "portrait": {
+        "asset": "char-zereel-ja",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-898",
@@ -113608,6 +114499,15 @@
     {
       "id": "char-miilal-ja",
       "category": "character",
+      "portrait": {
+        "asset": "char-miilal-ja",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-898",
@@ -113992,6 +114892,15 @@
     {
       "id": "char-zekowa",
       "category": "character",
+      "portrait": {
+        "asset": "char-zekowa",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-906",
@@ -114083,6 +114992,15 @@
     {
       "id": "char-iyaate",
       "category": "character",
+      "portrait": {
+        "asset": "char-iyaate",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-907",
@@ -114129,6 +115047,15 @@
     {
       "id": "char-wihuwte",
       "category": "character",
+      "portrait": {
+        "asset": "char-wihuwte",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-909",
@@ -114173,6 +115100,15 @@
     {
       "id": "char-vulture",
       "category": "character",
+      "portrait": {
+        "asset": "char-wihuwte",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-908",
@@ -114259,6 +115195,15 @@
     {
       "id": "char-kemakka",
       "category": "character",
+      "portrait": {
+        "asset": "char-kemakka",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-909",
@@ -114322,6 +115267,15 @@
     {
       "id": "char-wawlika",
       "category": "character",
+      "portrait": {
+        "asset": "char-wawlika",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-911",
@@ -114428,6 +115382,15 @@
     {
       "id": "char-hhwato",
       "category": "character",
+      "portrait": {
+        "asset": "char-hhwato",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-912",
@@ -114468,6 +115431,15 @@
     {
       "id": "char-zander",
       "category": "character",
+      "portrait": {
+        "asset": "char-zander",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-920",
@@ -116013,6 +116985,15 @@
     {
       "id": "char-geode",
       "category": "character",
+      "portrait": {
+        "asset": "char-geode",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-925",
@@ -116398,6 +117379,15 @@
     {
       "id": "char-shale",
       "category": "character",
+      "portrait": {
+        "asset": "char-shale",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-931",
@@ -117701,6 +118691,15 @@
     {
       "id": "char-alayla",
       "category": "character",
+      "portrait": {
+        "asset": "char-alayla",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-947",
@@ -117792,6 +118791,15 @@
     {
       "id": "char-robor",
       "category": "character",
+      "portrait": {
+        "asset": "char-robor",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-947",
@@ -118605,6 +119613,15 @@
     {
       "id": "char-wayakkwe",
       "category": "character",
+      "portrait": {
+        "asset": "char-wayakkwe",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-969",
@@ -118645,6 +119662,15 @@
     {
       "id": "char-nostalgia",
       "category": "character",
+      "portrait": {
+        "asset": "char-nostalgia",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-968",
@@ -118685,6 +119711,15 @@
     {
       "id": "char-isadora",
       "category": "character",
+      "portrait": {
+        "asset": "char-isadora",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-967",
@@ -118725,6 +119760,15 @@
     {
       "id": "char-milos",
       "category": "character",
+      "portrait": {
+        "asset": "char-milos",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-967",
@@ -118748,6 +119792,15 @@
     {
       "id": "char-mahuwsa",
       "category": "character",
+      "portrait": {
+        "asset": "char-mahuwsa",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-975",
@@ -118788,6 +119841,15 @@
     {
       "id": "char-shepetto",
       "category": "character",
+      "portrait": {
+        "asset": "char-shepetto",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-958",
@@ -118891,6 +119953,15 @@
     {
       "id": "char-gossan",
       "category": "character",
+      "portrait": {
+        "asset": "char-gossan",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-955",
@@ -118982,6 +120053,15 @@
     {
       "id": "char-teeshal-ja",
       "category": "character",
+      "portrait": {
+        "asset": "char-teeshal-ja",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-956",
@@ -119045,6 +120125,15 @@
     {
       "id": "char-kanilokka",
       "category": "character",
+      "portrait": {
+        "asset": "char-kanilokka",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-956",
@@ -119488,6 +120577,15 @@
     {
       "id": "char-simulant",
       "category": "character",
+      "portrait": {
+        "asset": "char-simulant",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-960",
@@ -119595,6 +120693,15 @@
     {
       "id": "char-calyx",
       "category": "character",
+      "portrait": {
+        "asset": "char-calyx",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-964",
@@ -119822,6 +120929,15 @@
     {
       "id": "char-malachite",
       "category": "character",
+      "portrait": {
+        "asset": "char-malachite",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-963",
@@ -119896,6 +121012,15 @@
     {
       "id": "char-lithander",
       "category": "character",
+      "portrait": {
+        "asset": "char-lithander",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-963",
@@ -120783,6 +121908,15 @@
     {
       "id": "char-miayli",
       "category": "character",
+      "portrait": {
+        "asset": "char-miayli",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-981",
@@ -120857,6 +121991,15 @@
     {
       "id": "char-lumull",
       "category": "character",
+      "portrait": {
+        "asset": "char-lumull",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-981",
@@ -120931,6 +122074,15 @@
     {
       "id": "char-eyaney",
       "category": "character",
+      "portrait": {
+        "asset": "char-eyaney",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-982",
@@ -121060,6 +122212,15 @@
     {
       "id": "char-halmarut",
       "category": "character",
+      "portrait": {
+        "asset": "char-halmarut",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-987",
@@ -121215,6 +122376,15 @@
     {
       "id": "char-ethos",
       "category": "character",
+      "portrait": {
+        "asset": "char-ethos",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-990",
@@ -121396,6 +122566,15 @@
     {
       "id": "char-visna",
       "category": "character",
+      "portrait": {
+        "asset": "char-visna",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-994",
@@ -121499,6 +122678,15 @@
     {
       "id": "char-ketill",
       "category": "character",
+      "portrait": {
+        "asset": "char-ketill",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-995",
@@ -122655,6 +123843,15 @@
     {
       "id": "char-galfrid",
       "category": "character",
+      "portrait": {
+        "asset": "char-galfrid",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-2",
@@ -122707,6 +123904,15 @@
     {
       "id": "char-lewin",
       "category": "character",
+      "portrait": {
+        "asset": "char-lewin",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-19",
@@ -122732,6 +123938,15 @@
     {
       "id": "char-masked-mage",
       "category": "character",
+      "portrait": {
+        "asset": "char-masked-mage",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-8",
@@ -123927,6 +125142,15 @@
     {
       "id": "char-sevrin",
       "category": "character",
+      "portrait": {
+        "asset": "char-sevrin",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-5b",
@@ -124013,6 +125237,15 @@
     {
       "id": "char-ahtbyrm",
       "category": "character",
+      "portrait": {
+        "asset": "char-ahtbyrm",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-13b",
@@ -124088,6 +125321,15 @@
     {
       "id": "char-ahtzapfyn",
       "category": "character",
+      "portrait": {
+        "asset": "char-ahtzapfyn",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-17b",
@@ -124140,6 +125382,15 @@
     {
       "id": "char-ghimthota",
       "category": "character",
+      "portrait": {
+        "asset": "char-ghimthota",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-16b",
@@ -124192,6 +125443,15 @@
     {
       "id": "char-reyner",
       "category": "character",
+      "portrait": {
+        "asset": "char-reyner",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-19b",
@@ -125021,6 +126281,15 @@
     {
       "id": "char-papashan",
       "category": "character",
+      "portrait": {
+        "asset": "char-papashan",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-2c",
@@ -125090,6 +126359,15 @@
     {
       "id": "char-lilira",
       "category": "character",
+      "portrait": {
+        "asset": "char-lilira",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-4c",
@@ -125155,6 +126433,15 @@
     {
       "id": "char-wystan",
       "category": "character",
+      "portrait": {
+        "asset": "char-wystan",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-8c",
@@ -125253,6 +126540,15 @@
     {
       "id": "char-dadanen",
       "category": "character",
+      "portrait": {
+        "asset": "char-dadanen",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-9c",
@@ -125299,6 +126595,15 @@
     {
       "id": "char-fufulupa",
       "category": "character",
+      "portrait": {
+        "asset": "char-fufulupa",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-12c",
@@ -125362,6 +126667,15 @@
     {
       "id": "char-leofric",
       "category": "character",
+      "portrait": {
+        "asset": "char-leofric",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-12c",
@@ -125448,6 +126762,15 @@
     {
       "id": "char-baldewyn",
       "category": "character",
+      "portrait": {
+        "asset": "char-baldewyn",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-16c",
@@ -125490,6 +126813,15 @@
     {
       "id": "char-owyne",
       "category": "character",
+      "portrait": {
+        "asset": "char-owyne",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-19c",
@@ -126563,6 +127895,15 @@
     {
       "id": "char-isembard",
       "category": "character",
+      "portrait": {
+        "asset": "char-isembard",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-31",
@@ -126644,6 +127985,15 @@
     {
       "id": "char-ungust",
       "category": "character",
+      "portrait": {
+        "asset": "char-ungust",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-33",
@@ -126713,6 +128063,15 @@
     {
       "id": "char-ourcen",
       "category": "character",
+      "portrait": {
+        "asset": "char-ourcen",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-34",
@@ -126866,6 +128225,15 @@
     {
       "id": "char-vorsaile",
       "category": "character",
+      "portrait": {
+        "asset": "char-vorsaile",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-43",
@@ -126966,6 +128334,15 @@
     {
       "id": "char-komuxio",
       "category": "character",
+      "portrait": {
+        "asset": "char-komuxio",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-47",
@@ -127329,6 +128706,15 @@
     {
       "id": "char-laurentius",
       "category": "character",
+      "portrait": {
+        "asset": "char-laurentius",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-58",
@@ -128518,6 +129904,15 @@
     {
       "id": "char-swift",
       "category": "character",
+      "portrait": {
+        "asset": "char-swift",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-63",
@@ -128541,6 +129936,15 @@
     {
       "id": "char-hihibaru",
       "category": "character",
+      "portrait": {
+        "asset": "char-hihibaru",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-63",
@@ -128816,6 +130220,15 @@
     {
       "id": "char-haribehrt",
       "category": "character",
+      "portrait": {
+        "asset": "char-haribehrt",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-69",
@@ -128845,6 +130258,15 @@
     {
       "id": "char-medrod",
       "category": "character",
+      "portrait": {
+        "asset": "char-medrod",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-78",
@@ -128891,6 +130313,15 @@
     {
       "id": "char-aideen",
       "category": "character",
+      "portrait": {
+        "asset": "char-aideen",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-78",
@@ -128989,6 +130420,15 @@
     {
       "id": "char-ivaurault",
       "category": "character",
+      "portrait": {
+        "asset": "char-ivaurault",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-78",
@@ -129058,6 +130498,15 @@
     {
       "id": "char-ursandel",
       "category": "character",
+      "portrait": {
+        "asset": "char-ursandel",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-83",
@@ -129104,6 +130553,15 @@
     {
       "id": "char-amandine",
       "category": "character",
+      "portrait": {
+        "asset": "char-amandine",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-84",
@@ -129135,6 +130593,15 @@
     {
       "id": "char-trachtoum",
       "category": "character",
+      "portrait": {
+        "asset": "char-trachtoum",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-85",
@@ -129300,6 +130767,15 @@
     {
       "id": "char-gegeruju",
       "category": "character",
+      "portrait": {
+        "asset": "char-gegeruju",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-88",
@@ -129350,6 +130826,15 @@
     {
       "id": "char-landenel",
       "category": "character",
+      "portrait": {
+        "asset": "char-landenel",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-90",
@@ -129396,6 +130881,15 @@
     {
       "id": "char-uodh-nunh",
       "category": "character",
+      "portrait": {
+        "asset": "char-uodh-nunh",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-91",
@@ -129471,6 +130965,15 @@
     {
       "id": "char-brayflox",
       "category": "character",
+      "portrait": {
+        "asset": "char-brayflox",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-95",
@@ -129494,6 +130997,15 @@
     {
       "id": "char-shamani",
       "category": "character",
+      "portrait": {
+        "asset": "char-shamani",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-96",
@@ -129621,6 +131133,15 @@
     {
       "id": "char-byrglaent",
       "category": "character",
+      "portrait": {
+        "asset": "char-byrglaent",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-97",
@@ -129644,6 +131165,15 @@
     {
       "id": "char-drest",
       "category": "character",
+      "portrait": {
+        "asset": "char-drest",
+        "crop": {
+          "size": 1,
+          "x": 0.5,
+          "y": 0.5
+        },
+        "review": "reviewed"
+      },
       "presentations": [
         {
           "validFrom": "cp-msq-99",

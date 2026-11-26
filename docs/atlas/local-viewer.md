@@ -25,7 +25,7 @@ Run this from the repository root, then open <http://127.0.0.1:5219/>.
 
 ### Portraits (NDL-011)
 
-The window loads portraits from the game. The viewer can't, so it reads the same images from a local cache that you fill once from your own game install:
+Both the plugin and viewer include the bundled NPC face crops. For portraits that use game icons, the viewer reads a local cache you fill from your own game installation.
 
 ```sh
 dotnet run --project tools/atlas/PortraitCache
@@ -33,7 +33,7 @@ dotnet run --project tools/atlas/PortraitCache
 
 Run it from the repository root. It finds the game's `sqpack` folder in the XIV on Mac or standard Windows install, or you pass `--game <path>` (or set `FFXIV_SQPACK`). It extracts exactly the icons named in `atlas.json`, as PNGs, into the cache folder, which is outside the repository and never committed or packaged. Run it again after the portraits change.
 
-The viewer draws each portrait with the same crop (`AtlasPortrait.Uv`), the same sizes and ring (`AtlasPortraitStyle`) and the same category badge as the window. It serves only icons named by the loaded data. Without the cache it draws the category shapes, as the window does before an icon loads.
+The viewer draws each portrait with the same crop (`AtlasPortrait.Uv`), the same sizes and ring (`AtlasPortraitStyle`) and the same category badge as the window. It serves only icons named by the loaded data. Without the cache, game-icon portraits fall back to category shapes. Bundled portraits are available directly.
 
 - **Reload data** re-reads the file from disk. Edit `atlas.json`, click it, and the saved controls are revalidated, just as after a plugin content update.
 - **On load failure** the page shows the same generic message the plugin will. The structured errors are printed in the terminal.

@@ -66,10 +66,28 @@ public class PortraitTests
         noCrop.Remove("crop");
         Fx.AssertFails(Fx.Try(WithPortrait(noCrop)), AtlasErrorCode.InvalidField);
 
-        // An image file or URL is not part of the schema: portraits only ever name a game icon.
+        // The schema accepts a bundled asset key or game icon, with no arbitrary file or URL.
         var withFile = Portrait();
         withFile["image"] = "thancred.png";
         Fx.AssertFails(Fx.Try(WithPortrait(withFile)), AtlasErrorCode.MalformedJson);
+    }
+
+    [Theory]
+    [InlineData("char-maren", false, true)]
+    [InlineData("../maren", false, false)]
+    [InlineData("char-maren", true, false)]
+    public void Portrait_AssetRequiresASafeKeyAndNoGameIcon(string asset, bool keepIcon, bool valid)
+    {
+        var portrait = Portrait();
+        if (!keepIcon)
+            portrait.Remove("gameIcon");
+        portrait["asset"] = asset;
+
+        var doc = WithPortrait(portrait);
+        if (valid)
+            Assert.Equal(asset, Fx.Project(Fx.Load(doc), Fx.Early).Entities.Single(e => e.Id == "char-maren").Portrait?.Asset);
+        else
+            Fx.AssertFails(Fx.Try(doc), AtlasErrorCode.InvalidField);
     }
 
     [Fact]
@@ -129,59 +147,28 @@ public class PortraitTests
         "char-cid", "char-gaius", "char-livia", "char-lahabrea", "org-eorzean-alliance",
     ];
 
-    /// <summary>
-    /// Entries without a portrait (2026-11-19): the Waking Sands (no usable image), entries with no faithful image in the
-    /// game data, Hydaelyn (her only card shows a later form), and two disguise identities whose faces would give them away.
-    /// </summary>
     private static readonly HashSet<string> NoPortrait =
     [
-        "loc-waking-sands", "char-glaumunt", "char-slafborn", "char-teledji", "char-nabriales", "char-yuyuhase", "char-alianne",
-        "char-wilred", "char-grinnaux", "char-zephirin", "char-dewlala", "char-guillaime", "char-iliud", "char-eline", "char-hydaelyn",
-        "org-students-of-baldesion", "org-masks", "char-ivy", "char-masked-man", "char-marques",
-        // Stormblood: no faithful image, or a face would give away a disguise (Shadowhunter, the enigmatic figure).
-        "char-aulus", "char-bunchin", "char-curtis", "char-enigmatic-figure", "char-hakuro", "char-isse", "char-kaien", "char-maxima",
-        "char-meffrid", "char-sarisha", "char-shadowhunter", "char-shanti", "char-shiosai", "char-solus", "char-soroban", "char-stark",
-        "char-temulun", "char-theodoric", "char-tsuranuki", "char-wiscar", "evt-the-siege-of-specula-imperatoris", "loc-ala-ghiri",
-        "loc-castellum-velodyna", "loc-castrum-oriens", "loc-house-of-the-fierce", "loc-namai", "loc-specula-imperatoris",
-        "org-confederacy", "org-doman-liberation-front", "org-dotharl", "org-ferae-domitae", "org-oronir", "org-populares", "org-raen",
-        "org-sekiseigumi",
-        // A Realm Reborn #1–#101: minor characters and groups with no faithful image, and the masked mage (a disguise).
-        "char-ahtbyrm", "char-ahtzapfyn", "char-aideen", "char-amandine", "char-baldewyn", "char-brayflox", "char-byrglaent",
-        "char-dadanen", "char-drest", "char-fufulupa", "char-galfrid", "char-gegeruju", "char-ghimthota", "char-haribehrt",
-        "char-hihibaru", "char-isembard", "char-ivaurault", "char-komuxio", "char-landenel", "char-laurentius", "char-leofric",
-        "char-lewin", "char-lilira", "char-masked-mage", "char-medrod", "char-ourcen", "char-owyne", "char-papashan",
-        "char-reyner", "char-sevrin", "char-shamani", "char-swift", "char-trachtoum", "char-ungust", "char-uodh-nunh",
-        "char-ursandel", "char-vorsaile", "char-wystan", "evt-a-feast-at-costa-del-sol", "loc-gridania", "loc-limsa-lominsa",
-        "loc-little-ala-mhigo", "loc-summerford-farms", "loc-uldah", "org-adventurers-guild", "org-brass-blades",
-        "org-lambs-of-dalamud", "org-sultansworn", "org-twin-adder", "org-wood-wailers", "org-yellowjackets",
-        // Shadowbringers: no faithful image, a later-expansion card only, or a face that would give away a reveal.
-        "char-almet", "char-crystal-exarch", "char-fandaniel", "char-halric", "char-hyllfyr", "char-kai-shirr", "char-korutt",
-        "char-sicard", "char-tesleen", "char-tristol", "char-vauthry", "char-venat", "char-white-robed-figure", "char-wrenden",
-        "char-za-da", "char-zodiark", "evt-homeward-bound", "evt-the-missing-mayor", "loc-amaurot", "loc-the-first",
-        "loc-the-tempest", "org-bloody-executioners", "org-children-of-the-everlasting-dark", "org-convocation-of-fourteen",
-        "org-kobolds", "org-lightwardens", "org-telophoroi",
-        // Endwalker: no faithful image, or a face or later form that would give a reveal away (Zero, Azdaja, Azem, the
-        // watcher, Al End, Stigma-1, M-017, the knight in black).
-        "char-ahewann", "char-al-end", "char-ameliance", "char-azdaja", "char-azem", "char-bloewyda", "char-doros", "char-erenville",
-        "char-galuf", "char-gnaeus", "char-growingway", "char-khalzahl", "char-knight-in-black", "char-koana", "char-kokkol-dankkol",
-        "char-licinia", "char-livingway", "char-m-017", "char-matsya", "char-mettius", "char-montichaigne", "char-nidhana",
-        "char-stigma-1", "char-vergilia", "char-watcher", "char-wilfsunn", "char-zero", "loc-bestways-burrow", "loc-ktisis-hyperboreia",
-        "loc-red-moon", "loc-tertium", "loc-the-thirteenth", "loc-tower-of-zot", "loc-tuliyollal", "loc-tural", "loc-ultima-thule",
-        "org-archfiends", "org-bureau-of-the-architect", "org-iiird-legion", "org-ilsabard-contingent", "org-ist-legion", "org-meteia",
-        "org-radiant-host", "org-xth-legion",
-        // Dawntrail: no faithful image, or a face or form that would give a reveal away (Cahciua, the Vulture and Wihuwte,
-        // Zoraal Ja, Halmarut, Calyx, the simulant).
-        "char-alayla", "char-bakool-ja-ja", "char-cahciua", "char-calyx", "char-ethos", "char-eyaney", "char-fonjeantaine",
-        "char-geode", "char-gossan", "char-gurfurlur", "char-halmarut", "char-hhwato", "char-hunmu-rruk", "char-isadora",
-        "char-iyaate", "char-kanilokka", "char-kemakka", "char-ketenramm", "char-ketill", "char-linuhanu", "char-lithander",
-        "char-lumull", "char-mablu", "char-mahuwsa", "char-malachite", "char-miayli", "char-miilal-ja", "char-milos",
-        "char-namikka", "char-nostalgia", "char-rediroq", "char-robor", "char-sareel-ja", "char-shale", "char-shepetto",
-        "char-simulant", "char-teeshal-ja", "char-tobli", "char-visna", "char-vorporlor", "char-vulture", "char-wawkesa",
-        "char-wawlika", "char-wayakkwe", "char-wihuwte", "char-wuk-evu", "char-zander", "char-zanuhali", "char-zekowa",
-        "char-zereel-ja", "char-zoraal-ja", "char-zurmurwur", "evt-the-third-promise-taken", "loc-brightploom-post",
-        "loc-earthenshire", "loc-everkeep", "loc-gladr", "loc-mist-continent", "loc-naglfar", "loc-ok-hanu",
-        "loc-wachunpelo", "loc-xak-tural", "loc-yak-tel", "loc-yyasulani", "org-daybreakers", "org-dustwatch",
-        "org-endless", "org-hhetsarro", "org-jotnar", "org-landsguard", "org-mamool-ja", "org-milalla", "org-oblivion",
+        "loc-waking-sands", "org-students-of-baldesion", "org-masks", "evt-the-siege-of-specula-imperatoris",
+        "loc-ala-ghiri", "loc-castellum-velodyna", "loc-castrum-oriens", "loc-house-of-the-fierce",
+        "loc-namai", "loc-specula-imperatoris", "org-confederacy", "org-doman-liberation-front",
+        "org-dotharl", "org-ferae-domitae", "org-oronir", "org-populares",
+        "org-raen", "org-sekiseigumi", "evt-a-feast-at-costa-del-sol", "loc-gridania",
+        "loc-limsa-lominsa", "loc-little-ala-mhigo", "loc-summerford-farms", "loc-uldah",
+        "org-adventurers-guild", "org-brass-blades", "org-lambs-of-dalamud", "org-sultansworn",
+        "org-twin-adder", "org-wood-wailers", "org-yellowjackets", "evt-homeward-bound",
+        "evt-the-missing-mayor", "loc-amaurot", "loc-the-first", "loc-the-tempest",
+        "org-bloody-executioners", "org-children-of-the-everlasting-dark", "org-convocation-of-fourteen", "org-kobolds",
+        "org-lightwardens", "org-telophoroi", "loc-bestways-burrow", "loc-ktisis-hyperboreia",
+        "loc-red-moon", "loc-tertium", "loc-the-thirteenth", "loc-tower-of-zot",
+        "loc-tuliyollal", "loc-tural", "loc-ultima-thule", "org-archfiends",
+        "org-bureau-of-the-architect", "org-iiird-legion", "org-ilsabard-contingent", "org-ist-legion",
+        "org-meteia", "org-radiant-host", "org-xth-legion", "evt-the-third-promise-taken",
+        "loc-brightploom-post", "loc-earthenshire", "loc-everkeep", "loc-gladr",
+        "loc-mist-continent", "loc-naglfar", "loc-ok-hanu", "loc-wachunpelo",
+        "loc-xak-tural", "loc-yak-tel", "loc-yyasulani", "org-daybreakers",
+        "org-dustwatch", "org-endless", "org-hhetsarro", "org-jotnar",
+        "org-landsguard", "org-mamool-ja", "org-milalla", "org-oblivion",
         "org-preservation", "org-winterers", "org-xbraal", "org-yok-huy",
     ];
 
@@ -206,7 +193,7 @@ public class PortraitTests
     [Fact]
     public void Real_PortraitsAreCardsQuestArtOrDutyArtAndTheTwinsShareOne()
     {
-        var portraits = RealPortraits.Where(p => p.Value is not null).ToDictionary(p => p.Key, p => p.Value!);
+        var portraits = RealPortraits.Where(p => p.Value is { Asset: null }).ToDictionary(p => p.Key, p => p.Value!);
         foreach (var (id, portrait) in portraits)
         {
             // Triple Triad cards (87xxx), quest illustrations (100xxx) and duty art (112xxx): nothing else.

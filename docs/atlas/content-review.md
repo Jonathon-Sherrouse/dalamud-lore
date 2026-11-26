@@ -3571,7 +3571,7 @@ From #90 *After A Modest Proposal* to #101 *After Battle Scars*. MSQ #90 *A Mode
 
 ## Portraits
 
-Each portrait is a game icon drawn from the player's own install at runtime; no image is stored in the repository or the package. The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).
+Portraits use game icons or bundled image crops. The user approved NDL-011's picks on 2026-11-15 from a page showing each crop beside its source image; the lead picked the rest on 2026-11-19 (`tools/atlas/portraits_later.py`, which lists the entries left without one and why). Crop: centre x, y and size, as fractions of the image (size of its shorter side).
 
 | Entity | Source in the game | Icon | Crop (x, y, size) |
 |---|---|---|---|
@@ -3604,16 +3604,16 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Titan | Triple Triad card #41 | 87041 | 0.5, 0.4, 0.75 |
 | Rhitahtyn | Triple Triad card #32 | 87032 | 0.5, 0.4, 0.75 |
 | Noraxia | Quest illustration, All Good Things (MSQ #106) | 100159 | 0.12, 0.5, 1.0 |
-| Iliud | none: keeps its category shape | – | – |
-| Marques | none: keeps its category shape | – | – |
+| Iliud | [Source](https://ffxiv.consolegameswiki.com/wiki/Iliud) | char-iliud | 0.5, 0.5, 1 |
+| Marques | [Source](https://ffxiv.consolegameswiki.com/wiki/Marques) | char-marques | 0.5, 0.5, 1 |
 | Garuda | Triple Triad card #42 | 87042 | 0.5, 0.4, 0.75 |
 | Francel | Quest illustration, The Rose and the Unicorn (MSQ #116) | 100138 | 0.5, 0.5, 1.0 |
 | Haurchefant | Triple Triad card #95 | 87095 | 0.5, 0.4, 0.75 |
-| Guillaime | none: keeps its category shape | – | – |
+| Guillaime | Game quest illustration: The Heretic among Us | 100143 | 0.835, 0.37, 0.86 |
 | Drillemont | Quest illustration, Ye of Little Faith (MSQ #122) | 100140 | 0.5, 0.5, 1.0 |
 | Biggs | Triple Triad card #33 (shared with Wedge, left) | 87033 | 0.38, 0.42, 0.55 |
 | Wedge | Triple Triad card #33 (shared with Biggs, upper right) | 87033 | 0.72, 0.27, 0.45 |
-| Glaumunt | none: keeps its category shape | – | – |
+| Glaumunt | [Source](https://ffxiv.consolegameswiki.com/wiki/Glaumunt) | char-glaumunt | 0.5, 0.5, 1 |
 | The Company of Heroes | Quest illustration, In the Company of Heroes (MSQ #103) | 100132 | 0.5, 0.5, 1.0 |
 | The Garlean Empire | Quest illustration, Casing the Castrum (MSQ #143) | 100147 | 0.5, 0.5, 1.0 |
 | House Haillenarte | Quest illustration, Three for Three (MSQ #115) | 100137 | 0.5, 0.5, 1.0 |
@@ -3627,15 +3627,15 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Judgment in the Twelveswood | Quest illustration, Lord of Levin (MSQ #192) | 100252 | 0.6, 0.5, 1.0 |
 | A Company for All Eorzea | Quest illustration, Guardian of Eorzea (MSQ #195) | 100255 | 0.78, 0.5, 1.0 |
 | F'lhaminn | Triple Triad card #138 | 87138 | 0.5, 0.4, 0.75 |
-| Slafborn | none: keeps its category shape | – | – |
+| Slafborn | [Source](https://ffxiv.consolegameswiki.com/wiki/Slafborn) | char-slafborn | 0.5, 0.5, 1 |
 | Kuplo Kopp | Quest illustration, Hail to the King, Kupo (MSQ #167) | 100175 | 0.42, 0.3, 0.45 |
 | Good King Moggle Mog XII | Triple Triad card #43 | 87043 | 0.5, 0.4, 0.75 |
 | Kan-E-Senna | Triple Triad card #66 | 87066 | 0.5, 0.4, 0.75 |
 | Elidibus | Triple Triad card #300 | 87300 | 0.5, 0.4, 0.75 |
-| Hydaelyn | none: keeps its category shape | – | – |
+| Hydaelyn | Game TripleTriadCard row 345 (Hydaelyn) | 87345 | 0.5, 0.4, 0.75 |
 | Yugiri | Triple Triad card #84 | 87084 | 0.5, 0.36, 0.75 |
 | Lolorito | Triple Triad card #141 | 87141 | 0.5, 0.4, 0.75 |
-| Teledji | none: keeps its category shape | – | – |
+| Teledji | [Source](https://ffxiv.consolegameswiki.com/wiki/Teledji) | char-teledji | 0.5, 0.5, 1 |
 | Nanamo | Triple Triad card #63 | 87063 | 0.5, 0.4, 0.75 |
 | Raubahn | Triple Triad card #67 | 87067 | 0.5, 0.4, 0.75 |
 | Merlwyb | Triple Triad card #65 | 87065 | 0.5, 0.4, 0.75 |
@@ -3667,16 +3667,16 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Lucia | Triple Triad card #89 | 87089 | 0.5, 0.38, 0.75 |
 | Estinien | Triple Triad card #88 | 87088 | 0.5, 0.4, 0.75 |
 | Shiva | Triple Triad card #55 | 87055 | 0.5, 0.4, 0.75 |
-| Eline | none: keeps its category shape | – | – |
-| The Ivy | none: keeps its category shape | – | – |
+| Eline | [Source](https://ffxiv.consolegameswiki.com/wiki/Eline) | char-eline | 0.5, 0.5, 1 |
+| The Ivy | [Source](https://ffxiv.consolegameswiki.com/wiki/The_Ivy) | char-ivy | 0.5, 0.5, 1 |
 | Varis | Triple Triad card #293 | 87293 | 0.5, 0.4, 0.75 |
 | Moenbryda | Quest illustration, The Instruments of Our Deliverance (MSQ #213) | 100321 | 0.42, 0.5, 1.0 |
 | Midgardsormr | Triple Triad card #100 | 87100 | 0.5, 0.4, 0.75 |
 | Nidhogg | Triple Triad card #99 | 87099 | 0.5, 0.4, 0.75 |
-| Nabriales | none: keeps its category shape | – | – |
-| Yuyuhase | none: keeps its category shape | – | – |
-| Alianne | none: keeps its category shape | – | – |
-| Wilred | none: keeps its category shape | – | – |
+| Nabriales | [Source](https://ffxiv.consolegameswiki.com/wiki/Nabriales) | char-nabriales | 0.5, 0.5, 1 |
+| Yuyuhase | [Source](https://ffxiv.consolegameswiki.com/wiki/Yuyuhase) | char-yuyuhase | 0.5, 0.5, 1 |
+| Alianne | [Source](https://ffxiv.consolegameswiki.com/wiki/Alianne) | char-alianne | 0.5, 0.5, 1 |
+| Wilred | [Source](https://ffxiv.consolegameswiki.com/wiki/Wilred) | char-wilred | 0.5, 0.5, 1 |
 | Pipin | Triple Triad card #113 | 87113 | 0.5, 0.4, 0.75 |
 | The Monetarists | Quest illustration, The Mother of Exiles (MSQ #174) | 100220 | 0.14, 0.5, 1.0 |
 | The heretics | Quest illustration, The Instruments of Our Deliverance (MSQ #213) | 100321 | 0.45, 0.5, 1.0 |
@@ -3692,14 +3692,14 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Artoirel | Triple Triad card #133 | 87133 | 0.5, 0.4, 0.75 |
 | Emmanellain | Triple Triad card #134 | 87134 | 0.5, 0.4, 0.75 |
 | Laniaitte | Triple Triad card #143 | 87143 | 0.5, 0.4, 0.75 |
-| Grinnaux | none: keeps its category shape | – | – |
-| Zephirin | none: keeps its category shape | – | – |
+| Grinnaux | [Source](https://ffxiv.consolegameswiki.com/wiki/Grinnaux) | char-grinnaux | 0.5, 0.5, 1 |
+| Zephirin | [Source](https://ffxiv.consolegameswiki.com/wiki/Zephirin) | char-zephirin | 0.5, 0.5, 1 |
 | Ysayle | Triple Triad card #90 (shared with Iceheart) | 87090 | 0.5, 0.42, 0.68 |
 | Hraesvelgr | Triple Triad card #153 | 87153 | 0.5, 0.4, 0.75 |
 | Vidofnir | Triple Triad card #139 | 87139 | 0.5, 0.4, 0.75 |
 | Ravana | Triple Triad card #97 | 87097 | 0.5, 0.4, 0.75 |
 | Bismarck | Triple Triad card #98 | 87098 | 0.5, 0.4, 0.75 |
-| Dewlala | none: keeps its category shape | – | – |
+| Dewlala | [Source](https://ffxiv.consolegameswiki.com/wiki/Dewlala) | char-dewlala | 0.5, 0.5, 1 |
 | Moglin | Triple Triad card #115 | 87115 | 0.5, 0.4, 0.75 |
 | The Heavens' Ward | Quest illustration, Disclosure (MSQ #260) | 100401 | 0.15, 0.5, 1.0 |
 | House Dzemael | Duty art, Dzemael Darkhold | 112013 | 0.5, 0.5, 1.0 |
@@ -3725,7 +3725,7 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Idyllshire | Quest illustration, A Great New Nation (MSQ #321) | 100427 | 0.5, 0.5, 1.0 |
 | Tiamat | Triple Triad card #151 | 87151 | 0.5, 0.4, 0.75 |
 | Honoroit | Triple Triad card #121 | 87121 | 0.5, 0.4, 0.75 |
-| The masked man | none: keeps its category shape | – | – |
+| The masked man | Game portrait also used by char-urianger | 87050 | 0.5, 0.42, 0.75 |
 | The Griffin | Triple Triad card #177 | 87177 | 0.5, 0.4, 0.75 |
 | Ga Bu | Quest illustration, The Beast That Mourned at the Heart of the Mountain (MSQ #365) | 100583 | 0.82, 0.5, 1.0 |
 | Nero | Triple Triad card #47 | 87047 | 0.5, 0.4, 0.75 |
@@ -3746,14 +3746,14 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Waking Omega | Quest illustration, The Obvious Solution (MSQ #376) | 100615 | 0.6, 0.5, 1.0 |
 | Conrad | Quest illustration, The Promise of a New Beginning (MSQ #382) | 100636 | 0.5, 0.5, 1.0 |
 | M'naago | Triple Triad card #186 | 87186 | 0.5, 0.4, 0.75 |
-| Meffrid | none: keeps its category shape | – | – |
+| Meffrid | [Source](https://ffxiv.consolegameswiki.com/wiki/Meffrid) | char-meffrid | 0.5, 0.5, 1 |
 | Raganfrid | Quest illustration, A Familiar Face Forgotten (MSQ #385b) | 100639 | 0.48, 0.5, 1.0 |
 | Grynewaht | Triple Triad card #192 | 87192 | 0.5, 0.4, 0.75 |
 | Fordola | Triple Triad card #207 | 87207 | 0.5, 0.4, 0.75 |
 | Arenvald | Triple Triad card #217 | 87217 | 0.5, 0.4, 0.75 |
 | Carvallain | Triple Triad card #145 | 87145 | 0.5, 0.4, 0.75 |
 | Hancock | Triple Triad card #219 | 87219 | 0.5, 0.4, 0.75 |
-| Soroban | none: keeps its category shape | – | – |
+| Soroban | [Source](https://ffxiv.consolegameswiki.com/wiki/Soroban) | char-soroban | 0.5, 0.5, 1 |
 | Gyodo | Quest illustration, It's Probably a Trap (MSQ #414) | 100646 | 0.8, 0.5, 1.0 |
 | Tansui | Triple Triad card #214 | 87214 | 0.5, 0.4, 0.75 |
 | Hien | Triple Triad card #202 | 87202 | 0.5, 0.4, 0.75 |
@@ -3779,13 +3779,13 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Passage to the Far East | Quest illustration, Not without Incident (MSQ #409) | 100644 | 0.5, 0.5, 1.0 |
 | Across the Ruby Sea | Quest illustration, It's Probably a Trap (MSQ #414) | 100646 | 0.3, 0.5, 1.0 |
 | Rasho | Triple Triad card #193 | 87193 | 0.5, 0.4, 0.75 |
-| Bunchin | none: keeps its category shape | – | – |
-| Shiosai | none: keeps its category shape | – | – |
+| Bunchin | [Source](https://ffxiv.consolegameswiki.com/wiki/Bunchin) | char-bunchin | 0.5, 0.5, 1 |
+| Shiosai | [Source](https://ffxiv.consolegameswiki.com/wiki/Shiosai) | char-shiosai | 0.5, 0.5, 1 |
 | Susano | Triple Triad card #190 | 87190 | 0.5, 0.4, 0.75 |
-| Kaien | none: keeps its category shape | – | – |
-| Isse | none: keeps its category shape | – | – |
+| Kaien | [Source](https://ffxiv.consolegameswiki.com/wiki/Kaien) | char-kaien | 0.5, 0.5, 1 |
+| Isse | [Source](https://ffxiv.consolegameswiki.com/wiki/Isse) | char-isse | 0.5, 0.5, 1 |
 | Cirina | Triple Triad card #194 | 87194 | 0.5, 0.4, 0.75 |
-| Temulun | none: keeps its category shape | – | – |
+| Temulun | [Source](https://ffxiv.consolegameswiki.com/wiki/Temulun) | char-temulun | 0.5, 0.5, 1 |
 | Magnai | Triple Triad card #195 | 87195 | 0.5, 0.4, 0.75 |
 | Sadu | Triple Triad card #196 | 87196 | 0.5, 0.4, 0.75 |
 | The Blue Kojin | Triple Triad card #184 (the Kojin) | 87184 | 0.5, 0.4, 0.75 |
@@ -3806,20 +3806,20 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Lord Hien on the Steppe | Quest illustration, Here There Be Xaela (MSQ #445) | 100652 | 0.5, 0.5, 1.0 |
 | Captives of the Oronir | Quest illustration, The Children of Azim (MSQ #454) | 100655 | 0.5, 0.5, 1.0 |
 | The Steppe Rides South | Quest illustration, Naadam (MSQ #461) | 100657 | 0.5, 0.5, 1.0 |
-| Aulus | none: keeps its category shape | – | – |
-| Tsuranuki | none: keeps its category shape | – | – |
+| Aulus | [Source](https://ffxiv.consolegameswiki.com/wiki/Aulus_mal_Asina) | char-aulus | 0.5, 0.5, 1 |
+| Tsuranuki | [Source](https://ffxiv.consolegameswiki.com/wiki/Tsuranuki) | char-tsuranuki | 0.5, 0.5, 1 |
 | Sri Lakshmi | Triple Triad card #191 | 87191 | 0.5, 0.4, 0.75 |
 | The Qalyana | Triple Triad card #185 (the Ananta) | 87185 | 0.5, 0.4, 0.75 |
 | The Vira | Triple Triad card #185 (the Ananta) | 87185 | 0.5, 0.35, 0.6 |
-| Sarisha | none: keeps its category shape | – | – |
-| Shanti | none: keeps its category shape | – | – |
+| Sarisha | [Source](https://ffxiv.consolegameswiki.com/wiki/Sarisha) | char-sarisha | 0.5, 0.5, 1 |
+| Shanti | [Source](https://ffxiv.consolegameswiki.com/wiki/Shanti) | char-shanti | 0.5, 0.5, 1 |
 | Ala Ghiri | none: keeps its category shape | – | – |
 | Castrum Abania | Duty art, Castrum Abania | 112230 | 0.5, 0.5, 1.0 |
-| Stark | none: keeps its category shape | – | – |
-| Curtis | none: keeps its category shape | – | – |
-| Theodoric | none: keeps its category shape | – | – |
-| Wiscar | none: keeps its category shape | – | – |
-| Hakuro | none: keeps its category shape | – | – |
+| Stark | [Source](https://ffxiv.consolegameswiki.com/wiki/Stark_Woad) | char-stark | 0.5, 0.5, 1 |
+| Curtis | [Source](https://ffxiv.consolegameswiki.com/wiki/Curtis) | char-curtis | 0.5, 0.5, 1 |
+| Theodoric | [Source](https://ffxiv.gamerescape.com/wiki/Theodoric) | char-theodoric | 0.5, 0.5, 1 |
+| Wiscar | [Source](https://ffxiv.consolegameswiki.com/wiki/Wiscar) | char-wiscar | 0.5, 0.5, 1 |
+| Hakuro | [Source](https://ffxiv.consolegameswiki.com/wiki/Hakuro) | char-hakuro | 0.5, 0.5, 1 |
 | The Ferae Domitae | none: keeps its category shape | – | – |
 | The Flood at Doma Castle | Quest illustration, The Room Where It Happened (MSQ #465) | 100654 | 0.5, 0.5, 1.0 |
 | Back to Gyr Abania | Quest illustration, Rhalgr's Beacon (MSQ #476) | 100660 | 0.35, 0.5, 1.0 |
@@ -3828,11 +3828,11 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Cannon at Castrum Abania | Duty art, Castrum Abania | 112230 | 0.25, 0.5, 1.0 |
 | The March on Ala Mhigo | Quest illustration, Liberty or Death (MSQ #494) | 100664 | 0.5, 0.5, 1.0 |
 | Asahi | Triple Triad card #238 | 87238 | 0.5, 0.4, 0.75 |
-| Maxima | none: keeps its category shape | – | – |
+| Maxima | [Source](https://ffxiv.consolegameswiki.com/wiki/Maxima) | char-maxima | 0.5, 0.5, 1 |
 | Tsukuyomi | Triple Triad card #228 | 87228 | 0.5, 0.4, 0.75 |
-| Shadowhunter | none: keeps its category shape | – | – |
-| Solus | none: keeps its category shape | – | – |
-| The voice | none: keeps its category shape | – | – |
+| Shadowhunter | [Source](https://ffxiv.consolegameswiki.com/wiki/Shadowhunter) | char-shadowhunter | 0.5, 0.5, 1 |
+| Solus | [Source](https://ffxiv.consolegameswiki.com/wiki/Solus) | char-solus | 0.5, 0.5, 1 |
+| The voice | Game portrait also used by char-graha-tia | 100925 | 0.5, 0.4, 0.8 |
 | The Populares | none: keeps its category shape | – | – |
 | The Burn | Duty art, the Burn | 112311 | 0.5, 0.5, 1.0 |
 | Spoils of Liberation | Quest illustration, The Mad King's Trove (MSQ #504) | 100741 | 0.5, 0.5, 1.0 |
@@ -3842,13 +3842,13 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Empty Grave | Quest illustration, Under the Moonlight (MSQ #526) | 100781 | 0.45, 0.5, 1.0 |
 | Allies and Sleepers | Quest illustration, The Will of the Moon (MSQ #532) | 100803 | 0.5, 0.5, 1.0 |
 | War on the Border | Quest illustration, Parley on the Front Lines (MSQ #538) | 100820 | 0.5, 0.5, 1.0 |
-| The Crystal Exarch | none: keeps its category shape | – | – |
+| The Crystal Exarch | [Source](https://ffxiv.consolegameswiki.com/wiki/Crystal_Exarch) | char-crystal-exarch | 0.5, 0.5, 1 |
 | Lyna | Triple Triad card #265 | 87265 | 0.5, 0.4, 0.75 |
 | Ardbert | Triple Triad card #272 | 87272 | 0.5, 0.4, 0.75 |
 | Feo Ul | Triple Triad card #257 | 87257 | 0.5, 0.4, 0.75 |
-| Vauthry | none: keeps its category shape | – | – |
-| Kai-Shirr | none: keeps its category shape | – | – |
-| Tesleen | none: keeps its category shape | – | – |
+| Vauthry | [Source](https://ffxiv.consolegameswiki.com/wiki/Vauthry) | char-vauthry | 0.5, 0.5, 1 |
+| Kai-Shirr | [Source](https://ffxiv.consolegameswiki.com/wiki/Kai-Shirr) | char-kai-shirr | 0.5, 0.5, 1 |
+| Tesleen | [Source](https://ffxiv.consolegameswiki.com/wiki/Tesleen) | char-tesleen | 0.5, 0.5, 1 |
 | Ran'jit | Triple Triad card #270 | 87270 | 0.5, 0.4, 0.75 |
 | Minfilia of the First | Triple Triad card #313 | 87313 | 0.5, 0.4, 0.75 |
 | Titania | Triple Triad card #261 | 87261 | 0.5, 0.4, 0.75 |
@@ -3868,13 +3868,13 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Sealed King | Quest illustration, The Key to the Castle (MSQ #575) | 112343 | 0.5, 0.5, 1.0 |
 | Emet-Selch | Quest illustration, A Party Soon Divided (MSQ #585) | 100906 | 0.5, 0.5, 1.0 |
 | The Lightwardens | none: keeps its category shape | – | – |
-| Zodiark | none: keeps its category shape | – | – |
+| Zodiark | Game TripleTriadCard row 344 (Zodiark) | 87344 | 0.5, 0.4, 0.75 |
 | Seto | Quest illustration, The Elder's Answer (MSQ #580) | 100904 | 0.45, 0.5, 1.0 |
 | Runar | Triple Triad card #258 | 87258 | 0.5, 0.4, 0.75 |
 | The Night's Blessed | Quest illustration, Into the Dark (MSQ #587) | 100907 | 0.92, 0.5, 1.0 |
 | The Children of the Everlasting Dark | none: keeps its category shape | – | – |
 | The Viis | Quest illustration, Into the Wood (MSQ #596) | 100910 | 0.5, 0.5, 1.0 |
-| Almet | none: keeps its category shape | – | – |
+| Almet | [Source](https://ffxiv.consolegameswiki.com/wiki/Almet) | char-almet | 0.5, 0.5, 1 |
 | Magnus | Quest illustration, Rust and Ruin (MSQ #612) | 100915 | 0.82, 0.5, 1.0 |
 | The Throne of Lyhe Ghiah | Quest illustration, The Elder's Answer (MSQ #580) | 100904 | 0.45, 0.5, 1.0 |
 | The Ascian's Offer | Quest illustration, A Party Soon Divided (MSQ #585) | 100906 | 0.5, 0.5, 1.0 |
@@ -3884,12 +3884,12 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Siege of the Crystarium | Quest illustration, When It Rains (MSQ #606) | 100913 | 0.45, 0.5, 1.0 |
 | The Road to Nabaath Areng | Quest illustration, The Best Way Out (MSQ #609) | 100914 | 0.55, 0.5, 1.0 |
 | The Oracle's Fork in the Road | Quest illustration, A Convenient Distraction (MSQ #616) | 100916 | 0.25, 0.5, 1.0 |
-| Tristol | none: keeps its category shape | – | – |
+| Tristol | [Source](https://ffxiv.consolegameswiki.com/wiki/Tristol) | char-tristol | 0.5, 0.5, 1 |
 | Chai-Nuzz | Triple Triad card #255 (Lord and Lady Chai, left) | 87255 | 0.32, 0.4, 0.55 |
 | Dulia-Chai | Triple Triad card #255 (Lord and Lady Chai, right) | 87255 | 0.68, 0.4, 0.55 |
 | The Crystal Tower | Quest illustration, The Syrcus Trench (MSQ #542) | 100891 | 0.08, 0.5, 1.0 |
 | Xamott | Quest illustration, Meet the Tholls (MSQ #630) | 100922 | 0.58, 0.5, 1.0 |
-| Korutt | none: keeps its category shape | – | – |
+| Korutt | [Source](https://ffxiv.consolegameswiki.com/wiki/Korutt) | char-korutt | 0.5, 0.5, 1 |
 | Grenoldt | Triple Triad card #259 | 87259 | 0.5, 0.4, 0.75 |
 | Tolshs Aath | Quest illustration, To Storm-tossed Seas (MSQ #640) | 100926 | 0.3, 0.5, 1.0 |
 | Hythlodaeus | Triple Triad card #342 | 87342 | 0.5, 0.4, 0.75 |
@@ -3903,12 +3903,12 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Final Warden | Quest illustration, Rich Veins of Hope (MSQ #633) | 100923 | 0.5, 0.5, 1.0 |
 | Beneath the Tempest | Quest illustration, To Storm-tossed Seas (MSQ #640) | 100926 | 0.3, 0.5, 1.0 |
 | Amaurot | Quest illustration, The Illuminated Land (MSQ #644) | 100927 | 0.5, 0.5, 1.0 |
-| Halric | none: keeps its category shape | – | – |
+| Halric | [Source](https://ffxiv.consolegameswiki.com/wiki/Halric) | char-halric | 0.5, 0.5, 1 |
 | Beq Lugg | Triple Triad card #279 | 87279 | 0.5, 0.4, 0.75 |
-| Wrenden | none: keeps its category shape | – | – |
-| Venat | none: keeps its category shape | – | – |
-| The white-robed figure | none: keeps its category shape | – | – |
-| Fandaniel | none: keeps its category shape | – | – |
+| Wrenden | [Source](https://ffxiv.consolegameswiki.com/wiki/Wrenden) | char-wrenden | 0.5, 0.5, 1 |
+| Venat | Game TripleTriadCard row 377 (Venat) | 87377 | 0.5, 0.4, 0.75 |
+| The white-robed figure | [Source](https://ffxiv.consolegameswiki.com/wiki/Fandaniel) | char-fandaniel | 0.5, 0.5, 1 |
+| Fandaniel | [Source](https://ffxiv.consolegameswiki.com/wiki/Fandaniel) | char-fandaniel | 0.5, 0.5, 1 |
 | Souls Adrift | Quest illustration, Shaken Resolve (MSQ #648) | 100939 | 0.5, 0.5, 1.0 |
 | The Missing Mayor | none: keeps its category shape | – | – |
 | An Emperor Slain | Quest illustration, Old Enemies, New Threats (MSQ #658) | 100981 | 0.5, 0.5, 1.0 |
@@ -3917,10 +3917,10 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Emissary Unmasked | Quest illustration, In the Name of the Light (MSQ #668) | 101006 | 0.55, 0.5, 1.0 |
 | The Exarch's Vigil | Quest illustration, Hope's Confluence (MSQ #675) | 101010 | 0.8, 0.5, 1.0 |
 | A Long Way Home | none: keeps its category shape | – | – |
-| Sicard | none: keeps its category shape | – | – |
-| Hyllfyr | none: keeps its category shape | – | – |
+| Sicard | [Source](https://ffxiv.consolegameswiki.com/wiki/Sicard) | char-sicard | 0.5, 0.5, 1 |
+| Hyllfyr | [Source](https://ff14wiki.info/?NPC%E3%83%BB%E7%B5%84%E7%B9%94%2F%E6%96%AD%E7%BD%AA%E5%85%9A) | char-hyllfyr | 0.5, 0.5, 1 |
 | The Bloody Executioners | none: keeps its category shape | – | – |
-| Za Da | none: keeps its category shape | – | – |
+| Za Da | [Source](https://ff14.tabibun.net/npc/1352/) | char-za-da | 0.5, 0.5, 1 |
 | The kobolds | none: keeps its category shape | – | – |
 | The Amalj'aa | Triple Triad card #14 | 87014 | 0.5, 0.4, 0.75 |
 | The Telophoroi | none: keeps its category shape | – | – |
@@ -3935,23 +3935,23 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Forum of Sharlayan | Quest illustration, A Guide of Sorts (MSQ #708) | 101101 | 0.5, 0.5, 1.0 |
 | The Baldesion Annex | Quest illustration, Hitting the Books (MSQ #701) | 101099 | 0.5, 0.5, 1.0 |
 | Labyrinthos | Quest illustration, A Labyrinthine Descent (MSQ #703) | 101100 | 0.5, 0.5, 1.0 |
-| Erenville | none: keeps its category shape | – | – |
-| Montichaigne | none: keeps its category shape | – | – |
-| Ameliance | none: keeps its category shape | – | – |
-| Matsya | none: keeps its category shape | – | – |
-| Nidhana | none: keeps its category shape | – | – |
+| Erenville | [Source](https://ffxiv.consolegameswiki.com/wiki/Erenville) | char-erenville | 0.5, 0.5, 1 |
+| Montichaigne | [Source](https://ffxiv.consolegameswiki.com/wiki/Montichaigne) | char-montichaigne | 0.5, 0.5, 1 |
+| Ameliance | [Source](https://ffxiv.consolegameswiki.com/wiki/Ameliance) | char-ameliance | 0.5, 0.5, 1 |
+| Matsya | [Source](https://ffxiv.consolegameswiki.com/wiki/Matsya) | char-matsya | 0.5, 0.5, 1 |
+| Nidhana | [Source](https://ffxiv.consolegameswiki.com/wiki/Nidhana) | char-nidhana | 0.5, 0.5, 1 |
 | Varshahn | Quest illustration, The Satrap of Radz-at-Han (MSQ #709b) | 101104 | 0.33, 0.5, 1.0 |
 | Vrtra | Triple Triad card #343 | 87343 | 0.5, 0.4, 0.75 |
-| Ahewann | none: keeps its category shape | – | – |
+| Ahewann | [Source](https://ffxiv.consolegameswiki.com/wiki/Ahewann) | char-ahewann | 0.5, 0.5, 1 |
 | The Radiant Host | none: keeps its category shape | – | – |
 | The Tower of Zot | none: keeps its category shape | – | – |
 | The Arkasodara | Triple Triad card #330 | 87330 | 0.5, 0.4, 0.75 |
 | The Ilsabard contingent | none: keeps its category shape | – | – |
 | Camp Broken Glass | Quest illustration, A Frosty Reception (MSQ #725) | 101107 | 0.5, 0.5, 1.0 |
-| Vergilia | none: keeps its category shape | – | – |
+| Vergilia | [Source](https://ffxiv.consolegameswiki.com/wiki/Vergilia) | char-vergilia | 0.5, 0.5, 1 |
 | The IIIrd Legion | none: keeps its category shape | – | – |
 | The Ist Legion | none: keeps its category shape | – | – |
-| Licinia | none: keeps its category shape | – | – |
+| Licinia | [Source](https://ffxiv.consolegameswiki.com/wiki/Licinia) | char-licinia | 0.5, 0.5, 1 |
 | Jullus | Triple Triad card #466 | 87466 | 0.5, 0.4, 0.75 |
 | Quintus | Triple Triad card #340 | 87340 | 0.5, 0.4, 0.75 |
 | Tertium | none: keeps its category shape | – | – |
@@ -3963,15 +3963,15 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Xth Legion | none: keeps its category shape | – | – |
 | The Tower of Babil | Quest illustration, Gateway of the Gods (MSQ #737) | 101111 | 0.5, 0.5, 1.0 |
 | Anima | Triple Triad card #339 | 87339 | 0.5, 0.4, 0.75 |
-| The Watcher | none: keeps its category shape | – | – |
+| The Watcher | [Source](https://ffxiv.consolegameswiki.com/wiki/The_Watcher_(NPC)) | char-watcher | 0.5, 0.5, 1 |
 | Mare Lamentorum | Quest illustration, A Trip to the Moon (MSQ #738) | 101112 | 0.5, 0.5, 1.0 |
-| Azem | none: keeps its category shape | – | – |
+| Azem | [Source](https://ffxiv.consolegameswiki.com/wiki/Azem) | char-azem | 0.5, 0.5, 1 |
 | Argos | Triple Triad card #332 | 87332 | 0.5, 0.4, 0.75 |
 | The Loporrits | Quest illustration, Heart of the Matter (MSQ #749) | 101116 | 0.45, 0.5, 1.0 |
-| Livingway | none: keeps its category shape | – | – |
-| Growingway | none: keeps its category shape | – | – |
+| Livingway | [Source](https://ffxiv.consolegameswiki.com/wiki/Livingway) | char-livingway | 0.5, 0.5, 1 |
+| Growingway | [Source](https://ffxiv.consolegameswiki.com/wiki/Growingway) | char-growingway | 0.5, 0.5, 1 |
 | Bestways Burrow | none: keeps its category shape | – | – |
-| Khalzahl | none: keeps its category shape | – | – |
+| Khalzahl | [Source](https://ffxiv.consolegameswiki.com/wiki/Khalzahl) | char-khalzahl | 0.5, 0.5, 1 |
 | Guests of the Ist | Quest illustration, Alea Iacta Est (MSQ #734) | 101109 | 0.5, 0.5, 1.0 |
 | Fandaniel's Endgame | Quest illustration, In from the Cold (MSQ #736) | 101110 | 0.3, 0.5, 1.0 |
 | The Moon's Pilots | Quest illustration, Helping Hands (MSQ #742) | 101114 | 0.3, 0.5, 1.0 |
@@ -3979,7 +3979,7 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Satrap's Secret | Quest illustration, Warm Hearts, Rekindled Hopes (MSQ #757) | 101119 | 0.5, 0.5, 1.0 |
 | Hermes | Triple Triad card #333 | 87333 | 0.5, 0.4, 0.75 |
 | Meteion | Triple Triad card #337 | 87337 | 0.5, 0.4, 0.75 |
-| Doros | none: keeps its category shape | – | – |
+| Doros | [Source](https://ffxiv.consolegameswiki.com/wiki/Doros) | char-doros | 0.5, 0.5, 1 |
 | Meteion's sisters | none: keeps its category shape | – | – |
 | The Bureau of the Architect | none: keeps its category shape | – | – |
 | Elpis | Quest illustration, In Search of Hermes (MSQ #764) | 101122 | 0.5, 0.5, 1.0 |
@@ -3988,24 +3988,24 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Overseer's Doubts | Quest illustration, Their Greatest Contribution (MSQ #767) | 101123 | 0.5, 0.5, 1.0 |
 | Venat's Inquiry | Quest illustration, Travelers at the Crossroads (MSQ #771) | 101124 | 0.5, 0.5, 1.0 |
 | Meteion's Report | Quest illustration, Caging the Messenger (MSQ #779) | 101126 | 0.5, 0.5, 1.0 |
-| Kokkol Dankkol | none: keeps its category shape | – | – |
-| Wilfsunn | none: keeps its category shape | – | – |
-| Bloewyda | none: keeps its category shape | – | – |
+| Kokkol Dankkol | [Source](https://ffxiv.consolegameswiki.com/wiki/Kokkol_Dankkol) | char-kokkol-dankkol | 0.5, 0.5, 1 |
+| Wilfsunn | [Source](https://ffxiv.consolegameswiki.com/wiki/Wilfsunn) | char-wilfsunn | 0.5, 0.5, 1 |
+| Bloewyda | [Source](https://ffxiv.consolegameswiki.com/wiki/Bloewyda) | char-bloewyda | 0.5, 0.5, 1 |
 | Ultima Thule | none: keeps its category shape | – | – |
 | The Ragnarok | Quest illustration, Unto the Heavens (MSQ #794) | 101130 | 0.5, 0.5, 1.0 |
-| Al End | none: keeps its category shape | – | – |
+| Al End | [Source](https://ffxiv.consolegameswiki.com/wiki/Al_End) | char-al-end | 0.5, 0.5, 1 |
 | The Ea of Ultima Thule | Quest illustration, Where Kn∞wledge Leads (MSQ #800) | 101132 | 0.5, 0.5, 1.0 |
 | The Omicrons | Quest illustration, Hello, World (MSQ #803) | 101133 | 0.8, 0.5, 1.0 |
-| Stigma-1 | none: keeps its category shape | – | – |
-| M-017 | none: keeps its category shape | – | – |
+| Stigma-1 | [Source](https://ffxiv.consolegameswiki.com/wiki/The_Stigma_Dreamscape) | char-stigma-1 | 0.5, 0.5, 1 |
+| M-017 | [Source](https://ffxiv.consolegameswiki.com/wiki/M-017) | char-m-017 | 0.5, 0.5, 1 |
 | The Forum's Wager | Quest illustration, As the Heavens Burn (MSQ #781) | 101127 | 0.58, 0.5, 1.0 |
 | Guests from the Moon | Quest illustration, Sage Council (MSQ #787) | 101129 | 0.5, 0.5, 1.0 |
 | The Mothercrystal's Answer | Quest illustration, Her Children, One and All (MSQ #791) | 100045 | 0.5, 0.5, 1.0 |
 | Isles of Despair | Quest illustration, Unto the Heavens (MSQ #794) | 101130 | 0.3, 0.5, 1.0 |
 | The Last Song | Quest illustration, You're Not Alone (MSQ #805) | 101134 | 0.45, 0.5, 1.0 |
-| Azdaja | none: keeps its category shape | – | – |
-| The dark-robed voidsent | none: keeps its category shape | – | – |
-| The knight in black | none: keeps its category shape | – | – |
+| Azdaja | Game quest illustration: Growing Light | 101272 | 0.35, 0.28, 0.65 |
+| The dark-robed voidsent | Game TripleTriadCard row 467 (Zero) | 87467 | 0.5, 0.4, 0.75 |
+| The knight in black | Game portrait also used by char-golbez | 87387 | 0.5, 0.4, 0.75 |
 | Golbez | Triple Triad card #387 | 87387 | 0.5, 0.4, 0.75 |
 | The four Thrones | none: keeps its category shape | – | – |
 | Scarmiglione | Triple Triad card #364 | 87364 | 0.5, 0.4, 0.75 |
@@ -4022,35 +4022,35 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Golbez's Archfiends | Quest illustration, Where Everything Begins (MSQ #819) | 101197 | 0.5, 0.5, 1.0 |
 | The Trail to Garlemald | Quest illustration, Once More unto the Void (MSQ #826) | 101227 | 0.45, 0.5, 1.0 |
 | Holding to Hope | Quest illustration, Desires Untold (MSQ #833) | 101229 | 0.5, 0.5, 1.0 |
-| Galuf | none: keeps its category shape | – | – |
-| Gnaeus | none: keeps its category shape | – | – |
-| Mettius | none: keeps its category shape | – | – |
+| Galuf | [Source](https://ffxiv.consolegameswiki.com/wiki/Galuf) | char-galuf | 0.5, 0.5, 1 |
+| Gnaeus | [Source](https://ffxiv.consolegameswiki.com/wiki/Gnaeus) | char-gnaeus | 0.5, 0.5, 1 |
+| Mettius | [Source](https://ffxiv.consolegameswiki.com/wiki/Mettius) | char-mettius | 0.5, 0.5, 1 |
 | Zeromus | Triple Triad card #404 | 87404 | 0.5, 0.4, 0.75 |
 | Durante | Triple Triad card #401 | 87401 | 0.5, 0.4, 0.75 |
 | Tural | none: keeps its category shape | – | – |
 | Tuliyollal | none: keeps its category shape | – | – |
 | Wuk Lamat | Triple Triad card #424 | 87424 | 0.5, 0.4, 0.75 |
 | Gulool Ja Ja | Triple Triad card #413 | 87413 | 0.5, 0.4, 0.75 |
-| Koana | none: keeps its category shape | – | – |
+| Koana | [Source](https://ffxiv.consolegameswiki.com/wiki/Koana) | char-koana | 0.5, 0.5, 1 |
 | The Price of the Tower | Quest illustration, Currying Flavor (MSQ #835) | 101248 | 0.5, 0.5, 1.0 |
 | Chains on the Red Moon | Quest illustration, Abyssal Dark (MSQ #842) | 101250 | 0.3, 0.5, 1.0 |
 | Light Across the Rift | Quest illustration, Seeking the Light (MSQ #844) | 101270 | 0.2, 0.5, 1.0 |
 | A Letter from Tural | Quest illustration, When One Door Closes... (MSQ #851) | 101273 | 0.5, 0.5, 1.0 |
-| Zoraal Ja | none: keeps its category shape | – | – |
-| Bakool Ja Ja | none: keeps its category shape | – | – |
-| Sareel Ja | none: keeps its category shape | – | – |
-| Ketenramm | none: keeps its category shape | – | – |
-| Zanuhali | none: keeps its category shape | – | – |
-| Linuhanu | none: keeps its category shape | – | – |
-| Wuk Evu | none: keeps its category shape | – | – |
-| Tobli | none: keeps its category shape | – | – |
-| Mablu | none: keeps its category shape | – | – |
-| Fonjeantaine | none: keeps its category shape | – | – |
-| Rediroq | none: keeps its category shape | – | – |
-| Wawkesa | none: keeps its category shape | – | – |
-| Zurmurwur | none: keeps its category shape | – | – |
-| Gurfurlur | none: keeps its category shape | – | – |
-| Vorporlor | none: keeps its category shape | – | – |
+| Zoraal Ja | Game TripleTriadCard row 419 (Zoraal Ja) | 87419 | 0.5, 0.4, 0.75 |
+| Bakool Ja Ja | [Source](https://ffxiv.consolegameswiki.com/wiki/Bakool_Ja_Ja) | char-bakool-ja-ja | 0.5, 0.5, 1 |
+| Sareel Ja | [Source](https://ffxiv.consolegameswiki.com/wiki/Sareel_Ja) | char-sareel-ja | 0.5, 0.5, 1 |
+| Ketenramm | [Source](https://ffxiv.consolegameswiki.com/wiki/Ketenramm) | char-ketenramm | 0.5, 0.5, 1 |
+| Zanuhali | [Source](https://www.leossan-2nd.com/entry/2024/07/14/FF14_%E9%BB%84%E9%87%91%E3%81%AE%E3%83%AC%E3%82%AC%E3%82%B7%E3%83%BC%E3%83%97%E3%83%AC%E3%82%A4%E6%97%A5%E8%A8%98%E2%91%A4) | char-zanuhali | 0.5, 0.5, 1 |
+| Linuhanu | [Source](https://ffxiv.consolegameswiki.com/wiki/Linuhanu) | char-linuhanu | 0.5, 0.5, 1 |
+| Wuk Evu | [Source](https://ffxiv.consolegameswiki.com/wiki/Wuk_Evu) | char-wuk-evu | 0.5, 0.5, 1 |
+| Tobli | [Source](https://ffxiv.consolegameswiki.com/wiki/Tobli) | char-tobli | 0.5, 0.5, 1 |
+| Mablu | [Source](https://ffxiv.consolegameswiki.com/wiki/Mablu) | char-mablu | 0.5, 0.5, 1 |
+| Fonjeantaine | [Source](https://ffxiv.consolegameswiki.com/wiki/Fonjeantaine) | char-fonjeantaine | 0.5, 0.5, 1 |
+| Rediroq | [Source](https://ffxiv.consolegameswiki.com/wiki/Rediroq) | char-rediroq | 0.5, 0.5, 1 |
+| Wawkesa | [Source](https://ffxiv.consolegameswiki.com/wiki/Wawkesa) | char-wawkesa | 0.5, 0.5, 1 |
+| Zurmurwur | [Source](https://ffxiv.consolegameswiki.com/wiki/Zurmurwur) | char-zurmurwur | 0.5, 0.5, 1 |
+| Gurfurlur | [Source](https://ffxiv.consolegameswiki.com/wiki/Gurfurlur) | char-gurfurlur | 0.5, 0.5, 1 |
+| Vorporlor | [Source](https://ffxiv.consolegameswiki.com/wiki/Vorporlor) | char-vorporlor | 0.5, 0.5, 1 |
 | The Landsguard | none: keeps its category shape | – | – |
 | The Hanuhanu | Quest illustration, Knowing the Hanuhanu (MSQ #864) | 101311 | 0.82, 0.5, 1.0 |
 | The Pelupelu | Triple Triad card #406 | 87406 | 0.5, 0.4, 0.75 |
@@ -4071,29 +4071,29 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Moblin Potpact | Quest illustration, Lending a Helphand (MSQ #875) | 101315 | 0.5, 0.5, 1.0 |
 | The Third Promise Taken | none: keeps its category shape | – | – |
 | The Vidraal Unbound | Quest illustration, The High Luminary (MSQ #885) | 101318 | 0.5, 0.5, 1.0 |
-| Cahciua | none: keeps its category shape | – | – |
-| Namikka | none: keeps its category shape | – | – |
+| Cahciua | Game TripleTriadCard row 423 (Cahciua) | 87423 | 0.5, 0.4, 0.75 |
+| Namikka | [Source](https://ffxiv.consolegameswiki.com/wiki/Namikka) | char-namikka | 0.5, 0.5, 1 |
 | The Xbr'aal | none: keeps its category shape | – | – |
 | The Mamool Ja | none: keeps its category shape | – | – |
-| Hunmu Rruk | none: keeps its category shape | – | – |
+| Hunmu Rruk | [Source](https://ffxiv.consolegameswiki.com/wiki/Hunmu_Rruk) | char-hunmu-rruk | 0.5, 0.5, 1 |
 | Iq Br'aax | Quest illustration, Village of the Hunt (MSQ #892) | 101320 | 0.45, 0.5, 1.0 |
 | Mamook | Quest illustration, City of Silence (MSQ #898) | 101322 | 0.5, 0.5, 1.0 |
-| Zereel Ja | none: keeps its category shape | – | – |
-| Miilal Ja | none: keeps its category shape | – | – |
+| Zereel Ja | [Source](https://ffxiv.consolegameswiki.com/wiki/Zereel_Ja) | char-zereel-ja | 0.5, 0.5, 1 |
+| Miilal Ja | [Source](https://ffxiv.consolegameswiki.com/wiki/Miilal_Ja) | char-miilal-ja | 0.5, 0.5, 1 |
 | The Skydeep Cenote | Quest illustration, Road to the Golden City (MSQ #903) | 101323 | 0.5, 0.5, 1.0 |
 | Shaaloani | Quest illustration, The Long Road to Xak Tural (MSQ #906) | 101325 | 0.5, 0.5, 1.0 |
 | Yyasulani | none: keeps its category shape | – | – |
 | The Dustwatch | none: keeps its category shape | – | – |
-| Zekowa | none: keeps its category shape | – | – |
-| Iyaate | none: keeps its category shape | – | – |
-| Wihuwte | none: keeps its category shape | – | – |
-| The Vulture | none: keeps its category shape | – | – |
+| Zekowa | [Source](https://ffxiv.consolegameswiki.com/wiki/Zekowa) | char-zekowa | 0.5, 0.5, 1 |
+| Iyaate | [Source](https://ffxiv.consolegameswiki.com/wiki/Iyaate) | char-iyaate | 0.5, 0.5, 1 |
+| Wihuwte | [Source](https://ffxiv.consolegameswiki.com/wiki/Wihuwte) | char-wihuwte | 0.5, 0.5, 1 |
+| The Vulture | [Source](https://ffxiv.consolegameswiki.com/wiki/Wihuwte) | char-wihuwte | 0.5, 0.5, 1 |
 | The Daybreakers | none: keeps its category shape | – | – |
-| Kemakka | none: keeps its category shape | – | – |
-| Wawlika | none: keeps its category shape | – | – |
+| Kemakka | [Source](https://ffxiv.consolegameswiki.com/wiki/Kemakka) | char-kemakka | 0.5, 0.5, 1 |
+| Wawlika | [Source](https://ffxiv.consolegameswiki.com/wiki/Wawlika) | char-wawlika | 0.5, 0.5, 1 |
 | Nitowikwe | Triple Triad card #465 | 87465 | 0.5, 0.4, 0.75 |
-| Hhwato | none: keeps its category shape | – | – |
-| Zander | none: keeps its category shape | – | – |
+| Hhwato | [Source](https://ffxiv.consolegameswiki.com/wiki/Hhwato) | char-hhwato | 0.5, 0.5, 1 |
+| Zander | [Source](https://ffxiv.consolegameswiki.com/wiki/Vanguard) | char-zander | 0.5, 0.5, 1 |
 | A Feast to End a War | Quest illustration, Taking a Stand (MSQ #896) | 101321 | 0.5, 0.5, 1.0 |
 | The Cloister of Mamook | Quest illustration, City of Silence (MSQ #898) | 101322 | 0.8, 0.5, 1.0 |
 | Two Vows for Tuliyollal | Quest illustration, Ever Greater, Ever Brighter (MSQ #905) | 101324 | 0.5, 0.5, 1.0 |
@@ -4102,39 +4102,39 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Sphene | Triple Triad card #425 | 87425 | 0.5, 0.4, 0.75 |
 | Alexandria | Quest illustration, The Land of Levin (MSQ #921) | 101330 | 0.5, 0.5, 1.0 |
 | Oblivion | none: keeps its category shape | – | – |
-| Geode | none: keeps its category shape | – | – |
+| Geode | [Source](https://ffxiv.consolegameswiki.com/wiki/Geode) | char-geode | 0.5, 0.5, 1 |
 | Everkeep | none: keeps its category shape | – | – |
 | Solution Nine | Quest illustration, The Queen's Tour (MSQ #928) | 101332 | 0.2, 0.5, 1.0 |
-| Shale | none: keeps its category shape | – | – |
+| Shale | [Source](https://ffxiv.consolegameswiki.com/wiki/Shale) | char-shale | 0.5, 0.5, 1 |
 | Preservation | none: keeps its category shape | – | – |
 | Gulool Ja, son of Zoraal Ja | Triple Triad card #444 | 87444 | 0.5, 0.4, 0.75 |
 | Otis | Triple Triad card #422 | 87422 | 0.5, 0.4, 0.75 |
 | The Endless | none: keeps its category shape | – | – |
 | Living Memory | Quest illustration, Those Who Live Forever (MSQ #943) | 101338 | 0.5, 0.5, 1.0 |
-| Alayla | none: keeps its category shape | – | – |
-| Robor | none: keeps its category shape | – | – |
+| Alayla | [Source](https://ffxiv.consolegameswiki.com/wiki/Alayla) | char-alayla | 0.5, 0.5, 1 |
+| Robor | [Source](https://ffxiv.consolegameswiki.com/wiki/Robor) | char-robor | 0.5, 0.5, 1 |
 | The Milalla | none: keeps its category shape | – | – |
 | Beyond the Barrier | Quest illustration, The Land of Levin (MSQ #921) | 101330 | 0.3, 0.5, 1.0 |
 | The Queen's Secret | Quest illustration, The Queen's Tour (MSQ #928) | 101332 | 0.5, 0.5, 1.0 |
 | The Summit of Everkeep | Quest illustration, The Protector and the Destroyer (MSQ #936) | 101335 | 0.5, 0.5, 1.0 |
 | The Unlost World | Quest illustration, Through the Gate of Gold (MSQ #942) | 101337 | 0.5, 0.5, 1.0 |
 | The Last Terminal | Quest illustration, In Search of Discovery (MSQ #951) | 101341 | 0.4, 0.5, 1.0 |
-| Wayakkwe | none: keeps its category shape | – | – |
-| Nostalgia | none: keeps its category shape | – | – |
-| Isadora | none: keeps its category shape | – | – |
-| Milos | none: keeps its category shape | – | – |
-| Mahuwsa | none: keeps its category shape | – | – |
-| Shepetto | none: keeps its category shape | – | – |
+| Wayakkwe | [Source](https://ffxiv.consolegameswiki.com/wiki/Wayakkwe) | char-wayakkwe | 0.5, 0.5, 1 |
+| Nostalgia | [Source](https://ffxiv.consolegameswiki.com/wiki/Nostalgia) | char-nostalgia | 0.5, 0.5, 1 |
+| Isadora | [Source](https://ffxiv.consolegameswiki.com/wiki/Isadora) | char-isadora | 0.5, 0.5, 1 |
+| Milos | [Source](https://ffxiv.consolegameswiki.com/wiki/Milos) | char-milos | 0.5, 0.5, 1 |
+| Mahuwsa | [Source](https://ffxiv.consolegameswiki.com/wiki/Mahuwsa) | char-mahuwsa | 0.5, 0.5, 1 |
+| Shepetto | [Source](https://ffxiv.consolegameswiki.com/wiki/Shepetto) | char-shepetto | 0.5, 0.5, 1 |
 | The Hhetsarro | none: keeps its category shape | – | – |
-| Gossan | none: keeps its category shape | – | – |
-| Teeshal Ja | none: keeps its category shape | – | – |
-| Kanilokka | none: keeps its category shape | – | – |
+| Gossan | [Source](https://ffxiv.consolegameswiki.com/wiki/Gossan) | char-gossan | 0.5, 0.5, 1 |
+| Teeshal Ja | [Source](https://ffxiv.consolegameswiki.com/wiki/Teeshal_Ja) | char-teeshal-ja | 0.5, 0.5, 1 |
+| Kanilokka | [Source](https://ffxiv.consolegameswiki.com/wiki/Kanilokka) | char-kanilokka | 0.5, 0.5, 1 |
 | Yuweyawata | Quest illustration, In Search of the Past (MSQ #956) | 112584 | 0.5, 0.5, 1.0 |
 | Sphene | Triple Triad card #425 | 87425 | 0.5, 0.4, 0.75 |
-| The entity wearing Sphene's face | none: keeps its category shape | – | – |
-| Calyx | none: keeps its category shape | – | – |
-| Malachite | none: keeps its category shape | – | – |
-| Lithander | none: keeps its category shape | – | – |
+| The entity wearing Sphene's face | [Source](https://ffxiv.consolegameswiki.com/wiki/simulant) | char-simulant | 0.5, 0.5, 1 |
+| Calyx | [Source](https://ffxiv.consolegameswiki.com/wiki/Calyx) | char-calyx | 0.5, 0.5, 1 |
+| Malachite | [Source](https://ffxiv.consolegameswiki.com/wiki/Malachite_(NPC)) | char-malachite | 0.5, 0.5, 1 |
+| Lithander | [Source](https://ffxiv.consolegameswiki.com/wiki/Lithander) | char-lithander | 0.5, 0.5, 1 |
 | Zelenia | Triple Triad card #438 | 87438 | 0.5, 0.4, 0.75 |
 | Necron | Triple Triad card #448 | 87448 | 0.5, 0.4, 0.75 |
 | The Winterers | none: keeps its category shape | – | – |
@@ -4145,18 +4145,18 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Fear of Death | Quest illustration, A Terminal Invitation (MSQ #976) | 112611 | 0.5, 0.5, 1.0 |
 | The Mist Continent | none: keeps its category shape | – | – |
 | Treno | Quest illustration, Beyond the Mountains (MSQ #981) | 112634 | 0.5, 0.5, 1.0 |
-| Miayli | none: keeps its category shape | – | – |
-| Lumull | none: keeps its category shape | – | – |
-| Eyaney | none: keeps its category shape | – | – |
+| Miayli | [Source](https://ffxiv.consolegameswiki.com/wiki/Miayli) | char-miayli | 0.5, 0.5, 1 |
+| Lumull | [Source](https://ffxiv.consolegameswiki.com/wiki/Lumull) | char-lumull | 0.5, 0.5, 1 |
+| Eyaney | [Source](https://ffxiv.consolegameswiki.com/wiki/Eyaney) | char-eyaney | 0.5, 0.5, 1 |
 | The Doomtrain | Triple Triad card #456 | 87456 | 0.5, 0.4, 0.75 |
-| Halmarut | none: keeps its category shape | – | – |
+| Halmarut | [Source](https://ffxiv.consolegameswiki.com/wiki/Halmarut) | char-halmarut | 0.5, 0.5, 1 |
 | Malphas | Triple Triad card #468 | 87468 | 0.5, 0.4, 0.75 |
 | Enuo | Triple Triad card #471 | 87471 | 0.5, 0.4, 0.75 |
-| Ethos | none: keeps its category shape | – | – |
+| Ethos | [Source](https://ffxiv.consolegameswiki.com/wiki/Ethos) | char-ethos | 0.5, 0.5, 1 |
 | The Fourth | Quest illustration, Trail to the Heavens (MSQ #992) | 101495 | 0.5, 0.5, 1.0 |
-| Visna | none: keeps its category shape | – | – |
+| Visna | [Source](https://ffxiv.consolegameswiki.com/wiki/Visna) | char-visna | 0.5, 0.5, 1 |
 | Naglfar | none: keeps its category shape | – | – |
-| Ketill | none: keeps its category shape | – | – |
+| Ketill | [Source](https://ffxiv.consolegameswiki.com/wiki/Ketill) | char-ketill | 0.5, 0.5, 1 |
 | Glaðr | none: keeps its category shape | – | – |
 | The jötnar | none: keeps its category shape | – | – |
 | Survivors of the Storm Surge | Quest illustration, With the Winds (MSQ #979) | 101468 | 0.5, 0.5, 1.0 |
@@ -4166,9 +4166,9 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Shadows over the Twelveswood | Quest illustration, Chasing Shadows (MSQ #4) | 100064 | 0.42, 0.5, 1.0 |
 | The Seedseer's Envoy | Quest illustration, Renewing the Covenant (MSQ #21) | 100066 | 0.52, 0.5, 1.0 |
 | Miounne | Triple Triad card #30 | 87030 | 0.5, 0.4, 0.75 |
-| Galfrid | none: keeps its category shape | – | – |
-| Lewin | none: keeps its category shape | – | – |
-| The masked mage | none: keeps its category shape | – | – |
+| Galfrid | [Source](https://ffxiv.consolegameswiki.com/wiki/Galfrid) | char-galfrid | 0.5, 0.5, 1 |
+| Lewin | [Source](https://ffxiv.consolegameswiki.com/wiki/Lewin) | char-lewin | 0.5, 0.5, 1 |
+| The masked mage | [Source](https://gamergirlconfessions.blogspot.com/2015/03/ffxiv-main-story-bonanza.html) | char-masked-mage | 0.5, 0.5, 1 |
 | Baderon | Quest illustration, Close to Home (Limsa Lominsa) (MSQ #1b) | 100079 | 0.38, 0.5, 1.0 |
 | The Order of the Twin Adder | none: keeps its category shape | – | – |
 | Gridania | none: keeps its category shape | – | – |
@@ -4179,11 +4179,11 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Drydocks Plot | Quest illustration, Victory in Peril (MSQ #17b) | 100096 | 0.5, 0.5, 1.0 |
 | The Admiral's Honor | Quest illustration, A Mizzenmast Repast (MSQ #21b) | 100082 | 0.48, 0.5, 1.0 |
 | Staelwyrn | Quest illustration, Lurkers in the Grotto (MSQ #4b) | 100080 | 0.8, 0.5, 1.0 |
-| Sevrin | none: keeps its category shape | – | – |
-| Ahtbyrm | none: keeps its category shape | – | – |
-| Ahtzapfyn | none: keeps its category shape | – | – |
-| Ghimthota | none: keeps its category shape | – | – |
-| Reyner | none: keeps its category shape | – | – |
+| Sevrin | [Source](https://ffxiv.consolegameswiki.com/wiki/Sevrin) | char-sevrin | 0.5, 0.5, 1 |
+| Ahtbyrm | [Source](https://ffxiv.consolegameswiki.com/wiki/Ahtbyrm) | char-ahtbyrm | 0.5, 0.5, 1 |
+| Ahtzapfyn | [Source](https://ff14.tabibun.net/npc/1259/) | char-ahtzapfyn | 0.5, 0.5, 1 |
+| Ghimthota | [Source](https://ffxiv.consolegameswiki.com/wiki/Ghimthota) | char-ghimthota | 0.5, 0.5, 1 |
+| Reyner | [Source](https://ffxiv.consolegameswiki.com/wiki/Reyner) | char-reyner | 0.5, 0.5, 1 |
 | The Yellowjackets | none: keeps its category shape | – | – |
 | Summerford Farms | none: keeps its category shape | – | – |
 | A Newcomer in Ul'dah | Quest illustration, Close to Home (Ul'dah) (MSQ #1c) | 100087 | 0.5, 0.5, 1.0 |
@@ -4191,16 +4191,16 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Sultana's Crown | Quest illustration, A Royal Reception (MSQ #22c) | 100090 | 0.48, 0.5, 1.0 |
 | The Flame General's Envoy | Quest illustration, The Ul'dahn Envoy (MSQ #23c) | 100091 | 0.45, 0.5, 1.0 |
 | Momodi | Triple Triad card #28 | 87028 | 0.5, 0.4, 0.75 |
-| Papashan | none: keeps its category shape | – | – |
-| Lilira | none: keeps its category shape | – | – |
+| Papashan | [Source](https://ffxiv.consolegameswiki.com/wiki/Papashan) | char-papashan | 0.5, 0.5, 1 |
+| Lilira | [Source](https://ffxiv.consolegameswiki.com/wiki/Lilira) | char-lilira | 0.5, 0.5, 1 |
 | The Sultansworn | none: keeps its category shape | – | – |
-| Wystan | none: keeps its category shape | – | – |
+| Wystan | [Source](https://ffxiv.consolegameswiki.com/wiki/Wystan) | char-wystan | 0.5, 0.5, 1 |
 | The Brass Blades | none: keeps its category shape | – | – |
-| Dadanen | none: keeps its category shape | – | – |
-| Fufulupa | none: keeps its category shape | – | – |
-| Leofric | none: keeps its category shape | – | – |
-| Baldewyn | none: keeps its category shape | – | – |
-| Owyne | none: keeps its category shape | – | – |
+| Dadanen | [Source](https://ffxiv.consolegameswiki.com/wiki/Dadanen) | char-dadanen | 0.5, 0.5, 1 |
+| Fufulupa | [Source](https://ffxiv.consolegameswiki.com/wiki/Fufulupa) | char-fufulupa | 0.5, 0.5, 1 |
+| Leofric | [Source](https://ffxiv.consolegameswiki.com/wiki/Leofric) | char-leofric | 0.5, 0.5, 1 |
+| Baldewyn | [Source](https://ffxiv.consolegameswiki.com/wiki/Baldewyn) | char-baldewyn | 0.5, 0.5, 1 |
+| Owyne | [Source](https://ffxiv.consolegameswiki.com/wiki/Owyne) | char-owyne | 0.5, 0.5, 1 |
 | The Adventurer of the Moment | Quest illustration, It's Probably Pirates (MSQ #25) | 100070 | 0.62, 0.5, 1.0 |
 | The Drybone Vanishings | Quest illustration, A Wild Rose by Any Other Name (MSQ #31) | 100074 | 0.38, 0.5, 1.0 |
 | Choosing a Grand Company | Quest illustration, For Coin and Country (MSQ #42) | 100093 | 0.48, 0.5, 1.0 |
@@ -4208,15 +4208,15 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | The Missing Elder | Quest illustration, Brotherly Love (MSQ #51) | 100113 | 0.25, 0.5, 1.0 |
 | The Adventurers' Guild | none: keeps its category shape | – | – |
 | The Lambs of Dalamud | none: keeps its category shape | – | – |
-| Isembard | none: keeps its category shape | – | – |
-| Ungust | none: keeps its category shape | – | – |
-| Ourcen | none: keeps its category shape | – | – |
+| Isembard | [Source](https://ffxiv.consolegameswiki.com/wiki/Isembard) | char-isembard | 0.5, 0.5, 1 |
+| Ungust | [Source](https://ffxiv.consolegameswiki.com/wiki/Ungust) | char-ungust | 0.5, 0.5, 1 |
+| Ourcen | [Source](https://ffxiv.consolegameswiki.com/wiki/Ourcen) | char-ourcen | 0.5, 0.5, 1 |
 | Ifrit | Triple Triad card #40 | 87040 | 0.5, 0.4, 0.75 |
-| Vorsaile | none: keeps its category shape | – | – |
-| Komuxio | none: keeps its category shape | – | – |
+| Vorsaile | [Source](https://ffxiv.consolegameswiki.com/wiki/Vorsaile) | char-vorsaile | 0.5, 0.5, 1 |
+| Komuxio | [Source](https://ffxiv.consolegameswiki.com/wiki/Komuxio) | char-komuxio | 0.5, 0.5, 1 |
 | The sylph elder | Triple Triad card #35 | 87035 | 0.5, 0.4, 0.75 |
 | Buscarron | Quest illustration, Spirited Away (MSQ #52) | 100114 | 0.62, 0.5, 1.0 |
-| Laurentius | none: keeps its category shape | – | – |
+| Laurentius | [Source](https://ffxiv.consolegameswiki.com/wiki/Laurentius) | char-laurentius | 0.5, 0.5, 1 |
 | The Wood Wailers | none: keeps its category shape | – | – |
 | The Masked Man | Quest illustration, Shadow of Darkness (MSQ #63) | 100118 | 0.5, 0.5, 1.0 |
 | The Refugees' Trust | Quest illustration, On to Little Ala Mhigo (MSQ #66) | 100120 | 0.52, 0.5, 1.0 |
@@ -4224,24 +4224,24 @@ Each portrait is a game icon drawn from the player's own install at runtime; no 
 | Murders in the Shroud | Quest illustration, Terror at Fallgourd (MSQ #78) | 100125 | 0.5, 0.5, 1.0 |
 | Titan Reawakened | Quest illustration, Wrath of the Titan (MSQ #85) | 100158 | 0.5, 0.5, 1.0 |
 | A Feast at Costa del Sol | none: keeps its category shape | – | – |
-| Flame Commander Swift | none: keeps its category shape | – | – |
-| Hihibaru | none: keeps its category shape | – | – |
+| Flame Commander Swift | [Source](https://ffxiv.consolegameswiki.com/wiki/swift) | char-swift | 0.5, 0.5, 1 |
+| Hihibaru | [Source](https://ffxiv.consolegameswiki.com/wiki/Hihibaru) | char-hihibaru | 0.5, 0.5, 1 |
 | Gundobald | Quest illustration, On to Little Ala Mhigo (MSQ #66) | 100120 | 0.52, 0.5, 1.0 |
-| Haribehrt | none: keeps its category shape | – | – |
-| Medrod | none: keeps its category shape | – | – |
-| Aideen | none: keeps its category shape | – | – |
-| Ivaurault | none: keeps its category shape | – | – |
-| Ursandel | none: keeps its category shape | – | – |
-| Amandine | none: keeps its category shape | – | – |
-| Trachtoum | none: keeps its category shape | – | – |
+| Haribehrt | [Source](https://ffxiv.consolegameswiki.com/wiki/Haribehrt) | char-haribehrt | 0.5, 0.5, 1 |
+| Medrod | [Source](https://ffxiv.consolegameswiki.com/wiki/Medrod) | char-medrod | 0.5, 0.5, 1 |
+| Aideen | [Source](https://ffxiv.consolegameswiki.com/wiki/Aideen) | char-aideen | 0.5, 0.5, 1 |
+| Ivaurault | [Source](https://ffxiv.consolegameswiki.com/wiki/Ivaurault) | char-ivaurault | 0.5, 0.5, 1 |
+| Ursandel | [Source](https://ffxiv.consolegameswiki.com/wiki/Ursandel) | char-ursandel | 0.5, 0.5, 1 |
+| Amandine | [Source](https://ffxiv.consolegameswiki.com/wiki/Lady_Amandine) | char-amandine | 0.5, 0.5, 1 |
+| Trachtoum | [Source](https://ffxiv.consolegameswiki.com/wiki/Trachtoum) | char-trachtoum | 0.5, 0.5, 1 |
 | Wheiskaet | Quest illustration, The Lominsan Way (MSQ #88) | 100128 | 0.5, 0.5, 1.0 |
-| Gegeruju | none: keeps its category shape | – | – |
-| Landenel | none: keeps its category shape | – | – |
-| U'odh Nunh | none: keeps its category shape | – | – |
-| Brayflox | none: keeps its category shape | – | – |
-| Shamani | none: keeps its category shape | – | – |
-| Byrglaent | none: keeps its category shape | – | – |
-| Drest | none: keeps its category shape | – | – |
+| Gegeruju | [Source](https://ffxiv.consolegameswiki.com/wiki/Gegeruju) | char-gegeruju | 0.5, 0.5, 1 |
+| Landenel | [Source](https://ffxiv.consolegameswiki.com/wiki/Landenel) | char-landenel | 0.5, 0.5, 1 |
+| U'odh Nunh | [Source](https://ffxiv.consolegameswiki.com/wiki/U%27odh_Nunh) | char-uodh-nunh | 0.5, 0.5, 1 |
+| Brayflox | [Source](https://ffxiv.consolegameswiki.com/wiki/Brayflox) | char-brayflox | 0.5, 0.5, 1 |
+| Shamani | [Source](https://ffxiv.consolegameswiki.com/wiki/Shamani_Lohmani) | char-shamani | 0.5, 0.5, 1 |
+| Byrglaent | [Source](https://ffxiv.consolegameswiki.com/wiki/Byrglaent) | char-byrglaent | 0.5, 0.5, 1 |
+| Drest | [Source](https://ffxiv.consolegameswiki.com/wiki/Drest) | char-drest | 0.5, 0.5, 1 |
 | Little Ala Mhigo | none: keeps its category shape | – | – |
 | Ala Mhigo | Duty art, Ala Mhigo | 112231 | 0.5, 0.5, 1.0 |
 | Valigarmanda | Triple Triad card #418 | 87418 | 0.5, 0.4, 0.75 |
