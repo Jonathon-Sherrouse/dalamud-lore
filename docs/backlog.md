@@ -12,6 +12,14 @@ The user approved publication of the bounded Atlas pilot plan and priority excep
 
 ## In Review
 
+- [ ] `NDL-015` **Identify quest dialogue from local scripts**
+  - Owner: `runtime`
+  - Outcome: A tester sees the quest title automatically when an NPC line matches one quest's script.
+  - Acceptance: Enabling the probe loads scripts in the client language off the game thread. A unique exact line match displays the quest title and saves the quest row. Shared and absent lines show Unknown. Manual labels stay independent, and disabling or reloading the probe ends the session.
+  - Evidence: Saved dialogue replay, shared and missing line checks, locked builds, and an in-game reload with one quest NPC and one ordinary NPC.
+  - Dependencies: `NDL-014` ([#40](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/40)); stacked on `codex/ndl-014-quest-probe-v2`.
+  - Substantive PR: [#42](https://github.com/Jonathon-Sherrouse/dalamud-lore/pull/42)
+
 - [ ] `NDL-014` **Capture quest evidence with dialogue probe v2**
   - Owner: `runtime`
   - Outcome: A tester can compare a journal-verified quest name with the event and quest state captured for the same Talk line.
